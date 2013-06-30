@@ -1,0 +1,215 @@
+/*
+
+CSS DOCUMENT - BDHARVA.COM
+Author: Benjamin Harvatine (bdharva.com)
+Updated: Friday, June 28, 2013
+
+*/
+
+
+/* BODY
+============================================================*/
+
+html{
+    background:rgb(249,249,249);
+    width:100%
+}
+
+body{
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+/* HEADER
+============================================================*/
+
+.header{
+    height:60px;
+    width:90%;
+    position:fixed;
+    display:block;
+    padding-left:5%;
+    padding-right:5%;
+    background:rgb(225,225,225);
+    z-index:999;
+}
+
+.menu{
+    font-family:'Source Sans Pro', sans-serif;
+    font-weight:200;
+    font-size:18px;
+    color:rgb(100,100,100);
+    line-height:60px;
+    vertical-align:middle;
+}
+
+.menu.left{
+    float:left;
+    height:60px;
+}
+
+.name{
+    float:left;
+}
+
+.menu.right{
+    float:right;
+    height:60px;
+}
+
+.nav{
+    float:left;
+    opacity:0.7;
+    margin-left:20px;
+}
+
+.nav:hover{
+    opacity:1.0;
+    text-decoration:underline;
+}
+
+#active{
+    opacity:1.0;
+    text-decoration:underline;
+}
+
+/* SHADOWS
+============================================================*/
+
+.shadow{
+    height:5px;
+    width:100%;
+    position:fixed;
+    top:60px;
+    display:block;
+    z-index:998;
+    background-image:url('../assets/shadow1.png');
+    background-repeat:repeat-x;
+}
+
+.shadow2{
+    height:11px;
+    width:100%;
+    position:relative;
+    display:block;
+    z-index:997;
+    background-image:url('../assets/shadow2.png');
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    margin-top:-1px;
+}
+
+/* CONTENT WRAPPER
+============================================================*/
+
+#wrapper{
+    height:auto;
+    width:100%;
+    position:relative;
+    display:block;
+    padding-top:60px;
+}
+
+/* IMAGE WRAPPER
+============================================================*/
+
+.picwrapper{
+    height:auto;
+    width:100%;
+    position:relative;
+}
+
+.picwrapper img{
+    width:100%;
+    display:block;
+    position:absolute;
+    top:0px;
+    left:00px;
+}
+
+/* TEXT WRAPPER
+============================================================*/
+
+.textwrapper{
+    width:70%;
+    margin-left:15%;
+    margin-right:15%;
+    position:relative;
+    font-family:'Source Sans Pro', sans-serif;
+    color:rgb(100,100,100);
+    margin-top:60px;
+}
+
+h1{
+    margin-top:60px;
+    margin-bottom:18px;
+    font-size:36px;
+    font-weight:200;
+    text-align:center;
+
+}
+
+h2{
+    font-size:18px;
+    font-weight:200;
+    text-align:center;
+}
+p{
+    font-size:18px;
+    font-weight:200;
+    text-align:justify;
+}
+
+a{
+    text-decoration:underline;
+    color:rgb(128,128,128);
+}
+
+/* FOOTER
+============================================================*/
+
+.ruler{
+    height:1px;
+    width:90%;
+    position:relative;
+    margin-top:45px;
+    margin-left:5%;
+    margin-right:5%;
+    background:rgb(204,204,204);
+}
+
+.footer{
+    height:37px;
+    width:auto;
+    position:relative;
+    margin-top:30px;
+    margin-bottom:30px;
+    font-family:'Source Sans Pro', sans-serif;
+    font-weight:300;
+    font-size:14px;
+    color:rgb(128,128,128);
+    line-height:37px;
+    vertical-align:middle;
+    text-align:center;
+}
+
+/* MEDIA QUERIES
+============================================================*/
+
+@media (max-width:1024px){}
+@media (max-width:768px){}
+@media (max-width:568px){
+    .textwrapper{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+    }
+    h1{
+        font-size:28px;te
+    }
+}
+@media (max-width:480px){}
+@media (max-width:320px){}

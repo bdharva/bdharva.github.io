@@ -1,0 +1,19 @@
+---
+layout: post_5_imgs
+title: Madison 5k Color Run
+date: 2013-06-29 00:00:00
+location: Verona, WI
+category: blog
+tags: [running, color run, madison, wisconsin]
+image1: /assets/image1.jpg
+image2: /assets/image2.jpg
+image3: /assets/image3.jpg
+image4: /assets/image4.jpg
+image5: /assets/image5.jpg
+---
+
+Words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words.
+
+Words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words.
+
+Words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words words.
