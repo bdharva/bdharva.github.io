@@ -19,6 +19,7 @@ layout: default
 {% for post in site.categories.fabrication %}
 <h2><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date:"%x" }})</br>{{ post.tags | array_to_sentence_string }}</h2>
 {% endfor %}
+<div class="ruler"></div>
 <h1>Photography</h1>
 <h2>Words and words and words about things go here to describe the section.</h2>
 {% for post in site.categories.photography %}
