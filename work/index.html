@@ -3,19 +3,24 @@ layout: default
 ---
 
 <h1>Design</h1>
-<h2>Words and words and words about branding, graphic design, and web design go here.</p>
+<h2>Words and words and words about things go here to describe the section.</h2>
 {% for post in site.categories.design %}
     <h2><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date:"%x" }})</br>{{ post.tags | array_to_sentence_string }}</h2>
 {% endfor %}
 <div class="ruler"></div>
-<h1>Build</h1>
-<h2>Words and words and words about architecture, furniture design, print design, and product design go here.</p>
-{% for post in site.categories.build %}
+<h1>Print</h1>
+<h2>Words and words and words about things go here to describe the section.</h2>
+{% for post in site.categories.print %}
     <h2><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date:"%x" }})</br>{{ post.tags | array_to_sentence_string }}</h2>
 {% endfor %}
 <div class="ruler"></div>
-<h1>Shoot</h1>
-<h2>Words and words and words about photography go here.</h2>
-{% for post in site.categories.shoot %}
+<h1>Fabrication</h1>
+<h2>Words and words and words about things go here to describe the section.</h2>
+{% for post in site.categories.fabrication %}
+<h2><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date:"%x" }})</br>{{ post.tags | array_to_sentence_string }}</h2>
+{% endfor %}
+<h1>Photography</h1>
+<h2>Words and words and words about things go here to describe the section.</h2>
+{% for post in site.categories.photography %}
     <h2><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date:"%x" }})</br>{{ post.tags | array_to_sentence_string }}</h2>
 {% endfor %}
