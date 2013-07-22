@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 title: An Addy-Fueled Polemic Screed
 date: 2013-07-03 00:00:00
 category: blog
