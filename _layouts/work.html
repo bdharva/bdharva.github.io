@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link rel="stylesheet" href="/css/syntax.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400" rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic" rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div class="navbar">
+            <ul class="nav left">
+                <li><a href="/index.html">bdharva.com</a></li>
+            </ul>
+            <ul class="nav right">
+                <li><a href="/index.html">Bio</a></li>
+                <li class="active"><a href="/work/index.html">Work</a></li>
+                <li><a href="{% assign first_post = site.posts.first %}{{ first_post.url }}">Blog</a></li>
+                </div>
+        </div>
+        <div class="shadow"></div>
+        <div id="wrapper">
+            <div class="textwrapper">
+                {{ content }}
+            </div>
+            <div class="ruler"></div>
+            <div class="footer">
+                <span class="contact"><a href="mailto:bdharva@alum.mit.edu">
+                    Email</a> ... <a href="http://www.twitter.com/bdharva">Twitter</a> ... <a href="http://www.linkedin.com/in/bdharva">LinkedIn</a> ... <a href="http://www.github.com/bdharva">GitHub</a></span>
+            </div>
+        </div>
+    </body>
+</html>
