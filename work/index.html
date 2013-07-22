@@ -1,27 +1,18 @@
 ---
-layout: default
+layout: work
 ---
 
-<h1>Design</h1>
-<h2>Words and words and words about things go here to describe the section.</h2>
-{% for post in site.categories.design %}
-    <h2><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date:"%x" }})</br>{{ post.tags | array_to_sentence_string }}</h2>
+<h1>Current Projects</h1>
+{% for post in site.categories.blog %}
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2><h3>{{ post.tags | array_to_sentence_string }}</h3>
 {% endfor %}
-<div class="ruler"></div>
-<h1>Print</h1>
-<h2>Words and words and words about things go here to describe the section.</h2>
-{% for post in site.categories.print %}
-    <h2><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date:"%x" }})</br>{{ post.tags | array_to_sentence_string }}</h2>
+
+<h1>Recent Work</h1>
+{% for post in site.categories.blog limit:1 %}
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2><h3>{{ post.tags | array_to_sentence_string }}</h3>
 {% endfor %}
-<div class="ruler"></div>
-<h1>Fabrication</h1>
-<h2>Words and words and words about things go here to describe the section.</h2>
-{% for post in site.categories.fabrication %}
-<h2><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date:"%x" }})</br>{{ post.tags | array_to_sentence_string }}</h2>
-{% endfor %}
-<div class="ruler"></div>
+
 <h1>Photography</h1>
-<h2>Words and words and words about things go here to describe the section.</h2>
-{% for post in site.categories.photography %}
-    <h2><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date:"%x" }})</br>{{ post.tags | array_to_sentence_string }}</h2>
+{% for post in site.categories.blog %}
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2><h3>{{ post.tags | array_to_sentence_string }}</h3>
 {% endfor %}

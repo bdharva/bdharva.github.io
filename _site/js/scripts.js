@@ -8,6 +8,9 @@
 
 $(document).ready(function(){
     resizeElements();
+});
+
+$(window).load(function(){
     slideshow();
 });
 

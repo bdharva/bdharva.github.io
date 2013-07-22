@@ -2,7 +2,7 @@
 
 CSS DOCUMENT - BDHARVA.COM
 Author: Benjamin Harvatine (bdharva.com)
-Updated: Friday, June 28, 2013
+Updated: Saturday, July 13, 2013
 
 */
 
@@ -11,7 +11,7 @@ Updated: Friday, June 28, 2013
 ============================================================*/
 
 html{
-    background:rgb(249,249,249);
+    background-color:rgb(249,249,249);
     width:100%
 }
 
@@ -26,55 +26,63 @@ body{
 /* HEADER
 ============================================================*/
 
-.header{
+.navbar{
     height:60px;
-    width:90%;
+    width:80%;
+    /*max-width:900px;*/
+    padding:0 10%;
+    display:inline-block;
     position:fixed;
-    display:block;
-    padding-left:5%;
-    padding-right:5%;
-    background:rgb(225,225,225);
+    background:rgb(255,127,42);
     z-index:999;
-}
-
-.menu{
-    font-family:'Source Sans Pro', sans-serif;
-    font-weight:200;
-    font-size:18px;
-    color:rgb(100,100,100);
-    line-height:60px;
-    vertical-align:middle;
-}
-
-.menu.left{
-    float:left;
-    height:60px;
-}
-
-.name{
-    float:left;
-}
-
-.menu.right{
-    float:right;
-    height:60px;
+    text-align:center;
 }
 
 .nav{
+    margin:0;
+    padding:0;
+    line-height:60px;
+}
+
+.nav.left{
     float:left;
+}
+
+.nav.right{
+    float:right;
+}
+
+.nav li{
+    padding:0;
+    display:inline;
+    float:left;
+}
+
+.nav.left li{
+    margin:0 20px 0 0;
+}
+
+.nav.right li{
+    margin:0 0 0 20px;
     opacity:0.7;
-    margin-left:20px;
 }
 
-.nav:hover{
+.nav.right li:hover{
     opacity:1.0;
-    text-decoration:underline;
 }
 
-#active{
+.nav.right li.active{
     opacity:1.0;
-    text-decoration:underline;
 }
+
+li a{
+    font-family:'Source Sans Pro', sans-serif;
+    font-size:18px;
+    font-weight:400;
+    color:rgb(255,255,255);
+    text-decoration:none;
+}
+
 
 /* SHADOWS
 ============================================================*/
@@ -84,7 +92,6 @@ body{
     width:100%;
     position:fixed;
     top:60px;
-    display:block;
     z-index:998;
     background-image:url('../assets/shadow1.png');
     background-repeat:repeat-x;
@@ -94,7 +101,6 @@ body{
     height:11px;
     width:100%;
     position:relative;
-    display:block;
     z-index:997;
     background-image:url('../assets/shadow2.png');
     background-repeat:no-repeat;
@@ -109,7 +115,6 @@ body{
     height:auto;
     width:100%;
     position:relative;
-    display:block;
     padding-top:60px;
 }
 
@@ -117,99 +122,155 @@ body{
 ============================================================*/
 
 .picwrapper{
-    height:auto;
+    height:600px;
     width:100%;
     position:relative;
-}
-
-.picwrapper img{
-    width:100%;
-    display:block;
-    position:absolute;
-    top:0px;
-    left:00px;
+    background-position:center;
+    background-size:cover;
 }
 
 /* TEXT WRAPPER
 ============================================================*/
 
 .textwrapper{
-    width:70%;
-    margin-left:15%;
-    margin-right:15%;
+    width:80%;
+    max-width:900px;
+    margin:60px auto;
     position:relative;
-    font-family:'Source Sans Pro', sans-serif;
-    color:rgb(100,100,100);
-    margin-top:60px;
 }
 
 h1{
-    margin-top:60px;
-    margin-bottom:18px;
-    font-size:36px;
-    font-weight:200;
+    font-family:'Source Sans Pro', sans-serif;
+    font-size:60px;
+    font-weight:900;
+    color:rgb(255,127,42);
     text-align:center;
-
+    margin:0;
 }
 
 h2{
-    font-size:18px;
-    font-weight:200;
+    font-family:'Source Sans Pro', sans-serif;
+    font-size:28px;
+    font-weight:400;
+    color:rgb(255,127,42);
     text-align:center;
 }
+
+h3{
+    font-family:'Lora', serif;
+    font-size:22px;
+    font-weight:400;
+    line-height:40px;
+    color:rgb(140,140,140);
+    text-align:center;
+}
+
 p{
-    font-size:18px;
-    font-weight:200;
+    font-family:'Lora', serif;
+    font-size:22px;
+    font-weight:400;
+    line-height:40px;
+    color:rgb(140,140,140);
     text-align:justify;
+}
+
+p strong{
+    font-weight:700;
+}
+
+p em{
+    font-style:italic;
 }
 
 a{
     text-decoration:underline;
-    color:rgb(128,128,128);
+    color:rgb(255,127,42);
+}
+
+.textwrapper img{
+    width:100%;
+    margin-bottom:18px;
+}
+
+/* SYNTAX HIGHLIGHTING
+============================================================*/
+
+.highlight{
+    font-size:18px;
+    padding:20px 0px;
+    overflow:scroll;
+    margin:20px 0;
+    border-top:1px solid rgb(204,204,204);
+    border-bottom:1px solid rgb(204,204,204);
+    background:rgb(249,249,249);
+}
+
+pre{
+    margin:0;
+}
+
+code{
+    opacity:0.7;
 }
 
 /* FOOTER
 ============================================================*/
 
-.ruler{
-    height:1px;
-    width:90%;
+.footer{
+    height:55px;
+    width:100%;
     position:relative;
-    margin-top:45px;
-    margin-left:5%;
-    margin-right:5%;
-    background:rgb(204,204,204);
+    margin:60px 0 0 0;
+    padding:40px 0;
+    font-family:'Source Sans Pro', sans-serif;
+    font-size:18px;
+    font-weight:400;
+    line-height:55px;
+    vertical-align:center;
+    text-align:center;
+    background:rgb(230,230,230);
 }
 
-.footer{
-    height:37px;
-    width:auto;
-    position:relative;
-    margin-top:30px;
-    margin-bottom:30px;
-    font-family:'Source Sans Pro', sans-serif;
-    font-weight:300;
-    font-size:14px;
-    color:rgb(128,128,128);
-    line-height:37px;
-    vertical-align:middle;
-    text-align:center;
+.footer a{
+    text-decoration:none;
+}
+
+span.contact{
+    color:rgb(249,249,249);
+    padding:15px 20px;
+    border-radius:5px;
+    background:rgb(249,249,249);
 }
 
 /* MEDIA QUERIES
 ============================================================*/
 
-@media (max-width:1024px){}
-@media (max-width:768px){}
-@media (max-width:568px){
+@media (max-width:1200px){
     .textwrapper{
-        width:90%;
-        margin-left:5%;
-        margin-right:5%;
-    }
-    h1{
-        font-size:28px;te
+        margin:60px 10% 60px 10%;
     }
 }
+
+@media (max-width:960px){}
+
+@media (max-width:768px){
+    h1{
+        font-size:58px;
+    }
+    h2{
+        font-size:26
+    }
+    p{
+        font-size:20px;
+    }
+}
+
+@media (max-width:600px){
+    .picwrapper{
+        height:300px;
+    }
+}
+
 @media (max-width:480px){}
+
 @media (max-width:320px){}

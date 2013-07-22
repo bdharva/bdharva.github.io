@@ -1,9 +1,9 @@
 ---
-layout: default
+layout: blog
 ---
 
 <h1>Archive</h1>
-<p>Note: If it hasn't done so already, this is soon going to become an incredibly unwieldy list of random and unrelated posts. I suggest judicious use of Ctrl + F to search out post titles, dates, and tags. Yes, I could've built in search functionality and linked tags and other stuff like that, but that'd take all of the fun of discovery out of your hands. Enjoy!</p>
+<p>Note: If it hasn't done so already, this is soon going to become an incredibly unwieldy list of random and unrelated posts. Crippled by indecision surrounding how I would like to implement search functionality, I have yet to build it. In the meantime, I suggest judicious use of Ctrl + F to search out post titles, dates, and tags.</p>
     {% for post in site.categories.blog %}
-    <h2><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date:"%x" }})</br>{{ post.tags | array_to_sentence_string }}</h2>
+    <h2><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date:"%x" }})</h2><h3>{{ post.tags | array_to_sentence_string }}</h3>
     {% endfor %}
