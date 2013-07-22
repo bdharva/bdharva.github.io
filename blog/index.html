@@ -1,0 +1,11 @@
+---
+layout: blog
+---
+
+<div class="title section">
+    <div class="text container">
+        <h1>{% assign first_post = site.posts.first %}{{ first_post.title }}</h1>
+        <h2>{{ first_post.date || date:"%A, %B %d, %Y"}}</h2>
+    </div>
+</div>
+{{ first_post.content }}
