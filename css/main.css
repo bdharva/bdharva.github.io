@@ -308,11 +308,15 @@ p{
 }
 
 @media (max-width:480px){
+
+p{
+    text-align:left;
+    }
     
 .contact.section{
     font-size:14px;
     }
-
+    
 .section{
     width:90%;
     padding:5%;
