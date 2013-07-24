@@ -272,7 +272,14 @@ li img{
     
 }
 
-@media (max-width:768px){}
+@media (max-width:768px){
+
+.section{
+    width:80%;
+    padding:10%;
+    }
+
+}
 
 @media (max-width:600px){
 
@@ -301,13 +308,19 @@ p{
 }
 
 @media (max-width:480px){
-
-p{
-    text-align:left;
-    }
     
 .contact.section{
     font-size:14px;
+    }
+
+.section{
+    width:90%;
+    padding:5%;
+    }
+
+.nav.section{
+    width:90%;
+    padding:0 5%;
     }
 
 }
