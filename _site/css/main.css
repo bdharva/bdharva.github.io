@@ -48,9 +48,20 @@ body{
     padding:0 10%;
     display:inline-block;
     position:fixed;
-    background:rgb(255,127,42);
+    background:rgb(210,210,210);
     z-index:999;
     text-align:center;
+    }
+    
+.shadow.section{
+    height:8px;
+    width:100%;
+    margin:60px 0 0 0;
+    padding:0;
+    display:inline-block;
+    position:fixed;
+    background:rgba(0,0,0,0.3);
+    z-index:998;
     }
 
 .dark.section{
@@ -142,7 +153,7 @@ h1{
     font-family:'Source Sans Pro', sans-serif;
     font-size:60px;
     font-weight:600;
-    color:rgb(255,127,42);
+    color:rgb(100,100,100);
     text-align:center;
     margin:0;
     }
@@ -151,7 +162,7 @@ h2{
     font-family:'Source Sans Pro', sans-serif;
     font-size:28px;
     font-weight:400;
-    color:rgb(255,127,42);
+    color:rgb(100,100,100);
     text-align:center;
     }
 
@@ -179,14 +190,14 @@ p{
 
 a{
     text-decoration:underline;
-    color:rgb(255,127,42);
+    color:rgb(100,100,100);
     }
     
 li a{
     font-family:'Source Sans Pro', sans-serif;
     font-size:18px;
     font-weight:400;
-    color:rgb(255,255,255);
+    color:rgb(70,70,70);
     text-decoration:none;
 }
 
@@ -308,11 +319,15 @@ p{
 }
 
 @media (max-width:480px){
+
+p{
+    text-align:left;
+    }
     
 .contact.section{
     font-size:14px;
     }
-
+    
 .section{
     width:90%;
     padding:5%;
