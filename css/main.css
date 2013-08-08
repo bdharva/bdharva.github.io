@@ -96,10 +96,10 @@ body{
     margin:0;
     padding:0;
     }
-    
-.archive.section{
-    padding:0 10%;
-}
+
+.archive.section:hover{
+    background:rgb(230,230,230);
+    }
     
 .contact.section{
     height:55px;
@@ -189,10 +189,15 @@ p{
     }
 
 a{
-    text-decoration:underline;
+    text-decoration:none;
     color:rgb(100,100,100);
     }
     
+.text.container a{
+    text-decoration:underline;
+    color:rgb(100,100,100);
+    }
+
 li a{
     font-family:'Source Sans Pro', sans-serif;
     font-size:18px;
@@ -319,10 +324,6 @@ p{
 }
 
 @media (max-width:480px){
-
-p{
-    text-align:left;
-    }
     
 .contact.section{
     font-size:14px;

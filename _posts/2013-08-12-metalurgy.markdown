@@ -1,9 +1,9 @@
 ---
 layout: post
-title: An Addy-Fueled Polemic Screed
+title: Metalurgy
 date: 2013-07-03 00:00:00
-category: blog
-tags: [sailing, cabins, wisconsin]
+category: completed
+tags: [Working copper from raw ore to finished piece]
 ---
 
 <div class="section">
