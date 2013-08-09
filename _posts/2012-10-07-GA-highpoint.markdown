@@ -12,7 +12,8 @@ tags: [outdoors, highpointing, georgia]
     </div>
 </div>
 
-<div class="pic section" style="background-image:url('/assets/2012-10-07-GA-highpoint/01.jpg');"></div>
+<div class="pic section" style="background-image:url('/assets/2012-10-07-GA-highpoint/01.jpg');">
+</div>
 
 <div class="section">
     <div class="text container">
@@ -20,7 +21,8 @@ tags: [outdoors, highpointing, georgia]
     </div>
 </div>
 
-<div class="pic section" style="background-image:url('/assets/2012-10-07-GA-highpoint/02.jpg');"></div>
+<div class="pic section" style="background-image:url('/assets/2012-10-07-GA-highpoint/02.jpg');">
+</div>
 
 <div class="section">
     <div class="text container">
@@ -28,7 +30,8 @@ tags: [outdoors, highpointing, georgia]
     </div>
 </div>
 
-<div class="pic section" style="background-image:url('/assets/2012-10-07-GA-highpoint/03.jpg');"></div>
+<div class="pic section" style="background-image:url('/assets/2012-10-07-GA-highpoint/03.jpg');">
+</div>
 
 <div class="section">
     <div class="text container">
@@ -36,7 +39,8 @@ tags: [outdoors, highpointing, georgia]
     </div>
 </div>
 
-<div class="pic section" style="background-image:url('/assets/2012-10-07-GA-highpoint/04.jpg');"></div>
+<div class="pic section" style="background-image:url('/assets/2012-10-07-GA-highpoint/04.jpg');">
+</div>
 
 <div class="section">
     <div class="text container">
@@ -44,7 +48,8 @@ tags: [outdoors, highpointing, georgia]
     </div>
 </div>
 
-<div class="pic section" style="background-image:url('/assets/2012-10-07-GA-highpoint/05.jpg');"></div>
+<div class="pic section" style="background-image:url('/assets/2012-10-07-GA-highpoint/05.jpg');">
+</div>
 
 <div class="section">
     <div class="text container">
