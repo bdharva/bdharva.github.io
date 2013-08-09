@@ -30,7 +30,7 @@ body{
     height:auto;
     width:100%;
     position:relative;
-    padding-top:60px;
+    padding-top:68px;
     }
 
 /* SECTIONS
@@ -337,6 +337,10 @@ p{
 .nav.section{
     width:90%;
     padding:0 5%;
+    }
+
+.title.section{
+    padding:60px 5% 0 5%;
     }
 
 }
