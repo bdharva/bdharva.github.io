@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Stone Mountain
-date: 2012-09-29 00:00:00
-category: blog
-tags: [travel, monuments, georgia]
+title: Graphic Design
+date: 2013-07-03 00:00:00
+category: completed
+tags: [Assorted graphic design work, including illustration and branding]
 ---
 
 <div class="section">
