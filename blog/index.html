@@ -2,10 +2,11 @@
 layout: blog
 ---
 
+{% assign first_post = site.categories.blog.first %}
 <div class="title section">
     <div class="text container">
-        <h1>{% assign first_post = site.categories.blog.first %}{{ first_post.title }}</h1>
-        <h2>{{ first_post.date || date:"%A, %B %d, %Y"}}</h2>
+        <h1 style="text-align:left;">{{ first_post.title }}</h1>
+        <h2 style="text-align:left;">{{ first_post.summary }}</h2><h4 style="text-align:left;">{{ first_post.date || date:"%A, %B %d, %Y" }}</h4>
     </div>
 </div>
 {{ first_post.content }}

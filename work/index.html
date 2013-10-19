@@ -5,26 +5,21 @@ layout: work
 <div class="section">
     <div class="text container">
         <h1>Current Projects</h1>
-        {% for post in site.categories.current %}
-            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2><h3>{{ post.tags | array_to_sentence_string }}</h3>
-        {% endfor %}
+        <h3>{% for post in site.categories.current %}
+            <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.summary }}</br>
+        {% endfor %}</h3>
     </div>
-</div>
-
-<div class="dark section">
     <div class="text container">
-        <h1>Selected Work</h1>
-        {% for post in site.categories.completed limit:6 %}
-            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2><h3>{{ post.tags | array_to_sentence_string }}</h3>
-        {% endfor %}
+        <h1>Recent Work</h1>
+        <h3>{% for post in site.categories.completed limit:6 %}
+            <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.summary }}</br>
+        {% endfor %}</h3>
     </div>
-</div>
-    
-<div class="section">
     <div class="text container">
         <h1>Photography</h1>
+        <h4>Gallery pages coming soon!</h4>
         {% for post in site.categories.photography %}
-            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2><h3>{{ post.tags | array_to_sentence_string }}</h3>
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2><h3>{{ post.summary }}</h3>
         {% endfor %}
     </div>
 </div>

@@ -1,8 +1,6 @@
 /*
 
 CSS DOCUMENT - BDHARVA.COM
-Author: Benjamin Harvatine (bdharva.com)
-Updated: Monday, July 22, 2013
 
 */
 
@@ -30,7 +28,7 @@ body{
     height:auto;
     width:100%;
     position:relative;
-    padding-top:68px;
+    padding-top:98px;
     }
 
 /* SECTIONS
@@ -38,8 +36,9 @@ body{
 
 .section{
     height:auto;
+    overflow:auto;
     width:80%;
-    padding:40px 10%;
+    padding:30px 10%;
     }
 
 .nav.section{
@@ -64,18 +63,18 @@ body{
     z-index:998;
     }
 
-.dark.section{
-    background:rgb(230,230,230);
-    }
-    
-.color.section{
-    background:rgba(255,127,42,0.5);
-    }
-    
 .title.section{
     padding:60px 10% 0 10%;
     }
-    
+
+.title.section h2{
+    margin:20px 0 0 0;
+    }
+
+.title.section h4{
+    margin:10px 0;
+    }
+
 .pic.section{
     height:700px;
     width:100%;
@@ -85,27 +84,11 @@ body{
     padding:0;
     }
     
-.tile.section{
-    background-position:center;
-    background-repeat:repeat;
-    }
-    
-.map.section{
-    height:400px;
-    width:100%;
-    margin:0;
-    padding:0;
-    }
-
-.archive.section:hover{
-    background:rgb(230,230,230);
-    }
-    
 .contact.section{
     height:55px;
     width:100%;
     position:relative;
-    margin:0;
+    margin-top:40px;
     padding:40px 0;
     font-family:'Source Sans Pro', sans-serif;
     font-size:18px;
@@ -114,6 +97,14 @@ body{
     vertical-align:center;
     text-align:center;
     background:rgb(230,230,230);
+    }
+
+.archive.section h2{
+    margin:50px 0 10px 0;
+    }
+
+.archive.section h3, .archive.section h4{
+    margin:0;
     }
 
 /* CONTAINERS
@@ -151,11 +142,11 @@ body{
 
 h1{
     font-family:'Source Sans Pro', sans-serif;
-    font-size:60px;
+    font-size:48px;
     font-weight:600;
     color:rgb(100,100,100);
     text-align:center;
-    margin:0;
+    margin:10px 0 -10px 0;
     }
 
 h2{
@@ -164,10 +155,6 @@ h2{
     font-weight:400;
     color:rgb(100,100,100);
     text-align:center;
-    }
-
-.title.section h2{
-    margin-bottom:0px;
     }
 
 h3{
@@ -179,6 +166,17 @@ h3{
     text-align:center;
     }
 
+h4 {
+    font-family:'Lora', serif;
+    font-size:22px;
+    font-weight:400;
+    font-style:italic;
+    line-height:40px;
+    color:rgb(140,140,140);
+    text-align:center;
+    margin:20px 0;
+    }
+
 p{
     font-family:'Lora', serif;
     font-size:22px;
@@ -188,26 +186,32 @@ p{
     text-align:justify;
     }
 
+
+
 a{
-    text-decoration:none;
-    color:rgb(100,100,100);
-    }
-    
-.text.container a{
     text-decoration:underline;
-    color:rgb(100,100,100);
+    color:rgb(140,140,140);
     }
 
 li a{
     font-family:'Source Sans Pro', sans-serif;
     font-size:18px;
     font-weight:400;
-    color:rgb(70,70,70);
+    color:rgb(100,100,100);
     text-decoration:none;
-}
+    }
 
 .contact.container a{
     text-decoration:none;
+    }
+    
+ul{
+    font-family:'Lora', serif;
+    font-size:22px;
+    font-weight:400;
+    line-height:40px;
+    color:rgb(140,140,140);
+    text-align:justify;
     }
 
 /* CODE SNIPPET
@@ -271,9 +275,6 @@ code{
     opacity:1.0;
     }
 
-li img{
-    margin:15px 0;
-    }
 
 /* MEDIA QUERIES
 ============================================================*/
@@ -316,7 +317,7 @@ h3{
     line-height:32px;
     }
 
-p{
+p, h4, ul{
     font-size:18px;
     line-height:32px;
     }

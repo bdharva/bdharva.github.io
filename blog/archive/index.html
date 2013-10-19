@@ -2,12 +2,12 @@
 layout: archive
 ---
 
-{% for post in site.categories.blog %}
-<a href="{{ post.url }}">
-<div class="archive section">
-    <div class="text container">
-        <h2>{{ post.title }}</br>({{ post.date | date:"%x" }})</h2><h3>{{ post.tags | array_to_sentence_string }}</h3>
-    </div>
-</div>
-</a>
+    <div class="archive section">
+        {% for post in site.categories.blog %}
+
+        <div class="text container">
+            <a href="{{ post.url }}"><h2>{{ post.title }}</h2></a>
+            <h3>{{ post.summary }}</h3><h4>{{ post.date || date:"%A, %B %d, %Y" }}</h4>
+        </div>
 {% endfor %}
+    </div>
