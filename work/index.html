@@ -2,13 +2,13 @@
 layout: work
 ---
 
-<div class="archive section">
+<div class="work section">
     <div class="text container">
         <h1>Current Projects</h1>
         {% for post in site.categories.current %}
         <div class="text container">
             <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <h3>{{ post.summary }}</h3><h4>{{ post.date || date:"%A, %B %d, %Y" }}</h4>
+            <h3>{{ post.summary }}</h3>
         </div>
         {% endfor %}</h3>
     </div>
@@ -17,7 +17,7 @@ layout: work
         {% for post in site.categories.completed limit:6 %}
         <div class="text container">
             <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <h3>{{ post.summary }}</h3><h4>{{ post.date || date:"%A, %B %d, %Y" }}</h4>
+            <h3>{{ post.summary }}</h3>
         </div>
         {% endfor %}</h3>
     </div>
@@ -27,7 +27,7 @@ layout: work
         {% for post in site.categories.photography %}
         <div class="text container">
             <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <h3>{{ post.summary }}</h3><h4>{{ post.date || date:"%A, %B %d, %Y" }}</h4>
+            <h3>{{ post.summary }}</h3>
         </div>
         {% endfor %}
     </div>

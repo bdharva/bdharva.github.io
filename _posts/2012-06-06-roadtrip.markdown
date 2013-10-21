@@ -3,7 +3,7 @@ layout: post
 title: Cross-Country Roadtrip
 date: 2012-06-06 00:00:00
 category: blog
-summary: A post-graduation cross country road trip
+summary: Post-grad debauchery crossing state lines
 ---
 
 <div class="section">

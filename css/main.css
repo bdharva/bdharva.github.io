@@ -191,18 +191,22 @@ li a{
     margin:10px 0;
     }
 
-.archive.section h1{
+.archive.section h1, .work.section h1{
     margin:0px 0 10px 0;
     }
 
-.archive.section h2{
+.archive.section h2, .work.section h2{
     margin:35px 0 10px 0;
     }
 
 .archive.section h3{
     margin:0;
     }
-    
+
+.work.section h3{
+    margin:0 0 50px 0;
+    }
+
 .archive.section h4{
     margin:0 0 50px 0;
     }
