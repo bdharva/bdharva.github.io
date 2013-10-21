@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Vector Sensors
+title: BrainGuard
 date: 2013-10-19 00:00:00
 category: current
 summary: A concussion management system for the masses
@@ -13,7 +13,7 @@ summary: A concussion management system for the masses
     </div>
 </div>
 
-<div class="pic section" style="background-image:url('/assets/vector/01.png')">
+<div class="pic section" style="background-image:url('/assets/brainguard/01.png')">
 </div>
 
 <div class="section">
