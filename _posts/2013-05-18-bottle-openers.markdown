@@ -8,9 +8,27 @@ summary: Beautifully machined opener that doesn't crimp the cap
 
 <div class="section">
     <div class="text container">
-        <p>I've finally done something I've been meaning to for a while and completely overhauled my personal website. It's something I'd fiddled around with for years, constantly changing the structure and design and jumping between content management solutions. As evidenced by the constant changes, something was never quite right about any given iteration. There was always something missing, and, as I progressively became more well-versed in web design, I finally resolved to rebuild from scratch. About the time I completed this process, a friend introduced me to Jekyll. So much for being finished with the constant changes...</p>
-        <p>This Jekyll-powered site is what I hope will be a more permanent solution (at least for the forseeable future). Having finally found my "ideal" set-up, I'm also excited to add a blog section to my site, in an effort to condense my content-generation to a single repository. Over the last few years I've been substantially reducing the time that I spend on pursuits that don't yield value on par with my time/effort contribution. I learned that one of my main motivations for my continued, albeit reduced, use of services like Facebook was to share my life adventures with friends and family (who always bothered me for more regular updates when my posts waned). And the rest of the content that I was generating was fractured across a handful of other services.</p>
-        <p>Now any online content that I generate will be acccessable in one place, making it much easier for me to manage, while removing all of the extraneous and distracting features inherent in all of the other places. Whether its professional details, portfolio pieces, stories of my adventures, or just assorted thoughts and ramblings, it'll all be available in a single organized space. And who doesn't like having total and complete control? Not me.</p>
-        <p>You will notice that I have some posts preceding this one. While traveling the country as part of my management training program I had a lot of very cool adventures, and I purchased my first DSLR (indulging my inner shutterbug) to capture some of my experieinces. I got into a fairly rigorous habit of documenting my travels, photographically and in writing, and this seemed like the proper medium to share some of those narratives in a way that I never could before. I was also a bit intimidated by the idea of starting with an absolutely clean slate (I have the same problem with new notebooks), and back-filling content eased that anxiety. So, there you have it. I'm really looking forward to continuing to develop the site, and I hope you enjoy perusing it.</p>
+        <p>It's no secret - I love beer. I love it so much that I went to work for the world's largest brewer after graduation, and was lucky enough to learn just about all there is to know about beer from some of the world's best brewmasters. During my time working there, my training class completed a project called "Build-a-Brand". Split into two competing teams, we worked to design completely new beers from scratch, brew them, design packaging and branding for them, and develop marketing and production plans for their launch. The project culminated with their unveiling to upper management at our training program's capstone event.</p>
+    </div>
+</div>
+
+<div class="pic section" style="background-image:url('/assets/bottleopeners/02.jpg')">
+</div>
+
+<div class="section">
+    <div class="text container">
+        <p>For the presentation, we had a small budget for decorating our booths with branded items and giveaways for the executives evaluating our product and presentation, picking a winner, and, more importantly, considering our products for actual production. I knew immediately that we had to make some kickass bottle openers to give away. Since turning twenty one, I've been collecting bottle caps from all of the beers that I drink, hoping to one day use them in some sort of cool project, like a bar top or pong table. A great frustration of mine has been that every bottle opener I've ever used dents or deforms the caps in some way, and requiring great effort to slowly and carefully get the cap off without completely ruining it.</p>
+        <p>So, with a modest budget and my dreams of the perfect bottle opener, I had a very exciting project on my hands. And the solution ended up being much simpler than expected! By simply tweaking the proportions of the opening on the opener to place the fulcrum on the far edge of the cap, with the support of the mouth of the bottle underneath, the cap is able to be pried off of the bottle, rather than being bent off. With the hard part figured out, the remainder of the design was dictated by the brand aesthetic we developed for our product and an admittedly nerdy cutout of ethanol and water molecules, the core of every beer.</p>
+        
+    </div>
+</div>
+
+<div class="pic section" style="background-image:url('/assets/bottleopeners/01.jpg')">
+</div>
+
+<div class="section">
+    <div class="text container">
+        <p>I selected stainless steel for the opener. It's roughly the size of a credit card, but thicker, as I opted for thicker stock to ensure its durability and lend it a nice weight in the hand. I used a waterjet to cut the the basic shape and then hit each opener hard with a wire buffer to create a marbled slightly matte finish. The final step was to mill the chamfers, and voilà. Bottle openers.</p>
+        <p>They were a huge hit at the launch, as the company president was sure to pocket more than a few for himself, and a few extras to share with memebers of the board. As it turns out, our product was an even bigger hit than the openers, and, the following week, a handful of openers were delivered to the board as they excitedly discussed news of the company's newest product. I look forward to the day it's finally launched, and will be the first in line, excitedly waiting to crack open the beer I helped to create with my favorite bottle opener.</p>
     </div>
 </div>
