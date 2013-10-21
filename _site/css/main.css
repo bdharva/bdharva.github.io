@@ -1,0 +1,351 @@
+/*
+
+CSS DOCUMENT - BDHARVA.COM
+
+*/
+
+html{
+    background-color:rgb(249,249,249);
+    width:100%
+    }
+
+body{
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    border:0;
+    }
+
+#wrapper{
+    height:auto;
+    width:100%;
+    position:relative;
+    padding-top:98px;
+    }
+
+h1{
+    font-family:'Source Sans Pro', sans-serif;
+    font-size:48px;
+    font-weight:600;
+    color:rgb(100,100,100);
+    text-align:center;
+    margin:10px 0 -10px 0;
+    }
+
+h2{
+    font-family:'Source Sans Pro', sans-serif;
+    font-size:28px;
+    font-weight:400;
+    color:rgb(100,100,100);
+    text-align:center;
+    }
+
+h3{
+    font-family:'Lora', serif;
+    font-size:22px;
+    font-weight:400;
+    line-height:40px;
+    color:rgb(140,140,140);
+    text-align:center;
+    }
+
+h4 {
+    font-family:'Lora', serif;
+    font-size:22px;
+    font-weight:400;
+    font-style:italic;
+    line-height:40px;
+    color:rgb(140,140,140);
+    text-align:center;
+    margin:20px 0;
+    }
+
+p{
+    font-family:'Lora', serif;
+    font-size:22px;
+    font-weight:400;
+    line-height:40px;
+    color:rgb(140,140,140);
+    text-align:left;
+    }
+
+ul{
+    font-family:'Lora', serif;
+    font-size:22px;
+    font-weight:400;
+    line-height:40px;
+    color:rgb(140,140,140);
+    text-align:justify;
+    }
+
+a{
+    text-decoration:underline;
+    color:rgb(140,140,140);
+    }
+
+li a{
+    font-family:'Source Sans Pro', sans-serif;
+    font-size:18px;
+    font-weight:400;
+    color:rgb(100,100,100);
+    text-decoration:none;
+    }
+
+.section{
+    height:auto;
+    overflow:auto;
+    width:80%;
+    padding:30px 10%;
+    }
+
+.text.container{
+    width:100%;
+    max-width:900px;
+    position:relative;
+    margin:0 auto;
+    }
+    
+.text.container img{
+    width:100%;
+    }
+
+.nav.section{
+    height:60px;
+    width:80%;
+    padding:0 10%;
+    display:inline-block;
+    position:fixed;
+    background:rgb(210,210,210);
+    z-index:999;
+    text-align:center;
+    }
+    
+.nav.container{
+    width:100%;
+    max-width:900px;
+    margin:0 auto;
+    }
+
+.nav{
+    margin:0;
+    padding:0;
+    line-height:60px;
+    }
+
+.nav.left{
+    float:left;
+    }
+
+.nav.right{
+    float:right;
+    }
+
+.nav li{
+    padding:0;
+    display:inline;
+    float:left;
+    }
+
+.nav.left li{
+    margin:0 20px 0 0;
+    }
+
+.nav.right li{
+    margin:0 0 0 20px;
+    opacity:0.7;
+    }
+
+.nav.right li:hover{
+    opacity:1.0;
+    }
+
+.nav.right li.active{
+    opacity:1.0;
+    }
+
+.shadow.section{
+    height:8px;
+    width:100%;
+    margin:60px 0 0 0;
+    padding:0;
+    display:inline-block;
+    position:fixed;
+    background:rgba(0,0,0,0.3);
+    z-index:998;
+    }
+
+.title.section{
+    padding-bottom:0;
+    }
+
+.title.section h1{
+    margin:0;
+    }
+
+.title.section h2{
+    margin:20px 0 0 0;
+    }
+
+.title.section h4{
+    margin:10px 0;
+    }
+
+.archive.section h1, .work.section h1{
+    margin:0px 0 10px 0;
+    }
+
+.archive.section h2, .work.section h2{
+    margin:35px 0 10px 0;
+    }
+
+.archive.section h3{
+    margin:0;
+    }
+
+.work.section h3{
+    margin:0 0 50px 0;
+    }
+
+.archive.section h4{
+    margin:0 0 50px 0;
+    }
+
+.pic.section{
+    height:700px;
+    width:100%;
+    background-position:center;
+    background-size:cover;
+    margin:0;
+    padding:0;
+    }
+    
+.contact.section{
+    height:55px;
+    width:100%;
+    position:relative;
+    margin-top:40px;
+    padding:40px 0;
+    font-family:'Source Sans Pro', sans-serif;
+    font-size:18px;
+    font-weight:400;
+    line-height:55px;
+    vertical-align:center;
+    text-align:center;
+    background:rgb(230,230,230);
+    }
+
+.contact.container{
+    width:auto;
+    color:rgb(249,249,249);
+    padding:15px 20px;
+    border-radius:5px;
+    background:rgb(249,249,249);
+    }
+    
+.contact.container a{
+    text-decoration:none;
+    }
+
+.highlight{
+    font-size:18px;
+    padding:20px 0px;
+    overflow:scroll;
+    margin:20px 0;
+    border-top:1px solid rgb(204,204,204);
+    border-bottom:1px solid rgb(204,204,204);
+    background:rgb(249,249,249);
+    }
+
+pre{
+    margin:0;
+    }
+
+code{
+    opacity:0.7;
+    }
+
+@media (max-width:960px){
+
+    .pic.section{
+        height:500px;
+        }
+    
+    }
+
+@media (max-width:768px){
+
+    #wrapper{
+        padding-top:83px;
+        }
+
+    .section{
+        width:80%;
+        padding:25px 10%;
+        }
+
+    }
+
+@media (max-width:600px){
+
+    .pic.section{
+        height:300px;
+        }
+
+    h1{
+        font-size:40px;
+        }
+
+    h2{
+        font-size:24px;
+        }
+
+    h3{
+        font-size:18px;
+        line-height:32px;
+        }
+
+    p, h4, ul{
+        font-size:18px;
+        line-height:32px;
+        }
+
+    }
+
+@media (max-width:480px){
+
+    #wrapper{
+        padding-top:68px;
+        }
+
+    .contact.section{
+        font-size:14px;
+        }
+    
+    .section{
+        width:90%;
+        padding:20px 5%;
+        }
+
+    .nav.section{
+        width:90%;
+        padding:0 5%;
+        }
+
+    .archive.section h1{
+        margin:0px 0 10px 0;
+        }
+
+    .archive.section h2{
+        margin:20px 0 10px 0;
+        }
+
+    .archive.section h3{
+        margin:0;
+        }
+    
+    .archive.section h4{
+        margin:0 0 30px 0;
+        }
+
+}
