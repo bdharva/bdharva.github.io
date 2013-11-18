@@ -9,28 +9,32 @@
         <link rel="icon" type="image/png" href="/assets/favicon.ico">
         <link rel="stylesheet" href="/css/syntax.css">
         <link rel="stylesheet" href="/css/main.css">
-        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel='stylesheet' type='text/css'>
-        <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic" rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,300italic,600italic" rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <div class="nav section">
-            <div class="nav container">
-                <ul class="nav left">
+        <div class="wrapper">
+            <div class="navbar top">
+                <div class="nav left">
                     <li><a href="/">bdharva</a></li>
-                </ul>
-                <ul class="nav right">
-                    <li><a href="/">Bio</a></li>
-                    <li class="active"><a href="/work">Work</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                </ul>
+                </div>
+                <div class="nav right">
+                    <li><a href="/">bio</a></li>
+                    <li class="active"><a href="/work">work</a></li>
+                    <li><a href="/blog">blog</a></li>
+                </div>
             </div>
-        </div>
-        <div class="shadow section"></div>
-        <div id="wrapper">
+            <div class="content">
             {{ content }}
-            <div class="contact section">
-                <span class="contact container"><a href="mailto:bdharva@alum.mit.edu">
-                    Email</a> ... <a href="http://www.twitter.com/bdharva">Twitter</a> ... <a href="http://www.github.com/bdharva">GitHub</a></span>
+            </div>
+            <div class="navbar bottom">
+                <div class="nav left">
+                    <li><a href="/blog/archive">blog archive</a></li>
+                </div>
+                <div class="nav right">
+                    <li><a href="mailto:bdharva@alum.mit.edu">email</a></li>
+                    <li><a href="http://www.twitter.com/bdharva">twitter</a></li>
+                    <li><a href="http://www.github.com/bdharva">github</a></li>
+                </div>
             </div>
         </div>
     </body>

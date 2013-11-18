@@ -2,33 +2,21 @@
 layout: work
 ---
 
-<div class="work section">
-    <div class="text container">
-        <h1>Current Projects</h1>
-        {% for post in site.categories.current %}
-        <div class="text container">
-            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <h3>{{ post.summary }}</h3>
-        </div>
-        {% endfor %}</h3>
-    </div>
-    <div class="text container">
-        <h1>Recent Work</h1>
-        {% for post in site.categories.completed limit:6 %}
-        <div class="text container">
-            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <h3>{{ post.summary }}</h3>
-        </div>
-        {% endfor %}</h3>
-    </div>
-    <div class="text container">
-        <h1>Photography</h1>
-        <h4>Gallery pages coming soon!</h4>
-        {% for post in site.categories.photography %}
-        <div class="text container">
-            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <h3>{{ post.summary }}</h3>
-        </div>
-        {% endfor %}
-    </div>
-</div>
+<h1>Current Projects</h1>
+{% for post in site.categories.current %}
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<h4>{{ post.summary }}</h3>
+{% endfor %}
+<div class="ruler"></div>
+<h1>Recent Work</h1>
+{% for post in site.categories.completed limit:6 %}
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<h4>{{ post.summary }}</h4>
+{% endfor %}
+<div class="ruler"></div>
+<h1>Photography</h1>
+<h4>Gallery pages coming soon!</h4>
+{% for post in site.categories.photography %}
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<h4>{{ post.summary }}</h4>
+{% endfor %}
