@@ -28,7 +28,10 @@ The interview was a blur. I sat at a skinny table across from my interviewers, w
 <div class="ruler">
 </div>
 
-<img src="/assets/2013-11-20-yc-interview/01.jpg"/>
+<a href="/assets/2013-11-20-yc-interview/01.jpg">
+    <div class="picwrapper" style="background-image:url('/assets/2013-11-20-yc-interview/01.jpg');">
+    </div>
+</a>
 
 ##### Kicking off a night on the city with a pitstop at the Golden Gate Bridge
 
