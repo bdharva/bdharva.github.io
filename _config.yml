@@ -1,3 +1,6 @@
-name: Your New Jekyll Site
+name: bdharva
 pygments: true
 permalink: /:categories/:title
+url: www.bdharva.com
+author: Benjamin D. Harvatine
+rss_path: /blog/
