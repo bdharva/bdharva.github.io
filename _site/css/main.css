@@ -125,6 +125,17 @@ img{
     background-color: rgb(249,249,249);
     }
     
+.picwrapper{
+    width: 90%;
+    height: 450px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-size:cover;
+    background-position:center;
+    }
+    
 .navbar{
     width: 90%;
     height: 60px;
@@ -206,7 +217,13 @@ img{
 .left.ruler {
     margin-left:5%;
     }
-    
+
+@media (max-width:540px){
+    .picwrapper {
+        height: 200px;
+        }
+    }
+
 @media (max-width:350px){
     .navbar.bottom .nav.left li{
         margin: 0;

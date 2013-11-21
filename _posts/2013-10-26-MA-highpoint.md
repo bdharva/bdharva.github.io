@@ -10,7 +10,10 @@ I finally got out and knocked another highpoint off the list this weekend. In re
 
 Somewhat shockingly, I'd never actually climbed the Massachusetts highpoint, despite residing in Boston for the better part of the last six years now. Located three hours west of Boston, near the town of Adams, MA, it's not a prohibitively far drive, esepcially for an overnight trip. It just so happens that every other time I've been in the area I've been pre-occupied with a wrestling tournament, a float trip, or exploring local brew pubs. Anyway, I finally had a chance to make a day of it, so I did. I opted for a slightly longer (and toll-free) route west, taking MA-2, rather than the boring Mass Pike. Not only did I escape free of tolls, but MA-2 turned out to be surprisingly scenic, with lots of sweeping views of sleepy little towns and plenty of gorgeous fall foliage. I don't know what it's like the rest of the year, but I'd highly recommend the route in the fall. If I have more time in the future (I was rushing to make sure I'd be back in Boston in time for the Sox game), I'd like to take quick detours from the route to check out Leominster, [Johnny Appleseed's hometown](http://www.appleseed.org/), and to grab a bite to eat at [The Golden Eagle](http://www.yelp.com/biz/golden-eagle-restaurant-and-gift-shoppe-clarksburg), located on the famous Mohawk Trail hairpin turn near Clarksburg.
 
-<img src="/assets/2013-10-26-MA-highpoint/01.jpg"/>
+<a href="/assets/2013-10-26-MA-highpoint/01.jpg">
+    <div class="picwrapper" style="background-image:url('/assets/2013-10-26-MA-highpoint/01.jpg');">
+    </div>
+</a>
 
 ##### One of the few remaining colored leaves we spotted on the hike
 
@@ -19,7 +22,10 @@ Somewhat shockingly, I'd never actually climbed the Massachusetts highpoint, des
 
 As I'm apt to do, I opted for the steepest route to the summit by way of the Thunderbolt Trail. The trailhead is located at the intersection of Thiel Road and Gould Road, not far from "downtown" Adams. The trail was initially cut by the Civilian Conservation Corps as a backcountry ski trail, and it even hosted the US Eastern Alpine Ski Championships in the late thirties. For us, there was no snow on the trail -- only leaves. Despite nice foliage throughout our drive, we found ourselves a few weeks late for Greylock, with many leaves already browning and on the ground. However, the lack of leaves offered even clearer views of the surrounding area from the many steep meadows along the trail. After 2 miles and about 2300 feet of vertical gain, the trail reaches the summit ridge, where it interesects with the Appalachian Trail, which continues another 0.5 miles southwest to the summit.
 
-<img src="/assets/2013-10-26-MA-highpoint/02.jpg"/>
+<a href="/assets/2013-10-26-MA-highpoint/02.jpg">
+    <div class="picwrapper" style="background-image:url('/assets/2013-10-26-MA-highpoint/02.jpg');">
+    </div>
+</a>
 
 ##### The Veterans War Memorial Tower sits directly on the summit of Mount Graylock
 
@@ -34,6 +40,8 @@ Despite the cloudy day and lack of peak foliage, the panoramic views from the to
 
 And it truly was paradise, save for the noisy families and bits of trash that inevitably make there way to the summit by way of the paved road to the summit. I look forward to returning this winter (with snowshoes, of course) to take another go at the mountain when it's draped in snow and ice enough to thin the crowds, so that I might have the summit all to myself.
 
-<img src="/assets/2013-10-26-MA-highpoint/03.jpg"/>
-
+<a href="/assets/2013-10-26-MA-highpoint/03.jpg">
+    <div class="picwrapper" style="background-image:url('/assets/2013-10-26-MA-highpoint/03.jpg');">
+    </div>
+</a>
 ##### Happily standing at 3,491 feet for our seventh state highpoint together
