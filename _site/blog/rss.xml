@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  version="2.0"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>bdharva</title>
+    <link>www.bdharva.com</link>
+    <description>RSS feed for bdharva</description>
+    <pubDate>Wed, 20 Nov 2013 00:00:00 -0500</pubDate>
+    <item>
+      <title>Y Combinator Interview</title>
+      <link>www.bdharva.com/blog/yc-interview</link>
+      <description>&lt;p&gt;A few weeks ago, I went out on a limb and shot off an application to Y Combinator&amp;#8217;s winter session. I&amp;#8217;ve been putting a lot of time and effort into developing BrainGuard over the last few months, and it finally felt like time to start reaching out for funding and mentorship that could help to more rapidly accelerate development. With many initial milestones passed and a decent functional prototype in hand, my next steps would be in domains outside of my core area of expertise, and I figured I could use all of the help I could get. Fortunately, some combination of the concepts behind BrainGuard and the (too many) words of my application resonated enough with the partners at YC for them to invite me to an interview at their office in Mountain View.&lt;/p&gt;</description>
+      <pubDate>Wed, 20 Nov 2013 00:00:00 -0500</pubDate>
+      <dc:date>2013-11-20T00:00:00-05:00</dc:date>
+    </item>
+    <item>
+      <title>MA State Highpoint</title>
+      <link>www.bdharva.com/blog/MA-highpoint</link>
+      <description>&lt;p&gt;I finally got out and knocked another highpoint off the list this weekend. In recent months I&amp;#8217;ve been so focused on developing prototypes for my start-up (and doing freelance design work to cover food and rent) that I&amp;#8217;ve barely been outside, let alone had a chance to head into the mountains for a weekend. So, with a few late nights of staying up to knock out extra work, I managed to create a comfy enough time buffer to bag a highpoint (and have time left over to follow the Red Sox playoff run as any Boston devotee must).&lt;/p&gt;</description>
+      <pubDate>Sat, 26 Oct 2013 00:00:00 -0400</pubDate>
+      <dc:date>2013-10-26T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Graphic Design</title>
+      <link>www.bdharva.com/completed/graphic-design</link>
+      <description>&lt;p&gt;Despite my more rational and technical propensities, I've always also had a fairly artistic side. From a young age, I filled all of my school notes with sketches, doodles, and other drawings unrelated to what I should've been taking notes on. In particular, logos always fascinated me, and many of my doodles featured logos of my favorite sports teams or those of teams I dreamt up. When I got to college, I started to learn how to &quot;digitally sketch&quot; vector graphics in a free program called Inkscape. I soon took over the duties of making party fliers and rush shirts for my fraternity, and was often responsible for any graphic design and layout associated with group projects for my classes. My architecture coursework gave me the opportunity to begin to fully develop as a designer, with access to more sophisticated tools and professional critique from my instructors.&lt;/p&gt;&lt;p&gt;To this day, Inkscape continues to be my favorite program to work with, and I've managed to leverage my proficiency with the program into regular paid design work through my small design company, &lt;a href='http://www.birddoginnovations.com'&gt;Birddog&lt;/a&gt;. I also continue to do design work for my fraternity (though I'm hoping to pass the torch soon, through seminars to share what I've learned with current undergrads) and I'm always happy to do free work for friends and family in need of design help. Below are samples of some of my recent work, both personal and professional.&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/graphicdesign/01.png' /&gt;&lt;p class='caption'&gt;Initial mock-ups of a mobile application idea that I had for providing spontaneous nearby savings opportunities to people (mostly guys like me) who dislike the level of commitment and planning involved in using services like Groupon&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/graphicdesign/04.png' /&gt;&lt;p class='caption'&gt;A hand-drawn vector map of the Washington DC metro area completed for a commercial real estate client in the area&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/graphicdesign/05.jpg' /&gt;&lt;p class='caption'&gt;Media package for Phi Kappa Sigma's 2013 fall rush, including rush shirts, contact cards, event advertisements, and bid cards&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/graphicdesign/03.png' /&gt;&lt;p class='caption'&gt;An illustration showing some of the core design services offered by &lt;a href='http://www.birddoginnovations.com'&gt;Birddog&lt;/a&gt;&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/graphicdesign/02.png' /&gt;&lt;p class='caption'&gt;Branding concept for a friend's start-up that offers battery distribution kiosks in airports for travelers with devices running low on &quot;juice&quot;&lt;/p&gt;</description>
+      <pubDate>Sat, 19 Oct 2013 00:00:00 -0400</pubDate>
+      <dc:date>2013-10-19T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Clean Slate Anxiety</title>
+      <link>www.bdharva.com/blog/clean-slate-anxiety</link>
+      <description>&lt;p&gt;I've finally done something I've been meaning to for a while and completely overhauled my personal website. It's something I'd fiddled around with for years, constantly changing the structure and design and jumping between content management solutions. As evidenced by the constant changes, something was never quite right about any given iteration. There was always something missing, and, as I progressively became more well-versed in web design, I finally resolved to rebuild from scratch. About the time I completed this process, a friend introduced me to Jekyll. So much for being finished with the constant changes...&lt;/p&gt;&lt;p&gt;This Jekyll-powered site is what I hope will be a more permanent solution (at least for the forseeable future). Having finally found my &quot;ideal&quot; set-up, I'm also excited to add a blog section to my site, in an effort to condense my content-generation to a single repository. Over the last few years I've been substantially reducing the time that I spend on pursuits that don't yield value on par with my time/effort contribution. I learned that one of my main motivations for my continued, albeit reduced, use of services like Facebook was to share my life adventures with friends and family (who always bothered me for more regular updates when my posts waned). And the rest of the content that I was generating was fractured across a handful of other services.&lt;/p&gt;&lt;p&gt;Now any online content that I generate will be acccessable in one place, making it much easier for me to manage, while removing all of the extraneous and distracting features inherent in all of the other places. Whether its professional details, portfolio pieces, stories of my adventures, or just assorted thoughts and ramblings, it'll all be available in a single organized space.&lt;/p&gt;&lt;p&gt;You will notice that I have some posts preceding this one. While traveling the country as part of my management training program I had a lot of very cool adventures, and I purchased my first DSLR (indulging my inner shutterbug) to capture some of my experieinces. I got into a fairly rigorous habit of documenting my travels, photographically and in writing, and this seemed like the proper medium to share some of those narratives in a way that I never could before. I was also a bit intimidated by the idea of starting with an absolutely clean slate (I have the same problem with new notebooks), and back-filling content eased that anxiety. I expect to finish updating that back-dated content in the next few weeks, allowing me to turn my focus to generating more current content (as my work and projects allow). So, there you have it. I'm really looking forward to continuing to develop the site, and I hope you enjoy perusing it.&lt;/p&gt;</description>
+      <pubDate>Sat, 19 Oct 2013 00:00:00 -0400</pubDate>
+      <dc:date>2013-10-19T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>BrainGuard</title>
+      <link>www.bdharva.com/current/brainguard</link>
+      <description>&lt;p&gt;I've had a handful of concussions over the course of my life, including, most recently, a rather severe on while at MIT, I understand firsthand the very real dangers associated with traumatic head impacts in amateur athletics. I'm looking to develop hardware and software solutions as part of a multi-pronged approach to monitoring and detecting such dangerous impacts, and to promote more effective and informed responses by parents, coaches, and players in the wake of a significant event.&lt;/p&gt;&lt;p&gt;For now, I'm keeping the rest of the details under wraps, as we further develop the system. I'm presently working with the MIT Venture Mentoring Service, and under their guidance I've taken on a rapid and aggressive development schedule. Expect to see big things in the coming months...&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/brainguard/01.png' /&gt;&lt;p class='caption'&gt;Check back on this page for project updates, as I'm able/willing to release them.&lt;/p&gt;</description>
+      <pubDate>Sat, 19 Oct 2013 00:00:00 -0400</pubDate>
+      <dc:date>2013-10-19T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Birddog Innovations</title>
+      <link>www.bdharva.com/current/birddog</link>
+      <description>&lt;p&gt;&lt;a href='http://www.birddoginnovations.com'&gt;Birddog&lt;/a&gt; is a bit of an accidental venture. When my partner and I first started working together on design and photography, it was out of frustration with our current work situation. We were part of the same management training program, where we found ourselves bored out of our minds and completely unchallenged, despite our constant attempts to make more of the experience. At some point we realized that we both had quite a few overlapping interests, including web design and photography. Soon we were working together every night after work, sharing tricks and tips for everything from responsive layout to search engine optimization, and digging into the intricacies of Adobe Lightroom's post-processing capabilities.&lt;/p&gt;&lt;p&gt;As we continued to learn from eachother and improve our craft, we started to wonder if we couldn't find a way to convert our newfound talents into some additional revenue. Not soon after, we were lucky enough to hear from one of my partner's high school friends whose business needed a website and media pamphlet with professional photography for a property they were selling. They became our first client, and we've continue to do repeat business with them, as what started as a small side project has grown into an increasingly more viable small business.&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/birddog/01.png' /&gt;&lt;p class='caption'&gt;The name &quot;Birddog&quot; is derived from a love of the great outdoors and hunting. And, of course, we're a company of dog people.&lt;/p&gt;</description>
+      <pubDate>Sat, 19 Oct 2013 00:00:00 -0400</pubDate>
+      <dc:date>2013-10-19T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Bottle Openers</title>
+      <link>www.bdharva.com/completed/bottle-openers</link>
+      <description>&lt;p&gt;It's no secret - I love beer. I love it so much that I went to work for the world's largest brewer after graduation, and was lucky enough to learn just about all there is to know about beer from some of the world's best brewmasters. During my time working there, my training class completed a project called &quot;Build-a-Brand&quot;. Split into two competing teams, we worked to design completely new beers from scratch, brew them, design packaging and branding for them, and develop marketing and production plans for their launch. The project culminated with their unveiling to upper management at our training program's capstone event.&lt;/p&gt;&lt;img src='/assets/bottleopeners/02.jpg' /&gt;&lt;p&gt;For the presentation, we had a small budget for decorating our booths with branded items and giveaways for the executives evaluating our product and presentation, picking a winner, and, more importantly, considering our products for actual production. I knew immediately that we had to make some kickass bottle openers to give away. Since turning twenty one, I've been collecting bottle caps from all of the beers that I drink, hoping to one day use them in some sort of cool project, like a bar top or pong table. A great frustration of mine has been that every bottle opener I've ever used dents or deforms the caps in some way, and requiring great effort to slowly and carefully get the cap off without completely ruining it.&lt;/p&gt;&lt;p&gt;So, with a modest budget and my dreams of the perfect bottle opener, I had a very exciting project on my hands. And the solution ended up being much simpler than expected! By simply tweaking the proportions of the opening on the opener to place the fulcrum on the far edge of the cap, with the support of the mouth of the bottle underneath, the cap is able to be pried off of the bottle, rather than being bent off. With the hard part figured out, the remainder of the design was dictated by the brand aesthetic we developed for our product and an admittedly nerdy cutout of ethanol and water molecules, the core of every beer.&lt;/p&gt;&lt;img src='/assets/bottleopeners/01.jpg' /&gt;&lt;p&gt;I selected stainless steel for the opener. It's roughly the size of a credit card, but thicker, as I opted for thicker stock to ensure its durability and lend it a nice weight in the hand. I used a waterjet to cut the the basic shape and then hit each opener hard with a wire buffer to create a marbled slightly matte finish. The final step was to mill the chamfers, and voilà. Bottle openers.&lt;/p&gt;&lt;p&gt;They were a huge hit at the launch, as the company president was sure to pocket more than a few for himself, and a few extras to share with memebers of the board. As it turns out, our product was an even bigger hit than the openers, and, the following week, a handful of openers were delivered to the board as they excitedly discussed news of the company's newest product. I look forward to the day it's finally launched, and will be the first in line, excitedly waiting to crack open the beer I helped to create with my favorite bottle opener.&lt;/p&gt;</description>
+      <pubDate>Thu, 29 Aug 2013 00:00:00 -0400</pubDate>
+      <dc:date>2013-08-29T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Wood-Framed Inverted Roof</title>
+      <link>www.bdharva.com/completed/shed</link>
+      <description>&lt;p&gt;Needing more space in our garage for actually parking vehicles, my family determined that it was necessary to build a secondary storage space to house lawn mowers, bicycles, and all of the other clutter from our garage. I was lucky enough to have parents that were trusting (and supportive) enough to allow me to design the structure and oversee its construction. The entire process was incredibly rewarding, as I got to go through design iterations, permiting, surveying, budgeting, and all of the various aspects of actual construction. And the completion of the project would not have been possible without all of the helping hands that friends and family lent throughout the process.&lt;/p&gt;</description>
+      <pubDate>Thu, 19 Jul 2012 00:00:00 -0400</pubDate>
+      <dc:date>2012-07-19T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Epic American Roadtrip</title>
+      <link>www.bdharva.com/blog/roadtrip</link>
+      <description>&lt;p&gt;I'm happy to say that, following the most amazing two weeks of my life, I am safely back in Boston (in one piece). In my fraternity it's somewhat of a tradition to take a pledge class roadtrip between the end of classes and commencement (MIT has a roughly 2.5 week gap). Most years an RV or a large passenger van is rented for a week-long trek between the houses of the graduating brothers living on the east coast (ie. reasonable driving ditance from Boston). My class landed on a loftier goal -- we resolved to visit every single pledge brother's house on the trip.&lt;/p&gt;&lt;p&gt;Unfortunately, we immediately found that the houses of our brothers from Jordan and Palestine were going to be tough drives and reluctantly eliminated them from the list. Additionally, one of the brothers who had taken a leave of absence from school to pursue the start-up life was unable to join us, leaving us seven mandatory stops to fit in. Adding in a nicely placed stop at an underclassman's lake house, the obligatory debauchery of Las Vegas, and a west coast terminus, and we had our list:&lt;/p&gt;&lt;ul&gt;
+    &lt;li&gt;Cambridge, MA&lt;/li&gt;
+    &lt;li&gt;West Roxbury, MA&lt;/li&gt;
+    &lt;li&gt;Greenfield, NH&lt;/li&gt;
+    &lt;li&gt;New York, NY&lt;/li&gt;
+    &lt;li&gt;Sykesville, MD&lt;/li&gt;
+    &lt;li&gt;Watauga Lake, TN&lt;/li&gt;
+    &lt;li&gt;Tulsa, OK&lt;/li&gt;
+    &lt;li&gt;Austin, TX&lt;/li&gt;
+    &lt;li&gt;Tucson, AZ&lt;/li&gt;
+    &lt;li&gt;Las Vegas, NV&lt;/li&gt;
+    &lt;li&gt;Palo Alto, CA&lt;/li&gt;
+    &lt;li&gt;San Francisco, CA&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Twenty states in thirteen days. An aggressive itinerary to keep, especially if we wanted to catch our flight from San Francisco back to Boston for graduation. What follows is only a small snapshot of what ensued. I'm not sure how to even begin to describe the trip. Surreal. Unforgettable. Out of control. America is a big ass place and we did our best to see as much of it as possible in that short span, by way of local watering holes, local tourist traps, and local law enforcement.&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/2012-06-06-roadtrip/01.jpg' /&gt;&lt;p class='caption'&gt;Rope swinging in rural Tennessee&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/2012-06-06-roadtrip/02.jpg' /&gt;&lt;p class='caption'&gt;Wake boarding on Lake Watauga&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/2012-06-06-roadtrip/03.jpg' /&gt;&lt;p class='caption'&gt;Mid-day bar crawling through Tulsa (what else is there to do?)&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/2012-06-06-roadtrip/04.jpg' /&gt;&lt;p class='caption'&gt;Billy Bob's Texas, the world's largest honky tonk&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/2012-06-06-roadtrip/05.jpg' /&gt;&lt;p class='caption'&gt;A happy ending to a long and stressful encounter with the border patrol -- they thought our Arabs were Mexicans...&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/2012-06-06-roadtrip/06.jpg' /&gt;&lt;p class='caption'&gt;Off-roading to the top of Mt. Lemmon&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/2012-06-06-roadtrip/07.jpg' /&gt;&lt;p class='caption'&gt;Late night off-roading with massive saguaros and coyotes outside of Tucson&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/2012-06-06-roadtrip/08.jpg' /&gt;&lt;p class='caption'&gt;Obligatory tourist shots at the Grand Canyon&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/2012-06-06-roadtrip/09.jpg' /&gt;&lt;p class='caption'&gt;While everyone else slept off night one of Vegas I drove four hours to lavalier my girlfriend (better late than never) in a desert ghost town halfway to San Diego&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/2012-06-06-roadtrip/10.jpg' /&gt;&lt;p class='caption'&gt;What happens in Vegas stays in Vegas&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/2012-06-06-roadtrip/11.jpg' /&gt;&lt;p class='caption'&gt;Arrived late in Palo Alto and spent the night running around Stanford&lt;/p&gt;&lt;div class='ruler'&gt;
+&lt;/div&gt;&lt;img src='/assets/2012-06-06-roadtrip/12.jpg' /&gt;&lt;p class='caption'&gt;Following a cross-country flight, we were back in Boston in time to collect our diplomas&lt;/p&gt;</description>
+      <pubDate>Wed, 06 Jun 2012 00:00:00 -0400</pubDate>
+      <dc:date>2012-06-06T00:00:00-04:00</dc:date>
+    </item>
+    <dc:date>2013-11-20T00:00:00-05:00</dc:date>
+  </channel>
+</rss>

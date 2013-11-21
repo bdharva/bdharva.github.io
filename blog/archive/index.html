@@ -7,9 +7,11 @@ layout: archive
 {% unless post.next %}
 <h3>{{ post.date | date: '%B %Y' }}</h3>
 {% else %}
-{% capture month %}{{ post.date | date: '%B' }}{% endcapture %}
-{% capture nmonth %}{{ post.next.date | date: '%B' }}{% endcapture %}
+{% capture month %}{{ post.date | date: '%m' }}{% endcapture %}
+{% capture nmonth %}{{ post.next.date | date: '%m' }}{% endcapture %}
 {% if month != nmonth %}
+<div class="left ruler">
+</div>
 <h3>{{ post.date | date: '%B %Y' }}</h3>
 {% endif %}
 {% endunless %}
