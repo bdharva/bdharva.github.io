@@ -191,16 +191,20 @@ img{
     text-decoration:underline;
     }
 
-.ruler{
+.ruler {
     width: 100px;
     height: 1px;
     margin: 15px auto;
     background: rgb(230,230,230);
     }
     
-.title.ruler{
+.title.ruler {
     width: 100px;
     margin: 30px auto;
+    }
+    
+.left.ruler {
+    margin-left:5%;
     }
     
 @media (max-width:350px){
