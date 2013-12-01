@@ -19,7 +19,7 @@
             <div class="nav right">
                 <li><a href="/" style="color: {{ page.navright }};">About</a></li>
                 <li><a href="/work" style="color: {{ page.navright }};">Work</a></li>
-                <li class="active"><a href={% assign first_post = site.posts.first %}{{ first_post.url }} style="color: {{ page.navright }};">Blog</a></li>
+                <li><a href={% assign first_post = site.posts.first %}{{ first_post.url }} style="color: {{ page.navright }};">Blog</a></li>
             </div>
         </div>
         <div class="banner" style="background-image: url({{ page.banner }}); background-position: {{ page.position }};">
