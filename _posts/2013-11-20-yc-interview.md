@@ -1,9 +1,14 @@
 ---
-layout: post
+layout: banner post
 title: Y Combinator Interview
 date: 2013-11-20 00:00:00
 category: blog
 summary: Thoughts on my first experience with Silicon Valley
+banner: /assets/2013-11-20-yc-interview/01.jpg
+position: bottom center
+navlogo: rgb(250,250,250)
+navleft: rgb(30,30,30)
+navright: rgb(250,250,250)
 ---
 
 A few weeks ago, I went out on a limb and shot off an application to Y Combinator's winter session. I've been putting a lot of time and effort into developing BrainGuard over the last few months, and it finally felt like time to start reaching out for funding and mentorship that could help to more rapidly accelerate development. With many initial milestones passed and a decent functional prototype in hand, my next steps would be in domains outside of my core area of expertise, and I figured I could use all of the help I could get. Fortunately, some combination of the concepts behind BrainGuard and the (too many) words of my application resonated enough with the partners at YC for them to invite me to an interview at their office in Mountain View.
@@ -24,18 +29,5 @@ Despite carrying a bag full of tangled wires, lithium battery packs, and sharp p
 </div>
 
 The interview was a blur. I sat at a skinny table across from my interviewers, with more flanked out towards the sides and ends of the table. I was constantly on swivel, looking back and forth to find where each new question came hurling in from. A majority of the questions turned from the expected inquiries about business model, pricing, user acquisition, etc. toward in-depth probing on the physiology of concussions and the analytics that we would use to identify potentially dangerous head impacts. The questions came quicker than I could answer them -- no matter how much faster I spoke, I continued to be cut-off before I could ever finish what I was saying. And then, as quickly as we'd begun, my interviewers were standing to shake my hand and usher me from the room. Despite going in with the knowledge that the interview would only last ten minutes, nothing could've prepared me for just how quickly the time had gone by. And, as I had expected may be the case, there was no time to demo the prototype I'd worked so hard to complete, beyond the cursory glance that yielded the inquiry "Will the final product be smaller?". Of course, had I not put the work into prepping the demo, I imagine it's all that would've been asked about.
-
-<div class="ruler">
-</div>
-
-<a href="/assets/2013-11-20-yc-interview/01.jpg">
-    <div class="picwrapper" style="background-image:url('/assets/2013-11-20-yc-interview/01.jpg');">
-    </div>
-</a>
-
-##### Kicking off a night on the city with a pitstop at the Golden Gate Bridge
-
-<div class="ruler">
-</div>
 
 The rest of the day dragged by, as I crossed my fingers for an acceptance call and hoped against the dreaded rejection email -- either would be good cause to knock back a couple delicious local beers. I ended up getting the rejection email while out to dinner with my brothers, and, following a night of shenanigans, a cross-country flight, and a chance to reflect, found that the few negative points that were raised as deterrents from investing were good points that I will certainly need to address moving forward. Despite the disappointing final outcome, it was still a very insightful and rewarding experience, and, in addition to the constructive feedback that I received, I take away an intensified focus and desire to succeed in my mission to get BrainGuard into the hands of the millions of young athletes who need it.

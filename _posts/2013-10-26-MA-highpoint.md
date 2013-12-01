@@ -1,9 +1,14 @@
 ---
-layout: post
+layout: banner post
 title: MA State Highpoint
 date: 2013-10-26 00:00:00
 category: blog
 summary: Mount Greylock, top of The Bay State
+banner: /assets/2013-10-26-MA-highpoint/03.jpg
+position: center
+navlogo: rgb(30,30,30)
+navleft: rgb(250,250,250)
+navright: rgb(30,30,30)
 ---
 
 I finally got out and knocked another highpoint off the list this weekend. In recent months I've been so focused on developing prototypes for my start-up (and doing freelance design work to cover food and rent) that I've barely been outside, let alone had a chance to head into the mountains for a weekend. So, with a few late nights of staying up to knock out extra work, I managed to create a comfy enough time buffer to bag a highpoint (and have time left over to follow the Red Sox playoff run as any Boston devotee must).
@@ -12,25 +17,21 @@ Somewhat shockingly, I'd never actually climbed the Massachusetts highpoint, des
 
 <a href="/assets/2013-10-26-MA-highpoint/01.jpg">
     <div class="picwrapper" style="background-image:url('/assets/2013-10-26-MA-highpoint/01.jpg');">
+        <div class="caption">
+            One of the few remaining colored leaves we spotted on the hike
+        </div>
     </div>
 </a>
-
-##### One of the few remaining colored leaves we spotted on the hike
-
-<div class="ruler">
-</div>
 
 As I'm apt to do, I opted for the steepest route to the summit by way of the Thunderbolt Trail. The trailhead is located at the intersection of Thiel Road and Gould Road, not far from "downtown" Adams. The trail was initially cut by the Civilian Conservation Corps as a backcountry ski trail, and it even hosted the US Eastern Alpine Ski Championships in the late thirties. For us, there was no snow on the trail -- only leaves. Despite nice foliage throughout our drive, we found ourselves a few weeks late for Greylock, with many leaves already browning and on the ground. However, the lack of leaves offered even clearer views of the surrounding area from the many steep meadows along the trail. After 2 miles and about 2300 feet of vertical gain, the trail reaches the summit ridge, where it interesects with the Appalachian Trail, which continues another 0.5 miles southwest to the summit.
 
 <a href="/assets/2013-10-26-MA-highpoint/02.jpg">
     <div class="picwrapper" style="background-image:url('/assets/2013-10-26-MA-highpoint/02.jpg');">
+        <div class="caption">
+            The Veterans War Memorial Tower sits directly on the summit of Mount Graylock
+        </div>
     </div>
 </a>
-
-##### The Veterans War Memorial Tower sits directly on the summit of Mount Graylock
-
-<div class="ruler">
-</div>
 
 We reached the summit in just under two hours and were suprised at how chilly it was. The day had been getting progressively cloudier, and that, combined with the harsh winds that met us at the summit, left us scrambling for our extra layers. Fortunately, we were able to take refuge behind the Veterans War Memorial Tower as we layered up. The tower, standing at ninety three feet tall, is perched directly on top of the summit. Interestingly, it was originally intended to be built in Boston's Charles River Basin (quite a change in elevation). The tower was erected to honor the state's fallen in World War I, and it perpetually shines a beacon that can be seen from over seventy miles away at nighttime.
 
@@ -39,9 +40,3 @@ Despite the cloudy day and lack of peak foliage, the panoramic views from the to
 > It was such a country as we might see in dreams, with all the delights of paradise.
 
 And it truly was paradise, save for the noisy families and bits of trash that inevitably make there way to the summit by way of the paved road to the summit. I look forward to returning this winter (with snowshoes, of course) to take another go at the mountain when it's draped in snow and ice enough to thin the crowds, so that I might have the summit all to myself.
-
-<a href="/assets/2013-10-26-MA-highpoint/03.jpg">
-    <div class="picwrapper" style="background-image:url('/assets/2013-10-26-MA-highpoint/03.jpg');">
-    </div>
-</a>
-##### Happily standing at 3,491 feet for our seventh state highpoint together

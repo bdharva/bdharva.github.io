@@ -12,30 +12,26 @@
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,300italic,600italic" rel='stylesheet' type='text/css'>
     </head>
     <body>
+        <div class="navbar top">
+            <div class="nav left" style="background: {{ page.navlogo }};">
+                <a href="/" style="color: {{ page.navleft }};">H</a>
+            </div>
+            <div class="nav right">
+                <li><a href="/" style="color: {{ page.navright }};">About</a></li>
+                <li class="active"><a href="/work" style="color: {{ page.navright }};">Work</a></li>
+                <li><a href={% assign first_post = site.posts.first %}{{ first_post.url }} style="color: {{ page.navright }};">Blog</a></li>
+            </div>
+        </div>
+        <div class="banner" style="background-image: url({{ page.banner }}); background-position: {{ page.position }};">
+        </div>
         <div class="wrapper">
-            <div class="navbar top">
-                <div class="nav left">
-                    <li><a href="/">bdharva</a></li>
-                </div>
-                <div class="nav right">
-                    <li><a href="/">bio</a></li>
-                    <li class="active"><a href="/work">work</a></li>
-                    <li><a href="/blog">blog</a></li>
-                </div>
-            </div>
-            <div class="content">
             {{ content }}
-            </div>
-            <div class="navbar bottom">
-                <div class="nav left">
-                    <li><a href="/blog/archive">blog archive</a></li>
-                </div>
-                <div class="nav right">
-                    <li><a href="mailto:bdharva@alum.mit.edu">email</a></li>
-                    <li><a href="http://www.twitter.com/bdharva">twitter</a></li>
-                    <li><a href="http://www.github.com/bdharva">github</a></li>
-                </div>
-            </div>
+            <ul class="contact">
+                <li><a href="mailto:bdharva@alum.mit.edu"><img src="/assets/email.png" style="width: 20px;"/></a></li>
+                <li><a href="http://www.twitter.com/bdharva"><img src="/assets/twitter.png" style="width: 25px;"/></a></li>
+                <li><a href="http://www.github.com/bdharva"><img src="/assets/github.png" style="width: 23px;"/></a></li>
+                <li><a href="http://www.linkedin.com/in/bdharva"><img src="/assets/linkedin.png" style="width: 21px;"/></a></li>
+            </ul>
         </div>
     </body>
 </html>

@@ -1,9 +1,14 @@
 ---
-layout: post
+layout: banner post
 title: Clean Slate Anxiety
 date: 2013-10-19 00:00:00
 category: blog
 summary: New site with a design facelift and fresh features, powered by Jekyll
+banner: /assets/2013-10-19-clean-slate-anxiety/01.jpg
+position: bottom center
+navlogo: rgb(250,250,250)
+navleft: rgb(30,30,30)
+navright: rgb(250,250,250)
 ---
 
 I've finally done something I've been meaning to for a while and completely overhauled my personal website. It's something I'd fiddled around with for years, constantly changing the structure and design and jumping between content management solutions. As evidenced by the constant changes, something was never quite right about any given iteration. There was always something missing, and, as I progressively became more well-versed in web design, I finally resolved to rebuild from scratch. About the time I completed this process, a friend introduced me to Jekyll. So much for being finished with the constant changes...

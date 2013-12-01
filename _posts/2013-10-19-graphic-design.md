@@ -4,6 +4,11 @@ title: Graphic Design
 date: 2013-10-19 00:00:00
 category: completed
 summary: An assortment of recent graphic design work
+banner: /assets/2013-11-20-yc-interview/01.jpg
+position: bottom center
+navlogo: rgb(250,250,250)
+navleft: rgb(30,30,30)
+navright: rgb(250,250,250)
 ---
 
 Despite my more rational and technical propensities, I've always also had a fairly artistic side. From a young age, I filled all of my school notes with sketches, doodles, and other drawings unrelated to what I should've been taking notes on. In particular, logos always fascinated me, and many of my doodles featured logos of my favorite sports teams or those of teams I dreamt up. When I got to college, I started to learn how to "digitally sketch" vector graphics in a free program called Inkscape. I soon took over the duties of making party fliers and rush shirts for my fraternity, and was often responsible for any graphic design and layout associated with group projects for my classes. My architecture coursework gave me the opportunity to begin to fully develop as a designer, with access to more sophisticated tools and professional critique from my instructors.
