@@ -3,7 +3,7 @@ layout: banner post
 title: The Only New Year's Resolution You Ever Needed
 date: 2014-01-03 00:00:00
 category: blog
-summary: Seize the day. Just not all at once.
+summary: Seize the day. Just don't do it all at once.
 banner: /assets/2014-01-03-seize-the-day/01.jpg
 position: bottom center
 navlogo: rgb(30,30,30)
