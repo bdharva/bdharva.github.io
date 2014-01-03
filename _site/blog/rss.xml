@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
   xmlns:dc="http://purl.org/dc/elements/1.1/"
-  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
   version="2.0"
-  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <title>bdharva</title>
     <link>www.bdharva.com</link>
     <description>RSS feed for bdharva</description>
-    <pubDate>Wed, 20 Nov 2013 00:00:00 -0500</pubDate>
+    <pubDate>Fri, 03 Jan 2014 00:00:00 -0500</pubDate>
+    <item>
+      <title>The Only New Year's Resolution You Ever Needed</title>
+      <link>www.bdharva.com/blog/seize-the-day</link>
+      <description>&lt;p&gt;People are creatures of habit. Good, bad, or in between, we become set in our ways — deviating from our habits is difficult. As much as we like to envision ourselves as dynamic adaptive creatures, in many ways we simply are not. Many of our greatest fears in life are rooted in change. Growing up. Moving to a new city. Losing the ones we love. The march of change in the world is constant and undeniable.&lt;/p&gt;</description>
+      <pubDate>Fri, 03 Jan 2014 00:00:00 -0500</pubDate>
+      <dc:date>2014-01-03T00:00:00-05:00</dc:date>
+    </item>
     <item>
       <title>Y Combinator Interview</title>
       <link>www.bdharva.com/blog/yc-interview</link>
@@ -72,6 +79,6 @@
       <pubDate>Wed, 06 Jun 2012 00:00:00 -0400</pubDate>
       <dc:date>2012-06-06T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2013-11-20T00:00:00-05:00</dc:date>
+    <dc:date>2014-01-03T00:00:00-05:00</dc:date>
   </channel>
 </rss>
