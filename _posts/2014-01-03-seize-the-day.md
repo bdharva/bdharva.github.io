@@ -6,9 +6,6 @@ category: blog
 summary: Seize the day. Just don't do it all at once.
 banner: /assets/2014-01-03-seize-the-day/01.jpg
 position: bottom center
-navlogo: rgb(30,30,30)
-navleft: rgb(250,250,250)
-navright: rgb(30,30,30)
 ---
 
 People are creatures of habit. Good, bad, or in between, we become set in our ways — deviating from our habits is difficult. As much as we like to envision ourselves as dynamic adaptive creatures, in many ways we simply are not. Many of our greatest fears in life are rooted in change. Growing up. Moving to a new city. Losing the ones we love. The march of change in the world is constant and undeniable.

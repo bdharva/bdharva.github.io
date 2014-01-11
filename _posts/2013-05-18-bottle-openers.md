@@ -6,9 +6,6 @@ category: completed
 summary: Beautifully machined opener that doesn't crimp the cap
 banner: /assets/bottleopeners/01.jpg
 position: center
-navlogo: rgb(250,250,250)
-navleft: rgb(30,30,30)
-navright: rgb(250,250,250)
 ---
 
 It's no secret - I love beer. I love it so much that I went to work for the world's largest brewer after graduation, and was lucky enough to learn just about all there is to know about beer from some of the world's best brewmasters. During my time working there, my training class completed a project called "Build-a-Brand". Split into two competing teams, we worked to design completely new beers from scratch, brew them, design packaging and branding for them, and develop marketing and production plans for their launch. The project culminated with their unveiling to upper management at our training program's capstone event.

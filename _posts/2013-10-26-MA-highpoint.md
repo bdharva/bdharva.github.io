@@ -1,14 +1,11 @@
 ---
 layout: banner post
-title: MA State Highpoint
+title: Massachusetts State Highpoint
 date: 2013-10-26 00:00:00
 category: blog
 summary: Mount Greylock, top of The Bay State
 banner: /assets/2013-10-26-MA-highpoint/03.jpg
 position: center
-navlogo: rgb(30,30,30)
-navleft: rgb(250,250,250)
-navright: rgb(30,30,30)
 ---
 
 I finally got out and knocked another highpoint off the list this weekend. In recent months I've been so focused on developing prototypes for my start-up (and doing freelance design work to cover food and rent) that I've barely been outside, let alone had a chance to head into the mountains for a weekend. So, with a few late nights of staying up to knock out extra work, I managed to create a comfy enough time buffer to bag a highpoint (and have time left over to follow the Red Sox playoff run as any Boston devotee must).

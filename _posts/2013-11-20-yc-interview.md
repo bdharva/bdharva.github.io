@@ -6,9 +6,6 @@ category: blog
 summary: Thoughts on my first experience with Silicon Valley
 banner: /assets/2013-11-20-yc-interview/01.jpg
 position: bottom center
-navlogo: rgb(250,250,250)
-navleft: rgb(30,30,30)
-navright: rgb(250,250,250)
 ---
 
 A few weeks ago, I went out on a limb and shot off an application to Y Combinator's winter session. I've been putting a lot of time and effort into developing BrainGuard over the last few months, and it finally felt like time to start reaching out for funding and mentorship that could help to more rapidly accelerate development. With many initial milestones passed and a decent functional prototype in hand, my next steps would be in domains outside of my core area of expertise, and I figured I could use all of the help I could get. Fortunately, some combination of the concepts behind BrainGuard and the (too many) words of my application resonated enough with the partners at YC for them to invite me to an interview at their office in Mountain View.
@@ -23,7 +20,7 @@ Despite carrying a bag full of tangled wires, lithium battery packs, and sharp p
 <div class="ruler">
 </div>
 
-#### \*Halfway house is a term for the post-grad living situations of many recent alumni of my fraternity (myself included), where, resisting full transition into adult life, multiple bros will live together in set-ups that are often as dirty, cluttered, and smelly as the old house at 530 Beacon.
+#### \*Halfway house is a term for the post-grad living situations of many recent alumni of my fraternity (myself included), where, resisting full transition into adult life, multiple bros will live together in set-ups reminiscent of the old house at 530 Beacon.
 
 <div class="ruler">
 </div>

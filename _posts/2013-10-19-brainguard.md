@@ -6,9 +6,6 @@ category: current
 summary: A concussion management system for the masses
 banner: /assets/brainguard/01.png
 position: center
-navlogo: rgb(0,125,189)
-navleft: rgb(204,204,204)
-navright: rgb(0,125,189)
 ---
 
 I've had a handful of concussions over the course of my life, including, most recently, a rather severe on while at MIT, I understand firsthand the very real dangers associated with traumatic head impacts in amateur athletics. I'm looking to develop hardware and software solutions as part of a multi-pronged approach to monitoring and detecting such dangerous impacts, and to promote more effective and informed responses by parents, coaches, and players in the wake of a significant event.

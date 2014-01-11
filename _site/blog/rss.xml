@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
-  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
-  version="2.0"
+<rss version="2.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>bdharva</title>
     <link>www.bdharva.com</link>
     <description>RSS feed for bdharva</description>
-    <pubDate>Fri, 03 Jan 2014 00:00:00 -0500</pubDate>
+    <pubDate>Fri, 10 Jan 2014 00:00:00 -0500</pubDate>
+    <item>
+      <title>What Einstein Told His Cook</title>
+      <link>www.bdharva.com/blog/what-einstein-told-his-cook</link>
+      <description>&lt;p&gt;It&amp;#8217;s safe to say that this is the first time in a very long time that I&amp;#8217;ve read a book of my own free will and accord (mountaineering guides and woodworking references notwithstanding). I can&amp;#8217;t even remember the last real book that I picked to read, but it must&amp;#8217;ve been early in high school before forced academic readings soured my view of literature for leisure.&lt;/p&gt;</description>
+      <pubDate>Fri, 10 Jan 2014 00:00:00 -0500</pubDate>
+      <dc:date>2014-01-10T00:00:00-05:00</dc:date>
+    </item>
     <item>
       <title>The Only New Year's Resolution You Ever Needed</title>
       <link>www.bdharva.com/blog/seize-the-day</link>
@@ -24,7 +31,7 @@
       <dc:date>2013-11-20T00:00:00-05:00</dc:date>
     </item>
     <item>
-      <title>MA State Highpoint</title>
+      <title>Massachusetts State Highpoint</title>
       <link>www.bdharva.com/blog/MA-highpoint</link>
       <description>&lt;p&gt;I finally got out and knocked another highpoint off the list this weekend. In recent months I&amp;#8217;ve been so focused on developing prototypes for my start-up (and doing freelance design work to cover food and rent) that I&amp;#8217;ve barely been outside, let alone had a chance to head into the mountains for a weekend. So, with a few late nights of staying up to knock out extra work, I managed to create a comfy enough time buffer to bag a highpoint (and have time left over to follow the Red Sox playoff run as any Boston devotee must).&lt;/p&gt;</description>
       <pubDate>Sat, 26 Oct 2013 00:00:00 -0400</pubDate>
@@ -79,6 +86,6 @@
       <pubDate>Wed, 06 Jun 2012 00:00:00 -0400</pubDate>
       <dc:date>2012-06-06T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2014-01-03T00:00:00-05:00</dc:date>
+    <dc:date>2014-01-10T00:00:00-05:00</dc:date>
   </channel>
 </rss>

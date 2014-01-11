@@ -6,9 +6,6 @@ category: blog
 summary: It's been a while, but I finally read another book
 banner: /assets/2014-01-10-what-einstein-told-his-cook/01.jpg
 position: bottom center
-navlogo: rgb(30,30,30)
-navleft: rgb(250,250,250)
-navright: rgb(30,30,30)
 ---
 
 It's safe to say that this is the first time in a very long time that I've read a book of my own free will and accord (mountaineering guides and woodworking references notwithstanding). I can't even remember the last real book that I picked to read, but it must've been early in high school before forced academic readings soured my view of literature for leisure.
