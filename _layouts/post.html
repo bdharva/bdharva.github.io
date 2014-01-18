@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>BrainGuard</title>
+        <title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <link rel="icon" type="image/png" href="/assets/favicon.ico">
@@ -22,24 +22,27 @@
     </head>
     <body>
         <div class="navbar top">
-            <div class="nav left" style="background: ;">
-                <a href="/" style="color: ;">H</a>
+            <div class="nav left" style="background: {{ page.navlogo }};">
+                <a href="/" style="color: {{ page.navleft }};">H</a>
             </div>
             <div class="nav right">
-                <li><a href="/" style="color: ;">About</a></li>
-                <li><a href="/work" style="color: ;">Work</a></li>
-                <li><a href=/blog/gmail-workflow style="color: ;">Blog</a></li>
+                <li><a href="/" style="color: {{ page.navright }};">About</a></li>
+                <li><a href="/work" style="color: {{ page.navright }};">Work</a></li>
+                <li class="active"><a href={% assign first_post = site.posts.first %}{{ first_post.url }} style="color: {{ page.navright }};">Blog</a></li>
             </div>
         </div>
-        <div class="banner" style="background-image: url(/assets/brainguard/01.png); background-position: center;">
-        </div>
-        <div class="wrapper">
-            <h1>BrainGuard</h1>
-            <h2>A concussion management system for the masses</h2>
-            <div class="title ruler"></div>
-            <p>I&#8217;ve had a handful of concussions over the course of my life, including, most recently, a rather severe on while at MIT, I understand firsthand the very real dangers associated with traumatic head impacts in amateur athletics. I&#8217;m looking to develop hardware and software solutions as part of a multi-pronged approach to monitoring and detecting such dangerous impacts, and to promote more effective and informed responses by parents, coaches, and players in the wake of a significant event.</p>
-
-<p>For now, I&#8217;m keeping the rest of the details under wraps, as we further develop the system. I&#8217;m presently working with the MIT Venture Mentoring Service, and under their guidance I&#8217;ve taken on a rapid and aggressive development schedule. Expect to see big things in the coming months&#8230;</p>
+        <div class="plain wrapper">
+            <h2>{{ page.title }}</h2>
+            <h4>{{ page.summary }}</h4>
+            <h5>{{ page.date || date:"%A, %B %d, %Y" }}</h5>
+            <div class="left ruler"></div>
+            {{ content }}
+            <div class="ruler"></div>
+            <div class="button">
+                <a href="/blog/archive">
+                    Additional Reading
+                <a/>
+            </div>
             <div class="ruler"></div>
             <ul class="contact">
                 <li><a href="http://www.twitter.com/bdharva"><img src="/assets/twitter.png" style="width: 25px;"/></a></li>

@@ -102,7 +102,7 @@ ul, ol {
 
 img {
     width: 100%;
-    margin: 30px 0;
+    margin: 20px 0;
     }
     
 .picwrapper {
@@ -231,6 +231,10 @@ img {
     max-width: 750px;
     margin: 60px auto;
     }
+
+.plain.wrapper {
+    margin-top: 20px;
+    }
     
 .contact {
     height: 120px;
@@ -295,6 +299,10 @@ img {
         }
     ul, ol {
         font-size: 16px;
+        }
+
+    img {
+        margin: 10px 0;
         }
 
     }
