@@ -21,6 +21,7 @@ body {
   background-image: url(/assets/bg.png);
   background-size: cover;
   background-position: center;
+  min-height: 700px;
 }
 
 h1 { 
@@ -49,6 +50,7 @@ p a:hover {
 .container{
   width: 400px;
   margin: 0 auto;
+  position: relative;
   box-shadow: 0px 0px 10px rgba(0,0,0,.1);
 }
 
@@ -131,6 +133,7 @@ li.labeled.icon:hover .icon{
   body {
     background-image: none;
     background-color: rgb(255,255,255);
+    min-height: 568px;
   }
 
   .container{

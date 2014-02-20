@@ -13,5 +13,5 @@ function align() {
     margin = (window_height - container_height)/2;
     if (margin < 50){margin = 50;}
     if (window_width < 401){margin = 0;}
-    $('.picture').css({'margin-top': margin + 'px'});
+    $('.container').css({'top': margin + 'px'});
 }
