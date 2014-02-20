@@ -1,0 +1,8 @@
+---
+layout: post
+date:   2014-02-06 00:00:00
+title: Rush Gear
+categories: work
+picture: /assets/work/sidetable.jpg
+summary: Words about the rush gear go here
+---

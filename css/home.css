@@ -1,0 +1,127 @@
+/*
+bdharva.com v7
+Benjamin D. Harvatine
+02.10.2014
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body { 
+  height: 100%;
+}
+
+body {
+  background-color: rgb(242,242,242);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 200;
+  text-align: center;
+  background-image: url(/assets/bg.png);
+  background-size: cover;
+  background-position: center;
+}
+
+h1 { 
+  color: rgb(77,77,77);
+  font-size: 36px;
+  font-weight: 200;
+  margin-bottom: 15px;
+}
+
+p { 
+  font-size: 20px;
+  color: rgb(153,153,153);
+  line-height: 28px;
+}
+
+p a {
+  color: rgb(153,153,153);
+  text-decoration: none;
+  border-bottom: 1.5px dotted rgb(153,153,153);
+}
+
+p a:hover {
+  color: rgb(100,100,100);
+}
+
+.container{
+  width: 400px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 10px rgba(0,0,0,.1);
+}
+
+.picture {
+  width: 400px;
+  height: 300px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.details {
+  width: 320px;
+  height: 220px;
+  padding: 40px;
+  position: relative;
+  background-color: rgb(255,255,255);
+}
+
+ul.icons {
+  display: inline;
+  text-align: center;
+  margin: 35px 0;
+}
+
+li.labeled.icon {
+  width: 50px;
+  display: inline-block;
+  position: relative;
+  margin: 0 5px;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 5px;
+  color: rgb(204,204,204);
+}
+
+li.labeled.icon a {
+  color: rgb(204,204,204);
+  text-decoration: none;
+}
+
+li.labeled.icon:hover a {
+  color: rgb(128,128,128);
+}
+
+li.labeled.icon:hover .icon{
+  background-position: right;
+}
+
+.icon {
+  width: 32px;
+  height: 24px;
+  margin: 35px 9px 7px 9px;
+  background-position: left;
+  background-size: cover;
+}
+
+.icon.home{
+  background-image: url(/assets/icons/home.png);
+}
+
+.icon.work{
+  background-image: url(/assets/icons/work.png);
+}
+
+.icon.photos{
+  background-image: url(/assets/icons/photos.png);
+}
+
+.icon.fun{
+  background-image: url(/assets/icons/fun.png);
+}
+
+.icon.tweets{
+  background-image: url(/assets/icons/tweets.png);
+}

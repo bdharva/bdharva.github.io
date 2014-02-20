@@ -1,0 +1,8 @@
+---
+layout: post
+date:   2012-06-02 12:00:00
+title: Las Vegas
+categories: fun
+picture: /assets/fun/lasvegas.jpg
+summary: June 2, 2012</br>Cross-Country Graduation Road Trip</br>Losing lots of money in Las Vegas, NV
+---

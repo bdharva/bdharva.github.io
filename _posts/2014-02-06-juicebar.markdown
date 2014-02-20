@@ -1,0 +1,8 @@
+---
+layout: post
+date:   2014-02-06 00:00:00
+title: The Juice Bar
+categories: work
+picture: /assets/work/juicebar.png
+summary: Illustration for a friend's project -- a network of airport vending machines renting out portable device chargers
+---

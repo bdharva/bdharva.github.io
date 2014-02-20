@@ -1,0 +1,198 @@
+/*
+bdharva.com v7
+Benjamin D. Harvatine
+02.10.2014
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body { 
+  height: auto;
+}
+
+body {
+  background-color: rgb(242,242,242);
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 200;
+  text-align: center;
+  background-color: rgb(242,242,242);
+}
+
+h1 { 
+  color: rgb(77,77,77);
+  font-size: 36px;
+  font-weight: 200;
+  margin-bottom: 15px;
+}
+
+p { 
+  font-size: 20px;
+  color: rgb(153,153,153);
+  line-height: 28px;
+}
+
+p a {
+  color: rgb(153,153,153);
+  text-decoration: none;
+  border-bottom: 1.5px dotted rgb(153,153,153);
+}
+
+p a:hover {
+  color: rgb(100,100,100);
+}
+
+.container{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.nav {
+  height: 99px;
+  width: 1232px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  height: auto;
+  width: 1232px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.tile {
+  width: 288px;
+  height: 324px;
+  display: inline-block;
+  float: left;
+  margin: 10px;
+  background-color: rgb(100,100,100);
+  box-shadow: 0px 0px 10px rgba(0,0,0,.10);
+}
+
+.tile:hover {
+  box-shadow: 0px 0px 20px rgba(0,0,0,.20);
+}
+
+.picture {
+  width: 288px;
+  height: 216px;
+  position: relative;
+  background-size: 100%;
+  background-position: center;
+}
+
+img {
+  width: 1200px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,.10);
+}
+
+.details {
+  width: 248px;
+  height: 68px;
+  padding: 20px;
+  position: relative;
+  background-color: rgb(255,255,255);
+  color: rgb(153,153,153);
+  font-size: 16px;
+}
+
+ul.icons {
+  display: inline;
+  text-align: center;
+  margin: 33px 0;
+}
+
+ul.icons.left {
+  float:left;
+}
+
+ul.icons.right {
+  float:right;
+}
+
+li.labeled.icon {
+  width: 50px;
+  display: inline-block;
+  position: relative;
+  margin: 0 5px;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 5px;
+  color: rgb(204,204,204);
+}
+
+li.labeled.icon a {
+  color: rgb(204,204,204);
+  text-decoration: none;
+}
+
+li.labeled.icon:hover a {
+  color: rgb(128,128,128);
+}
+
+li.labeled.icon:hover .icon{
+  background-position: right;
+}
+
+.icon {
+  width: 32px;
+  height: 24px;
+  margin: 0px 9px 7px 9px;
+  background-position: left;
+  background-size: cover;
+}
+
+#active.icon {
+  background-position: right;
+}
+
+.icon.home{
+  background-image: url(/assets/icons/home.png);
+}
+
+.icon.work{
+  background-image: url(/assets/icons/work.png);
+}
+
+.icon.photos{
+  background-image: url(/assets/icons/photos.png);
+}
+
+.icon.fun{
+  background-image: url(/assets/icons/fun.png);
+}
+
+.icon.tweets{
+  background-image: url(/assets/icons/tweets.png);
+}
+
+@media (max-width:1232px) {
+    .nav, .wrapper {
+      width: 924px;
+    }
+    img {
+      width: 904px;
+    }
+}
+
+@media (max-width:924px) {
+    .nav, .wrapper {
+      width: 616px;
+    }
+    img {
+      width: 596px;
+    }
+}
+
+@media (max-width:616px) {
+    .nav, .wrapper {
+      width: 308px;
+    }
+    img {
+      width: 288px;
+    }
+}

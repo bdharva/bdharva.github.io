@@ -1,0 +1,12 @@
+---
+layout: photos
+---
+
+{% for post in site.categories.photos %}
+<a href="{{ post.url }}">
+    <div class="tile">
+        <div class="picture" style="background-image:url({{ post.picture }});"></div>
+        <div class="details">{{ post.summary }}</div>
+    </div>
+</a>
+{% endfor %}

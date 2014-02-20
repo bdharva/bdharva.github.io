@@ -1,0 +1,8 @@
+---
+layout: post
+date:   2014-02-04 00:00:00
+title: Modern Deck Chair
+categories: work
+picture: /assets/work/chair.png
+summary: Words about deck chairs go here
+---
