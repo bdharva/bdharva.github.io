@@ -7,15 +7,11 @@ window.onresize = function(event) {
 }
 
 function align() {
-    height = $(window).height();
-    if (height > 600){
-        margin = (height - 600)/2;
-        if (margin > 50){
-            $('.picture').css({'margin-top': margin + 'px'});
-        }else{
-            $('.picture').css({'margin-top': 50 + 'px'});
-        }
-    }else{
-        $('.picture').css({'margin-top': 50 + 'px'});
-    }
+    window_height = $(window).height();
+    window_width = $(window).width();
+    container_height = 600;
+    margin = (window_height - container_height)/2;
+    if (margin < 50){margin = 50;}
+    if (window_width < 401){margin = 0;}
+    $('.picture').css({'margin-top': margin + 'px'});
 }
