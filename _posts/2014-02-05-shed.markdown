@@ -1,8 +1,0 @@
----
-layout: post
-date:   2014-02-06 00:00:00
-title: The Juice Bar
-categories: work
-picture: /assets/work/shed.jpg
-summary: Words about the shed go here
----

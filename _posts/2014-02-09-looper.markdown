@@ -1,8 +1,0 @@
----
-layout: post
-date:   2014-02-09 00:00:00
-title: Looper
-categories: work
-picture: /assets/work/looper.png
-summary: Concept for an app for creating custom timed loops with the option to selectively record voice prompts
----
