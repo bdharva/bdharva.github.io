@@ -76,3 +76,19 @@ p a:visited {
   box-sizing: border-box;
   background: rgb(255,255,255);
 }
+
+@media (max-width: 480px) {
+
+  body {
+    background-image: none;
+  }
+
+  .screen {
+    background: rgba(26,102,216,1);
+  }
+
+  .container {
+    background: rgba(255,255,255,1);
+  }
+
+}
