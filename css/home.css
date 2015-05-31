@@ -76,3 +76,15 @@ p a:visited {
   box-sizing: border-box;
   background: rgb(255,255,255);
 }
+
+@media only screen and (max-device-width: 480px) {
+
+  body {
+    background-image: none;
+  }
+
+  .screen {
+    background: rgba(26,102,216,1);
+  }
+
+}
