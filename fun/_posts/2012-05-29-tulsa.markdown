@@ -1,8 +1,0 @@
----
-layout: post
-date:   2012-05-29 00:00:00
-title: Tulsa Bar Crawl
-categories: fun
-picture: /assets/fun/tulsa.jpg
-summary: May 29, 2012</br>Cross-Country Graduation Road Trip</br>Bar crawling in Tulsa, OK
----

@@ -1,8 +1,0 @@
----
-layout: post
-date:   2012-06-04 12:00:00
-title: Palo Alto
-categories: fun
-picture: /assets/fun/paloalto.jpg
-summary: June 4, 2012</br>Cross-Country Graduation Road Trip</br>Wandering the night in Palo Alto, CA
----
