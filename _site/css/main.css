@@ -1,0 +1,503 @@
+/*
+CSS DOCUMENT - BDHARVA.COM
+============================================================*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body { 
+  height: 100%; 
+}
+
+body {
+  background-color: rgb(245,245,245);
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: left;
+  color: rgb(120,120,120);
+}
+
+/* Text formatting
+------------------------------------------------------------*/
+
+h1, h2, h3, h4 {
+	color: rgb(80,95,110);
+	font-weight: 400;
+}
+
+h1 {  
+	font-size: 48px;
+	margin: 24px 0 16px 0;
+}
+
+h2 {
+	font-size: 36px;
+	margin: 24px 0 16px 0;
+}
+
+h3 {
+	font-size: 24px;
+	margin: 24px 0 16px 0;
+}
+
+h4 {
+	font-size: 18px;
+	margin: 24px 0 16px 0;
+}
+
+h1.green, h2.green, h3.green, h4.green {
+	color: rgb(0,200,40);
+}
+
+h1.white, h2.white, h3.white, h4.white {
+	color: rgb(255,255,255);
+}
+
+p, li {
+  font-size:18px;
+  font-weight:300;
+  line-height: 150%;
+  margin: 16px 0px;
+}
+
+p img {
+	width: 100%;
+	margin: 16px 0;
+}
+
+a {
+	color: rgb(0,200,40);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+ul {
+	list-style: outside;
+	margin: 16px 32px;
+}
+
+/* Header
+------------------------------------------------------------*/
+
+header {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: block;
+	padding: 32px 40px;
+	box-sizing: border-box;
+	font-size: 14px;
+	position: absolute;
+	z-index: 10;
+	right: 0;
+	left: 0;
+}
+
+header.scrolled,
+header.static {
+	position: fixed;
+	top: 0;
+	background-color: rgb(60,75,90);
+	box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+}
+
+header.noshadow {
+	position: fixed;
+	top: 0;
+	box-shadow: none;
+}
+
+header .wrapper {
+	height: 30px;
+	max-width: 1000px;
+	margin: auto;
+}
+
+/* Navigation
+------------------------------------------------------------*/
+
+nav {
+	color: rgb(255,255,255);
+	height: 30px;
+	font-weight: 400;
+}
+
+nav img {
+	height: 30px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Navigation - Left
+------------------------------------------------------------*/
+
+nav.left {
+	float: left;
+}
+
+nav.left li {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 400;
+	margin-left: 4px;
+}
+
+nav.left a:hover {
+	text-decoration: none;
+}
+
+/* Navigation - Right
+------------------------------------------------------------*/
+
+nav.right {
+	float: right;
+}
+
+nav.right a {
+	opacity: 0.5;
+}
+
+nav.right li {
+	margin: 0 0 0 16px;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+nav.right a:hover {
+	opacity: 1.0;
+	text-decoration: none;
+}
+
+nav.right a.active {
+	opacity: 1.0;
+	text-decoration: none;
+}
+
+/* Menu
+------------------------------------------------------------*/
+
+#menu {
+  visibility: hidden;
+  z-index: 5;
+  width: 100%;
+  max-width: 1200px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  padding: 0;
+  background-color: rgb(60,75,90);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: auto;
+  overflow: auto;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+}
+
+#menu ul {
+  display: block;
+  list-style-type: none;
+  list-style-image: none;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 94px 0 20px 0;
+}
+
+#menu a.active li {
+	background-color: rgba(0,0,0,0.05);
+	font-weight: 400;
+}
+
+#menu li {
+  margin: 0;
+  padding: 10px 40px;
+  width: 100%;
+  display: block;
+  font-size: 16px;
+  line-height: 36px;
+  vertical-align: middle;
+  box-sizing:border-box;
+}
+
+#menu li:hover {
+  background-color: rgba(0,0,0,0.15);
+}
+
+#menu a { 
+  color: rgb(255,255,255);
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  overflow: auto;
+}
+
+#showmenu,
+#hidemenu {
+	cursor: pointer;
+}
+
+#hidemenu {
+	display: none;
+}
+
+/* Wrapper
+------------------------------------------------------------*/
+
+#wrapper {
+  z-index: 2;
+  position: relative;
+  /*min-height: 100%;*/
+  max-width: 1200px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0px 8px rgba(0,0,0,0.3);
+  background-color: rgb(255,255,255);
+}
+
+/* Hero & screens
+------------------------------------------------------------*/
+
+#hero {
+	width: 100%;
+	height: 500px;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+}
+
+#hero .content {
+	max-width: 1000px;
+	margin: auto;
+}
+
+#hero a {
+	color: rgb(255,255,255);
+}
+
+.screen {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(60,75,90,0.85);
+	z-index: 1;
+	position: absolute;
+	color: rgb(255,255,255);
+	box-sizing: border-box;
+	padding: 40px;
+}
+
+/* Section
+------------------------------------------------------------*/
+
+section {
+	height: auto;
+	overflow: auto;
+	width: 100%;
+	margin: 0;
+	padding: 40px;
+	box-sizing: border-box;
+	border-bottom: 1px solid rgb(230,230,230);
+}
+
+section .wrapper {
+	height: auto;
+	overflow: auto;
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Content Cards
+------------------------------------------------------------*/
+
+.card-holder,
+.stats {
+	width: 33.33%;
+	box-sizing: border-box;
+	padding: 10px;
+	display: block;
+	float: left;
+}
+
+.card-holder a {
+	text-decoration: none;
+}
+
+.card {
+	width: 100%;
+	box-sizing: border-box;
+	background-color: rgb(255,255,255);
+	position: relative;
+}
+
+.card .screen {
+	opacity: 0;
+}
+
+.pic {
+	width: 100%;
+	height: 200px;
+	box-sizing: border-box;
+	background-size: cover;
+	background-position: center;
+}
+
+.details {
+	width: 100%;
+	text-align: center;
+	padding: 20px;
+	box-sizing: border-box;
+	background-color: rgb(255,255,255);
+	min-height: 140px;
+}
+
+.title, .tags {
+	display: block;
+}
+
+.title {
+	font-size: 18px;
+	color: rgb(90,100,110);
+}
+
+.tags {
+	font-size: 14px;
+	color: rgb(150,160,170);
+}
+
+/* Footer
+------------------------------------------------------------*/
+
+footer {
+	background-color: rgb(60,75,90);
+	color: rgb(255,255,255);
+	padding: 40px;
+	text-align: center;
+	font-size: 14px;
+}
+
+footer .wrapper {
+	height: 30px;
+	max-width: 1000px;
+	margin: auto;
+}
+
+footer img {
+	margin-bottom: 12px;
+}
+
+/* Code Formatting
+------------------------------------------------------------*/
+
+code, pre {
+	font-family: 'Roboto Mono';
+	background: rgb(250,250,250);
+	border: 1px solid rgb(235,235,235);
+	font-size: 14px;
+}
+
+pre {
+	margin: 32px 0;
+	padding: 20px;
+	overflow: auto;
+	border-radius: 3px;
+}
+
+code {
+	padding: 2px 8px;
+	border-radius: 3px;
+}
+
+pre code {
+	border: none;
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Style & alignment classes
+------------------------------------------------------------*/
+
+.no-bottom {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.no-top {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.left {
+	text-align: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.justify {
+	text-align: justify;
+}
+
+/* Google icon list for reference: https://design.google.com/icons/ */
+
+.material-icons {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Google icon font - sizing
+------------------------------------------------------------*/
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-30 { font-size: 30px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Google icon font - black on light background
+------------------------------------------------------------*/
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Google icon font - white on dark background
+------------------------------------------------------------*/
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+a .material-icons {
+	color: rgb(60,75,90);
+}
+
+/* Media queries
+============================================================*/
+
+@media (max-width:940px){
+
+		.card-holder{
+		width: 50%;
+	}
+
+}
+
+@media (max-width:660px){
+
+	.card-holder{
+		width: 100%;
+		padding: 10px 0;
+	}
+
+}

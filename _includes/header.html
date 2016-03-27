@@ -1,0 +1,24 @@
+<div id="menu">
+	<ul>
+		<a href="/" {% if page.title == "bdharva" %}class="active"{% endif %}><li>About</li></a>
+		<a href="/blog" {% if page.title == "Blog - bdharva" %}class="active"{% endif %}><li>Blog</li></a>
+		<a href="/projects" {% if page.title == "Projects - bdharva" %}class="active"{% endif %}><li>Projects</li></a>
+		<a href="/photography" {% if page.title == "Photography - bdharva" %}class="active"{% endif %}><li>Photography</li></a>
+		<a href="/highpoints" {% if page.title == "Highpoints - bdharva" %}class="active"{% endif %}><li>Highpoints</li></a>
+	</ul>
+</div>
+<header>
+	<div class="wrapper">
+		<nav class="left">
+			<a href="/">
+				<img src="/assets/logo_white.svg"/>
+			</a>
+		</nav>
+		<nav class="right">
+			<i id="showmenu" class="material-icons md-24" ng-click="showMenu()">menu</i>
+			<i id="hidemenu" class="material-icons md-24" ng-click="hideMenu()">close</i>
+			<!--<li><i class="material-icons">menu</i></li>
+			<li><i class="material-icons">close</i></li>-->
+		</nav>
+	</div>
+</header>

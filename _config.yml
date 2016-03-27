@@ -1,3 +1,12 @@
-name: Your New Jekyll Site
-highlighter: pygments
-permalink: none
+# Site settings
+title: bdharva.com
+email: bdharva@alum.mit.edu
+description: > # this means to ignore newlines until "baseurl:"
+  Personal website of Ben Harvatine. MIT engineer. Founder & CEO of Jolt. Forbes 30 Under 30 in Healthcare.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://bdharva.com" # the base hostname & protocol for your site
+twitter_username: bdharva
+github_username:  bdharva
+
+# Build settings
+markdown: kramdown

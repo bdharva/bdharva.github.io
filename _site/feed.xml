@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bdharva.com</title>
+    <description>Personal website of Ben Harvatine. MIT engineer. Founder &amp; CEO of Jolt. Forbes 30 Under 30 in Healthcare.
+</description>
+    <link>http://bdharva.com/</link>
+    <atom:link href="http://bdharva.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 27 Mar 2016 01:52:42 -0400</pubDate>
+    <lastBuildDate>Sun, 27 Mar 2016 01:52:42 -0400</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>A Week of Podcasts</title>
+        <description>&lt;p&gt;As some of my friends may know, I’m a bit of a podcast fiend and a data nut. So, naturally, one of my favorite podcasts is FiveThirtyEight’s “What’s the Point”. &lt;a href=&quot;http://fivethirtyeight.com/features/dear-data-and-fivethirtyeight-want-you-to-visualize-your-podcast-habits/&quot;&gt;This week’s episode&lt;/a&gt; dug into the &lt;a href=&quot;http://www.dear-data.com/by-week/&quot;&gt;Dear Data project&lt;/a&gt; in which a pair of data visualization professionals exhanged weekly postcards with hand-drawn data renderings for a year. Much of their work centered around the activities of daily life, from laughter to indecision. Near the end of the episode, they challenged listeners to track a week’s worth of their own podcast listening habits, visualize them on a postcard, and send them in.&lt;/p&gt;
+
+&lt;p&gt;Given my previous dabbling in quantified self efforts, I was excited to take on the challenge. And I found the limited scope and defined time period attractive. Many of my previous efforts went off the rails through a combination of the tedium of data collection coupled with distracting heaps of data to be dug into. Unsure of how I wanted to visualize the data, I decided to be detailed in my data recording efforts to ensure I had too much data, rather than too little. Below is a sample data point.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+	&quot;date&quot; : &quot;2016-03-14&quot;,
+	&quot;startTime&quot; : &quot;18:21&quot;,
+	&quot;endTime&quot; : &quot;19:45&quot;,
+	&quot;podcast&quot; : &quot;Adam Carolla Show&quot;,
+	&quot;device&quot; : &quot;iPhone&quot;,
+	&quot;mode&quot; : &quot;Headphones&quot;,
+	&quot;activity&quot; : &quot;Lifting&quot;,
+	&quot;location&quot; : &quot;Gym&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After some test plots to get a better feel for the data, I elected to focus on time of day, length of listening session, location while listening, and the specific podcast being played. While I typically approach visualizations focused on clarity and simplicity, this challenge (and its inspiration) begged for a more abstract/artistic approach, especially since I’d elected not to do the visualization by hand. With that in mind, I took a first pass with the following visual encodings:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The x-axis is time of day, from midnight to midnight, while the y-axis represents listening locations. From bottom to top: home, local driving, gym, highway driving.&lt;/li&gt;
+  &lt;li&gt;The colored shapes have uniform height, with x-axis widths spanning from start time to end time and y-position centered on location. The colored fills represent specific podcasts.&lt;/li&gt;
+  &lt;li&gt;The lines connecting the dots each represent one day of the week of collected data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/blog/podcasts/podcasts-1.png&quot;&gt;&lt;img src=&quot;/assets/blog/podcasts/podcasts-1.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;While this first plot was interesting, it lacked clarity. One of the biggest problems was the overlapping bubbles – they became muddled and confusing due to their distorted shapes and blending colors. The lines representing days of the week also proved more distracting than useful. To address these issues, I swapped the eliptical bubbles for circles, and set each day’s line to share origin and termination points off the edge of the plot to avoid confusing them with the dot grid axes.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/blog/podcasts/podcasts-2.png&quot;&gt;&lt;img src=&quot;/assets/blog/podcasts/podcasts-2.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This was definitely a step in the right direction, but the y-axis location encoding seemed ineffective, and, while the overlaps were good at showing clustered listening times, color blending was still obscuring podcast data. I decided it was time to swap days and location, mapping days to the y-axis to create a more traditional calendar view. With only four locations to now map to the scattered bubbles, the logical choice was to run traces from each corner, which proved remarkably effective at demonstrating additional clustering. For my sanity (and yours), I finally added labels and a legend to the graph, figuring I could just convert them into a guide graphic when ready to print the postcard.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/blog/podcasts/podcasts-3.png&quot;&gt;&lt;img src=&quot;/assets/blog/podcasts/podcasts-3.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We have a winner. Aside from tweaking some colors and opacities, I felt this third attempt was an elegant enough solution to run with. The date/time encoding is clear and simple, allowing readers to quickly identify time clustering patterns across days without the podcast data being obscured. And, after a few passes at mapping locations to different corners, this version was untangled enough to clearly read additional patterns.&lt;/p&gt;
+
+&lt;p&gt;After making those tweaks, here’s how the final version (digital and printed) turned out:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Tweaks in progress
+Will update with final digital images &amp;amp; printed cards
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For those interested, I used &lt;a href=&quot;http://processing.org&quot;&gt;Processing&lt;/a&gt; for all of my visualization work. My code is a little long and convoluted, but &lt;a href=&quot;https://github.com/bdharva/processing/tree/master/538-deardata&quot;&gt;here is the full source code&lt;/a&gt; used to generate the graphic, along with the JSON data file containing my week of podcast listening data. I was a little rusty with Processing and I’m certain I have room for improvement as a programmer, but this proved good enough for what I was trying to accomplish.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 15 Mar 2016 00:00:00 -0400</pubDate>
+        <link>http://bdharva.com/blog/2016/03/15/a-week-of-podcasts.html</link>
+        <guid isPermaLink="true">http://bdharva.com/blog/2016/03/15/a-week-of-podcasts.html</guid>
+        
+        <category>Data Visualization</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>High Point, NJ</title>
+        <description>
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-1.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-2.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-3.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-4.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-5.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-5.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-6.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-7.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-8.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-9.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-9.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-10.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-10.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-11.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-11.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-12.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-12.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/highpoint/highpoint-13.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/highpoint/highpoint-13.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 04 Mar 2016 00:00:00 -0500</pubDate>
+        <link>http://bdharva.com/highpoints/2016/03/04/NJ-highpoint.html</link>
+        <guid isPermaLink="true">http://bdharva.com/highpoints/2016/03/04/NJ-highpoint.html</guid>
+        
+        <category>Highpoints</category>
+        
+        
+        <category>highpoints</category>
+        
+      </item>
+    
+      <item>
+        <title>3D Printer Mods</title>
+        <description>&lt;p&gt;Blah blah blah after some fiddling, these seem to be ideal settings for quality ABS prints:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Layer Height: 0.1mm for detail, 0.2mm for speed
+Shell Thickness: 0.8mm (at least 2x nozzle size)
+Top/Bottom Thickness: 1.0mm
+Fill Density: 40%
+Print Speed: 40 - 60mm/sec
+Printing Temperature: 245 C
+Bed Temperature: 110 C&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now more words here.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 19 Jan 2016 00:00:00 -0500</pubDate>
+        <link>http://bdharva.com/projects/2016/01/19/3d-printer-mods.html</link>
+        <guid isPermaLink="true">http://bdharva.com/projects/2016/01/19/3d-printer-mods.html</guid>
+        
+        <category>Rapid</category>
+        
+        <category>Prototyping</category>
+        
+        
+        <category>projects</category>
+        
+      </item>
+    
+      <item>
+        <title>Head Impact Sensor</title>
+        <description>
+</description>
+        <pubDate>Wed, 02 Dec 2015 00:00:00 -0500</pubDate>
+        <link>http://bdharva.com/projects/2015/12/02/jolt-sensor.html</link>
+        <guid isPermaLink="true">http://bdharva.com/projects/2015/12/02/jolt-sensor.html</guid>
+        
+        <category>Product</category>
+        
+        <category>Development</category>
+        
+        
+        <category>projects</category>
+        
+      </item>
+    
+      <item>
+        <title>Card &amp; Key Caddy</title>
+        <description>
+</description>
+        <pubDate>Tue, 01 Dec 2015 00:00:00 -0500</pubDate>
+        <link>http://bdharva.com/projects/2015/12/01/card-caddy.html</link>
+        <guid isPermaLink="true">http://bdharva.com/projects/2015/12/01/card-caddy.html</guid>
+        
+        <category>Rapid</category>
+        
+        <category>Prototyping</category>
+        
+        
+        <category>projects</category>
+        
+      </item>
+    
+      <item>
+        <title>No-Bend Bottle Opener</title>
+        <description>
+</description>
+        <pubDate>Mon, 30 Nov 2015 00:00:00 -0500</pubDate>
+        <link>http://bdharva.com/projects/2015/11/30/bottle-opener.html</link>
+        <guid isPermaLink="true">http://bdharva.com/projects/2015/11/30/bottle-opener.html</guid>
+        
+        <category>Rapid</category>
+        
+        <category>Prototyping,</category>
+        
+        <category>Machining</category>
+        
+        
+        <category>projects</category>
+        
+      </item>
+    
+      <item>
+        <title>Maryland Cornhole Set</title>
+        <description>
+</description>
+        <pubDate>Sun, 29 Nov 2015 00:00:00 -0500</pubDate>
+        <link>http://bdharva.com/projects/2015/11/29/cornhole.html</link>
+        <guid isPermaLink="true">http://bdharva.com/projects/2015/11/29/cornhole.html</guid>
+        
+        <category>Woodworking</category>
+        
+        
+        <category>projects</category>
+        
+      </item>
+    
+      <item>
+        <title>Rainwater-Harvesting Shed</title>
+        <description>
+</description>
+        <pubDate>Sat, 28 Nov 2015 00:00:00 -0500</pubDate>
+        <link>http://bdharva.com/projects/2015/11/28/shed.html</link>
+        <guid isPermaLink="true">http://bdharva.com/projects/2015/11/28/shed.html</guid>
+        
+        <category>Architecture,</category>
+        
+        <category>Construction</category>
+        
+        
+        <category>projects</category>
+        
+      </item>
+    
+      <item>
+        <title>Mt. Mansfield, VT</title>
+        <description>
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-1.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-2.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-3.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-4.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-5.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-5.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-6.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-7.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-8.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-9.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-9.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-10.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-10.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-11.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-11.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-12.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-12.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-13.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-13.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-14.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-14.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-15.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-15.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-16.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-16.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-17.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-17.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-18.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-18.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/highpoints/mansfield/mansfield-19.jpg&quot;&gt;&lt;img src=&quot;/assets/highpoints/mansfield/mansfield-19.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 05 Sep 2015 00:00:00 -0400</pubDate>
+        <link>http://bdharva.com/highpoints/2015/09/05/VT-highpoint.html</link>
+        <guid isPermaLink="true">http://bdharva.com/highpoints/2015/09/05/VT-highpoint.html</guid>
+        
+        <category>Highpoints</category>
+        
+        
+        <category>highpoints</category>
+        
+      </item>
+    
+      <item>
+        <title>Windsor Castle</title>
+        <description>
+&lt;p&gt;&lt;a href=&quot;/assets/photography/windsorcastle/windsorcastle-1.jpg&quot;&gt;&lt;img src=&quot;/assets/photography/windsorcastle/windsorcastle-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/photography/windsorcastle/windsorcastle-2.jpg&quot;&gt;&lt;img src=&quot;/assets/photography/windsorcastle/windsorcastle-2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/photography/windsorcastle/windsorcastle-3.jpg&quot;&gt;&lt;img src=&quot;/assets/photography/windsorcastle/windsorcastle-3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/photography/windsorcastle/windsorcastle-4.jpg&quot;&gt;&lt;img src=&quot;/assets/photography/windsorcastle/windsorcastle-4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/photography/windsorcastle/windsorcastle-5.jpg&quot;&gt;&lt;img src=&quot;/assets/photography/windsorcastle/windsorcastle-5.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/photography/windsorcastle/windsorcastle-6.jpg&quot;&gt;&lt;img src=&quot;/assets/photography/windsorcastle/windsorcastle-6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/photography/windsorcastle/windsorcastle-7.jpg&quot;&gt;&lt;img src=&quot;/assets/photography/windsorcastle/windsorcastle-7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 29 Dec 2014 00:00:00 -0500</pubDate>
+        <link>http://bdharva.com/photography/2014/12/29/windsor-castle.html</link>
+        <guid isPermaLink="true">http://bdharva.com/photography/2014/12/29/windsor-castle.html</guid>
+        
+        <category>Photography</category>
+        
+        
+        <category>photography</category>
+        
+      </item>
+    
+  </channel>
+</rss>
