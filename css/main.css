@@ -391,8 +391,10 @@ footer .wrapper {
 	margin: auto;
 }
 
-footer img {
-	margin-bottom: 12px;
+footer li {
+	font-size: 14px;
+	display: inline-block;
+	margin: 12px 4px;
 }
 
 /* Code Formatting
