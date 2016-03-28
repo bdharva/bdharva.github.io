@@ -66,6 +66,7 @@ p, li {
 p img {
 	width: 100%;
 	margin: 16px 0;
+	background-color: rgb(80, 95, 110);
 }
 
 a {
