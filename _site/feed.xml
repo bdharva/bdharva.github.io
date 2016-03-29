@@ -6,8 +6,8 @@
 </description>
     <link>http://bdharva.com/</link>
     <atom:link href="http://bdharva.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 28 Mar 2016 19:08:05 -0400</pubDate>
-    <lastBuildDate>Mon, 28 Mar 2016 19:08:05 -0400</lastBuildDate>
+    <pubDate>Tue, 29 Mar 2016 04:50:05 -0400</pubDate>
+    <lastBuildDate>Tue, 29 Mar 2016 04:50:05 -0400</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -50,15 +50,17 @@
 
 &lt;p&gt;After making those tweaks, here’s how the final version (digital and printed) turned out:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;Tweaks in progress
-Will update with final digital images &amp;amp; printed cards
+&lt;p&gt;&lt;a href=&quot;/assets/blog/podcasts/podcasts-4.png&quot;&gt;&lt;img src=&quot;/assets/blog/podcasts/podcasts-4.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/assets/blog/podcasts/podcasts-5.png&quot;&gt;&lt;img src=&quot;/assets/blog/podcasts/podcasts-5.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Will update with pictures of printed cards
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;For those interested, I used &lt;a href=&quot;http://processing.org&quot;&gt;Processing&lt;/a&gt; for all of my visualization work. My code is a little long and convoluted, but &lt;a href=&quot;https://github.com/bdharva/processing/tree/master/538-deardata&quot;&gt;here is the full source code&lt;/a&gt; used to generate the graphic, along with the JSON data file containing my week of podcast listening data. I was a little rusty with Processing and I’m certain I have room for improvement as a programmer, but this proved good enough for what I was trying to accomplish.&lt;/p&gt;
 </description>
-        <pubDate>Sun, 27 Mar 2016 00:00:00 -0400</pubDate>
-        <link>http://bdharva.com/blog/2016/03/27/a-week-of-podcasts.html</link>
-        <guid isPermaLink="true">http://bdharva.com/blog/2016/03/27/a-week-of-podcasts.html</guid>
+        <pubDate>Tue, 29 Mar 2016 00:00:00 -0400</pubDate>
+        <link>http://bdharva.com/blog/2016/03/29/a-week-of-podcasts.html</link>
+        <guid isPermaLink="true">http://bdharva.com/blog/2016/03/29/a-week-of-podcasts.html</guid>
         
         <category>Data Visualization</category>
         

@@ -4,7 +4,7 @@ title: A Week of Podcasts
 category: blog
 tag: Data Visualization
 tagline: For FiveThirtyEight's What's the Point
-thumbnail: /assets/blog/podcasts/podcasts-3.png
+thumbnail: /assets/blog/podcasts/podcasts-4.png
 ---
 
 As some of my friends may know, I'm a bit of a podcast fiend and a data nut. So, naturally, one of my favorite podcasts is FiveThirtyEight's "What's the Point". [This week's episode](http://fivethirtyeight.com/features/dear-data-and-fivethirtyeight-want-you-to-visualize-your-podcast-habits/) dug into the [Dear Data project](http://www.dear-data.com/by-week/) in which a pair of data visualization professionals exhanged weekly postcards with hand-drawn data renderings for a year. Much of their work centered around the activities of daily life, from laughter to indecision. Near the end of the episode, they challenged listeners to track a week's worth of their own podcast listening habits, visualize them on a postcard, and send them in.
@@ -42,7 +42,9 @@ We have a winner. Aside from tweaking some colors and opacities, I felt this thi
 
 After making those tweaks, here's how the final version (digital and printed) turned out:
 
-	Tweaks in progress
-	Will update with final digital images & printed cards
+[![](/assets/blog/podcasts/podcasts-4.png)](/assets/blog/podcasts/podcasts-4.png)
+[![](/assets/blog/podcasts/podcasts-5.png)](/assets/blog/podcasts/podcasts-5.png)
+
+	Will update with pictures of printed cards
 
 For those interested, I used [Processing](http://processing.org) for all of my visualization work. My code is a little long and convoluted, but [here is the full source code](https://github.com/bdharva/processing/tree/master/538-deardata) used to generate the graphic, along with the JSON data file containing my week of podcast listening data. I was a little rusty with Processing and I'm certain I have room for improvement as a programmer, but this proved good enough for what I was trying to accomplish.
