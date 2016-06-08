@@ -61,7 +61,7 @@ p, li {
   font-weight:300;
   line-height: 150%;
   margin: 16px 0px;
-  
+
 }
 
 p img {
@@ -82,6 +82,25 @@ a:hover {
 ul {
 	list-style: outside;
 	margin: 16px 32px;
+}
+
+button {
+  margin: 16px;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  border: 2px solid rgb(0,200,40);
+  border-radius: 3px;
+  background: none;
+  color: rgb(60,75,90);
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  color: rgb(255,255,255);
+  background-color: rgb(0,200,40);
 }
 
 /* Header
@@ -308,6 +327,12 @@ section {
 	border-bottom: 1px solid rgb(230,230,230);
 }
 
+section.feature {
+	background-color: rgb(220,225,230);
+	text-align: center;
+	padding: 24px 40px;
+}
+
 section .wrapper {
 	height: auto;
 	overflow: auto;
@@ -510,6 +535,13 @@ a .material-icons {
 	.card-holder{
 		width: 100%;
 		padding: 10px 0;
+	}
+
+	button{
+		width: 100%;
+		margin: 16px 0;
+		color: rgb(255,255,255);
+		background-color: rgb(0,200,40);
 	}
 
 }
