@@ -47,4 +47,4 @@ After making those tweaks, here's how the final version (digital and printed) tu
 
 	Will update with pictures of printed cards
 
-For those interested, I used [Processing](http://processing.org) for all of my visualization work. My code is a little long and convoluted, but [here is the full source code](https://github.com/bdharva/processing/tree/master/538-deardata) used to generate the graphic, along with the JSON data file containing my week of podcast listening data. I was a little rusty with Processing and I'm certain I have room for improvement as a programmer, but this proved good enough for what I was trying to accomplish.
+For those interested, I used [Processing](http://processing.org) for all of my visualization work. My code is a little long and convoluted, but [here is the full source code](https://github.com/bdharva/processing/tree/master/podcasts) used to generate the graphic, along with the JSON data file containing my week of podcast listening data. I was a little rusty with Processing and I'm certain I have room for improvement as a programmer, but this proved good enough for what I was trying to accomplish.
