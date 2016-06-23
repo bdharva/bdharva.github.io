@@ -145,7 +145,7 @@ nav img {
 .menu li {
 	height: 40px;
 	margin: 0;
-	padding: 0 20px 0 0;
+	padding: 0 10px;
 	display: inline-block;
 	font-family: "Heebo", sans-serif;
 	font-size: 14px;
@@ -503,8 +503,16 @@ a .material-icons {
 		padding: 20px;
 	}
 
+	#hero .screen {
+		padding: 20px;
+	}
+
 	p {
 		text-align: justify;
+	}
+
+	.menu li {
+		padding: 0 5px;
 	}
 
 	button{
