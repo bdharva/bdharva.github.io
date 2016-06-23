@@ -3,51 +3,47 @@ layout: default
 title: Highpoints - bdharva
 ---
 
-<div id="hero"  style="background-image:url('/assets/heros/whitney.jpg');">
-	<div class="screen">
-		<div class="content">
-			<h1 class="white no-top">State Highpoints</h1>
-			<h3 class="white no-bottom"><i class="material-icons md-36">terrain</i></br>50 states. 50 peaks.</br>308,625 feet of combined elevation.</h3>
+<div id="hero">
+	<div class="background" style="background-image:url('/assets/heros/whitney.jpg');">
+		<div class="screen">
+			<div class="content">
+				<h1 class="white no-top">State Highpoints</h1>
+				<h3 class="white no-bottom"><i class="material-icons md-36">terrain</i></br>50 states. 50 peaks.</br>308,625 feet of combined elevation.</h3>
+			</div>
 		</div>
 	</div>
 </div>
 <section>
-	<div class="wrapper">
-		<p>I have a goal of summiting the highest natural elevation point in all 50 states. While travelling around the country for my rotation-based training program at Anheuser-Busch, I started seeking out local highpoints as a way to get outside and explore the new places I was in. Around the same time, I was lucky enough to be picked for a charity climb of Mt. Whitney (the highest point in the lower 48 states) led by Backpacker Magazine. Between all of the training climbs and that awe-inspiring trip, I was hooked.</p>
-	</div>
+	<p>I have a goal of summiting the highest natural elevation point in all 50 states. While travelling around the country for my rotation-based training program at Anheuser-Busch, I started seeking out local highpoints as a way to get outside and explore the new places I was in. Around the same time, I was lucky enough to be picked for a charity climb of Mt. Whitney (the highest point in the lower 48 states) led by Backpacker Magazine. Between all of the training climbs and that awe-inspiring trip, I was hooked.</p>
 </section>
 <section>
-	<div class="wrapper">
-		<div class="stats center">
-			<h2 class="green">{{ site.categories.highpoints | size }}/50</h2>
-			<p>peaks completed</p>
-		</div>
-		<div class="stats center">
-			<h2 class="green">14,505'</h2>
-			<p>highest elevation</p>
-		</div>
-		<div class="stats center">
-			<h2 class="green">447'</h2>
-			<p>lowest elevation</p>
-		</div>
+	<div class="stats center">
+		<h2 class="green">{{ site.categories.highpoints | size }}/50</h2>
+		<p>peaks completed</p>
+	</div>
+	<div class="stats center">
+		<h2 class="green">14,505'</h2>
+		<p>highest elevation</p>
+	</div>
+	<div class="stats center">
+		<h2 class="green">447'</h2>
+		<p>lowest elevation</p>
 	</div>
 </section>
-<section>
-	<div class="wrapper">
-		{% for post in site.categories.highpoints reversed %}
-		<div class="card-holder">
-			<a href="{{ post.url }}">
-				<div class="card">
-					<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
-					<div class="details">
-						<i class="material-icons md-18">terrain</i>
-						<span class="title">{{ post.title }}</span>
-						<span class="tags">{{ post.date | date: "%B %-d, %Y" }}</span>
-						<span class="tags">{{ post.tagline }}</span>
-					</div>
+<section class="shell">
+	{% for post in site.categories.highpoints reversed %}
+	<div class="card-holder">
+		<a href="{{ post.url }}">
+			<div class="card">
+				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
+				<div class="details">
+					<i class="material-icons md-18">terrain</i>
+					<span class="title">{{ post.title }}</span>
+					<span class="tags">{{ post.date | date: "%B %-d, %Y" }}</span>
+					<span class="tags">{{ post.tagline }}</span>
 				</div>
-			</a>
-		</div>
-		{% endfor %}
+			</div>
+		</a>
 	</div>
+	{% endfor %}
 </section>

@@ -3,21 +3,21 @@ CSS DOCUMENT - BDHARVA.COM
 ============================================================*/
 
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 html, body { 
-  height: 100%; 
+	height: 100%; 
 }
 
 body {
-  background-color: rgb(245,245,245);
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  font-weight: 300;
-  text-align: left;
-  color: rgb(120,120,120);
+	background-color: rgb(235,235,235);
+	font-family: "Roboto", sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	text-align: left;
+	color: rgb(120,120,120);
 }
 
 /* Text formatting
@@ -46,10 +46,11 @@ h3 {
 h4 {
 	font-size: 18px;
 	margin: 24px 0 16px 0;
+	color: rgb(110,125,140);
 }
 
 h1.green, h2.green, h3.green, h4.green {
-	color: rgb(0,200,40);
+	color: rgb(50,200,100);
 }
 
 h1.white, h2.white, h3.white, h4.white {
@@ -57,11 +58,10 @@ h1.white, h2.white, h3.white, h4.white {
 }
 
 p, li {
-  font-size:18px;
-  font-weight:300;
-  line-height: 150%;
-  margin: 16px 0px;
-
+	font-size:18px;
+	font-weight:300;
+	line-height: 150%;
+	margin: 16px 0px;
 }
 
 p img {
@@ -71,7 +71,7 @@ p img {
 }
 
 a {
-	color: rgb(0,200,40);
+	color: rgb(50,200,100);
 	text-decoration: none;
 }
 
@@ -85,22 +85,22 @@ ul {
 }
 
 button {
-  margin: 16px;
-  padding: 12px 16px;
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  border: 2px solid rgb(0,200,40);
-  border-radius: 3px;
-  background: none;
-  color: rgb(60,75,90);
-  outline: none;
-  cursor: pointer;
+	margin: 16px;
+	padding: 12px 16px;
+	font-size: 16px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	border: 2px solid rgb(50,200,100);
+	border-radius: 3px;
+	background: none;
+	color: rgb(60,75,90);
+	outline: none;
+	cursor: pointer;
 }
 
 button:hover {
-  color: rgb(255,255,255);
-  background-color: rgb(0,200,40);
+	color: rgb(255,255,255);
+	background-color: rgb(50,200,100);
 }
 
 /* Header
@@ -108,179 +108,79 @@ button:hover {
 
 header {
 	width: 100%;
-	max-width: 1200px;
-	margin: 0 auto;
-	display: block;
-	padding: 32px 40px;
+	max-width: 1220px;
 	box-sizing: border-box;
-	font-size: 14px;
+	margin: 0 auto;
+	padding: 10px;
 	position: absolute;
-	z-index: 10;
+	top: 0;
 	right: 0;
 	left: 0;
+	z-index: 10;
+	background-color: rgb(255,255,255);
+	transition: top 0.5s ease-in-out;
 }
 
-header.scrolled,
-header.static {
-	position: fixed;
-	top: 0;
-	background-color: rgb(60,75,90);
-	box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+.nav-up {
+    top: -60px;
 }
-
-header.noshadow {
-	position: fixed;
-	top: 0;
-	box-shadow: none;
-}
-
-header .wrapper {
-	height: 30px;
-	max-width: 1000px;
-	margin: auto;
-}
-
-/* Navigation
-------------------------------------------------------------*/
 
 nav {
 	color: rgb(255,255,255);
-	height: 30px;
+	height: 40px;
 	font-weight: 400;
+	float: left;
 }
 
 nav img {
-	height: 30px;
+	height: 40px;
 	display: inline-block;
 	vertical-align: middle;
 }
 
-/* Navigation - Left
-------------------------------------------------------------*/
-
-nav.left {
-	float: left;
-}
-
-nav.left li {
-	margin: 0;
-	font-size: 18px;
-	font-weight: 400;
-	margin-left: 4px;
-}
-
-nav.left a:hover {
-	text-decoration: none;
-}
-
-/* Navigation - Right
-------------------------------------------------------------*/
-
-nav.right {
+.menu {
 	float: right;
 }
 
-nav.right a {
+.menu li {
+	height: 40px;
+	margin: 0;
+	padding: 0 20px 0 0;
+	display: inline-block;
+	font-family: "Heebo", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 40px;
+	vertical-align: middle;
+	box-sizing:border-box;
+}
+
+.menu a { 
+	color: rgb(150,150,150);
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	height: auto;
+	overflow: auto;
 	opacity: 0.5;
 }
 
-nav.right li {
-	margin: 0 0 0 16px;
-	font-size: 14px;
-	font-weight: 400;
-}
-
-nav.right a:hover {
+.menu a.active,
+.menu a:hover {
 	opacity: 1.0;
-	text-decoration: none;
-}
-
-nav.right a.active {
-	opacity: 1.0;
-	text-decoration: none;
-}
-
-/* Menu
-------------------------------------------------------------*/
-
-#menu {
-  visibility: hidden;
-  z-index: 5;
-  width: 100%;
-  max-width: 1200px;
-  right: 0;
-  left: 0;
-  margin: 0 auto;
-  padding: 0;
-  background-color: rgb(60,75,90);
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  height: auto;
-  overflow: auto;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
-}
-
-#menu ul {
-  display: block;
-  list-style-type: none;
-  list-style-image: none;
-  width: 100%;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 94px 0 20px 0;
-}
-
-#menu a.active li {
-	background-color: rgba(0,0,0,0.05);
-	font-weight: 400;
-}
-
-#menu li {
-  margin: 0;
-  padding: 10px 40px;
-  width: 100%;
-  display: block;
-  font-size: 16px;
-  line-height: 36px;
-  vertical-align: middle;
-  box-sizing:border-box;
-}
-
-#menu li:hover {
-  background-color: rgba(0,0,0,0.15);
-}
-
-#menu a { 
-  color: rgb(255,255,255);
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-  height: auto;
-  overflow: auto;
-}
-
-#showmenu,
-#hidemenu {
-	cursor: pointer;
-}
-
-#hidemenu {
-	display: none;
 }
 
 /* Wrapper
 ------------------------------------------------------------*/
 
 #wrapper {
-  z-index: 2;
-  position: relative;
-  /*min-height: 100%;*/
-  max-width: 1200px;
-  display: block;
-  margin: 0 auto;
-  box-shadow: 0 0px 8px rgba(0,0,0,0.3);
-  background-color: rgb(255,255,255);
+	z-index: 2;
+	position: relative;
+	/*min-height: 100%;*/
+	max-width: 1230px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 70px;
 }
 
 /* Hero & screens
@@ -288,15 +188,22 @@ nav.right a.active {
 
 #hero {
 	width: 100%;
+	max-width: 1220px;
+	height: auto;
+	overflow: auto;
+	padding: 10px;
+	margin: 0 auto;
+	margin-top: 10px;
+	background-color: rgb(255,255,255);
+	box-sizing: border-box;
+}
+
+#hero .background {
+	width: 100%;
 	height: 500px;
 	background-size: cover;
 	background-position: center;
 	position: relative;
-}
-
-#hero .content {
-	max-width: 1000px;
-	margin: auto;
 }
 
 #hero a {
@@ -321,26 +228,42 @@ section {
 	height: auto;
 	overflow: auto;
 	width: 100%;
-	margin: 0;
-	padding: 40px;
+	max-width: 1220px;
+	margin: 0 auto;
+	margin-top: 10px;
+	padding: 40px 60px;
 	box-sizing: border-box;
-	border-bottom: 1px solid rgb(230,230,230);
+	background-color: rgb(255,255,255);
+}
+
+section.shell {
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: -5px;
+	padding: 0;
+	background: none;
+	max-width: none;
+}
+
+section.shell.top {
+	margin-top: -5px;
 }
 
 section.feature {
-	background-color: rgb(220,225,230);
+	background-color: rgb(50,200,100);
 	text-align: center;
 	padding: 24px 40px;
+	border: 10px solid rgb(255,255,255);
 }
 
-section .wrapper {
-	height: auto;
-	overflow: auto;
-	width: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-	padding: 0;
-	box-sizing: border-box;
+.feature button {
+	border: 2px solid rgb(255,255,255);
+	color: rgb(255,255,255);
+}
+
+.feature button:hover {
+	color: rgb(50,200,100);
+	background-color: rgb(255,255,255);
 }
 
 /* Content Cards
@@ -350,9 +273,17 @@ section .wrapper {
 .stats {
 	width: 33.33%;
 	box-sizing: border-box;
-	padding: 10px;
+	padding: 5px;
 	display: block;
 	float: left;
+}
+
+.card-holder.quad {
+	width: 25%;
+}
+
+.card-holder.double {
+	width: 50%;
 }
 
 .card-holder a {
@@ -362,6 +293,7 @@ section .wrapper {
 .card {
 	width: 100%;
 	box-sizing: border-box;
+	padding: 10px;
 	background-color: rgb(255,255,255);
 	position: relative;
 }
@@ -376,6 +308,22 @@ section .wrapper {
 	box-sizing: border-box;
 	background-size: cover;
 	background-position: center;
+}
+
+.label {
+	height: auto;
+	overflow: auto;
+	top: 0;
+	left: 0;
+	padding: 10px 20px;
+	display: block;
+	position: absolute;
+	background-color: rgb(255,255,255);
+	font-family: "Heebo", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	color: rgb(150,150,150);
+	box-sizing: border-box;
 }
 
 .details {
@@ -401,15 +349,29 @@ section .wrapper {
 	color: rgb(150,160,170);
 }
 
+.cta {
+	font-size: 14px;
+	text-align: right;
+	position: absolute;
+	display: block;
+	bottom: 30px;
+	right: 30px;
+}
+
 /* Footer
 ------------------------------------------------------------*/
 
 footer {
+	width: 100%;
+	max-width: 1220px;
 	background-color: rgb(60,75,90);
 	color: rgb(255,255,255);
 	padding: 40px;
 	text-align: center;
 	font-size: 14px;
+	margin: 10px auto;
+	border: 10px solid rgb(255,255,255);
+	box-sizing: border-box;
 }
 
 footer .wrapper {
@@ -537,11 +499,19 @@ a .material-icons {
 		padding: 10px 0;
 	}
 
+	section {
+		padding: 20px;
+	}
+
+	p {
+		text-align: justify;
+	}
+
 	button{
 		width: 100%;
 		margin: 16px 0;
 		color: rgb(255,255,255);
-		background-color: rgb(0,200,40);
+		background-color: rgb(50,200,100);
 	}
 
 }

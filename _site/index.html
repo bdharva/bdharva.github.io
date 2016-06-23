@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="icon" type="image/png" href="/assets/favicon.ico">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet"  type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Mono:300' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css" rel="stylesheet">
@@ -37,90 +38,85 @@
 
 	<body>
 
-		<div id="menu">
-	<ul>
-		<a href="/" class="active"><li>About</li></a>
-		<a href="/blog" ><li>Blog</li></a>
-		<a href="/projects" ><li>Projects</li></a>
-		<a href="/photography" ><li>Photography</li></a>
-		<a href="/highpoints" ><li>Highpoints</li></a>
-	</ul>
-</div>
-<header>
-	<div class="wrapper">
-		<nav class="left">
-			<a href="/">
-				<img src="/assets/logo_white.svg"/>
-			</a>
-		</nav>
-		<nav class="right">
-			<i id="showmenu" class="material-icons md-24" ng-click="showMenu()">menu</i>
-			<i id="hidemenu" class="material-icons md-24" ng-click="hideMenu()">close</i>
-			<!--<li><i class="material-icons">menu</i></li>
-			<li><i class="material-icons">close</i></li>-->
-		</nav>
-	</div>
+		<header>
+	<nav>
+		<a href="/">
+			<img id="logo" src="/assets/logo_white.svg"/>
+		</a>
+	</nav>
+	<nav class="menu">
+		<a href="/about" ><li>ABOUT</li></a>
+		<a href="/work" ><li>WORK</li></a>
+		<a href="/blog" ><li>BLOG</li></a>
+		<a href="/photos" ><li>PHOTOS</li></a>
+	</nav>
 </header>
 
 		<div id="wrapper">
 			
-			<div id="hero"  style="background-image:url('/assets/hero_index.jpg'); background-position: top;">
-	<div class="screen">
-		<div class="content">
-			<h1 class="white no-top">Ben Harvatine</h1>
-			<h3 class="white no-bottom">MIT Engineer.</br>
-				Founder &amp; CEO at Jolt.</br>
-				Forbes 30 Under 30.</h3>
+			<section class="shell top">
+	<div class="card-holder">
+		<div class="card">
+			<div class="pic" style="background-image:url('/assets/ben.jpg'); background-position: top;"></div>
+			<div class="label">ABOUT ME</div>
+			<div class="details left">
+				<span class="title">I'm Ben Harvatine, an MIT-trained engineer and designer with an entrepreneurial streak.</span>
+				<span class="cta"><a href="/about">&rarr; Learn more about Ben...</a></span>
+			</div>
 		</div>
 	</div>
-</div>
-<section>
-	<div class="wrapper">
-		<h3>Ben is an engineer, designer, and entrepreneur. He is the founder &amp; CEO of <a href="http://www.joltsensor.com">Jolt</a>, a startup that makes head impact sensors for athletes. He previously co-founded <a href="http://www.birddoginnovations.com">Birddog Innovations</a> and was a Global Management Trainee at <a href="http://www.abinbev.com">Anheuser-Busch InBev</a>. Ben is a <a href="http://www.masschallenge.org">MassChallenge</a>, <a href="http://www.techstars.com">Techstars</a>, and <a href="http://www.mit.edu">MIT</a> alum.</h3>
-		<p>Ben holds a Bachelor of Science degree in Mechanical Engineering, with a minor in Architecture, from the Massachusetts Institute of Technology. In his free time, he enjoys doing anything that gets him outside -- sailing, tennis, fishing, hunting, and mountaineering -- and working with his hands -- tinkering with his 3D printer, wrenching on his truck, and building furniture. Ben has climbed 10 state highpoints as part of his effort to summit the highest natural point in each of the 50 states.</p>
+	<div class="card-holder">
+		<div class="card">
+			
+			<div class="pic" style="background-image:url('/assets/blog/redzone/hero.png');"></div>
+			<div class="label">BLOG POST</div>
+			<div class="details left">
+				<span class="title"><a href="/blog/2016/06/10/red-zone.html">Read "Red Zone"</a> - Evaluating Penn State's red zone performance under James Franklin</span>
+				<span class="cta"><a href="/blog">&rarr; See more blog posts...</a></span>
+			</div>
+		</div>
 	</div>
-</section>
-<section>
-	<div class="wrapper">
-		<h3>Recognition</h3>
-		<ul>
-			<li><a href="http://www.forbes.com/30-under-30-2016/healthcare/#6406b37d297e">2016 Forbes 30 Under 30, Healthcare</a></li>
-			<li><a href="https://medtechboston.medstro.com/blog/2016/05/02/the-2016-medtech-boston-40-under-40-healthcare-innovators/15/">2016 Medtech Boston 40 Under 40 Healthcare Innovators</a></li>
-		</ul>
+	<div class="card-holder">
+		<div class="card">
+			
+			<div class="pic" style="background-image:url('/assets/photography/windsorcastle/windsorcastle-6.jpg');"></div>
+			<div class="label">PHOTOGRAPHY</div>
+			<div class="details left">
+				<span class="title"><a href="/photography/2014/12/29/windsor-castle.html">Check out photos</a> from my recent (or most recently edited) trip to Windsor Castle</span>
+				<span class="cta"><a href="/photos">&rarr; View more photo adventures...</a></span>
+			</div>
+		</div>
 	</div>
-</section>
-<section>
-	<div class="wrapper">
-		<h3>Appearances</h3>
-		<h4>Television &amp; Videocasts</h4>
-		<ul>
-			<li><a href="https://www.youtube.com/watch?v=CUYSCi2N3Rw">2014, The Young Turks Sports</a>: Concussion Solution? Jolt Sensor Interview</li>
-			<li><a href="http://www.wcvb.com/community/cityline/sunday-december-13-2015-hot-movies-heavy-topics/36879534">2015, WCVB Cityline</a>: Hot Movies, Heavy Topics</li>
-		</ul>
-		<h4>Radio &amp; Podcasts</h4>
-		<ul>
-			<li><a href="http://stlouis.cbslocal.com/tag/jolt-sensor/">2014, KMOX News Radio 1120</a>: The Charlie Brennan Show, Jolt Sensor</li>
-			<li><a href="http://artofthekickstart.com/atk042-crowdfunding-concussion-prevention-wearable-sports-safety/">2014, The Art of the Kickstart</a>: Crowdfunding Concussion Prevention and Wearable Sports Safety for All</li>
-			<li><a href="http://kcur.org/post/kansas-city-entrepreneurs-create-innovative-sports-technology#stream/0">2015, KCUR 89.3</a>: Kansas City Entrepreneurs Create Innovative Sports Technology</li>
-		</ul>
-		<h4>Press Coverage</h4>
-		<ul>
-			<li><a href="https://www.yahoo.com/tech/mit-students-invent-gadget-to-detect-concussions-in-95944765704.html">2014, Yahoo Tech</a>: MIT Students Invent Gadget to Detect Concussions in Young Athletes</li>
-			<li><a href="https://www.washingtonpost.com/news/early-lead/wp/2014/09/02/mit-graduates-are-on-a-quest-to-make-sports-related-head-injuries-history-with-better-technology/">2014, The Washington Post</a>: MIT graduates are on a quest to make sports-related head injuries history with better technology</li>
-			<li><a href="http://www.dailymail.co.uk/sciencetech/article-2741887/The-clip-sensor-prevents-concussion-Tiny-monitor-sends-alerts-referees-player-bangs-head.html">2014, DailyMail.com</a>: The clip-on sensor that could prevent concussion</li>
-			<li><a href="http://www.foxnews.com/health/2014/09/12/former-college-wrestler-aims-to-boost-concussion-prevention-with-clip-on-device.html">2014, Fox News Health</a>: Former college wrestler aims to boost concussion prevention with clip-on device</li>
-			<li><a href="http://www.fastcompany.com/3035730/these-athletic-wearables-will-stop-injuries-before-they-happen">2014, Fast Company</a>: These Athletic Wearables Aim to Stop Injuries Before They Happen</li>
-			<li><a href="http://www.bostonglobe.com/business/2015/01/23/reebok-others-have-technology-help-prevent-concussions-but-few-sports-adopt/ToxlcL95oQEK6L5zBF9nsN/story.html">2015, The Boston Globe</a>: Concussion monitoring gear is a tough sell</li>
-			<li><a href="http://www.huffingtonpost.com/kyle-mccarthy/five-fabulous-fitness-wea_b_6567882.html">2015, The Huffington Post</a>: Five Fabulous Fitness Wearables that Were Successfully Crowdfunded</li>
-		</ul>
-		<h4>Speaking</h4>
-		<ul>
-			<li>2015, Mobile Monday Kansas City: Sprint Accelerator Panel</li>
-			<li>2015, Techstars Sprint Accelerator Demo Day: Jolt Sensor</li>
-			<li>2015, Kansas City Techweek: Techstars Panel</li>
-			<li>2015, Mobile Monday Boston: Techstars Healthcare Startups</li>
-			<li>2016, MIT VMS Demo Day: Jolt Sensor</li>
-		</ul>
+	<div class="card-holder">
+		<div class="card">
+			<div class="pic" style="background-image:url('/assets/bottleopener1.jpg');"></div>
+			<div class="label">PROJECT</div>
+			<div class="details left">
+				<span class="title">My portfolio is under construction, but you can see preview shots of some of my recent work.</span>
+				<span class="cta"><a href="/work">&rarr; Enter construction zone...</a></span>
+			</div>
+		</div>
+	</div>
+	<div class="card-holder">
+		<div class="card">
+			
+			<div class="pic" style="background-image:url('/assets/highpoints/highpoint/highpoint-9.jpg');"></div>
+			<div class="label">HIGHPOINT</div>
+			<div class="details left">
+				<span class="title">With <a href="/highpoints/2016/03/04/NJ-highpoint.html">my recent summit </a> of High Point, NJ, I've now climbed 10 out of 50 state highpoints.</span>
+				<span class="cta"><a href="/highpoints">&rarr; List of completed highpoints...</a></span>
+			</div>
+		</div>
+	</div>
+	<div class="card-holder">
+		<div class="card">
+			<div class="pic" style="background-image:url('/assets/wcvb.png');"></div>
+			<div class="label">IN THE NEWS</div>
+			<div class="details left">
+				<span class="title"><a href="http://www.wcvb.com/community/cityline/sunday-december-13-2015-hot-movies-heavy-topics/36879534" target="_blank">Watch me discuss</a> Concussion (the movie) and my head impact sensor company on WCVB Boston.</span>
+				<span class="cta"><a href="/about#pressmentions">&rarr; See more press mentions...</a></span>
+			</div>
+		</div>
 	</div>
 </section>
 

@@ -8,23 +8,6 @@ $(document).ready(function(){
 
 $(window).resize(align);
 
-$(window).scroll(function(){
-
-    var scrolled = $(window).scrollTop();
-    var threshhold = $('#hero').height() - 100;
-
-    if (scrolled >= threshhold) {
-
-        $('header').addClass('scrolled');
-    
-    } else {
-    
-        $('header').removeClass('scrolled');
-    
-    }
-
-});
-
 $( ".card .screen" ).hover(
 	function() {
 		$(this).animate({opacity : 1 },200)
@@ -34,40 +17,8 @@ $( ".card .screen" ).hover(
 	}
 );
 
-$('#showmenu').click(function() {
-
-    menu_show(200);
-
-});
-
-$('#hidemenu').click(function() {
-
-    menu_hide(200);
-
-});
-
-function menu_show(delay) {
-
-    $('#showmenu').hide();
-    $('#hidemenu').show();
-
-    $('header').addClass('noshadow');
-    $('#menu').animate({top : 0 + 'px'},200);
-
-};
-
-function menu_hide(delay) {
-
-    $('header').removeClass('noshadow');
-    $('#menu').animate({top : -$('#menu').height()},delay);
-    $('#showmenu').show();
-    $('#hidemenu').hide();
-
-};
-
 function setup() {
 
-	setmenu();
 	align();
 
 };
@@ -91,12 +42,59 @@ function align() {
 
 };
 
-function setmenu() {
+var scrolled;
+var previous = 0;
+var change = 5;
+var height = $('header').outerHeight();
 
-    $('#hidemenu').hide();
-    $('#hidemenu').css({'visibility':'visible'});
-    $('#menu').css({'top':-$('#menu').height()});
-    $('#menu').css({'visibility':'visible'});
-    $('#menu').css({'right':0})
+$(window).scroll(function(event){
+    
+    scrolled = true;
 
+    var top = $(window).scrollTop();
+    var threshhold = $('header').outerHeight() + $('#hero').outerHeight() ;
+
+    if (top >= threshhold ) {
+
+        $('header').css({'position': 'fixed'});
+
+    } else {
+
+        $('header').css({'position': 'absolute'});
+
+    }
+
+});
+
+setInterval(function() {
+
+    if (scrolled) {
+
+        hasScrolled();
+        scrolled = false;
+
+    }
+
+}, 250);
+
+function hasScrolled() {
+
+    var st = $(this).scrollTop();
+    
+    if(Math.abs(previous - st) <= change)
+
+        return;
+    
+    if (st > previous && st > height){
+
+        $('header').removeClass('nav-down').addClass('nav-up');
+
+    } else {
+
+        if(st + $(window).height() < $(document).height()) {
+            $('header').removeClass('nav-up').addClass('nav-down');
+        }
+    }
+    
+    previous = st;
 }
