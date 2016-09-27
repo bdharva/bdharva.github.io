@@ -33,8 +33,8 @@
      inkscape:document-units="px"
      inkscape:window-width="1440"
      inkscape:window-height="855"
-     inkscape:window-x="1440"
-     inkscape:window-y="1"
+     inkscape:window-x="135"
+     inkscape:window-y="2"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata3916">
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -64,7 +64,10 @@
          height="40"
          x="-475.05765"
          y="-226.22404"
-         transform="scale(-1,-1)" />
+         transform="scale(-1,-1)"
+         inkscape:export-filename="/Users/bdharva/Dropbox/Personal/website/assets/favicon.png"
+         inkscape:export-xdpi="144"
+         inkscape:export-ydpi="144" />
       <g
          style="fill:#ffffff;fill-opacity:1"
          id="g4272-8-8"

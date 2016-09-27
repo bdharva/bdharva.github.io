@@ -13,26 +13,20 @@ title: Projects - bdharva
 		</div>
 	</div>
 </div>
-<section>
-	<div class="wrapper">
-		<h2>Work in Progress</h2>
-		<p>I have a bad habit of constantly making things without ever documenting them, so this portfolio section remains under construction as I pull everything together. In the meantime, here are a few snapshots of some of the projects that will be featured here.</p>
-	</div>
-</section>
 <section class="shell">
 	<div class="wrapper">
 		{% for post in site.categories.projects %}
 		<div class="card-holder">
-			<!--<a href="{{ post.url }}">-->
+			<a href="{{ post.url }}">
 				<div class="card">
-					<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
-					<!--<div class="details">
+					<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+					<div class="details">
 						<i class="material-icons md-18">build</i>
 						<span class="title">{{ post.title }}</span>
 						<span class="tags">{{ post.tagline }}</span>
-					</div>-->
+					</div>
 				</div>
-			<!--</a>-->
+			</a>
 		</div>
 		{% endfor %}
 	</div>

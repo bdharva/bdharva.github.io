@@ -65,9 +65,9 @@ p, li {
 }
 
 p img {
-	width: 100%;
-	margin: 16px 0;
-	background-color: rgb(80, 95, 110);
+	max-width: 100%;
+	margin: 32px auto;
+	display: block;
 }
 
 a {
@@ -82,6 +82,14 @@ a:hover {
 ul {
 	list-style: outside;
 	margin: 16px 32px;
+}
+
+blockquote {
+	border-left: 6px solid rgb(50,200,100);
+	margin: 16px 0;
+	padding: 0 16px;
+	font-style: italic;
+	color: rgb(170,170,170);
 }
 
 button {
@@ -358,6 +366,46 @@ section.feature {
 	right: 30px;
 }
 
+.row {
+	height: auto;
+	overflow: auto;
+	width: auto;
+	margin: 0 auto;
+	padding: 0;
+	display: block;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-6 {
+	padding: 20px;
+	display: block;
+	float: left;
+	box-sizing: border-box;
+}
+
+.col-1 {
+	width: 100%;
+}
+
+.col-2 {
+	width: 50%;
+}
+
+.col-3 {
+	width: 33.33%;
+}
+
+.col-4 {
+	width: 25%;
+}
+
+.col-6 {
+	width: 16.66%;
+}
+
 /* Footer
 ------------------------------------------------------------*/
 
@@ -509,6 +557,10 @@ a .material-icons {
 
 	p {
 		text-align: justify;
+	}
+
+	.stats p {
+		text-align: center;
 	}
 
 	.menu li {

@@ -38,11 +38,12 @@ title: bdharva
 	</div>
 	<div class="card-holder">
 		<div class="card">
-			<div class="pic" style="background-image:url('/assets/bottleopener1.jpg');"></div>
+			{% assign post = site.categories.projects.first %}
+			<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
 			<div class="label">PROJECT</div>
 			<div class="details left">
-				<span class="title">My portfolio is under construction, but you can still preview some of my recent work.</span>
-				<span class="cta"><a href="/work">&rarr; Enter construction zone...</a></span>
+				<span class="title">View my most recent project, "<a href="{{ post.url }}">{{post.title}}</a>", in my portfolio.</span>
+				<span class="cta"><a href="/work">&rarr; All portfolio entries...</a></span>
 			</div>
 		</div>
 	</div>
