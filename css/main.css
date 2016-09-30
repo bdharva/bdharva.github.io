@@ -7,8 +7,8 @@ CSS DOCUMENT - BDHARVA.COM
 	padding: 0;
 }
 
-html, body { 
-	height: 100%; 
+html, body {
+	height: 100%;
 }
 
 body {
@@ -28,7 +28,7 @@ h1, h2, h3, h4 {
 	font-weight: 400;
 }
 
-h1 {  
+h1 {
 	font-size: 48px;
 	margin: 24px 0 16px 0;
 }
@@ -163,7 +163,7 @@ nav img {
 	box-sizing:border-box;
 }
 
-.menu a { 
+.menu a {
 	color: rgb(150,150,150);
 	text-decoration: none;
 	margin: 0;
@@ -553,10 +553,6 @@ a .material-icons {
 
 	#hero .screen {
 		padding: 20px;
-	}
-
-	p {
-		text-align: justify;
 	}
 
 	.stats p {
