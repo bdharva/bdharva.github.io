@@ -1,0 +1,179 @@
+#chart {
+	max-width: 1200px;
+	height: auto;
+	overflow: auto;
+	padding: 20px;
+	background: rgb(230,230,230);;
+	margin: 24px auto;
+	display: block;
+	font-size: 14px;
+}
+
+#chart .pane {
+	height: auto;
+	overflow: auto;
+	display: block;
+	float: left;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+#chart #pane-1 {
+	width: 75%;
+}
+
+#chart #pane-2 {
+	width: 25%;
+}
+
+#chart svg,
+#chart .stats {
+	background-color: rgb(255,255,255);
+	margin: 0 auto;
+	position: relative;
+	display: block;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+#chart svg {
+	border-top: 10px solid rgb(60,75,90);
+	cursor: crosshair;
+}
+
+#chart .stats {
+	border-top: 10px solid rgb(230,80,80);
+	height: auto;
+	overflow: auto;
+	width: 100%;
+}
+
+#chart .stat {
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	position: relative;
+	display: block;
+	float: left;
+}
+
+#chart .pane .stats .stat h1,
+#chart .pane .stats .stat h2,
+#chart .pane .stats .stat h3,
+#chart .pane .stats .stat h4 {
+  margin-top: 0;
+}
+
+#chart .pane .stats h4 {
+  margin: 0;
+}
+
+
+#chart .land {
+	fill: rgb(220,220,220);;
+}
+
+#chart .border {
+	fill: none;
+	stroke: rgb(249,249,249);;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+}
+
+#chart .bubble {
+	stroke: rgb(255,255,255);
+	stroke-width: 1px;
+	fill-opacity: .5;
+}
+
+#chart .bubble:hover {
+	fill-opacity: 1;
+}
+
+#chart .bubble.active {
+	fill-opacity: 1;
+	stroke: rgb(60,75,90);
+}
+
+#chart .bubble-0,
+#chart .bubble-1 {
+	fill: rgb(50, 200, 100);
+}
+
+#chart .bubble-2 {
+	fill: rgb(200, 50, 100);
+}
+
+#chart .bubble-3 {
+	fill: rgb(50, 100, 200);
+}
+
+#chart .bubble-4,
+#chart .bubble-5,
+#chart .bubble-6 {
+	fill: rgb(200, 100, 50);
+}
+
+#chart .bubble-7 {
+	fill: rgb(100, 200, 50);
+}
+
+#chart .bubble-8 {
+	fill: rgb(200, 50, 100);
+}
+
+#chart .bubble-9 {
+	fill: rgb(100, 50, 200);
+}
+
+#chart .tooltip {
+	position: absolute;
+	height: auto;
+	padding: 10px;
+	background-color: rgb(255,255,255);;
+	pointer-events: none; /* ¡MUY IMPORTANTE! */
+	font-family: sans-serif;
+	font-size:12px;
+	color: rgb(100,100,100);
+	border: 1px solid rgb(200,200,200);
+}
+
+@media (max-width:1180px){
+
+	#chart #pane-1,
+	#chart #pane-2 {
+		width: 100%;
+	}
+
+	#chart .stat {
+		width: 25%;
+		padding: 5px;
+		box-sizing: border-box;
+	}
+
+}
+
+@media (max-width:1020px){
+
+	#chart .stat {
+		width: 33.33%;
+	}
+
+}
+
+@media (max-width:830px){
+
+	#chart .stat {
+		width: 50%;
+	}
+
+}
+
+@media (max-width:510px){
+
+	#chart .stat {
+		width: 100%;
+		padding: 0;
+	}
+
+}
