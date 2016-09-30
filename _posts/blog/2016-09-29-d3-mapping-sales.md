@@ -33,7 +33,7 @@ If you're building a visualization like this into some sort of internal dashboar
 
 _Skip to the next section if you already have the data you need, already know how to get it, or are getting it from other sources._
 
-Downloading data for Jolt was straightforward. On Kickstarter, navigate to your project, click "Menu" in the upper righthand corner of your project page, and select "View backer report". At the top of this page, there's a link to "Export backer report". It triggers a pop-up that allows you to select the output format. I selected "All Tiers" and "Kickstarter - pledges, surveys, addresses". When you click "Export", it takes a few seconds to prepare the files for download and then displays a "Download" button when ready. After downloading the report, I unzipped it, deleted a but a few rewards tiers I wanted to include, and then copy-pasted their data into a single file. Note that it's important to make sure the files you're combining have the same column headers and order. If they don't you'll want to use a script to merge them properly.
+Downloading data for Jolt was straightforward. On Kickstarter, navigate to your project, click "Menu" in the upper righthand corner of your project page, and select "View backer report". At the top of this page, there's a link to "Export backer report". It triggers a pop-up that allows you to select the output format. I selected "All Tiers" and "Kickstarter - pledges, surveys, addresses". When you click "Export", it takes a few seconds to prepare the files for download and then displays a "Download" button when ready. After downloading the report, I unzipped it, deleted all but a few rewards tiers I wanted to include, and then copy-pasted their data into a single file. Note that it's important to make sure the files you're combining have the same column headers and order. If they don't you'll want to use a script to merge them properly.
 
 Following our Kickstarter campaign, we used Celery to collect pre-orders and have continued to use it for order collection now that we're shipping. To get export sales data from Celery, simply navigate to your "Orders" page while logged in. Apply whatever filters you'd like (for example, date range and product variant) and click the "Export Orders" button at the upper right of the page. Then select "Export Fulfillment CSV" in the pop-up (since we want address data to work with). This downloads a .csv that's good to go, unless you want to apply additional filters to the data.
 
@@ -65,7 +65,7 @@ If you're going to be copying parts of this Python code verbatim for your own us
 
 	import urllib.request, ast, csv, json
 
-The `csv` and `json` modules are useful for reading and writing files of those respective types, `urllib` is what we'll be using to make API calls, and `ast` will allow us to parse the responses from those requests into a usable format. The first thing we want to do is to read in the sales data and aggregate order totals by zip code. Before we read it in, we'll define a class for these zip code areas.
+The `csv` and `json` modules are useful for reading and writing files of those respective types, `urllib` is what we'll be using to make API calls, and `ast` will allow us to parse the responses from those requests into a usable format. The first thing we want to do is to read in the sales data and aggregate order totals by zip code. Before we read it in, we'll define a class that we'll use instances of to store zip code areas and their corresponding data.
 
 	class Area:
 
@@ -119,7 +119,7 @@ We import `orders.csv` in the same way, updating the query indexes to match its 
 				if added == False:
 					orders.append(Area(code, amount))
 
-At this point, we have an array `orders` containing an `Area` instance for each zip code that we received an order from, along with the total dollar-value of orders from that locale. Now we're ready to add some context, first using the Google Maps Geocoding API to get the latitude and longitude of each zip code's center point, then using the US Census API to get some basic demographic information on each area. We define a class for each API, each with an `__init__` method to pull in our API key and a `get` method to create a properly formatted API call, execute it, and return the results.
+At this point, we have an array `orders` containing an `Area` instance for each zip code that we received an order from, along with the total dollar-value of orders from each locale. Now we're ready to add some context, first using the Google Maps Geocoding API to get the latitude and longitude of each zip code's center point, then using the US Census API to get some basic demographic information on each area. We define a class for each API, each with an `__init__` method to pull in our API key and a `get` method to create a properly formatted API call, execute it, and return the results.
 
 	class ZipInfo:
 
@@ -191,7 +191,7 @@ With everything set up and ready to go, we can now loop through the `orders` arr
 				demos.append(results[1][x])
 			order.add_demos(demos)
 
-Our last step in Python is to save all of this data to a file that we can access with D3. The syntax and process are very similar to when we previously read files, instead writing data row by row.
+Our last step in Python is to save all of this data to a file that we can access with D3. The syntax and process are very similar to when we previously _read_ files, but now we're _writing_ data row by row.
 
 	with open('orders_demos.csv', 'w') as output:
 		writer = csv.writer(output, lineterminator='\n')
@@ -255,7 +255,7 @@ Similar to using `package.json`, we'll now create a Makefile rather than executi
 			--out-object=nation \
 			-- $<
 
-In the interest of not reinventing the wheel while trying to avoid plagiarism, [Mike Bostock explains](https://bost.ocks.org/mike/bubble-map/#finding-boundaries) what all of this means (and does) as clearly and succinctly as possible. All you need to know here is this: once you've created the `Makefile`, executing `make build` in terminal will create the `us.json` file that you're going to feed D3. And executing `make clean` will delete that file, as well as the `/build` folder containing the downloaded files referenced to build it.
+In the interest of not reinventing the wheel, [Mike Bostock explains](https://bost.ocks.org/mike/bubble-map/#finding-boundaries) what all of this means (and does) as clearly and succinctly as one could. All you need to know here is this: once you've created the `Makefile`, executing `make build` in terminal will create the `us.json` file that you're going to feed D3. And executing `make clean` will delete that file, as well as the `/build` folder containing the downloaded files referenced to build it.
 
 ### Mapping the Data
 
@@ -343,7 +343,7 @@ First we define all of the variables we're going to want accessible across funct
 
 			}
 
-Now our `init()` functions takes in our data files and passes the order data to type to properly format the number fields. We append an `svg` to `div#pane-1` where we'll be drawing the map. We define our geographic projection and path, and append paths to the `svg` for the full shape of the US, as well as the shapes of the individual states. You'll notice that here we pass in the data file and assign classes (for CSS styling) for each path but don't yet link our `path` variable to the `"d"` attribute. We'll do this in the `render()` function after updating the projection based on the window size.
+Now our `init()` functions takes in our data files and passes the order data to `type()` to properly format the number fields. We append an `svg` to `div#pane-1` where we'll be drawing the map. We define our geographic projection and path, and append paths to the `svg` for the full shape of the US, as well as the shapes of the individual states. You'll notice that here we pass in the data file and assign classes (for later styling with CSS) for each path but don't yet link our `path` variable to the `"d"` attribute. We'll do this in the `render()` function after updating the projection based on the window size.
 
 	function init(error, us, orders) {
 
@@ -445,7 +445,7 @@ Since the first thing we do in the `render()` function is call `updateDimensions
 		return document.getElementById(element).clientWidth;
 	}
 
-After updating the drawing dimensions, `render()` updates the bubble scaling, assigns the proper size to the `svg`, and updates the projection to the drawing size. With these items updated to scale everything properly, we're now able to assign the remaining data attributes to the paths and bubbles, which completes the process of rendering them on the drawing.
+After updating the drawing dimensions, `render()` updates the bubble scaling, assigns the proper size to the `svg`, and updates the projection to the drawing size. With these items updated to scale everything properly, we're now able to assign the remaining data attributes to the paths and bubbles, which completes the process of rendering them in the drawing.
 
 	function render() {
 
@@ -487,7 +487,7 @@ After updating the drawing dimensions, `render()` updates the bubble scaling, as
 
 #### Visual Styling
 
-At this point, everything we've rendering is unstyled. We've defined the locations and sizes of elements on the page, but properties like fill color and line weight are not yet defined. While we could have done this by defining additional attributes or styles in the course of rendering, I prefer to keep styling in a separate .css file. Instead, we've assigned unique classes to elements that we can then target with style rules. For example, based on the first number of each zip code, we've assigned a corresponding class like `bubble-1` or `bubble-2` to shade bubbles based on their geographic region. Rather than laying out the entire `main.css` document, here are the first few lines that style the parent divs `div#chart`, `div.pane`, `div#pane-1`, and `dive#pane-2`.
+At this point, everything we've rendering is unstyled. We've defined the locations and sizes of elements on the page, but properties like fill color and line weight are not yet defined. While we could have done this by defining additional attributes or styles in the course of rendering, I prefer to keep styling in a separate .css file. Instead, we've assigned unique classes to elements that we can then target with style rules. For example, based on the first number of each zip code, we've assigned a corresponding class like `bubble-1` or `bubble-2` to shade bubbles based on their geographic region. Rather than laying out the entire `main.css` document, here are the first few lines that style the parent divs `div#chart`, `div.pane`, `div#pane-1`, and `div#pane-2`.
 
 	#chart {
 		max-width: 1200px;
