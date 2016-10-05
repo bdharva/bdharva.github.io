@@ -327,19 +327,23 @@ First we define all of the variables we're going to want accessible across funct
 			.defer(d3.csv, 'orders_demos.csv')
 			.await(init);
 
-			function type(d) {
+			function type(data) {
 
-				d['Profit'] = +d['Profit'];
-				d['Lat'] = +d['Lat'];
-				d['Lng'] = +d['Lng'];
-				d['Population'] = +d['Population'];
-				d['Median-Age'] = +d['Median-Age'];
-				d['Race-White'] = +d['Race-White'];
-				d['Median-Household-Income'] = +d['Median-Household-Income'];
-				d['Bachelors-Degree'] = +d['Bachelors-Degree'];
-				d['Graduate-Degree'] = +d['Graduate-Degree'];
+				data.forEach(function(d) {
 
-				return d;
+					d['Profit'] = +d['Profit'];
+					d['Lat'] = +d['Lat'];
+					d['Lng'] = +d['Lng'];
+					d['Population'] = +d['Population'];
+					d['Median-Age'] = +d['Median-Age'];
+					d['Race-White'] = +d['Race-White'];
+					d['Median-Household-Income'] = +d['Median-Household-Income'];
+					d['Bachelors-Degree'] = +d['Bachelors-Degree'];
+					d['Graduate-Degree'] = +d['Graduate-Degree'];
+
+				});
+
+				return data;
 
 			}
 
@@ -370,14 +374,15 @@ Now our `init()` functions takes in our data files and passes the order data to 
 Continuing in the `init()` function, we initialize our bubbles and tooltip in the same way, as well as the statistics panel that we put in `div#pane-2`.
 
 	bubbles = svg.selectAll("circle")
-			.data(csv)
-				.sort(function(a, b) { return parseInt(b.Profit) - parseInt(a.Profit); })
+		.data(csv)
 		.enter()
 		.append("circle")
 			.attr("class", "bubble")
 			.attr("class", function(d) {
 				return "bubble bubble-" + d.Zipcode.substring(0,1);
 			})
+
+		bubbles.sort(function(a, b) { return b.Profit - a.Profit; })
 
 		tooltip = d3.select("body")
 			.append("div")
@@ -453,7 +458,7 @@ After updating the drawing dimensions, `render()` updates the bubble scaling, as
 
 		radius = d3.scale.sqrt()
 			.domain([0, d3.max(csv, function(d) { return d.Profit })])
-			.range([0, width/100]);
+			.range([0, width/40]);
 
 		svg
 			.attr('width', width)
@@ -516,4 +521,4 @@ At this point, everything we've rendering is unstyled. We've defined the locatio
 		width: 25%;
 	}
 
-If you're interested in looking through the entire `main.css` document or the full source code for everything covered in this example, you can [check it out](https://github.com/bdharva/d3-sales-mapping) on my Github.
+If you're interested in looking through the entire `main.css` document or the full source code for everything covered in this example, you can [check it out](https://github.com/bdharva/bdharva.github.io/tree/master/assets/blog/d3-mapping-sales) on my Github.

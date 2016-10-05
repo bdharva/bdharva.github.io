@@ -7,19 +7,23 @@ var Chart = (function(document,window,d3) {
 		.defer(d3.csv, '/assets/blog/d3-mapping-sales/orders_demos.csv')
 		.await(init);
 
-	function type(d) {
+	function type(data) {
 
-		d['Profit'] = +d['Profit'];
-		d['Lat'] = +d['Lat'];
-		d['Lng'] = +d['Lng'];
-		d['Population'] = +d['Population'];
-		d['Median-Age'] = +d['Median-Age'];
-		d['Race-White'] = +d['Race-White'];
-		d['Median-Household-Income'] = +d['Median-Household-Income'];
-		d['Bachelors-Degree'] = +d['Bachelors-Degree'];
-		d['Graduate-Degree'] = +d['Graduate-Degree'];
+		data.forEach(function(d) {
 
-		return d;
+			d['Profit'] = +d['Profit'];
+			d['Lat'] = +d['Lat'];
+			d['Lng'] = +d['Lng'];
+			d['Population'] = +d['Population'];
+			d['Median-Age'] = +d['Median-Age'];
+			d['Race-White'] = +d['Race-White'];
+			d['Median-Household-Income'] = +d['Median-Household-Income'];
+			d['Bachelors-Degree'] = +d['Bachelors-Degree'];
+			d['Graduate-Degree'] = +d['Graduate-Degree'];
+
+		});
+
+		return data;
 
 	}
 
@@ -47,13 +51,14 @@ var Chart = (function(document,window,d3) {
 
 		bubbles = svg.selectAll("circle")
 			.data(csv)
-				.sort(function(a, b) { return parseInt(b.Profit) - parseInt(a.Profit); })
 		.enter()
 		.append("circle")
 			.attr("class", "bubble")
 			.attr("class", function(d) {
 				return "bubble bubble-" + d.Zipcode.substring(0,1);
 			})
+
+		bubbles.sort(function(a, b) { return b.Profit - a.Profit; })
 
 		tooltip = d3.select("body")
 			.append("div")
@@ -112,7 +117,7 @@ var Chart = (function(document,window,d3) {
 
 		radius = d3.scale.sqrt()
 			.domain([0, d3.max(csv, function(d) { return d.Profit })])
-			.range([0, width/100]);
+			.range([0, width/40]);
 
 		svg
 			.attr('width', width)
