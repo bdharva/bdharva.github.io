@@ -3,7 +3,7 @@ layout: d3post
 title: Sales Mapping with D3
 category: blog
 tag: "Data Visualization"
-tagline: Using the US census API to add context to mapped sales data
+tagline: How to use the US census API to add context to mapped sales data
 thumbnail: /assets/blog/d3-mapping-sales/screenshot2.png
 script: /assets/blog/d3-mapping-sales/chart.js
 stylesheet: /assets/blog/d3-mapping-sales/chart.css
