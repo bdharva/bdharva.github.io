@@ -1,0 +1,813 @@
+/*
+CSS DOCUMENT - BDHARVA.COM
+============================================================*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	height: auto;
+	overflow: auto;
+	background-color: rgb(255,255,255);
+	font-family: "Roboto", sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	text-align: left;
+	color: rgb(120,120,120);
+}
+
+/* Text formatting
+------------------------------------------------------------*/
+
+h1, h2, h3, h4 {
+	color: rgb(70,70,70);
+	font-weight: 600;
+	margin-top: 32px;
+	margin-bottom: 16px;
+	text-align: center;
+}
+
+h1 {
+	font-size: 48px;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+h3 {
+	font-size: 20px;
+}
+
+h4 {
+	font-size: 18px;
+}
+
+.dash {
+	width: 50px;
+	height: 2px;
+	background-color: rgb(230,230,230);
+	margin: 16px auto;
+}
+
+p, li {
+	font-size:18px;
+	font-weight:300;
+	line-height: 150%;
+	margin: 16px 0px;
+}
+
+a {
+	color: rgb(50,200,100);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+button {
+	margin: 16px;
+	padding: 12px 16px;
+	font-size: 16px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	border: 2px solid rgb(50,200,100);
+	border-radius: 3px;
+	background: none;
+	color: rgb(60,75,90);
+	outline: none;
+	cursor: pointer;
+}
+
+button:hover {
+	color: rgb(255,255,255);
+	background-color: rgb(50,200,100);
+}
+
+/* Header
+------------------------------------------------------------*/
+
+header {
+	width: 100%;
+	max-width: none;
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 10px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 10;
+	font-family: "Roboto Mono", monospace;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+	vertical-align: middle;
+	background-color: rgb(50,50,50);
+	color: rgb(255,255,255);
+}
+
+nav {
+	color: rgb(255,255,255);
+	height: 20px;
+	float: left;
+}
+
+nav a {
+	color: rgb(255,255,255);
+	text-decoration: none;
+}
+
+nav a:hover {
+	text-decoration: none;
+}
+
+
+nav img {
+	height: 20px;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+nav .hidden {
+	height: 20px;
+	margin-left: 10px;
+	line-height: 20px;
+	vertical-align: middle;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+nav.middle {
+	margin: 0 auto;
+	float: none;
+	text-align: center;
+}
+
+nav.right,
+nav.left {
+	position: absolute;
+}
+
+nav.left {
+	left: 10px;
+}
+
+nav.right {
+	right: 10px;
+}
+
+.menu {
+	float: right;
+}
+
+.menu li {
+	height: 30px;
+	margin: 0;
+	padding: 0 10px;
+	display: inline-block;
+	font-family: "Heebo", sans-serif;
+	font-size: 14px;
+	box-sizing:border-box;
+}
+
+/* Wrapper
+------------------------------------------------------------*/
+
+#wrapper {
+	z-index: 2;
+	position: relative;
+	/*min-height: 100%;*/
+	/*max-width: 1230px;*/
+	display: block;
+	margin: 0 auto;
+	margin-top: 40px;
+	width: 100%;
+}
+
+/* Hero & screens
+------------------------------------------------------------*/
+
+#hero {
+	width: 100%;
+	height: 500px;
+	margin: 0 auto;
+	background-color: rgb(255,255,255);
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	text-align: center;
+}
+
+#hero h1,
+#hero h2,
+#hero h3 {
+	font-family: "Roboto Mono", monospace;
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto;
+	color: rgb(255,255,255);
+}
+
+#hero h1 {
+	font-weight: 400;
+	font-size: 32px;
+	text-transform: uppercase;
+	background-color: rgb(50,200,100);
+	display: inline-block;
+	padding: 0 10px;
+}
+
+#hero h2,
+#hero h3 {
+	font-weight: 300;
+	margin-top: 10px;
+}
+
+#hero h2 {
+	font-size: 20px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+#hero h3 {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: rgb(50,200,100);
+}
+
+#hero a {
+	color: rgb(255,255,255);
+}
+
+.screen {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(70,70,70,0.9);
+	z-index: 1;
+	position: absolute;
+	color: rgb(255,255,255);
+	box-sizing: border-box;
+	padding: 40px;
+}
+
+/* Section
+------------------------------------------------------------*/
+
+section {
+	height: auto;
+	overflow: auto;
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 10px;
+	padding: 40px 60px;
+	box-sizing: border-box;
+	background-color: rgb(255,255,255);
+	border-bottom: 1px solid rgb(230,230,230);
+}
+
+section .container {
+	height: auto;
+	overflow: auto;
+	width: 100%;
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+.chart {
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	margin-top: 20px;
+}
+
+.chart.inactive {
+	display: none;;
+}
+
+.toggle {
+	height: auto;
+	overflow: auto;
+	border: 2px solid rgb(70,70,70);
+	display: inline-block;
+}
+
+.toggle .option {
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	width: 120px;
+	text-align: center;
+	color: rgb(70,70,70);
+	float: left;
+	display: block;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-family: "Roboto Mono", monospace;
+	cursor: pointer;
+}
+
+.toggle .option.active {
+	background-color: rgb(70,70,70);
+	color: rgb(255,255,255);
+	cursor: default;
+}
+
+.toggle .option:hover {
+	background-color: rgb(230,230,230);
+}
+
+.toggle .option.active:hover {
+	background-color: rgb(70,70,70);
+	color: rgb(255,255,255);
+}
+
+/* SVG
+------------------------------------------------------------*/
+
+svg {
+	margin: 0 auto;
+	display: block;
+	background: white;
+	cursor: crosshair;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: lightgray;
+	shape-rendering: crispEdges;
+}
+
+.axis path,
+.axis .tick line {
+	stroke-width: 2px;
+	stroke: rgb(150,150,150);
+}
+
+.axis .tick text{
+	font-family: "Roboto Mono", monospace;;
+	font-weight: 400;
+	font-size: 12px;
+	color: rgb(150,150,150);
+}
+
+/* Line graph
+------------------------------------------------------------*/
+
+.alllines{
+	fill: none;
+	stroke:rgb(200,200,200);
+	stroke-width:2px;
+	stroke-linecap: round;
+}
+
+.line-2 {
+	stroke: rgb(240, 40, 40);
+	stroke-width: 4px;
+}
+
+.line-6 {
+	stroke: rgb(50,200,100);
+	stroke-width: 4px;
+}
+
+.line-13 {
+	stroke: rgb(248,202,64);
+	stroke-width: 4px;
+}
+
+.specialline {
+	stroke: rgb(23,158,224);
+	stroke-width: 4px;
+}
+
+.overlay {
+	fill: none;
+	pointer-events: all;
+}
+
+.focus circle {
+	fill: rgb(200,200,200);
+	stroke: rgb(255,255,255);
+}
+
+.focus-2 circle {
+	fill: rgb(240,40,40);
+}
+
+.focus-6 circle {
+	fill: rgb(50,200,100);
+}
+
+.focus-13 circle {
+	fill: rgb(248,202,64);
+}
+
+.focus-14 circle {
+	fill: rgb(23,158,224);
+}
+
+.focus {
+	font-family: "Roboto Mono", monospace;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.label {
+	font-family: "Roboto Mono", monospace;
+	font-size: 14px;
+	font-weight: 400;
+	text-transform: uppercase;
+	text-align: right;
+	line-height: 100%;
+	fill: rgb(150,150,150);
+}
+
+.hoverline {
+	stroke-width: 2px;
+	stroke: rgb(100,100,100);
+	stroke-dasharray: 2, 2;
+}
+
+/* Bar chart
+------------------------------------------------------------*/
+
+.gamebar {
+	fill: rgb(230,230,230);
+}
+
+.upsetbar {
+	fill: rgb(50,200,100);
+}
+
+/* Bubble chart
+------------------------------------------------------------*/
+
+circle {
+	stroke: rgb(150,150,150);
+	stroke-width: 2px;
+}
+
+circle:hover {
+	stroke: rgb(70,70,70);
+}
+
+.axisline {
+	fill: none;
+	stroke:rgb(200,200,200);
+	stroke-width:2px;
+	stroke-dasharray:5;
+}
+
+
+.tooltip,
+.bartooltip {
+  position: absolute;
+  height: auto;
+  overflow: auto;
+	width: 250px;
+  pointer-events: none;
+  background-color: rgb(255,255,255);
+  border: 2px solid rgb(70,70,70);
+	padding-bottom: 10px;
+	z-index: 100;
+}
+
+.bartooltip {
+	padding: 0;
+	color: rgb(70,70,70);
+}
+
+.bartooltip .entry {
+	width: 33%;
+	position: relative;
+	float: left;
+	text-align: center;
+	padding: 10px;
+	box-sizing: border-box;
+	font-family: "Roboto Mono", monospace;
+	text-transform: uppercase;
+}
+
+.bartooltip .entry:nth-child(even) {
+	background-color: rgb(230,230,230);
+}
+
+.bartooltip span.number,
+.bartooltip span.description {
+	display: block;
+}
+
+.bartooltip span.number {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.bartooltip span.description {
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.tooltip .topper {
+	padding: 6px;
+	font-family: 'Roboto Mono', monospace;
+	color: rgb(255,255,255);
+	background-color: rgb(70,70,70);
+	text-transform: uppercase;
+	font-weight: 300;
+	font-size: 12px;
+	border-bottom: 2px solid rgb(70,70,70);
+}
+
+.tooltip .teamline {
+	height: 20px;
+	padding: 10px 10px 0 10px;
+}
+
+.tooltip .logo {
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+}
+
+.tooltip .teamdiv {
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	color: rgb(90,90,90);
+}
+
+/* Table
+------------------------------------------------------------*/
+
+table {
+	width: 100%;
+	max-width: 1024px;
+	margin: 20px auto;
+	border-collapse: collapse;
+	background-color: rgb(255,255,255);
+	font-size: 16px;
+	color: rgb(90,90,90);
+}
+
+thead {
+	border-left: 0px solid transparent;
+	border-right: 0px solid transparent;
+	border-top: 0px solid transparent;
+	border-bottom: 2px solid rgb(70,70,70);
+	border-style: double;
+}
+
+thead.static {
+	width: 100%;
+	max-width: 1024px;
+	margin: 0 auto;
+	position: fixed;
+	top: 40px;
+	left: 0;
+	right: 0;
+	background-color: rgba(255,255,255,0.9);
+	display: block;
+}
+
+thead.static tr {
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	display: block;
+	border: none;
+}
+
+thead.static th {
+	display: block;
+	float: left;
+	box-sizing: border-box;
+}
+
+tr {
+	border-bottom: 2px solid rgb(230,230,230);
+}
+
+th {
+	padding: 10px;
+	border-top: none;
+	border-bottom: none;
+}
+
+thead th {
+	font-size: 14px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+thead th:hover {
+	background-color: rgb(230,230,230);
+}
+
+thead th.active {
+	background-color: rgb(70,70,70);
+	color: rgb(255,255,255);
+}
+
+th.team {
+	 width: 40%;
+	 text-align: left;
+}
+
+th.number {
+	width: 15%;
+	text-align: right;
+	font-weight: 300;
+}
+
+tbody th.number {
+	font-family: "Roboto Mono", monospace;;
+	font-weight: 400;
+	font-size: 16px;
+}
+
+tbody th.team {
+	color: rgb(70,70,70);
+}
+
+tr.entry .teamdiv,
+.tooltip .teamdiv {
+	float: left;
+	display: block;
+}
+
+tr.entry .teamdiv {
+	height: 30px;
+	line-height: 30px;
+	font-size: 18px;
+}
+
+tr.entry:hover {
+	background-color: rgb(230,230,230);
+	border-left: 0px solid transparent;
+	border-right: 0px solid transparent;
+	border-top: 2px solid rgb(90,90,90);
+	border-bottom: 2px solid rgb(90,90,90);
+	border-style: double;
+}
+
+tr.entry .logo,
+.tooltip .logo {
+	float: left;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+tr.entry .logo {
+	width: 30px;
+	height: 30px;
+	margin-right: 20px;
+}
+
+/* Footer
+------------------------------------------------------------*/
+
+footer {
+	width: 100%;
+	max-width: 1220px;
+	background-color: rgb(60,75,90);
+	color: rgb(255,255,255);
+	padding: 40px;
+	text-align: center;
+	font-size: 14px;
+	margin: 10px auto;
+	border: 10px solid rgb(255,255,255);
+	box-sizing: border-box;
+}
+
+footer .wrapper {
+	height: 30px;
+	max-width: 1000px;
+	margin: auto;
+}
+
+footer li {
+	font-size: 14px;
+	display: inline-block;
+	margin: 12px 4px;
+}
+
+/* Code Formatting
+------------------------------------------------------------*/
+
+code, pre {
+	font-family: 'Roboto Mono';
+	background: rgb(250,250,250);
+	border: 1px solid rgb(235,235,235);
+	font-size: 14px;
+}
+
+pre {
+	margin: 32px 0;
+	padding: 20px;
+	overflow: auto;
+	border-radius: 3px;
+}
+
+code {
+	padding: 2px 8px;
+	border-radius: 3px;
+}
+
+pre code {
+	border: none;
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Style & alignment classes
+------------------------------------------------------------*/
+
+.no-bottom {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.no-top {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.left {
+	text-align: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.justify {
+	text-align: justify;
+}
+
+/* Media queries
+============================================================*/
+
+@media (max-width:940px){
+
+		.card-holder{
+		width: 50%;
+	}
+
+}
+
+@media (max-width:800px){
+
+		.stats{
+		width: 100%;
+	}
+
+}
+
+@media (max-width:660px){
+
+	.card-holder{
+		width: 100%;
+		padding: 10px 0;
+	}
+
+	section {
+		padding: 20px;
+	}
+
+	#hero .screen {
+		padding: 20px;
+	}
+
+	.stats p {
+		text-align: center;
+	}
+
+	.menu li {
+		padding: 0 5px;
+	}
+
+	button{
+		width: 100%;
+		margin: 16px 0;
+		color: rgb(255,255,255);
+		background-color: rgb(50,200,100);
+	}
+
+}
