@@ -2,37 +2,39 @@
 layout: project
 title: Assorted Logos & Graphics
 category: projects
-tags: Branding, Graphic Design
+tags:
+- Branding
+- Graphic Design
 tagline: Branding, Graphic Design
-thumbnail: /assets/work/graphics/prompt.svg
+thumbnail: /assets/work/graphics/prompt.png
 permalink: /work/logos-and-graphics
 ---
 
-[![](/assets/work/graphics/loops.svg)](/assets/work/graphics/loops.svg)
-[![](/assets/work/graphics/530.svg)](/assets/work/graphics/530.svg)
-[![](/assets/work/graphics/trakpak.svg)](/assets/work/graphics/trakpak.svg)
-[![](/assets/work/graphics/llama.svg)](/assets/work/graphics/llama.svg)
-[![](/assets/work/graphics/quincy01.svg)](/assets/work/graphics/quincy01.svg)
-[![](/assets/work/graphics/quincy02.svg)](/assets/work/graphics/quincy02.svg)
-[![](/assets/work/graphics/floops01.svg)](/assets/work/graphics/floops01.svg)
-[![](/assets/work/graphics/floops02.svg)](/assets/work/graphics/floops02.svg)
-[![](/assets/work/graphics/campuspulse.svg)](/assets/work/graphics/campuspulse.svg)
-[![](/assets/work/graphics/yip.svg)](/assets/work/graphics/yip.svg)
-[![](/assets/work/graphics/beaver01.svg)](/assets/work/graphics/beaver01.svg)
-[![](/assets/work/graphics/beaver02.svg)](/assets/work/graphics/beaver02.svg)
-[![](/assets/work/graphics/prompt.svg)](/assets/work/graphics/prompt.svg)
-[![](/assets/work/graphics/trump.svg)](/assets/work/graphics/trump.svg)
-[![](/assets/work/graphics/bowell.svg)](/assets/work/graphics/bowell.svg)
-[![](/assets/work/graphics/hoot.svg)](/assets/work/graphics/hoot.svg)
-[![](/assets/work/graphics/rex.svg)](/assets/work/graphics/rex.svg)
-[![](/assets/work/graphics/triomi.svg)](/assets/work/graphics/triomi.svg)
-[![](/assets/work/graphics/tryna01.svg)](/assets/work/graphics/tryna01.svg)
-[![](/assets/work/graphics/tryna02.svg)](/assets/work/graphics/tryna02.svg)
-[![](/assets/work/graphics/greenbay01.svg)](/assets/work/graphics/greenbay01.svg)
-[![](/assets/work/graphics/greenbay02.svg)](/assets/work/graphics/greenbay02.svg)
-[![](/assets/work/graphics/boston2024.svg)](/assets/work/graphics/boston2024.svg)
-[![](/assets/work/graphics/clearinghouse.svg)](/assets/work/graphics/clearinghouse.svg)
-[![](/assets/work/graphics/myseer.svg)](/assets/work/graphics/myseer.svg)
-[![](/assets/work/graphics/agora.svg)](/assets/work/graphics/agora.svg)
-[![](/assets/work/graphics/youthunion.svg)](/assets/work/graphics/youthunion.svg)
-[![](/assets/work/graphics/birddog02.svg)](/assets/work/graphics/birddog02.svg)
+[![](/assets/work/graphics/loops.png)](/assets/work/graphics/loops.png)
+[![](/assets/work/graphics/530.png)](/assets/work/graphics/530.png)
+[![](/assets/work/graphics/trakpak.png)](/assets/work/graphics/trakpak.png)
+[![](/assets/work/graphics/llama.png)](/assets/work/graphics/llama.png)
+[![](/assets/work/graphics/quincy01.png)](/assets/work/graphics/quincy01.png)
+[![](/assets/work/graphics/quincy02.png)](/assets/work/graphics/quincy02.png)
+[![](/assets/work/graphics/floops01.png)](/assets/work/graphics/floops01.png)
+[![](/assets/work/graphics/floops02.png)](/assets/work/graphics/floops02.png)
+[![](/assets/work/graphics/campuspulse.png)](/assets/work/graphics/campuspulse.png)
+[![](/assets/work/graphics/yip.png)](/assets/work/graphics/yip.png)
+[![](/assets/work/graphics/beaver01.png)](/assets/work/graphics/beaver01.png)
+[![](/assets/work/graphics/beaver02.png)](/assets/work/graphics/beaver02.png)
+[![](/assets/work/graphics/prompt.png)](/assets/work/graphics/prompt.png)
+[![](/assets/work/graphics/trump.png)](/assets/work/graphics/trump.png)
+[![](/assets/work/graphics/bowell.png)](/assets/work/graphics/bowell.png)
+[![](/assets/work/graphics/hoot.png)](/assets/work/graphics/hoot.png)
+[![](/assets/work/graphics/rex.png)](/assets/work/graphics/rex.png)
+[![](/assets/work/graphics/triomi.png)](/assets/work/graphics/triomi.png)
+[![](/assets/work/graphics/tryna01.png)](/assets/work/graphics/tryna01.png)
+[![](/assets/work/graphics/tryna02.png)](/assets/work/graphics/tryna02.png)
+[![](/assets/work/graphics/greenbay01.png)](/assets/work/graphics/greenbay01.png)
+[![](/assets/work/graphics/greenbay02.png)](/assets/work/graphics/greenbay02.png)
+[![](/assets/work/graphics/boston2024.png)](/assets/work/graphics/boston2024.png)
+[![](/assets/work/graphics/clearinghouse.png)](/assets/work/graphics/clearinghouse.png)
+[![](/assets/work/graphics/myseer.png)](/assets/work/graphics/myseer.png)
+[![](/assets/work/graphics/agora.png)](/assets/work/graphics/agora.png)
+[![](/assets/work/graphics/youthunion.png)](/assets/work/graphics/youthunion.png)
+[![](/assets/work/graphics/birddog02.png)](/assets/work/graphics/birddog02.png)

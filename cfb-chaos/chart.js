@@ -78,9 +78,11 @@ var Chart = (function(document,window,d3) {
 		year = chartGroup.selectAll(".year")
 			.data(years)
 			.enter().append("g")
-				.attr("class", "year")
+				.attr("class", function(d){
+					return ("year year-" + d.id);
+				})
 			.append("path")
-				.attr("class", "alllines");
+				.attr("class", "line");
 
 		var hoverbox = chartGroup.append('rect')
 			.attr("class", "hoverbox")
@@ -93,10 +95,12 @@ var Chart = (function(document,window,d3) {
 		var focuses = chartGroup.selectAll('.focus')
 			.data(years)
 			.enter().append("g")
-				.attr("class", "focus");
+			.attr("class", function(d){
+				return ("focus focus-" + d.id);
+			});
 
 		var circles = focuses.append("circle")
-			.attr("r", 3)
+			.attr("r", 4)
 			.style("display", "none");
 
 		var text = focuses.append("text")
@@ -112,11 +116,13 @@ var Chart = (function(document,window,d3) {
 			.on("mouseover", function() {
 				hoverline.style("display", null);
 				hoverbox.style("display", null);
+				focuses.style("display", null);
 				circles.style("display", null);
 			})
 		  .on("mouseout", function() {
 				hoverline.style("display", "none");
 				hoverbox.style("display", "none");
+				focuses.style("display", "none");
 				circles.style("display", "none");
 			})
 		  .on("mousemove", mousemove);
@@ -144,7 +150,7 @@ var Chart = (function(document,window,d3) {
 				.attr('width', width-x(d["Week"]))
 				.attr('height', height-padding.bottom/2)
 				.attr('fill', 'white')
-				.attr('opacity', 0.7);
+				.attr('opacity', 0.8);
 			focuses
 				.attr("transform", function(d) {
 					var bisect = d3.bisector(function(d) { return d.week; }).left,

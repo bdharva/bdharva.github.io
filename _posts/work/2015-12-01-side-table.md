@@ -2,7 +2,8 @@
 layout: project
 title: Magazine Rack Side Table
 category: projects
-tags: "Woodworking"
+tags:
+- Woodworking
 tagline: "Woodworking"
 thumbnail: /assets/work/sidetable/sidetable04.jpg
 permalink: /work/side-table

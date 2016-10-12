@@ -306,6 +306,20 @@ section.feature {
 	position: relative;
 }
 
+.tagfeature {
+	height: auto;
+	overflow: auto;
+	margin: 20px 0;
+}
+
+.tagfeature .card {
+	border: 1px solid rgb(230,230,230);
+}
+
+.tagfeature .card:hover {
+	border: 1px solid rgb(200,200,200);
+}
+
 .card .screen {
 	opacity: 0;
 }

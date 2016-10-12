@@ -2,7 +2,8 @@
 layout: project
 title: Card & Key Caddy
 category: projects
-tags: "Rapid Prototyping"
+tags:
+- Rapid Prototyping
 tagline: "Rapid Prototyping"
 thumbnail: /assets/cardcaddy3.jpg
 permalink: /work/card-and-key-caddy

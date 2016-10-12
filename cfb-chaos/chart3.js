@@ -87,6 +87,7 @@ var Chart = (function(document,window,d3) {
 				.style("left", (d3.event.pageX-125) + "px")
 				.style("top", (d3.event.pageY+30) + "px");
 			var content = "";
+			content = content + "<div class=\"topper\">Week " + d.Week + "</div>";
 			content = content + "<div class=\"entry\"><span class=\"number\">" + d.Games +"</span><span class=\"description\">games</span></div>";
 			content = content + "<div class=\"entry\"><span class=\"number\">" + d.Upsets +"</span><span class=\"description\">upsets</span></div>";
 			content = content + "<div class=\"entry\"><span class=\"number\">" + d3.format(".1%")(d.Upsets/d.Games) +"</span><span class=\"description\">chaotic</span></div>";

@@ -2,7 +2,8 @@
 layout: project
 title: Head Impact Sensor
 category: projects
-tags: "Product Development"
+tags:
+- Product Development
 tagline: "Product Development"
 thumbnail: /assets/circuitboards.jpg
 permalink: /work/jolt-sensor
@@ -51,3 +52,4 @@ Once we were pleased with production quality, and with all systems operating as 
 [![](/assets/work/jolt/jolt10.jpg)](/assets/work/jolt/jolt10.jpg)
 [![](/assets/work/jolt/jolt11.jpg)](/assets/work/jolt/jolt11.jpg)
 [![](/assets/work/jolt/jolt12.png)](/assets/work/jolt/jolt12.png)
+[![](/assets/work/jolt/jolt13.png)](/assets/work/jolt/jolt13.png)

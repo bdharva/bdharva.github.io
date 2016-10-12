@@ -2,9 +2,12 @@
 layout: project
 title: Build-a-Brand
 category: projects
-tags: "Branding, Package Design, Brewing"
+tags:
+- Branding
+- Package Design
+- Brewing
 tagline: "Branding, Package Design, Brewing"
-thumbnail: /assets/work/build-a-brand/packaging06.svg
+thumbnail: /assets/work/build-a-brand/packaging06.png
 permalink: /work/build-a-brand
 ---
 
@@ -16,8 +19,8 @@ With this in mind, we set to work on liquid development (something I'm going to 
 
 As we continued to tweak and refine the formulation, with an eye towards shelf-stability, repeatable quality, and ingredient procurement, we continued rounds of market surveys to hone in on the proper branding and positioning for the product. Our initial concepts were relatively conservative. While focusing on concepts reflective of the lqiuid itself (clean, crisp, etc.), we didn't stray far from the established Michelob Ultra brand guidelines.
 
-[![](/assets/work/build-a-brand/packaging00.svg)](/assets/work/build-a-brand/packaging00.svg)
-[![](/assets/work/build-a-brand/packaging01.svg)](/assets/work/build-a-brand/packaging01.svg)
+[![](/assets/work/build-a-brand/packaging00.png)](/assets/work/build-a-brand/packaging00.png)
+[![](/assets/work/build-a-brand/packaging01.png)](/assets/work/build-a-brand/packaging01.png)
 
 While our research showed that consumers viewed these updates favorably, it also revealed that we needed to further differentiate the branding of our new product. In staying true to the parents brand, we were still encountering the existing baggage that young drinkers had associated with it. They were looking for something bolder, cooler, and just flat out different from what they saw in their parents' fridges.
 
@@ -25,17 +28,17 @@ Pushing further from the Michelob identity, we maintained subtle elements as a c
 
 At this point in our development, we were considering additional flavor expansions, as well as packaging innovations. One of my absolute favorites was 9-pack slim cans packed in a cube. Mirroring the clear glass of the 4-pack longnecks, we even experimented with frosted plastic packaging to give consumers a peak at the contents of the cube packages. While very cool, we ultimately abandoned them as they would add undue complexity to the manufacturing process.
 
-[![](/assets/work/build-a-brand/packaging02.svg)](/assets/work/build-a-brand/packaging02.svg)
-[![](/assets/work/build-a-brand/packaging03.svg)](/assets/work/build-a-brand/packaging03.svg)
+[![](/assets/work/build-a-brand/packaging02.png)](/assets/work/build-a-brand/packaging02.png)
+[![](/assets/work/build-a-brand/packaging03.png)](/assets/work/build-a-brand/packaging03.png)
 
 With another round of consumer feedback, we were finally narrowing in on the proper visual identity for Ultra Pure. Our latest iterations had proven too techie/modern for our target audience. However, we were able to use that feedback to reincorporate elements from previous design concepts to strike the right balance between new and old.
 
-[![](/assets/work/build-a-brand/packaging04.svg)](/assets/work/build-a-brand/packaging04.svg)
-[![](/assets/work/build-a-brand/packaging05.svg)](/assets/work/build-a-brand/packaging05.svg)
+[![](/assets/work/build-a-brand/packaging04.png)](/assets/work/build-a-brand/packaging04.png)
+[![](/assets/work/build-a-brand/packaging05.png)](/assets/work/build-a-brand/packaging05.png)
 
 As we hit crunch time, with just a week left until final presentations, we narrowed in on the final design. We were all thrilled with the final result, especially once we slapped our first labels on the freshly brewed and bottled product. With the final idenity locked down, I set to work to whip up physical packaging mock-ups, handouts, a launch website, and custom bottle openers to hand out at the final presentation.
 
-[![](/assets/work/build-a-brand/packaging06.svg)](/assets/work/build-a-brand/packaging06.svg)
+[![](/assets/work/build-a-brand/packaging06.png)](/assets/work/build-a-brand/packaging06.png)
 
 Ultra Pure was a huge hit at the launch event, as were the bottle openers. Our team had a blast sharing the culmination of almost a year of hard work and receiving so much positive feedback from folks who've spent their whole professional lives making and selling quality beers. That night we celebrated with most of the remaining stock from our pilot batch and hid a few away to be enjoyed at a future date. A buddy and I recently cracked one open, now nearly two years since it'd been brewed. And I'm pleased to say it was just as delicious as the day it was bottled.
 

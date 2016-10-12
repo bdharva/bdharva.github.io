@@ -2,7 +2,8 @@
 layout: project
 title: Deck Chairs
 category: projects
-tags: "Woodworking"
+tags:
+- Woodworking
 tagline: "Woodworking"
 thumbnail: /assets/work/deckchair/deckchair04.jpg
 permalink: /work/deck-chair

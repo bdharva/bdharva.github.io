@@ -2,7 +2,8 @@
 layout: project
 title: Assorted Shirt Designs
 category: projects
-tags: "Graphic Design"
+tags:
+- Graphic Design
 tagline: "Graphic Design"
 thumbnail: /assets/work/shirts/brotank/front.jpg
 permalink: /work/assorted-shirt-designs

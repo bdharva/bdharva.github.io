@@ -364,57 +364,71 @@ svg {
 /* Line graph
 ------------------------------------------------------------*/
 
-.alllines{
+.line{
 	fill: none;
-	stroke:rgb(200,200,200);
+	stroke:rgb(220,220,220);
 	stroke-width:2px;
 	stroke-linecap: round;
 }
 
-.line-2 {
+.focus circle {
+	fill: rgb(220,220,220);
+	stroke: rgb(255,255,255);
+}
+
+.year-2004 .line {
 	stroke: rgb(240, 40, 40);
 	stroke-width: 4px;
 }
 
-.line-6 {
+.focus-2004 circle {
+	fill: rgb(240, 40, 40);
+}
+
+.year-2008 .line {
 	stroke: rgb(50,200,100);
 	stroke-width: 4px;
 }
 
-.line-13 {
+.focus-2008 circle {
+	fill: rgb(50,200,100);
+}
+
+.year-2015 .line {
 	stroke: rgb(248,202,64);
 	stroke-width: 4px;
 }
 
-.specialline {
+.focus-2015 circle {
+	fill: rgb(248,202,64);
+}
+
+.year-2016 .line {
 	stroke: rgb(23,158,224);
 	stroke-width: 4px;
+}
+
+.focus-2016 circle {
+	fill: rgb(23,158,224);
+}
+
+.focus-2002 text,
+.focus-2003 text,
+.focus-2005 text,
+.focus-2006 text,
+.focus-2007 text,
+.focus-2009 text,
+.focus-2010 text,
+.focus-2011 text,
+.focus-2012 text,
+.focus-2013 text,
+.focus-2014 text {
+	display: none;
 }
 
 .overlay {
 	fill: none;
 	pointer-events: all;
-}
-
-.focus circle {
-	fill: rgb(200,200,200);
-	stroke: rgb(255,255,255);
-}
-
-.focus-2 circle {
-	fill: rgb(240,40,40);
-}
-
-.focus-6 circle {
-	fill: rgb(50,200,100);
-}
-
-.focus-13 circle {
-	fill: rgb(248,202,64);
-}
-
-.focus-14 circle {
-	fill: rgb(23,158,224);
 }
 
 .focus {
@@ -518,7 +532,8 @@ circle:hover {
 	font-weight: 300;
 }
 
-.tooltip .topper {
+.tooltip .topper,
+.bartooltip .topper {
 	padding: 6px;
 	font-family: 'Roboto Mono', monospace;
 	color: rgb(255,255,255);

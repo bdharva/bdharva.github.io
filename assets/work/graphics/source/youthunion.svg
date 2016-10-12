@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1200"
+   height="800"
+   id="svg3609"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="youthunion.svg"
+   inkscape:export-filename="/Users/bdharva/Dropbox/Personal/website/assets/work/graphics/youthunion.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs3611" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.055"
+     inkscape:cx="481.04265"
+     inkscape:cy="437.91469"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="856"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3614">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(0,32)">
+    <rect
+       style="fill:#f2f2f2;fill-opacity:1;stroke:none"
+       id="rect3783-0"
+       width="1300"
+       height="900"
+       x="-50"
+       y="-82" />
+    <g
+       id="g7649"
+       transform="translate(-7.3242187e-6,38.495832)">
+      <g
+         id="g4726-33-2"
+         transform="translate(281.92361,-991.07103)">
+        <path
+           id="path4445-1-5-5-9"
+           transform="translate(-845.45481,-1.9678088)"
+           d="m 1043.5312,1134.375 0,150 c 1e-4,66.2742 53.7259,120 120,120 66.2742,0 120,-53.7258 120,-120 l 0,-150 -20,0 c -38.4193,0 -73.4617,14.465 -100,38.2188 -26.5396,-23.7602 -61.5749,-38.2188 -100,-38.2188 l -20,0 z"
+           style="fill:#cccccc;fill-opacity:1;stroke:none"
+           inkscape:connector-curvature="0" />
+        <path
+           id="path4445-3-7-7-3-1-2"
+           transform="translate(-845.45481,-1.9678088)"
+           d="m 1053.5312,1144.375 0,140 c 0,60.7513 49.2487,110 110,110 60.7514,0 110,-49.2487 110,-110 l 0,-140 -10,0 c -39.1765,0 -74.5892,16.097 -100,42.0312 -25.4107,-25.9342 -60.8234,-42.0312 -100,-42.0312 l -10,0 z"
+           style="fill:#ffffff;fill-opacity:1;stroke:none"
+           inkscape:connector-curvature="0" />
+        <path
+           id="path4445-8-0-33-0"
+           transform="translate(-845.45481,-1.9678088)"
+           d="m 1063.5312,1154.375 0,60 c 38.66,0 70,31.3401 70,70 0,16.5685 13.4317,30 30,30 16.5688,0 30,-13.4315 30,-30 2e-4,-38.6599 31.3401,-70 70,-70 l 0,-60 c -40.2092,0 -76.1537,18.2628 -100,46.9375 -23.846,-28.6761 -59.7891,-46.9375 -100,-46.9375 z"
+           style="fill:#c83737;fill-opacity:1;stroke:none"
+           inkscape:connector-curvature="0" />
+        <path
+           id="path4445-84-0"
+           transform="translate(-845.45481,-1.9678088)"
+           d="m 1063.5312,1224.375 0,60 c 0,55.2285 44.7717,100 100,100 55.2286,0 100,-44.7715 100,-100 l 0,-60 c -33.137,0 -59.9999,26.8629 -60,60 0,22.0914 -17.9086,40 -40,40 -22.0912,0 -40,-17.9086 -40,-40 0,-33.1371 -26.8629,-60 -60,-60 z"
+           style="fill:#2c5aa0;fill-opacity:1;stroke:none"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         sodipodi:linespacing="130%"
+         id="text7645"
+         y="516.90417"
+         x="285.75751"
+         style="font-size:64px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:justify;line-height:129.99999523%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;font-family:Gotham;-inkscape-font-specification:Gotham Bold"
+         xml:space="preserve"><tspan
+           y="516.90417"
+           x="285.75751"
+           id="tspan7647"
+           sodipodi:role="line">THE YOUTH UNION</tspan></text>
+    </g>
+  </g>
+</svg>

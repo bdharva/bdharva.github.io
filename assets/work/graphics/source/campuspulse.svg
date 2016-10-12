@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1200"
+   height="800"
+   id="svg3609"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="campuspulse.svg"
+   inkscape:export-filename="/Users/bdharva/Dropbox/Personal/website/assets/work/graphics/campuspulse.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs3611" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.74444444"
+     inkscape:cx="477.38806"
+     inkscape:cy="450"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="856"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3614">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(0,32)">
+    <rect
+       style="fill:#00aa88;fill-opacity:1;stroke:none"
+       id="rect3783"
+       width="1300"
+       height="900"
+       x="-50"
+       y="-82" />
+    <g
+       id="g5123"
+       transform="translate(0,-35.15625)">
+      <text
+         sodipodi:linespacing="130%"
+         id="text3307-4-4"
+         y="536.5625"
+         x="444.16406"
+         style="font-size:48px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:justify;line-height:129.99999523%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto Medium"
+         xml:space="preserve"><tspan
+           y="536.5625"
+           x="444.16406"
+           id="tspan3309-3-9"
+           sodipodi:role="line">Campus Pulse</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         d="m 600,260.00018 c -15.36306,0 -30.67474,5.90412 -42.39634,17.6097 -10.84314,10.82832 -16.63368,24.77344 -17.44632,38.96626 11.7957,-3.30108 24.2373,-3.36738 36.01816,0 0.71304,-4.94676 2.94186,-9.68196 6.75342,-13.4883 4.68864,-4.68228 10.92582,-7.1188 17.07108,-7.1188 6.14526,0 12.19483,2.43652 16.88352,7.1188 3.86004,3.85476 6.07122,8.66142 6.75342,13.67562 11.84418,-3.42954 24.33712,-3.50874 36.20572,-0.1872 C 659.03002,302.38344 653.23949,288.43832 642.39634,277.61 630.67476,265.90412 615.36306,260 600,260 z m -42.02116,59.94802 c -15.36306,0 -30.67476,5.90418 -42.39636,17.60976 -23.44323,23.41116 -23.44323,61.45276 0,84.86392 16.36315,16.3407 39.78511,21.1021 60.4054,14.61234 l 0,-41.589 c -0.3678,0.5004 -0.66798,1.04178 -1.12554,1.49874 -9.37732,9.36444 -24.5773,9.36444 -33.95457,0 -9.37734,-9.3645 -9.37734,-24.5436 0,-33.90814 4.68863,-4.68222 10.92582,-7.11882 17.07108,-7.11882 6.14526,0 12.1948,2.4366 16.8835,7.11882 0.9792,0.97788 1.66404,2.09334 2.4387,3.1848 2.55516,-12.06444 8.62674,-23.41458 18.00912,-32.78412 0.0618,-0.0618 0.1254,-0.126 0.1872,-0.1872 -10.932,-8.79822 -24.20742,-13.30128 -37.51858,-13.30128 z m 84.04232,0 c -15.36303,0 -30.67474,5.90418 -42.39634,17.60976 -11.57994,11.5641 -17.49276,26.60148 -17.63388,41.77624 l 0,0.5616 0,28.66266 0,38.21686 0,29.22468 36.01812,0 0,-29.22468 0,-38.21686 0,-28.66266 0,-0.5616 c 0.1356,-5.93862 2.39784,-11.76142 6.94104,-16.29838 4.68864,-4.68222 10.92583,-7.11882 17.07106,-7.11882 6.14526,0 12.19488,2.4366 16.88352,7.11882 9.37734,9.36454 9.37734,24.54364 0,33.90814 -9.37734,9.36444 -24.5773,9.36444 -33.95458,0 -0.35699,-0.3564 -0.60785,-0.75096 -0.93798,-1.12404 l 0,41.40168 c 20.6269,6.48562 44.03386,1.54938 60.4054,-14.79972 23.44322,-23.41116 23.44322,-61.45276 0,-84.86392 -11.7216,-11.70558 -27.0333,-17.60976 -42.39636,-17.60976 z"
+         id="path2987-5-7-5-9-3-3-3-3" />
+    </g>
+  </g>
+</svg>

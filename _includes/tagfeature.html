@@ -1,0 +1,22 @@
+<div class="tagfeature">
+	{% for tag in page.tags %}
+	{% for post in site.posts %}
+	{% if post.tags contains tag %}
+	{% if post.url != page.url %}
+	<div class="card-holder">
+		<a href="{{ post.url }}">
+			<div class="card">
+				<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+				<div class="details">
+					<i class="material-icons md-18">timeline</i>
+					<span class="title">{{ post.title }}</span>
+					<span class="tags">{{ post.tags | join: ', ' }}</span>
+				</div>
+			</div>
+		</a>
+	</div>
+	{% endif %}
+	{% endif %}
+	{% endfor %}
+	{% endfor %}
+</div>
