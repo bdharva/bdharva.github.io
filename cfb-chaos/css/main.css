@@ -381,7 +381,8 @@ svg {
 	stroke-width: 4px;
 }
 
-.focus-2004 circle {
+.focus-2004 circle,
+.focus-2004 text {
 	fill: rgb(240, 40, 40);
 }
 
@@ -390,7 +391,8 @@ svg {
 	stroke-width: 4px;
 }
 
-.focus-2008 circle {
+.focus-2008 circle,
+.focus-2008 text {
 	fill: rgb(50,200,100);
 }
 
@@ -399,7 +401,8 @@ svg {
 	stroke-width: 4px;
 }
 
-.focus-2015 circle {
+.focus-2015 circle,
+.focus-2015 text {
 	fill: rgb(248,202,64);
 }
 
@@ -408,7 +411,8 @@ svg {
 	stroke-width: 4px;
 }
 
-.focus-2016 circle {
+.focus-2016 circle,
+.focus-2016 text {
 	fill: rgb(23,158,224);
 }
 
@@ -458,6 +462,10 @@ svg {
 
 .gamebar {
 	fill: rgb(230,230,230);
+}
+
+.rankedlossbar {
+	fill: rgb(140,215,165);
 }
 
 .upsetbar {
@@ -640,7 +648,7 @@ th.team {
 }
 
 th.number {
-	width: 15%;
+	width: 12%;
 	text-align: right;
 	font-weight: 300;
 }

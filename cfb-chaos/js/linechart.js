@@ -1,9 +1,9 @@
 var Chart = (function(document,window,d3) {
 
-	var x, y, xAxis, yAxis, xLabel, yLabel, line, lines, svg, chartGroup, csv, xAxisG, yAxisG, width, height, margin = {}, padding = {}, radius, files = [], median, overlay, year, data, focuses;
+	var csv, data, years, x, y, xAxis, yAxis, xAxisG, yAxisG, xLabel, yLabel, line, width, height, margin = {}, padding = {}, svg, chartGroup, overlay, year, hoverbox, hoverline, focuses, currentweek;
 
 	d3.queue()
-		.defer(d3.csv, 'stats/years.csv')
+		.defer(d3.csv, 'data/stats/years.csv')
 		.await(init);
 
 	function type(data) {
@@ -32,6 +32,7 @@ var Chart = (function(document,window,d3) {
 				}).filter(function(d) { return d != null })
 			};
 		});
+		currentweek = years[(years.length)-1].values[(years[(years.length)-1].values.length)-1].week;
 
 		x = d3.scaleLinear()
 			.domain(d3.extent(data, function(d) { return d.Week; }));
@@ -84,15 +85,13 @@ var Chart = (function(document,window,d3) {
 			.append("path")
 				.attr("class", "line");
 
-		var hoverbox = chartGroup.append('rect')
-			.attr("class", "hoverbox")
-			.style("display", "none");
+		hoverbox = chartGroup.append('rect')
+			.attr("class", "hoverbox");
 
-		var hoverline = chartGroup.append('line')
-			.attr("class", "hoverline")
-			.style("display", "none");
+		hoverline = chartGroup.append('line')
+			.attr("class", "hoverline");
 
-		var focuses = chartGroup.selectAll('.focus')
+		focuses = chartGroup.selectAll('.focus')
 			.data(years)
 			.enter().append("g")
 			.attr("class", function(d){
@@ -100,8 +99,7 @@ var Chart = (function(document,window,d3) {
 			});
 
 		var circles = focuses.append("circle")
-			.attr("r", 4)
-			.style("display", "none");
+			.attr("r", 4);
 
 		var text = focuses.append("text")
 			.attr("x", 8)
@@ -110,49 +108,58 @@ var Chart = (function(document,window,d3) {
 		overlay = chartGroup.append("rect")
 			.attr("class", "overlay");
 
-		console.log(years)
-
 		overlay
-			.on("mouseover", function() {
-				hoverline.style("display", null);
-				hoverbox.style("display", null);
-				focuses.style("display", null);
-				circles.style("display", null);
+			.on("mousemove", function(){
+				var x0 = x.invert(d3.mouse(this)[0]);
+				mousemove(x0);
 			})
-		  .on("mouseout", function() {
-				hoverline.style("display", "none");
-				hoverbox.style("display", "none");
-				focuses.style("display", "none");
-				circles.style("display", "none");
-			})
-		  .on("mousemove", mousemove);
+			.on("mouseout", function() {
+				mousemove(currentweek);
+			});
 
-		function mousemove() {
-			var x0 = x.invert(d3.mouse(this)[0]);
-			var hoverdata = data,
-				bisect = d3.bisector(function(d) { return d.Week; }).left,
-				i = bisect(hoverdata, x0, 1),
-				d0 = hoverdata[i-1],
-				d1 = hoverdata[i];
+		render();
+		mousemove(currentweek);
+
+	}
+
+	function mousemove(x0) {
+		var hoverdata = data,
+			bisect = d3.bisector(function(d) { return d.Week; }).left,
+			i = bisect(hoverdata, x0, 1),
+			d0 = hoverdata[i-1],
+			d1 = hoverdata[i];
+			if (typeof d1 == "undefined"){
+				var dz = d0;
+			} else {
+				d = x0 - d0["Week"] > d1["Week"] - x0 ? d1 : d0;
+			}
+		hoverline
+			.attr('x1', x(d["Week"]))
+			.attr('y1', 0)
+			.attr('x2', x(d["Week"]))
+			.attr('y2', height-padding.bottom);
+		hoverbox
+			.attr('x', x(d["Week"]))
+			.attr('y', 0)
+			.attr('width', width-x(d["Week"]))
+			.attr('height', height-padding.bottom/2)
+			.attr('fill', 'white')
+			.attr('opacity', 0.8);
+		focuses
+			.attr("transform", function(d) {
+				var bisect = d3.bisector(function(d) { return d.week; }).left,
+				i = bisect(d.values, x0, 1),
+				d0 = d.values[i-1],
+				d1 = d.values[i];
 				if (typeof d1 == "undefined"){
 					var dz = d0;
 				} else {
-					d = x0 - d0["Week"] > d1["Week"] - x0 ? d1 : d0;
+					var dz = x0 - d0.week > d1.week - x0 ? d1 : d0;
 				}
-			hoverline
-				.attr('x1', x(d["Week"]))
-				.attr('y1', 0)
-				.attr('x2', x(d["Week"]))
-				.attr('y2', height-padding.bottom);
-			hoverbox
-				.attr('x', x(d["Week"]))
-				.attr('y', 0)
-				.attr('width', width-x(d["Week"]))
-				.attr('height', height-padding.bottom/2)
-				.attr('fill', 'white')
-				.attr('opacity', 0.8);
-			focuses
-				.attr("transform", function(d) {
+				return ("translate(" + x(dz.week) + "," + y(dz.upsets) + ")");
+			})
+			.select("text")
+				.text(function(d) {
 					var bisect = d3.bisector(function(d) { return d.week; }).left,
 					i = bisect(d.values, x0, 1),
 					d0 = d.values[i-1],
@@ -162,30 +169,13 @@ var Chart = (function(document,window,d3) {
 					} else {
 						var dz = x0 - d0.week > d1.week - x0 ? d1 : d0;
 					}
-					return ("translate(" + x(dz.week) + "," + y(dz.upsets) + ")");
-				})
-				.select("text")
-					.text(function(d) {
-						var bisect = d3.bisector(function(d) { return d.week; }).left,
-						i = bisect(d.values, x0, 1),
-						d0 = d.values[i-1],
-						d1 = d.values[i];
-						if (typeof d1 == "undefined"){
-							var dz = d0;
-						} else {
-							var dz = x0 - d0.week > d1.week - x0 ? d1 : d0;
-						}
-						return (d.id + ": " + dz.upsets);
-					});
-		}
-
-		render();
-
+					return (d.id + ": " + dz.upsets);
+				});
 	}
 
 	function render() {
 
-		updateDimensions('chart');
+		updateDimensions('.charttoggle');
 
 		svg
 			.attr("width", width + margin.left + margin.right + padding.left + padding.right)
@@ -224,14 +214,15 @@ var Chart = (function(document,window,d3) {
 			.attr("width", width)
 			.attr("height", height);
 
+		mousemove(6);
+
 	}
 
 	function updateDimensions(element) {
 
 		margin = {top: 30, right: 80, bottom: 30, left: 80}
 		padding = {top: 0, right: 0, bottom: 20, left: 20}
-		var theparent = "." + element;
-		var parent_width = $(theparent).width();
+		var parent_width = $(element).width();
 		width =  parent_width - (margin.left + margin.right + padding.left + padding.right);
 		height = width/2;
 

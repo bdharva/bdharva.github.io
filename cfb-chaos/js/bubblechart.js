@@ -3,7 +3,7 @@ var Chart = (function(document,window,d3) {
 	var x, y, xAxis, yAxis, svg, chartGroup, csv, xAxisG, yAxisG, tooltip, circles, width, height, margin = {}, padding = {}, radius, agentcolor, victimcolor, line, line0, linedata = [[0,0]], xmax, ymax, table, tableheaders, tr;
 
 	d3.queue()
-		.defer(d3.csv, 'teams.csv')
+		.defer(d3.csv, 'data/stats/teams.csv')
 		.await(init);
 
 	function type(data) {
@@ -97,28 +97,25 @@ var Chart = (function(document,window,d3) {
 		circles.on("mouseover", function(d) {
 			var matches = [];
 			data.forEach(function(c) {
-				console.log(d);
-				console.log(c);
 				if (d.Agent == c.Agent && d.Victim == c.Victim) {
 					return matches.push(c);
 				}
 			});
-			console.log(matches);
 			matches.sort(function(a, b){ return d3.ascending(a.Team, b.Team); })
 			var content = "";
 			if (matches.length > 1 && d.Margin > 0){
-				content = content + "<div class='topper'>Agents of Chaos (" + d3.format("+,.1%")(d.Percentage) +")</div>";
+				content = content + "<div class='topper'>Agents of Chaos (" + d3.format("+")(d.Margin) +")</div>";
 			} else if (matches.length == 1 && d.Margin > 0) {
-				content = content + "<div class='topper'>Agent of Chaos (" + d3.format("+,.1%")(d.Percentage) +")</div>";
+				content = content + "<div class='topper'>Agent of Chaos (" + d3.format("+")(d.Margin) +")</div>";
 			} else if (matches.length > 1 && d.Margin < 0) {
-				content = content + "<div class='topper'>Victims of Chaos (" + d3.format("+,.1%")(d.Percentage) +")</div>";
+				content = content + "<div class='topper'>Victims of Chaos (" + d3.format("+")(d.Margin) +")</div>";
 			} else if (matches.length == 1 && d.Margin < 0) {
-				content = content + "<div class='topper'>Victim of Chaos (" + d3.format("+,.1%")(d.Percentage) +")</div>";
+				content = content + "<div class='topper'>Victim of Chaos (" + d3.format("+")(d.Margin) +")</div>";
 			} else {
-				content = content + "<div class='topper'>Neutral (" + d3.format("+,.1%")(d.Percentage) +")</div>";
+				content = content + "<div class='topper'>Neutral (" + d3.format("+")(d.Margin) +")</div>";
 			}
 			for (i=0; i < matches.length; i++){
-				content = content + "<div class='teamline'><div class='logo' style=\"background-image:url('images/" + matches[i].Image + ".png');\"></div><div class='teamdiv'>" + matches[i].Team + "</div></div>"
+				content = content + "<div class='teamline'><div class='logo' style=\"background-image:url('assets/logos/" + matches[i].Image + ".png');\"></div><div class='teamdiv'>" + matches[i].Team + "</div></div>"
 			}
 			tooltip.html(content)
 			tooltip.transition()
@@ -133,109 +130,13 @@ var Chart = (function(document,window,d3) {
 				.style("opacity", 0);
 			});
 
-		table = d3.select("#tableteams").append("table").attr('id', 'datatable');
-
-		var headers = ['Team', 'Agent', 'Victim', 'Margin', 'Percentage']
-
-		tableheaders = table.append('thead')
-			.append('tr')
-			.selectAll('th')
-				.data(headers)
-			.enter()
-			.append("th")
-				.text(function(d) {
-					if (d == "Percentage"){
-						return "Chaos +/-";
-					} else {
-						return d;
-					}
-				})
-				.attr('class', function(d) {
-					if (d == 'Team') {
-						return 'team';
-					} else if (d == 'Margin') {
-						return 'number active descending';
-					} else {
-						return 'number';
-					}
-				})
-				.attr('id', function(d) { return d; });
-
-		tableheaders.on("click", function(d) {
-			var activeClass = "active";
-			var ascClass = "ascending";
-			var desClass = "descending";
-			var alreadyIsActive = d3.select(this).classed(activeClass);
-			var alreadyIsAsc = d3.select(this).classed(ascClass);
-			var alreadyIsDes = d3.select(this).classed(desClass);
-			table.select('thead').select('tr').selectAll("th")
-				.classed(activeClass, false)
-				.classed(ascClass, false)
-				.classed(desClass, false);
-			d3.select(this).classed(activeClass, true);
-			if (d == "Team") {
-				d3.select(this).classed(ascClass, !alreadyIsActive || alreadyIsDes);
-				d3.select(this).classed(desClass, alreadyIsAsc);
-			} else {
-				d3.select(this).classed(desClass, !alreadyIsActive || alreadyIsAsc);
-				d3.select(this).classed(ascClass, alreadyIsDes);
-			}
-			var nowIsAsc = d3.select(this).classed(ascClass);
-			var nowIsDes = d3.select(this).classed(desClass);
-			if (nowIsDes) {
-				tr.sort(function(a, b){ return d3.descending(a[d], b[d]); })
-			} else if (nowIsAsc) {
-				tr.sort(function(a, b){ return d3.ascending(a[d], b[d]); })
-			}
-		});
-
-		tr = table.append("tbody")
-			.selectAll("tr")
-			.data(data)
-			.enter()
-			.append("tr")
-			.attr('class', 'entry');
-
-		tr
-			.sort(function(a, b) { return b.Margin - a.Margin; })
-
-		for (i=0; i<headers.length; i++){
-			tr.append("th")
-				.html(function(d) {
-					if (headers[i] == 'Team') {
-						return "<div class='logo' style=\"background-image:url('images/" + d.Image + ".png');\"></div><div class='teamdiv'>" + d[headers[i]] + "</div>";
-					} else if (headers[i] == "Percentage"){
-						return d3.format("+,.1%")(d[headers[i]]);
-					}else {
-						return d[headers[i]];
-					}
-				})
-				.attr('class', function(d) {
-					if (headers[i] == 'Team') {
-						return 'team';
-					} else {
-						return 'number';
-					}
-				})
-				.style('background-color', function(d){
-					if (d.Victim > d.Agent && headers[i] == 'Margin'){
-						return victimcolor(d.Victim - d.Agent);
-					} else if (d.Victim <= d.Agent && headers[i] == 'Margin'){
-						return agentcolor(d.Agent - d.Victim);
-					} else {
-						return 'none';
-					}
-				});
-		}
-
-
 		render();
 
 	}
 
 	function render() {
 
-		updateDimensions('chart');
+		updateDimensions('.charttoggle');
 
 		radius = d3.scaleSqrt()
 			.domain([0, d3.max(data, function(d) { return d.Victim + d.Agent })])
@@ -284,8 +185,7 @@ var Chart = (function(document,window,d3) {
 
 		margin = {top: 30, right: 30, bottom: 30, left: 30}
 		padding = {top: 0, right: 0, bottom: 20, left: 20}
-		var theparent = "." + element;
-		var parent_width = $(theparent).width();
+		var parent_width = $(element).width();
 		width =  parent_width - (margin.left + margin.right + padding.left + padding.right);
 		height = width/2;
 

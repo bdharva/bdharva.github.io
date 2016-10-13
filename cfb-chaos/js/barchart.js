@@ -1,14 +1,14 @@
 var Chart = (function(document,window,d3) {
 
-	var x, y, xAxis, yAxis, xLabel, yLabel, bargroups, gamebars, upsetbars, svg, chartGroup, csv, xAxisG, yAxisG, width, height, margin = {}, padding = {}, stackedweeks, tooltip;
+	var x, y, xAxis, yAxis, xLabel, yLabel, bargroups, gamebars, rankedlossbars, upsetbars, svg, chartGroup, csv, xAxisG, yAxisG, width, height, margin = {}, padding = {}, stackedweeks, tooltip;
 
 	d3.queue()
-		.defer(d3.csv, 'weeks.csv')
+		.defer(d3.csv, 'data/stats/weeks.csv')
 		.await(init);
 
 	function type(data) {
 
-		fields = ['Week', 'Games', 'Upsets'];
+		fields = ['Week', 'Games', 'RankedGames', 'RankedLosses', 'Upsets'];
 
 		data.forEach(function(d) {
 			for (i=0; i < fields.length; i++) {
@@ -69,6 +69,12 @@ var Chart = (function(document,window,d3) {
 			.append("rect")
 				.attr("class", "gamebar");
 
+		rankedlossbars = chartGroup.selectAll(".rankedlossbar")
+			.data(stackedweeks)
+			.enter()
+			.append("rect")
+				.attr("class", "rankedlossbar");
+
 		upsetbars = chartGroup.selectAll(".upsetbar")
 			.data(stackedweeks)
 			.enter()
@@ -79,52 +85,60 @@ var Chart = (function(document,window,d3) {
 			.attr("class", "bartooltip")
 			.style("opacity", 0);
 
-
-		gamebars.on("mouseover", function(d) {
+		function mouseover(d){
 			tooltip.transition()
 				.duration(200)
 				.style("opacity", 1)
 				.style("left", (d3.event.pageX-125) + "px")
-				.style("top", (d3.event.pageY+30) + "px");
+				.style("top", (d3.event.pageY-$('.bartooltip').height()-30) + "px");
 			var content = "";
-			content = content + "<div class=\"topper\">Week " + d.Week + "</div>";
+			content = content + "<div class='topper'>Week " + d.Week +"</div>";
 			content = content + "<div class=\"entry\"><span class=\"number\">" + d.Games +"</span><span class=\"description\">games</span></div>";
 			content = content + "<div class=\"entry\"><span class=\"number\">" + d.Upsets +"</span><span class=\"description\">upsets</span></div>";
 			content = content + "<div class=\"entry\"><span class=\"number\">" + d3.format(".1%")(d.Upsets/d.Games) +"</span><span class=\"description\">chaotic</span></div>";
 			tooltip.html(content);
-		})
-		.on("mouseout", function(d) {
+		}
+
+		function mouseout(){
 			tooltip.transition()
 				.duration(500)
 				.style("opacity", 0);
-		})
-		.on("mousemove", function(d) {
+		}
+
+		function mousemove(){
 			tooltip
-				.style("left", (d3.event.pageX-125) + "px")
-				.style("top", (d3.event.pageY+30) + "px");
+			.style("left", (d3.event.pageX-125) + "px")
+			.style("top", (d3.event.pageY-$('.bartooltip').height()-30) + "px");
+		}
+
+		gamebars.on("mouseover", function(d) {
+			mouseover(d);
+		})
+		.on("mouseout", function() {
+			mouseout();
+		})
+		.on("mousemove", function() {
+			mousemove();
+		});
+
+		rankedlossbars.on("mouseover", function(d) {
+			mouseover(d);
+		})
+		.on("mouseout", function() {
+			mouseout();
+		})
+		.on("mousemove", function() {
+			mousemove();
 		});
 
 		upsetbars.on("mouseover", function(d) {
-			tooltip.transition()
-				.duration(200)
-				.style("opacity", 1)
-				.style("left", (d3.event.pageX-125) + "px")
-				.style("top", (d3.event.pageY+30) + "px");
-			var content = "";
-			content = content + "<div class=\"entry\"><span class=\"number\">" + d.Games +"</span><span class=\"description\">games</span></div>";
-			content = content + "<div class=\"entry\"><span class=\"number\">" + d.Upsets +"</span><span class=\"description\">upsets</span></div>";
-			content = content + "<div class=\"entry\"><span class=\"number\">" + d3.format(".1%")(d.Upsets/d.Games) +"</span><span class=\"description\">chaotic</span></div>";
-			tooltip.html(content);
+			mouseover(d);
 		})
-		.on("mouseout", function(d) {
-			tooltip.transition()
-				.duration(500)
-				.style("opacity", 0);
+		.on("mouseout", function() {
+			mouseout();
 		})
-		.on("mousemove", function(d) {
-			tooltip
-				.style("left", (d3.event.pageX-125) + "px")
-				.style("top", (d3.event.pageY+30) + "px");
+		.on("mousemove", function() {
+			mousemove();
 		});
 
 		render();
@@ -133,7 +147,7 @@ var Chart = (function(document,window,d3) {
 
 	function render() {
 
-		updateDimensions('chart');
+		updateDimensions('.charttoggle');
 
 		svg
 			.attr("width", width + margin.left + margin.right + padding.left + padding.right)
@@ -167,6 +181,12 @@ var Chart = (function(document,window,d3) {
 			.attr("height", function(d) { return height - y(d.Games) - padding.bottom; })
 			.attr("width", x.bandwidth());
 
+		rankedlossbars
+			.attr("x", function(d) { return x(d.Week); })
+			.attr("y", function(d) { return y(d.RankedLosses); })
+			.attr("height", function(d) { return height - y(d.RankedLosses) - padding.bottom; })
+			.attr("width", x.bandwidth());
+
 		upsetbars
 			.attr("x", function(d) { return x(d.Week); })
 			.attr("y", function(d) { return y(d.Upsets); })
@@ -179,8 +199,7 @@ var Chart = (function(document,window,d3) {
 
 		margin = {top: 30, right: 80, bottom: 30, left: 80}
 		padding = {top: 0, right: 0, bottom: 20, left: 20}
-		var theparent = "." + element;
-		var parent_width = $(theparent).width();
+		var parent_width = $(element).width();
 		width =  parent_width - (margin.left + margin.right + padding.left + padding.right);
 		height = width/2;
 
