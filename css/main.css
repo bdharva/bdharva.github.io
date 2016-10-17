@@ -294,6 +294,10 @@ section.feature {
 	width: 50%;
 }
 
+.card-holder.feature {
+	width: 100%;
+}
+
 .card-holder a {
 	text-decoration: none;
 }
