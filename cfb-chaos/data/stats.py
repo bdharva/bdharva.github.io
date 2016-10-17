@@ -36,7 +36,7 @@ if __name__ == '__main__':
 	thisyear = 2016
 
 	startweek = 1
-	thisweek = 7
+	thisweek = 8
 	endweek = 16
 
 	tracer = []

@@ -15,7 +15,7 @@ var Chart = (function(document,window,d3) {
 			d.VictimAttempts = +d.VictimAttempts;
 			d.AgentPercent = d.Agent/d.AgentAttempts;
 			if (d.VictimAttempts > 0) {
-				d.VictimPercent = d.Victim/d.VictimAttempts;
+				d.VictimPercent = (d.VictimAttempts-d.Victim)/d.VictimAttempts;
 			} else {
 				d.VictimPercent = 0;
 			}
@@ -60,7 +60,7 @@ var Chart = (function(document,window,d3) {
 					} else if (d == "AgentPercent"){
 						return "Agent W%";
 					} else if (d == "VictimPercent"){
-						return "Victim L%";
+						return "Victim W%";
 					} else {
 						return d;
 					}
