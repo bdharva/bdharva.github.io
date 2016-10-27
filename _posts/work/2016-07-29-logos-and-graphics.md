@@ -3,7 +3,6 @@ layout: project
 title: Assorted Logos & Graphics
 category: projects
 tags:
-- Branding
 - Graphic Design
 tagline: Branding, Graphic Design
 thumbnail: /assets/work/graphics/prompt.png

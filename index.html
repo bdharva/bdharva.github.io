@@ -2,13 +2,20 @@
 layout: default
 title: bdharva
 ---
-
+<div id="hero" style="background-image:url('/assets/photography/iceland/laugavegurinn2/laugavegurinn2-16.jpg');">
+	<div class="screen">
+		<div class="content">
+			<h2>Ben Harvatine</h2>
+			<h3><span class="highlighter">Engineer</span> by training. Designer at heart. Entrepreneur through trial and error.</h3>
+		</div>
+	</div>
+</div>
 <section class="shell top">
 	<div class="card-holder">
 		<div class="card">
 			<div class="pic" style="background-image:url('/assets/ben.jpg'); background-position: top;"></div>
-			<div class="label">ABOUT ME</div>
-			<div class="details left">
+			<div class="details">
+				<div class="label">About Me</div>
 				<span class="title">I'm Ben Harvatine, an MIT-trained engineer and designer with an entrepreneurial streak.</span>
 				<span class="cta"><a href="/about">&rarr; Learn more about Ben...</a></span>
 			</div>
@@ -18,8 +25,8 @@ title: bdharva
 		<div class="card">
 			{% assign post = site.categories.blog.first %}
 			<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
-			<div class="label">BLOG POST</div>
-			<div class="details left">
+			<div class="details">
+				<div class="label">Blog Post</div>
 				<span class="title"><a href="{{ post.url }}">Read "{{ post.title }}"</a> - {{post.tagline}}</span>
 				<span class="cta"><a href="/blog">&rarr; See more blog posts...</a></span>
 			</div>
@@ -29,8 +36,8 @@ title: bdharva
 		<div class="card">
 			{% assign post = site.categories.photography.first %}
 			<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
-			<div class="label">PHOTOGRAPHY</div>
-			<div class="details left">
+			<div class="details">
+				<div class="label">Photography</div>
 				<span class="title"><a href="{{ post.url }}">Check out photos</a> from my recent (or most recently edited) trip to {{ post.title }}</span>
 				<span class="cta"><a href="/photos">&rarr; View more photo adventures...</a></span>
 			</div>
@@ -40,8 +47,8 @@ title: bdharva
 		<div class="card">
 			{% assign post = site.categories.projects.first %}
 			<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
-			<div class="label">PROJECT</div>
-			<div class="details left">
+			<div class="details">
+				<div class="label">Project</div>
 				<span class="title">View my most recent project, "<a href="{{ post.url }}">{{post.title}}</a>", in my portfolio.</span>
 				<span class="cta"><a href="/work">&rarr; All portfolio entries...</a></span>
 			</div>
@@ -51,8 +58,8 @@ title: bdharva
 		<div class="card">
 			{% assign post = site.categories.highpoints.first %}
 			<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
-			<div class="label">HIGHPOINT</div>
-			<div class="details left">
+			<div class="details">
+				<div class="label">Highpoint</div>
 				<span class="title">With <a href="{{ post.url }}">my summit </a> of {{ post.title }}, I've now climbed {{ site.categories.highpoints | size }} out of 50 state highpoints.</span>
 				<span class="cta"><a href="/highpoints">&rarr; List of completed highpoints...</a></span>
 			</div>
@@ -61,24 +68,11 @@ title: bdharva
 	<div class="card-holder">
 		<div class="card">
 			<div class="pic" style="background-image:url('/assets/wcvb.png');"></div>
-			<div class="label">IN THE NEWS</div>
-			<div class="details left">
+			<div class="details">
+				<div class="label">In the News</div>
 				<span class="title"><a href="http://www.wcvb.com/community/cityline/sunday-december-13-2015-hot-movies-heavy-topics/36879534" target="_blank">Watch me discuss</a> Concussion (the movie) and my startup, <a href="http://joltsensor.com">Jolt</a>, on WCVB Boston.</span>
 				<span class="cta"><a href="/about#pressmentions">&rarr; See more press mentions...</a></span>
 			</div>
 		</div>
 	</div>
-	<a href="/cfb-chaos">
-		<div id="hero">
-			<div class="background" style="background-image:url('/cfb-chaos/assets/hero.jpg');">
-				<div class="screen">
-					<div class="content center">
-						<h4 class="green no-top">WORK IN PROGRESS</h4>
-						<h2 class="white">Quantifying Chaos</h2>
-						<h3 class="white no-bottom" style="max-width: 600px; margin: 24px auto; margin-bottom: 0;">Crunching the numbers on the success of Team Chaos in turning college football rankings on their head</h3>
-					</div>
-				</div>
-			</div>
-		</div>
-	</a>
 </section>

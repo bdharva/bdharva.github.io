@@ -4,7 +4,6 @@ title: 3D Printed Pendant
 category: projects
 tags:
 - Rapid Prototyping
-- Jewelry Design
 tagline: "Rapid Prototyping, Jewelry Design"
 thumbnail: /assets/work/pendant/pendant01.png
 permalink: /work/3d-printed-pendant

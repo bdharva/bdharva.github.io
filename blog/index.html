@@ -3,13 +3,11 @@ layout: default
 title: Blog - bdharva
 ---
 
-<div id="hero">
-	<div class="background" style="background-image:url('/assets/heros/drawings.jpg');">
-		<div class="screen">
-			<div class="content">
-				<h1 class="white no-top">bdharva's Blog</h1>
-				<h3 class="white no-bottom">Sharing my travels, tinkering, and thoughts.</h3>
-			</div>
+<div id="hero" style="background-image:url('/assets/heros/drawings.jpg');">
+	<div class="screen">
+		<div class="content">
+			<h1 class="white no-top">bdharva's Blog</h1>
+			<h3 class="white no-bottom">Sharing my travels, tinkering, and thoughts.</h3>
 		</div>
 	</div>
 </div>
@@ -20,18 +18,9 @@ title: Blog - bdharva
 				<div class="card">
 					<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
 					<div class="details">
-						{% if post.tag == "Thoughts" %}<i class="material-icons md-18">import_contacts</i>
-						{% elsif post.tag == "Entrepreneurship" %}<i class="material-icons md-18">group_work</i>
-						{% elsif post.tag == "Tech" %}<i class="material-icons md-18">memory</i>
-						{% elsif post.tag == "Design" %}<i class="material-icons md-18">palette</i>
-						{% elsif post.tag == "Outdoors" %}<i class="material-icons md-18">terrain</i>
-						{% elsif post.tag == "Travel" %}<i class="material-icons md-18">flight</i>
-						{% elsif post.tag == "Fitness" %}<i class="material-icons md-18">fitness_center</i>
-						{% elsif post.tag == "Programming" %}<i class="material-icons md-18">code</i>
-						{% elsif post.tag == "Data Visualization" %}<i class="material-icons md-18">timeline</i>
-						{% endif %}
-						<span class="title">{{ post.title }}</span>
-						<span class="tags">in "{{ post.tags }}" on {{ post.date | date: "%b %-d, %Y" }}</span>
+						<div class="label">{{ post.tags }}</div>
+						<span class="tags">{{ post.date | date: "%B %-d, %Y" }}</span>
+						<span class="title">{{ post.title }} - {{ post.tagline }}</span>
 					</div>
 				</div>
 			</a>

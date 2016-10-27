@@ -43,12 +43,10 @@ $(window).on('scroll', function(){
 		if (scroll >= top + overlap && scroll <= bot ) {
 
 			$('#datatable > thead').addClass('static');
-			$('tbody').css('margin-top', height + 'px');
 
 		} else {
 
 			$('#datatable > thead').removeClass('static');
-			$('tbody').css('margin-top', 0);
 
 		}
 

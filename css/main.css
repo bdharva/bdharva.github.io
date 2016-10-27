@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-	background-color: rgb(235,235,235);
+	background-color: rgb(240,240,240);
 	font-family: "Roboto", sans-serif;
 	font-size: 18px;
 	font-weight: 300;
@@ -28,12 +28,7 @@ h1, h2, h3, h4 {
 	font-weight: 400;
 }
 
-h1 {
-	font-size: 48px;
-	margin: 24px 0 16px 0;
-}
-
-h2 {
+h1, h2 {
 	font-size: 36px;
 	margin: 24px 0 16px 0;
 }
@@ -50,11 +45,32 @@ h4 {
 }
 
 h1.green, h2.green, h3.green, h4.green {
-	color: rgb(50,200,100);
+	color: rgb(230,80,80);
 }
 
 h1.white, h2.white, h3.white, h4.white {
 	color: rgb(255,255,255);
+}
+
+#hero h1,
+#hero h2,
+#hero h3,
+#hero h4 {
+	color: rgb(255,255,255);
+}
+
+#hero h1,
+#hero h2 {
+	font-family: "Roboto Mono", monospace;
+	text-transform: uppercase;
+	background-color: rgb(230,80,80);
+	display: inline-block;
+	padding: 0 10px;
+}
+
+#hero h3,
+#hero h4 {
+	font-weight: 300;
 }
 
 p, li {
@@ -71,7 +87,7 @@ p img {
 }
 
 a {
-	color: rgb(50,200,100);
+	color: rgb(230,80,80);
 	text-decoration: none;
 }
 
@@ -85,7 +101,7 @@ ul {
 }
 
 blockquote {
-	border-left: 6px solid rgb(50,200,100);
+	border-left: 6px solid rgb(230,80,80);
 	margin: 16px 0;
 	padding: 0 16px;
 	font-style: italic;
@@ -98,7 +114,7 @@ button {
 	font-size: 16px;
 	font-family: "Roboto", sans-serif;
 	font-weight: 400;
-	border: 2px solid rgb(50,200,100);
+	border: 2px solid rgb(230,80,80);
 	border-radius: 3px;
 	background: none;
 	color: rgb(60,75,90);
@@ -108,7 +124,7 @@ button {
 
 button:hover {
 	color: rgb(255,255,255);
-	background-color: rgb(50,200,100);
+	background-color: rgb(230,80,80);
 }
 
 /* Header
@@ -116,32 +132,37 @@ button:hover {
 
 header {
 	width: 100%;
-	max-width: 1220px;
 	box-sizing: border-box;
 	margin: 0 auto;
-	padding: 10px;
+	padding: 20px;
 	position: absolute;
 	top: 0;
 	right: 0;
 	left: 0;
 	z-index: 10;
-	background-color: rgb(255,255,255);
 	transition: top 0.5s ease-in-out;
 }
 
+header.fixed {
+	position: fixed;
+	z-index: 20;
+	background-color: rgb(255,255,255);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
 .nav-up {
-    top: -60px;
+	top: -74px;
 }
 
 nav {
 	color: rgb(255,255,255);
-	height: 40px;
+	height: 32px;
 	font-weight: 400;
 	float: left;
 }
 
 nav img {
-	height: 40px;
+	height: 32px;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -151,31 +172,41 @@ nav img {
 }
 
 .menu li {
-	height: 40px;
-	margin: 0;
+	height: 32px;
+	margin: 0 5px 0 0;
 	padding: 0 10px;
 	display: inline-block;
 	font-family: "Heebo", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
-	line-height: 40px;
+	line-height: 32px;
 	vertical-align: middle;
 	box-sizing:border-box;
 }
 
+.menu li:hover {
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 4px;
+}
+
 .menu a {
-	color: rgb(150,150,150);
+	color: rgb(255,255,255);
 	text-decoration: none;
 	margin: 0;
 	padding: 0;
 	height: auto;
 	overflow: auto;
-	opacity: 0.5;
+	opacity: 0.7;
 }
 
 .menu a.active,
 .menu a:hover {
 	opacity: 1.0;
+}
+
+header.fixed nav,
+header.fixed .menu a {
+	color: rgb(60,75,90);
 }
 
 /* Wrapper
@@ -185,10 +216,8 @@ nav img {
 	z-index: 2;
 	position: relative;
 	/*min-height: 100%;*/
-	max-width: 1230px;
 	display: block;
 	margin: 0 auto;
-	margin-top: 70px;
 }
 
 /* Hero & screens
@@ -196,19 +225,11 @@ nav img {
 
 #hero {
 	width: 100%;
-	max-width: 1220px;
-	height: auto;
+	height: 500px;
 	overflow: auto;
-	padding: 10px;
 	margin: 0 auto;
-	margin-top: 10px;
 	background-color: rgb(255,255,255);
 	box-sizing: border-box;
-}
-
-#hero .background {
-	width: 100%;
-	height: 500px;
 	background-size: cover;
 	background-position: center;
 	position: relative;
@@ -229,6 +250,12 @@ nav img {
 	padding: 40px;
 }
 
+#hero .content {
+	max-width: 500px;
+	margin: 0 auto;
+	text-align: center;
+}
+
 /* Section
 ------------------------------------------------------------*/
 
@@ -236,32 +263,31 @@ section {
 	height: auto;
 	overflow: auto;
 	width: 100%;
-	max-width: 1220px;
 	margin: 0 auto;
-	margin-top: 10px;
 	padding: 40px 60px;
 	box-sizing: border-box;
 	background-color: rgb(255,255,255);
+	border-bottom: 1px solid rgb(230,230,230);
 }
 
 section.shell {
+	width: 100%;
 	margin: 0 auto;
-	margin-top: 5px;
-	margin-bottom: -5px;
-	padding: 0;
+	padding: 10px;
 	background: none;
-	max-width: none;
-}
-
-section.shell.top {
-	margin-top: -5px;
+	border: none;
 }
 
 section.feature {
-	background-color: rgb(50,200,100);
+	background-color: rgb(230,80,80);
 	text-align: center;
 	padding: 24px 40px;
 	border: 10px solid rgb(255,255,255);
+}
+
+section .wrapper {
+	max-width: 1024px;
+	margin: 0 auto;
 }
 
 .feature button {
@@ -270,7 +296,7 @@ section.feature {
 }
 
 .feature button:hover {
-	color: rgb(50,200,100);
+	color: rgb(230,80,80);
 	background-color: rgb(255,255,255);
 }
 
@@ -281,7 +307,7 @@ section.feature {
 .stats {
 	width: 33.33%;
 	box-sizing: border-box;
-	padding: 5px;
+	padding: 10px;
 	display: block;
 	float: left;
 }
@@ -305,9 +331,12 @@ section.feature {
 .card {
 	width: 100%;
 	box-sizing: border-box;
-	padding: 10px;
-	background-color: rgb(255,255,255);
+	border: 1px solid rgb(230,230,230);
 	position: relative;
+}
+
+.card:hover {
+	box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
 }
 
 .tagfeature {
@@ -324,64 +353,54 @@ section.feature {
 	border: 1px solid rgb(200,200,200);
 }
 
-.card .screen {
-	opacity: 0;
-}
-
 .pic {
 	width: 100%;
-	height: 200px;
+	height: 400px;
 	box-sizing: border-box;
 	background-size: cover;
 	background-position: center;
+	position: relative;
 }
 
 .label {
+	width: auto;
 	height: auto;
 	overflow: auto;
-	top: 0;
-	left: 0;
+	margin: 0 auto;
 	padding: 10px 20px;
-	display: block;
-	position: absolute;
-	background-color: rgb(255,255,255);
-	font-family: "Heebo", sans-serif;
+	display: inline-block;
+	background-color: rgb(230,80,80);
+	font-family: "Roboto Mono", monospace;;
 	font-size: 14px;
 	font-weight: 400;
-	color: rgb(150,150,150);
-	box-sizing: border-box;
+	color: rgb(255,255,255);
 }
 
 .details {
 	width: 100%;
 	text-align: center;
-	padding: 20px;
+	min-height: 200px;
 	box-sizing: border-box;
+	color: rgb(100,100,100);
 	background-color: rgb(255,255,255);
-	min-height: 140px;
+	padding: 20px 40px;
 }
 
 .title, .tags {
 	display: block;
+	margin: 10px auto;
 }
 
 .title {
 	font-size: 18px;
-	color: rgb(90,100,110);
 }
 
 .tags {
 	font-size: 14px;
-	color: rgb(150,160,170);
 }
 
 .cta {
 	font-size: 14px;
-	text-align: right;
-	position: absolute;
-	display: block;
-	bottom: 30px;
-	right: 30px;
 }
 
 .row {
@@ -429,14 +448,12 @@ section.feature {
 
 footer {
 	width: 100%;
-	max-width: 1220px;
 	background-color: rgb(60,75,90);
 	color: rgb(255,255,255);
 	padding: 40px;
 	text-align: center;
 	font-size: 14px;
-	margin: 10px auto;
-	border: 10px solid rgb(255,255,255);
+	margin: 0 auto;
 	box-sizing: border-box;
 }
 
@@ -585,7 +602,7 @@ a .material-icons {
 		width: 100%;
 		margin: 16px 0;
 		color: rgb(255,255,255);
-		background-color: rgb(50,200,100);
+		background-color: rgb(230,80,80);
 	}
 
 }

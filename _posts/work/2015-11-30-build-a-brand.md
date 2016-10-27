@@ -4,8 +4,6 @@ title: Build-a-Brand
 category: projects
 tags:
 - Branding
-- Package Design
-- Brewing
 tagline: "Branding, Package Design, Brewing"
 thumbnail: /assets/work/build-a-brand/packaging06.png
 permalink: /work/build-a-brand
