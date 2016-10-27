@@ -4,7 +4,7 @@ title: Build-a-Brand
 category: projects
 tags:
 - Branding
-tagline: "Branding, Package Design, Brewing"
+tagline: "Developing packaging concepts for a new brand of ultra-light beer"
 thumbnail: /assets/work/build-a-brand/packaging06.png
 permalink: /work/build-a-brand
 ---

@@ -12,20 +12,20 @@ title: Highpoints - bdharva
 	</div>
 </div>
 <section>
-	<p>I have a goal of summiting the highest natural elevation point in all 50 states. While travelling around the country for my rotation-based training program at Anheuser-Busch, I started seeking out local highpoints as a way to get outside and explore the new places I was in. Around the same time, I was lucky enough to be picked for a charity climb of Mt. Whitney (the highest point in the lower 48 states) led by Backpacker Magazine. Between all of the training climbs and that awe-inspiring trip, I was hooked.</p>
-</section>
-<section>
-	<div class="stats center">
-		<h2 class="green">{{ site.categories.highpoints | size }}/50</h2>
-		<p>peaks completed</p>
-	</div>
-	<div class="stats center">
-		<h2 class="green">14,505'</h2>
-		<p>highest elevation</p>
-	</div>
-	<div class="stats center">
-		<h2 class="green">447'</h2>
-		<p>lowest elevation</p>
+	<div class="wrapper">
+		<p>I have a goal of summiting the highest natural elevation point in all 50 states. While travelling around the country for my rotation-based training program at Anheuser-Busch, I started seeking out local highpoints as a way to get outside and explore the new places I was in. Around the same time, I was lucky enough to be picked for a charity climb of Mt. Whitney (the highest point in the lower 48 states) led by Backpacker Magazine. Between all of the training climbs and that awe-inspiring trip, I was hooked.</p>
+		<div class="stats center">
+			<h2 class="green">{{ site.categories.highpoints | size }}/50</h2>
+			<p>peaks completed</p>
+		</div>
+		<div class="stats center">
+			<h2 class="green">14,505'</h2>
+			<p>highest elevation</p>
+		</div>
+		<div class="stats center">
+			<h2 class="green">447'</h2>
+			<p>lowest elevation</p>
+		</div>
 	</div>
 </section>
 <section class="shell">
@@ -36,9 +36,9 @@ title: Highpoints - bdharva
 				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
 				<div class="details">
 					<i class="material-icons md-18">terrain</i>
-					<span class="title">{{ post.title }}</span>
-					<span class="tags">{{ post.date | date: "%B %-d, %Y" }}</span>
 					<span class="tags">{{ post.tagline }}</span>
+					<div class="label">{{ post.title }}</div>
+					<span class="tags">{{ post.date | date: "%B %-d, %Y" }}</span>
 				</div>
 			</div>
 		</a>

@@ -4,7 +4,7 @@ title: Deck Chairs
 category: projects
 tags:
 - Woodworking
-tagline: "Woodworking"
+tagline: "A clean modern take on the traditional adirondack chair"
 thumbnail: /assets/work/deckchair/deckchair04.jpg
 permalink: /work/deck-chair
 ---

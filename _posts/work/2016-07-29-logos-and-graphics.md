@@ -4,7 +4,7 @@ title: Assorted Logos & Graphics
 category: projects
 tags:
 - Graphic Design
-tagline: Branding, Graphic Design
+tagline: "Selected work for startups, college groups, and friends/family."
 thumbnail: /assets/work/graphics/prompt.png
 permalink: /work/logos-and-graphics
 ---

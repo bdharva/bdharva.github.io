@@ -4,7 +4,7 @@ title: No-Bend Bottle Opener
 category: projects
 tags:
 - Rapid Prototyping
-tagline: Rapid Prototyping, Machining
+tagline: "A stainless steel bottle opener that doesn't crimp the caps"
 thumbnail: /assets/bottleopener1.jpg
 permalink: /work/bottle-opener
 ---

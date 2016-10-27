@@ -4,7 +4,7 @@ title: Assorted Shirt Designs
 category: projects
 tags:
 - Graphic Design
-tagline: "Graphic Design"
+tagline: "Selected work for startups, college groups, and friends/family."
 thumbnail: /assets/work/shirts/brotank/front.jpg
 permalink: /work/assorted-shirt-designs
 ---

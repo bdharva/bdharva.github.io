@@ -4,7 +4,7 @@ title: Magazine Rack Side Table
 category: projects
 tags:
 - Woodworking
-tagline: "Woodworking"
+tagline: "A side table that keeps books and magazines within easy reach"
 thumbnail: /assets/work/sidetable/sidetable04.jpg
 permalink: /work/side-table
 ---

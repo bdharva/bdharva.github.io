@@ -282,7 +282,7 @@ section.feature {
 	background-color: rgb(230,80,80);
 	text-align: center;
 	padding: 24px 40px;
-	border: 10px solid rgb(255,255,255);
+	border: none;
 }
 
 section .wrapper {
@@ -396,7 +396,7 @@ section .wrapper {
 }
 
 .tags {
-	font-size: 14px;
+	font-size: 15px;
 }
 
 .cta {
@@ -559,7 +559,7 @@ a .material-icons {
 /* Media queries
 ============================================================*/
 
-@media (max-width:940px){
+@media (max-width:1120px){
 
 		.card-holder{
 		width: 50%;

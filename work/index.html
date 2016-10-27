@@ -19,8 +19,7 @@ title: Projects - bdharva
 				<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
 				<div class="details">
 					<div class="label">{{ post.tags }}</div>
-					<span class="title">{{ post.title }}</span>
-					<span class="tags">{{ post.tags | join: ', ' }}</span>
+					<span class="title">{{ post.title }} - {{ post.tagline }}</span>
 				</div>
 			</div>
 		</a>

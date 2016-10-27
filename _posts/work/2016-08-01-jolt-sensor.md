@@ -4,7 +4,7 @@ title: Head Impact Sensor
 category: projects
 tags:
 - Product Development
-tagline: "Product Development"
+tagline: "A head impact sensor for athletes with a connected app for parents & coaches"
 thumbnail: /assets/circuitboards.jpg
 permalink: /work/jolt-sensor
 ---

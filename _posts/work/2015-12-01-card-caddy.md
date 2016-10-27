@@ -4,7 +4,7 @@ title: Card & Key Caddy
 category: projects
 tags:
 - Rapid Prototyping
-tagline: "Rapid Prototyping"
+tagline: "A place to keep keys and loose cards by the door for easy access"
 thumbnail: /assets/cardcaddy3.jpg
 permalink: /work/card-and-key-caddy
 ---
