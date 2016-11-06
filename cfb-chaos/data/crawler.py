@@ -144,7 +144,7 @@ if __name__ == '__main__':
 	for num in range(2016,2017):
 		years.append(num)
 
-	for num in range(9,10):
+	for num in range(10,11):
 		weeks.append(num)
 
 	for year in years:
