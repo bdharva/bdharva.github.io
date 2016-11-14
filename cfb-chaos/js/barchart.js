@@ -1,6 +1,6 @@
 var Chart = (function(document,window,d3) {
 
-	var x, y, xAxis, yAxis, xLabel, yLabel, bargroups, gamebars, rankedlossbars, upsetbars, svg, chartGroup, csv, xAxisG, yAxisG, width, height, margin = {}, padding = {}, stackedweeks, tooltip;
+	var x, y, xAxis, yAxis, xLabel, yLabel, bargroups, gamebars, upsetbars, svg, chartGroup, csv, xAxisG, yAxisG, width, height, margin = {}, padding = {}, stackedweeks, tooltip;
 
 	d3.queue()
 		.defer(d3.csv, 'data/stats/weeks.csv')
@@ -69,12 +69,6 @@ var Chart = (function(document,window,d3) {
 			.append("rect")
 				.attr("class", "gamebar");
 
-		rankedlossbars = chartGroup.selectAll(".rankedlossbar")
-			.data(stackedweeks)
-			.enter()
-			.append("rect")
-				.attr("class", "rankedlossbar");
-
 		upsetbars = chartGroup.selectAll(".upsetbar")
 			.data(stackedweeks)
 			.enter()
@@ -112,16 +106,6 @@ var Chart = (function(document,window,d3) {
 		}
 
 		gamebars.on("mouseover", function(d) {
-			mouseover(d);
-		})
-		.on("mouseout", function() {
-			mouseout();
-		})
-		.on("mousemove", function() {
-			mousemove();
-		});
-
-		rankedlossbars.on("mouseover", function(d) {
 			mouseover(d);
 		})
 		.on("mouseout", function() {
@@ -179,12 +163,6 @@ var Chart = (function(document,window,d3) {
 			.attr("x", function(d) { return x(d.Week); })
 			.attr("y", function(d) { return y(d.Games); })
 			.attr("height", function(d) { return height - y(d.Games) - padding.bottom; })
-			.attr("width", x.bandwidth());
-
-		rankedlossbars
-			.attr("x", function(d) { return x(d.Week); })
-			.attr("y", function(d) { return y(d.RankedLosses); })
-			.attr("height", function(d) { return height - y(d.RankedLosses) - padding.bottom; })
 			.attr("width", x.bandwidth());
 
 		upsetbars
