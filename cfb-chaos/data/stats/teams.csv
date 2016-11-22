@@ -1,89 +1,89 @@
 Team,AgentAttempts,VictimAttempts,Agent,Victim
 Virginia Tech,28,95,14,23
-USC,28,115,11,18
+USC,28,116,11,18
 Temple,27,4,2,1
-Arizona State,42,46,10,10
+Arizona State,43,46,10,10
 Hawaii,21,14,2,1
 Texas,38,108,10,14
 UAB,14,0,2,0
-Tennessee,59,47,10,9
+Tennessee,59,48,10,9
 Northern Illinois,10,16,3,4
-Michigan,40,84,18,18
+Michigan,40,85,18,18
 Miami (OH),13,4,3,0
-Ohio State,14,146,7,13
-TCU,22,82,8,11
-Oklahoma,19,149,10,23
+Ohio State,14,147,7,13
+TCU,23,82,8,11
+Oklahoma,19,150,10,23
 Wyoming,24,0,2,0
-Florida,36,111,13,19
+Florida,37,111,14,19
 Ball State,18,7,1,1
 Iowa,31,56,14,12
-Boise State,6,94,1,8
+Boise State,6,95,1,8
 Georgia,27,115,11,22
 Georgia Tech,47,36,17,12
-Auburn,48,77,19,14
-Clemson,36,82,17,17
-Texas A&M,46,58,14,16
-California,40,46,11,12
+Auburn,48,78,19,14
+Clemson,36,83,17,17
+Texas A&M,46,59,14,16
+California,41,46,11,12
 BYU,24,30,4,5
 Boston College,33,27,11,7
 Notre Dame,33,72,11,14
 Pittsburgh,31,23,11,9
-Western Michigan,11,4,1,0
+Western Michigan,11,5,1,0
 Virginia,40,20,12,7
 NC State,35,13,13,7
 Kentucky,51,6,5,3
-Louisville,17,69,6,11
-Florida State,31,113,12,26
+Louisville,17,70,6,12
+Florida State,31,114,12,26
 Miami,34,67,12,17
-Washington State,47,19,7,4
+Washington State,48,19,7,4
 Marshall,18,4,0,1
-West Virginia,32,75,11,17
+West Virginia,33,75,11,17
 Arkansas,65,37,17,7
 Southern Mississippi,14,5,2,3
-LSU,25,140,11,23
+LSU,25,141,11,24
 Vanderbilt,50,1,5,1
 Western Kentucky,12,0,1,0
-Penn State,39,53,9,8
+Penn State,39,54,9,8
 Louisiana Tech,23,3,2,1
-Nebraska,36,76,10,16
-Stanford,39,63,12,10
-Oregon,21,113,10,21
+Nebraska,36,77,10,16
+Stanford,39,64,12,10
+Oregon,22,113,11,21
 SMU,24,0,3,0
 Texas Tech,49,35,9,8
 Baylor,44,51,7,9
 Mississippi State,58,17,10,4
-Buffalo,12,0,1,0
-Rutgers,29,18,4,5
+Buffalo,13,0,1,0
+Rutgers,30,18,4,5
 Appalachian State,8,0,1,0
-Wisconsin,33,95,13,21
+Wisconsin,33,96,13,21
 East Carolina,19,7,5,3
-Oklahoma State,42,69,13,12
-UCLA,51,45,16,12
+Oklahoma State,42,70,13,12
+UCLA,52,45,16,12
 Kansas State,36,41,8,7
 Nevada,24,8,2,1
 Troy,17,0,1,0
-Wake Forest,36,13,4,5
+Wake Forest,37,13,4,5
 Illinois,46,9,4,3
-Missouri,39,53,8,13
-Alabama,29,117,12,13
+Missouri,40,53,8,13
+Alabama,29,118,12,13
 Louisiana Monroe,19,0,1,0
 Eastern Washington,5,0,1,0
 Kansas,44,20,4,4
 South Florida,33,20,10,8
-Washington,60,25,14,7
+Washington,60,26,14,7
 Bowling Green,16,7,4,2
 Utah State,27,0,3,0
-Utah,23,61,7,7
+Utah,23,62,7,8
 San José State,22,0,1,0
 Navy,21,9,7,2
-Maryland,47,10,11,4
+Maryland,48,10,11,4
 North Carolina,41,20,10,8
 Memphis,11,6,1,3
 Ole Miss,55,34,14,11
 Oregon State,50,16,11,5
 New Mexico,19,0,1,0
-UNLV,25,0,3,0
-Michigan State,36,62,13,13
+UNLV,26,0,3,0
+Michigan State,37,62,13,13
 Tulsa,18,3,0,2
 Kent State,15,2,1,1
 South Carolina,52,53,17,14
@@ -95,20 +95,20 @@ Northwestern,44,17,13,6
 Ohio,10,1,0,1
 Fresno State,27,22,2,6
 Arizona,53,23,12,8
-Houston,15,31,6,8
+Houston,16,31,7,8
 Colorado State,18,8,1,3
-Colorado,52,13,5,4
+Colorado,52,14,5,4
 UCF,19,6,2,0
 Cincinnati,22,23,6,4
 Air Force,19,4,0,2
-Syracuse,45,0,6,0
-Purdue,40,17,4,6
+Syracuse,46,0,6,0
+Purdue,41,17,4,6
 Duke,34,6,5,2
 Iowa State,58,6,6,2
 Army,13,3,0,3
 Connecticut,26,5,3,3
 James Madison,4,0,1,0
 San Diego State,23,1,2,1
-Indiana,46,0,7,0
+Indiana,47,0,7,0
 North Dakota State,1,0,1,0
 South Alabama,2,0,1,0
