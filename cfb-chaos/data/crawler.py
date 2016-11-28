@@ -144,7 +144,7 @@ if __name__ == '__main__':
 	for num in range(2016,2017):
 		years.append(num)
 
-	for num in range(12,13):
+	for num in range(13,14):
 		weeks.append(num)
 
 	for year in years:
@@ -155,7 +155,9 @@ if __name__ == '__main__':
 				writer = csv.writer(output, lineterminator='\n')
 				writer.writerow(['Year','Week','Team1','Team1Rank','Team1Record','Team1Score','Team1Home','Team2','Team2Rank','Team2Record','Team2Score','Team2Home'])
 				driver.get(url)
+				print('Starting extractor...')
 				for result in Extractor().getResults(driver.page_source):
+					print('Writing ' + result[0].name + ' vs. ' + result[1].name + '...')
 					writer.writerow([year, week, result[0].name, result[0].rank, result[0].record, result[0].score, result[0].home, result[1].name, result[1].rank, result[1].record, result[1].score, result[1].home])
-			time.sleep(10)
+			# time.sleep(10)
 	print('Completed!')
