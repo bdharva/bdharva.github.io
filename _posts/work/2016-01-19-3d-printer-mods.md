@@ -2,7 +2,8 @@
 layout: project
 title: 3D Printer Mods
 category: projects
-tags: "Rapid Prototyping"
+tags:
+- Rapid Prototyping
 tagline: "Rapid Prototyping"
 thumbnail: /assets/3dprinter.jpg
 ---

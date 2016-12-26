@@ -3,7 +3,7 @@
 	{% for post in site.posts %}
 	{% if post.tags contains tag %}
 	{% if post.url != page.url %}
-	<div class="card-holder">
+	<div class="card-holder wide">
 		<a href="{{ post.url }}">
 			<div class="card">
 				<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>

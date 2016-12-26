@@ -1,7 +1,7 @@
 Team,AgentAttempts,VictimAttempts,Agent,Victim
-Virginia Tech,28,95,14,23
+Virginia Tech,29,95,14,23
 USC,28,117,11,18
-Temple,27,4,2,1
+Temple,28,4,3,1
 Arizona State,43,46,10,10
 Hawaii,21,14,2,1
 Texas,38,108,10,14
@@ -12,23 +12,23 @@ Michigan,41,85,18,18
 Miami (OH),13,4,3,0
 Ohio State,14,148,7,13
 TCU,23,82,8,11
-Oklahoma,19,150,10,23
+Oklahoma,19,151,10,23
 Wyoming,24,0,2,0
-Florida,38,111,14,19
+Florida,39,111,14,19
 Ball State,18,7,1,1
 Iowa,32,56,15,12
 Boise State,6,96,1,9
 Georgia,27,115,11,22
 Georgia Tech,47,36,17,12
 Auburn,49,78,19,14
-Clemson,36,84,17,17
+Clemson,36,85,17,17
 Texas A&M,46,59,14,16
 California,41,46,11,12
 BYU,24,30,4,5
 Boston College,33,27,11,7
 Notre Dame,34,72,11,14
 Pittsburgh,31,23,11,9
-Western Michigan,11,6,1,0
+Western Michigan,11,7,1,0
 Virginia,40,20,12,7
 NC State,35,13,13,7
 Kentucky,52,6,6,3
@@ -37,27 +37,27 @@ Florida State,31,115,12,26
 Miami,34,67,12,17
 Washington State,49,19,7,4
 Marshall,18,4,0,1
-West Virginia,33,76,11,17
+West Virginia,33,77,11,17
 Arkansas,65,37,17,7
 Southern Mississippi,14,5,2,3
 LSU,25,141,11,24
 Vanderbilt,51,1,6,1
 Western Kentucky,12,0,1,0
-Penn State,39,55,9,8
+Penn State,40,55,10,8
 Louisiana Tech,23,3,2,1
 Nebraska,36,78,10,17
 Stanford,39,65,12,10
 Oregon,22,113,11,21
 SMU,25,0,3,0
 Texas Tech,49,35,9,8
-Baylor,44,51,7,9
+Baylor,45,51,7,9
 Mississippi State,58,17,10,4
 Buffalo,13,0,1,0
 Rutgers,30,18,4,5
 Appalachian State,8,0,1,0
-Wisconsin,33,97,13,21
+Wisconsin,33,98,13,22
 East Carolina,19,7,5,3
-Oklahoma State,42,70,13,12
+Oklahoma State,43,70,13,12
 UCLA,52,45,16,12
 Kansas State,36,41,8,7
 Nevada,24,8,2,1
@@ -65,17 +65,17 @@ Troy,17,0,1,0
 Wake Forest,37,13,4,5
 Illinois,46,9,4,3
 Missouri,40,53,8,13
-Alabama,29,119,12,13
+Alabama,29,120,12,13
 Louisiana Monroe,19,0,1,0
 Eastern Washington,5,0,1,0
 Kansas,44,20,4,4
 South Florida,33,20,10,8
-Washington,60,27,14,7
+Washington,60,28,14,7
 Bowling Green,16,7,4,2
 Utah State,27,0,3,0
 Utah,24,62,7,8
 San José State,22,0,1,0
-Navy,21,10,7,2
+Navy,21,11,7,3
 Maryland,48,10,11,4
 North Carolina,41,20,10,8
 Memphis,12,6,2,3
@@ -92,12 +92,12 @@ UTEP,15,3,1,1
 Toledo,14,6,3,3
 Central Michigan,9,0,1,0
 Northwestern,44,17,13,6
-Ohio,10,1,0,1
+Ohio,11,1,0,1
 Fresno State,27,22,2,6
 Arizona,53,23,12,8
 Houston,16,32,7,9
 Colorado State,18,8,1,3
-Colorado,52,15,5,4
+Colorado,53,15,5,4
 UCF,19,6,2,0
 Cincinnati,22,23,6,4
 Air Force,20,4,1,2
