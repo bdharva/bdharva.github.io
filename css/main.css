@@ -11,9 +11,14 @@ html, body {
 	height: 100%;
 }
 
+@font-face {
+	font-family: "DIN";
+	src: url("/fonts/DIN_Next/DINNextLTPro-Regular.ttf");
+}
+
 body {
 	background-color: rgb(240,240,240);
-	font-family: "Roboto", sans-serif;
+	font-family: "DIN", sans-serif;
 	font-size: 18px;
 	font-weight: 300;
 	text-align: left;
@@ -82,7 +87,7 @@ p, li {
 
 p img {
 	max-width: 100%;
-	margin: 32px auto;
+	margin: 0 auto;
 	display: block;
 }
 
@@ -215,7 +220,7 @@ header.fixed .menu a {
 #wrapper {
 	z-index: 2;
 	position: relative;
-	/*min-height: 100%;*/
+	min-height: 100%;
 	display: block;
 	margin: 0 auto;
 }
@@ -331,12 +336,7 @@ section .wrapper {
 .card {
 	width: 100%;
 	box-sizing: border-box;
-	border: 1px solid rgb(230,230,230);
 	position: relative;
-}
-
-.card:hover {
-	box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
 }
 
 .tagfeature {

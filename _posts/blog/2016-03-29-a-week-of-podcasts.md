@@ -28,22 +28,22 @@ After some test plots to get a better feel for the data, I elected to focus on t
 * The colored shapes have uniform height, with x-axis widths spanning from start time to end time and y-position centered on location. The colored fills represent specific podcasts.
 * The lines connecting the dots each represent one day of the week of collected data.
 
-[![](/assets/blog/podcasts/podcasts-1.png)](/assets/blog/podcasts/podcasts-1.png)
+![](/assets/blog/podcasts/podcasts-1.png)
 
 While this first plot was interesting, it lacked clarity. One of the biggest problems was the overlapping bubbles -- they became muddled and confusing due to their distorted shapes and blending colors. The lines representing days of the week also proved more distracting than useful. To address these issues, I swapped the eliptical bubbles for circles, and set each day's line to share origin and termination points off the edge of the plot to avoid confusing them with the dot grid axes.
 
-[![](/assets/blog/podcasts/podcasts-2.png)](/assets/blog/podcasts/podcasts-2.png)
+![](/assets/blog/podcasts/podcasts-2.png)
 
 This was definitely a step in the right direction, but the y-axis location encoding seemed ineffective, and, while the overlaps were good at showing clustered listening times, color blending was still obscuring podcast data. I decided it was time to swap days and location, mapping days to the y-axis to create a more traditional calendar view. With only four locations to now map to the scattered bubbles, the logical choice was to run traces from each corner, which proved remarkably effective at demonstrating additional clustering. For my sanity (and yours), I finally added labels and a legend to the graph, figuring I could just convert them into a guide graphic when ready to print the postcard.
 
-[![](/assets/blog/podcasts/podcasts-3.png)](/assets/blog/podcasts/podcasts-3.png)
+![](/assets/blog/podcasts/podcasts-3.png)
 
 We have a winner. Aside from tweaking some colors and opacities, I felt this third attempt was an elegant enough solution to run with. The date/time encoding is clear and simple, allowing readers to quickly identify time clustering patterns across days without the podcast data being obscured. And, after a few passes at mapping locations to different corners, this version was untangled enough to clearly read additional patterns.
 
 After making those tweaks, here's how the final version (digital and printed) turned out:
 
-[![](/assets/blog/podcasts/podcasts-4.png)](/assets/blog/podcasts/podcasts-4.png)
-[![](/assets/blog/podcasts/podcasts-5.png)](/assets/blog/podcasts/podcasts-5.png)
+![](/assets/blog/podcasts/podcasts-4.png)
+![](/assets/blog/podcasts/podcasts-5.png)
 
 	Will update with pictures of printed cards
 

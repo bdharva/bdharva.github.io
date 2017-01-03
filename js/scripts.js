@@ -31,9 +31,9 @@ function align() {
 
 	$('#hero .content').css({'margin-top': text_margin +"px"});
 
-	$( ".card .pic" ).each(function() {
+	$( ".card .picholder" ).each(function() {
 
-		var w = $(this).width()*.9;
+		var w = $(this).width()*2/3;
 		if (w > 400) { w = 400; }
 		$(this).css({'height': w + "px"});
 

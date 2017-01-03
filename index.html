@@ -2,77 +2,75 @@
 layout: default
 title: bdharva
 ---
-<div id="hero" style="background-image:url('/assets/photography/iceland/laugavegurinn2/laugavegurinn2-16.jpg');">
-	<div class="screen">
-		<div class="content">
-			<h2>Ben Harvatine</h2>
-			<h3><span class="highlighter">Engineer</span> by training. Designer at heart. Entrepreneur through trial and error.</h3>
-		</div>
-	</div>
-</div>
 <section class="shell top">
-	<div class="card-holder">
-		<div class="card">
-			<div class="pic" style="background-image:url('/assets/ben.jpg'); background-position: top;"></div>
-			<div class="details">
-				<div class="label">About Me</div>
-				<span class="title">I'm Ben Harvatine, an MIT-trained engineer and designer with an entrepreneurial streak.</span>
-				<span class="cta"><a href="/about">&rarr; Learn more about Ben...</a></span>
+	<div class="card">
+		<a href="/about">
+			<div class="picholder">
+				<div class="pic" style="background-image:url('/assets/ben.jpg'); background-position: top;"></div>
 			</div>
+		</a>
+		<div class="details">
+			<h2 class="no-top no-bottom"><a href="/about">About Me</a></h2>
+			<h4 class="no-top no-bottom">I'm Ben Harvatine, an MIT-trained engineer and designer with an entrepreneurial streak.</h4>
 		</div>
 	</div>
-	<div class="card-holder">
-		<div class="card">
-			{% assign post = site.categories.blog.first %}
-			<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
-			<div class="details">
-				<div class="label">Blog Post</div>
-				<span class="title"><a href="{{ post.url }}">Read "{{ post.title }}"</a> - {{post.tagline}}</span>
-				<span class="cta"><a href="/blog">&rarr; See more blog posts...</a></span>
+	<div class="card">
+		{% assign post = site.categories.blog.first %}
+		<a href="{{ post.url }}">
+			<div class="picholder">
+				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
 			</div>
+		</a>
+		<div class="details">
+			<h2 class="no-top no-bottom"><a href="/blog">Blog</a></h2>
+			<h4 class="no-top no-bottom">Read <a href="{{ post.url }}">"{{ post.title }}"</a> - {{post.tagline}}</h4>
 		</div>
 	</div>
-	<div class="card-holder">
-		<div class="card">
-			{% assign post = site.categories.photography.first %}
-			<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
-			<div class="details">
-				<div class="label">Photography</div>
-				<span class="title"><a href="{{ post.url }}">Check out photos</a> from my recent (or most recently edited) trip to {{ post.title }}</span>
-				<span class="cta"><a href="/photos">&rarr; View more photo adventures...</a></span>
+	<div class="card">
+		{% assign post = site.categories.photography.first %}
+		<a href="{{ post.url }}">
+			<div class="picholder">
+				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
 			</div>
+		</a>
+		<div class="details">
+			<h2 class="no-top no-bottom"><a href="/photos">Photography</a></h2>
+			<h4 class="no-top no-bottom">Check out photos from my recent (or most recently edited) <a href="{{ post.url }}">trip to {{ post.title }}</a></h4>
 		</div>
 	</div>
-	<div class="card-holder">
-		<div class="card">
-			{% assign post = site.categories.projects.first %}
-			<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
-			<div class="details">
-				<div class="label">Project</div>
-				<span class="title">View my most recent project, "<a href="{{ post.url }}">{{post.title}}</a>", in my portfolio.</span>
-				<span class="cta"><a href="/work">&rarr; All portfolio entries...</a></span>
+	<div class="card">
+		{% assign post = site.categories.projects.first %}
+		<a href="{{ post.url }}">
+			<div class="picholder">
+				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
 			</div>
+		</a>
+		<div class="details">
+			<h2 class="no-top no-bottom"><a href="/work">Projects</a></h2>
+			<h4 class="no-top no-bottom">View my most recent project, <a href="{{ post.url }}">"{{post.title}}"</a>, in my portfolio.</h4>
 		</div>
 	</div>
-	<div class="card-holder">
-		<div class="card">
-			{% assign post = site.categories.highpoints.first %}
-			<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
-			<div class="details">
-				<div class="label">Highpoint</div>
-				<span class="title">With <a href="{{ post.url }}">my summit </a> of {{ post.title }}, I've now climbed {{ site.categories.highpoints | size }} out of 50 state highpoints.</span>
-				<span class="cta"><a href="/highpoints">&rarr; List of completed highpoints...</a></span>
+	<div class="card">
+		{% assign post = site.categories.highpoints.first %}
+		<a href="{{ post.url }}">
+			<div class="picholder">
+				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
 			</div>
+		</a>
+		<div class="details">
+			<h2 class="no-top no-bottom"><a href="/highpoints">Highpoints</a></h2>
+			<h4 class="no-top no-bottom">With <a href="{{ post.url }}">my summit of {{ post.title }}</a>, I've now climbed {{ site.categories.highpoints | size }} out of 50 state highpoints.</h4>
 		</div>
 	</div>
-	<div class="card-holder">
-		<div class="card">
-			<div class="pic" style="background-image:url('/assets/wcvb.png');"></div>
-			<div class="details">
-				<div class="label">In the News</div>
-				<span class="title"><a href="http://www.wcvb.com/community/cityline/sunday-december-13-2015-hot-movies-heavy-topics/36879534" target="_blank">Watch me discuss</a> Concussion (the movie) and my startup, <a href="http://joltsensor.com">Jolt</a>, on WCVB Boston.</span>
-				<span class="cta"><a href="/about#pressmentions">&rarr; See more press mentions...</a></span>
+	<div class="card">
+		<a href="http://www.wcvb.com/community/cityline/sunday-december-13-2015-hot-movies-heavy-topics/36879534" target="_blank">
+			<div class="picholder">
+				<div class="pic" style="background-image:url('/assets/wcvb.png');"></div>
 			</div>
+		</a>
+		<div class="details">
+			<h2 class="no-top no-bottom"><a href="/about">In the News</a></h2>
+			<h4 class="no-top no-bottom"><a href="http://www.wcvb.com/community/cityline/sunday-december-13-2015-hot-movies-heavy-topics/36879534" target="_blank">Watch me discuss</a> Concussion (the movie) and my startup, <a href="http://joltsensor.com">Jolt</a>, on WCVB Boston.</h4>
 		</div>
 	</div>
 </section>

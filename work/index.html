@@ -3,26 +3,18 @@ layout: default
 title: Projects - bdharva
 ---
 
-<div id="hero" style="background-image:url('/assets/heros/desk.jpg');">
-	<div class="screen">
-		<div class="content">
-			<h1 class="white no-top">Projects</h1>
-			<h3 class="white no-bottom">I like to design things. And then I make them.</h3>
-		</div>
-	</div>
-</div>
 <section class="shell">
 	{% for post in site.categories.projects %}
-	<div class="card-holder">
+	<div class="card">
 		<a href="{{ post.url }}">
-			<div class="card">
+			<div class="picholder">
 				<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
-				<div class="details">
-					<div class="label">{{ post.tags }}</div>
-					<span class="title">{{ post.title }} - {{ post.tagline }}</span>
-				</div>
 			</div>
 		</a>
+		<div class="details">
+			<h2 class="no-top no-bottom"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+			<h4 class="no-top no-bottom">{{ post.tags }}</h4>
+		</div>
 	</div>
 	{% endfor %}
 </section>

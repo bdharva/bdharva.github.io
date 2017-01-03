@@ -4,10 +4,7 @@ title: Mt. Greylock, MA
 category: highpoints
 tag: Highpoints
 tagline: 3,491 feet
+name: greylock
+files: 7
 thumbnail: /assets/highpoints/greylock/greylock-1.jpg
 ---
-
-{% assign name = "greylock" %}
-{% for i in (1..7) %}
-[![](/assets/highpoints/{{ name }}/{{ name }}-{{ i }}.jpg)](/assets/highpoints/{{ name }}/{{ name }}-{{ i }}.jpg)
-{% endfor %}

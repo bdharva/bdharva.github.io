@@ -3,27 +3,20 @@ layout: default
 title: Blog - bdharva
 ---
 
-<div id="hero" style="background-image:url('/assets/heros/drawings.jpg');">
-	<div class="screen">
-		<div class="content">
-			<h1 class="white no-top">bdharva's Blog</h1>
-			<h3 class="white no-bottom">Sharing my travels, tinkering, and thoughts.</h3>
+<section class="shell">
+	{% for post in site.categories.blog %}
+	<div class="card">
+		<a href="{{ post.url }}">
+			<div class="picholder">
+				<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+			</div>
+		</a>
+		<div class="details">
+			<h2 class="no-top no-bottom">
+				<a href="{{ post.url }}">{{ post.title }}</a>
+			</h2>
+			<h4 class="no-top no-bottom">{{ post.date | date: "%B %-d, %Y" }} in {{ post.tags }}</h4>
 		</div>
 	</div>
-</div>
-<section class="shell">
-		{% for post in site.categories.blog %}
-		<div class="card-holder">
-			<a href="{{ post.url }}">
-				<div class="card">
-					<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
-					<div class="details">
-						<div class="label">{{ post.tags }}</div>
-						<span class="tags">{{ post.date | date: "%B %-d, %Y" }}</span>
-						<span class="title">{{ post.title }} - {{ post.tagline }}</span>
-					</div>
-				</div>
-			</a>
-		</div>
-		{% endfor %}
+	{% endfor %}
 </section>

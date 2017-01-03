@@ -1,13 +1,19 @@
 <header>
-	<nav>
-		<a href="/">
-			<img id="logo" src="/assets/logos/negative.svg"/>
-		</a>
+	<nav class="left">
+		<a href="/">Ben Harvatine</a>
 	</nav>
-	<nav class="menu">
-		<a href="/about" {% if page.title == "About - bdharva" %}class="active"{% endif %}><li>About</li></a>
-		<a href="/work" {% if page.title == "Projects - bdharva" %}class="active"{% endif %}><li>Work</li></a>
-		<a href="/blog" {% if page.title == "Blog - bdharva" %}class="active"{% endif %}><li>Blog</li></a>
-		<a href="/photos" {% if page.title == "Photography - bdharva" %}class="active"{% endif %}><li>Photos</li></a>
+	<nav class="right">
+		<li>
+			<a href="/about" {% if page.title == "About - bdharva" %}class="active"{% endif %}>About</a>
+		</li>
+		<li>
+			<a href="/work" {% if page.title == "Projects - bdharva" %}class="active"{% endif %}>Work</a>
+		</li>
+		<li>
+			<a href="/blog" {% if page.title == "Blog - bdharva" %}class="active"{% endif %}>Blog</a>
+		</li>
+		<li>
+			<a href="/photos" {% if page.title == "Photography - bdharva" %}class="active"{% endif %}>Photos</a>
+		</li>
 	</nav>
 </header>
