@@ -1,0 +1,51 @@
+https://keybase.io/bdharva
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://bdharva.com
+  * I am bdharva (https://keybase.io/bdharva) on keybase.
+  * I have a public key ASBZ-TiSY8l_9-Thyqct8iTdy-XGm24ZWGs9s6HLntZrcgo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01013b44790b540410151ba8f4b569f90d84ca43bb95b5956d8fefd6d2c0236ea2680a",
+            "host": "keybase.io",
+            "kid": "012059f9389263c97ff7e4e1caa72df224ddcbe5c69b6e19586b3db3a1cb9ed66b720a",
+            "uid": "5ad2272c52ce7bc6c92048946eeb6c00",
+            "username": "bdharva"
+        },
+        "service": {
+            "hostname": "bdharva.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.18"
+    },
+    "ctime": 1487366871,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1487366833,
+        "hash": "8ca339ecb7357367fcde92dc540dfdb40a78912b175d99a16a0f0fe05079894d8533ca6d1a8cf58469d0c28657890ca223c579d9ef28377ca9fb7980759bfe26",
+        "seqno": 901754
+    },
+    "prev": "d659c3c3b0f8023db5b48c20be67a6005b5be5bdc3573219c05f8f493a22934a",
+    "seqno": 14,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgWfk4kmPJf/fk4cqnLfIk3cvlxptuGVhrPbOhy57Wa3IKp3BheWxvYWTFAvJ7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxM2I0NDc5MGI1NDA0MTAxNTFiYThmNGI1NjlmOTBkODRjYTQzYmI5NWI1OTU2ZDhmZWZkNmQyYzAyMzZlYTI2ODBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNTlmOTM4OTI2M2M5N2ZmN2U0ZTFjYWE3MmRmMjI0ZGRjYmU1YzY5YjZlMTk1ODZiM2RiM2ExY2I5ZWQ2NmI3MjBhIiwidWlkIjoiNWFkMjI3MmM1MmNlN2JjNmM5MjA0ODk0NmVlYjZjMDAiLCJ1c2VybmFtZSI6ImJkaGFydmEifSwic2VydmljZSI6eyJob3N0bmFtZSI6ImJkaGFydmEuY29tIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4xOCJ9LCJjdGltZSI6MTQ4NzM2Njg3MSwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDg3MzY2ODMzLCJoYXNoIjoiOGNhMzM5ZWNiNzM1NzM2N2ZjZGU5MmRjNTQwZGZkYjQwYTc4OTEyYjE3NWQ5OWExNmEwZjBmZTA1MDc5ODk0ZDg1MzNjYTZkMWE4Y2Y1ODQ2OWQwYzI4NjU3ODkwY2EyMjNjNTc5ZDllZjI4Mzc3Y2E5ZmI3OTgwNzU5YmZlMjYiLCJzZXFubyI6OTAxNzU0fSwicHJldiI6ImQ2NTljM2MzYjBmODAyM2RiNWI0OGMyMGJlNjdhNjAwNWI1YmU1YmRjMzU3MzIxOWMwNWY4ZjQ5M2EyMjkzNGEiLCJzZXFubyI6MTQsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RAPRLDYWUMBRGKbvNbQn7AlXsBE/nH5MO9PRBoIeTeT7epvfAovqUse1C6EAiHRW8YOnkWmnRCblmsTFu5t780B6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIHP6M47aAlRGgZ+s7PacfGTPMRxYF4ceLeN6jbVdj7ORo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bdharva
