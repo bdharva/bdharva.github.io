@@ -6,15 +6,17 @@
 		<link rel="stylesheet" href="{{ page.stylesheet }}">
 	</head>
 	<body>
+		{% include header.html %}
 		<div id="wrapper">
-			<section class="leftpane">
-				{% include header.html %}
-				<h1>{{page.title}}</h1>
-				<h3>{{page.tagline}}</h3>
-				<h4>{{page.date | date: "%B %-d, %Y"}}</br>in "{{page.tag}}"</h4>
-				<h3><a href="/blog">Read More by bdharva</a></h3>
-				<h3><a href="http://twitter.com/intent/tweet?text=Great%20new%20post%20by%20@bdharva%20%22{{ page.title | replace: ' ', '%20' | replace: '</br>', ' ' }}%20-%20{{ page.tagline | replace: ' ', '%20' | replace: '</br>', ' ' }}%22%20http://www.bdharva.com{{ page.url }}" target="_blank">Share on Twitter</a></h3>
-			</section>
+			<div id="hero" style="background-image:url('{{ page.thumbnail }}');">
+				<div class="screen">
+					<div class="content">
+						<h1>{{page.title}}</h1>
+						<h2>{{page.tagline}}</h2>
+						<h4>{{page.date | date: "%B %-d, %Y"}} in "{{page.tag}}"</h4>
+					</div>
+				</div>
+			</div>
 			<section class="rightpane text">
 				{{ content }}
 			</section>

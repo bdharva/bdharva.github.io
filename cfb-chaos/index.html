@@ -13,7 +13,7 @@ title: College Football Chaos
 		<title>{{ page.title }} -- {{ page.tagline }}</title>
 		<meta name="description" content="{% if page.tagline %}{{ page.tagline }}{% else %}{{ site.description }}{% endif %}">
 		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="/css/test.css">
 		<link rel="icon" type="image/png" href="/assets/favicon.png">
 		<link href='https://fonts.googleapis.com/css?family=Roboto:600,400,300' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Mono:300,500' rel='stylesheet' type='text/css'>
@@ -35,27 +35,21 @@ title: College Football Chaos
 			<div id="hero" style="background-image:url('assets/hero.jpg');">
 				<div class="screen">
 					<div class="content">
-						<h2>Quantifying Chaos</h2>
+						<h1>Quantifying Chaos</h1>
 						<h3>Crunching the numbers on the success of Team Chaos in turning college football rankings on their head</h3>
 						<h4>Last Updated: November 28</h4>
 					</div>
 				</div>
 			</div>
-			<section>
-				<div class="container">
-					<h3>What is "Team Chaos"?</h3>
-					<div class="dash"></div>
-					<p>If you want to descend down the rabbit hole that is /r/cfb (I highly recommend it), <a href="https://www.reddit.com/r/CFB/comments/2iorj0/team_chaos_can_we_have_a_discussion/">this thread</a> captures the range of nuanced opinions on what chaos is. Here we'll be working with the simplest definition: upsets of ranked teams. When a ranked team is upset, it's a win for Team Chaos. Teams that defeat higher ranked opponents are "agents" of chaos (and de facto members of Team Chaos that week), while ranked teams losing to lower ranked (or unranked) opponents are "victims" of chaos.</p>
-					<h3>What's the point?</h3>
-					<div class="dash"></div>
-					<p>Some people just want to watch the world burn. But you don't need to be a maniac to enjoy chaos. It's always fun to pull for an upset, especially when it throws the rankings (and playoff contenders) into disarray. Whether you don't have a favorite team to pull for, or your team is having a rough season, chaos is always the answer. It makes every game more exciting to watch. And nothing is sweeter than watching your hated rivals fall victim to the underdog.</p>
-					<h3>Ok, so how do you quantify chaos?</h3>
-					<div class="dash"></div>
-					<p>I'm glad you asked. This is another place where you could go down a rabbit hole developing complex equations to output a master chaos metric. And any solution would be incomplete and contentious. To keep things simple, we're considering chaos over time -- ranked upsets per week -- and chaos by team -- counting how often a given team is an agent or victim of chaos and their win percentages when in a position to take on either role.</p>
-					<h3>Interpretting Results</h3>
-					<div class="dash"></div>
-					<p>While it's hard to draw definitive conclusions from the data, it's definitely interesting to explore. For example, is a team that often falls victim to chaos consistently overrated? Underperforming? Both? Neither? That's up to you to decide. This data is meant to start conversations and grant visibility into some stats that aren't often discussed. This project is also very much a work in progress and will be updated as I find more effective ways to summarize and communicate the data. If you have feedback or suggestions, feel free to <a href="http://twitter.com/bdharva" target="_blank">tweet at me</a>. Note: the data visualizations below, while responsive, are not yet properly optimized for small screens and mobile devices.</p>
-				</div>
+			<section class="text">
+				<h3>What is "Team Chaos"?</h3>
+				<p>If you want to descend down the rabbit hole that is /r/cfb (I highly recommend it), <a href="https://www.reddit.com/r/CFB/comments/2iorj0/team_chaos_can_we_have_a_discussion/">this thread</a> captures the range of nuanced opinions on what chaos is. Here we'll be working with the simplest definition: upsets of ranked teams. When a ranked team is upset, it's a win for Team Chaos. Teams that defeat higher ranked opponents are "agents" of chaos (and de facto members of Team Chaos that week), while ranked teams losing to lower ranked (or unranked) opponents are "victims" of chaos.</p>
+				<h3>What's the point?</h3>
+				<p>Some people just want to watch the world burn. But you don't need to be a maniac to enjoy chaos. It's always fun to pull for an upset, especially when it throws the rankings (and playoff contenders) into disarray. Whether you don't have a favorite team to pull for, or your team is having a rough season, chaos is always the answer. It makes every game more exciting to watch. And nothing is sweeter than watching your hated rivals fall victim to the underdog.</p>
+				<h3>Ok, so how do you quantify chaos?</h3>
+				<p>I'm glad you asked. This is another place where you could go down a rabbit hole developing complex equations to output a master chaos metric. And any solution would be incomplete and contentious. To keep things simple, we're considering chaos over time -- ranked upsets per week -- and chaos by team -- counting how often a given team is an agent or victim of chaos and their win percentages when in a position to take on either role.</p>
+				<h3>Interpretting Results</h3>
+				<p>While it's hard to draw definitive conclusions from the data, it's definitely interesting to explore. For example, is a team that often falls victim to chaos consistently overrated? Underperforming? Both? Neither? That's up to you to decide. This data is meant to start conversations and grant visibility into some stats that aren't often discussed. This project is also very much a work in progress and will be updated as I find more effective ways to summarize and communicate the data. If you have feedback or suggestions, feel free to <a href="http://twitter.com/bdharva" target="_blank">tweet at me</a>. Note: the data visualizations below, while responsive, are not yet properly optimized for small screens and mobile devices.</p>
 			</section>
 			<section>
 				<div class="container center">

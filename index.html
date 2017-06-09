@@ -2,16 +2,25 @@
 layout: default
 title: bdharva
 ---
-<section class="shell top">
+<div id="hero" style="background-image:url('/assets/hero_index.jpg'); background-position: top;">
+	<div class="screen">
+		<div class="content">
+			<h1>Ben Harvatine</h1>
+			<h2>I'm an MIT-trained engineer with a passion for designing and building great products.</h2>
+		</div>
+	</div>
+</div>
+<section class="double shell">
 	<div class="card">
-		<a href="/about">
+		{% assign post = site.categories.projects.first %}
+		<a href="{{ post.url }}">
 			<div class="picholder">
-				<div class="pic" style="background-image:url('/assets/ben.jpg'); background-position: top;"></div>
+				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
 			</div>
 		</a>
 		<div class="details">
-			<h2 class="no-top no-bottom"><a href="/about">About Me</a></h2>
-			<h4 class="no-top no-bottom">I'm Ben Harvatine, an MIT-trained engineer and designer with an entrepreneurial streak.</h4>
+			<h4 class="no-top no-bottom">Recent Project</h2>
+			<h2 class="no-top no-bottom">{{post.title}}</h4>
 		</div>
 	</div>
 	<div class="card">
@@ -22,10 +31,12 @@ title: bdharva
 			</div>
 		</a>
 		<div class="details">
-			<h2 class="no-top no-bottom"><a href="/blog">Blog</a></h2>
-			<h4 class="no-top no-bottom">Read <a href="{{ post.url }}">"{{ post.title }}"</a> - {{post.tagline}}</h4>
+			<h4 class="no-top no-bottom">Recent Post</h2>
+			<h2 class="no-top no-bottom">{{ post.title }}</h4>
 		</div>
 	</div>
+</section>
+<section class="triple shell">
 	<div class="card">
 		{% assign post = site.categories.photography.first %}
 		<a href="{{ post.url }}">
@@ -34,20 +45,8 @@ title: bdharva
 			</div>
 		</a>
 		<div class="details">
-			<h2 class="no-top no-bottom"><a href="/photos">Photography</a></h2>
-			<h4 class="no-top no-bottom">Check out photos from my recent (or most recently edited) <a href="{{ post.url }}">trip to {{ post.title }}</a></h4>
-		</div>
-	</div>
-	<div class="card">
-		{% assign post = site.categories.projects.first %}
-		<a href="{{ post.url }}">
-			<div class="picholder">
-				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
-			</div>
-		</a>
-		<div class="details">
-			<h2 class="no-top no-bottom"><a href="/work">Projects</a></h2>
-			<h4 class="no-top no-bottom">View my most recent project, <a href="{{ post.url }}">"{{post.title}}"</a>, in my portfolio.</h4>
+			<h4 class="no-top no-bottom">Check out photographs from my recent (or most recently edited) trip to {{ post.title }}</h4>
+			<a href="/photos"><button>All Photography</button></a>
 		</div>
 	</div>
 	<div class="card">
@@ -58,8 +57,8 @@ title: bdharva
 			</div>
 		</a>
 		<div class="details">
-			<h2 class="no-top no-bottom"><a href="/highpoints">Highpoints</a></h2>
-			<h4 class="no-top no-bottom">With <a href="{{ post.url }}">my summit of {{ post.title }}</a>, I've now climbed {{ site.categories.highpoints | size }} out of 50 state highpoints.</h4>
+			<h4 class="no-top no-bottom">With my summit of {{ post.title }}, I've now climbed {{ site.categories.highpoints | size }} out of 50 state highpoints.</h4>
+			<a href="/highpoints"><button>All Highpoints</button></a>
 		</div>
 	</div>
 	<div class="card">
@@ -69,8 +68,8 @@ title: bdharva
 			</div>
 		</a>
 		<div class="details">
-			<h2 class="no-top no-bottom"><a href="/about">In the News</a></h2>
-			<h4 class="no-top no-bottom"><a href="http://www.wcvb.com/community/cityline/sunday-december-13-2015-hot-movies-heavy-topics/36879534" target="_blank">Watch me discuss</a> Concussion (the movie) and my startup, <a href="http://joltsensor.com">Jolt</a>, on WCVB Boston.</h4>
+			<h4 class="no-top no-bottom">Watch me discuss Concussion (the movie) and my startup, Jolt, on WCVB Boston.</h4>
+			<a href="/about"><button>All Press Coverage</button></a>
 		</div>
 	</div>
 </section>

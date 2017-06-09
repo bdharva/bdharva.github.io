@@ -11,14 +11,9 @@ html, body {
 	height: 100%;
 }
 
-@font-face {
-	font-family: "DIN";
-	src: url("/fonts/DIN_Next/DINNextLTPro-Regular.ttf");
-}
-
 body {
 	background-color: rgb(240,240,240);
-	font-family: "DIN", sans-serif;
+	font-family: "Source Sans Pro", sans-serif;
 	font-size: 18px;
 	font-weight: 300;
 	text-align: left;

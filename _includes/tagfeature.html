@@ -6,11 +6,11 @@
 	<div class="card-holder wide">
 		<a href="{{ post.url }}">
 			<div class="card">
-				<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+				<div class="picholder">
+					<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+				</div>
 				<div class="details">
-					<div class="label">{{ post.tags }}</div>
-					<span class="tags">{{ post.date | date: "%B %-d, %Y" }}</span>
-					<span class="title">{{ post.title }} - {{ post.tagline }}</span>
+					<h4>{{ post.title }} - {{ post.tagline }}</h4>
 				</div>
 			</div>
 		</a>
