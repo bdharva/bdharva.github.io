@@ -6,17 +6,12 @@ layout: default
 		<div class="content">
 			<h1>{{page.title}}</h1>
 			<h2>{{page.tagline}}</h2>
-			<h4>{{page.date | date: "%B %-d, %Y"}} in "{{page.tag}}"</h4>
+			<h4>{{page.date | date: "%B %-d, %Y"}}</h4>
 		</div>
 	</div>
 </div>
-<section class="leftpane">
-	<h1>{{page.title}}</h1>
-	<h4>{{page.date | date: "%B %-d, %Y"}}</h4>
-	<h4>{{page.tagline}}</h4>
+<section class="gallery">
 	{{content}}
-</section>
-<section class="rightpane">
 	{% assign num = page.files %}
 	{% for i in (1..num) %}
 	<img src="/assets/highpoints/{% if page.folder %}{{ page.folder }}/{% endif %}{{ page.name }}/{{ page.name }}-{{ i }}.jpg"/>

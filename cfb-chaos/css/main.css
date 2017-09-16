@@ -6,7 +6,7 @@ CSS DOCUMENT - BDHARVA.COM
 	font-family: "Source Code Pro", monospace;
 	font-size: 14px;
 	text-transform: uppercase;
-	color: rgb(230,80,80);
+	color: rgba(255,255,255,0.5);
 }
 
 /* Section
@@ -18,7 +18,6 @@ section {
 	width: 100%;
 	margin: 0 auto;
 	margin-top: 10px;
-	padding: 40px 60px;
 	box-sizing: border-box;
 	background-color: rgb(255,255,255);
 	border-bottom: 1px solid rgb(230,230,230);
@@ -30,6 +29,7 @@ section .container {
 	width: 100%;
 	max-width: 1024px;
 	margin: 0 auto;
+	padding: 40px 0 40px 0;
 }
 
 .chart {
@@ -145,24 +145,14 @@ svg {
 	fill: rgb(50,200,100);
 }
 
-.year-2015 .line {
-	stroke: rgb(248,202,64);
+.year-2017 .line {
+	stroke: rgb(80,85,90);
 	stroke-width: 4px;
 }
 
-.focus-2015 circle,
-.focus-2015 text {
-	fill: rgb(248,202,64);
-}
-
-.year-2016 .line {
-	stroke: rgb(23,158,224);
-	stroke-width: 4px;
-}
-
-.focus-2016 circle,
-.focus-2016 text {
-	fill: rgb(23,158,224);
+.focus-2017 circle,
+.focus-2017 text {
+	fill: rgb(80,85,90);
 }
 
 .focus-2002 text,
@@ -175,7 +165,9 @@ svg {
 .focus-2011 text,
 .focus-2012 text,
 .focus-2013 text,
-.focus-2014 text {
+.focus-2014 text,
+.focus-2015 text,
+.focus-2016 text {
 	display: none;
 }
 
@@ -434,11 +426,123 @@ tr.entry:hover {
 }
 
 tr.entry .logo,
-.tooltip .logo {
+.tooltip .logo,
+.logo {
 	float: left;
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
+}
+
+.logo {
+	width: 32px;
+	height: 32px;
+}
+
+.logoholder {
+	width: 32px;
+	height: 32px;
+	padding: 8px;
+	display: block;
+	float: left;
+	margin: 0 auto;
+	background: rgb(240,240,240);
+	border-radius: 3px;
+}
+
+.matchupwrapper {
+	width: 33.33%;
+	float: left;
+	box-sizing: border-box;
+	padding: 8px;
+}
+
+.matchup {
+	border: 1px solid rgb(230,230,230);
+	border-radius: 4px;
+}
+
+.matchup div.team {
+	text-align: left;
+}
+
+.matchup div.team:first-child {
+	margin-bottom: 16px;
+}
+
+.teams {
+	padding: 16px;
+}
+
+span.name {
+	text-align: left;
+	margin-left: 8px;
+}
+
+span.rank {
+	font-size: 14px;
+	font-weight: 600;
+	color: rgb(50,55,60);
+	margin-right: 4px;
+}
+
+span.record {
+	font-size: 14px;
+	font-weight: 400;
+	color: rgb(200,200,200);
+	margin-left: 8px;
+}
+
+span.metric {
+	font-size: 12px;
+	font-weight: 400;
+	color: rgb(150,150,150);
+	text-transform: uppercase;
+	margin-left: 8px;
+}
+
+span.metric.agent {
+	color: rgba(50,200,100,0.7);
+}
+
+span.info,
+span.chaosscore {
+	width: 100%;
+	color: rgba(0,5,10,0.54);
+	display: block;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 4px 16px;
+	box-sizing: border-box;
+}
+
+span.info {
+	background: rgb(230,230,230);
+}
+
+span.chaosscore {
+	border-top: 1px solid rgb(240,240,240);
+	text-align: center;
+}
+
+span.info .date,
+span.info .time,
+span.info .network {
+	width: 33%;
+	display: inline-block;
+}
+
+span.info .date {
+	text-align: left;
+}
+
+span.info .time {
+	text-align: center;
+}
+
+span.info .network {
+	text-align: right;
 }
 
 tr.entry .logo {
@@ -458,6 +562,12 @@ tr.entry .logo {
 
 }
 
+@media (max-width:940px){
+
+	.matchupwrapper {
+		width: 50%;
+	}
+
 @media (max-width:800px){
 
 		.stats{
@@ -468,13 +578,18 @@ tr.entry .logo {
 
 @media (max-width:660px){
 
+	.matchupwrapper {
+		width: 100%;
+		padding: 8px 0;
+	}
+
 	.card-holder{
 		width: 100%;
 		padding: 10px 0;
 	}
 
 	section {
-		padding: 20px;
+		padding: 40px 20px;
 	}
 
 	#hero .screen {

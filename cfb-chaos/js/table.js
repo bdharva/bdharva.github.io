@@ -21,7 +21,7 @@ var Chart = (function(document,window,d3) {
 			}
 			d.Margin = d.Agent - d.Victim;
 			d.Image = d.Team.replace(/\s+/g, '').toLowerCase();
-			d.Percentage = d.Agent/(d.Agent + d.Victim)-.5;
+			d.Percentage = (d.Victim+d.Agent)/(d.AgentAttempts + d.VictimAttempts);
 		});
 
 		return data;
@@ -58,9 +58,9 @@ var Chart = (function(document,window,d3) {
 					if (d == "Percentage"){
 						return "Chaos +/-";
 					} else if (d == "AgentPercent"){
-						return "Agent W%";
+						return "W% as chaos";
 					} else if (d == "VictimPercent"){
-						return "Victim W%";
+						return "W% vs chaos";
 					} else {
 						return d;
 					}

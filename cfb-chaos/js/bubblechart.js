@@ -51,6 +51,21 @@ var Chart = (function(document,window,d3) {
 		yAxisG = chartGroup.append("g")
 			.attr("class", "y axis");
 
+		xLabel = chartGroup.append('g')
+			.attr("class", "x label");;
+
+		xLabel.append('text')
+			.attr('text-anchor', 'middle')
+			.text('Losses vs. Chaos');
+
+		yLabel = chartGroup.append('g')
+			.attr("class", "y label");;
+
+		yLabel.append('text')
+			.attr('text-anchor', 'middle')
+			.attr('transform', 'rotate(-90)')
+			.text('Wins as Chaos');
+
 		xmax = d3.max(data, function(d){return d.Victim;});
 		ymax = d3.max(data, function(d){return d.Agent;});
 
@@ -162,6 +177,12 @@ var Chart = (function(document,window,d3) {
 		yAxisG
 			.call(yAxis);
 
+		xLabel
+			.attr('transform', 'translate(' + (width/2-padding.left/2) + ', ' + (height+50) + ')');
+
+		yLabel
+			.attr('transform', 'translate(' + (-50) + ', ' + (height/2-padding.bottom/2) + ')');
+
 		line
 			.x(function(d) { return x(d[0]); })
 			.y(function(d) { return y(d[1]); });
@@ -183,7 +204,7 @@ var Chart = (function(document,window,d3) {
 
 	function updateDimensions(element) {
 
-		margin = {top: 30, right: 30, bottom: 30, left: 30}
+		margin = {top: 30, right: 80, bottom: 30, left: 80}
 		padding = {top: 0, right: 0, bottom: 20, left: 20}
 		var parent_width = $(element).width();
 		width =  parent_width - (margin.left + margin.right + padding.left + padding.right);

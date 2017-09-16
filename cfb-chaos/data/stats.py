@@ -33,10 +33,10 @@ class YearStat:
 if __name__ == '__main__':
 
 	startyear = 2002
-	thisyear = 2016
+	thisyear = 2017
 
 	startweek = 1
-	thisweek = 15
+	thisweek = 3
 	endweek = 16
 
 	tracer = []

@@ -141,10 +141,10 @@ if __name__ == '__main__':
 	years = []
 	weeks = []
 
-	for num in range(2016,2017):
+	for num in range(2017,2018):
 		years.append(num)
 
-	for num in range(14,15):
+	for num in range(1,3):
 		weeks.append(num)
 
 	for year in years:

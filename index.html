@@ -10,7 +10,7 @@ title: bdharva
 		</div>
 	</div>
 </div>
-<section class="double shell">
+<section class="shell">
 	<div class="card">
 		{% assign post = site.categories.projects.first %}
 		<a href="{{ post.url }}">
@@ -21,6 +21,7 @@ title: bdharva
 		<div class="details">
 			<h4 class="no-top no-bottom">Recent Project</h2>
 			<h2 class="no-top no-bottom">{{post.title}}</h4>
+			<a href="/photos"><button>All Projects</button></a>
 		</div>
 	</div>
 	<div class="card">
@@ -33,10 +34,9 @@ title: bdharva
 		<div class="details">
 			<h4 class="no-top no-bottom">Recent Post</h2>
 			<h2 class="no-top no-bottom">{{ post.title }}</h4>
+			<a href="/blog"><button>All Blog Posts</button></a>
 		</div>
 	</div>
-</section>
-<section class="triple shell">
 	<div class="card">
 		{% assign post = site.categories.photography.first %}
 		<a href="{{ post.url }}">
@@ -45,10 +45,12 @@ title: bdharva
 			</div>
 		</a>
 		<div class="details">
-			<h4 class="no-top no-bottom">Check out photographs from my recent (or most recently edited) trip to {{ post.title }}</h4>
+			<h4 class="no-top no-bottom">Recent Adventure</h2>
+			<h2 class="no-top no-bottom">{{ post.title }}</h4>
 			<a href="/photos"><button>All Photography</button></a>
 		</div>
 	</div>
+	<!--
 	<div class="card">
 		{% assign post = site.categories.highpoints.first %}
 		<a href="{{ post.url }}">
@@ -57,19 +59,10 @@ title: bdharva
 			</div>
 		</a>
 		<div class="details">
-			<h4 class="no-top no-bottom">With my summit of {{ post.title }}, I've now climbed {{ site.categories.highpoints | size }} out of 50 state highpoints.</h4>
+			<h4 class="no-top no-bottom">State Highpoint {{ site.categories.highpoints | size }}/50</h4>
+			<h2 class="no-top no-bottom">{{ post.title }}</h4>
 			<a href="/highpoints"><button>All Highpoints</button></a>
 		</div>
 	</div>
-	<div class="card">
-		<a href="http://www.wcvb.com/community/cityline/sunday-december-13-2015-hot-movies-heavy-topics/36879534" target="_blank">
-			<div class="picholder">
-				<div class="pic" style="background-image:url('/assets/wcvb.png');"></div>
-			</div>
-		</a>
-		<div class="details">
-			<h4 class="no-top no-bottom">Watch me discuss Concussion (the movie) and my startup, Jolt, on WCVB Boston.</h4>
-			<a href="/about"><button>All Press Coverage</button></a>
-		</div>
-	</div>
+	-->
 </section>
