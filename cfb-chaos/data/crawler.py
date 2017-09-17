@@ -5,6 +5,7 @@ from urllib import parse
 from selenium import webdriver
 import csv
 import time
+import sys
 
 class Team:
 
@@ -138,26 +139,17 @@ if __name__ == '__main__':
 
 	driver = webdriver.PhantomJS()
 
-	years = []
-	weeks = []
+	year = sys.argv[1]
+	week = sys.argv[2]
 
-	for num in range(2017,2018):
-		years.append(num)
-
-	for num in range(1,3):
-		weeks.append(num)
-
-	for year in years:
-		for week in weeks:
-			url = 'http://www.espn.com/college-football/scoreboard/_/year/%s/seasontype/2/week/%s' % (str(year), str(week))
-			print(url)
-			with open('exports/' + str(year) + '-week' + str(week) + '.csv', 'w') as output:
-				writer = csv.writer(output, lineterminator='\n')
-				writer.writerow(['Year','Week','Team1','Team1Rank','Team1Record','Team1Score','Team1Home','Team2','Team2Rank','Team2Record','Team2Score','Team2Home'])
-				driver.get(url)
-				print('Starting extractor...')
-				for result in Extractor().getResults(driver.page_source):
-					print('Writing ' + result[0].name + ' vs. ' + result[1].name + '...')
-					writer.writerow([year, week, result[0].name, result[0].rank, result[0].record, result[0].score, result[0].home, result[1].name, result[1].rank, result[1].record, result[1].score, result[1].home])
-			# time.sleep(10)
+	url = 'http://www.espn.com/college-football/scoreboard/_/year/%s/seasontype/2/week/%s' % (str(year), str(week))
+	print(url)
+	with open('exports/' + str(year) + '-week' + str(week) + '.csv', 'w') as output:
+		writer = csv.writer(output, lineterminator='\n')
+		writer.writerow(['Year','Week','Team1','Team1Rank','Team1Record','Team1Score','Team1Home','Team2','Team2Rank','Team2Record','Team2Score','Team2Home'])
+		driver.get(url)
+		print('Starting extractor...')
+		for result in Extractor().getResults(driver.page_source):
+			print('Writing ' + result[0].name + ' vs. ' + result[1].name + '...')
+			writer.writerow([year, week, result[0].name, result[0].rank, result[0].record, result[0].score, result[0].home, result[1].name, result[1].rank, result[1].record, result[1].score, result[1].home])
 	print('Completed!')
