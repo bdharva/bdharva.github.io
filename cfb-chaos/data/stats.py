@@ -1,5 +1,6 @@
 import csv
 import collections
+import sys
 
 class Team:
 
@@ -33,11 +34,11 @@ class YearStat:
 if __name__ == '__main__':
 
 	startyear = 2002
-	thisyear = 2017
-
 	startweek = 1
-	thisweek = 4
 	endweek = 16
+
+	thisyear = sys.argv[1]
+	thisweek = sys.argv[2]
 
 	tracer = []
 
