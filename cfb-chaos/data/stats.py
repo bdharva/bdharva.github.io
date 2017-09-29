@@ -37,8 +37,8 @@ if __name__ == '__main__':
 	startweek = 1
 	endweek = 16
 
-	thisyear = sys.argv[1]
-	thisweek = sys.argv[2]
+	thisyear = int(sys.argv[1])
+	thisweek = int(sys.argv[2])
 
 	tracer = []
 
