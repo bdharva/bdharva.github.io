@@ -199,7 +199,7 @@ if __name__ == '__main__':
 	print('Starting extractor...')
 	for result in Extractor().getResults(driver.page_source):
 		results.append(result)
-		# print(result)
+		print(result)
 	for result in results:
 		if result.teams[0].rank > result.teams[1].rank:
 			result.teams[0].agent = "agent"
@@ -207,8 +207,8 @@ if __name__ == '__main__':
 		else:
 			result.teams[0].agent = "victim"
 			result.teams[1].agent = "agent"
-		# print(result.teams[0].name + ": " + result.teams[0].agent)
-		# print(result.teams[1].name + ": " + result.teams[1].agent)
+		print(result.teams[0].name + ": " + result.teams[0].agent)
+		print(result.teams[1].name + ": " + result.teams[1].agent)
 		with open('stats/teams.csv', newline='') as infile:
 			read = csv.reader(infile)
 			for row in read:
@@ -224,7 +224,7 @@ if __name__ == '__main__':
 					elif result.teams[pointer-1].agent == "victim":
 						result.teams[pointer-1].attempts = row[2]
 						result.teams[pointer-1].success = row[4]
-		# print(results)
+		print(results)
 	with open('stats/matchups.csv', 'w') as output:
 		writer = csv.writer(output, lineterminator='\n')
 		writer.writerow(['Year','Week','Team1','Team1Rank','Team1Record','Team1Home','Team1Agent','Team1Attempts','Team1Success','Team2','Team2Rank','Team2Record','Team2Home','Team2Agent','Team2Attempts','Team2Success','Date','Network','Line','OverUnder'])
