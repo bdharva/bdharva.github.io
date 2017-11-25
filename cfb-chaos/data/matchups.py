@@ -198,8 +198,12 @@ if __name__ == '__main__':
 	driver.get(url)
 	print('Starting extractor...')
 	for result in Extractor().getResults(driver.page_source):
-		results.append(result)
-		print(result)
+		try:
+			test = result.teams[0].rank > result.teams[1].rank
+			results.append(result)
+			print(result)
+		except IndexError:
+			print('Skipped -- IndexError: list index out of range')
 	for result in results:
 		if result.teams[0].rank > result.teams[1].rank:
 			result.teams[0].agent = "agent"
