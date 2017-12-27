@@ -1,7 +1,3 @@
-/*
-CSS DOCUMENT - BDHARVA.COM
-============================================================*/
-
 * {
 	margin: 0;
 	padding: 0;
@@ -11,66 +7,59 @@ html, body {
 	height: 100%;
 }
 
+@font-face {
+	font-family: "DIN-Light";
+	src: url("/fonts/DIN_Next/DINNextLTPro-Light.ttf");
+}
+
+@font-face {
+	font-family: "DIN";
+	src: url("/fonts/DIN_Next/DINNextLTPro-Regular.ttf");
+}
+
+@font-face {
+	font-family: "DIN-Medium";
+	src: url("/fonts/DIN_Next/DINNextLTPro-Medium.ttf");
+}
+
+
 body {
-	background-color: rgb(240,240,240);
-	font-family: "Source Sans Pro", sans-serif;
+	background-color: rgb(255,255,255);
+	font-family: "DIN", sans-serif;
 	font-size: 18px;
-	font-weight: 300;
 	text-align: left;
-	color: rgb(120,120,120);
+	color: rgba(0,5,10,0.54);
 }
 
 /* Text formatting
 ------------------------------------------------------------*/
 
 h1, h2, h3, h4 {
-	color: rgb(80,95,110);
-	font-weight: 400;
+	color: rgba(0,5,10,0.87);
 }
 
-h1, h2 {
+h1 {
 	font-size: 36px;
-	margin: 24px 0 16px 0;
+	margin: 16px 0;
+}
+
+h2 {
+	font-size: 24px;
+	margin: 16px 0;
+}
+
+h2, h3, h4 {
+	font-family: "DIN-Light", sans-serif;
 }
 
 h3 {
-	font-size: 24px;
-	margin: 24px 0 16px 0;
+	font-size: 20px;
+	margin: 16px 0;
 }
 
 h4 {
 	font-size: 18px;
-	margin: 24px 0 16px 0;
-	color: rgb(110,125,140);
-}
-
-h1.green, h2.green, h3.green, h4.green {
-	color: rgb(230,80,80);
-}
-
-h1.white, h2.white, h3.white, h4.white {
-	color: rgb(255,255,255);
-}
-
-#hero h1,
-#hero h2,
-#hero h3,
-#hero h4 {
-	color: rgb(255,255,255);
-}
-
-#hero h1,
-#hero h2 {
-	font-family: "Roboto Mono", monospace;
-	text-transform: uppercase;
-	background-color: rgb(230,80,80);
-	display: inline-block;
-	padding: 0 10px;
-}
-
-#hero h3,
-#hero h4 {
-	font-weight: 300;
+	margin: 16px 0;
 }
 
 p, li {
@@ -80,19 +69,36 @@ p, li {
 	margin: 16px 0px;
 }
 
+img {
+	width: 100%;
+	margin: 4px auto;
+	box-sizing: border-box;
+}
+
 p img {
 	max-width: 100%;
-	margin: 0 auto;
+	margin: 32px auto;
 	display: block;
 }
 
 a {
-	color: rgb(230,80,80);
+	color: rgb(40,50,60);
+	text-decoration: underline;
+}
+
+nav.left a,
+nav.right a {
+	color: rgb(255,255,255);
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
+nav.right a {
+	opacity: 0.5;
+}
+
+nav.right a:hover,
+nav.right a.active {
+	opacity: 1;
 }
 
 ul {
@@ -101,7 +107,7 @@ ul {
 }
 
 blockquote {
-	border-left: 6px solid rgb(230,80,80);
+	border-left: 6px solid rgb(40,50,60);
 	margin: 16px 0;
 	padding: 0 16px;
 	font-style: italic;
@@ -111,102 +117,26 @@ blockquote {
 button {
 	margin: 16px;
 	padding: 12px 16px;
-	font-size: 16px;
-	font-family: "Roboto", sans-serif;
-	font-weight: 400;
-	border: 2px solid rgb(230,80,80);
-	border-radius: 3px;
+	font-size: 14px;
+	font-family: "DIN", sans-serif;
+	border: 2px solid rgb(90,95,100);
+	/*border-radius: 3px;*/
 	background: none;
-	color: rgb(60,75,90);
+	color: rgb(90,95,100);
 	outline: none;
 	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.details button {
+	margin-top: 24px;
 }
 
 button:hover {
+	font-family: "DIN-Light", sans-serif;
 	color: rgb(255,255,255);
-	background-color: rgb(230,80,80);
-}
-
-/* Header
-------------------------------------------------------------*/
-
-header {
-	width: 100%;
-	box-sizing: border-box;
-	margin: 0 auto;
-	padding: 20px;
-	position: absolute;
-	top: 0;
-	right: 0;
-	left: 0;
-	z-index: 10;
-	transition: top 0.5s ease-in-out;
-}
-
-header.fixed {
-	position: fixed;
-	z-index: 20;
-	background-color: rgb(255,255,255);
-	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-}
-
-.nav-up {
-	top: -74px;
-}
-
-nav {
-	color: rgb(255,255,255);
-	height: 32px;
-	font-weight: 400;
-	float: left;
-}
-
-nav img {
-	height: 32px;
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.menu {
-	float: right;
-}
-
-.menu li {
-	height: 32px;
-	margin: 0 5px 0 0;
-	padding: 0 10px;
-	display: inline-block;
-	font-family: "Heebo", sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 32px;
-	vertical-align: middle;
-	box-sizing:border-box;
-}
-
-.menu li:hover {
-	background-color: rgba(0,0,0,0.1);
-	border-radius: 4px;
-}
-
-.menu a {
-	color: rgb(255,255,255);
-	text-decoration: none;
-	margin: 0;
-	padding: 0;
-	height: auto;
-	overflow: auto;
-	opacity: 0.7;
-}
-
-.menu a.active,
-.menu a:hover {
-	opacity: 1.0;
-}
-
-header.fixed nav,
-header.fixed .menu a {
-	color: rgb(60,75,90);
+	background-color: rgb(90,95,100);
+	font-weight: 600;
 }
 
 /* Wrapper
@@ -214,10 +144,76 @@ header.fixed .menu a {
 
 #wrapper {
 	z-index: 2;
-	position: relative;
+	position: absolute;;
+	width: 100%;
+	height: auto;
+	overflow: auto;
 	min-height: 100%;
 	display: block;
 	margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+	/*background: transparent;*/
+}
+
+/* Header
+------------------------------------------------------------*/
+
+header {
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 20px 36px;
+	text-transform: uppercase;
+	position: absolute;
+	top: 0;
+	z-index: 10;
+}
+
+section header {
+	padding: 0;
+	margin-top: 16px;
+	margin-bottom: 32px;
+}
+
+nav {
+	height: 36px;
+	float: left;
+	line-height: 36px;
+	vertical-align: middle;
+}
+
+nav.left {
+	float: left;
+}
+
+nav.right {
+	float: right;
+}
+
+nav li {
+	height: 36px;
+	display: inline-block;
+	line-height: 36px;
+	vertical-align: middle;
+	box-sizing:border-box;
+	color: rgb(255,255,255);
+}
+
+nav.left li {
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+nav.right li {
+	font-family: 'DIN-Light', sans-serif;
+	font-size: 14px;
+	margin: 0 5px 0 0;
+	padding: 0 10px;
 }
 
 /* Hero & screens
@@ -225,7 +221,7 @@ header.fixed .menu a {
 
 #hero {
 	width: 100%;
-	height: 500px;
+	height: 600px;
 	overflow: auto;
 	margin: 0 auto;
 	background-color: rgb(255,255,255);
@@ -242,160 +238,129 @@ header.fixed .menu a {
 .screen {
 	width: 100%;
 	height: 100%;
-	background-color: rgba(60,75,90,0.85);
+	background-color: rgba(74,74,74,0.7);
 	z-index: 1;
 	position: absolute;
 	color: rgb(255,255,255);
 	box-sizing: border-box;
-	padding: 40px;
+	padding: 36px;
 }
 
 #hero .content {
 	max-width: 500px;
-	margin: 0 auto;
-	text-align: center;
+	/*margin: 0 auto;
+	text-align: center;*/
+}
+
+#hero h1,
+#hero h2,
+#hero h3,
+#hero h4 {
+	color: rgb(255,255,255);
 }
 
 /* Section
 ------------------------------------------------------------*/
 
 section {
-	height: auto;
 	overflow: auto;
-	width: 100%;
 	margin: 0 auto;
-	padding: 40px 60px;
+	padding: 4px;
 	box-sizing: border-box;
-	background-color: rgb(255,255,255);
-	border-bottom: 1px solid rgb(230,230,230);
 }
 
-section.shell {
-	width: 100%;
+section.shell.double {
+	padding: 4px;
+}
+
+section.grey {
+	background-color: rgb(240,240,240);
+}
+
+section.shell.triple {
+	padding: 48px;
+	background-color: rgb(240,240,240);
+}
+
+section.gallery {
+	background: rgb(255,255,255);
+	padding: 4px 0;
+}
+
+section.gallery img {
+	margin: 8px 0 0 0;
+}
+
+section.text {
+	max-width: 960px;
 	margin: 0 auto;
-	padding: 10px;
-	background: none;
-	border: none;
-}
-
-section.feature {
-	background-color: rgb(230,80,80);
-	text-align: center;
-	padding: 24px 40px;
-	border: none;
-}
-
-section .wrapper {
-	max-width: 1024px;
-	margin: 0 auto;
-}
-
-.feature button {
-	border: 2px solid rgb(255,255,255);
-	color: rgb(255,255,255);
-}
-
-.feature button:hover {
-	color: rgb(230,80,80);
-	background-color: rgb(255,255,255);
+	padding: 72px;
+	box-sizing: border-box;
 }
 
 /* Content Cards
 ------------------------------------------------------------*/
 
-.card-holder,
+.card,
 .stats {
 	width: 33.33%;
 	box-sizing: border-box;
-	padding: 10px;
+	padding: 4px;
 	display: block;
 	float: left;
-}
-
-.card-holder.quad {
-	width: 25%;
-}
-
-.card-holder.double {
-	width: 50%;
-}
-
-.card-holder.wide {
-	width: 100%;
-}
-
-.card-holder a {
-	text-decoration: none;
-}
-
-.card {
-	width: 100%;
-	box-sizing: border-box;
 	position: relative;
 }
 
-.tagfeature {
-	height: auto;
-	overflow: auto;
-	margin: 20px 0;
+.double .card {
+	width: 50%;
 }
 
-.tagfeature .card {
-	border: 1px solid rgb(230,230,230);
+.triple .card {
+	padding: 16px;
 }
 
-.tagfeature .card:hover {
-	border: 1px solid rgb(200,200,200);
+.card a {
+	text-decoration: none;
+}
+
+.picholder {
+	width: 100%;
+	height: 400px;
+	box-sizing: border-box;
+	overflow: hidden;
+	position: relative;
 }
 
 .pic {
 	width: 100%;
-	height: 400px;
+	height: 100%;
 	box-sizing: border-box;
 	background-size: cover;
 	background-position: center;
 	position: relative;
+	transition: transform .5s ease;
 }
 
-.label {
-	width: auto;
-	height: auto;
-	overflow: auto;
-	margin: 0 auto;
-	padding: 10px 20px;
-	display: inline-block;
-	background-color: rgb(230,80,80);
-	font-family: "Roboto Mono", monospace;;
-	font-size: 14px;
-	font-weight: 400;
-	color: rgb(255,255,255);
+.pic:hover {
+	transform: scale(1.05);
 }
 
 .details {
 	width: 100%;
-	text-align: center;
-	min-height: 200px;
+	min-height: 120px;
 	box-sizing: border-box;
 	color: rgb(100,100,100);
-	background-color: rgb(255,255,255);
-	padding: 20px 40px;
+	padding: 24px 0 48px 0;
+	text-align: center;
 }
 
-.title, .tags {
-	display: block;
-	margin: 10px auto;
+.triple .details {
+	padding-bottom: 12px;
 }
 
-.title {
-	font-size: 18px;
-}
-
-.tags {
-	font-size: 15px;
-}
-
-.cta {
-	font-size: 14px;
+.details h2 {
+	/*text-transform: uppercase;*/
+	font-weight: 400;
 }
 
 .row {
@@ -442,26 +407,28 @@ section .wrapper {
 ------------------------------------------------------------*/
 
 footer {
-	width: 100%;
-	background-color: rgb(60,75,90);
-	color: rgb(255,255,255);
-	padding: 40px;
-	text-align: center;
 	font-size: 14px;
-	margin: 0 auto;
-	box-sizing: border-box;
-}
-
-footer .wrapper {
-	height: 30px;
-	max-width: 1000px;
-	margin: auto;
+	padding: 36px;
+	background: rgb(240,240,240);
+	text-align: center;
 }
 
 footer li {
-	font-size: 14px;
 	display: inline-block;
-	margin: 12px 4px;
+	margin: 0 16px;
+}
+
+img.icon {
+	opacity: 0.54;
+	width: 32px;
+	padding: 8px;
+	background: rgb(200,200,200);
+	margin: 8px;
+	border-radius: 4px;
+}
+
+img.icon:hover {
+	opacity: 0.87;
 }
 
 /* Code Formatting
@@ -522,59 +489,53 @@ pre code {
 	text-align: justify;
 }
 
-/* Google icon list for reference: https://design.google.com/icons/ */
-
-.material-icons {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-/* Google icon font - sizing
-------------------------------------------------------------*/
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-30 { font-size: 30px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-
-/* Google icon font - black on light background
-------------------------------------------------------------*/
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
-
-/* Google icon font - white on dark background
-------------------------------------------------------------*/
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
-
-a .material-icons {
-	color: rgb(60,75,90);
-}
-
 /* Media queries
 ============================================================*/
 
 @media (max-width:1120px){
 
-		.card-holder{
+	.card{
 		width: 50%;
+	}
+
+	.triple .card,
+	.double .card {
+		width: 100%;
+	}
+
+	section.shell.triple,
+	.triple .card {
+		padding: 4px;
 	}
 
 }
 
-@media (max-width:800px){
+@media (max-width:1280px){
 
-		.stats{
+	.stats{
 		width: 100%;
+	}
+
+	section.leftpane,
+	section.rightpane {
+		width: 100%;
+	}
+
+	section.leftpane {
+		position: relative;
+		min-height: none;
+	}
+
+	section header {
+		margin-top: 0;
 	}
 
 }
 
 @media (max-width:660px){
 
-	.card-holder{
+	.card{
 		width: 100%;
-		padding: 10px 0;
 	}
 
 	section {
@@ -585,19 +546,28 @@ a .material-icons {
 		padding: 20px;
 	}
 
+	header {
+		padding: 20px;
+	}
+
+	section.text {
+		padding: 48px;
+	}
+
 	.stats p {
 		text-align: center;
 	}
 
-	.menu li {
+	nav.right li {
 		padding: 0 5px;
 	}
 
-	button{
-		width: 100%;
-		margin: 16px 0;
-		color: rgb(255,255,255);
-		background-color: rgb(230,80,80);
+}
+
+@media (max-width:500px){
+
+	section.text {
+		padding: 24px;
 	}
 
 }
