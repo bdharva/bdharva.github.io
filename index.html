@@ -18,10 +18,12 @@ title: bdharva
 				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
 			</div>
 		</a>
-		<div class="details">
-			<h4 class="no-top no-bottom">Recent Project</h2>
-			<h2 class="no-top no-bottom">{{post.title}}</h4>
-			<a href="/photos"><button>All Projects</button></a>
+		<div class="detholder">
+			<div class="details">
+				<h4 class="no-top">Recent Project</h4>
+				<h2 class="no-top no-bottom"><a href="{{ post.url }}">{{post.title}}</a></h2>
+				<h4 class="no-bottom"><a href="/photos">View All Projects</a></h4>
+			</div>
 		</div>
 	</div>
 	<div class="card">
@@ -31,10 +33,12 @@ title: bdharva
 				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
 			</div>
 		</a>
-		<div class="details">
-			<h4 class="no-top no-bottom">Recent Post</h2>
-			<h2 class="no-top no-bottom">{{ post.title }}</h4>
-			<a href="/blog"><button>All Blog Posts</button></a>
+		<div class="detholder">
+			<div class="details">
+				<h4 class="no-top">Recent Post</h4>
+				<h2 class="no-top no-bottom"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+				<h4 class="no-bottom"><a href="/photos">View All Blog Posts</a></h4>
+			</div>
 		</div>
 	</div>
 	<div class="card">
@@ -44,25 +48,12 @@ title: bdharva
 				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
 			</div>
 		</a>
-		<div class="details">
-			<h4 class="no-top no-bottom">Recent Adventure</h2>
-			<h2 class="no-top no-bottom">{{ post.title }}</h4>
-			<a href="/photos"><button>All Photography</button></a>
-		</div>
-	</div>
-	<!--
-	<div class="card">
-		{% assign post = site.categories.highpoints.first %}
-		<a href="{{ post.url }}">
-			<div class="picholder">
-				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
+		<div class="detholder">
+			<div class="details">
+				<h4 class="no-top">Recent Adventure</h4>
+				<h2 class="no-top no-bottom"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+				<h4 class="no-bottom"><a href="/photos">View All Photography</a></h4>
 			</div>
-		</a>
-		<div class="details">
-			<h4 class="no-top no-bottom">State Highpoint {{ site.categories.highpoints | size }}/50</h4>
-			<h2 class="no-top no-bottom">{{ post.title }}</h4>
-			<a href="/highpoints"><button>All Highpoints</button></a>
 		</div>
 	</div>
-	-->
 </section>

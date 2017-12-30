@@ -24,7 +24,7 @@ html, body {
 
 
 body {
-	background-color: rgb(255,255,255);
+	background-color: rgb(235,235,235);
 	font-family: "DIN", sans-serif;
 	font-size: 18px;
 	text-align: left;
@@ -39,7 +39,7 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-	font-size: 36px;
+	font-size: 48px;
 	margin: 16px 0;
 }
 
@@ -62,6 +62,17 @@ h4 {
 	margin: 16px 0;
 }
 
+h1 a,
+h2 a,
+h3 a {
+	color: rgba(0,5,10,0.87);
+}
+
+h4 a {
+	font-family: "DIN", sans-serif;
+	text-transform: uppercase;
+}
+
 p, li {
 	font-size:18px;
 	font-weight:300;
@@ -82,7 +93,11 @@ p img {
 }
 
 a {
-	color: rgb(40,50,60);
+	color: rgb(25,118,210);
+	text-decoration: none;
+}
+
+a:hover {
 	text-decoration: underline;
 }
 
@@ -114,29 +129,126 @@ blockquote {
 	color: rgb(170,170,170);
 }
 
-button {
-	margin: 16px;
-	padding: 12px 16px;
-	font-size: 14px;
-	font-family: "DIN", sans-serif;
-	border: 2px solid rgb(90,95,100);
-	/*border-radius: 3px;*/
-	background: none;
-	color: rgb(90,95,100);
-	outline: none;
+/* Menu
+------------------------------------------------------------*/
+
+.overlay {
+	background-color: rgba(74,74,74,0.9);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	opacity: 0;
+	display: none;
+}
+
+.overlay .content {
+	background-color: rgb(255,255,255);
+	height: auto;
+	width: 100%;
+	max-width: 400px;
+	height: 100%;
+	float: right;
+	padding: 20px 36px;
+	overflow: auto;
+	display: block;
+	box-sizing: border-box;
+}
+
+.overlay ul {
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	display: none;
+}
+
+#hidework,
+#hideblog,
+#hidephotos,
+#hidehighpoints {
+	opacity: 0;
+	display: none;
 	cursor: pointer;
+}
+
+#showwork,
+#showblog,
+#showphotos,
+#showhighpoints {
+	cursor: pointer;
+}
+
+.overlay li {
+	width: 100%;
+	display: block;
+	border-top: 1px solid rgb(235,235,235);
+	line-height: 36px;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
 	text-transform: uppercase;
+	font-size: 14px;
+	float: left;
+	color: rgba(0,5,10,0.54);
+	height: 36px;
+	display: inline-block;
+	box-sizing: border-box;
 }
 
-.details button {
-	margin-top: 24px;
-}
-
-button:hover {
+.overlay li.sub {
+	border: none;
 	font-family: "DIN-Light", sans-serif;
+	text-transform: none;
+}
+
+.overlay li.left {
+	width: 90%;
+}
+.overlay li.right {
+	width: 10%;
+}
+
+.overlay li.top {
+	border: none;
+}
+
+.overlay li.top {
+	font-family: "DIN", sans-serif;
+	font-size: 16px;
+}
+
+.overlay li.right {
+	text-align: right;
+}
+
+.overlay li:hover,
+.overlay a.active {
+	font-family: "DIN-Medium", sans-serif;
+	color: rgba(0,5,10,0.87);
+}
+
+.overlay a {
+	color: rgba(0,5,10,0.54);
+}
+
+.overlay li.top a {
+	font-family: "DIN-Medium", sans-serif;
+	color: rgb(25,118,210);
+}
+
+.overlay a:hover {
+	text-decoration: none;
+}
+
+#showmenu {
 	color: rgb(255,255,255);
-	background-color: rgb(90,95,100);
-	font-weight: 600;
+	cursor: pointer;
+}
+
+#hidemenu {
+	color: rgba(0,5,10,0.54);
+	cursor: pointer;
 }
 
 /* Wrapper
@@ -199,7 +311,7 @@ nav li {
 	display: inline-block;
 	line-height: 36px;
 	vertical-align: middle;
-	box-sizing:border-box;
+	box-sizing: border-box;
 	color: rgb(255,255,255);
 }
 
@@ -212,8 +324,7 @@ nav.left li {
 nav.right li {
 	font-family: 'DIN-Light', sans-serif;
 	font-size: 14px;
-	margin: 0 5px 0 0;
-	padding: 0 10px;
+	margin: 0 0 0 24px;
 }
 
 /* Hero & screens
@@ -247,9 +358,9 @@ nav.right li {
 }
 
 #hero .content {
-	max-width: 500px;
-	/*margin: 0 auto;
-	text-align: center;*/
+	max-width: 600px;
+	margin: 0 auto;
+	text-align: center;
 }
 
 #hero h1,
@@ -259,13 +370,17 @@ nav.right li {
 	color: rgb(255,255,255);
 }
 
+#hero h1 {
+	text-transform: uppercase;
+}
+
 /* Section
 ------------------------------------------------------------*/
 
 section {
 	overflow: auto;
 	margin: 0 auto;
-	padding: 4px;
+	padding: 8px;
 	box-sizing: border-box;
 }
 
@@ -305,7 +420,7 @@ section.text {
 .stats {
 	width: 33.33%;
 	box-sizing: border-box;
-	padding: 4px;
+	padding: 8px;
 	display: block;
 	float: left;
 	position: relative;
@@ -345,22 +460,39 @@ section.text {
 	transform: scale(1.05);
 }
 
-.details {
+.detholder {
 	width: 100%;
-	min-height: 120px;
 	box-sizing: border-box;
-	color: rgb(100,100,100);
-	padding: 24px 0 48px 0;
-	text-align: center;
+	overflow: hidden;
+	position: relative;
+	/*padding: 0 10px;
+	margin-top: -40px;*/
 }
 
-.triple .details {
-	padding-bottom: 12px;
+.details {
+	width: 100%;
+	box-sizing: border-box;
+	color: rgb(100,100,100);
+	padding: 24px 0;
+	text-align: center;
+	background-color: rgb(255,255,255);
+}
+
+.details .category,
+.details .title,
+.details .tag {
+	display: block;
 }
 
 .details h2 {
-	/*text-transform: uppercase;*/
-	font-weight: 400;
+	color: rgb(74,74,74);
+}
+
+.details h4 {
+	font-size: 14px;
+	color: rgb(155,155,155);
+	text-transform: uppercase;
+	margin-bottom: 8px;
 }
 
 .row {
@@ -409,7 +541,7 @@ section.text {
 footer {
 	font-size: 14px;
 	padding: 36px;
-	background: rgb(240,240,240);
+	background: rgb(255,255,255);
 	text-align: center;
 }
 
@@ -422,7 +554,7 @@ img.icon {
 	opacity: 0.54;
 	width: 32px;
 	padding: 8px;
-	background: rgb(200,200,200);
+	background-color: rgb(235,235,235);
 	margin: 8px;
 	border-radius: 4px;
 }
@@ -489,6 +621,35 @@ pre code {
 	text-align: justify;
 }
 
+/* Style & alignment classes
+------------------------------------------------------------*/
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  margin-top: 4px;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
 /* Media queries
 ============================================================*/
 
@@ -528,6 +689,15 @@ pre code {
 
 	section header {
 		margin-top: 0;
+	}
+
+}
+
+@media (max-width:800px){
+
+	nav.right li.hide {
+		opacity: 0;
+		display: none;
 	}
 
 }

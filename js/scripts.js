@@ -6,7 +6,130 @@ $(document).ready(function(){
 
 });
 
-$(window).resize(align);
+$(window).resize(function(){
+
+	align();
+
+});
+
+$('#showmenu').click(function(){
+
+	$('.overlay').toggle(0, function(){
+		$(this).animate({opacity:1}, 500);
+	});
+
+})
+
+$('#hidemenu').click(function(){
+
+	$('.overlay').animate({opacity:0}, 500);
+	$('.overlay').toggle(0);
+
+})
+
+$('#showwork').click(function(){
+
+	$(this).animate({opacity:0}, 0);
+	$(this).toggle(0);
+	$('#hidework').toggle(0, function(){
+		$(this).animate({opacity:1}, 0);
+	});
+	$('ul.work').toggle(0, function(){
+		$(this).animate({opacity:1}, 500);
+	});
+
+})
+
+$('#hidework').click(function(){
+
+	$(this).animate({opacity:0}, 0);
+	$(this).toggle(0);
+	$('#showwork').toggle(0, function(){
+		$(this).animate({opacity:1}, 0);
+	});
+	$('ul.work').toggle(0, function(){
+		$(this).animate({opacity:0}, 500);
+	});
+
+})
+
+$('#showblog').click(function(){
+
+	$(this).animate({opacity:0}, 0);
+	$(this).toggle(0);
+	$('#hideblog').toggle(0, function(){
+		$(this).animate({opacity:1}, 0);
+	});
+	$('ul.blog').toggle(0, function(){
+		$(this).animate({opacity:1}, 500);
+	});
+
+})
+
+$('#hideblog').click(function(){
+
+	$(this).animate({opacity:0}, 0);
+	$(this).toggle(0);
+	$('#showblog').toggle(0, function(){
+		$(this).animate({opacity:1}, 0);
+	});
+	$('ul.blog').toggle(0, function(){
+		$(this).animate({opacity:0}, 500);
+	});
+
+})
+
+$('#showphotos').click(function(){
+
+	$(this).animate({opacity:0}, 0);
+	$(this).toggle(0);
+	$('#hidephotos').toggle(0, function(){
+		$(this).animate({opacity:1}, 0);
+	});
+	$('ul.photos').toggle(0, function(){
+		$(this).animate({opacity:1}, 500);
+	});
+
+})
+
+$('#hidephotos').click(function(){
+
+	$(this).animate({opacity:0}, 0);
+	$(this).toggle(0);
+	$('#showphotos').toggle(0, function(){
+		$(this).animate({opacity:1}, 0);
+	});
+	$('ul.photos').toggle(0, function(){
+		$(this).animate({opacity:0}, 500);
+	});
+
+})
+
+$('#showhighpoints').click(function(){
+
+	$(this).animate({opacity:0}, 0);
+	$(this).toggle(0);
+	$('#hidehighpoints').toggle(0, function(){
+		$(this).animate({opacity:1}, 0);
+	});
+	$('ul.highpoints').toggle(0, function(){
+		$(this).animate({opacity:1}, 500);
+	});
+
+})
+
+$('#hidehighpoints').click(function(){
+
+	$(this).animate({opacity:0}, 0);
+	$(this).toggle(0);
+	$('#showhighpoints').toggle(0, function(){
+		$(this).animate({opacity:1}, 0);
+	});
+	$('ul.highpoints').toggle(0, function(){
+		$(this).animate({opacity:0}, 500);
+	});
+
+})
 
 $( ".card .screen" ).hover(
 	function() {
