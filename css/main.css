@@ -403,7 +403,7 @@ section.shell.triple {
 
 section.gallery {
 	background: rgb(255,255,255);
-	padding: 4px 0;
+	padding: 8px 16px;
 }
 
 section.gallery img {
