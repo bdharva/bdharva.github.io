@@ -1,0 +1,22 @@
+---
+layout: default
+title: Blog - bdharva
+---
+
+<section class="shell">
+	{% for post in site.categories.blog %}
+	<div class="card">
+		<a href="{{ post.url }}">
+			<div class="picholder">
+				<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+			</div>
+		</a>
+		<div class="details">
+			<h2 class="no-top no-bottom">
+				<a href="{{ post.url }}">{{ post.title }}</a>
+			</h2>
+			<h4 class="no-top no-bottom">{{ post.date | date: "%B %-d, %Y" }} in {{ post.tags }}</h4>
+		</div>
+	</div>
+	{% endfor %}
+</section>

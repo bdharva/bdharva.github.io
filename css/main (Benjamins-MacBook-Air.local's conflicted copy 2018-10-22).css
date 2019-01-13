@@ -1,0 +1,608 @@
+/*
+CSS DOCUMENT - BDHARVA.COM
+============================================================*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+@font-face {
+	font-family: "DIN";
+	src: url("/fonts/DIN_Next/DINNextLTPro-Regular.ttf");
+}
+
+body {
+	background-color: rgb(240,240,240);
+	font-family: "DIN", sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	text-align: left;
+	color: rgb(120,120,120);
+}
+
+/* Text formatting
+------------------------------------------------------------*/
+
+h1, h2, h3, h4 {
+	color: rgb(80,95,110);
+	font-weight: 400;
+}
+
+h1, h2 {
+	font-size: 36px;
+	margin: 24px 0 16px 0;
+}
+
+h3 {
+	font-size: 24px;
+	margin: 24px 0 16px 0;
+}
+
+h4 {
+	font-size: 18px;
+	margin: 24px 0 16px 0;
+	color: rgb(110,125,140);
+}
+
+h1.green, h2.green, h3.green, h4.green {
+	color: rgb(230,80,80);
+}
+
+h1.white, h2.white, h3.white, h4.white {
+	color: rgb(255,255,255);
+}
+
+#hero h1,
+#hero h2,
+#hero h3,
+#hero h4 {
+	color: rgb(255,255,255);
+}
+
+#hero h1,
+#hero h2 {
+	font-family: "Roboto Mono", monospace;
+	text-transform: uppercase;
+	background-color: rgb(230,80,80);
+	display: inline-block;
+	padding: 0 10px;
+}
+
+#hero h3,
+#hero h4 {
+	font-weight: 300;
+}
+
+p, li {
+	font-size:18px;
+	font-weight:300;
+	line-height: 150%;
+	margin: 16px 0px;
+}
+
+p img {
+	max-width: 100%;
+	margin: 0 auto;
+	display: block;
+}
+
+a {
+	color: rgb(230,80,80);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+ul {
+	list-style: outside;
+	margin: 16px 32px;
+}
+
+blockquote {
+	border-left: 6px solid rgb(230,80,80);
+	margin: 16px 0;
+	padding: 0 16px;
+	font-style: italic;
+	color: rgb(170,170,170);
+}
+
+button {
+	margin: 16px;
+	padding: 12px 16px;
+	font-size: 16px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	border: 2px solid rgb(230,80,80);
+	border-radius: 3px;
+	background: none;
+	color: rgb(60,75,90);
+	outline: none;
+	cursor: pointer;
+}
+
+button:hover {
+	color: rgb(255,255,255);
+	background-color: rgb(230,80,80);
+}
+
+/* Header
+------------------------------------------------------------*/
+
+header {
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 20px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 10;
+	transition: top 0.5s ease-in-out;
+}
+
+header.fixed {
+	position: fixed;
+	z-index: 20;
+	background-color: rgb(255,255,255);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.nav-up {
+	top: -74px;
+}
+
+nav {
+	color: rgb(255,255,255);
+	height: 32px;
+	font-weight: 400;
+	float: left;
+}
+
+nav img {
+	height: 32px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.menu {
+	float: right;
+}
+
+.menu li {
+	height: 32px;
+	margin: 0 5px 0 0;
+	padding: 0 10px;
+	display: inline-block;
+	font-family: "Heebo", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 32px;
+	vertical-align: middle;
+	box-sizing:border-box;
+}
+
+.menu li:hover {
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 4px;
+}
+
+.menu a {
+	color: rgb(255,255,255);
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	height: auto;
+	overflow: auto;
+	opacity: 0.7;
+}
+
+.menu a.active,
+.menu a:hover {
+	opacity: 1.0;
+}
+
+header.fixed nav,
+header.fixed .menu a {
+	color: rgb(60,75,90);
+}
+
+/* Wrapper
+------------------------------------------------------------*/
+
+#wrapper {
+	z-index: 2;
+	position: relative;
+	min-height: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+/* Hero & screens
+------------------------------------------------------------*/
+
+#hero {
+	width: 100%;
+	height: 500px;
+	overflow: auto;
+	margin: 0 auto;
+	background-color: rgb(255,255,255);
+	box-sizing: border-box;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+}
+
+#hero a {
+	color: rgb(255,255,255);
+}
+
+.screen {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(60,75,90,0.85);
+	z-index: 1;
+	position: absolute;
+	color: rgb(255,255,255);
+	box-sizing: border-box;
+	padding: 40px;
+}
+
+#hero .content {
+	max-width: 500px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* Section
+------------------------------------------------------------*/
+
+section {
+	height: auto;
+	overflow: auto;
+	width: 100%;
+	margin: 0 auto;
+	padding: 40px 60px;
+	box-sizing: border-box;
+	background-color: rgb(255,255,255);
+	border-bottom: 1px solid rgb(230,230,230);
+}
+
+section.shell {
+	width: 100%;
+	margin: 0 auto;
+	padding: 10px;
+	background: none;
+	border: none;
+}
+
+section.feature {
+	background-color: rgb(230,80,80);
+	text-align: center;
+	padding: 24px 40px;
+	border: none;
+}
+
+section .wrapper {
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+.feature button {
+	border: 2px solid rgb(255,255,255);
+	color: rgb(255,255,255);
+}
+
+.feature button:hover {
+	color: rgb(230,80,80);
+	background-color: rgb(255,255,255);
+}
+
+/* Content Cards
+------------------------------------------------------------*/
+
+.card-holder,
+.stats {
+	width: 33.33%;
+	box-sizing: border-box;
+	padding: 10px;
+	display: block;
+	float: left;
+}
+
+.card-holder.quad {
+	width: 25%;
+}
+
+.card-holder.double {
+	width: 50%;
+}
+
+.card-holder.wide {
+	width: 100%;
+}
+
+.card-holder a {
+	text-decoration: none;
+}
+
+.card {
+	width: 100%;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.tagfeature {
+	height: auto;
+	overflow: auto;
+	margin: 20px 0;
+}
+
+.tagfeature .card {
+	border: 1px solid rgb(230,230,230);
+}
+
+.tagfeature .card:hover {
+	border: 1px solid rgb(200,200,200);
+}
+
+.pic {
+	width: 100%;
+	height: 400px;
+	box-sizing: border-box;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+}
+
+.label {
+	width: auto;
+	height: auto;
+	overflow: auto;
+	margin: 0 auto;
+	padding: 10px 20px;
+	display: inline-block;
+	background-color: rgb(230,80,80);
+	font-family: "Roboto Mono", monospace;;
+	font-size: 14px;
+	font-weight: 400;
+	color: rgb(255,255,255);
+}
+
+.details {
+	width: 100%;
+	text-align: center;
+	min-height: 200px;
+	box-sizing: border-box;
+	color: rgb(100,100,100);
+	background-color: rgb(255,255,255);
+	padding: 20px 40px;
+}
+
+.title, .tags {
+	display: block;
+	margin: 10px auto;
+}
+
+.title {
+	font-size: 18px;
+}
+
+.tags {
+	font-size: 15px;
+}
+
+.cta {
+	font-size: 14px;
+}
+
+.row {
+	height: auto;
+	overflow: auto;
+	width: auto;
+	margin: 0 auto;
+	padding: 0;
+	display: block;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-6 {
+	padding: 20px;
+	display: block;
+	float: left;
+	box-sizing: border-box;
+}
+
+.col-1 {
+	width: 100%;
+}
+
+.col-2 {
+	width: 50%;
+}
+
+.col-3 {
+	width: 33.33%;
+}
+
+.col-4 {
+	width: 25%;
+}
+
+.col-6 {
+	width: 16.66%;
+}
+
+/* Footer
+------------------------------------------------------------*/
+
+footer {
+	width: 100%;
+	background-color: rgb(60,75,90);
+	color: rgb(255,255,255);
+	padding: 40px;
+	text-align: center;
+	font-size: 14px;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+footer .wrapper {
+	height: 30px;
+	max-width: 1000px;
+	margin: auto;
+}
+
+footer li {
+	font-size: 14px;
+	display: inline-block;
+	margin: 12px 4px;
+}
+
+/* Code Formatting
+------------------------------------------------------------*/
+
+code, pre {
+	font-family: 'Roboto Mono';
+	background: rgb(250,250,250);
+	border: 1px solid rgb(235,235,235);
+	font-size: 14px;
+}
+
+pre {
+	margin: 32px 0;
+	padding: 20px;
+	overflow: auto;
+	border-radius: 3px;
+}
+
+code {
+	padding: 2px 8px;
+	border-radius: 3px;
+}
+
+pre code {
+	border: none;
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Style & alignment classes
+------------------------------------------------------------*/
+
+.no-bottom {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.no-top {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.left {
+	text-align: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.justify {
+	text-align: justify;
+}
+
+/* Google icon list for reference: https://design.google.com/icons/ */
+
+.material-icons {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Google icon font - sizing
+------------------------------------------------------------*/
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-30 { font-size: 30px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Google icon font - black on light background
+------------------------------------------------------------*/
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Google icon font - white on dark background
+------------------------------------------------------------*/
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+a .material-icons {
+	color: rgb(60,75,90);
+}
+
+/* Media queries
+============================================================*/
+
+@media (max-width:1120px){
+
+		.card-holder{
+		width: 50%;
+	}
+
+}
+
+@media (max-width:800px){
+
+		.stats{
+		width: 100%;
+	}
+
+}
+
+@media (max-width:660px){
+
+	.card-holder{
+		width: 100%;
+		padding: 10px 0;
+	}
+
+	section {
+		padding: 20px;
+	}
+
+	#hero .screen {
+		padding: 20px;
+	}
+
+	.stats p {
+		text-align: center;
+	}
+
+	.menu li {
+		padding: 0 5px;
+	}
+
+	button{
+		width: 100%;
+		margin: 16px 0;
+		color: rgb(255,255,255);
+		background-color: rgb(230,80,80);
+	}
+
+}

@@ -1,0 +1,464 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+@font-face {
+	font-family: "DIN-Light";
+	src: url("/fonts/DIN_Next/DINNextLTPro-Light.ttf");
+}
+
+@font-face {
+	font-family: "DIN";
+	src: url("/fonts/DIN_Next/DINNextLTPro-Regular.ttf");
+}
+
+@font-face {
+	font-family: "DIN-Medium";
+	src: url("/fonts/DIN_Next/DINNextLTPro-Medium.ttf");
+}
+
+body {
+	background-color: rgb(240,244,246);
+	font-family: "DIN-Light", sans-serif;
+	font-size: 18px;
+	text-align: left;
+	color: rgb(81,94,101);
+}
+
+/* Text formatting
+------------------------------------------------------------*/
+
+h1, h2, h3, h4 {
+	font-family: "DIN", sans-serif;
+	color: rgb(0,0,0);
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 36px;
+	margin: 16px 0;
+}
+
+h2 {
+	font-size: 24px;
+	margin: 16px 0;
+}
+
+h3 {
+	font-size: 18px;
+	margin: 16px 0;
+}
+
+h4 {
+	font-family: "DIN-Light", sans-serif;
+	font-size: 18px;
+	margin: 16px 0;
+	color: rgb(120,120,120);
+}
+
+p, li {
+	font-size:18px;
+	font-weight:300;
+	line-height: 150%;
+	margin: 16px 0px;
+}
+
+img {
+	width: 100%;
+	margin: 5px auto;
+	box-sizing: border-box;
+}
+
+p img {
+	max-width: 100%;
+	margin: 32px auto;
+	display: block;
+}
+
+a,
+nav.left a,
+nav.right a.active,
+nav.right a:hover,
+.card h2 a,
+.card h4 a {
+	/*background: rgb(240,240,100);*/
+	padding: 2px 2px 0 2px;
+	color: rgb(38,44,48);
+	text-decoration: none;
+	background-image: linear-gradient(180deg,transparent 65%,rgb(252,240,20) 0);
+	transition: background-image 0.4s ease;
+		transition-property: background-image;
+		transition-duration: 0.4s;
+		transition-timing-function: ease;
+		transition-delay: initial;
+}
+
+a:hover,
+nav.left a:hover,
+.card h2 a:hover,
+.card h4 a:hover {
+	background-image: linear-gradient(180deg,transparent 0,rgb(252,240,20) 0);
+}
+
+.card a,
+.card a:hover,
+header a,
+header a:hover {
+	background-image: none;
+}
+
+ul {
+	list-style: outside;
+	margin: 16px 32px;
+}
+
+blockquote {
+	border-left: 6px solid rgb(252,240,20);
+	margin: 16px 0;
+	padding: 0 16px;
+	font-style: italic;
+	color: rgb(170,170,170);
+}
+
+button {
+	margin: 16px;
+	padding: 12px 16px;
+	font-size: 16px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+	border: 2px solid rgb(230,80,80);
+	border-radius: 3px;
+	background: none;
+	color: rgb(60,75,90);
+	outline: none;
+	cursor: pointer;
+}
+
+button:hover {
+	color: rgb(255,255,255);
+	background-color: rgb(230,80,80);
+}
+
+/* Wrapper
+------------------------------------------------------------*/
+
+#wrapper {
+	z-index: 2;
+	position: relative;
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	min-height: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+	/*background: transparent;*/
+}
+
+/* Header
+------------------------------------------------------------*/
+
+header {
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: rgb(255,255,255);
+}
+
+section header {
+	padding: 0;
+	margin-top: 16px;
+	margin-bottom: 32px;
+}
+
+nav {
+	height: 32px;
+	float: left;
+	line-height: 32px;
+	vertical-align: middle;
+}
+
+nav.left {
+	float: left;
+	font-family: "DIN", sans-serif;
+}
+
+nav.right {
+	float: right;
+}
+
+nav li {
+	height: 32px;
+	padding: 0 10px;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 32px;
+	vertical-align: middle;
+	box-sizing:border-box;
+}
+
+nav.left li {
+	margin: 0 0 0 5px;
+}
+
+nav.right li {
+	margin: 0 5px 0 0;
+}
+
+/* Section
+------------------------------------------------------------*/
+
+section {
+	overflow: auto;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+section.leftpane {
+	width: 40%;
+	padding: 32px 64px;
+	background-color: rgb(255,255,255);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	float: left;
+	min-height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+section.rightpane {
+	width: 60%;
+	padding: 15px 20px;
+	float: right;
+}
+
+section.rightpane.text {
+	padding: 32px 64px;
+}
+
+section.rightpane section {
+	padding: 32px 32px 0 32px;
+}
+
+section.shell {
+	padding: 10px;
+}
+
+/* Content Cards
+------------------------------------------------------------*/
+
+.card,
+.stats {
+	width: 33.33%;
+	box-sizing: border-box;
+	padding: 10px;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+.card a {
+	text-decoration: none;
+}
+
+.picholder {
+	width: 100%;
+	height: 400px;
+	box-sizing: border-box;
+	overflow: hidden;
+	position: relative;
+}
+
+.pic {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	transition: transform .5s ease;
+}
+
+.pic:hover {
+	transform: scale(1.1);
+}
+
+.details {
+	width: 100%;
+	min-height: 120px;
+	box-sizing: border-box;
+	color: rgb(100,100,100);
+	padding: 10px 0;
+}
+
+.row {
+	height: auto;
+	overflow: auto;
+	width: auto;
+	margin: 0 auto;
+	padding: 0;
+	display: block;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-6 {
+	padding: 20px;
+	display: block;
+	float: left;
+	box-sizing: border-box;
+}
+
+.col-1 {
+	width: 100%;
+}
+
+.col-2 {
+	width: 50%;
+}
+
+.col-3 {
+	width: 33.33%;
+}
+
+.col-4 {
+	width: 25%;
+}
+
+.col-6 {
+	width: 16.66%;
+}
+
+/* Code Formatting
+------------------------------------------------------------*/
+
+code, pre {
+	font-family: 'Roboto Mono';
+	background: rgb(250,250,250);
+	border: 1px solid rgb(235,235,235);
+	font-size: 14px;
+}
+
+pre {
+	margin: 32px 0;
+	padding: 20px;
+	overflow: auto;
+	border-radius: 3px;
+}
+
+code {
+	padding: 2px 8px;
+	border-radius: 3px;
+}
+
+pre code {
+	border: none;
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Style & alignment classes
+------------------------------------------------------------*/
+
+.no-bottom {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.no-top {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.left {
+	text-align: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.justify {
+	text-align: justify;
+}
+
+/* Media queries
+============================================================*/
+
+@media (max-width:1120px){
+
+		.card{
+		width: 50%;
+	}
+
+}
+
+@media (max-width:1280px){
+
+	.stats{
+		width: 100%;
+	}
+
+	section.leftpane,
+	section.rightpane {
+		width: 100%;
+	}
+
+	section.leftpane {
+		position: relative;
+		min-height: none;
+	}
+
+	section header {
+		margin-top: 0;
+	}
+
+}
+
+@media (max-width:660px){
+
+	.card{
+		width: 100%;
+		padding: 10px 0;
+	}
+
+	section {
+		padding: 20px;
+	}
+
+	.stats p {
+		text-align: center;
+	}
+
+	nav.right li {
+		padding: 0 5px;
+	}
+
+}
+
+@media (max-width:500px){
+
+	section.leftpane,
+	section.rightpane.text {
+		padding: 24px;
+	}
+
+}

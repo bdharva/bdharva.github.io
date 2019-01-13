@@ -1,0 +1,499 @@
+/*
+CSS DOCUMENT - BDHARVA.COM
+============================================================*/
+
+#hero .screen h4 {
+	font-family: "Roboto Mono", monospace;
+	font-size: 14px;
+	text-transform: uppercase;
+	color: rgb(230,80,80);
+}
+
+/* Section
+------------------------------------------------------------*/
+
+section {
+	height: auto;
+	overflow: auto;
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 10px;
+	padding: 40px 60px;
+	box-sizing: border-box;
+	background-color: rgb(255,255,255);
+	border-bottom: 1px solid rgb(230,230,230);
+}
+
+section .container {
+	height: auto;
+	overflow: auto;
+	width: 100%;
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+.chart {
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	margin-top: 20px;
+}
+
+.chart.inactive {
+	display: none;;
+}
+
+.toggle {
+	height: auto;
+	overflow: auto;
+	border: 2px solid rgb(70,70,70);
+	display: inline-block;
+}
+
+.toggle .option {
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	width: 120px;
+	text-align: center;
+	color: rgb(70,70,70);
+	float: left;
+	display: block;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-family: "Roboto Mono", monospace;
+	cursor: pointer;
+}
+
+.toggle .option.active {
+	background-color: rgb(70,70,70);
+	color: rgb(255,255,255);
+	cursor: default;
+}
+
+.toggle .option:hover {
+	background-color: rgb(230,230,230);
+}
+
+.toggle .option.active:hover {
+	background-color: rgb(70,70,70);
+	color: rgb(255,255,255);
+}
+
+/* SVG
+------------------------------------------------------------*/
+
+svg {
+	margin: 0 auto;
+	display: block;
+	background: white;
+	cursor: crosshair;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: lightgray;
+	shape-rendering: crispEdges;
+}
+
+.axis path,
+.axis .tick line {
+	stroke-width: 2px;
+	stroke: rgb(150,150,150);
+}
+
+.axis .tick text{
+	font-family: "Roboto Mono", monospace;;
+	font-weight: 400;
+	font-size: 12px;
+	color: rgb(150,150,150);
+}
+
+/* Line graph
+------------------------------------------------------------*/
+
+.line{
+	fill: none;
+	stroke:rgb(220,220,220);
+	stroke-width:2px;
+	stroke-linecap: round;
+}
+
+.focus circle {
+	fill: rgb(220,220,220);
+	stroke: rgb(255,255,255);
+}
+
+.year-2004 .line {
+	stroke: rgb(240, 40, 40);
+	stroke-width: 4px;
+}
+
+.focus-2004 circle,
+.focus-2004 text {
+	fill: rgb(240, 40, 40);
+}
+
+.year-2008 .line {
+	stroke: rgb(50,200,100);
+	stroke-width: 4px;
+}
+
+.focus-2008 circle,
+.focus-2008 text {
+	fill: rgb(50,200,100);
+}
+
+.year-2015 .line {
+	stroke: rgb(248,202,64);
+	stroke-width: 4px;
+}
+
+.focus-2015 circle,
+.focus-2015 text {
+	fill: rgb(248,202,64);
+}
+
+.year-2016 .line {
+	stroke: rgb(23,158,224);
+	stroke-width: 4px;
+}
+
+.focus-2016 circle,
+.focus-2016 text {
+	fill: rgb(23,158,224);
+}
+
+.focus-2002 text,
+.focus-2003 text,
+.focus-2005 text,
+.focus-2006 text,
+.focus-2007 text,
+.focus-2009 text,
+.focus-2010 text,
+.focus-2011 text,
+.focus-2012 text,
+.focus-2013 text,
+.focus-2014 text {
+	display: none;
+}
+
+.overlay {
+	fill: none;
+	pointer-events: all;
+}
+
+.focus {
+	font-family: "Roboto Mono", monospace;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.label {
+	font-family: "Roboto Mono", monospace;
+	font-size: 14px;
+	font-weight: 400;
+	text-transform: uppercase;
+	text-align: right;
+	line-height: 100%;
+	fill: rgb(150,150,150);
+}
+
+.hoverline {
+	stroke-width: 2px;
+	stroke: rgb(100,100,100);
+	stroke-dasharray: 2, 2;
+}
+
+/* Bar chart
+------------------------------------------------------------*/
+
+.gamebar {
+	fill: rgb(230,230,230);
+}
+
+.rankedlossbar {
+	fill: rgb(140,215,165);
+}
+
+.upsetbar {
+	fill: rgb(50,200,100);
+}
+
+/* Bubble chart
+------------------------------------------------------------*/
+
+circle {
+	stroke: rgb(150,150,150);
+	stroke-width: 2px;
+}
+
+circle:hover {
+	stroke: rgb(70,70,70);
+}
+
+.axisline {
+	fill: none;
+	stroke:rgb(200,200,200);
+	stroke-width:2px;
+	stroke-dasharray:5;
+}
+
+
+.tooltip,
+.bartooltip {
+  position: absolute;
+  height: auto;
+  overflow: auto;
+	width: 250px;
+  pointer-events: none;
+  background-color: rgb(255,255,255);
+  border: 2px solid rgb(70,70,70);
+	padding-bottom: 10px;
+	z-index: 100;
+}
+
+.bartooltip {
+	padding: 0;
+	color: rgb(70,70,70);
+}
+
+.bartooltip .entry {
+	width: 33%;
+	position: relative;
+	float: left;
+	text-align: center;
+	padding: 10px;
+	box-sizing: border-box;
+	font-family: "Roboto Mono", monospace;
+	text-transform: uppercase;
+}
+
+.bartooltip .entry:nth-child(even) {
+	background-color: rgb(230,230,230);
+}
+
+.bartooltip span.number,
+.bartooltip span.description {
+	display: block;
+}
+
+.bartooltip span.number {
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.bartooltip span.description {
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.tooltip .topper,
+.bartooltip .topper {
+	padding: 6px;
+	font-family: 'Roboto Mono', monospace;
+	color: rgb(255,255,255);
+	background-color: rgb(70,70,70);
+	text-transform: uppercase;
+	font-weight: 300;
+	font-size: 12px;
+	border-bottom: 2px solid rgb(70,70,70);
+}
+
+.tooltip .teamline {
+	height: 20px;
+	padding: 10px 10px 0 10px;
+}
+
+.tooltip .logo {
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+}
+
+.tooltip .teamdiv {
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	color: rgb(90,90,90);
+}
+
+/* Table
+------------------------------------------------------------*/
+
+table {
+	width: 100%;
+	max-width: 1024px;
+	margin: 20px auto;
+	border-collapse: collapse;
+	background-color: rgb(255,255,255);
+	font-size: 16px;
+	color: rgb(90,90,90);
+}
+
+thead {
+	border-left: 0px solid transparent;
+	border-right: 0px solid transparent;
+	border-top: 0px solid transparent;
+	border-bottom: 2px solid rgb(70,70,70);
+	border-style: double;
+}
+
+thead.static {
+	width: 100%;
+	max-width: 1024px;
+	margin: 0 auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(255,255,255,0.9);
+	display: block;
+}
+
+thead.static tr {
+	width: 100%;
+	height: auto;
+	overflow: auto;
+	display: block;
+	border: none;
+}
+
+thead.static th {
+	display: block;
+	float: left;
+	box-sizing: border-box;
+}
+
+tr {
+	border-bottom: 2px solid rgb(230,230,230);
+}
+
+th {
+	padding: 10px;
+	border-top: none;
+	border-bottom: none;
+}
+
+thead th {
+	font-size: 14px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+thead th:hover {
+	background-color: rgb(230,230,230);
+}
+
+thead th.active {
+	background-color: rgb(70,70,70);
+	color: rgb(255,255,255);
+}
+
+th.team {
+	 width: 40%;
+	 text-align: left;
+}
+
+th.number {
+	width: 12%;
+	text-align: right;
+	font-weight: 300;
+}
+
+tbody th.number {
+	font-family: "Roboto Mono", monospace;;
+	font-weight: 400;
+	font-size: 16px;
+}
+
+tbody th.team {
+	color: rgb(70,70,70);
+}
+
+tr.entry .teamdiv,
+.tooltip .teamdiv {
+	float: left;
+	display: block;
+}
+
+tr.entry .teamdiv {
+	height: 30px;
+	line-height: 30px;
+	font-size: 18px;
+}
+
+tr.entry:hover {
+	background-color: rgb(230,230,230);
+	border-left: 0px solid transparent;
+	border-right: 0px solid transparent;
+	border-top: 2px solid rgb(90,90,90);
+	border-bottom: 2px solid rgb(90,90,90);
+	border-style: double;
+}
+
+tr.entry .logo,
+.tooltip .logo {
+	float: left;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+tr.entry .logo {
+	width: 30px;
+	height: 30px;
+	margin-right: 20px;
+}
+
+/* Media queries
+============================================================*/
+
+@media (max-width:940px){
+
+		.card-holder{
+		width: 50%;
+	}
+
+}
+
+@media (max-width:800px){
+
+		.stats{
+		width: 100%;
+	}
+
+}
+
+@media (max-width:660px){
+
+	.card-holder{
+		width: 100%;
+		padding: 10px 0;
+	}
+
+	section {
+		padding: 20px;
+	}
+
+	#hero .screen {
+		padding: 20px;
+	}
+
+	.stats p {
+		text-align: center;
+	}
+
+	.menu li {
+		padding: 0 5px;
+	}
+
+	button{
+		width: 100%;
+		margin: 16px 0;
+		color: rgb(255,255,255);
+		background-color: rgb(230,80,80);
+	}
+
+}
