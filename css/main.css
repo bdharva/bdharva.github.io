@@ -269,7 +269,8 @@ blockquote {
 }
 
 ::-webkit-scrollbar {
-	/*background: transparent;*/
+	background: transparent;
+	width: 0;
 }
 
 /* Header
