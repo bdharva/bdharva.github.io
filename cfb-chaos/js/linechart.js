@@ -49,7 +49,7 @@ var Chart = (function(document,window,d3) {
 		yAxis = d3.axisLeft();
 
 		line = d3.line()
-			.curve(d3.curveLinear);
+			.curve(d3.curveCardinal);
 
 		svg = d3.select("#lineweeks").append("svg");
 

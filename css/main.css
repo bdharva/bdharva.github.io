@@ -7,26 +7,12 @@ html, body {
 	height: 100%;
 }
 
-@font-face {
-	font-family: "DIN-Light";
-	src: url("/fonts/DIN_Next/DINNextLTPro-Light.ttf");
-}
-
-@font-face {
-	font-family: "DIN";
-	src: url("/fonts/DIN_Next/DINNextLTPro-Regular.ttf");
-}
-
-@font-face {
-	font-family: "DIN-Medium";
-	src: url("/fonts/DIN_Next/DINNextLTPro-Medium.ttf");
-}
-
 
 body {
 	background-color: rgb(235,235,235);
-	font-family: "DIN", sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 18px;
+	font-weight: 400;
 	text-align: left;
 	color: rgba(0,5,10,0.54);
 }
@@ -35,6 +21,7 @@ body {
 ------------------------------------------------------------*/
 
 h1, h2, h3, h4 {
+	font-weight: 400;
 	color: rgba(0,5,10,0.87);
 }
 
@@ -46,10 +33,6 @@ h1 {
 h2 {
 	font-size: 24px;
 	margin: 16px 0;
-}
-
-h2, h3, h4 {
-	font-family: "DIN-Light", sans-serif;
 }
 
 h3 {
@@ -69,13 +52,13 @@ h3 a {
 }
 
 h4 a {
-	font-family: "DIN", sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	text-transform: uppercase;
 }
 
 p, li {
 	font-size:18px;
-	font-weight:300;
+	font-weight:400;
 	line-height: 150%;
 	margin: 16px 0px;
 }
@@ -198,7 +181,7 @@ blockquote {
 
 .overlay li.sub {
 	border: none;
-	font-family: "DIN-Light", sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	text-transform: none;
 }
 
@@ -214,7 +197,8 @@ blockquote {
 }
 
 .overlay li.top {
-	font-family: "DIN", sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
 	font-size: 16px;
 }
 
@@ -224,7 +208,8 @@ blockquote {
 
 .overlay li:hover,
 .overlay a.active {
-	font-family: "DIN-Medium", sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
 	color: rgba(0,5,10,0.87);
 }
 
@@ -233,7 +218,8 @@ blockquote {
 }
 
 .overlay li.top a {
-	font-family: "DIN-Medium", sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 600;
 	color: rgb(25,118,210);
 }
 
@@ -328,7 +314,7 @@ nav.left li {
 }
 
 nav.right li {
-	font-family: 'DIN-Light', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 14px;
 	margin: 0 0 0 24px;
 }
@@ -374,10 +360,6 @@ nav.right li {
 #hero h3,
 #hero h4 {
 	color: rgb(255,255,255);
-}
-
-#hero h1 {
-	text-transform: uppercase;
 }
 
 /* Section

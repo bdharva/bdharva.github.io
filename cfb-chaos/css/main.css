@@ -2,6 +2,11 @@
 CSS DOCUMENT - BDHARVA.COM
 ============================================================*/
 
+
+#hero .screen {
+	background-color: rgb(74,74,74);
+}
+
 #hero .screen h4 {
 	font-family: "Source Code Pro", monospace;
 	font-size: 14px;
@@ -60,7 +65,7 @@ section .container {
 	display: block;
 	text-transform: uppercase;
 	font-weight: 400;
-	font-family: "Source Code Pro", monospace;
+	font-family: 'Source Sans Pro', sans-serif;
 	cursor: pointer;
 }
 
@@ -103,7 +108,7 @@ svg {
 }
 
 .axis .tick text{
-	font-family: "Source Code Pro", monospace;;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 400;
 	font-size: 12px;
 	color: rgb(150,150,150);
@@ -127,6 +132,7 @@ svg {
 .year-2004 .line {
 	stroke: rgb(240, 40, 40);
 	stroke-width: 4px;
+	z-index: 10;
 }
 
 .focus-2004 circle,
@@ -176,13 +182,13 @@ svg {
 }
 
 .focus {
-	font-family: "Source Code Pro", monospace;
-	font-weight: 500;
-	font-size: 14px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
 }
 
 .label {
-	font-family: "Source Code Pro", monospace;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -192,9 +198,9 @@ svg {
 }
 
 .hoverline {
-	stroke-width: 2px;
+	stroke-width: 1px;
 	stroke: rgb(100,100,100);
-	stroke-dasharray: 2, 2;
+	stroke-dasharray: 4, 2;
 }
 
 /* Bar chart
@@ -257,7 +263,7 @@ circle:hover {
 	text-align: center;
 	padding: 10px;
 	box-sizing: border-box;
-	font-family: "Source Code Pro", monospace;
+	font-family: 'Source Sans Pro', sans-serif;
 	text-transform: uppercase;
 }
 
@@ -283,7 +289,7 @@ circle:hover {
 .tooltip .topper,
 .bartooltip .topper {
 	padding: 6px;
-	font-family: 'Source Code Pro', monospace;
+	font-family: 'Source Sans Pro', sans-serif;
 	color: rgb(255,255,255);
 	background-color: rgb(70,70,70);
 	text-transform: uppercase;
@@ -394,7 +400,7 @@ th.number {
 }
 
 tbody th.number {
-	font-family: "Source Code Pro", monospace;;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: 400;
 	font-size: 16px;
 }
