@@ -9,7 +9,6 @@ thumbnail: /assets/work/graphics/quincy01.png
 permalink: /work/logos-and-graphics
 ---
 
-[![](/assets/work/graphics/loops.png)](/assets/work/graphics/loops.png)
 [![](/assets/work/graphics/530.png)](/assets/work/graphics/530.png)
 [![](/assets/work/graphics/trakpak.png)](/assets/work/graphics/trakpak.png)
 [![](/assets/work/graphics/llama.png)](/assets/work/graphics/llama.png)
