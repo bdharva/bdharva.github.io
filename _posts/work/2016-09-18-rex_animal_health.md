@@ -1,6 +1,6 @@
 ---
 layout: project
-title: REX Animal Health Website
+title: REX Animal Health
 category: projects
 tags:
 - Web Design

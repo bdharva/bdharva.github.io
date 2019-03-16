@@ -148,7 +148,7 @@ function setup() {
 
 function align() {
 
-	var height = $('#hero').height() - 80;
+	var height = $('.screen').height() - 112;
 	var text_height = $('.content').height();
 	var text_margin = (height - text_height) / 2;
 

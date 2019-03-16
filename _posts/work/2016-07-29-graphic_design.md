@@ -5,7 +5,7 @@ category: projects
 tags:
 - Graphic Design
 tagline: "Selected work for startups, college groups, and friends/family."
-thumbnail: /assets/work/graphic_design/graphic_design-12.png
+thumbnail: /assets/work/graphic_design/graphic_design-4.png
 permalink: /work/graphic_design
 ---
 
