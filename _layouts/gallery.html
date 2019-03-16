@@ -14,6 +14,6 @@ layout: default
 	{{content}}
 	{% assign num = page.files %}
 	{% for i in (1..num) %}
-	<img src="/assets/photography/{% if page.folder %}{{ page.folder }}/{% endif %}{{ page.name }}/{{ page.name }}-{{ i }}.jpg"/>
+	<img src="/assets/photography/{{page.date | date: '%Y'}}/{{page.date | date: '%m'}}/{{page.date | date: '%d'}}-{{ page.name }}/{{ page.name }}-{{ i }}.jpg"/>
 	{% endfor %}
 </section>
