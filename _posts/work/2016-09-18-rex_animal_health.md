@@ -5,7 +5,7 @@ category: projects
 tags:
 - Web Design
 tagline: "A new marketing site for a startup revolutionizing the animal health space"
-thumbnail: /assets/work/rex_animal_health/rex_animal_health-2.png
+thumbnail: /assets/work/rex_animal_health/rex_animal_health-6.png
 permalink: /work/rex_animal_health
 ---
 
