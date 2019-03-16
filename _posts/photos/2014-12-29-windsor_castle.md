@@ -1,6 +1,7 @@
 ---
 layout: gallery
 title: Windsor Castle
+location: Windsor, UK
 category: photography
 tags: Photography
 name: windsor_castle

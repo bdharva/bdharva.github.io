@@ -1,6 +1,7 @@
 ---
 layout: gallery
 title: Jökulsárlón
+location: Iceland
 category: photography
 tags: Photography
 name: jokulsarlon

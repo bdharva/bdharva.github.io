@@ -1,6 +1,7 @@
 ---
 layout: gallery
 title: Exploring Vail
+location: Vail, CO
 category: photography
 tags: Photography
 name: exploring_vail

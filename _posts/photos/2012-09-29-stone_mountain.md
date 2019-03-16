@@ -1,6 +1,7 @@
 ---
 layout: gallery
-title: Stone Mountain
+title: Stone Mountain Park
+location: Stone Mountain, GA
 category: photography
 tags: Photography
 name: stone_mountain

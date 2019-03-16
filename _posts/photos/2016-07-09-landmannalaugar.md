@@ -1,6 +1,7 @@
 ---
 layout: gallery
 title: Landmannalaugar
+location: Iceland
 category: photography
 tags: Photography
 name: landmannalaugar

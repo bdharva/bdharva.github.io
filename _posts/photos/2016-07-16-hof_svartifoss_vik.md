@@ -1,6 +1,7 @@
 ---
 layout: gallery
 title: Hof, Svartifoss, & Vík
+location: Iceland
 category: photography
 tags: Photography
 name: hof_svartifoss_vik

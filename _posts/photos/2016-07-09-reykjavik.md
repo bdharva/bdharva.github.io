@@ -1,6 +1,7 @@
 ---
 layout: gallery
 title: Reykjavík
+location: Iceland
 category: photography
 tags: Photography
 name: reykjavik

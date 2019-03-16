@@ -1,6 +1,7 @@
 ---
 layout: gallery
 title: The Roman Baths
+location: Bath, UK
 category: photography
 tags: Photography
 name: roman_baths

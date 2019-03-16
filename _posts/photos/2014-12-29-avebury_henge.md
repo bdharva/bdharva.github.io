@@ -1,6 +1,7 @@
 ---
 layout: gallery
 title: Avebury Henge
+location: Avebury, UK
 category: photography
 tags: Photography
 name: avebury_henge
