@@ -2,7 +2,6 @@
 <html>
 	<head>
 		{% include head.html %}
-		{% include d3.html %}
 		<link rel="stylesheet" href="{{ page.stylesheet }}">
 	</head>
 	<body>
@@ -22,7 +21,6 @@
 			</section>
 		</div>
 	</body>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="/js/scripts.js"></script>
+	{% include d3_foot.html %}
 	<script src="{{ page.script }}"></script>
 </html>

@@ -46,7 +46,7 @@ title: bdharva
 		{% assign post = site.categories.photography.first %}
 		<a href="{{ post.url }}">
 			<div class="picholder">
-				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
+				<div class="pic" style="background-image:url('/assets/photography/{{post.date | date: '%Y'}}/{{post.date | date: '%m'}}/{{post.date | date: '%d'}}-{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg');"></div>
 			</div>
 		</a>
 		<div class="detholder">
