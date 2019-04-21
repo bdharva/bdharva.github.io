@@ -1,6 +1,7 @@
 ---
 layout: highpoint
-title: Mt. Greylock, MA
+title: Mt. Greylock
+location: Massachusetts
 category: highpoints
 tag: Highpoints
 tagline: 3,491 feet

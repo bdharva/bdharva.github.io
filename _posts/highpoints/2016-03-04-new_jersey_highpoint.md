@@ -1,6 +1,7 @@
 ---
 layout: highpoint
-title: High Point, NJ
+title: High Point
+location: New Jersey
 category: highpoints
 tag: Highpoints
 tagline: 1,802 feet

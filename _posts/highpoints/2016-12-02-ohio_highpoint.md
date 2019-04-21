@@ -1,6 +1,7 @@
 ---
 layout: highpoint
-title: Campbell Hill, OH
+title: Campbell Hill
+location: Ohio
 date: 2016-12-02 17:16:13
 category: highpoints
 tag: Highpoints

@@ -1,6 +1,7 @@
 ---
 layout: highpoint
-title: Mt. Mansfield, VT
+title: Mt. Mansfield
+location: Vermont
 category: highpoints
 tag: Highpoints
 tagline: 4,393 feet

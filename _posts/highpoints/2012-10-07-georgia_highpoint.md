@@ -1,6 +1,7 @@
 ---
 layout: highpoint
-title: Brasstown Bald, GA
+title: Brasstown Bald
+location: Georgia
 category: highpoints
 tag: Highpoints
 tagline: 4,783 feet

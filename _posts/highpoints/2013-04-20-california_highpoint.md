@@ -1,6 +1,7 @@
 ---
 layout: highpoint
-title: Mt. Whitney, CA
+title: Mt. Whitney
+location: California
 category: highpoints
 tag: Highpoints
 tagline: 14,505 feet

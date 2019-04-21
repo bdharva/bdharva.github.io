@@ -1,6 +1,7 @@
 ---
 layout: highpoint
-title: Spruce Knob, WV
+title: Spruce Knob
+location: West Virginia
 date: 2017-11-19 18:02:53
 category: highpoints
 tag: Highpoints

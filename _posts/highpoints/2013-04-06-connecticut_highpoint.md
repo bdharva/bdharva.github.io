@@ -1,6 +1,7 @@
 ---
 layout: highpoint
-title: Mt. Frissell, CT
+title: Mt. Frissell
+location: Connecticut
 categories: highpoints
 tag: Highpoints
 tagline: 2,454 feet

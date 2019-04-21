@@ -1,6 +1,7 @@
 ---
 layout: highpoint
-title: Taum Sauk, MO
+title: Taum Sauk
+location: Missouri
 category: highpoints
 tag: Highpoints
 tagline: 1,772 feet

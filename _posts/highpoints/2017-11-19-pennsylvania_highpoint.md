@@ -1,6 +1,7 @@
 ---
 layout: highpoint
-title: Mount Davis, PA
+title: Mount Davis
+location: Pennsylvania
 date: 2017-11-19 12:28:32
 category: highpoints
 tag: Highpoints

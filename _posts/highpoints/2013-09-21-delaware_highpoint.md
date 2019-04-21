@@ -1,6 +1,7 @@
 ---
 layout: highpoint
-title: Ebright Azimuth, DE
+title: Ebright Azimuth
+location: Delaware
 category: highpoints
 tag: Highpoints
 tagline: 447 feet

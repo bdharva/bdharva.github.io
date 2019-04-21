@@ -1,6 +1,7 @@
 ---
 layout: highpoint
-title: Harney Peak, SD
+title: Harney Peak
+location: South Dakota
 category: highpoints
 tag: Highpoints
 tagline: 7,244 feet
