@@ -7,5 +7,5 @@ tag: Highpoints
 tagline: 1,235 feet
 name: illinois_highpoint
 files: 9
-thumbnail: /assets/highpoints/illinois_highpoint/illinois_highpoint-6.jpg
+thumbnail: 6
 ---

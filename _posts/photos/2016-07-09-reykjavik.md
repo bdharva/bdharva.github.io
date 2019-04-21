@@ -6,6 +6,6 @@ category: photography
 tags: Photography
 name: reykjavik
 files: 23
-thumbnail: /assets/photography/2016/07/09-reykjavik/reykjavik-11.jpg
+thumbnail: 11
 date: 2016-07-09 9:00:00
 ---

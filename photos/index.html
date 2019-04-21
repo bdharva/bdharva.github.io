@@ -15,7 +15,7 @@ title: Photography - bdharva
 	<div class="card">
 		<a href="{{ post.url }}">
 			<div class="picholder">
-				<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+				<div class="pic" style="background-image:url('/assets/photography/{{post.date | date: '%Y'}}/{{post.date | date: '%m'}}/{{post.date | date: '%d'}}-{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
 			</div>
 		</a>
 		<div class="detholder">

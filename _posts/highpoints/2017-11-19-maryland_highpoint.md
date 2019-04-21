@@ -7,5 +7,5 @@ tag: Highpoints
 tagline: 3,360 feet
 name: maryland_highpoint
 files: 11
-thumbnail: /assets/highpoints/maryland_highpoint/maryland_highpoint-10.jpg
+thumbnail: 10
 ---

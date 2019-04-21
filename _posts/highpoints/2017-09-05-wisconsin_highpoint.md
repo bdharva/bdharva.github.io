@@ -7,5 +7,5 @@ tag: Highpoints
 tagline: 1,951 feet
 name: wisconsin_highpoint
 files: 8
-thumbnail: /assets/highpoints/wisconsin_highpoint/wisconsin_highpoint-7.jpg
+thumbnail: 7
 ---

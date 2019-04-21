@@ -6,6 +6,6 @@ category: photography
 tags: Photography
 name: land_shopping
 files: 8
-thumbnail: /assets/photography/2018/05/05-land_shopping/land_shopping-4.jpg
+thumbnail: 4
 date: 2018-05-05 12:00:00
 ---

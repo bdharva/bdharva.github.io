@@ -6,5 +6,5 @@ category: photography
 tags: Photography
 name: easter_jeep_roadtrip
 files: 7
-thumbnail: /assets/photography/2018/03/31-easter_jeep_roadtrip/easter_jeep_roadtrip-7.jpg
+thumbnail: 7
 ---

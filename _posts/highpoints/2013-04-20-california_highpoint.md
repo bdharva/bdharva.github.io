@@ -6,5 +6,5 @@ tag: Highpoints
 tagline: 14,505 feet
 name: california_highpoint
 files: 21
-thumbnail: /assets/highpoints/california_highpoint/california_highpoint-21.jpg
+thumbnail: 21
 ---

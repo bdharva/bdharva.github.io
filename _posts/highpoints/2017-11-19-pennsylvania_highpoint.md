@@ -7,5 +7,5 @@ tag: Highpoints
 tagline: 3,213 feet
 name: pennsylvania_highpoint
 files: 8
-thumbnail: /assets/highpoints/pennsylvania_highpoint/pennsylvania_highpoint-5.jpg
+thumbnail: 5
 ---

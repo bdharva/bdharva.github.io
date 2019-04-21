@@ -7,5 +7,5 @@ tag: Highpoints
 tagline: 6,288 feet
 name: new_hampshire_highpoint
 files: 14
-thumbnail: /assets/highpoints/new_hampshire_highpoint/new_hampshire_highpoint-6.jpg
+thumbnail: 6
 ---
