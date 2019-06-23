@@ -116,6 +116,68 @@ hr {
 	border-top: 1px solid rgba(0,5,10,0.1);
 }
 
+table {
+	border-collapse: collapse;
+	font-size: 16px;
+	overflow-x: auto
+	vertical-align: middle;
+	width: 100%;
+}
+
+thead {
+	color: rgba(0,5,10,0.87);
+}
+
+tr:nth-child(even) {
+	background-color: rgb(246, 248, 250);
+}
+
+tr th:nth-child(2),
+tr th:nth-child(3),
+tr th:nth-child(4),
+tr td:nth-child(2),
+tr td:nth-child(3),
+tr td:nth-child(4) {
+	text-align: right;
+}
+
+th {
+	background-color: rgb(234, 237, 240);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgb(223, 226, 229);
+	padding: 6px 13px;
+}
+
+td span {
+	border-radius: 3px;
+	font-size: 14px;
+	padding: 2px 6px;
+}
+
+span.not-installed {
+	background-color: rgb(204,208,212);
+}
+
+span.no-install {
+	background-color: rgb(204,228,249);
+}
+
+span.installed {
+	background-color: rgb(204,231,225);
+}
+
+span.as-needed {
+	background-color: rgb(225,211,248);
+}
+
+span.removed {
+	background-color: rgb(255,204,209);
+}
+
 /* Menu
 ------------------------------------------------------------*/
 
