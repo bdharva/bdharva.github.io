@@ -12,28 +12,30 @@ title: Jeep Build - bdharva
 </div>
 <section class="text">
 	<h2>After-Market Parts &amp; Modifications</h2>
-	<table>
-		<thead>
+	<div class="table_wrapper">
+		<table>
+			<thead>
+				<tr>
+					<th>Part</th>
+					<th>Count</th>
+					<th>Ordered</th>
+					<th>Current Status</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for part in site.data.jeep_parts %}
 			<tr>
-				<th>Part</th>
-				<th>Count</th>
-				<th>Ordered</th>
-				<th>Current Status</th>
+				{% if part.link %}
+				<td><a href="{{ part.link }}">{{ part.name }}</a></td>
+				{% else %}
+				<td>{{ part.name }}</td>
+				{% endif %}
+				<td>{{ part.count }}</td>
+				<td>{{ part.date }}</td>
+				<td><span class="{{ part.status | downcase | replace: ' ', '-' }}">{{ part.status }}</span></td>
 			</tr>
-		</thead>
-		<tbody>
-		{% for part in site.data.jeep_parts %}
-		<tr>
-			{% if part.link %}
-			<td><a href="{{ part.link }}">{{ part.name }}</a></td>
-			{% else %}
-			<td>{{ part.name }}</td>
-			{% endif %}
-			<td>{{ part.count }}</td>
-			<td>{{ part.date }}</td>
-			<td><span class="{{ part.status | downcase | replace: ' ', '-' }}">{{ part.status }}</span></td>
-		</tr>
-		{% endfor %}
-		</tbody>
-	</table>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
 </section>
