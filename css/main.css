@@ -161,6 +161,11 @@ td {
 	padding: 6px 13px;
 }
 
+tr,
+td {
+	min-width: 44px;
+}
+
 td span {
 	border-radius: 3px;
 	font-size: 14px;
