@@ -1,6 +1,6 @@
 ---
 layout: gallery
-title: Lake Agnes Teahoue Hike
+title: Lake Agnes Tea House Hike
 location: Lake Louise, AB
 category: photography
 tags: Photography
