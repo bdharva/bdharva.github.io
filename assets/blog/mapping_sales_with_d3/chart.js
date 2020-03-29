@@ -99,8 +99,8 @@ var Chart = (function(document,window,d3) {
 				stat = stat + "<div class='stat'>Race (White)<h3>" + d3.format(",.1f")(d['Race-White']) + "%</h3></div>";
 				stat = stat + "<div class='stat'>Median Age<h3>" + d3.format(",.1f")(d['Median-Age']) +  "</h3></div>";
 				stat = stat + "<div class='stat'>Median Household Income<h3>$" + d3.format(",.0f")(d['Median-Household-Income']) + "</h3></div>";
-				stat = stat + "<div class='stat'>Bachelors Degree (Adults 25+)<h3>" + d3.format(",.1f")(d['Bachelors-Degree']) + "%</h3></div>";
-				stat = stat + "<div class='stat'>Graduate Degree (Adults 25+)<h3>" + d3.format(",.1f")(d['Graduate-Degree']) + "%</h3></div>";
+				stat = stat + "<div class='stat'>Bachelors Degree<h3>" + d3.format(",.1f")(d['Bachelors-Degree']) + "%</h3></div>";
+				stat = stat + "<div class='stat'>Graduate Degree<h3>" + d3.format(",.1f")(d['Graduate-Degree']) + "%</h3></div>";
 			} else {
 				stat = "<h4>Click on a zip code bubble to view census data for the region...</h4>";
 			}

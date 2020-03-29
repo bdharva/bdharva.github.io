@@ -18,12 +18,9 @@
 	box-sizing: border-box;
 }
 
-#chart #pane-1 {
-	width: 75%;
-}
-
+#chart #pane-1,
 #chart #pane-2 {
-	width: 25%;
+	width: 100%;
 }
 
 #chart svg,
@@ -49,7 +46,9 @@
 }
 
 #chart .stat {
-	width: 100%;
+	width: 25%;
+	padding: 5px;
+	box-sizing: border-box;
 	height: auto;
 	overflow: auto;
 	position: relative;
