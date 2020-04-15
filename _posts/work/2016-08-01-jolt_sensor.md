@@ -9,7 +9,7 @@ thumbnail: /assets/work/jolt_sensor/jolt_sensor-11.jpg
 permalink: /work/jolt_sensor
 ---
 
-As founder & CEO of Jolt, I assembled an interdisciplinary team to develop a consumer hardware product for sports head impact tracking. Following early product development as a solo-founder, I led prototyping and development of embedded sensor hardware product, injection-molded enclosure, custom packaging, backend server, iOS and Android applications, and marketing website.
+As founder & CEO of [Jolt](https://joltsensor.github.io/), I assembled an interdisciplinary team to develop a consumer hardware product for sports head impact tracking. Following early product development as a solo-founder, I led prototyping and development of embedded sensor hardware product, injection-molded enclosure, custom packaging, backend server, iOS and Android applications, and marketing website.
 
 Additionally, I managed incorporation, budgeting, payroll, finance, fundraising, legal, and intellectual property filings, as well as domestic third-party supply, manufacturing, and fulfillment operations in the Midwest.
 

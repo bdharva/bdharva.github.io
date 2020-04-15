@@ -9,7 +9,7 @@ script: /assets/blog/mapping_sales_with_d3/chart.js
 stylesheet: /assets/blog/mapping_sales_with_d3/chart.css
 ---
 
-As we've continued to grow [Jolt](http:joltsensor.com), we've found it useful to build internal tools for tracking sales and engagement. Specifically, identifying and monitoring key geographies where we're doing well helps in understanding our customers and targeting new ones. In this example, I'll share how we make a bubble map of sales volume by US zip code. The bubbles are scaled proportionally to the total profit for the area and centered on the centroid of the zip code region.
+As we've continued to grow [Jolt](https://joltsensor.github.io/), we've found it useful to build internal tools for tracking sales and engagement. Specifically, identifying and monitoring key geographies where we're doing well helps in understanding our customers and targeting new ones. In this example, I'll share how we make a bubble map of sales volume by US zip code. The bubbles are scaled proportionally to the total profit for the area and centered on the centroid of the zip code region.
 
 <div id="chart">
 	<div id="pane-1" class="pane">

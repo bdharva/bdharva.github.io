@@ -44,7 +44,7 @@ This was the perfect setting for our next phase of development, as we continued 
 
 ![](/assets/work/jolt_sensor/jolt_sensor-7.jpg)
 
-Once we were pleased with production quality, and with all systems operating as intended, we were finally able to ship our first full production run to Kickstarter backers, and start taking new orders. Based on early feedback from the field, we continue to improve and expand our software product. And that's where we are today as we continue to improve the product, while working to drive sales to a broader audience. We're still as young and scrappy as we were at the start. And we continue to learn every day, as we work to provide the best possible product to our users. Learn more at [joltsensor.com](http://joltsensor.com).
+Once we were pleased with production quality, and with all systems operating as intended, we were finally able to ship our first full production run to Kickstarter backers, and start taking new orders. Based on early feedback from the field, we continue to improve and expand our software product. And that's where we are today as we continue to improve the product, while working to drive sales to a broader audience. We're still as young and scrappy as we were at the start. And we continue to learn every day, as we work to provide the best possible product to our users. Learn more at [joltsensor.com](https://joltsensor.github.io/).
 
 ![](/assets/work/jolt_sensor/jolt_sensor-8.jpg)
 ![](/assets/work/jolt_sensor/jolt_sensor-9.jpg)

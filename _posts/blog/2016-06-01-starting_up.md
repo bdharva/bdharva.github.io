@@ -7,7 +7,7 @@ tagline: Lessons learned while starting Jolt
 thumbnail: /assets/blog/starting_up/starting_up-1.jpg
 ---
 
-I've recently had a number of friends and acquaintances interested in my own experiences as they prepare to make the entrepreneurial leap. In my conversations with them, I found myself often circling back to the same points of emphasis. While there are lots of great resources out there for entrepreneurs, I've always found that the personal stories and inisghts of founders add valuable context. In that spirit, I've distilled down the most important lessons I learned while starting [Jolt](http:joltsensor.com) in the hope that they might be useful to a broader audience.
+I've recently had a number of friends and acquaintances interested in my own experiences as they prepare to make the entrepreneurial leap. In my conversations with them, I found myself often circling back to the same points of emphasis. While there are lots of great resources out there for entrepreneurs, I've always found that the personal stories and inisghts of founders add valuable context. In that spirit, I've distilled down the most important lessons I learned while starting [Jolt](https://joltsensor.github.io/) in the hope that they might be useful to a broader audience.
 
 ## Things We Did Well
 
