@@ -620,9 +620,7 @@ img.icon {
 	opacity: 0.54;
 	width: 32px;
 	padding: 8px;
-	background-color: rgb(235,235,235);
 	margin: 8px;
-	border-radius: 4px;
 }
 
 img.icon:hover {
