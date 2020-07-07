@@ -1,2 +1,0 @@
-I"<p>As we’ve continued to grow <a href="http:joltsensor.com">Jolt</a>, we’ve found it useful to build internal tools for tracking sales and engagement. Specifically, identifying and monitoring key geographies where we’re doing well helps in understanding our customers and targeting new ones. In this example, I’ll share how we make a bubble map of sales volume by US zip code. The bubbles are scaled proportionally to the total profit for the area and centered on the centroid of the zip code region.</p>
-:ET
