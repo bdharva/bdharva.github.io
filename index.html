@@ -57,4 +57,47 @@ title: bdharva
 			</div>
 		</div>
 	</div>
+	<div class="card">
+		{% assign post = site.categories.highpoints.first %}
+		<a href="{{ post.url }}">
+			<div class="picholder">
+				<div class="pic" style="background-image:url('/assets/highpoints/{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+			</div>
+		</a>
+		<div class="detholder">
+			<div class="details">
+				<h4 class="no-top">Latest State Highpoint</h4>
+				<h2 class="no-top no-bottom"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+				<h4 class="no-bottom"><a href="/highpoints">View All Highpoints</a></h4>
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<a href="/jeep_build">
+			<div class="picholder">
+				<div class="pic" style="background-image:url('/assets/jeep_build/hero.jpg');"></div>
+			</div>
+		</a>
+		<div class="detholder">
+			<div class="details">
+				<h4 class="no-top">Jeep Build</h4>
+				<h2 class="no-top no-bottom"><a href="/jeep_build">2016 JKU Rubicon Hard Rock</a></h2>
+				<h4 class="no-bottom"><a href="/jeep_build">View All Modifications</a></h4>
+			</div>
+		</div>
+	</div>
+	<div class="card">
+		<a href="/county-counting">
+			<div class="picholder">
+				<div class="pic" style="background-image:url('/assets/county-counting/screenshot.png');"></div>
+			</div>
+		</a>
+		<div class="detholder">
+			<div class="details">
+				<h4 class="no-top">Work in Progress</h4>
+				<h2 class="no-top no-bottom"><a href="/county-counting">Automated County Counting</a></h2>
+				<h4 class="no-bottom"><a href="/county-counting">Check it out</a></h4>
+			</div>
+		</div>
+	</div>
 </section>
