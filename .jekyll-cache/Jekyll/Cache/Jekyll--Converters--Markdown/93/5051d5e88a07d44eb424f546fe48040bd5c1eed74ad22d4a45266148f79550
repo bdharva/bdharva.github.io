@@ -1,4 +1,4 @@
-I"k<p>While I’m a frequent user of Processing, I mostly use it for generating data visualizations. As a result, I’m generally using a very limited subset of its capabilities. From time to time I like to explore the documentation for cool features that I haven’t had the opportunity to use. Recently, the <code class="highlighter-rouge">noise()</code> function caught my eye.</p>
+I"�<p>While I’m a frequent user of Processing, I mostly use it for generating data visualizations. As a result, I’m generally using a very limited subset of its capabilities. From time to time I like to explore the documentation for cool features that I haven’t had the opportunity to use. Recently, the <code class="language-plaintext highlighter-rouge">noise()</code> function caught my eye.</p>
 
 <p>From the <a href="https://processing.org/reference/noise_.html">Processing documentation</a>:</p>
 
@@ -6,9 +6,9 @@
   <p>Perlin noise is a random sequence generator producing a more natural, harmonic succession of numbers than that of the standard random() function. It was developed by Ken Perlin in the 1980s and has been used in graphical applications to generate procedural textures, shapes, terrains, and other seemingly organic forms.</p>
 </blockquote>
 
-<p>This sounded pretty cool to me. As I started imagining what sort of textures I might be able to create, I decided to start with a take on the popular “low poly” wallpapers I’d seen in my travels around the web. To keep things simple (and stay focused on <code class="highlighter-rouge">noise()</code>), I tessalated an array of equilateral triangles for the visual, rather than using random vertices. The traingles were colored using the <code class="highlighter-rouge">noise()</code> value at their center point to scale the <code class="highlighter-rouge">g</code> value in their <code class="highlighter-rouge">rgb()</code> color between 100 and 200, while holding <code class="highlighter-rouge">r</code> and <code class="highlighter-rouge">b</code> fixed at 50 and 100, respectively.</p>
+<p>This sounded pretty cool to me. As I started imagining what sort of textures I might be able to create, I decided to start with a take on the popular “low poly” wallpapers I’d seen in my travels around the web. To keep things simple (and stay focused on <code class="language-plaintext highlighter-rouge">noise()</code>), I tessalated an array of equilateral triangles for the visual, rather than using random vertices. The traingles were colored using the <code class="language-plaintext highlighter-rouge">noise()</code> value at their center point to scale the <code class="language-plaintext highlighter-rouge">g</code> value in their <code class="language-plaintext highlighter-rouge">rgb()</code> color between 100 and 200, while holding <code class="language-plaintext highlighter-rouge">r</code> and <code class="language-plaintext highlighter-rouge">b</code> fixed at 50 and 100, respectively.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int width = 1200;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int width = 1200;
 int height = 800;
 
 void setup() {
@@ -51,9 +51,9 @@ void poly() {
 
 <p><img src="/assets/blog/processing_perlin_noise/processing_perlin_noise-1.png" alt="" /></p>
 
-<p>Next I decided to try breaking the resulting gradient into hard steps. To accomplish this, I scaled <code class="highlighter-rouge">noise()</code> by the number of steps and rounded it to a whole number. Given that it returns a value between zero and one, this yielded scaled values from 0 to <code class="highlighter-rouge">steps</code> that could then be used to incrementally step between defined start and stop <code class="highlighter-rouge">rgb()</code> values.</p>
+<p>Next I decided to try breaking the resulting gradient into hard steps. To accomplish this, I scaled <code class="language-plaintext highlighter-rouge">noise()</code> by the number of steps and rounded it to a whole number. Given that it returns a value between zero and one, this yielded scaled values from 0 to <code class="language-plaintext highlighter-rouge">steps</code> that could then be used to incrementally step between defined start and stop <code class="language-plaintext highlighter-rouge">rgb()</code> values.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void poly2() {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void poly2() {
 
   int size = 10;
   float noiseScale = .01;
@@ -90,9 +90,9 @@ void poly() {
 
 <p><img src="/assets/blog/processing_perlin_noise/processing_perlin_noise-2.png" alt="" /></p>
 
-<p>Content with my “low poly wallpaper” and “hot lava” results, it was time to try for a more photorelaistic texture - a cloudy sky. It took some fiddling to get the right look, but I’m pleased with the results. In addition to switching to smaller square regions, you’ll notice I adjusted the scaling factor for <code class="highlighter-rouge">noise()</code>. The <a href="https://processing.org/reference/noise_.html">documentation</a> indicates that “steps of 0.005-0.03 work best for most applications”, and, through all of my trials, I found this to be true. For this particular example, I just tweaked it until I got the “right look”.</p>
+<p>Content with my “low poly wallpaper” and “hot lava” results, it was time to try for a more photorelaistic texture - a cloudy sky. It took some fiddling to get the right look, but I’m pleased with the results. In addition to switching to smaller square regions, you’ll notice I adjusted the scaling factor for <code class="language-plaintext highlighter-rouge">noise()</code>. The <a href="https://processing.org/reference/noise_.html">documentation</a> indicates that “steps of 0.005-0.03 work best for most applications”, and, through all of my trials, I found this to be true. For this particular example, I just tweaked it until I got the “right look”.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void poly3() {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void poly3() {
 
   int size = 5;
   float noiseScale = .005;
@@ -128,9 +128,9 @@ void poly() {
 
 <p><img src="/assets/blog/processing_perlin_noise/processing_perlin_noise-4.png" alt="" /></p>
 
-<p>Using two base colors, I created a checkerboard pattern to cover the canvas. Then, on top of each square, I created another square of the other color. These squares and their corner radii were scaled with the <code class="highlighter-rouge">noise()</code> value for the first color and inversely scaled for the other to maintain a smooth flow of “dominant color” across cells.</p>
+<p>Using two base colors, I created a checkerboard pattern to cover the canvas. Then, on top of each square, I created another square of the other color. These squares and their corner radii were scaled with the <code class="language-plaintext highlighter-rouge">noise()</code> value for the first color and inversely scaled for the other to maintain a smooth flow of “dominant color” across cells.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void poly4() {
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void poly4() {
 
   int size = 8;
   float noiseScale = .02;
@@ -177,7 +177,7 @@ void poly() {
 
 <p><img src="/assets/blog/processing_perlin_noise/processing_perlin_noise-5.png" alt="" /></p>
 
-<p>And there you have it. Thanks to <code class="highlighter-rouge">noise()</code>, just a few simple lines of code can generate a number of interesting textures and patterns. In the future, I may be tempted to refine this camo pattern for a vinyl wrap for my truck.</p>
+<p>And there you have it. Thanks to <code class="language-plaintext highlighter-rouge">noise()</code>, just a few simple lines of code can generate a number of interesting textures and patterns. In the future, I may be tempted to refine this camo pattern for a vinyl wrap for my truck.</p>
 
 <p>You can check out the full source code from these examples on Github.</p>
 :ET

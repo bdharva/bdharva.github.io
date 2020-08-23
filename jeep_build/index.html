@@ -25,11 +25,16 @@ title: Jeep Build - bdharva
 			<tbody>
 			{% for part in site.data.jeep_parts %}
 			<tr>
-				{% if part.link %}
-				<td><a href="{{ part.link }}">{{ part.name }}</a></td>
-				{% else %}
-				<td>{{ part.name }}</td>
-				{% endif %}
+				<td>
+					{% if part.link %}
+					<a href="{{ part.link }}">
+						<i class="material-icons md-18">link</i>
+					</a>
+					{% else %}
+					<i class="material-icons md-18 md-dark md-inactive">link_off</i>
+					{% endif %}
+					{{ part.name }}
+				</td>
 				<td>{{ part.count }}</td>
 				<td>{{ part.date }}</td>
 				<td><span class="{{ part.status | downcase | replace: ' ', '-' }}">{{ part.status }}</span></td>
