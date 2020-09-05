@@ -3,7 +3,8 @@ layout: project
 title: REX Animal Health
 category: projects
 tags:
-- Web Design
+- Graphic Design
+- Web Development
 tagline: "A new marketing site for a startup revolutionizing the animal health space"
 thumbnail: /assets/work/rex_animal_health/rex_animal_health-6.png
 permalink: /work/rex_animal_health

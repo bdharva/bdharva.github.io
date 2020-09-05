@@ -3,6 +3,7 @@ layout: project
 title: Deck Chairs
 category: projects
 tags:
+- Industrial Design
 - Woodworking
 tagline: "A clean modern take on the traditional adirondack chair"
 thumbnail: /assets/work/deck_chairs/deck_chairs-4.jpg

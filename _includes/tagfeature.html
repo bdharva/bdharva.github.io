@@ -1,22 +1,21 @@
-<div class="tagfeature">
+<section class="shell">
 	{% for tag in page.tags %}
 	{% for post in site.posts %}
 	{% if post.tags contains tag %}
 	{% if post.url != page.url %}
-	<div class="card-holder wide">
+	<div class="card">
 		<a href="{{ post.url }}">
-			<div class="card">
-				<div class="picholder">
-					<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
-				</div>
-				<div class="details">
-					<h4>{{ post.title }} - {{ post.tagline }}</h4>
-				</div>
+			<div class="picholder">
+				<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
 			</div>
 		</a>
+		<div class="details">
+			<h3 style="margin: 0 0 8px 0;"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+			<h4 style="margin: 0;">{{ post.tagline }}</h4>
+		</div>
 	</div>
 	{% endif %}
 	{% endif %}
 	{% endfor %}
 	{% endfor %}
-</div>
+</section>

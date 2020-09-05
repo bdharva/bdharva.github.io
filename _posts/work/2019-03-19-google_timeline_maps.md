@@ -4,6 +4,7 @@ title: Google Timeline Maps
 category: projects
 tags:
 - Data Visualization
+- Software
 tagline: "Using Processing + Unfolding to visualize Google Timeline data"
 thumbnail: /assets/work/google_timeline_maps/nyc.jpg
 permalink: /work/google_timeline_maps

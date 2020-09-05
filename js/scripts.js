@@ -12,6 +12,18 @@ $(window).resize(function(){
 
 });
 
+$(window).scroll(function(){
+
+    var scrolled = $(window).scrollTop();
+    
+    if (scrolled > 524) {
+        $('.banner').addClass('scrolled');
+    } else {
+        $('.banner').removeClass('scrolled');
+    }
+
+});
+
 $('#showmenu').click(function(){
 
 	$('.overlay').toggle(0, function(){
@@ -131,15 +143,6 @@ $('#hidehighpoints').click(function(){
 
 })
 
-$( ".card .screen" ).hover(
-	function() {
-		$(this).animate({opacity : 1 },200)
-	},
-	function() {
-		$(this).animate({opacity : 0 },200);
-	}
-);
-
 function setup() {
 
 	align();
@@ -148,7 +151,7 @@ function setup() {
 
 function align() {
 
-	var height = $('.screen').height() - 112;
+	var height = $('.screen').height() - 84;
 	var text_height = $('.content').height();
 	var text_margin = (height - text_height) / 2;
 

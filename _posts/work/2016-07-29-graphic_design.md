@@ -3,6 +3,7 @@ layout: project
 title: Assorted Graphic Design
 category: projects
 tags:
+- Branding
 - Graphic Design
 tagline: "Selected work for startups, college groups, and friends/family."
 thumbnail: /assets/work/graphic_design/graphic_design-4.png
