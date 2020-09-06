@@ -24,7 +24,7 @@ var Chart = ((document, window, d3) => {
 		start_year = 2014,
 		start_month = 1,
 		end_year = 2020,
-		end_month = 4
+		end_month = 10
 
 	Promise.all([
 		d3.json('data/counties-10m.json'),

@@ -1,6 +1,6 @@
 ---
 layout: gallery
-title: Independence Day
+title: Flyovers & Fireworks
 location: Washington, DC
 category: photography
 tags: Photography

@@ -2,7 +2,8 @@
 layout: post
 title: Easy DIY Kayak Stand
 category: blog
-tag: Tinkering
+tags:
+- Tinkering
 tagline: A quick and dirty two kayak rack using pre-cut PVC
 thumbnail: /assets/blog/easy_diy_kayak_stand/easy_diy_kayak_stand-6.jpg
 ---

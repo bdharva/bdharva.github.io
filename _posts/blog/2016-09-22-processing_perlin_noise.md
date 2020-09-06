@@ -2,7 +2,9 @@
 layout: post
 title: Make some noise( ) in Processing
 category: blog
-tag: Programming
+tags:
+- Programming
+- Processing
 tagline: Creating pretty pixels with Perlin noise
 thumbnail: /assets/blog/processing_perlin_noise/processing_perlin_noise-3.png
 ---

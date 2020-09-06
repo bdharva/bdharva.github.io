@@ -4,8 +4,7 @@ title: Assorted Data Visualizations
 category: projects
 tags:
 - Data Visualization
-- Graphic Design
-tagline: "Selected work including infographics and maps"
+tagline: "Selected work including infographics and interactive maps"
 thumbnail: /assets/work/data_visualization/data_visualization-1.png
 permalink: /work/data_visualization
 ---
@@ -17,5 +16,4 @@ One of my favorite areas of work is data visualization. While scientific and dat
 ![](/assets/work/data_visualization/data_visualization-1.png)
 ![](/assets/work/data_visualization/data_visualization-2.png)
 ![](/assets/work/data_visualization/data_visualization-3.png)
-![](/assets/work/data_visualization/data_visualization-4.png)
 ![](/assets/work/data_visualization/data_visualization-5.png)

@@ -1,20 +1,20 @@
 :root {
-	--color-white: rgb(255,255,255);
-	--color-lightest-grey: rgb(247,249,251);
-	--color-light-grey: rgb(235,235,235);
+	--color-white: rgb(255, 255, 255);
+	--color-lightest-grey: rgb(247, 249, 251);
+	--color-light-grey: rgb(235, 235, 235);
 	--color-dark-blue: rgb(25, 45, 60);
-	--color-blue: rgb(25,118,210);
-	--color-bg-grey: rgb(204,208,212);
-	--color-bg-red: rgb(255,204,209);
-	--color-bg-green: rgb(204,231,225);
-	--color-bg-blue: rgb(204,228,249);
-	--color-bg-purple: rgb(225,211,248);
+	--color-blue: rgb(25, 118, 210);
+	--color-bg-grey: rgb(204, 208, 212);
+	--color-bg-red: rgb(255, 204, 209);
+	--color-bg-green: rgb(204, 231, 225);
+	--color-bg-blue: rgb(204, 228, 249);
+	--color-bg-purple: rgb(225, 211, 248);
 
-	--color-text-dark: rgba(0,5,10,0.9);
-	--color-text-medium: rgba(0,5,10,0.7);
-	--color-text-light: rgba(0,5,10,0.5);
+	--color-text-dark: rgba(0, 5, 10, 0.9);
+	--color-text-medium: rgba(0, 5, 10, 0.7);
+	--color-text-light: rgba(0, 5, 10, 0.5);
 
-	--color-screen: rgba(25,45,60,0.8);
+	--color-screen: rgba(25, 45, 60, 0.8);
 
 	--weight-text-headers: 400;
 	--weight-text-body: 300;
@@ -388,7 +388,8 @@ span.removed {
   transition: box-shadow .5s;
 }
 
-.banner.scrolled {
+.banner.scrolled,
+.banner.fixed {
 	position: fixed;
 	box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
@@ -411,9 +412,9 @@ header {
 }
 
 .scrolled header,
-header.static {
+.fixed header {
   padding-top: 16px;
-  background-color: rgb(20,45,60);
+  background-color: var(--color-dark-blue);
 }
 
 header.noshadow {

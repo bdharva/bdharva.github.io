@@ -33,16 +33,17 @@ title: bdharva - Automated County Counting
 	</head>
 	<body>
 		{% include menu.html %}
-		{% include header.html %}
+		{% include staticheader.html %}
 		<div id="wrapper">
-			<div id="short_hero"></div>
-			<section>
-				<div class="container center">
+			<section class="text center">
+				<section class="text">
 					<h2>Automated County Counting</h2>
 					<p style="font-style: italic; font-size: 12px; max-width: 400px; margin: 16px auto;">[Work in Progress] Data from Google location history (2014 to present), crunched using GeoPandas, visualized with D3. Detailed write-up to follow, once map formatting/interactions have been refined.</p>
+				</section>
+				<section class="center">
 					<div class="chart" id="legend"></div>
 					<div class="chart" id="map"></div>
-				</div>
+				</section>
 			</section>
 			{% include footer.html %}
 		</div>

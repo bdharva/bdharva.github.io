@@ -3,6 +3,9 @@ layout: post
 title: A Week of Podcasts
 category: blog
 tag: Data Visualization
+tags:
+- "Data Visualization"
+- Processing
 tagline: For FiveThirtyEight's What's the Point
 thumbnail: /assets/blog/a_week_of_podcasts/a_week_of_podcasts-4.png
 ---
