@@ -86,7 +86,7 @@ path.county:hover {
 }
 
 .county.active {
-	stroke: "black";
+	stroke: #000;
 }
 
 /* Counties
@@ -151,6 +151,59 @@ button:active {
 .tooltip strong {
 	font-size: 14px;
 	color: rgba(0,5,10,0.9);
+}
+
+/* Slider
+============================================================*/
+
+.ticks {
+  font: 10px sans-serif;
+}
+
+.track,
+.track-inset,
+.track-overlay,
+.track-progress {
+  stroke-linecap: round;
+}
+
+.track {
+  stroke: #000;
+  stroke-opacity: 0.2;
+  stroke-width: 4px;
+}
+
+.track-progress {
+  stroke: rgb(25, 118, 210);
+  stroke-width: 4px;
+}
+
+.track-overlay {
+  pointer-events: stroke;
+  stroke-width: 50px;
+  stroke: transparent;
+  cursor: pointer;
+}
+
+.label {
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.action {
+	font-weight: 400;
+	font-size: 12px;
+	text-transform: uppercase;
+	cursor: pointer;
+	opacity: 0.7;
+}
+
+.action:hover {
+	opacity: 1;
+}
+
+.handle {
+  fill: rgb(25, 118, 210);
 }
 
 /* Media queries

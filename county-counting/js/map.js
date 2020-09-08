@@ -6,6 +6,7 @@ var Chart = ((document, window, d3) => {
 
 	var svg,
 		legend_svg,
+		slider_svg,
 		proj,
 		path,
 		color,
@@ -13,6 +14,11 @@ var Chart = ((document, window, d3) => {
 		legend,
 		counties,
 		states,
+		slider,
+		slider_action,
+		slider_label,
+		progress,
+		handle,
 		width,
 		height
 
@@ -25,6 +31,51 @@ var Chart = ((document, window, d3) => {
 		start_month = 1,
 		end_year = 2020,
 		end_month = 10
+
+	var month_array = [];
+
+	for (let i = start_year; i <= end_year; i++) {
+
+		for (let j = 1; j <= 12; j++) {
+
+			let entry = String(i) + '-' + String (j).padStart(2, '0');
+
+			if (i > start_year & i < end_year) {
+
+				month_array.push(entry);
+			
+			} else if (i == start_year) {
+
+				 if (j >= start_month) {
+
+				 	month_array.push(entry);
+
+				 }
+			
+			} else if (i == end_year) {
+
+				if (j <= end_month) {
+
+					month_array.push(entry);
+
+				} else {
+
+					break;
+
+				}
+
+			}
+
+		}
+	}
+
+	const slider_width = 260
+	const slider_length = month_array.length - 1
+
+	const slider_scale = d3.scaleLinear()
+		.domain([0, slider_length])
+		.rangeRound([slider_width / slider_length, slider_width * (slider_length - 1) / slider_length])
+		.clamp(true)
 
 	Promise.all([
 		d3.json('data/counties-10m.json'),
@@ -80,7 +131,8 @@ var Chart = ((document, window, d3) => {
 			{title: "Hours spent in county"}
 		)
 
-		snapshot = take_snapshot(snapshot, 'hours')
+		// snapshot = take_snapshot(snapshot, 'hours')
+		snapshot = take_snapshot(snapshot, '2014-01')
 
 		console.log(county_details)
 		console.log(snapshot)
@@ -88,9 +140,8 @@ var Chart = ((document, window, d3) => {
 		svg = d3.select('#map')
 			.append('svg')
 
-		button = d3.select('#legend')
-			.append('button')
-			.on('click', handle_button_click)
+		slider_svg = d3.select('#slider')
+			.append('svg')
 
 		legend_svg = d3.select('#legend')
 			.append('svg')
@@ -109,6 +160,34 @@ var Chart = ((document, window, d3) => {
 		legend = legend_svg.append("g")
 			.attr("class", "legend")
 			.call(legend)
+
+		slider = slider_svg.append("g")
+			.attr("class", "slider")
+			.call(slider)
+
+		slider_label = slider.append("text")
+			.attr("class", "label")
+			.attr("x", 0)
+			.attr("y", -20)
+			.attr("text-anchor", "left")
+			.text('Test');
+
+		slider_action = slider.append("text")
+			.attr("class", "action")
+			.attr("x", 200)
+			.attr("y", -20)
+			.attr("text-anchor", "right")
+			.text('Animate')
+			.on('click', handle_button_click)
+
+		progress = slider.insert("line")
+			.attr("class", "track-progress")
+			.attr("x1", slider_scale.range()[0])
+			.attr("x2", slider_scale(month_array.indexOf(String(end_year) + '-' + String(end_month).padStart(2, '0'))))
+
+		handle = slider.insert("circle", ".track-overlay")
+			.attr("class", "handle")
+			.attr("r", 6);
 		
 		counties = svg.append("g")
 			.selectAll("path")
@@ -140,6 +219,27 @@ var Chart = ((document, window, d3) => {
 
 		render()
 
+		slider.transition() // Gratuitous intro!
+			.duration(2000)
+			.tween("slider_change", function() {
+				var i = d3.interpolate(0, slider_scale(month_array.length - 1));
+				return function(t) { slider_change(i(t)); };
+			});
+
+	}
+
+	slider = g => {
+		g.append("line")
+			.attr("class", "track")
+			.attr("x1", slider_scale.range()[0])
+			.attr("x2", slider_scale.range()[1])
+		g.append("line")
+			.attr("class", "track-overlay")
+			.attr("x1", slider_scale.range()[0])
+			.attr("x2", slider_scale.range()[1])
+			.call(d3.drag()
+				.on("start.interrupt", function() { slider.interrupt(); })
+				.on("end drag", function() { slider_change(d3.event.x); }));
 	}
 
 	legend = g => {
@@ -159,11 +259,12 @@ var Chart = ((document, window, d3) => {
 				.attr("fill", d => d)
 
 		g.append("text")
+			.attr("class", "legend_label")
 			.attr("y", -6)
 			.attr("fill", "currentColor")
 			.attr("text-anchor", "start")
 			.attr("font-weight", "bold")
-			// .text(county_data.title)
+			.text('Cumulative hours in county since 2014')
 
 		g.call(d3.axisBottom(x)
 			.tickSize(13)
@@ -171,12 +272,38 @@ var Chart = ((document, window, d3) => {
 			.tickValues(d3.range(1, length)))
 			.select(".domain")
 			.remove()
+
+	}
+
+	slider_change = h => {
+
+		h = Math.ceil(slider_scale.invert(h))
+		h = h < 0 ? 0 : h
+		h = h > month_array - 1 ? month_array - 1 : h
+		let label = month_array[h].split('-')
+		display_year = label[0]
+		display_month = label[1]
+		update_display()
+	}
+
+	update_display = () => {
+
+		let date = String(display_year) + '-' + String(display_month).padStart(2, '0')
+		handle.attr("cx", slider_scale(month_array.indexOf(date)))
+		progress.attr("x2", slider_scale(month_array.indexOf(date)))
+		field = 'hours_' + date
+		take_snapshot(snapshot, field)
+		counties
+			.transition(0)
+			.attr("fill", d => color(snapshot[d.id]))
+		slider_label
+			.text(date)
 	}
 
     handle_mouse_on = d => {
 
     	counties.selectAll('county')
-    		.attr('stroke', 'black')
+    		.attr('stroke', '#000')
     	
     	tooltip.transition()
 			.duration(500)
@@ -200,9 +327,24 @@ var Chart = ((document, window, d3) => {
 
 		}
 
-		tooltip.html(tip)
-			.style("left", (d3.event.pageX) + "px")
-			.style("top", (d3.event.pageY) + "px")
+		let w = window.innerWidth
+		let h = window.innerHeight
+
+		if (d3.event.pageX > w / 2) {
+
+			tooltip.html(tip)
+				.style("left", null)
+				.style("right", (w - d3.event.pageX) + "px")
+				.style("top", (d3.event.pageY) + "px")
+
+		} else {
+
+			tooltip.html(tip)
+				.style("left", (d3.event.pageX) + "px")
+				.style("right", null)
+				.style("top", (d3.event.pageY) + "px")
+
+		}
 
     }
 
@@ -221,7 +363,7 @@ var Chart = ((document, window, d3) => {
     		clearInterval(interval_id)
     		animation_active = !animation_active
     		animation_paused = true
-    		button.classed('active', animation_active)
+    		// button.classed('active', animation_active)
 
     	} else {
 
@@ -237,8 +379,8 @@ var Chart = ((document, window, d3) => {
     		}
     		
     		animation_active = !animation_active
-	    	interval_id = setInterval(animate_counties, 500)
-	    	button.classed('active', animation_active)
+	    	interval_id = setInterval(animate_counties, 200)
+	    	// button.classed('active', animation_active)
 
     	}
 
@@ -248,23 +390,15 @@ var Chart = ((document, window, d3) => {
 
     	if (display_year < end_year | (display_year == end_year & display_month < end_month)) {
 
-			s_month = String(display_month).padStart(2, '0')
-			s_year = String(display_year)
-			field = 'hours_' + s_year + '-' + s_month
-			take_snapshot(snapshot, field)
-			counties
-				.transition(500)
-				.attr("fill", d => color(snapshot[d.id]))
-			button
-				.html(s_year + '-' + s_month)
+			update_display()
 
 		} else {
 
 			clearInterval(interval_id)
 			animation_active = !animation_active
-			button
-				.html('Animate')
-				.classed('active', animation_active)
+			// button
+			// 	.html('Animate')
+			// 	.classed('active', animation_active)
 
 		}
 
@@ -305,6 +439,10 @@ var Chart = ((document, window, d3) => {
 			.attr('width', width)
 			.attr('height', 32)
 
+		slider_svg
+			.attr('width', width)
+			.attr('height', 64)
+
 		proj
 			.scale(width * 1.2)
 			.translate([width / 2, height / 2])
@@ -318,18 +456,22 @@ var Chart = ((document, window, d3) => {
 		states
 			.attr('d', path)
 
-		button
-			.html('Animate')
-			.classed('active', animation_active)
+		// button
+		// 	.html('Animate')
+		// 	.classed('active', animation_active)
 
 		legend
 			.attr('transform', 'translate(' + (width / 2 - 130) + ',0)')
+
+		slider
+			.attr('transform', "translate(" + (width / 2 - 130) + ',40)')
 
 	}
 
 	update_dimensions = () => {
 
 		width =  document.getElementById('map').clientWidth;
+		width = width > 900 ? 900 : width
 		height = width / 1.68;
 
 	}
