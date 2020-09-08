@@ -10,7 +10,7 @@ tagline: Trials and tribulations in isolation routing
 thumbnail: /assets/blog/cnc/cnc-1.jpg
 ---
 
-I'm embarassed to admit that my 3018 desktop mill had been collecting dust since I received it as a Christmas gift in 2018, largely due to my open project backlog (and a busy year between work travel, getting married, and moving back to Boston). But, following that recent move (and after putting a dent in the project backlog), I finally had enough downtime around work travel to put some nights and weekends toward getting it up and running.
+I'm embarrassed to admit that my 3018 desktop mill had been collecting dust since I received it as a Christmas gift in 2018, largely due to my open project backlog (and a busy year between work travel, getting married, and moving back to Boston). But, following that recent move (and after putting a dent in the project backlog), I finally had enough downtime around work travel to put some nights and weekends toward getting it up and running.
 
 My efforts broke down into the following categories:
 
@@ -28,7 +28,7 @@ My first priority was adding limit switches to prevent accidentally slamming int
 * Two wires per switch: one on the pin closest to the lever arm pivot (COM pin) and one on the middle pin (NO pin)
 * The control board has two pairs of pins for each axis. As the pins are labeled, wiring is self-explanatory.
 
-I designed some 3D printed mounts to affix the limit switches to the mill frame. It's worth noting that I took an unorthodox here, opting for a cradle/clamp around the plastic body of the switch assembly, rather than screwing the switch's through-holes. I only did this because none of the standard hardware I keep on-hand was compatible with the switches and I was impatient to move things along.
+I designed some 3D printed mounts to affix the limit switches to the mill frame. It's worth noting that I took an unorthodox approach here, opting for a cradle/clamp around the plastic body of the switch assembly, rather than screwing the switch's through-holes. I only did this because none of the standard hardware I keep on-hand was compatible with the switches and I was impatient to move things along.
 
 ![](/assets/blog/cnc/cnc-9.png)
 
@@ -263,9 +263,9 @@ The waste board worked great and is still in smooth enough shape after multiple 
 
 ### Takeaways
 
-* If I'm going to mill boards from start to finish, I should just buy some one-sided circuit board blanks cut my process time in half and eliminate the flip-flop.
+* If I'm going to mill boards from start to finish, I should just buy some one-sided circuit board blanks to cut my process time in half and eliminate the flip-flop.
 * Buying higher-quality broader-angle v-bits should help with burring issues.
-* For better (and potentially quicker) results, I intend to look into a hybrid approach that uses chemical etching for pads and traces, and then just uses the mill for through holes and edge routing.
-* I definitely need to get some solder mask -- liquid application looks like a bit of a pain versus some of the dry film options, but I'll probably try both.
+* For better (and potentially quicker) results, I intend to explore a hybrid approach that of chemical etching for pads and traces before milling through holes and edges.
+* I definitely need to get some solder mask -- liquid application looks like a bit of a pain versus dry film options, but I'll probably try both.
 
 For now, I'm back on the road for work, but, as soon as I can get some quality time back in the workshop (aka my clutterd desk in the living room of our one bedroom apartment), I look forward to seeing what kind of results these process improvements can yeild.
