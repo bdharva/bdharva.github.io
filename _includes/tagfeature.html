@@ -5,14 +5,14 @@
 	{% if post.url != page.url %}
 	<div class="card">
 		<a href="{{ post.url }}">
-			<div class="picholder">
-				<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+			<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}">
+				<div class="screen"></div>
+			</div>
+			<div class="details">
+				<h2>{{ post.title }}</h2>
+				<h4>{{ post.tagline }}</h4>
 			</div>
 		</a>
-		<div class="details">
-			<h3 style="margin: 0 0 8px 0;"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-			<h4 style="margin: 0;">{{ post.tagline }}</h4>
-		</div>
 	</div>
 	{% endif %}
 	{% endif %}

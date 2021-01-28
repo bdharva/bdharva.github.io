@@ -7,7 +7,7 @@ title: bdharva
 		<div class="content">
 			<h1>Ben Harvatine</h1>
 			<h2>Engineer by training, designer at heart, entrepreneur through trial and error.</h2>
-			<h4><i class="material-icons md-18">place</i>Boston/Washington DC</h4>
+			<h4><i class="material-icons md-18">place</i>New Hampshire</h4>
 		</div>
 	</div>
 </div>
@@ -15,89 +15,72 @@ title: bdharva
 	<div class="card">
 		{% assign post = site.categories.projects.first %}
 		<a href="{{ post.url }}">
-			<div class="picholder">
-				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
+			<div class="pic" style="background-image:url('{{ post.thumbnail }}');">
+				<div class="screen">
+				</div>
 			</div>
-		</a>
-		<div class="detholder">
 			<div class="details">
 				<h4>Recent Work</h4>
-				<h2><a href="{{ post.url }}">{{post.title}}</a></h2>
-				<h3><a href="/work">View All Work</a></h3>
+				<h2>{{post.title}}</h2>
 			</div>
-		</div>
+		</a>
 	</div>
 	<div class="card">
 		{% assign post = site.categories.blog.first %}
 		<a href="{{ post.url }}">
-			<div class="picholder">
-				<div class="pic" style="background-image:url('{{ post.thumbnail }}');"></div>
+			<div class="pic" style="background-image:url('{{ post.thumbnail }}');">
+				<div class="screen"></div>
 			</div>
-		</a>
-		<div class="detholder">
 			<div class="details">
 				<h4>Recent Post</h4>
-				<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-				<h3><a href="/blog">View All Posts</a></h3>
+				<h2>{{ post.title }}</h2>
 			</div>
-		</div>
+		</a>
 	</div>
 	<div class="card">
 		{% assign post = site.categories.photography.first %}
 		<a href="{{ post.url }}">
-			<div class="picholder">
-				<div class="pic" style="background-image:url('/assets/photography/{{post.date | date: '%Y'}}/{{post.date | date: '%m'}}/{{post.date | date: '%d'}}-{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg');"></div>
+			<div class="pic" style="background-image:url('/assets/photography/{{post.date | date: '%Y'}}/{{post.date | date: '%m'}}/{{post.date | date: '%d'}}-{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg');">
+				<div class="screen"></div>
 			</div>
-		</a>
-		<div class="detholder">
 			<div class="details">
 				<h4>Recent Photos</h4>
-				<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-				<h3><a href="/photos">View All Photography</a></h3>
+				<h2>{{ post.title }}</h2>
 			</div>
-		</div>
+		</a>
 	</div>
 	<div class="card">
 		{% assign post = site.categories.highpoints.first %}
 		<a href="{{ post.url }}">
-			<div class="picholder">
-				<div class="pic" style="background-image:url('/assets/highpoints/{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+			<div class="pic" style="background-image:url('/assets/highpoints/{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg'); {% if post.position %}background-position: {{ post.position }}{% endif %}">
+				<div class="screen"></div>
 			</div>
-		</a>
-		<div class="detholder">
 			<div class="details">
 				<h4>Latest State Highpoint</h4>
-				<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-				<h3><a href="/highpoints">View All Highpoints</a></h3>
+				<h2>{{ post.title }}, {{ post.location }}</h2>
 			</div>
-		</div>
+		</a>
 	</div>
 	<div class="card">
 		<a href="/jeep_build">
-			<div class="picholder">
-				<div class="pic" style="background-image:url('/assets/jeep_build/hero.jpg');"></div>
+			<div class="pic" style="background-image:url('/assets/jeep_build/hero.jpg');">
+				<div class="screen"></div>
 			</div>
-		</a>
-		<div class="detholder">
 			<div class="details">
 				<h4>Jeep Build</h4>
-				<h2><a href="/jeep_build">2016 JKU Rubicon Hard Rock</a></h2>
-				<h3><a href="/jeep_build">View All Modifications</a></h3>
+				<h2>2016 JKU Rubicon Hard Rock</h2>
 			</div>
-		</div>
+		</a>
 	</div>
 	<div class="card">
 		<a href="/county-counting">
-			<div class="picholder">
-				<div class="pic" style="background-image:url('/assets/county-counting/screenshot2.png');"></div>
+			<div class="pic" style="background-image:url('/assets/county-counting/screenshot.png');">
+				<div class="screen"></div>
 			</div>
-		</a>
-		<div class="detholder">
 			<div class="details">
 				<h4>Work in Progress</h4>
-				<h2><a href="/county-counting">Automated County Counting</a></h2>
-				<h3><a href="/county-counting">Check It Out</a></h3>
+				<h2>Automated County Counting</h2>
 			</div>
-		</div>
+		</a>
 	</div>
 </section>

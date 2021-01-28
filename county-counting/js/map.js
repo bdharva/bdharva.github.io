@@ -113,10 +113,10 @@ var Chart = ((document, window, d3) => {
 				}
 			
 			}
-    		
-    		mapped_data.set(d.id, element)
-    	
-    	})
+			
+			mapped_data.set(d.id, element)
+		
+		})
 
 		return mapped_data
 
@@ -148,14 +148,14 @@ var Chart = ((document, window, d3) => {
 
 		proj = d3.geoAlbersUsa()
 
-    	path = d3.geoPath()
-    		.projection(proj)
+		path = d3.geoPath()
+			.projection(proj)
 
-    	color = d3.scaleThreshold()
-    		.domain([0.01, 1, 12, 24, 168, 720, 2190, 4380])
-    		.range(d3.schemeReds[9])
+		color = d3.scaleThreshold()
+			.domain([0.01, 1, 12, 24, 168, 720, 2190, 4380])
+			.range(["#FFFFFF", "#E0F2F0", "#C3EBE1", "#A6E4D2", "#89DDC3", "#6CD6B4", "#4FCFA5", "#32C896"])
 
-    	format = d3.format('')
+		format = d3.format('')
 
 		legend = legend_svg.append("g")
 			.attr("class", "legend")
@@ -195,15 +195,15 @@ var Chart = ((document, window, d3) => {
 			.join("path")
 				.attr("fill", d => color(snapshot[d.id]))
 				.attr("class", "county")
-				.attr("stroke", "white")
-				.attr("stroke-width", 0.5)
+				.attr("stroke", "#191923")
+				.attr("stroke-width", 0.1)
 				.attr("d", path)
 
 		states = svg.append("path")
 			.datum(topojson.mesh(map, map.objects.states, (a, b) => a !== b))
 			.attr("fill", "none")
-			.attr("stroke", "white")
-			.attr("stroke-width", 1.5)
+			.attr("stroke", "#191923")
+			.attr("stroke-width", 0.2)
 			.attr("stroke-linejoin", "round")
 			.attr("d", path)
 
@@ -300,12 +300,12 @@ var Chart = ((document, window, d3) => {
 			.text(date)
 	}
 
-    handle_mouse_on = d => {
+	handle_mouse_on = d => {
 
-    	counties.selectAll('county')
-    		.attr('stroke', '#000')
-    	
-    	tooltip.transition()
+		counties.selectAll('county')
+			.attr('stroke', '#000')
+		
+		tooltip.transition()
 			.duration(500)
 			.style("opacity", 1)
 
@@ -346,49 +346,49 @@ var Chart = ((document, window, d3) => {
 
 		}
 
-    }
+	}
 
-    handle_mouse_off = d => {
+	handle_mouse_off = d => {
 
-    	tooltip.transition()
+		tooltip.transition()
 			.duration(500)
 			.style("opacity", 0)
 
-    }
+	}
 
-    handle_button_click = () => {
+	handle_button_click = () => {
 
-    	if (animation_active) {
+		if (animation_active) {
 
-    		clearInterval(interval_id)
-    		animation_active = !animation_active
-    		animation_paused = true
-    		// button.classed('active', animation_active)
+			clearInterval(interval_id)
+			animation_active = !animation_active
+			animation_paused = true
+			// button.classed('active', animation_active)
 
-    	} else {
+		} else {
 
-    		if (animation_paused) {
+			if (animation_paused) {
 
-    			animation_paused = !animation_paused
-    		
-    		} else {
+				animation_paused = !animation_paused
+			
+			} else {
 
-    			display_month = start_month
-	    		display_year = start_year
+				display_month = start_month
+				display_year = start_year
 
-    		}
-    		
-    		animation_active = !animation_active
-	    	interval_id = setInterval(animate_counties, 200)
-	    	// button.classed('active', animation_active)
+			}
+			
+			animation_active = !animation_active
+			interval_id = setInterval(animate_counties, 200)
+			// button.classed('active', animation_active)
 
-    	}
+		}
 
-    }
+	}
 
-    animate_counties = () => {
+	animate_counties = () => {
 
-    	if (display_year < end_year | (display_year == end_year & display_month < end_month)) {
+		if (display_year < end_year | (display_year == end_year & display_month < end_month)) {
 
 			update_display()
 
@@ -413,19 +413,19 @@ var Chart = ((document, window, d3) => {
 
 		}
 
-    }
+	}
 
-    take_snapshot = (data, field) => {
+	take_snapshot = (data, field) => {
 
-    	county_details.forEach((value, key) => {
+		county_details.forEach((value, key) => {
 
-    		data[key] = +(value[field] || 0)
+			data[key] = +(value[field] || 0)
 
-    	})
+		})
 
-    	return data
+		return data
 
-    }
+	}
 
 	render = () => {
 

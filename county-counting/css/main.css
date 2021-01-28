@@ -2,18 +2,8 @@
 CSS DOCUMENT - BDHARVA.COM
 ============================================================*/
 
-header {
-	background-color: rgb(25, 45, 60);
-}
-
-/*nav.left a,
-nav.right a,
-#showmenu {
-	color: rgba(0,5,10,0.9);
-}*/
-
 #wrapper {
-	padding-top: 58px;
+	margin-top: -60px;
 }
 
 h2 {
@@ -174,7 +164,7 @@ button:active {
 }
 
 .track-progress {
-  stroke: rgb(25, 118, 210);
+  stroke: rgb(50, 200, 150);
   stroke-width: 4px;
 }
 
@@ -203,7 +193,7 @@ button:active {
 }
 
 .handle {
-  fill: rgb(25, 118, 210);
+  fill: rgb(50, 200, 150);
 }
 
 /* Media queries
