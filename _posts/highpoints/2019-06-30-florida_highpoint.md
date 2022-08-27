@@ -2,6 +2,7 @@
 layout: highpoint
 title: Britton Hill
 location: Florida
+state: FL
 category: highpoints
 tag: Highpoints
 tagline: 345 feet

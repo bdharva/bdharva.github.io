@@ -2,6 +2,7 @@
 layout: highpoint
 title: Woodall Mountain
 location: Mississippi
+state: MS
 category: highpoints
 tag: Highpoints
 tagline: 807 feet

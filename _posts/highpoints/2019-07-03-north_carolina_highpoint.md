@@ -2,6 +2,7 @@
 layout: highpoint
 title: Mount Mitchell
 location: North Carolina
+state: NC
 category: highpoints
 tag: Highpoints
 tagline: 6,683 feet

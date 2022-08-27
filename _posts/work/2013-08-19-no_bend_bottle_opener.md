@@ -2,11 +2,11 @@
 layout: project
 title: No-Bend Bottle Opener
 category: projects
-tags:
-- Rapid Prototyping
+tag: Rapid Prototyping
 tagline: "A stainless steel bottle opener that doesn't crimp the caps"
 thumbnail: /assets/work/no_bend_bottle_opener/no_bend_bottle_opener-5.jpg
 permalink: /work/no_bend_bottle_opener
+wip: false
 ---
 
 As part of our "Build-a-Brand" project during my training program at Anheuser-Busch, we were tasked with creating branded packaging and promotional items for the launch event. Bottle openers were a natural choice for the event and something I'd been wanting to design for a while. Aside from being aesthetically attractive, I wanted to create an opener that wouldn't crimp the bottle caps. From an experiental perspective, there's something very satisfying about the caps just "popping" off.

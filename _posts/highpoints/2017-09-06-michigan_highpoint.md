@@ -2,6 +2,7 @@
 layout: highpoint
 title: Mount Arvon
 location: Michigan
+state: MI
 date: 2017-09-06
 category: highpoints
 tag: Highpoints

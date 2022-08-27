@@ -2,6 +2,7 @@
 layout: highpoint
 title: Cheaha Mountain
 location: Alabama
+state: AL
 category: highpoints
 tag: Highpoints
 tagline: 2,411 feet

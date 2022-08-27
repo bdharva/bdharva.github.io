@@ -2,12 +2,11 @@
 layout: project
 title: Google Timeline Maps
 category: projects
-tags:
-- Data Visualization
-- Software
+tag: Data Visualization
 tagline: "Using Processing + Unfolding to visualize Google Timeline data"
 thumbnail: /assets/work/google_timeline_maps/nyc.jpg
 permalink: /work/google_timeline_maps
+wip: false
 ---
 
 After having Google Timeline tracking enabled on my phone on and off over the last seven or so years, I became curious if the data was available for export and what it might show. After finding a way to download it, I slammed together a quick and dirty tool for mapping it with Processing and the Unfolding maps library. The early results were cool enough for a few friends to ask me to share the tool with them, so I shoe-horned everything into a work-in-progress GUI from a previous project and called the janky result "good enough for now". Below are a few different views of my own data, followed by documentation for the tool. The documentation, along with the source code, can be found [here](https://github.com/bdharva/google_timeline_maps) if you'd like to play with your own data.

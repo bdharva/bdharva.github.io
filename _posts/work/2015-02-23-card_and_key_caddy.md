@@ -2,11 +2,11 @@
 layout: project
 title: Card & Key Caddy
 category: projects
-tags:
-- Rapid Prototyping
+tag: Rapid Prototyping
 tagline: "A place to keep keys and loose cards by the door for easy access"
 thumbnail: /assets/work/card_and_key_caddy/card_and_key_caddy-4.jpg
 permalink: /work/card_and_key_caddy
+wip: false
 ---
 
 This is an example of a product design that may not be particularly useful to most people, but is incredibly useful to the few for which it's designed. The target audience? People who like to keep their various credit cards, transit passes, and driver's license loose in their pockets. And people who like to keep house keys, mail keys, and car keys all on separate keyrings. My girlfriend is guilty of both, and, as various keys and cards would go missing for weeks at a time, often forgotten in a jacket pocket somewhere, I finally decided to do my part to help out.

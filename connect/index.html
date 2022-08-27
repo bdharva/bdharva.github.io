@@ -1,0 +1,79 @@
+---
+layout: connect
+title: bdharva
+---
+<div class="logo">
+	<a href="/"><img src="/assets/favicon.png"/>bdharva</a>
+</div>
+<div class="clusters">
+	<div class="cluster">
+		<div class="lockup">
+			<div class="profile" style="background-image: url('/assets/heros/family.jpg'); background-position: center;"></div>
+			<div class="text">
+				<span class="name">Ben Harvatine <span class="handle">@bdharva</span></span>
+				<span class="blurb">MIT engineer / designer / entrepreneur with a 50 acre slice of freedom in the White Mountains of New Hampshire</span>
+				<span class="location"><i class="material-icons md-24">place</i>New Hampshire, USA</span>
+			</div>
+		</div>
+		<div class="feature">
+			<span style="display: block; font-weight: 600; margin-bottom: 8px;">Watch Latest Video</span>
+			<iframe style="border-radius: 12px;" width="100%" height="300" src="https://www.youtube.com/embed/kFtUrFWkonI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div>
+	</div>
+	<div class="cluster">
+		<div class="buttons">
+			<span style="display: block; font-weight: 600; margin-bottom: 8px;">Pinned Links</span>
+			{% assign pinned = site.posts | where: 'pinned', 'true' %}
+			{% for post in pinned %}
+				<a href="{{ post.url }}" target="_blank">
+					<span class="cta">
+						<i class="material-icons md-24">push_pin</i>{{ post.title }} - {{ post.tagline }}
+					</span>
+				</a>
+			{% endfor %}
+			<!-- <a href="/" target="_blank">
+				<span class="cta">
+					<i class="material-icons md-24">push_pin</i>Jolt Postmortem - A sober retrospective of a successful failure
+				</span>
+			</a>
+			<a href="/" target="_blank">
+				<span class="cta">
+					<i class="material-icons md-24">push_pin</i>Using Processing + Unfolding to visualize Google Timeline data
+				</span>
+			</a> -->
+		</div>
+		<div class="buttons">
+			<span style="display: block; font-weight: 600; margin-bottom: 8px;">Social Links</span>
+			<a href="/">
+				<span class="cta">
+					<i class="material-icons md-24">devices</i>Go to bdharva.com
+				</span>
+			</a>
+			<a href="https://www.instagram.com/bdharva/" target="_blank">
+				<span class="cta">
+					<i class="fa-brands fa-instagram"></i>@bdharva on Instagram
+				</span>
+			</a>
+			<a href="https://github.com/bdharva" target="_blank">
+				<span class="cta">
+					<i class="fa-brands fa-github"></i>@bdharva on Github
+				</span>
+			</a>
+			<a href="https://www.linkedin.com/in/bdharva/" target="_blank">
+				<span class="cta">
+					<i class="fa-brands fa-linkedin"></i>@bdharva on LinkedIn
+				</span>
+			</a>
+			<a href="https://twitter.com/bdharva" target="_blank">
+				<span class="cta">
+					<i class="fa-brands fa-twitter"></i>@bdharva on Twitter
+				</span>
+			</a>
+			<a href="https://www.youtube.com/channel/UCWEXgK5EDic_yeO1FDfKQWg" target="_blank">
+				<span class="cta">
+					<i class="fa-brands fa-youtube"></i>Ben Harvatine on YouTube
+				</span>
+			</a>
+		</div>
+	</div>
+</div>

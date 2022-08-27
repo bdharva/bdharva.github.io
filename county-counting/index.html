@@ -12,7 +12,7 @@ title: bdharva - Automated County Counting
 		<meta name="p:domain_verify" content="963fb8b6037d52bd2cc58e579956670e"/>
 		<title>bdharva -- {{ page.title }}</title>
 		<meta name="description" content="{% if page.tagline %}{{ page.tagline }}{% else %}{{ site.description }}{% endif %}">
-		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="/css/styles.css">
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="icon" type="image/png" href="/assets/favicon.png">
 		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
@@ -32,20 +32,19 @@ title: bdharva - Automated County Counting
 		</script>
 	</head>
 	<body>
+		<!DOCTYPE html>
 		{% include menu.html %}
-		{% include staticheader.html %}
-		<div id="wrapper">
-			<section class="text center">
-				<section class="text">
+		{% include header.html %}
+		<div class="scroll-content">
+			<div class="section center">
+				<div class="content full">
 					<h2>Automated County Counting</h2>
 					<p style="font-style: italic; font-size: 12px; max-width: 400px; margin: 16px auto;">[Work in Progress] Data from Google location history (2014 to present), crunched using GeoPandas, visualized with D3. Detailed write-up to follow, once map formatting/interactions have been refined.</p>
-				</section>
-				<section class="center">
 					<div class="chart" id="slider"></div>
 					<div class="chart" id="legend"></div>
 					<div class="chart" id="map"></div>
-				</section>
-			</section>
+				</div>
+			</div>
 			{% include footer.html %}
 		</div>
   </body>

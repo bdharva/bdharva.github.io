@@ -2,11 +2,12 @@
 layout: project
 title: Jolt Sensor
 category: projects
-tags:
-- Product Development
+tag: Product Development
 tagline: "A head impact sensor for athletes with a connected app for parents & coaches"
-thumbnail: /assets/work/jolt_sensor/jolt_sensor-11.jpg
+thumbnail: /assets/work/jolt_sensor/jolt_sensor-12.jpg
 permalink: /work/jolt_sensor
+pinned: true
+wip: false
 ---
 
 As founder & CEO of [Jolt](https://joltsensor.github.io/), I assembled an interdisciplinary team to develop a consumer hardware product for sports head impact tracking. Following early product development as a solo-founder, I led prototyping and development of embedded sensor hardware product, injection-molded enclosure, custom packaging, backend server, iOS and Android applications, and marketing website.

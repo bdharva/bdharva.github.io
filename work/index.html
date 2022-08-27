@@ -2,30 +2,92 @@
 layout: default
 title: Projects - bdharva
 ---
-<div id="hero" style="background-image:url('/assets/heros/work.jpg');">
-	<div class="screen">
-		<div class="content">
-			<h1>Work</h1>
-			<h2>I like to design things. And then I make them. Sometimes I also sell them.</h2>
+<div class="section hero" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7)), url('/assets/heros/work.jpg');">
+	<div class="content full">
+		<i class="material-icons md-24">construction</i>
+		<h1>Work</h1>
+		<h2>I like to design things. And then I make them. Sometimes I also sell them.</h2>
+	</div>
+</div>
+<div class="section medium">
+	<div class="content max">
+		<div class="features" style="flex-flow: row wrap">
+			{% assign filtered_posts = site.categories.projects | where:"wip", "true" %}
+			{% for post in filtered_posts %}
+			<div class="feature wip" style="flex: 1 0 26%;">
+				<div class="image-holder">
+					<div class="image" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+				</div>
+				<div class="text">
+					<div class="label">
+						<span class="tag">
+							<i class="material-icons md-24">
+							{% if post.tag == "Data Visualization" %}
+							bubble_chart
+							{% elsif post.tag == "Product Development" %}
+							settings
+							{% elsif post.tag == "Web Development" %}
+							devices
+							{% elsif post.tag == "Graphic Design" %}
+							color_lens
+							{% elsif post.tag == "Rapid Prototyping" %}
+							bolt
+							{% elsif post.tag == "DIY" %}
+							carpenter
+							{% elsif post.tag == "Architecture & Construction" %}
+							villa
+							{% elsif post.tag == "Vehicles" %}
+							directions_car
+							{% endif %}
+							</i>{{post.tag}}
+						</span>
+					</div>
+					<div class="title">{{ post.title }}</div>
+					<div class="description">
+						<span class="tag">{{post.tagline}}</span>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			{% assign filtered_posts = site.categories.projects | where:"wip", "false" %}
+			{% for post in filtered_posts %}
+			<div class="feature" style="flex: 1 0 26%;">
+				<a href="{{ post.url }}">
+					<div class="image-holder">
+						<div class="image" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+					</div>
+					<div class="text">
+						<div class="label">
+							<span class="tag">
+								<i class="material-icons md-24">
+								{% if post.tag == "Data Visualization" %}
+								bubble_chart
+								{% elsif post.tag == "Product Development" %}
+								settings
+								{% elsif post.tag == "Web Development" %}
+								devices
+								{% elsif post.tag == "Graphic Design" %}
+								color_lens
+								{% elsif post.tag == "Rapid Prototyping" %}
+								bolt
+								{% elsif post.tag == "DIY" %}
+								carpenter
+								{% elsif post.tag == "Architecture & Construction" %}
+								villa
+								{% elsif post.tag == "Vehicles" %}
+								directions_car
+								{% endif %}
+								</i>{{post.tag}}
+							</span>
+						</div>
+						<div class="title">{{ post.title }}</div>
+						<div class="description">
+							<span class="tag">{{post.tagline}}</span>
+						</div>
+					</div>
+				</a>
+			</div>
+			{% endfor %}
 		</div>
 	</div>
 </div>
-<section class="shell">
-	{% for post in site.categories.projects %}
-	<div class="card">
-		<a href="{{ post.url }}">
-			<div class="pic" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}">
-				<div class="screen"></div>
-			</div>
-			<div class="details">
-				<h2>{{ post.title }}</h2>
-			</div>
-			<div class="tags">
-				{% for tag in post.tags %}
-				<span class="tag">{{tag}}</span>
-				{% endfor %}
-			</div>
-		</a>
-	</div>
-	{% endfor %}
-</section>

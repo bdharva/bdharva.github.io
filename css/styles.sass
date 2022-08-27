@@ -1,0 +1,957 @@
+---
+---
+
+// VARIABLES
+// ------------------------------------------------------------
+
+// General Colors
+
+
+
+// Theme color
+
+
+$light-bg: rgb(255, 255, 255)
+$medium-bg: rgba(50, 74, 200, 10)
+$dark-bg: rgba(0, 5, 10, 90)
+$dark-text: rgba(0, 5, 10, 90)
+$light-text: rgb(255, 255, 255)
+$accent: rgb(30, 200, 150)
+$complement: rgb(50, 74, 200)
+$complement: rgb(30, 47, 200)
+
+// Text weights
+$weight-heading: 600
+$weight-body: 400
+
+// Text sizes
+$font-size-1: 2.5rem
+$font-size-2: 1.5rem
+$font-size-3: 1.25rem
+$font-size-4: 1.125rem
+$font-size-5: 1rem
+$font-size-6: .875rem
+
+// Margins
+$margin-standard: 1rem 0
+
+// *, HMTL, BODY
+// ------------------------------------------------------------
+
+// Catch all
+*
+	margin: 0
+	padding: 0
+
+// Body & wrapper
+
+html, body
+	height: 100%
+	font-size: 16px
+
+body
+	background: $light-bg
+	font-family: 'Inter', sans-serif
+	font-weight: $weight-body
+	color: $dark-text
+	text-align: left
+
+// GENERAL TEXT FORMATTING
+// ------------------------------------------------------------
+
+// Color
+.accent
+	color: $accent
+
+// Headings
+
+h1, h2, h3, h4
+	color: $dark-text
+	margin: 2rem 0 1rem 0
+
+h1
+	font-size: $font-size-1
+	font-weight: $weight-heading
+
+h2
+	font-size: $font-size-2
+	font-weight: $weight-heading
+
+h3
+	font-size: $font-size-3
+	font-weight: $weight-heading
+
+h4
+	font-size: $font-size-4
+	font-weight: $weight-heading
+
+// Other Typography (+ images in flow)
+
+p, li
+	font-size: 1rem
+	line-height: 150%
+	text-align: justify
+	margin: 1em auto
+
+li
+	margin-left: 1rem
+
+a
+	color: $accent
+	text-decoration: none
+
+a:hover
+	text-decoration: underline
+
+img
+	width: 100%
+	margin: 0.25rem auto
+	box-sizing: border-box
+	border-radius: 0.25em
+
+p img
+	max-width: 100%
+	margin: 2rem auto
+	display: block
+
+hr
+	border: none
+	border-top: 1px solid rgba(0, 5, 10, 0.1)
+
+// Code
+
+code, pre
+	font-family: 'Roboto Mono'
+	font-size: .875rem
+	border-radius: 4px
+	background-color: rgba(0, 5, 10, 0.05)
+
+pre
+	margin: 2rem 0
+	padding: 1.25rem
+	overflow: auto
+
+code
+	padding: 0 2px
+
+pre code
+	border: none
+	background: none
+	margin: 0
+	padding: 0
+
+// Table
+
+.table_wrapper
+	margin: 1rem 0
+	overflow-x: auto
+
+table
+	border-collapse: collapse
+	font-size: 1rem
+	table-layout: fixed
+	vertical-align: middle
+	margin: 0 auto
+
+thead
+	color: rgba(0, 5, 10, 0.9)
+
+tr:nth-child(even)
+	background-color: rgb(246, 248, 250)
+
+tr th:nth-child(2),
+tr th:nth-child(3),
+tr th:nth-child(4),
+tr td:nth-child(2),
+tr td:nth-child(3),
+tr td:nth-child(4)
+	text-align: center
+
+th
+	background-color: rgb(234, 237, 240)
+
+th, td
+	white-space: nowrap
+
+table, th, td
+	border: 1px solid rgb(223, 226, 229)
+	padding: 6px 13px
+
+tr, td
+	min-width: 3rem
+
+td span
+	display: inline-block
+	border-radius: 3px
+	font-size: 1rem
+	padding: 2px 6px
+	min-width: 4.5rem
+	text-align: center
+
+span.not-installed
+	background-color: rgb(204, 208, 212)
+
+span.no-install
+	background-color: rgb(25, 118, 210)
+
+span.installed
+	background-color: rgb(204, 231, 225)
+
+span.as-needed
+	background-color: rgb(225, 211, 248)
+
+span.removed
+	background-color: rgb(255, 204, 209)
+
+// NAVIGATION
+// ------------------------------------------------------------
+
+// Top navbar
+
+nav
+	display: flex
+	background: rgba(255, 255, 255, 0.96)
+	flex-flow: row nowrap
+	justify-content: space-between
+	line-height: 3rem
+	vertical-align: middle
+	font-weight: 600
+	padding: 2rem 4rem
+	position: fixed
+	width: 100%
+	box-sizing: border-box
+	top: 0
+	transition: top 0.1s ease-in-out
+	z-index: 100
+
+	a:hover
+		text-decoration: none
+
+	.left
+		float: left
+		font-size: 1.25rem
+
+		a
+			text-decoration: none
+			color: $dark-text
+
+			img
+				height: 2rem
+				width: auto
+				margin: 0 0.5rem 0.25rem 0
+				vertical-align: middle
+
+	.right
+		float: right
+		font-size: 0.875rem
+		color: $dark-text
+
+		a
+			color: $dark-text
+			opacity: 0.7
+
+		a.active,
+		a:hover
+			opacity: 1
+
+		span
+			margin-left: 1.5rem
+
+			i.material-icons.md-24
+				vertical-align: middle
+				line-height: 28px
+				height: 32px
+				margin: 0
+				padding: 0
+
+		span.cta
+			color: $accent
+			height: 48px
+			line-height: 48px
+			background: rgba(30, 200, 150, 0.3)
+			color: rgb(30, 200, 150)
+			display: inline-block
+			padding: 0 24px
+			border-radius: 24px
+
+			a
+				color: $accent
+				opacity: 1
+
+			i.material-icons.md-24
+				vertical-align: middle
+				margin: 0 2px 2px -2px
+
+// Hidden navbar triggered on scroll down
+
+nav.tucked
+	top: -112px
+
+.scroll-content
+	margin-top: 112px
+
+.socials
+	display: flex
+	flex-flow: row wrap
+	justify-content: center
+
+	a:hover
+		text-decoration: none
+
+	.social
+		height: 64px
+		width: 192px
+		border: 1px solid rgba(0, 5, 10, 0.2)
+		border: 1px solid rgba(0, 5, 10, 0.05)
+		background: rgba(0, 5, 10, 0.03)
+		border-radius: 32px
+		padding: 8px
+		box-sizing: border-box
+		flex-flow: row nowrap
+		display: flex
+		margin: 12px
+		cursor: pointer
+		transition: all 0.1s cubic-bezier(0.22, 1, 0.36, 1)
+
+		.icon
+			width: 48px
+			height: 48px
+			border-radius: 24px
+			background: rgba(0, 5, 10, 0.03)
+			text-align: center
+
+			i.material-icons.md-24, .fa-brands
+				font-size: 24px
+				line-height: 48px
+				vertical-align: middle
+				color: rgba(0, 5, 10, 0.9)
+
+		.text
+			flex-flow: column nowrap
+			display: flex
+			justify-content: center
+			text-align: left
+			margin-left: 8px
+
+			.action
+				font-size: 12px
+				font-weight: 400
+				color: rgba(0, 5, 10, 0.7)
+
+			.target
+				font-size: 18px
+				font-weight: 600
+				color: rgba(0, 5, 10, 0.9)
+
+	.social:hover
+		color: rgb(30, 200, 150)
+		background: rgba(30, 200, 150, 0.2)
+		border: 1px solid rgba(30, 200, 150, 0.2)
+
+		.icon
+			background: rgba(30, 200, 150, 0.2)
+			
+			i.material-icons.md-24, .fa-brands
+				color: rgba(30, 200, 150, 0.9)
+
+		.text
+
+			.action
+				color: rgba(30, 200, 150, 0.9)
+
+			.target
+				color: rgb(30, 200, 150)
+
+.connect
+	padding: 64px
+	max-width: 1200px
+	margin: 0 auto
+
+	.logo
+		line-height: 48px
+		vertical-align: middle
+		font-sie: 20px
+		font-weight: 600
+		margin-bottom: 24px
+		z-index: 100
+		border-bottom: 1px solid rgba(0, 5, 10, 0.1)
+
+		a
+			text-decoration: none
+			color: $dark-text
+
+			img
+				height: 32px
+				width: auto
+				margin: 0 8px 4px 0
+				vertical-align: middle
+
+	.clusters
+		display: flex
+		flex-flow: row wrap
+		margin: -24px
+
+		.cluster
+			margin: 24px
+			flex: 1 1 0px
+			min-width: 300px
+
+	.lockup
+		display: flex
+		flex-flow: row nowrap
+		margin-bottom: 24px
+
+		.profile
+			flex: 0 0 auto
+			background-size: cover
+			height: 120px
+			width: 120px
+			border-radius: 12px
+			box-shadow: 0 0 8px rgba(0, 0, 0, 0.3)
+
+		.text
+			display: flex
+			flex-flow: column nowrap
+			justify-content: center
+			margin-left: 16px
+			font-size: 16px
+
+			.name
+				font-weight: 600
+				display: block
+
+				.handle
+					font-weight: 400
+					opacity: 0.8
+
+			.blurb
+				display: block
+				margin: 8px 0
+
+			.location
+				display: block
+				opacity: 0.8
+
+				i.material-icons.md-24
+					vertical-align: middle
+					margin: 0 2px 2px -2px
+					opacity: 0.6
+
+	.buttons
+		display: flex
+		flex-flow: column nowrap
+		margin-bottom: 24px
+
+		a
+			display: block
+			margin-bottom: 12px
+			text-decoration: none
+
+			.cta
+				min-height: 64px
+				min-width: 0px
+				line-height: 64px
+				background: rgba(30, 200, 150, 0.3)
+				background: rgba(0, 5, 10, 0.03)
+				color: rgba(0, 5, 10, 0.9)
+				display: block
+				padding: 0 24px
+				border-radius: 12px
+				border: 1px solid rgba(0, 5, 10, 0.05)
+				transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1)
+				white-space: nowrap
+				overflow: hidden
+				text-overflow: ellipsis
+
+				i.material-icons.md-24, i.fa-brands
+					font-size: 24px
+					line-height: 36px
+					vertical-align: middle
+					margin: 0 12px 2px -2px
+					padding-right: 12px
+					border-right: 1px solid rgba(0, 5, 10, 0.1)
+
+			.cta:hover
+				color: rgb(30, 200, 150)
+				background: rgba(30, 200, 150, 0.2)
+
+				i.material-icons.md-24, i.fa-brands
+					border-right: 1px solid rgba(30, 200, 150, 0.4)
+
+
+
+.section
+	margin: 0
+	padding: 0
+
+
+	.content.max
+		max-width: none
+		padding: 84px 52px;
+
+	.content.full
+		max-width: 1200px
+
+		h1
+			max-width: 800px
+			margin: 0 auto
+			text-align: center
+			margin-bottom: 48px
+
+		h2
+			max-width: 600px
+			margin: 0 auto
+			text-align: center
+			margin-bottom: 48p
+	
+	.content
+		margin: 0 auto
+		padding: 96px;
+		max-width: 800px
+
+		img
+			width: 100%
+			border-radius: 8px
+			margin: 2em 0
+
+		.polaroid
+			background-size: cover
+			height: 144px
+			width: 144px
+			border-radius: 12px
+			margin: 0 auto
+			margin-bottom: 48px
+			box-shadow: 0 0 8px rgba(0, 0, 0, 0.3)
+
+		.callouts
+			display: flex
+			flex-flow: row nowrap
+
+			.callout
+				margin: 24px
+				text-align: center
+				flex-basis: 0
+				flex-grow: 1
+
+				.title
+					font-size: 18px
+					font-weight: 600
+					color: rgba(0, 5, 10, 0.9)
+					margin-top: 12px
+
+					i.material-icons.md-24
+						vertical-align: middle
+						color: rgba(0, 5, 10, 0.9)
+						margin: 0 2px 2px -2px
+
+				.description
+					font-size: 14px
+					font-weight: 400
+					color: rgba(0, 5, 10, 0.7)
+					margin-top: 8px
+
+		.features
+			display: flex
+			flex-flow: row nowrap
+
+			.feature
+				display: flex
+				flex-flow: column nowrap
+				flex-grow: 1
+				flex: 1 1 0px
+				margin: 12px
+				justify-content: top
+				background: white
+				box-shadow: 0 0 8px rgba(0, 0, 0, 0.05)
+				border-radius: 8px
+				min-width: 400px
+				animation-duration: 0.5s
+
+				a:hover
+					text-decoration: none
+
+
+				.text
+					display: flex
+					flex-flow: column nowrap
+					justify-content: top
+					padding: 48px
+					flex-basis: 0
+					flex-grow: 1
+
+					.label
+						color: rgb(50, 200, 150)
+						font-size: 16px
+						font-weight: 600
+
+						i.material-icons.md-24
+							vertical-align: middle
+							font-size: 16px
+							margin: 0 2px 4px -2px
+
+					.title
+						color: rgba(0, 5, 10, 0.9)
+						font-size: 24px
+						font-weight: 600
+						margin-top: 4px
+
+					.description
+						font-size: 18px
+						font-weight: 400
+						color: rgba(0, 5, 10, 0.7)
+						margin-top: 8px
+
+						ul
+							padding-left: 0px
+							list-style: none
+
+							li
+								margin-bottom: 24px
+
+					span.cta
+						background: none
+						text-align: right
+						padding: 0
+						margin-top: auto
+						color: $accent
+						line-height: 24px
+						vertical-align: middle
+
+						i.material-icons
+							line-height: 24px
+							height: 24px
+							vertical-align: middle
+							padding-bottom: 2px
+							margin-right: 4px
+
+				.image-holder
+					flex-basis: 0
+					flex-grow: 1
+					background-size: cover
+					background-position: center
+					border-radius: 8px 8px 0px 0px
+					min-height: 300px
+					max-height: 300px
+					overflow: hidden
+				
+					.image
+						flex-basis: 0
+						flex-grow: 1
+						background-size: cover
+						background-position: center
+						border-radius: 8px 8px 0px 0px
+						min-height: 300px
+						max-height: 300px
+						transition: transform .5s ease
+
+			.feature.wip
+				background: rgba(0,0,0,0.05)
+				box-shadow: none
+
+			.feature.wip:hover
+				box-shadow: none
+
+				.image
+					transform: none
+
+			.feature:hover
+				box-shadow: 0 0 12px rgba(0, 0, 0, 0.10)
+
+				.image
+					transform: scale(1.05)
+
+		.side-by-side
+			display: flex
+			fkex-flow: row nowrap
+
+			.text-holder
+				flex-basis: 0
+				flex-grow: 3
+
+				h3
+					margin-top: 1rem
+
+			.image-holder
+				background-size: cover
+				height: 300px
+				width: 400px
+				flex-grow: 0
+				flex-shrink: 0
+				margin: 1rem 0 1rem 2rem
+				border-radius: 8px
+
+		hr
+			margin: 2rem 0
+
+.section.hero
+	height: calc(100vh - 112px)
+	background-size: cover
+	background-position: center
+	text-align: center
+
+	.content.full
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+
+.section.medium
+	background: rgb(244, 246, 247)
+
+.section.dark
+	background: rgba(0, 5, 10, 0.8)
+	color: white
+
+	.socials 
+
+		.social
+			border: 1px solid rgba(255, 255, 255, 0.9)
+
+			.icon
+				background: rgba(255, 255, 255, 0.05)
+
+			.text
+
+				.action
+					color: rgba(255, 255, 255, 0.9)
+
+				.target
+					color: rgb(255, 255, 255)
+
+footer
+	text-align: center
+	padding: 144px 0 64px 0
+
+	.content.full
+		padding: 0 2rem
+
+	span.copyright
+		color: rgba(0, 5, 10, 0.5)
+		display: block
+		margin-top: 144px
+
+	h1
+		max-width: 800px
+		margin: 0 auto
+		text-align: center
+		margin-bottom: 48px
+
+	h2
+		max-width: 600px
+		margin: 0 auto
+		text-align: center
+		margin-bottom: 48px
+
+.overlay
+	background-color: rgba(25, 25, 35, 0.7)
+	width: 100%
+	height: 100%
+	position: fixed
+	top: 0
+	z-index: 10000
+	opacity: 0
+	display: none
+	font-size: 14px
+	font-weight: 600
+	line-height: 36px
+
+	.content
+		background-color: rgb(255, 255, 255)
+		height: auto
+		width: 100%
+		max-width: 300px
+		height: 100%
+		float: right
+		padding: 26px 52px
+		overflow: auto
+		display: flex
+		flex-flow: column nowrap
+
+		.top,
+		.menu-item
+			flex: 0 0 1
+			margin: 4px 0
+			padding: 12px
+			vertical-align: middle
+			color: rgba(0,5,10,0.7)
+			height: 36px
+	
+		.top
+			text-align: right
+
+		.menu-item
+			border: 1px solid rgb(235,235,235)
+			border-radius: 8px
+
+			i.material-icons
+				vertical-align: middle
+				line-height: 36px
+				margin: 0 8px 2px 0
+				padding: 0
+
+		.buttons
+			display: flex
+			flex-flow: column nowrap
+			margin-bottom: 24px
+
+			a:hover
+				text-decoration:none
+
+			a
+				display: block
+				margin-bottom: 12px
+				color: rgba(0, 5, 10, 0.7)
+
+				.cta
+					min-height: 64px
+					line-height: 64px
+					display: block
+					padding: 0 24px
+					border-radius: 12px
+					//border: 1px solid rgba(0, 5, 10, 0.05)
+					transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1)
+					text-overflow: ellipsis
+
+					i.material-icons
+						line-height: 36px
+						vertical-align: middle
+						margin: 0 12px 2px -2px
+						padding-right: 12px
+						border-right: 1px solid rgba(0, 5, 10, 0.1)
+
+				.cta.special
+					color: rgb(30, 200, 150)
+					background: rgba(30, 200, 150, 0.2)
+
+					i.material-icons
+						border-right: 1px solid rgba(30, 200, 150, 0.3)
+
+			a.active
+				color: rgba(0, 5, 10, 0.9)
+
+				.cta
+					background: rgba(0, 5, 10, 0.03)
+
+			a:hover
+				color: rgb(30, 200, 150)
+				text-decoration:none
+
+				.cta
+					background: rgba(30, 200, 150, 0.2)
+
+					i.material-icons
+						border-right: 1px solid rgba(30, 200, 150, 0.3)
+
+				.cta.special
+					color: rgba(255, 255, 255, 0.95)
+					background: rgb(30, 200, 150)
+
+					i.material-icons
+						border-right: 1px solid rgba(255, 255, 255, 0.7)
+
+#showmenu
+	color: var(--color-white)
+	cursor: pointer
+	opacity: 0
+	display: none
+
+#hidemenu
+	color: var(--color-text-medium-on-light)
+	cursor: pointer
+
+.section .content .grid_gallery
+	display: flex
+	flex-flow: row wrap
+
+	img
+		display: flex
+		flex: 1 0 26%
+		margin: 12px
+		max-width: 600px
+		min-width: 300px
+		border: 1px solid rgba(0, 5, 10, 0.05)
+
+@media (max-width:1130px)
+
+	.section .content .side-by-side .image-holder
+		width: 300px
+		height: 200px
+
+@media (max-width:960px)
+
+	h1
+		font-size: 2rem
+
+	nav
+		padding: 2rem
+
+	.section
+		.content
+			padding: 2rem
+
+		.content.max
+			padding: 2rem
+
+
+@media (max-width:880px)
+
+	nav .right span.hide
+		opacity: 0
+		display: none
+
+	#showmenu
+		opacity: 1
+		display: inline-block
+
+	.section .content .callouts
+		flex-flow: column nowrap
+
+		.callout
+			width: 100%
+			max-width: 500px
+			margin: 1.5rem auto
+			text-align: center
+			flex-basis: 0
+			flex-grow: 1
+
+	.section .content .features
+		flex-flow: column nowrap
+
+	.connect
+		.clusters
+			.cluster
+				min-width: 500px
+
+	.section .content
+		.side-by-side
+			flex-flow: column nowrap
+
+			.image-holder
+				margin: 1rem 0
+				width: 100%
+				height: 300px
+
+@media (max-width:690px)
+
+	h1
+		font-size: 1.5rem
+
+	.section .content .features
+		.feature
+			width: 100%
+			margin: 1em 0
+
+	.connect
+		padding: 1rem
+
+		.clusters
+			flex-flow: column nowrap
+			margin: -1rem
+
+			.cluster
+				min-width: 0
+
+				.lockup
+					margin-bottom: 3rem
+
+				.buttons
+					margin-bottom: 3rem

@@ -2,6 +2,7 @@
 layout: highpoint
 title: Hoye Crest
 location: Maryland
+state: MD
 date: 2017-11-19 15:25:27
 category: highpoints
 tag: Highpoints

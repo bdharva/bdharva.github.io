@@ -2,6 +2,7 @@
 layout: highpoint
 title: Jerimoth Hill
 location: Rhode Island
+state: RI
 category: highpoints
 tag: Highpoints
 tagline: 811 feet

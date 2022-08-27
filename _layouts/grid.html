@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<div class="section hero" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7)), url('/assets/work/{{page.name}}/{{ page.name }}-{{ page.thumbnail_file }}.png');">
+	<div class="content full">
+		<i class="material-icons md-24">
+			{% if page.tag == "Data Visualization" %}
+			bubble_chart
+			{% elsif page.tag == "Product Development" %}
+			settings
+			{% elsif page.tag == "Web Development" %}
+			devices
+			{% elsif page.tag == "Graphic Design" %}
+			color_lens
+			{% elsif page.tag == "Rapid Prototyping" %}
+			bolt
+			{% elsif page.tag == "Woodworking" %}
+			carpenter
+			{% elsif page.tag == "Architecture & Construction" %}
+			villa
+			{% endif %}
+		</i>
+		<h3>{{page.tag}}</h3>
+		<h1>{{page.title}}</h1>
+		<h2>{{page.tagline}}</h2>
+	</div>
+</div>
+<div class="section medium">
+	<div class="content max">
+		{{content}}
+		<div class="grid_gallery">
+			{% assign num = page.files %}
+			{% for i in (1..num) %}
+			<img src="/assets/work/{{page.name}}/{{ page.name }}-{{ i }}.png"/>
+			{% endfor %}
+		</div>
+	</div>
+</div>

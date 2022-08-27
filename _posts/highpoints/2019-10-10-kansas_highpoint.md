@@ -2,6 +2,7 @@
 layout: highpoint
 title: Mount Sunflower
 location: Kansas
+state: KS
 category: highpoints
 tag: Highpoints
 tagline: 4,039 feet

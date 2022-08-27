@@ -3,9 +3,6 @@ layout: post
 title: "Jolt Founder's Story"
 category: blog
 tag: Entrepreneurship
-tags:
-- Entrepreneurship
-- Jolt
 tagline: "From classroom project to shipping product"
 thumbnail: /assets/work/jolt_sensor/jolt_sensor-6.jpg
 ---

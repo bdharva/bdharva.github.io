@@ -1,19 +1,20 @@
 ---
 layout: default
 ---
-<div id="hero" style="background-image:url('/assets/photography/{{page.date | date: '%Y'}}/{{page.date | date: '%m'}}/{{page.date | date: '%d'}}-{{ page.name }}/{{ page.name }}-{{ page.thumbnail }}.jpg');">
-	<div class="screen">
-		<div class="content">
-			<h1>{{page.title}}</h1>
-			<h3>{{page.location}}</h3>
-			<h4>{{page.date | date: "%B %-d, %Y"}}</h4>
-		</div>
+<div class="section hero" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7)), url('/assets/photography/{{page.date | date: '%Y'}}/{{page.date | date: '%m'}}/{{page.date | date: '%d'}}-{{ page.name }}/{{ page.name }}-{{ page.thumbnail }}.jpg');">
+	<div class="content full">
+		<i class="material-icons md-24">photo_camera</i>
+		<h3>{{page.date | date: "%B %-d, %Y"}}</h3>
+		<h1>{{page.title}}</h1>
+		<h2>{{page.location}}</h2>
 	</div>
 </div>
-<section class="gallery">
-	{{content}}
-	{% assign num = page.files %}
-	{% for i in (1..num) %}
-	<img src="/assets/photography/{{page.date | date: '%Y'}}/{{page.date | date: '%m'}}/{{page.date | date: '%d'}}-{{ page.name }}/{{ page.name }}-{{ i }}.jpg"/>
-	{% endfor %}
-</section>
+<div class="section medium">
+	<div class="content full">
+		{{content}}
+		{% assign num = page.files %}
+		{% for i in (1..num) %}
+		<img src="/assets/photography/{{page.date | date: '%Y'}}/{{page.date | date: '%m'}}/{{page.date | date: '%d'}}-{{ page.name }}/{{ page.name }}-{{ i }}.jpg"/>
+		{% endfor %}
+	</div>
+</div>

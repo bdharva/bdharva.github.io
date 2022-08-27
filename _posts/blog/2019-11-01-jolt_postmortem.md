@@ -2,9 +2,7 @@
 layout: post
 title: Jolt Postmortem
 category: blog
-tags:
-- Entrepreneurship
-- Jolt
+tag: Entrepreneurship
 tagline: A sober retrospective of a successful failure
 thumbnail: /assets/blog/jolt_postmortem/jolt_postmortem-1.jpg
 ---

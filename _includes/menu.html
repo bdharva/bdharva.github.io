@@ -1,65 +1,44 @@
 <div class="overlay">
 	<div class="content">
-		<li class="top left">
-			<a href="/">BDHARVA</a>
-		</li>
-		<li class="top right">
-			<i id="hidemenu" class="material-icons md-24">arrow_forward</i>
-		</li>
-		<li>
-			<a href="/about" {% if page.title == "About - bdharva" %}class="active"{% endif %}>About</a>
-		</li>
-		<li class="left">
-			<a href="/work" {% if page.title == "Projects - bdharva" %}class="active"{% endif %}>Work</a>
-		</li>
-		<li class="right">
-			<i id="showwork" class="material-icons md-24">arrow_drop_down</i><i id="hidework" class="material-icons md-24">arrow_drop_up</i>
-		</li>
-		<ul class="work">
-			{% for post in site.categories.projects %}
-			<li class="sub" {% if page.title == post.title %}class="active"{% endif %}>
-				<a href= "{{ post.url }}">{{ post.title }}</a>
-			</li>
-			{% endfor %}
-		</ul>
-		<li class="left">
-			<a href="/blog" {% if page.title == "Blog - bdharva" %}class="active"{% endif %}>Blog</a>
-		</li>
-		<li class="right">
-			<i id="showblog" class="material-icons md-24">arrow_drop_down</i><i id="hideblog" class="material-icons md-24">arrow_drop_up</i>
-		</li>
-		<ul class="blog">
-			{% for post in site.categories.blog %}
-			<li class="sub" {% if page.title == post.title %}class="active"{% endif %}>
-				<a href= "{{ post.url }}">{{ post.title }}</a>
-			</li>
-			{% endfor %}
-		</ul>
-		<li class="left">
-			<a href="/photos" {% if page.title == "Photography - bdharva" %}class="active"{% endif %}>Photography</a>
-		</li>
-		<li class="right">
-			<i id="showphotos" class="material-icons md-24">arrow_drop_down</i><i id="hidephotos" class="material-icons md-24">arrow_drop_up</i>
-		</li>
-		<ul class="photos">
-			{% for post in site.categories.photography %}
-			<li class="sub" {% if page.title == post.title %}class="active"{% endif %}>
-				<a href= "{{ post.url }}">{{ post.title }}</a>
-			</li>
-			{% endfor %}
-		</ul>
-		<li class="left">
-			<a href="/highpoints" {% if page.title == "Highpoints - bdharva" %}class="active"{% endif %}>Highpoints</a>
-		</li>
-		<li class="right">
-			<i id="showhighpoints" class="material-icons md-24">arrow_drop_down</i><i id="hidehighpoints" class="material-icons md-24">arrow_drop_up</i>
-		</li>
-		<ul class="highpoints">
-			{% for post in site.categories.highpoints %}
-			<li class="sub" {% if page.title == post.title %}class="active"{% endif %}>
-				<a href= "{{ post.url }}">{{ post.title }}</a>
-			</li>
-			{% endfor %}
-		</ul>
+		<div class="top">
+			<i id="hidemenu" class="material-icons md-24">close</i>
+		</div>
+		<div class="buttons">
+			<a href="/" {% if page.title == "bdharva" %}class="active"{% endif %}>
+				<span class="cta">
+					<i class="material-icons">home</i>Home
+				</span>
+			</a>
+			<a href="/about" {% if page.title == "About - bdharva" %}class="active"{% endif %}>
+				<span class="cta">
+					<i class="material-icons">account_circle</i>About
+				</span>
+			</a>
+			<a href="/work" {% if page.title == "Projects - bdharva" %}class="active"{% endif %}>
+				<span class="cta">
+					<i class="material-icons">handyman</i>Work
+				</span>
+			</a>
+			<a href="/blog" {% if page.title == "Blog - bdharva" %}class="active"{% endif %}>
+				<span class="cta">
+					<i class="material-icons">text_snippet</i>Blog
+				</span>
+			</a>
+			<a href="/photos" {% if page.title == "Photography - bdharva" %}class="active"{% endif %}>
+				<span class="cta">
+					<i class="material-icons">image</i>Photography
+				</span>
+			</a>
+			<a href="/highpoints" {% if page.title == "Highpoints - bdharva" %}class="active"{% endif %}>
+				<span class="cta">
+					<i class="material-icons">terrain</i>Highpoints
+				</span>
+			</a>
+			<a href="/connect">
+				<span class="cta special">
+					<i class="material-icons">share</i>Connect
+				</span>
+			</a>
+		</div>
 	</div>
 </div>

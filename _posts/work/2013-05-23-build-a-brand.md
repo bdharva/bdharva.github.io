@@ -2,12 +2,11 @@
 layout: project
 title: Build-a-Brand
 category: projects
-tags:
-- Brewing
-- Branding
+tag: Product Development
 tagline: "Developing packaging concepts for a new brand of ultra-light beer"
 thumbnail: /assets/work/build-a-brand/packaging06.png
 permalink: /work/build-a-brand
+wip: false
 ---
 
 During the course of my management training program at Anheuser-Busch InBev, our training class was split into two competing groups for what amounted to a capstone project. Called "Build-a-Brand", the objective was to develop a new beer and all of the production plans, packaging, consumer personas, marketing strategy, business plan, etc. necessary to bring the beer to market. The project was an opportunity to put everything we were learning to use, while working within the stagegate validation process used by the innovations group when developing new products. We had ten months to develop and test our concepts, culminating in a grand reveal for management in attendance at our graduation ceremony at the end of the training program.

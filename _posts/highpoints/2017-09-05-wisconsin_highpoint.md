@@ -2,6 +2,7 @@
 layout: highpoint
 title: Timms Hill
 location: Wisconsin
+state: WI
 date: 2017-09-05 14:49:22
 category: highpoints
 tag: Highpoints

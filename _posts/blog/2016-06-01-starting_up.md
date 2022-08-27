@@ -2,10 +2,7 @@
 layout: post
 title: Starting Up
 category: blog
-tags:
-- Entrepreneurship
-- Jolt
-- Reading
+tag: Entrepreneurship
 tagline: Lessons learned while starting Jolt
 thumbnail: /assets/blog/starting_up/starting_up-1.jpg
 ---

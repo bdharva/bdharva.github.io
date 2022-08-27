@@ -2,46 +2,55 @@
 layout: default
 title: Highpoints - bdharva
 ---
-<div id="hero" style="background-image:url('/assets/heros/highpoints.jpg');">
-	<div class="screen">
-		<div class="content">
-			<h1>State Highpoints</h1>
-			<h2>50 states. 50 peaks.</h2>
+<div class="section hero" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7)), url('/assets/heros/highpoints.jpg');">
+	<div class="content full">
+		<i class="material-icons md-24">hiking</i>
+		<h1>State Highpoints</h1>
+		<h2>50 states. 50 peaks.</h2>
+	</div>
+</div>
+<div class="section">
+	<div class="content">
+		<p>I have a goal of summiting the highest natural elevation point in all 50 states. While travelling around the country for my rotation-based training program at Anheuser-Busch, I started seeking out local highpoints as a way to get outside and explore the new places I was in. Around the same time, I was lucky enough to be picked for a charity climb of Mt. Whitney (the highest point in the lower 48 states) led by Backpacker Magazine. Between all of the training climbs and that awe-inspiring trip, I was hooked.</p>
+		<div class="callouts">
+			<div class="callout">
+				<div class="title"><i class="material-icons md-24">terrain</i></br>{{ site.categories.highpoints | size }}/50</div>
+				<div class="description">peaks completed</div>
+			</div>
+			<div class="callout">
+				<div class="title"><i class="material-icons md-24">trending_up</i></br>14,505'</div>
+				<div class="description">highest elevation</div>
+			</div>
+			<div class="callout">
+				<div class="title"><i class="material-icons md-24">trending_down</i></br>345'</div>
+				<div class="description">lowest elevation</div>
+			</div>
 		</div>
 	</div>
 </div>
-<section class="text">
-	<section class="text">
-		<p>I have a goal of summiting the highest natural elevation point in all 50 states. While travelling around the country for my rotation-based training program at Anheuser-Busch, I started seeking out local highpoints as a way to get outside and explore the new places I was in. Around the same time, I was lucky enough to be picked for a charity climb of Mt. Whitney (the highest point in the lower 48 states) led by Backpacker Magazine. Between all of the training climbs and that awe-inspiring trip, I was hooked.</p>
-		<section class="shell">
-			<div class="stats center">
-				<i class="material-icons md-24">terrain</i>
-				<h2 class="green">{{ site.categories.highpoints | size }}/50</h2>
-				<p>peaks completed</p>
+<div class="section medium">
+	<div class="content max">
+		<div class="features" style="flex-flow: row wrap">
+			{% for post in site.categories.highpoints %}
+			<div class="feature" style="flex: 1 0 26%;">
+				<a href="{{ post.url }}">
+					<div class="image-holder">
+						<div class="image" style="background-image:url('/assets/highpoints/{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+					</div>
+					<div class="text">
+						<div class="tictac">
+							<div class="label">
+								<i class="material-icons md-24">trending_up</i><span class="tag">{{post.tagline}} above sea level</span>
+							</div>
+							<div class="title">{{post.title}}, {{post.state}}</div>
+							<div class="description">
+								<span class="tag">Climbed {{post.date | date: "%b %e, %Y"}} (#{{ forloop.length | minus: forloop.index0 }})</span>
+							</div>
+						</div>
+					</div>
+				</a>
 			</div>
-			<div class="stats center">
-				<i class="material-icons md-24">trending_up</i>
-				<h2 class="green">14,505'</h2>
-				<p>highest elevation</p>
-			</div>
-			<div class="stats center">
-				<i class="material-icons md-24">trending_down</i>
-				<h2 class="green">345'</h2>
-				<p>lowest elevation</p>
-			</div>
-		</section>
-	</section>
-</section>
-<section class="shell">
-	{% for post in site.categories.highpoints %}
-	<div class="card">
-		<a href="{{ post.url }}">
-			<div class="pic" style="background-image:url('/assets/highpoints/{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
-			<div class="tictac">
-				<h2>{{ forloop.length | minus: forloop.index0 }}. {{ post.title }}</h2>
-				<h3>{{post.location}}</h3>
-			</div>
-		</a>
+			{% endfor %}
+		</div>
 	</div>
-	{% endfor %}
-</section>
+</div>

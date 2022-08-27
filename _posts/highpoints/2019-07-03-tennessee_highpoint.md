@@ -2,6 +2,7 @@
 layout: highpoint
 title: Clingmans Dome
 location: Tennessee
+state: TN
 category: highpoints
 tag: Highpoints
 tagline: 6,644 feet

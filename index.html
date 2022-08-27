@@ -2,85 +2,110 @@
 layout: default
 title: bdharva
 ---
-<div id="hero" style="background-image:url('/assets/heros/home.jpg'); background-position: bottom center;">
-	<div class="screen">
-		<div class="content">
-			<h1>Ben Harvatine</h1>
-			<h2>Engineer by training, designer at heart, entrepreneur through trial and error.</h2>
-			<h4><i class="material-icons md-18">place</i>New Hampshire</h4>
+<div class="section">
+	<div class="content full">
+		<div class="polaroid" style="background-image: url('/assets/heros/family.jpg'); background-position: bottom;"></div>
+		<h1>
+			<span class='accent'>Engineer</span> by training, <span class='accent'>designer</span> at heart, <span class='accent'>entrepreneur</span> through trial and error
+		</h1>
+		
+		<div class="callouts">
+			<div class="callout">
+				<div class="title"><i class="material-icons md-24">memory</i>Engineer</div>
+				<div class="description">MIT mechanical engineer, with experience ranging from connected hardware systems to enterprise data &amp; analytics solutions</div>
+				<!-- <div class="description">MIT mechanical engineer, with experience designing and building web-connected electro-mechanical hardware systems</div> -->
+			</div>
+			<div class="callout">
+				<div class="title"><i class="material-icons md-24">architecture</i>Designer</div>
+				<div class="description">Broad design expertise, including print, digital, packaging, consumer electronics, architecture, furniture, and interiors</div>
+			</div>
+			<div class="callout">
+				<div class="title"><i class="material-icons md-24">rocket_launch</i>Entrepreneur</div>
+				<div class="description">Hardware startup founder; Arch Grants, MassChallenge, Techstars, Kickstarter, and MIT Venture Mentoring Service alum</div>
+			</div>
 		</div>
 	</div>
 </div>
-<section class="shell">
-	<div class="card">
-		{% assign post = site.categories.projects.first %}
-		<a href="{{ post.url }}">
-			<div class="pic" style="background-image:url('{{ post.thumbnail }}');">
-				<div class="screen">
-				</div>
+<div class="section medium">
+	<div class="content max">
+		<div class="features" style="flex-flow: row wrap">
+			{% assign post = site.posts | where:"pinned", "true" | first %}
+			<div class="feature" style="flex: 1 0 26%;">
+				<a href="{{ post.url }}">
+					<div class="image-holder">
+						<div class="image" style="background-image: url('{{ post.thumbnail }}');"></div>
+					</div>
+					<div class="text">
+						<div class="label"><i class="material-icons md-24">bookmark</i>Featured Project</div>
+						<div class="title">{{ post.title }}</div>
+						<div class="description">{{ post.tagline }}</div>
+					</div>
+				</a>
 			</div>
-			<div class="details">
-				<h4>Recent Work</h4>
-				<h2>{{post.title}}</h2>
+			<div class="feature" style="flex: 1 0 26%;">
+				<a href="/homestead">
+					<div class="image-holder">
+						<div class="image" style="background-image: url('/assets/heros/landaff.jpg');"></div>
+					</div>
+					<div class="text">
+						<div class="label"><i class="material-icons md-24">timelapse</i>Work in Progress</div>
+						<div class="title">A 50 acre architectural playground in NH</div>
+						<div class="description">Barn &amp; cabin construction, planting, trail-cutting, and more</div>
+					</div>
+				</a>
 			</div>
-		</a>
+			<div class="feature" style="flex: 1 0 26%;">
+				{% assign post = site.categories.projects | where:"wip", "false" | first %}
+				<a href="{{ post.url }}">
+					<div class="image-holder">
+						<div class="image" style="background-image: url('{{ post.thumbnail }}');"></div>
+					</div>
+					<div class="text">
+						<div class="label"><i class="material-icons md-24">construction</i>Latest Project</div>
+						<div class="title">{{ post.title }}</div>
+						<div class="description">{{ post.tagline }}</div>
+					</div>
+				</a>
+			</div>
+			<div class="feature" style="flex: 1 0 26%;">
+				{% assign post = site.categories.blog.first %}
+				<a href="{{ post.url }}">
+					<div class="image-holder">
+						<div class="image" style="background-image: url('{{ post.thumbnail }}');"></div>
+					</div>
+					<div class="text">
+						<div class="label"><i class="material-icons md-24">edit_note</i>Latest Post</div>
+						<div class="title">{{ post.title }}</div>
+						<div class="description">{{ post.tagline }}</div>
+					</div>
+				</a>
+			</div>
+			<div class="feature" style="flex: 1 0 26%;">
+				{% assign post = site.categories.photography.first %}
+				<a href="{{ post.url }}">
+					<div class="image-holder">
+						<div class="image" style="background-image:url('/assets/photography/{{post.date | date: '%Y'}}/{{post.date | date: '%m'}}/{{post.date | date: '%d'}}-{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+					</div>
+					<div class="text">
+						<div class="label"><i class="material-icons md-24">photo_camera</i>Latest Photography</div>
+						<div class="title">{{ post.title }}</div>
+						<div class="description">in {{ post.location }}</div>
+					</div>
+				</a>
+			</div>
+			<div class="feature" style="flex: 1 0 26%;">
+				{% assign post = site.categories.highpoints.first %}
+				<a href="{{ post.url }}">
+					<div class="image-holder">
+						<div class="image" style="background-image:url('/assets/highpoints/{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+					</div>
+					<div class="text">
+						<div class="label"><i class="material-icons md-24">hiking</i>Latest Highpoint</div>
+						<div class="title">{{post.title}}, {{post.state}}</div>
+						<div class="description">{{post.location}} state highpoint - {{post.tagline}} above sea level</div>
+					</div>
+				</a>
+			</div>
+		</div>
 	</div>
-	<div class="card">
-		{% assign post = site.categories.blog.first %}
-		<a href="{{ post.url }}">
-			<div class="pic" style="background-image:url('{{ post.thumbnail }}');">
-				<div class="screen"></div>
-			</div>
-			<div class="details">
-				<h4>Recent Post</h4>
-				<h2>{{ post.title }}</h2>
-			</div>
-		</a>
-	</div>
-	<div class="card">
-		{% assign post = site.categories.photography.first %}
-		<a href="{{ post.url }}">
-			<div class="pic" style="background-image:url('/assets/photography/{{post.date | date: '%Y'}}/{{post.date | date: '%m'}}/{{post.date | date: '%d'}}-{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg');">
-				<div class="screen"></div>
-			</div>
-			<div class="details">
-				<h4>Recent Photos</h4>
-				<h2>{{ post.title }}</h2>
-			</div>
-		</a>
-	</div>
-	<div class="card">
-		{% assign post = site.categories.highpoints.first %}
-		<a href="{{ post.url }}">
-			<div class="pic" style="background-image:url('/assets/highpoints/{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg'); {% if post.position %}background-position: {{ post.position }}{% endif %}">
-				<div class="screen"></div>
-			</div>
-			<div class="details">
-				<h4>Latest State Highpoint</h4>
-				<h2>{{ post.title }}, {{ post.location }}</h2>
-			</div>
-		</a>
-	</div>
-	<div class="card">
-		<a href="/jeep_build">
-			<div class="pic" style="background-image:url('/assets/jeep_build/hero.jpg');">
-				<div class="screen"></div>
-			</div>
-			<div class="details">
-				<h4>Jeep Build</h4>
-				<h2>2016 JKU Rubicon Hard Rock</h2>
-			</div>
-		</a>
-	</div>
-	<div class="card">
-		<a href="/county-counting">
-			<div class="pic" style="background-image:url('/assets/county-counting/screenshot.png');">
-				<div class="screen"></div>
-			</div>
-			<div class="details">
-				<h4>Work in Progress</h4>
-				<h2>Automated County Counting</h2>
-			</div>
-		</a>
-	</div>
-</section>
+</div>

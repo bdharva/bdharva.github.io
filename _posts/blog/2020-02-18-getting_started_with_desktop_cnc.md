@@ -2,11 +2,8 @@
 layout: post
 title: Getting Started with Desktop CNC
 category: blog
-tags:
-- Tinkering
-- CNC
-- Circuits
-tagline: Trials and tribulations in isolation routing
+tag: Tinkering
+tagline: Making circuit boards at home (aka trials and tribulations in isolation routing)
 thumbnail: /assets/blog/cnc/cnc-1.jpg
 ---
 
@@ -268,4 +265,4 @@ The waste board worked great and is still in smooth enough shape after multiple 
 * For better (and potentially quicker) results, I intend to explore a hybrid approach that of chemical etching for pads and traces before milling through holes and edges.
 * I definitely need to get some solder mask -- liquid application looks like a bit of a pain versus dry film options, but I'll probably try both.
 
-For now, I'm back on the road for work, but, as soon as I can get some quality time back in the workshop (aka my clutterd desk in the living room of our one bedroom apartment), I look forward to seeing what kind of results these process improvements can yeild.
+For now, I'm back on the road for work, but, as soon as I can get some quality time back in the workshop (aka my clutterd desk in the living room of our one bedroom apartment), I look forward to seeing what kind of results these process improvements can yield.

@@ -2,12 +2,11 @@
 layout: project
 title: Rainwater-Harvesting Shed
 category: projects
-tags:
-- Architecture
-- Construction
+tag: Architecture & Construction
 tagline: "Design & construction of a novel inverted roof structure"
 thumbnail: /assets/work/rainwater_harvesting_shed/rainwater_harvesting_shed-3.jpg
 permalink: /work/rainwater_harvesting_shed
+wip: false
 ---
 
 ![](/assets/work/rainwater_harvesting_shed/rainwater_harvesting_shed-1.jpg)

@@ -1,7 +1,8 @@
 ---
 layout: highpoint
-title: Harney Peak
+title: Black Elk Peak
 location: South Dakota
+state: SD
 category: highpoints
 tag: Highpoints
 tagline: 7,244 feet

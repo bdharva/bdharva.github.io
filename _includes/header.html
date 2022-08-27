@@ -1,28 +1,14 @@
-<header>
-	<div class="wrapper">
-		<nav class="left">
-			<a href="/"><img src="/assets/favicon.png"/></a>
-			</li>
-		</nav>
-		<nav class="right">
-			<li class="hide">
-				<a href="/about" {% if page.title == "About - bdharva" %}class="active"{% endif %}>About</a>
-			</li>
-			<li class="hide">
-				<a href="/work" {% if page.title == "Projects - bdharva" %}class="active"{% endif %}>Work</a>
-			</li>
-			<li class="hide">
-				<a href="/blog" {% if page.title == "Blog - bdharva" %}class="active"{% endif %}>Blog</a>
-			</li>
-			<li class="hide">
-				<a href="/photos" {% if page.title == "Photography - bdharva" %}class="active"{% endif %}>Photography</a>
-			</li>
-			<li class="hide">
-				<a href="/highpoints" {% if page.title == "Highpoints - bdharva" %}class="active"{% endif %}>Highpoints</a>
-			</li>
-			<li>
-				<i id="showmenu" class="material-icons md-24">menu</i>
-			</li>
-		</nav>
+<nav>
+	<div class='left'>
+		<a href="/"><img src="/assets/favicon.png"/>bdharva</a>
 	</div>
-</header>
+	<div class='right'>
+		<span class="hide"><a href="/about" {% if page.title == "About - bdharva" %}class="active"{% endif %}>About</a></span>
+		<span class="hide"><a href="/work" {% if page.title == "Projects - bdharva" %}class="active"{% endif %}>Work</a></span>
+		<span class="hide"><a href="/blog" {% if page.title == "Blog - bdharva" %}class="active"{% endif %}>Blog</a></span>
+		<span class="hide"><a href="/photos" {% if page.title == "Photography - bdharva" %}class="active"{% endif %}>Photography</a></span>
+		<span class="hide"><a href="/highpoints" {% if page.title == "Highpoints - bdharva" %}class="active"{% endif %}>Highpoints</a></span>
+		<span class='hide cta'><a href="/connect">Connect</a></span>
+		<span><i id="showmenu" class="material-icons md-24">menu</i></span>
+	</div>
+</nav>

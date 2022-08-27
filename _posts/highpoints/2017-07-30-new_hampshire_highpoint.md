@@ -2,6 +2,7 @@
 layout: highpoint
 title: Mount Washington
 location: New Hampshire
+state: NH
 date: 2017-07-30
 category: highpoints
 tag: Highpoints

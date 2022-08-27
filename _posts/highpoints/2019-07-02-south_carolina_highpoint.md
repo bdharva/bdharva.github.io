@@ -2,6 +2,7 @@
 layout: highpoint
 title: Sassafras Mountain
 location: South Carolina
+state: SC
 category: highpoints
 tag: Highpoints
 tagline: 3,563 feet

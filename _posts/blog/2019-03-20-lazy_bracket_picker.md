@@ -2,10 +2,7 @@
 layout: post
 title: Lazy Bracket Picker
 category: blog
-tags:
-- Programming
-- Python
-- Sports
+tag: Programming
 tagline: Making NCAA bracket pool picks with Python
 thumbnail: /assets/blog/lazy_bracket_picker/cropped.png
 ---

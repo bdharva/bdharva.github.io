@@ -2,6 +2,7 @@
 layout: highpoint
 title: Panorama Point
 location: Nebraska
+state: NE
 category: highpoints
 tag: Highpoints
 tagline: 5,429 feet
