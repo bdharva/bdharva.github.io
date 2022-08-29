@@ -28,9 +28,9 @@ title: bdharva
 </div>
 <div class="section medium">
 	<div class="content max">
-		<div class="features" style="flex-flow: row wrap">
+		<div class="features">
 			{% assign post = site.posts | where:"pinned", "true" | first %}
-			<div class="feature" style="flex: 1 0 26%;">
+			<div class="feature">
 				<a href="{{ post.url }}">
 					<div class="image-holder">
 						<div class="image" style="background-image: url('{{ post.thumbnail }}');"></div>
@@ -42,7 +42,7 @@ title: bdharva
 					</div>
 				</a>
 			</div>
-			<div class="feature" style="flex: 1 0 26%;">
+			<div class="feature">
 				<a href="/homestead">
 					<div class="image-holder">
 						<div class="image" style="background-image: url('/assets/heros/landaff.jpg');"></div>
@@ -54,7 +54,7 @@ title: bdharva
 					</div>
 				</a>
 			</div>
-			<div class="feature" style="flex: 1 0 26%;">
+			<div class="feature">
 				{% assign post = site.categories.projects | where:"wip", "false" | first %}
 				<a href="{{ post.url }}">
 					<div class="image-holder">
@@ -67,7 +67,7 @@ title: bdharva
 					</div>
 				</a>
 			</div>
-			<div class="feature" style="flex: 1 0 26%;">
+			<div class="feature">
 				{% assign post = site.categories.blog.first %}
 				<a href="{{ post.url }}">
 					<div class="image-holder">
@@ -80,7 +80,7 @@ title: bdharva
 					</div>
 				</a>
 			</div>
-			<div class="feature" style="flex: 1 0 26%;">
+			<div class="feature">
 				{% assign post = site.categories.photography.first %}
 				<a href="{{ post.url }}">
 					<div class="image-holder">
@@ -93,7 +93,7 @@ title: bdharva
 					</div>
 				</a>
 			</div>
-			<div class="feature" style="flex: 1 0 26%;">
+			<div class="feature">
 				{% assign post = site.categories.highpoints.first %}
 				<a href="{{ post.url }}">
 					<div class="image-holder">

@@ -11,10 +11,10 @@ title: Projects - bdharva
 </div>
 <div class="section medium">
 	<div class="content max">
-		<div class="features" style="flex-flow: row wrap">
+		<div class="features">
 			{% assign filtered_posts = site.categories.projects | where:"wip", "true" %}
 			{% for post in filtered_posts %}
-			<div class="feature wip" style="flex: 1 0 26%;">
+			<div class="feature wip">
 				<div class="image-holder">
 					<div class="image" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
 				</div>
@@ -51,7 +51,7 @@ title: Projects - bdharva
 			{% endfor %}
 			{% assign filtered_posts = site.categories.projects | where:"wip", "false" %}
 			{% for post in filtered_posts %}
-			<div class="feature" style="flex: 1 0 26%;">
+			<div class="feature">
 				<a href="{{ post.url }}">
 					<div class="image-holder">
 						<div class="image" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>

@@ -11,9 +11,9 @@ title: Blog - bdharva
 </div>
 <div class="section medium">
 	<div class="content max">
-		<div class="features" style="flex-flow: row wrap">
+		<div class="features">
 			{% for post in site.categories.blog %}
-			<div class="feature" style="flex: 1 0 26%;">
+			<div class="feature">
 				<a href="{{ post.url }}">
 					<div class="image-holder">
 						<div class="image" style="background-image:url('{{ post.thumbnail }}'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
