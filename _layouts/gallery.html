@@ -3,10 +3,9 @@ layout: default
 ---
 <div class="section hero" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7)), url('/assets/photography/{{page.date | date: '%Y'}}/{{page.date | date: '%m'}}/{{page.date | date: '%d'}}-{{ page.name }}/{{ page.name }}-{{ page.thumbnail }}.jpg');">
 	<div class="content full">
-		<i class="material-icons md-24">photo_camera</i>
-		<h3>{{page.date | date: "%B %-d, %Y"}}</h3>
 		<h1>{{page.title}}</h1>
 		<h2>{{page.location}}</h2>
+		<span class='tictactag'><i class="material-icons md-24">photo_camera</i>{{page.date | date: "%B %-d, %Y"}}</span>
 	</div>
 </div>
 <div class="section medium">

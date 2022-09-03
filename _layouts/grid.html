@@ -3,7 +3,9 @@ layout: default
 ---
 <div class="section hero" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7)), url('/assets/work/{{page.name}}/{{ page.name }}-{{ page.thumbnail_file }}.png');">
 	<div class="content full">
-		<i class="material-icons md-24">
+		<h1>{{page.title}}</h1>
+		<h2>{{page.tagline}}</h2>
+		<span class='tictactag'><i class="material-icons md-24">
 			{% if page.tag == "Data Visualization" %}
 			bubble_chart
 			{% elsif page.tag == "Product Development" %}
@@ -14,15 +16,14 @@ layout: default
 			color_lens
 			{% elsif page.tag == "Rapid Prototyping" %}
 			bolt
-			{% elsif page.tag == "Woodworking" %}
+			{% elsif page.tag == "DIY" %}
 			carpenter
 			{% elsif page.tag == "Architecture & Construction" %}
 			villa
+			{% elsif page.tag == "Vehicles" %}
+			directions_car
 			{% endif %}
-		</i>
-		<h3>{{page.tag}}</h3>
-		<h1>{{page.title}}</h1>
-		<h2>{{page.tagline}}</h2>
+		</i>{{page.tag}}</span>
 	</div>
 </div>
 <div class="section medium">

@@ -10,10 +10,19 @@
 		<div id="wrapper">
 			<div class="section hero" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7)), url('{{ page.thumbnail }}');">
 				<div class="content full">
-					<i class="material-icons md-24">construction</i>
-					<h3>{{page.tag}}</h3>
 					<h1>{{page.title}}</h1>
 					<h2>{{page.tagline}}</h2>
+					<span class='tictactag'><i class="material-icons md-24">
+						{% if page.tag == "Data Visualization" %}
+						bubble_chart
+						{% elsif page.tag == "Tinkering" %}
+						settings
+						{% elsif page.tag == "Entrepreneurship" %}
+						rocket_launch
+						{% elsif page.tag == "Programming" %}
+						code
+						{% endif %}
+					</i>{{page.tag}}</span>
 				</div>
 			</div>
 			<div class="section medium">
