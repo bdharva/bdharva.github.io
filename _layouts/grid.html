@@ -32,7 +32,7 @@ layout: default
 		<div class="grid_gallery">
 			{% assign num = page.files %}
 			{% for i in (1..num) %}
-			<img src="/assets/work/{{page.name}}/{{ page.name }}-{{ i }}.png"/>
+			<img src="/assets/work/{{page.name}}/{{ page.name }}-{{ i }}.png" loading="lazy"/>
 			{% endfor %}
 		</div>
 	</div>

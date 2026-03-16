@@ -5,7 +5,7 @@ category: projects
 tag: Product Development
 tagline: "A head impact sensor for athletes with a connected app for parents & coaches"
 thumbnail: /assets/work/jolt_sensor/jolt_sensor-12.jpg
-permalink: /work/jolt_sensor
+permalink: /work/jolt_sensor/
 pinned: true
 wip: false
 ---

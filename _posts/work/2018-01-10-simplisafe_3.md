@@ -5,7 +5,7 @@ category: projects
 tag: Product Development
 tagline: "Home security. Done right."
 thumbnail: /assets/work/simplisafe_3/simplisafe_3-1.png
-permalink: /work/simplisafe_3
+permalink: /work/simplisafe_3/
 wip: false
 ---
 

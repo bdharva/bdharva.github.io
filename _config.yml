@@ -10,3 +10,4 @@ github_username:  bdharva
 
 # Build settings
 markdown: kramdown
+permalink: pretty

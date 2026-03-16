@@ -5,7 +5,7 @@ category: projects
 tag: Rapid Prototyping
 tagline: "A stainless steel bottle opener that doesn't crimp the caps"
 thumbnail: /assets/work/no_bend_bottle_opener/no_bend_bottle_opener-5.jpg
-permalink: /work/no_bend_bottle_opener
+permalink: /work/no_bend_bottle_opener/
 wip: false
 ---
 

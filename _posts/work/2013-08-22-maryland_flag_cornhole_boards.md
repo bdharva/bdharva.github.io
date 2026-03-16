@@ -5,7 +5,7 @@ category: projects
 tag: DIY
 tagline: "Cornhole boards that can be put together to make the Maryland flag"
 thumbnail: /assets/work/maryland_flag_cornhole_boards/maryland_flag_cornhole_boards-3.jpg
-permalink: /work/maryland_flag_cornhole_boards
+permalink: /work/maryland_flag_cornhole_boards/
 wip: false
 ---
 

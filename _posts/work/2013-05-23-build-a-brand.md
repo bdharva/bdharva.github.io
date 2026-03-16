@@ -5,7 +5,7 @@ category: projects
 tag: Product Development
 tagline: "Developing packaging concepts for a new brand of ultra-light beer"
 thumbnail: /assets/work/build-a-brand/packaging06.png
-permalink: /work/build-a-brand
+permalink: /work/build-a-brand/
 wip: false
 ---
 

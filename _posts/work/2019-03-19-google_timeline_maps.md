@@ -5,7 +5,7 @@ category: projects
 tag: Data Visualization
 tagline: "Using Processing + Unfolding to visualize Google Timeline data"
 thumbnail: /assets/work/google_timeline_maps/nyc.jpg
-permalink: /work/google_timeline_maps
+permalink: /work/google_timeline_maps/
 wip: false
 ---
 

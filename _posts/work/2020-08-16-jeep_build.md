@@ -5,7 +5,7 @@ category: projects
 tag: Vehicles
 tagline: "Throwing time and money at my 2016 Jeep Wrangler JKU Rubicon Hard Rock to make it extra fun"
 thumbnail: /assets/work/jeep_build/hero.jpg
-permalink: /work/jeep-build
+permalink: /work/jeep-build/
 wip: false
 ---
 

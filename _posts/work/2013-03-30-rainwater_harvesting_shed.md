@@ -5,7 +5,7 @@ category: projects
 tag: Architecture & Construction
 tagline: "Design & construction of a novel inverted roof structure"
 thumbnail: /assets/work/rainwater_harvesting_shed/rainwater_harvesting_shed-3.jpg
-permalink: /work/rainwater_harvesting_shed
+permalink: /work/rainwater_harvesting_shed/
 wip: false
 ---
 

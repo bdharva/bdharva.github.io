@@ -89,3 +89,11 @@ Things turned out surprisingly well! I made three entries in a 25 bracket pool, 
 ![](/assets/blog/lazy_bracket_picker/pool2.png)
 
 Following up on this surprising success, I intend to run a more rigorous analysis of how varying input parameters would've fared this year, as well as how "typical" my results were given my selected parameters. It will be interesting to see (with a couple thousand more simulations) whether my brackets were lucky outliers or in the meat of potential outcome distributions.
+
+---
+
+### March 16, 2026 Update
+
+Thanks to my good buddy Claude, I finally got around to extending this to a user-friendly web-based flow with some snazzy new data, metrics, methodology, and UI/UX -- give it a try [here](/bracket-buddy/).
+
+![](/assets/blog/lazy_bracket_picker/web.png)

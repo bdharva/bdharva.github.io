@@ -5,7 +5,7 @@ category: projects
 tag: DIY
 tagline: "A side table that keeps books and magazines within easy reach"
 thumbnail: /assets/work/magazine_rack_side_table/magazine_rack_side_table-4.jpg
-permalink: /work/side-table
+permalink: /work/side-table/
 wip: false
 ---
 

@@ -13,7 +13,7 @@ layout: default
 		{{content}}
 		{% assign num = page.files %}
 		{% for i in (1..num) %}
-		<img src="/assets/highpoints/{% if page.folder %}{{ page.folder }}/{% endif %}{{ page.name }}/{{ page.name }}-{{ i }}.jpg"/>
+		<img src="/assets/highpoints/{% if page.folder %}{{ page.folder }}/{% endif %}{{ page.name }}/{{ page.name }}-{{ i }}.jpg" loading="lazy"/>
 		{% endfor %}
 	</div>
 </div>

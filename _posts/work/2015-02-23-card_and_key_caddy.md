@@ -5,7 +5,7 @@ category: projects
 tag: Rapid Prototyping
 tagline: "A place to keep keys and loose cards by the door for easy access"
 thumbnail: /assets/work/card_and_key_caddy/card_and_key_caddy-4.jpg
-permalink: /work/card_and_key_caddy
+permalink: /work/card_and_key_caddy/
 wip: false
 ---
 
