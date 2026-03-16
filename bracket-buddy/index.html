@@ -1,0 +1,4039 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bracket Buddy</title>
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: rgb(244, 246, 247);
+    --surface2: rgba(0, 5, 10, 0.03);
+    --surface3: rgba(0, 5, 10, 0.06);
+    --border: rgba(0, 5, 10, 0.08);
+    --border-bright: rgba(0, 5, 10, 0.15);
+    --text: rgba(0, 5, 10, 0.9);
+    --text2: rgba(0, 5, 10, 0.5);
+    --text3: rgba(0, 5, 10, 0.3);
+    --accent: rgb(30, 200, 150);
+    --accent-dim: rgba(30, 200, 150, 0.15);
+    --accent-bright: rgb(20, 180, 130);
+    --red: rgb(220, 80, 60);
+    --red-dim: rgba(220, 80, 60, 0.08);
+    --blue: rgb(30, 47, 200);
+    --purple: rgb(130, 90, 200);
+    --plot-bg: rgba(244, 246, 247, 0.5);
+    --plot-grid: rgba(0, 5, 10, 0.06);
+    --hover-bg: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .header {
+    position: relative;
+    padding: 16px 28px 14px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    background: var(--bg);
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-icon {
+    color: var(--accent);
+    font-size: 16px;
+    opacity: 0.8;
+  }
+  .header h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--text);
+  }
+  .header h1 span {
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .header-sub {
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 1px;
+  }
+  .header-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text2);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .theme-toggle:hover { border-color: var(--accent-dim); color: var(--accent); }
+
+  .controls {
+    display: flex;
+    gap: 16px;
+    padding: 14px 32px;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-end;
+    flex-wrap: wrap;
+    background: var(--bg);
+  }
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .unique-toggle {
+    display: flex;
+    align-items: center;
+    height: 36px;
+  }
+  .control-group > label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text2);
+    font-weight: 500;
+  }
+  input[type="number"] {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    width: 110px;
+    outline: none;
+    transition: border-color 0.2s;
+    height: 36px;
+  }
+  input[type="number"]:focus {
+    border-color: var(--accent);
+  }
+
+  .homer-select { position: relative; }
+  .homer-trigger {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    min-width: 280px;
+    height: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.2s;
+  }
+  .homer-trigger:hover { border-color: var(--accent); }
+  .homer-trigger .arrow { color: var(--accent); font-size: 10px; }
+  .homer-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border: 1px solid var(--border-bright);
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  }
+  .homer-dropdown.open { display: block; }
+  .homer-search {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    z-index: 1;
+  }
+  .homer-search input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    outline: none;
+  }
+  .homer-search input:focus { border-color: var(--accent); }
+  .homer-dropdown label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 14px;
+    cursor: pointer;
+    font-size: 11px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--text);
+    transition: background 0.1s;
+  }
+  .homer-dropdown label:hover { background: var(--surface); }
+  .homer-dropdown label .seed-num { color: var(--text2); min-width: 20px; }
+  .homer-dropdown input[type="checkbox"],
+  .homer-dropdown input[type="radio"] {
+    accent-color: var(--accent);
+    width: 13px;
+    height: 13px;
+  }
+  .homer-tags {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    max-width: 280px;
+    margin-top: 4px;
+  }
+  .homer-tag {
+    background: var(--accent);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 24px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  .homer-tag:hover { opacity: 0.7; }
+
+  .btn-generate {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+    padding: 9px 28px;
+    height: 36px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .btn-generate:hover { color: #fff; background: var(--accent); border-color: var(--accent); }
+  .btn-generate:disabled { opacity: 0.4; cursor: wait; }
+
+  .main {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    background: var(--surface);
+    gap: 12px;
+    padding: 12px;
+  }
+  .chart-panel {
+    flex: 1;
+    padding: 12px 16px 16px;
+    min-width: 0;
+    position: relative;
+    touch-action: pan-x pan-y;
+    background: var(--bg);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  }
+
+  .detail-panel {
+    width: 400px;
+    min-width: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--bg);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  }
+  .detail-panel.collapsed {
+    width: 0;
+    min-width: 0;
+    box-shadow: none;
+    padding: 0;
+    overflow: hidden;
+  }
+  .detail-inner {
+    padding: 24px 20px 80px;
+    min-width: 400px;
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+  .detail-panel.collapsed .detail-inner { opacity: 0; }
+
+  .detail-panel .section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text2);
+    margin: 24px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .detail-panel .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .champ-card {
+    position: relative;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 20px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  }
+  .champ-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(30,200,150,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .champ-card .trophy {
+    font-size: 24px;
+    margin-bottom: 6px;
+    color: var(--accent);
+    opacity: 0.6;
+  }
+  .champ-card .seed-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text2);
+  }
+  .champ-card .team-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--accent-bright);
+    margin: 6px 0;
+    text-transform: uppercase;
+  }
+  .champ-card .win-prob {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stat-pill {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .stat-pill .stat-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .stat-pill .stat-val.upsets-val { color: var(--red); }
+  .stat-pill .stat-label {
+    font-size: 9px;
+    color: var(--text2);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .team-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    transition: background 0.1s;
+  }
+  .team-row:hover { background: var(--surface); }
+  .team-row .seed-num {
+    color: var(--text3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    min-width: 28px;
+  }
+  .team-row .team-name { color: var(--text); font-weight: 500; }
+  .team-row .prob {
+    color: var(--text2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+
+  .round-section { margin-bottom: 4px; }
+  .matchup-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 8px;
+    font-size: 11px;
+    border-left: 2px solid transparent;
+    border-radius: 0 8px 8px 0;
+    transition: all 0.1s;
+    gap: 8px;
+  }
+  .matchup-row:hover { background: var(--surface); }
+  .matchup-row .matchup-teams { flex: 1; min-width: 0; }
+  .matchup-row .pick {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .matchup-row .vs {
+    color: var(--text3);
+    font-size: 9px;
+    margin: 0 3px;
+  }
+  .matchup-row .loser { color: var(--text2); }
+  .matchup-row .stats {
+    color: var(--text3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .matchup-row.upset {
+    border-left-color: var(--red);
+    background: var(--red-dim);
+  }
+  .matchup-row.upset .pick { color: var(--red); }
+  .upset-flag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 1px 5px;
+    border-radius: 8px;
+    margin-left: 5px;
+    vertical-align: middle;
+    text-transform: uppercase;
+  }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    animation: fadeIn 0.6s ease;
+  }
+  .empty-bracket {
+    width: 180px;
+    height: 120px;
+    margin-bottom: 24px;
+    opacity: 0.3;
+    color: var(--text2);
+  }
+  .empty-bracket svg {
+    width: 100%;
+    height: 100%;
+  }
+  .empty-state h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text2);
+    margin-bottom: 8px;
+  }
+  .empty-state p {
+    font-size: 12px;
+    color: var(--text3);
+    line-height: 1.8;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 5, 10, 0.12);
+    border-radius: 3px;
+  }
+
+  /* === SIDEBAR LIST (desktop) === */
+  .sidebar-list {
+    width: 320px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--bg);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  }
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    flex-shrink: 0;
+    border-radius: 8px 8px 0 0;
+  }
+  .sidebar-header .sidebar-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text2);
+    font-weight: 600;
+  }
+  .sidebar-header .sidebar-count {
+    font-size: 10px;
+    color: var(--text3);
+  }
+  .sidebar-header .sidebar-count strong { color: var(--accent); }
+  .featured-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+  }
+  .featured-toggle .toggle-track {
+    width: 32px;
+    height: 16px;
+    border-radius: 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    position: relative;
+    transition: all 0.2s;
+  }
+  .featured-toggle.active .toggle-track {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+  }
+  .toggle-track::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--text2);
+    top: 2px;
+    left: 2px;
+    transition: all 0.2s;
+  }
+  .featured-toggle.active .toggle-track::after {
+    left: 18px;
+    background: var(--accent-bright);
+  }
+  .featured-toggle .toggle-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text2);
+    white-space: nowrap;
+  }
+  .sidebar-cards {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sidebar-cards .pick-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  }
+  .sidebar-cards .pick-card:hover {
+    border-color: var(--border-bright);
+    box-shadow: 0 0 12px rgba(0,0,0,0.10);
+  }
+  .sidebar-cards .pick-card.active-card {
+    border-color: var(--accent);
+    background: rgba(30,200,150,0.04);
+  }
+  .sidebar-cards .card-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 2px 7px;
+    border-radius: 8px;
+    position: absolute;
+    top: 6px;
+    right: 8px;
+  }
+  .sidebar-cards .card-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .sidebar-cards .card-logo img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+  .sidebar-cards .card-info { flex: 1; min-width: 0; }
+  .sidebar-cards .card-champ {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .sidebar-cards .card-seed {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+  }
+  .sidebar-cards .card-meta {
+    display: flex;
+    gap: 10px;
+    margin-top: 3px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text2);
+  }
+  .sidebar-cards .card-meta strong { color: var(--text); }
+  .sidebar-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+    padding: 40px 16px;
+    color: var(--text3);
+  }
+  .sidebar-empty i { font-size: 24px; margin-bottom: 12px; opacity: 0.3; }
+  .sidebar-empty h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text2);
+    margin-bottom: 4px;
+  }
+  .sidebar-empty p { font-size: 11px; line-height: 1.6; }
+
+  @media (max-width: 768px) {
+    body { height: 100dvh; }
+
+    .header {
+      padding: 12px 16px;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .logo-icon { font-size: 11px; }
+    .header h1 { font-size: 16px; letter-spacing: -0.5px; }
+    .header h1 span { font-size: 14px; letter-spacing: 1px; }
+    .header-sub { font-size: 9px; }
+
+    .controls {
+      padding: 12px 16px;
+      gap: 8px;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .control-group { width: 100%; }
+    .control-group > label { font-size: 8px; letter-spacing: 1.5px; }
+    input[type="number"] {
+      width: 100%;
+      height: 44px;
+      font-size: 14px;
+      border-radius: 8px;
+    }
+    .homer-trigger {
+      min-width: 0;
+      width: 100%;
+      height: 44px;
+      border-radius: 8px;
+    }
+    .btn-generate {
+      width: 100%;
+      height: 44px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    .sidebar-list { display: none !important; }
+
+    .controls.collapsed-mobile {
+      display: none !important;
+    }
+    .mobile-reconfig {
+      display: none;
+      padding: 8px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .mobile-reconfig.visible { display: block; }
+    .mobile-reconfig button {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 10px;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-reconfig button:active { background: var(--surface); }
+    .chart-panel { display: none !important; }
+    .detail-panel { display: none !important; }
+
+    .main { flex-direction: column; }
+
+    .mobile-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px;
+      overflow-y: auto;
+      flex: 1;
+      -webkit-overflow-scrolling: touch;
+    }
+    .mobile-cards .pick-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      -webkit-tap-highlight-color: transparent;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    }
+    .mobile-cards .pick-card:active {
+      transform: scale(0.98);
+      box-shadow: 0 0 12px rgba(0,0,0,0.10);
+    }
+    .pick-card .card-rank {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text3);
+      position: absolute;
+      top: 8px;
+      left: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .pick-card .card-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .pick-card .card-logo img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+    .pick-card .card-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .pick-card .card-champ {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .pick-card .card-seed {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text3);
+    }
+    .pick-card .card-meta {
+      display: flex;
+      gap: 12px;
+      margin-top: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text2);
+    }
+    .pick-card .card-meta strong { color: var(--text); }
+    .pick-card .card-badge {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 3px 10px;
+      border-radius: 8px;
+      position: absolute;
+      top: 8px;
+      right: 12px;
+    }
+    .pick-card .card-arrow {
+      color: var(--text3);
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .mobile-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text3);
+    }
+    .mobile-empty i { font-size: 32px; margin-bottom: 16px; opacity: 0.4; }
+    .mobile-empty h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text2);
+      margin-bottom: 6px;
+    }
+    .mobile-empty p { font-size: 12px; line-height: 1.6; }
+
+    .homer-dropdown {
+      position: fixed;
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-height: 60vh;
+      border-radius: 16px 16px 0 0;
+      z-index: 200;
+      box-shadow: 0 -8px 40px rgba(0,0,0,0.12);
+    }
+    .homer-dropdown label { padding: 10px 14px; font-size: 13px; }
+    .homer-search input { height: 40px; font-size: 14px; border-radius: 8px; }
+  }
+
+  @media (min-width: 769px) {
+    .mobile-cards { display: none !important; }
+    .mobile-reconfig { display: none !important; }
+  }
+
+  .detail-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: var(--bg);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  .detail-overlay.open {
+    display: flex;
+    flex-direction: column;
+    animation: overlayIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes overlayIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .detail-overlay .overlay-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 52px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-shrink: 0;
+  }
+  .detail-overlay .overlay-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .overlay-close {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text3);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .overlay-close:hover { border-color: var(--accent); color: var(--accent); }
+  .overlay-close:active {
+    background: var(--surface);
+    transform: scale(0.92);
+  }
+
+  .detail-overlay .overlay-body {
+    padding: 20px 16px 100px;
+    flex: 1;
+  }
+
+  .detail-overlay .champ-card {
+    padding: 28px 20px;
+    border-radius: 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  }
+  .detail-overlay .champ-card::after {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(30,200,150,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .detail-overlay .champ-card .trophy { font-size: 30px; }
+  .detail-overlay .champ-card .seed-label { font-size: 11px; letter-spacing: 4px; }
+  .detail-overlay .champ-card .team-name { font-size: 28px; margin: 8px 0; }
+  .detail-overlay .champ-card .win-prob { font-size: 14px; }
+
+  .detail-overlay .stat-row { gap: 6px; }
+  .detail-overlay .stat-pill {
+    border-radius: 8px;
+    padding: 12px 8px;
+  }
+  .detail-overlay .stat-pill .stat-val { font-size: 18px; }
+  .detail-overlay .stat-pill .stat-label { font-size: 8px; letter-spacing: 1.5px; }
+
+  .detail-overlay .section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin: 28px 0 12px;
+  }
+
+  .detail-overlay .team-row {
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+
+  .detail-overlay .matchup-row {
+    padding: 10px 12px;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-bottom: 2px;
+  }
+  .detail-overlay .matchup-row .stats { font-size: 11px; }
+  .detail-overlay .matchup-row.upset {
+    border-left-width: 3px;
+    border-radius: 0 8px 8px 0;
+  }
+  .detail-overlay .upset-flag {
+    font-size: 8px;
+    padding: 2px 6px;
+    border-radius: 8px;
+  }
+
+  .detail-overlay [style*="display:inline-block"] {
+    padding: 3px 10px !important;
+    border-radius: 12px !important;
+    font-size: 10px !important;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .detail-inner > * {
+    animation: slideIn 0.3s ease both;
+  }
+  .detail-inner > *:nth-child(1) { animation-delay: 0s; }
+  .detail-inner > *:nth-child(2) { animation-delay: 0.03s; }
+  .detail-inner > *:nth-child(3) { animation-delay: 0.06s; }
+  .detail-inner > *:nth-child(4) { animation-delay: 0.09s; }
+  .detail-inner > *:nth-child(5) { animation-delay: 0.12s; }
+  .detail-inner > *:nth-child(6) { animation-delay: 0.15s; }
+  .detail-inner > *:nth-child(7) { animation-delay: 0.18s; }
+  .detail-inner > *:nth-child(8) { animation-delay: 0.21s; }
+  .detail-inner > *:nth-child(9) { animation-delay: 0.24s; }
+  .detail-inner > *:nth-child(10) { animation-delay: 0.27s; }
+  .detail-inner > *:nth-child(n+11) { animation-delay: 0.3s; }
+
+  /* === INFO BUTTON === */
+  .info-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text3);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .info-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* === INFO MODAL === */
+  .info-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 600;
+    background: rgba(0,5,10,0.4);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .info-overlay.open {
+    display: flex;
+    animation: fadeIn 0.25s ease;
+  }
+  .info-modal {
+    background: var(--bg);
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .info-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .info-modal-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+  }
+  .info-modal-body {
+    padding: 24px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .info-modal-body h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 32px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .info-modal-body h3:first-child { margin-top: 0; }
+  .info-modal-body h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 20px 0 6px;
+  }
+  .info-modal-body p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text2);
+    line-height: 1.7;
+    margin: 0 0 10px;
+    text-align: left;
+  }
+  .info-card {
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 10px 0;
+  }
+  .info-card p {
+    margin: 6px 0 0;
+    font-size: 12px;
+    line-height: 1.65;
+  }
+  .info-badge {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+
+  @media (max-width: 768px) {
+    .info-overlay { padding: 0; }
+    .info-modal {
+      max-width: none;
+      max-height: none;
+      height: 100%;
+      border-radius: 0;
+    }
+  }
+
+  /* === WIZARD OVERLAY === */
+  body.wizard-active .header,
+  body.wizard-active .controls,
+  body.wizard-active .main,
+  body.wizard-active .mobile-reconfig { display: none !important; }
+
+  .wizard-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 400;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .wizard-overlay.hidden { display: none; }
+
+  .wizard-header {
+    position: relative;
+    padding: 16px 28px 14px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    background: var(--bg);
+  }
+  .wizard-header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .wizard-header .logo-icon {
+    color: var(--accent);
+    font-size: 16px;
+    opacity: 0.8;
+  }
+  .wizard-header h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--text);
+  }
+  .wizard-header h1 span {
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .wizard-header .header-sub {
+    font-size: 10px;
+    color: var(--text3);
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+  .wizard-header .header-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .wizard-body {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .wizard-step {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px 80px;
+    animation: wizardFadeIn 0.35s ease both;
+    overflow-y: auto;
+  }
+  .wizard-step.active { display: flex; }
+
+  @keyframes wizardFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .wizard-step .wiz-step-icon {
+    font-size: 28px;
+    color: var(--accent);
+    opacity: 0.5;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .wizard-step .wiz-question {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .wizard-step .wiz-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text2);
+    text-align: center;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .wiz-pool-input {
+    background: var(--bg);
+    border: 2px solid var(--border);
+    color: var(--text);
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 36px;
+    font-weight: 600;
+    width: 180px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-bottom: 32px;
+  }
+  .wiz-pool-input:focus { border-color: var(--accent); }
+
+  .wiz-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 14px 48px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .wiz-btn:hover { opacity: 0.9; }
+  .wiz-btn:active { transform: scale(0.98); }
+
+  .wiz-btn-secondary {
+    background: none;
+    color: var(--text2);
+    border: none;
+    padding: 10px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+    margin-top: 12px;
+  }
+  .wiz-btn-secondary:hover { color: var(--accent); }
+
+  .wiz-btn-subtle {
+    background: var(--surface);
+    color: var(--text2);
+    border: 1px solid var(--border);
+    padding: 14px 48px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+  .wiz-btn-subtle:hover { border-color: var(--accent); color: var(--accent); }
+
+  .wiz-nav-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 8px;
+  }
+  .wiz-back-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text2);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  .wiz-back-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Team grid for wizard steps 2 & 3 */
+  .wiz-team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    max-width: 640px;
+    width: 100%;
+    margin-bottom: 24px;
+    max-height: 360px;
+    overflow-y: auto;
+    padding: 4px;
+  }
+  .wiz-team-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    transition: all 0.15s;
+    background: var(--bg);
+    user-select: none;
+  }
+  .wiz-team-chip:hover { border-color: var(--accent-dim); background: var(--surface); }
+  .wiz-team-chip.selected {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+    color: var(--accent-bright);
+  }
+  .wiz-team-chip .chip-seed {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+    min-width: 16px;
+  }
+  .wiz-team-chip.selected .chip-seed { color: var(--accent); }
+
+  /* Choice cards for preference quiz */
+  .wiz-choices {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .wiz-choice-card {
+    width: 200px;
+    padding: 28px 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--bg);
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  }
+  .wiz-choice-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-color: var(--border-bright);
+  }
+  .wiz-choice-card.selected {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+  .wiz-choice-card .choice-icon {
+    font-size: 28px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .wiz-choice-card .choice-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .wiz-choice-card .choice-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.5;
+  }
+
+  /* Reveal step */
+  .wiz-reveal {
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+  }
+  .wiz-reveal .wiz-reveal-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .wiz-reveal .wiz-reveal-badge {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 4px 14px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+  .wiz-reveal .champ-card {
+    margin-bottom: 16px;
+  }
+  .wiz-reveal .stat-row {
+    margin: 12px 0;
+  }
+  .wiz-reveal-f4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 16px 0 32px;
+  }
+  .wiz-reveal-f4-team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 4px;
+    background: var(--surface);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .wiz-reveal-f4-team .f4-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .wiz-reveal-f4-team .f4-seed {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text3);
+  }
+
+  .wiz-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .wiz-loading .wiz-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: wizSpin 0.8s linear infinite;
+  }
+  @keyframes wizSpin {
+    to { transform: rotate(360deg); }
+  }
+  .wiz-loading-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text2);
+  }
+
+  .wiz-cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .wiz-cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .wiz-cta-buttons .wiz-btn { flex: 1; }
+  .wiz-cta-buttons .wiz-btn-outline {
+    flex: 1;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .wiz-cta-buttons .wiz-btn-outline:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .wiz-start-over {
+    background: none;
+    border: none;
+    color: var(--text3);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.15s;
+  }
+  .wiz-start-over:hover { color: var(--text2); }
+
+  /* Step dots */
+  .wizard-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+    z-index: 2;
+  }
+  .wizard-dots {
+    display: flex;
+    gap: 8px;
+  }
+  .wizard-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: background 0.2s;
+  }
+  .wizard-dots .dot.active {
+    background: var(--accent);
+  }
+  .wiz-text-btn {
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text3);
+    cursor: pointer;
+    padding: 8px 4px;
+    transition: color 0.15s;
+    min-width: 48px;
+  }
+  .wiz-text-btn:hover { color: var(--text2); }
+
+  @media (max-width: 768px) {
+    .wizard-header {
+      padding: 12px 16px;
+      gap: 2px;
+    }
+    .wizard-header .logo-icon { font-size: 11px; }
+    .wizard-header h1 { font-size: 16px; }
+    .wizard-step { padding: 24px 16px 80px; }
+    .wizard-step .wiz-question { font-size: 22px; }
+    .wizard-step .wiz-subtitle { font-size: 13px; }
+    .wiz-pool-input { font-size: 28px; width: 150px; }
+    .wiz-team-grid {
+      grid-template-columns: 1fr;
+      max-height: 300px;
+    }
+    .wiz-choices { flex-direction: column; align-items: center; }
+    .wiz-choice-card { width: 100%; max-width: 320px; }
+    .wiz-reveal-f4 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body class="wizard-active">
+
+<div class="wizard-overlay" id="wizardOverlay">
+  <div class="wizard-header">
+    <div class="logo">
+      <i class="fa-solid fa-basketball logo-icon"></i>
+      <h1>Bracket <span>Buddy</span></h1>
+    </div>
+    <a href="/" class="header-sub" style="text-decoration:none;color:var(--text3)">by bdharva</a>
+    <div class="header-right">
+      <button class="info-btn" onclick="openInfo()" title="How it works">
+        <i class="fa-solid fa-circle-info"></i>
+      </button>
+    </div>
+  </div>
+  <div class="wizard-body">
+    <!-- Step 1: Pool Size -->
+    <div class="wizard-step active" data-step="1">
+      <div class="wiz-step-icon"><i class="fa-solid fa-users"></i></div>
+      <div class="wiz-question">How many people are in your pool?</div>
+      <div class="wiz-subtitle">Bigger pools need bolder picks</div>
+      <input type="number" class="wiz-pool-input" id="wizPoolSize" value="25" min="2" max="10000">
+      <button class="wiz-btn" onclick="wizardNext()">Next</button>
+    </div>
+
+    <!-- Step 2: Homer Teams -->
+    <div class="wizard-step" data-step="2">
+      <div class="wiz-step-icon"><i class="fa-solid fa-bullhorn"></i></div>
+      <div class="wiz-question">Any teams your pool mates are obsessed with?</div>
+      <div class="wiz-subtitle">We'll factor in their bias so your picks stand out</div>
+      <div class="wiz-team-grid" id="wizHomerGrid"></div>
+      <button class="wiz-btn" onclick="wizardNext()">Next</button>
+    </div>
+
+    <!-- Step 3: Favorite Team -->
+    <div class="wizard-step" data-step="3">
+      <div class="wiz-step-icon"><i class="fa-solid fa-heart"></i></div>
+      <div class="wiz-question">Got a team you can't help but root for?</div>
+      <div class="wiz-subtitle">We'll see how far they can realistically go</div>
+      <div class="wiz-team-grid" id="wizFavGrid"></div>
+      <button class="wiz-btn" onclick="wizardNext()">Next</button>
+    </div>
+
+    <!-- Step 4: Unique Winners -->
+    <div class="wizard-step" data-step="4">
+      <div class="wiz-step-icon"><i class="fa-solid fa-fingerprint"></i></div>
+      <div class="wiz-question">How should we pick your recommendations?</div>
+      <div class="wiz-subtitle">Each bracket we show you will be optimized differently</div>
+      <div class="wiz-choices">
+        <div class="wiz-choice-card" onclick="wizardSelectUniqueWinners(false)">
+          <div class="choice-icon"><i class="fa-solid fa-trophy"></i></div>
+          <div class="choice-title">Best overall</div>
+          <div class="choice-desc">Show the statistically best brackets, even if the same team wins several</div>
+        </div>
+        <div class="wiz-choice-card" onclick="wizardSelectUniqueWinners(true)">
+          <div class="choice-icon"><i class="fa-solid fa-shuffle"></i></div>
+          <div class="choice-title">Different winners</div>
+          <div class="choice-desc">Each recommendation features a different champion so you can compare paths</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Strategy Preference -->
+    <div class="wizard-step" data-step="5">
+      <div class="wiz-step-icon"><i class="fa-solid fa-chess"></i></div>
+      <div class="wiz-question">What's your pool strategy?</div>
+      <div class="wiz-subtitle">This shapes how contrarian your picks will be</div>
+      <div class="wiz-choices">
+        <div class="wiz-choice-card" onclick="wizardSelectPref(0, 0)">
+          <div class="choice-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="choice-title">Play it safe</div>
+          <div class="choice-desc">Maximize expected points across every round</div>
+        </div>
+        <div class="wiz-choice-card" onclick="wizardSelectPref(0, 1)">
+          <div class="choice-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+          <div class="choice-title">Stand out</div>
+          <div class="choice-desc">Balance safety with picks your pool won't have</div>
+        </div>
+        <div class="wiz-choice-card" onclick="wizardSelectPref(0, 2)">
+          <div class="choice-icon"><i class="fa-solid fa-fire"></i></div>
+          <div class="choice-title">Chaos</div>
+          <div class="choice-desc">Go all-in on upsets and pray</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 6: Trust Preference -->
+    <div class="wizard-step" data-step="6">
+      <div class="wiz-step-icon"><i class="fa-solid fa-compass"></i></div>
+      <div class="wiz-question">What do you trust more?</div>
+      <div class="wiz-subtitle">Different lenses on the same 64 teams</div>
+      <div class="wiz-choices">
+        <div class="wiz-choice-card" onclick="wizardSelectPref(1, 0)">
+          <div class="choice-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="choice-title">The numbers</div>
+          <div class="choice-desc">Efficiency metrics say more than seeds</div>
+        </div>
+        <div class="wiz-choice-card" onclick="wizardSelectPref(1, 1)">
+          <div class="choice-icon"><i class="fa-solid fa-landmark"></i></div>
+          <div class="choice-title">History</div>
+          <div class="choice-desc">The tournament follows patterns year after year</div>
+        </div>
+        <div class="wiz-choice-card" onclick="wizardSelectPref(1, 2)">
+          <div class="choice-icon"><i class="fa-solid fa-crosshairs"></i></div>
+          <div class="choice-title">Best odds</div>
+          <div class="choice-desc">Just give me the bracket most likely to win</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 7: Win Style -->
+    <div class="wizard-step" data-step="7">
+      <div class="wiz-step-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+      <div class="wiz-question">How do you want to win?</div>
+      <div class="wiz-subtitle">Where you stack your points matters</div>
+      <div class="wiz-choices">
+        <div class="wiz-choice-card" onclick="wizardSelectPref(2, 0)">
+          <div class="choice-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div class="choice-title">Bank early</div>
+          <div class="choice-desc">Pile up safe points in the first three rounds</div>
+        </div>
+        <div class="wiz-choice-card" onclick="wizardSelectPref(2, 1)">
+          <div class="choice-icon"><i class="fa-solid fa-rocket"></i></div>
+          <div class="choice-title">Big finish</div>
+          <div class="choice-desc">I need a late surge to overtake the leaders</div>
+        </div>
+        <div class="wiz-choice-card" onclick="wizardSelectPref(2, 2)">
+          <div class="choice-icon"><i class="fa-solid fa-trophy"></i></div>
+          <div class="choice-title">Win the pool</div>
+          <div class="choice-desc">Give me the best shot at first place</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 8: Reveal -->
+    <div class="wizard-step" data-step="8">
+      <div id="wizRevealContent">
+        <div class="wiz-loading">
+          <div class="wiz-spinner"></div>
+          <div class="wiz-loading-text">Crunching brackets...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wizard-footer" id="wizardFooter">
+      <button class="wiz-text-btn wiz-back-text" id="wizBackBtn" onclick="wizardBack()" style="visibility:hidden">Back</button>
+      <div class="wizard-dots" id="wizardDots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="wiz-text-btn" style="visibility:hidden">Back</div>
+    </div>
+  </div>
+</div>
+
+<div class="header">
+  <div class="logo">
+    <i class="fa-solid fa-basketball logo-icon"></i>
+    <h1>Bracket <span>Buddy</span></h1>
+  </div>
+  <a href="/" class="header-sub" style="text-decoration:none;color:var(--text3)">by bdharva</a>
+  <div class="header-right">
+    <button class="info-btn" onclick="openInfo()" title="How it works">
+      <i class="fa-solid fa-circle-info"></i>
+    </button>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="control-group">
+    <label>Pool Size</label>
+    <input type="number" id="poolSize" value="25" min="2" max="10000">
+  </div>
+  <div class="control-group">
+    <label>Homer Teams in Pool</label>
+    <div class="homer-select" id="homerSelect">
+      <div class="homer-trigger" id="homerTrigger">
+        <span id="homerPlaceholder">Select teams...</span>
+        <span class="arrow">&#9662;</span>
+      </div>
+      <div class="homer-dropdown" id="homerDropdown"></div>
+    </div>
+    <div class="homer-tags" id="homerTags" style="display:none"></div>
+  </div>
+  <div class="control-group">
+    <label>My Favorite Teams</label>
+    <div class="homer-select" id="favSelect">
+      <div class="homer-trigger" id="favTrigger">
+        <span id="favPlaceholder">None (optional)</span>
+        <span class="arrow">&#9662;</span>
+      </div>
+      <div class="homer-dropdown" id="favDropdown"></div>
+    </div>
+  </div>
+  <div class="control-group">
+    <label>Variety</label>
+    <div class="unique-toggle" id="uniqueToggle">
+      <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);cursor:pointer;user-select:none;white-space:nowrap">
+        <input type="checkbox" id="uniqueWinners" style="accent-color:var(--accent)"> Force unique winners
+      </label>
+    </div>
+  </div>
+  <div class="control-group">
+    <label>&nbsp;</label>
+    <button class="btn-generate" id="generateBtn" onclick="generate()"><span>Generate</span></button>
+  </div>
+</div>
+
+<div class="mobile-reconfig" id="mobileReconfig">
+  <button onclick="showMobileControls()"><i class="fa-solid fa-sliders"></i>&ensp;Change Settings</button>
+</div>
+
+<div class="main">
+  <div class="sidebar-list" id="sidebarList">
+    <div class="sidebar-header" id="sidebarHeader" style="display:none">
+      <span class="sidebar-title">Brackets <span class="sidebar-count"></span></span>
+      <div class="featured-toggle" id="featuredToggle" onclick="toggleFeaturedOnly()">
+        <div class="toggle-track"></div>
+        <span class="toggle-label">Chart: These Only</span>
+      </div>
+    </div>
+    <div class="sidebar-cards" id="sidebarCards">
+      <div class="sidebar-empty">
+        <i class="fa-solid fa-basketball"></i>
+        <h3>Configure Your Pool</h3>
+        <p>Set pool size, tag any homer teams, then generate.</p>
+      </div>
+    </div>
+  </div>
+  <div class="chart-panel" id="chartPanel">
+    <div class="empty-state" id="emptyState">
+      <div class="empty-bracket">
+        <svg viewBox="0 0 180 120" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5">
+          <line x1="10" y1="10" x2="40" y2="10"/><line x1="10" y1="25" x2="40" y2="25"/>
+          <line x1="40" y1="10" x2="40" y2="25"/><line x1="40" y1="17" x2="70" y2="17"/>
+          <line x1="10" y1="40" x2="40" y2="40"/><line x1="10" y1="55" x2="40" y2="55"/>
+          <line x1="40" y1="40" x2="40" y2="55"/><line x1="40" y1="47" x2="70" y2="47"/>
+          <line x1="70" y1="17" x2="70" y2="47"/><line x1="70" y1="32" x2="100" y2="32"/>
+          <line x1="10" y1="70" x2="40" y2="70"/><line x1="10" y1="85" x2="40" y2="85"/>
+          <line x1="40" y1="70" x2="40" y2="85"/><line x1="40" y1="77" x2="70" y2="77"/>
+          <line x1="10" y1="100" x2="40" y2="100"/><line x1="10" y1="115" x2="40" y2="115"/>
+          <line x1="40" y1="100" x2="40" y2="115"/><line x1="40" y1="107" x2="70" y2="107"/>
+          <line x1="70" y1="77" x2="70" y2="107"/><line x1="70" y1="92" x2="100" y2="92"/>
+          <line x1="100" y1="32" x2="100" y2="92"/><line x1="100" y1="62" x2="130" y2="62"/>
+          <circle cx="135" cy="62" r="4" fill="currentColor" opacity="0.3" stroke="none"/>
+        </svg>
+      </div>
+      <h2>Configure Your Pool</h2>
+      <p>Set pool size, tag any homer teams,<br>then generate to explore optimal brackets.</p>
+    </div>
+    <div id="plotDiv" style="width:100%;height:100%;display:none;"></div>
+  </div>
+  <div class="detail-panel collapsed" id="detailPanel">
+    <div class="detail-inner" id="detailContent"></div>
+  </div>
+  <div class="mobile-cards" id="mobileCards">
+    <div class="mobile-empty">
+      <i class="fa-solid fa-basketball"></i>
+      <h3>Configure Your Pool</h3>
+      <p>Set pool size, tag any homer teams,<br>then generate to see your top bracket picks.</p>
+    </div>
+  </div>
+</div>
+
+<div class="detail-overlay" id="detailOverlay">
+  <div class="overlay-header">
+    <h2>Bracket Detail</h2>
+    <button class="overlay-close" onclick="closeOverlay()">&times;</button>
+  </div>
+  <div class="overlay-body" id="overlayBody"></div>
+</div>
+
+<div class="info-overlay" id="infoOverlay">
+  <div class="info-modal">
+    <div class="info-modal-header">
+      <h2>How Bracket Buddy Works</h2>
+      <button class="overlay-close" onclick="closeInfo()">&times;</button>
+    </div>
+    <div class="info-modal-body">
+
+      <h3>ew i hate reading (especially about math)</h3>
+      <p>Bracket Buddy crunches team efficiency data, simulates thousands of tournaments, and models what your pool opponents are likely to pick &mdash; then recommends the brackets most likely to actually win.</p>
+
+      <h3>Recommended Brackets</h3>
+      <p>Bracket Buddy generates hundreds of bracket variations by sweeping a grid of strategy parameters, then surfaces the most interesting ones:</p>
+
+      <div class="info-card">
+        <div class="info-badge" style="color:rgb(30,200,150);background:rgba(30,200,150,0.08)">Safest</div>
+        <p>The highest total expected value bracket. Picks the team most likely to win each matchup, weighted by points per round. This is the bracket you'd pick if you just wanted to maximize your expected score with no regard for what others in your pool are doing.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-badge" style="color:rgb(130,90,200);background:rgba(130,90,200,0.08)">Darlings</div>
+        <p>The analytics darlings bracket. Finds teams whose advanced metrics far outperform their seed &mdash; like a 2-seed with the #1 offense, or a 3-seed with elite efficiency on both ends. These are the "value" picks that the numbers love but casual bettors overlook. Rewards non-1-seeds with big gaps between their seed ranking and their efficiency ranking.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-badge" style="color:rgba(0,5,10,0.45);background:rgba(0,5,10,0.04)">Historic</div>
+        <p>The bracket whose seed distribution most closely matches historical tournament norms. Scored by comparing the number of 1-seeds, total seed sums, and upset counts at each round stage (Sweet 16, Elite 8, Final Four, Championship) against historical averages. Historically, the Final Four averages ~1.5 one-seeds, not 4.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-badge" style="color:rgb(30,47,200);background:rgba(30,47,200,0.06)">Balanced</div>
+        <p>The best expected value among brackets with above-median divergence from chalk. A sweet spot between safety and differentiation &mdash; enough upsets to stand out in your pool, but still grounded in probability.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-badge" style="color:rgb(60,130,200);background:rgba(60,130,200,0.06)">Sleeper</div>
+        <p>The bracket with the highest late-round expected value (Elite 8 through Championship). Optimized for the rounds where points multiply exponentially. Good for pools where you need a big finish to overtake the leaders.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-badge" style="color:rgb(220,80,60);background:rgba(220,80,60,0.06)">Riskiest</div>
+        <p>Maximum divergence from chalk. The most picks that differ from the pure-EV bracket. High risk, high reward &mdash; if the tournament goes chaotic, this bracket is positioned to capitalize while everyone else's chalk crumbles.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-badge" style="color:rgb(0,160,100);background:rgba(0,160,100,0.08)">Best Odds</div>
+        <p>The bracket most likely to <em>win your pool outright</em>. Determined by Monte Carlo simulation: 5,000 tournaments are simulated with weighted coin flips, and for each one, your bracket is scored against simulated opponent brackets (modeled on typical public picking behavior, adjusted for homer teams). The bracket that beats the field most often gets this tag. Often different from Safest &mdash; a high-EV chalk bracket scores well on average but rarely wins pools because everyone else picked the same way.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-badge" style="color:rgb(220,150,30);background:rgba(220,150,30,0.08)">My Team</div>
+        <p>Only appears when you select a favorite team. Finds the best bracket (by EV) where your team advances the deepest. Prioritizes: champion &gt; Final Four &gt; Elite 8 &gt; Sweet 16. A homer bracket with a mathematical conscience.</p>
+      </div>
+
+      <h3>Data &amp; Methodology</h3>
+
+      <h4>Win Probability Model</h4>
+      <p>Each game's win probability is derived from <strong>Torvik adjusted efficiency margins</strong> (AdjEM). AdjEM measures how much a team outscores an average opponent per 100 possessions, adjusted for opponent strength and game location. Pairwise win probability uses a logistic model:</p>
+      <p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:13px;">P(A beats B) = 1 / (1 + 10<sup>-&Delta;EM / 11</sup>)</p>
+      <p>An efficiency margin difference of 11 points corresponds to roughly 75% win probability, calibrated to historical NCAA tournament outcomes.</p>
+
+      <h4>Tournament Variance Damping</h4>
+      <p>Regular-season efficiency metrics are <em>too confident</em> for single-elimination tournaments. A 20-point EM gap yields ~98% in the base model, but historically 1-vs-8 seed games are closer to 85%. The damping parameter (swept from 0 to 0.6) scales down EM differences to reflect tournament-level uncertainty &mdash; injuries, cold shooting nights, neutral-court effects, and the general chaos of March. At 0.6 damping, that same 20-point gap produces ~73%, generating brackets with realistic upset potential.</p>
+
+      <h4>Historical Seed Blending</h4>
+      <p>Blends Torvik probabilities with historical seed-based advancement rates (swept from 0 to 0.9). A 12-seed has beaten a 5-seed 35% of the time historically &mdash; at high blend values, this historical base rate has real weight alongside pure efficiency.</p>
+
+      <h4>Upset Boost</h4>
+      <p>Nudges underdog win probabilities toward historical upset rates across <em>all</em> rounds (swept from 0 to 0.8). In Round 1, uses specific seed-matchup data (5/12: 35.6%, 6/11: 36.8%, 7/10: 38.2%, 8/9: 50.0%). In later rounds, applies a general parity correction that grows stronger as the tournament progresses &mdash; reflecting that teams who survive early rounds have proven they can compete regardless of seed.</p>
+
+      <h4>Defensive Floor</h4>
+      <p>Penalizes teams with below-average adjusted defensive efficiency (AdjDE &gt; 98) in later rounds. Historically, 15 of 18 champions since 2004 ranked top-25 in both offensive and defensive efficiency. The penalty scales stronger in deeper rounds, making it harder for offense-only teams to reach the Final Four.</p>
+
+      <h4>Contrarian Weighting</h4>
+      <p>For pool strategy, factors in how popular each pick is likely to be (swept from 0 to 1.2). A team picked by 30% of your pool gives zero edge if they win. The contrarian formula divides expected points by estimated public pick rate (based on seed), rewarding high-EV teams that fewer people are selecting. Scales logarithmically with pool size &mdash; larger pools demand more differentiation.</p>
+
+      <h4>Monte Carlo Pool Simulation</h4>
+      <p>After generating all bracket variations, 5,000 tournaments are simulated by flipping weighted coins at each matchup (using Torvik probabilities with moderate variance damping). For each simulated tournament, the pool is also simulated: opponent brackets are generated using a model of typical public picking behavior (60% seed bias + 40% efficiency, with homer team inflation and random noise). Each bracket is scored against the actual simulated results and compared to the best opponent score. The percentage of simulations where a bracket <em>wins outright</em> is its pool win probability &mdash; shown as "Win %" on each card.</p>
+
+      <h4>Recommendation Diversity</h4>
+      <p>The eight recommended brackets are selected to maximize variety. After each recommendation is chosen, subsequent picks are penalized for reusing the same champion (&minus;50), identical Final Four (&minus;30), or 3+ overlapping Final Four teams (&minus;15). This ensures the sidebar presents genuinely different bracket strategies, not slight variations of the same chalk picks.</p>
+
+      <h3>Your Inputs</h3>
+
+      <h4>Pool Size</h4>
+      <p>Controls how aggressive the contrarian weighting is. In a 10-person office pool, chalk is fine. In a 500-person pool, you need differentiation to have any chance of winning.</p>
+
+      <h4>Homer Teams</h4>
+      <p>Teams with strong fan representation in your pool. Their estimated public pick rate gets inflated &mdash; scaling with round, up to 85% in the championship &mdash; making them progressively <em>less</em> attractive for contrarian brackets in later rounds. In Elite 8+ rounds, homer teams also receive a direct score penalty, reflecting that picking the same team as your whole pool provides zero competitive edge even if they win.</p>
+
+      <h4>My Team</h4>
+      <p>Your personal favorite. Generates a dedicated "My Team" bracket that advances them as deep as mathematically reasonable, tiebroken by overall expected value. Heart meets math.</p>
+
+      <h3>The Chart</h3>
+      <p>Each bubble is a unique bracket generated from a different combination of the six parameters above (672 combinations before deduplication). The X-axis shows early-round EV (R64 + R32 + Sweet 16) and the Y-axis shows late-round EV (Elite 8 + Final Four + Championship). Bubble size reflects total EV; color reflects divergence from chalk (teal = chalk, red = chaos). The "Chart: These Only" toggle filters the scatter plot to show just the recommended brackets.</p>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// Embedded tournament data (from CSVs)
+// ============================================================
+const TEAMS = {
+  0:{id:0,name:'Duke',seed:1},1:{id:1,name:'Siena',seed:16},2:{id:2,name:'Ohio State',seed:8},3:{id:3,name:'TCU',seed:9},
+  4:{id:4,name:"St. John's",seed:5},5:{id:5,name:'Northern Iowa',seed:12},6:{id:6,name:'Kansas',seed:4},7:{id:7,name:'Cal Baptist',seed:13},
+  8:{id:8,name:'Louisville',seed:6},9:{id:9,name:'South Florida',seed:11},10:{id:10,name:'Michigan State',seed:3},11:{id:11,name:'North Dakota State',seed:14},
+  12:{id:12,name:'UCLA',seed:7},13:{id:13,name:'UCF',seed:10},14:{id:14,name:'UConn',seed:2},15:{id:15,name:'Furman',seed:15},
+  16:{id:16,name:'Arizona',seed:1},17:{id:17,name:'LIU',seed:16},18:{id:18,name:'Villanova',seed:8},19:{id:19,name:'Utah State',seed:9},
+  20:{id:20,name:'Wisconsin',seed:5},21:{id:21,name:'High Point',seed:12},22:{id:22,name:'Arkansas',seed:4},23:{id:23,name:'Hawaii',seed:13},
+  24:{id:24,name:'BYU',seed:6},25:{id:25,name:'NC State',seed:11},26:{id:26,name:'Gonzaga',seed:3},27:{id:27,name:'Kennesaw State',seed:14},
+  28:{id:28,name:'Miami FL',seed:7},29:{id:29,name:'Missouri',seed:10},30:{id:30,name:'Purdue',seed:2},31:{id:31,name:'Queens',seed:15},
+  32:{id:32,name:'Michigan',seed:1},33:{id:33,name:'Howard',seed:16},34:{id:34,name:'Georgia',seed:8},35:{id:35,name:'Saint Louis',seed:9},
+  36:{id:36,name:'Texas Tech',seed:5},37:{id:37,name:'Akron',seed:12},38:{id:38,name:'Alabama',seed:4},39:{id:39,name:'Hofstra',seed:13},
+  40:{id:40,name:'Tennessee',seed:6},41:{id:41,name:'SMU',seed:11},42:{id:42,name:'Virginia',seed:3},43:{id:43,name:'Wright State',seed:14},
+  44:{id:44,name:'Kentucky',seed:7},45:{id:45,name:'Santa Clara',seed:10},46:{id:46,name:'Iowa State',seed:2},47:{id:47,name:'Tennessee State',seed:15},
+  48:{id:48,name:'Florida',seed:1},49:{id:49,name:'Lehigh',seed:16},50:{id:50,name:'Clemson',seed:8},51:{id:51,name:'Iowa',seed:9},
+  52:{id:52,name:'Vanderbilt',seed:5},53:{id:53,name:'McNeese',seed:12},54:{id:54,name:'Nebraska',seed:4},55:{id:55,name:'Troy',seed:13},
+  56:{id:56,name:'UNC',seed:6},57:{id:57,name:'VCU',seed:11},58:{id:58,name:'Illinois',seed:3},59:{id:59,name:'Penn',seed:14},
+  60:{id:60,name:"Saint Mary's",seed:7},61:{id:61,name:'Texas A&M',seed:10},62:{id:62,name:'Houston',seed:2},63:{id:63,name:'Idaho',seed:15}
+};
+
+const MATCHUPS = [
+  {id:0,round:0,team_1_ref:'team-0',team_2_ref:'team-1'},{id:1,round:0,team_1_ref:'team-2',team_2_ref:'team-3'},
+  {id:2,round:0,team_1_ref:'team-4',team_2_ref:'team-5'},{id:3,round:0,team_1_ref:'team-6',team_2_ref:'team-7'},
+  {id:4,round:0,team_1_ref:'team-8',team_2_ref:'team-9'},{id:5,round:0,team_1_ref:'team-10',team_2_ref:'team-11'},
+  {id:6,round:0,team_1_ref:'team-12',team_2_ref:'team-13'},{id:7,round:0,team_1_ref:'team-14',team_2_ref:'team-15'},
+  {id:8,round:0,team_1_ref:'team-16',team_2_ref:'team-17'},{id:9,round:0,team_1_ref:'team-18',team_2_ref:'team-19'},
+  {id:10,round:0,team_1_ref:'team-20',team_2_ref:'team-21'},{id:11,round:0,team_1_ref:'team-22',team_2_ref:'team-23'},
+  {id:12,round:0,team_1_ref:'team-24',team_2_ref:'team-25'},{id:13,round:0,team_1_ref:'team-26',team_2_ref:'team-27'},
+  {id:14,round:0,team_1_ref:'team-28',team_2_ref:'team-29'},{id:15,round:0,team_1_ref:'team-30',team_2_ref:'team-31'},
+  {id:16,round:0,team_1_ref:'team-32',team_2_ref:'team-33'},{id:17,round:0,team_1_ref:'team-34',team_2_ref:'team-35'},
+  {id:18,round:0,team_1_ref:'team-36',team_2_ref:'team-37'},{id:19,round:0,team_1_ref:'team-38',team_2_ref:'team-39'},
+  {id:20,round:0,team_1_ref:'team-40',team_2_ref:'team-41'},{id:21,round:0,team_1_ref:'team-42',team_2_ref:'team-43'},
+  {id:22,round:0,team_1_ref:'team-44',team_2_ref:'team-45'},{id:23,round:0,team_1_ref:'team-46',team_2_ref:'team-47'},
+  {id:24,round:0,team_1_ref:'team-48',team_2_ref:'team-49'},{id:25,round:0,team_1_ref:'team-50',team_2_ref:'team-51'},
+  {id:26,round:0,team_1_ref:'team-52',team_2_ref:'team-53'},{id:27,round:0,team_1_ref:'team-54',team_2_ref:'team-55'},
+  {id:28,round:0,team_1_ref:'team-56',team_2_ref:'team-57'},{id:29,round:0,team_1_ref:'team-58',team_2_ref:'team-59'},
+  {id:30,round:0,team_1_ref:'team-60',team_2_ref:'team-61'},{id:31,round:0,team_1_ref:'team-62',team_2_ref:'team-63'},
+  {id:32,round:1,team_1_ref:'winner-0',team_2_ref:'winner-1'},{id:33,round:1,team_1_ref:'winner-2',team_2_ref:'winner-3'},
+  {id:34,round:1,team_1_ref:'winner-4',team_2_ref:'winner-5'},{id:35,round:1,team_1_ref:'winner-6',team_2_ref:'winner-7'},
+  {id:36,round:1,team_1_ref:'winner-8',team_2_ref:'winner-9'},{id:37,round:1,team_1_ref:'winner-10',team_2_ref:'winner-11'},
+  {id:38,round:1,team_1_ref:'winner-12',team_2_ref:'winner-13'},{id:39,round:1,team_1_ref:'winner-14',team_2_ref:'winner-15'},
+  {id:40,round:1,team_1_ref:'winner-16',team_2_ref:'winner-17'},{id:41,round:1,team_1_ref:'winner-18',team_2_ref:'winner-19'},
+  {id:42,round:1,team_1_ref:'winner-20',team_2_ref:'winner-21'},{id:43,round:1,team_1_ref:'winner-22',team_2_ref:'winner-23'},
+  {id:44,round:1,team_1_ref:'winner-24',team_2_ref:'winner-25'},{id:45,round:1,team_1_ref:'winner-26',team_2_ref:'winner-27'},
+  {id:46,round:1,team_1_ref:'winner-28',team_2_ref:'winner-29'},{id:47,round:1,team_1_ref:'winner-30',team_2_ref:'winner-31'},
+  {id:48,round:2,team_1_ref:'winner-32',team_2_ref:'winner-33'},{id:49,round:2,team_1_ref:'winner-34',team_2_ref:'winner-35'},
+  {id:50,round:2,team_1_ref:'winner-36',team_2_ref:'winner-37'},{id:51,round:2,team_1_ref:'winner-38',team_2_ref:'winner-39'},
+  {id:52,round:2,team_1_ref:'winner-40',team_2_ref:'winner-41'},{id:53,round:2,team_1_ref:'winner-42',team_2_ref:'winner-43'},
+  {id:54,round:2,team_1_ref:'winner-44',team_2_ref:'winner-45'},{id:55,round:2,team_1_ref:'winner-46',team_2_ref:'winner-47'},
+  {id:56,round:3,team_1_ref:'winner-48',team_2_ref:'winner-49'},{id:57,round:3,team_1_ref:'winner-50',team_2_ref:'winner-51'},
+  {id:58,round:3,team_1_ref:'winner-52',team_2_ref:'winner-53'},{id:59,round:3,team_1_ref:'winner-54',team_2_ref:'winner-55'},
+  {id:60,round:4,team_1_ref:'winner-56',team_2_ref:'winner-57'},{id:61,round:4,team_1_ref:'winner-58',team_2_ref:'winner-59'},
+  {id:62,round:5,team_1_ref:'winner-60',team_2_ref:'winner-61'}
+];
+
+const TORVIK = {
+  'Duke':{adj_oe:128.15,adj_de:90.82,adj_em:37.33},'Michigan':{adj_oe:127.63,adj_de:91.05,adj_em:36.58},
+  'Arizona':{adj_oe:126.93,adj_de:91.40,adj_em:35.53},'Florida':{adj_oe:126.11,adj_de:92.27,adj_em:33.84},
+  'Houston':{adj_oe:125.38,adj_de:92.40,adj_em:32.98},'Illinois':{adj_oe:131.95,adj_de:98.21,adj_em:33.74},
+  'Iowa St.':{adj_oe:123.78,adj_de:92.64,adj_em:31.14},'Purdue':{adj_oe:133.29,adj_de:100.25,adj_em:33.04},
+  'Connecticut':{adj_oe:123.09,adj_de:94.97,adj_em:28.12},'Vanderbilt':{adj_oe:127.45,adj_de:99.33,adj_em:28.12},
+  'Gonzaga':{adj_oe:120.28,adj_de:94.02,adj_em:26.26},'Texas Tech':{adj_oe:126.29,adj_de:98.79,adj_em:27.50},
+  'Michigan St.':{adj_oe:122.89,adj_de:96.16,adj_em:26.73},'Virginia':{adj_oe:122.25,adj_de:95.83,adj_em:26.42},
+  "St. John's":{adj_oe:119.84,adj_de:94.12,adj_em:25.72},'Tennessee':{adj_oe:121.51,adj_de:95.54,adj_em:25.97},
+  'Louisville':{adj_oe:124.03,adj_de:98.17,adj_em:25.86},'Alabama':{adj_oe:129.50,adj_de:102.79,adj_em:26.71},
+  'Arkansas':{adj_oe:127.94,adj_de:101.67,adj_em:26.27},'Nebraska':{adj_oe:117.25,adj_de:93.48,adj_em:23.77},
+  'Wisconsin':{adj_oe:127.18,adj_de:101.64,adj_em:25.54},'Kansas':{adj_oe:117.87,adj_de:94.38,adj_em:23.49},
+  'Ohio St.':{adj_oe:125.22,adj_de:101.61,adj_em:23.61},'UCLA':{adj_oe:124.52,adj_de:101.76,adj_em:22.76},
+  "Saint Mary's":{adj_oe:119.39,adj_de:97.59,adj_em:21.80},'Iowa':{adj_oe:122.13,adj_de:100.19,adj_em:21.94},
+  'North Carolina':{adj_oe:121.47,adj_de:100.05,adj_em:21.42},'Santa Clara':{adj_oe:125.00,adj_de:103.71,adj_em:21.29},
+  'Utah St.':{adj_oe:123.03,adj_de:102.09,adj_em:20.94},'Clemson':{adj_oe:116.54,adj_de:96.95,adj_em:19.59},
+  'Kentucky':{adj_oe:119.91,adj_de:99.99,adj_em:19.92},'BYU':{adj_oe:124.75,adj_de:104.33,adj_em:20.42},
+  'Miami FL':{adj_oe:121.08,adj_de:101.47,adj_em:19.61},'Georgia':{adj_oe:124.32,adj_de:104.76,adj_em:19.56},
+  'N.C. State':{adj_oe:124.08,adj_de:104.63,adj_em:19.45},'Texas A&M':{adj_oe:119.89,adj_de:101.39,adj_em:18.50},
+  'SMU':{adj_oe:123.05,adj_de:104.97,adj_em:18.08},'Saint Louis':{adj_oe:119.57,adj_de:102.23,adj_em:17.34},
+  'TCU':{adj_oe:114.85,adj_de:99.65,adj_em:15.20},'South Florida':{adj_oe:116.78,adj_de:101.42,adj_em:15.36},
+  'UCF':{adj_oe:120.00,adj_de:105.67,adj_em:14.33},'Missouri':{adj_oe:119.92,adj_de:103.03,adj_em:16.89},
+  'Hofstra':{adj_oe:113.19,adj_de:104.96,adj_em:8.23},'High Point':{adj_oe:115.68,adj_de:107.52,adj_em:8.16},
+  'Akron':{adj_oe:117.17,adj_de:105.34,adj_em:11.83},'McNeese St.':{adj_oe:113.16,adj_de:102.17,adj_em:10.99},
+  'Cal Baptist':{adj_oe:107.49,adj_de:100.32,adj_em:7.17},'North Dakota St.':{adj_oe:111.46,adj_de:106.05,adj_em:5.41},
+  'Wright St.':{adj_oe:112.41,adj_de:109.03,adj_em:3.38},'Northern Iowa':{adj_oe:109.71,adj_de:98.58,adj_em:11.13},
+  'Hawaii':{adj_oe:106.90,adj_de:101.85,adj_em:5.05},'Troy':{adj_oe:110.72,adj_de:109.04,adj_em:1.68},
+  'Kennesaw St.':{adj_oe:110.80,adj_de:109.50,adj_em:1.30},'Penn':{adj_oe:106.58,adj_de:105.41,adj_em:1.17},
+  'Idaho':{adj_oe:108.83,adj_de:106.19,adj_em:2.64},'Furman':{adj_oe:110.44,adj_de:110.54,adj_em:-0.10},
+  'Queens':{adj_oe:109.95,adj_de:108.96,adj_em:0.99},'Tennessee St.':{adj_oe:108.65,adj_de:108.19,adj_em:0.46},
+  'VCU':{adj_oe:119.29,adj_de:103.09,adj_em:16.20},'Howard':{adj_oe:103.71,adj_de:101.47,adj_em:2.24},
+  'Lehigh':{adj_oe:106.44,adj_de:105.40,adj_em:1.04},'Siena':{adj_oe:113.14,adj_de:112.37,adj_em:0.77},
+  'LIU':{adj_oe:109.95,adj_de:108.96,adj_em:0.99},'Miami OH':{adj_oe:116.69,adj_de:107.59,adj_em:9.10},
+  'Villanova':{adj_oe:0,adj_de:0,adj_em:0}
+};
+
+const SEED_ODDS = {
+  1:[99.3,85.3,69.1,41.2,24.3,15.4],2:[94.1,62.5,45.6,20.6,9.6,3.7],3:[84.6,51.5,25.0,11.8,7.4,2.9],
+  4:[79.4,47.1,15.4,9.6,2.2,0.7],5:[65.4,33.8,5.9,4.4,2.2,0.0],6:[63.2,30.9,10.3,2.2,1.5,0.7],
+  7:[61.8,19.9,7.4,2.2,0.7,0.7],8:[50.0,9.6,5.9,3.7,2.2,0.7],9:[50.0,5.1,2.9,0.7,0.0,0.0],
+  10:[38.2,16.9,5.9,0.7,0.0,0.0],11:[36.8,16.2,5.9,2.9,0.0,0.0],12:[34.6,14.7,0.7,0.0,0.0,0.0],
+  13:[20.6,4.4,0.0,0.0,0.0,0.0],14:[15.4,1.5,0.0,0.0,0.0,0.0],15:[5.9,0.7,0.0,0.0,0.0,0.0],
+  16:[0.7,0.0,0.0,0.0,0.0,0.0]
+};
+
+const SCORING = {0:10,1:20,2:40,3:80,4:160,5:320};
+
+const TORVIK_NAME_MAP = {
+  'UConn':'Connecticut','UNC':'North Carolina','NC State':'N.C. State','McNeese':'McNeese St.',
+  'Iowa State':'Iowa St.','Utah State':'Utah St.','North Dakota State':'North Dakota St.',
+  'Wright State':'Wright St.','Kennesaw State':'Kennesaw St.','Tennessee State':'Tennessee St.',
+  'Cal Baptist':'Cal Baptist','Northern Iowa':'Northern Iowa',"Saint Mary's":"Saint Mary's",
+  'Saint Louis':'Saint Louis','South Florida':'South Florida','Texas A&M':'Texas A&M',
+  'High Point':'High Point','Miami OH':'Miami OH',"St. John's":"St. John's",
+  'Michigan State':'Michigan St.'
+};
+
+const SEED_POPULARITY = {
+  1:0.30,2:0.15,3:0.08,4:0.05,5:0.04,6:0.03,7:0.02,8:0.02,
+  9:0.01,10:0.01,11:0.01,12:0.005,13:0.002,14:0.001,15:0.001,16:0.0005
+};
+
+const ROUND_NAMES = {0:'Round of 64',1:'Round of 32',2:'Sweet 16',3:'Elite Eight',4:'Final Four',5:'Championship'};
+
+const ESPN_IDS = {
+  'Duke':150,'Michigan':130,'Arizona':12,'Florida':57,'Houston':248,'UConn':41,
+  'Michigan State':127,'Illinois':356,'Iowa State':66,'Purdue':2509,'Kansas':2305,
+  'Arkansas':8,'Gonzaga':2250,'Virginia':258,'Alabama':333,'Nebraska':158,
+  "St. John's":2599,'Wisconsin':275,'Texas Tech':2641,'Vanderbilt':238,
+  'Louisville':97,'BYU':252,'Tennessee':2633,'UNC':153,'UCLA':26,'Kentucky':96,
+  'Miami FL':2390,"Saint Mary's":2608,'Iowa':2294,'Ohio State':194,'Clemson':228,
+  'Georgia':61,'TCU':2628,'Utah State':328,'Villanova':222,'UCF':2116,'Missouri':142,
+  'Santa Clara':2541,'Texas A&M':245,'SMU':2567,'VCU':2670,'NC State':152,
+  'Saint Louis':139,'McNeese':2377,'Akron':2006,'High Point':2272,'Northern Iowa':2460,
+  'Troy':2653,'Hofstra':2275,'Penn':219,'Cal Baptist':16,'Hawaii':62,
+  'North Dakota State':2449,'Kennesaw State':2320,'Wright State':2750,'Idaho':70,
+  'Furman':231,'Queens':0,'Tennessee State':2634,'South Florida':58,'Howard':47,
+  'Lehigh':2329,'Siena':2561,'LIU':2344,'Miami OH':193
+};
+
+// ============================================================
+// Web Worker (inline) — all computation runs off the main thread
+// ============================================================
+const workerCode = `
+'use strict';
+
+const TEAMS = ${JSON.stringify(TEAMS)};
+const MATCHUPS = ${JSON.stringify(MATCHUPS)};
+const TORVIK = ${JSON.stringify(TORVIK)};
+const SEED_ODDS = ${JSON.stringify(SEED_ODDS)};
+const SCORING = ${JSON.stringify(SCORING)};
+const TORVIK_NAME_MAP = ${JSON.stringify(TORVIK_NAME_MAP)};
+const SEED_POPULARITY = ${JSON.stringify(SEED_POPULARITY)};
+const ROUND_NAMES = ${JSON.stringify(ROUND_NAMES)};
+
+function getTorvikEm(teamName) {
+  var lookup = TORVIK_NAME_MAP[teamName] || teamName;
+  if (TORVIK[lookup]) return TORVIK[lookup].adj_em;
+  var lc = teamName.toLowerCase();
+  for (var key in TORVIK) {
+    if (lc.indexOf(key.toLowerCase()) !== -1 || key.toLowerCase().indexOf(lc) !== -1) {
+      return TORVIK[key].adj_em;
+    }
+  }
+  return 0.0;
+}
+
+function getTorvikDe(teamName) {
+  var lookup = TORVIK_NAME_MAP[teamName] || teamName;
+  if (TORVIK[lookup]) return TORVIK[lookup].adj_de;
+  var lc = teamName.toLowerCase();
+  for (var key in TORVIK) {
+    if (lc.indexOf(key.toLowerCase()) !== -1 || key.toLowerCase().indexOf(lc) !== -1) {
+      return TORVIK[key].adj_de;
+    }
+  }
+  return 105.0;
+}
+
+function winProbability(emA, emB, damping) {
+  var diff = (emA - emB) * (1.0 - (damping || 0));
+  return 1.0 / (1.0 + Math.pow(10, -diff / 11.0));
+}
+
+function seedPopularity(seed) {
+  return SEED_POPULARITY[seed] || 0.01;
+}
+
+function getTorvikOe(teamName) {
+  var lookup = TORVIK_NAME_MAP[teamName] || teamName;
+  if (TORVIK[lookup]) return TORVIK[lookup].adj_oe;
+  var lc = teamName.toLowerCase();
+  for (var key in TORVIK) {
+    if (lc.indexOf(key.toLowerCase()) !== -1 || key.toLowerCase().indexOf(lc) !== -1) {
+      return TORVIK[key].adj_oe;
+    }
+  }
+  return 110.0;
+}
+
+function computeWinProbs(modelBlend, defenseFloor, upsetBoost, varianceDamping) {
+  var slotProbs = {};
+  for (var tid in TEAMS) {
+    slotProbs['team-' + tid] = {};
+    slotProbs['team-' + tid][tid] = 1.0;
+  }
+
+  var teamEms = {};
+  var teamDefs = {};
+  for (var tid in TEAMS) {
+    teamEms[tid] = getTorvikEm(TEAMS[tid].name);
+    teamDefs[tid] = getTorvikDe(TEAMS[tid].name);
+  }
+
+  var upsetHistory = {};
+  var pairs = [[5,12,0.356],[6,11,0.368],[7,10,0.382],[8,9,0.500],[3,14,0.154],[4,13,0.206]];
+  for (var i = 0; i < pairs.length; i++) {
+    var p = pairs[i];
+    upsetHistory[p[0]+','+p[1]] = p[2];
+    upsetHistory[p[1]+','+p[0]] = p[2];
+  }
+
+  var DEFENSE_THRESHOLD = 98.0;
+  var winnerProbs = {};
+
+  for (var mi = 0; mi < MATCHUPS.length; mi++) {
+    var matchup = MATCHUPS[mi];
+    var mId = matchup.id;
+    var mRound = matchup.round;
+    var ref1 = matchup.team_1_ref;
+    var ref2 = matchup.team_2_ref;
+
+    var probs1, probs2;
+    if (ref1.indexOf('team-') === 0) {
+      probs1 = slotProbs[ref1];
+    } else {
+      probs1 = winnerProbs[parseInt(ref1.split('-')[1])];
+    }
+    if (ref2.indexOf('team-') === 0) {
+      probs2 = slotProbs[ref2];
+    } else {
+      probs2 = winnerProbs[parseInt(ref2.split('-')[1])];
+    }
+
+    var wpHere = {};
+    for (var t1 in probs1) {
+      for (var t2 in probs2) {
+        var pairProb = probs1[t1] * probs2[t2];
+        var pTorvik = winProbability(teamEms[t1], teamEms[t2], varianceDamping);
+        var pT1Wins = pTorvik;
+
+        if (modelBlend > 0) {
+          var s1Odds = SEED_ODDS[TEAMS[t1].seed] || [50,50,50,50,50,50];
+          var s2Odds = SEED_ODDS[TEAMS[t2].seed] || [50,50,50,50,50,50];
+          var r = Math.min(mRound, 5);
+          var total = s1Odds[r] + s2Odds[r];
+          var pSeed = total > 0 ? s1Odds[r] / total : 0.5;
+          pT1Wins = pTorvik * (1.0 - modelBlend) + pSeed * modelBlend;
+        }
+
+        if (upsetBoost > 0) {
+          // R1: use specific historical seed-pair upset rates
+          if (mRound === 0) {
+            var seedPair = TEAMS[t1].seed + ',' + TEAMS[t2].seed;
+            if (upsetHistory[seedPair] !== undefined) {
+              var histRate = upsetHistory[seedPair];
+              if (TEAMS[t1].seed > TEAMS[t2].seed) {
+                pT1Wins = pT1Wins + upsetBoost * (histRate - pT1Wins);
+              } else {
+                pT1Wins = pT1Wins + upsetBoost * ((1.0 - histRate) - pT1Wins);
+              }
+            }
+          } else {
+            // Later rounds: nudge toward parity based on seed gap
+            // Historical data: later rounds have more parity than models predict
+            // Round factors: R32 0.5, S16 0.6, E8 0.65, F4 0.7, Championship 0.75
+            var roundParity = [0, 0.5, 0.6, 0.65, 0.7, 0.75];
+            var seedDiff = Math.abs(TEAMS[t1].seed - TEAMS[t2].seed);
+            if (seedDiff > 0) {
+              // Target: shift underdog win prob toward historical rates
+              // Bigger seed gaps get stronger correction (those are the most over-confident)
+              var gapFactor = Math.min(seedDiff / 15.0, 1.0);
+              var parityTarget = 0.5 - gapFactor * 0.15; // underdog target: 35-50%
+              var correction = upsetBoost * (roundParity[mRound] || 0.5);
+              if (TEAMS[t1].seed > TEAMS[t2].seed) {
+                // t1 is underdog
+                if (pT1Wins < parityTarget) {
+                  pT1Wins = pT1Wins + correction * (parityTarget - pT1Wins);
+                }
+              } else {
+                // t2 is underdog
+                var t2Target = 1.0 - parityTarget;
+                if (pT1Wins > t2Target) {
+                  pT1Wins = pT1Wins - correction * (pT1Wins - t2Target);
+                }
+              }
+            }
+          }
+        }
+
+        if (defenseFloor && mRound >= 2) {
+          var penaltyScale = (mRound - 1) / 4.0;
+          var d1Pen = Math.max(0, teamDefs[t1] - DEFENSE_THRESHOLD) * 0.02 * penaltyScale;
+          var d2Pen = Math.max(0, teamDefs[t2] - DEFENSE_THRESHOLD) * 0.02 * penaltyScale;
+          var denom = pT1Wins * (1.0 - d1Pen) + (1.0 - pT1Wins) * (1.0 - d2Pen);
+          pT1Wins = pT1Wins * (1.0 - d1Pen) / Math.max(denom, 0.001);
+        }
+
+        pT1Wins = Math.max(0.001, Math.min(0.999, pT1Wins));
+
+        wpHere[t1] = (wpHere[t1] || 0) + pairProb * pT1Wins;
+        wpHere[t2] = (wpHere[t2] || 0) + pairProb * (1.0 - pT1Wins);
+      }
+    }
+    winnerProbs[mId] = wpHere;
+  }
+  return winnerProbs;
+}
+
+function computeOptimalBracket(cw, homerTeams, poolSize, modelBlend, defenseFloor, upsetBoost, varianceDamping, favTeams, forcedChampion) {
+  var winnerProbs = computeWinProbs(modelBlend, defenseFloor, upsetBoost, varianceDamping);
+  var picks = {};
+  var expectedPoints = {};
+  var poolFactor = Math.log(Math.max(poolSize, 2)) / Math.log(10);
+  var hasFavs = favTeams && favTeams.length > 0;
+
+  // Build forced path if forcedChampion is set
+  var forcedMatchups = {};
+  if (forcedChampion != null && forcedChampion >= 0) {
+    var m = Math.floor(forcedChampion / 2); // R64 matchup
+    forcedMatchups[m] = forcedChampion;
+    m = 32 + Math.floor(m / 2); // R32
+    forcedMatchups[m] = forcedChampion;
+    m = 48 + Math.floor((m - 32) / 2); // S16
+    forcedMatchups[m] = forcedChampion;
+    m = 56 + Math.floor((m - 48) / 2); // E8
+    forcedMatchups[m] = forcedChampion;
+    m = 60 + Math.floor((m - 56) / 2); // F4
+    forcedMatchups[m] = forcedChampion;
+    forcedMatchups[62] = forcedChampion; // Championship
+  }
+
+  for (var mi = 0; mi < MATCHUPS.length; mi++) {
+    var matchup = MATCHUPS[mi];
+    var mId = matchup.id;
+    var mRound = matchup.round;
+    var points = SCORING[mRound];
+
+    var ep = {};
+    for (var tid in winnerProbs[mId]) {
+      ep[tid] = winnerProbs[mId][tid] * points;
+    }
+    expectedPoints[mId] = ep;
+
+    // If this matchup is on the forced champion's path, pick the forced team
+    if (forcedMatchups[mId] != null) {
+      picks[mId] = forcedMatchups[mId];
+      continue;
+    }
+
+    var bestTeam = null;
+    var bestScore = -Infinity;
+
+    if (cw > 0) {
+      var roundBoost = 1.0 + (mRound / 5.0) * 0.5;
+      for (var tid in ep) {
+        var pop = seedPopularity(TEAMS[tid].seed);
+        var isHomer = homerTeams && homerTeams.indexOf(parseInt(tid)) !== -1;
+        var isFav = hasFavs && favTeams.indexOf(parseInt(tid)) !== -1;
+        if (isHomer) {
+          var homerRoundPenalty = 1.0 + mRound * 0.5;
+          pop = Math.min(pop * 3.0 * homerRoundPenalty, 0.85);
+        }
+        var leverage = ep[tid] / Math.max(pop, 0.001);
+        var score = ep[tid] + cw * poolFactor * roundBoost * leverage;
+        if (isHomer && mRound >= 3) {
+          score -= cw * poolFactor * ep[tid] * (mRound - 2) * 0.4;
+        }
+        // Favorite team boost: nudge picks toward user's favorites
+        // Moderate boost that scales with round (bigger payoff for advancing favs deep)
+        if (isFav) {
+          var favRoundBoost = 1.0 + mRound * 0.3;
+          score += ep[tid] * 0.15 * favRoundBoost;
+        }
+        if (score > bestScore) { bestScore = score; bestTeam = parseInt(tid); }
+      }
+    } else {
+      for (var tid in ep) {
+        var isFav2 = hasFavs && favTeams.indexOf(parseInt(tid)) !== -1;
+        var s = ep[tid];
+        // Even in pure-EV mode, give a slight nudge to favorites
+        if (isFav2) s += ep[tid] * 0.08 * (1.0 + mRound * 0.2);
+        if (s > bestScore) { bestScore = s; bestTeam = parseInt(tid); }
+      }
+    }
+    picks[mId] = bestTeam;
+  }
+  return {picks: picks, expectedPoints: expectedPoints, winnerProbs: winnerProbs};
+}
+
+function summarizeBracket(picks, expectedPoints, winnerProbs, chalkPicks) {
+  var totalEv = 0, earlyEv = 0, lateEv = 0, divergence = 0, weightedDiv = 0;
+  var roundWeights = {0:1,1:2,2:4,3:8,4:16,5:32};
+
+  for (var mi = 0; mi < MATCHUPS.length; mi++) {
+    var m = MATCHUPS[mi];
+    var ep = expectedPoints[m.id][picks[m.id]];
+    totalEv += ep;
+    if (m.round <= 2) earlyEv += ep;
+    if (m.round >= 3) lateEv += ep;
+    if (chalkPicks && picks[m.id] !== chalkPicks[m.id]) {
+      divergence++;
+      weightedDiv += roundWeights[m.round] || 1;
+    }
+  }
+
+  var diffScore = 0;
+  for (var mi = 0; mi < MATCHUPS.length; mi++) {
+    var m = MATCHUPS[mi];
+    diffScore += TEAMS[picks[m.id]].seed * (1 + m.round);
+  }
+  diffScore /= MATCHUPS.length;
+
+  var champId = picks[MATCHUPS[MATCHUPS.length - 1].id];
+  var champ = TEAMS[champId];
+  var champProb = winnerProbs[MATCHUPS[MATCHUPS.length - 1].id][champId] || 0;
+
+  var finalFour = [];
+  var eliteEight = [];
+  for (var mi = 0; mi < MATCHUPS.length; mi++) {
+    var m = MATCHUPS[mi];
+    if (m.round === 4) {
+      var t = TEAMS[picks[m.id]];
+      finalFour.push({name:t.name,seed:t.seed,prob:Math.round((winnerProbs[m.id][picks[m.id]]||0)*1000)/10});
+    }
+    if (m.round === 3) {
+      var t = TEAMS[picks[m.id]];
+      eliteEight.push({name:t.name,seed:t.seed,prob:Math.round((winnerProbs[m.id][picks[m.id]]||0)*1000)/10});
+    }
+  }
+
+  var fullBracket = {};
+  var upsetCount = 0;
+  for (var mi = 0; mi < MATCHUPS.length; mi++) {
+    var m = MATCHUPS[mi];
+    var rname = ROUND_NAMES[m.round] || ('Round ' + m.round);
+    if (!fullBracket[rname]) fullBracket[rname] = [];
+
+    var picked = picks[m.id];
+    var t = TEAMS[picked];
+    var prob = winnerProbs[m.id][picked] || 0;
+    var ep = expectedPoints[m.id][picked];
+
+    var ref1 = m.team_1_ref, ref2 = m.team_2_ref;
+    var t1Id, t2Id;
+    if (ref1.indexOf('team-') === 0) t1Id = parseInt(ref1.split('-')[1]);
+    else t1Id = picks[parseInt(ref1.split('-')[1])];
+    if (ref2.indexOf('team-') === 0) t2Id = parseInt(ref2.split('-')[1]);
+    else t2Id = picks[parseInt(ref2.split('-')[1])];
+
+    var opId = (picked === t1Id) ? t2Id : t1Id;
+    var opponent = TEAMS[opId];
+    var isUpset = t.seed > opponent.seed;
+    if (isUpset) upsetCount++;
+
+    fullBracket[rname].push({
+      pick:'('+t.seed+') '+t.name,
+      opponent:'('+opponent.seed+') '+opponent.name,
+      prob:Math.round(prob*1000)/10,
+      ev:Math.round(ep*10)/10,
+      upset:isUpset
+    });
+  }
+
+  return {
+    total_ev:Math.round(totalEv*10)/10,
+    early_ev:Math.round(earlyEv*10)/10,
+    late_ev:Math.round(lateEv*10)/10,
+    diff_score:Math.round(diffScore*100)/100,
+    divergence:divergence,
+    weighted_div:weightedDiv,
+    champion:{name:champ.name,seed:champ.seed,prob:Math.round(champProb*1000)/10},
+    final_four:finalFour,
+    elite_eight:eliteEight,
+    full_bracket:fullBracket,
+    upset_count:upsetCount
+  };
+}
+
+// Compute championship profile: rank teams by adj_oe and adj_de
+function buildChampionshipProfile() {
+  var teamIds = Object.keys(TEAMS).map(Number);
+  var oeRanks = {};
+  var deRanks = {};
+  var emRanks = {};
+  // Sort by adj_oe descending (higher = better offense)
+  var byOe = teamIds.slice().sort(function(a,b){ return getTorvikOe(TEAMS[b].name) - getTorvikOe(TEAMS[a].name); });
+  for (var i = 0; i < byOe.length; i++) oeRanks[byOe[i]] = i + 1;
+  // Sort by adj_de ascending (lower = better defense)
+  var byDe = teamIds.slice().sort(function(a,b){ return getTorvikDe(TEAMS[a].name) - getTorvikDe(TEAMS[b].name); });
+  for (var i = 0; i < byDe.length; i++) deRanks[byDe[i]] = i + 1;
+  // Sort by adj_em descending (higher = better overall)
+  var byEm = teamIds.slice().sort(function(a,b){ return getTorvikEm(TEAMS[b].name) - getTorvikEm(TEAMS[a].name); });
+  for (var i = 0; i < byEm.length; i++) emRanks[byEm[i]] = i + 1;
+  return {oeRanks: oeRanks, deRanks: deRanks, emRanks: emRanks};
+}
+
+// Score how well a bracket's seed distribution matches historical norms
+function historicScore(bracket) {
+  var penalty = 0;
+  var fb = bracket.full_bracket;
+  // Historical average seeds advancing to each round (across 4 regions)
+  // Sweet 16 (16 teams): ~3.5 1-seeds, ~2.7 2-seeds, ~2.0 3-seeds, ~1.5 4-seeds, ~6 seeds 5+
+  // Elite 8 (8 teams): ~2.8 1-seeds, ~1.5 2-seeds, ~1.0 3-seeds, ~2.7 other
+  // Final Four (4): ~1.5 1-seeds, ~0.7 2-seeds, ~0.6 3-seeds, ~1.2 other (avg seed ~3.2)
+  // Champion: 1-seed 38%, 2-seed 19%, 3-seed 11%, 4+ seed 32%
+  var roundTargets = {
+    'Sweet 16': {avgSeedSum: 44, maxOneSeed: 4, targetOneSeed: 3.5, targetUpsets: 2.5},
+    'Elite Eight': {avgSeedSum: 24, maxOneSeed: 4, targetOneSeed: 2.8, targetUpsets: 1.5},
+    'Final Four': {avgSeedSum: 13, maxOneSeed: 2, targetOneSeed: 1.5, targetUpsets: 0.7},
+    'Championship': {avgSeedSum: 5, maxOneSeed: 1, targetOneSeed: 0.7, targetUpsets: 0.4}
+  };
+
+  for (var rname in roundTargets) {
+    var games = fb[rname];
+    if (!games) continue;
+    var targets = roundTargets[rname];
+    // Extract seeds of winners in this round
+    var seeds = games.map(function(g) {
+      return parseInt(g.pick.match(/\\((\\d+)\\)/)[1]);
+    });
+    var seedSum = seeds.reduce(function(a,b){return a+b},0);
+    var oneSeeds = seeds.filter(function(s){return s===1}).length;
+    var upsets = games.filter(function(g){return g.upset}).length;
+
+    // Penalize deviation from historical averages
+    penalty += Math.abs(seedSum - targets.avgSeedSum) * 0.5;
+    penalty += Math.abs(oneSeeds - targets.targetOneSeed) * 3;
+    penalty += Math.abs(upsets - targets.targetUpsets) * 2;
+  }
+
+  // Champion seed: penalize all-1-seed champions less than you'd think (38% historical)
+  // but do penalize if champion seed is always 1
+  var champSeed = bracket.champion.seed;
+  if (champSeed === 1) penalty += 1; // slight penalty — only 38% of champs are 1-seeds
+  if (champSeed >= 5) penalty += 2; // rare but possible
+
+  return penalty;
+}
+
+// Score championship profile fitness for a bracket
+// The "analytics darling" bracket: rewards teams whose efficiency metrics
+// are much better than their seed implies. A 2-seed with #1 offense is
+// more interesting here than a 1-seed with #1 offense, because the 1-seed
+// is already chalk. This surfaces the "value" picks that advanced metrics
+// identify but casual bettors miss.
+function profileScore(bracket, profile, unused) {
+  var score = 0;
+
+  // Find champion's team id and compute their "value gap"
+  // Value gap = how much better their metrics are than their seed suggests
+  var champId = null;
+  for (var tid in TEAMS) {
+    if (TEAMS[tid].name === bracket.champion.name) { champId = parseInt(tid); break; }
+  }
+  if (champId === null) return -100;
+
+  var oeR = profile.oeRanks[champId] || 64;
+  var deR = profile.deRanks[champId] || 64;
+  var emR = profile.emRanks ? (profile.emRanks[champId] || 64) : oeR;
+  var champSeed = bracket.champion.seed;
+
+  // Must have at least decent metrics (top half of field in both)
+  if (oeR > 32 || deR > 48) return -10;
+
+  // Core score: efficiency rank vs seed rank gap
+  // A team seeded 7th but ranked 3rd in efficiency = value gap of 4
+  // Seed rank: 1-seeds are "rank 1-4", 2-seeds "5-8", etc.
+  var expectedRank = (champSeed - 1) * 4 + 2; // midpoint of seed band
+  var actualRank = Math.min(oeR, emR); // best of offense or overall
+  var valueGap = expectedRank - actualRank;
+  score += valueGap * 3; // big reward for underseeded efficiency
+
+  // Reward non-1-seeds strongly (1-seeds have no value gap by definition)
+  if (champSeed >= 2) score += 5;
+  if (champSeed >= 3) score += 8;
+  if (champSeed >= 4) score += 5;
+
+  // Reward balanced efficiency (both offense AND defense in top 20)
+  if (oeR <= 20 && deR <= 20) score += 6;
+  else if (oeR <= 10) score += 3; // elite offense alone still counts
+
+  // Final Four: reward value picks (non-chalk teams with strong metrics)
+  bracket.final_four.forEach(function(t) {
+    var fid = null;
+    for (var tid in TEAMS) {
+      if (TEAMS[tid].name === t.name) { fid = parseInt(tid); break; }
+    }
+    if (fid !== null) {
+      var fSeed = TEAMS[fid].seed;
+      var fOe = profile.oeRanks[fid] || 64;
+      var fExpected = (fSeed - 1) * 4 + 2;
+      var fGap = fExpected - fOe;
+      if (fGap > 2 && fSeed >= 2) score += fGap; // F4 value picks
+    }
+  });
+
+  // Tiebreak on EV
+  score += bracket.total_ev * 0.001;
+  return score;
+}
+
+// Score how deep a specific team goes in this bracket
+function homerScore(bracket, teamName) {
+  var score = 0;
+  // Champion = 100 pts
+  if (bracket.champion.name === teamName) score += 100;
+  // Final Four = 50 pts
+  for (var i = 0; i < bracket.final_four.length; i++) {
+    if (bracket.final_four[i].name === teamName) score += 50;
+  }
+  // Elite Eight = 25 pts
+  for (var i = 0; i < bracket.elite_eight.length; i++) {
+    if (bracket.elite_eight[i].name === teamName) score += 25;
+  }
+  // Sweet 16 = 10 pts (check full bracket)
+  var s16 = bracket.full_bracket['Sweet 16'] || [];
+  for (var i = 0; i < s16.length; i++) {
+    if (s16[i].pick.indexOf(teamName) !== -1) score += 10;
+  }
+  // Tiebreak: EV
+  score += bracket.total_ev * 0.001;
+  return score;
+}
+
+self.onmessage = function(e) {
+  var data = e.data;
+  var poolSize = data.pool_size || 25;
+  var homerTeams = data.homer_teams || [];
+  var favTeam = data.fav_team != null ? data.fav_team : -1;
+  var favTeams = data.fav_teams || (favTeam >= 0 ? [favTeam] : []);
+  var uniqueWinners = !!data.unique_winners;
+
+  // Chalk bracket (pure EV, no damping)
+  var chalk = computeOptimalBracket(0, homerTeams, poolSize, 0, false, 0, 0, favTeams);
+  var chalkPicks = chalk.picks;
+
+  // Expanded parameter grid with wider variance damping
+  var contrarian = [0.0, 0.05, 0.12, 0.25, 0.5, 0.8, 1.2];
+  var blends = [0.0, 0.3, 0.6, 0.9];
+  var defenses = [false, true];
+  var upsets = [0.0, 0.4, 0.8];
+  var dampings = [0.0, 0.2, 0.4, 0.6];
+
+  var brackets = [];
+  var seenKeys = {};
+  var idx = 0;
+
+  for (var ci = 0; ci < contrarian.length; ci++) {
+    for (var bi = 0; bi < blends.length; bi++) {
+      for (var di = 0; di < defenses.length; di++) {
+        for (var ui = 0; ui < upsets.length; ui++) {
+          for (var vi = 0; vi < dampings.length; vi++) {
+            var cw = contrarian[ci], blend = blends[bi], defense = defenses[di], upset = upsets[ui], damp = dampings[vi];
+            var result = computeOptimalBracket(cw, homerTeams, poolSize, blend, defense, upset, damp, favTeams);
+            var summary = summarizeBracket(result.picks, result.expectedPoints, result.winnerProbs, chalkPicks);
+
+            var dedupKey = summary.total_ev + '|' + summary.divergence + '|' + summary.late_ev;
+            if (seenKeys[dedupKey]) continue;
+            seenKeys[dedupKey] = true;
+
+            summary.id = idx;
+            summary.contrarian_weight = Math.round(cw * 1000) / 1000;
+            summary.model_blend = Math.round(blend * 100) / 100;
+            summary.defense_floor = defense;
+            summary.upset_boost = Math.round(upset * 100) / 100;
+            summary.variance_damping = Math.round(damp * 100) / 100;
+
+            var tags = [];
+            if (cw > 0) tags.push('contrarian');
+            if (blend > 0) tags.push('seed-blend');
+            if (defense) tags.push('def-floor');
+            if (upset > 0) tags.push('upset-boost');
+            if (damp > 0) tags.push('tourney-var');
+            summary.strategy_tags = tags.length ? tags : ['pure-ev'];
+
+            brackets.push(summary);
+            idx++;
+          }
+        }
+      }
+    }
+  }
+
+  // Filter unrealistic
+  brackets = brackets.filter(function(b) { return b.upset_count <= 20; });
+
+  // If unique_winners is on, generate champion-locked brackets for top-12 teams by EM
+  if (uniqueWinners) {
+    var teamsByEm = [];
+    for (var tid in TEAMS) {
+      var tName = TEAMS[tid].name;
+      var tKey = TORVIK_NAME_MAP[tName] || tName;
+      var em = TORVIK[tKey] ? TORVIK[tKey].adj_em : 0;
+      teamsByEm.push({id: parseInt(tid), em: em});
+    }
+    teamsByEm.sort(function(a,b){ return b.em - a.em; });
+    var top12 = teamsByEm.slice(0, 12);
+    var champCombos = [[0.0, 0.0, false, 0.0, 0.0], [0.25, 0.3, false, 0.0, 0.2], [0.5, 0.6, true, 0.4, 0.4]];
+    for (var ti = 0; ti < top12.length; ti++) {
+      for (var ci2 = 0; ci2 < champCombos.length; ci2++) {
+        var cc = champCombos[ci2];
+        var result = computeOptimalBracket(cc[0], homerTeams, poolSize, cc[1], cc[2], cc[3], cc[4], favTeams, top12[ti].id);
+        var summary = summarizeBracket(result.picks, result.expectedPoints, result.winnerProbs, chalkPicks);
+        var dedupKey = summary.total_ev + '|' + summary.divergence + '|' + summary.late_ev;
+        if (seenKeys[dedupKey]) continue;
+        seenKeys[dedupKey] = true;
+        summary.id = idx;
+        summary.contrarian_weight = Math.round(cc[0] * 1000) / 1000;
+        summary.model_blend = Math.round(cc[1] * 100) / 100;
+        summary.defense_floor = cc[2];
+        summary.upset_boost = Math.round(cc[3] * 100) / 100;
+        summary.variance_damping = Math.round(cc[4] * 100) / 100;
+        summary.strategy_tags = ['champion-locked'];
+        if (summary.upset_count <= 20) {
+          brackets.push(summary);
+          idx++;
+        }
+      }
+    }
+  }
+
+  // Build championship profile for the "profile" featured bracket
+  var champProfile = buildChampionshipProfile();
+
+  // Helper: get Final Four names as a sorted key for diversity comparison
+  function f4Key(b) {
+    return b.final_four.map(function(t){return t.name}).sort().join('|');
+  }
+
+  // Tag featured brackets with enforced champion + Final Four diversity
+  if (brackets.length) {
+    var usedChamps = {};  // track champions already featured
+    var usedF4s = {};     // track Final Four combos already featured
+
+    function diversityPenalty(b) {
+      var p = 0;
+      var champPenalty = uniqueWinners ? 99999 : 50;
+      if (usedChamps[b.champion.name]) p += champPenalty; // strong penalty for same champ
+      var key = f4Key(b);
+      if (usedF4s[key]) p += 30; // penalty for identical F4
+      // Partial F4 overlap penalty
+      var maxOverlap = 0;
+      for (var k in usedF4s) {
+        var used = k.split('|');
+        var overlap = b.final_four.filter(function(t){ return used.indexOf(t.name) >= 0; }).length;
+        if (overlap > maxOverlap) maxOverlap = overlap;
+      }
+      if (maxOverlap >= 3) p += 15; // 3+ of 4 same F4 teams
+      return p;
+    }
+
+    function markFeatured(b, tag) {
+      b.featured = tag;
+      usedChamps[b.champion.name] = true;
+      usedF4s[f4Key(b)] = true;
+    }
+
+    // 1. Safest: highest total EV (no diversity constraint — this is the anchor)
+    var safest = brackets.reduce(function(a,b){ return a.total_ev > b.total_ev ? a : b; });
+    markFeatured(safest, 'safest');
+
+    // 2. Riskiest: highest divergence, prefer different champion
+    var riskCands = brackets.filter(function(b){return !b.featured});
+    if (riskCands.length) {
+      var riskiest = riskCands.reduce(function(a,b){
+        var sa = a.divergence - diversityPenalty(a);
+        var sb = b.divergence - diversityPenalty(b);
+        return sa > sb ? a : b;
+      });
+      markFeatured(riskiest, 'riskiest');
+    }
+
+    // 3. Profile: championship efficiency profile, must have different champion
+    var profCands = brackets.filter(function(b){return !b.featured});
+    if (profCands.length) {
+      var profBracket = profCands.reduce(function(a,b){
+        var sa = profileScore(a, champProfile, null) - diversityPenalty(a);
+        var sb = profileScore(b, champProfile, null) - diversityPenalty(b);
+        return sa > sb ? a : b;
+      });
+      if (profileScore(profBracket, champProfile, null) > 0) {
+        markFeatured(profBracket, 'profile');
+      }
+    }
+
+    // 4. Historic: best seed distribution match, prefer different champion/F4
+    var histCands = brackets.filter(function(b){return !b.featured});
+    if (histCands.length) {
+      var historic = histCands.reduce(function(a,b){
+        var sa = -historicScore(a) - diversityPenalty(a);
+        var sb = -historicScore(b) - diversityPenalty(b);
+        return sa > sb ? a : b;
+      });
+      markFeatured(historic, 'historic');
+    }
+
+    // 5. Balanced: best EV among high-divergence, prefer different champion/F4
+    var divs = brackets.map(function(b){return b.divergence}).sort(function(a,b){return a-b});
+    var medDiv = divs[Math.floor(divs.length/2)] || 0;
+    var midCands = brackets.filter(function(b){return b.divergence >= medDiv && !b.featured});
+    if (midCands.length) {
+      var balanced = midCands.reduce(function(a,b){
+        var sa = a.total_ev - diversityPenalty(a);
+        var sb = b.total_ev - diversityPenalty(b);
+        return sa > sb ? a : b;
+      });
+      markFeatured(balanced, 'balanced');
+    }
+
+    // 6. Sleeper: highest late-round EV, prefer different champion/F4
+    var sleeperCands = brackets.filter(function(b){return !b.featured});
+    if (sleeperCands.length) {
+      var sleeper = sleeperCands.reduce(function(a,b){
+        var sa = a.late_ev - diversityPenalty(a);
+        var sb = b.late_ev - diversityPenalty(b);
+        return sa > sb ? a : b;
+      });
+      markFeatured(sleeper, 'sleeper');
+    }
+
+    // Homer: if user selected favorite teams, find the best bracket
+    // where ANY fav team advances the deepest, summing scores across all favs
+    if (favTeams.length > 0) {
+      var favNames = favTeams.filter(function(id){return TEAMS[id]}).map(function(id){return TEAMS[id].name});
+      if (favNames.length > 0) {
+        var homerCands = brackets.filter(function(b){return !b.featured});
+        if (homerCands.length) {
+          var homerBracket = homerCands.reduce(function(a,b){
+            var aScore = 0, bScore = 0;
+            for (var fi = 0; fi < favNames.length; fi++) {
+              aScore += homerScore(a, favNames[fi]);
+              bScore += homerScore(b, favNames[fi]);
+            }
+            return aScore > bScore ? a : b;
+          });
+          var bestHomerScore = 0;
+          for (var fi = 0; fi < favNames.length; fi++) {
+            bestHomerScore += homerScore(homerBracket, favNames[fi]);
+          }
+          if (bestHomerScore > 0) {
+            homerBracket.featured = 'homer';
+            homerBracket.homer_team = favNames.join(', ');
+          }
+        }
+      }
+    }
+  }
+
+  // ============================================================
+  // Monte Carlo Pool Win Simulation
+  // ============================================================
+
+  // Simulate one tournament: flip weighted coins through the bracket tree
+  // Returns {results: {matchupId: winningTeamId}, champion: teamId}
+  function simulateTournament() {
+    var results = {};
+    var slotWinners = {};
+    // Initialize team slots
+    for (var tid in TEAMS) {
+      slotWinners['team-' + tid] = parseInt(tid);
+    }
+    for (var mi = 0; mi < MATCHUPS.length; mi++) {
+      var m = MATCHUPS[mi];
+      var ref1 = m.team_1_ref, ref2 = m.team_2_ref;
+      var t1, t2;
+      if (ref1.indexOf('team-') === 0) t1 = slotWinners[ref1];
+      else t1 = results[parseInt(ref1.split('-')[1])];
+      if (ref2.indexOf('team-') === 0) t2 = slotWinners[ref2];
+      else t2 = results[parseInt(ref2.split('-')[1])];
+      // Flip weighted coin using base Torvik model (moderate damping for realism)
+      var p = winProbability(teamEmsGlobal[t1], teamEmsGlobal[t2], 0.3);
+      var winner = (Math.random() < p) ? t1 : t2;
+      results[m.id] = winner;
+    }
+    return results;
+  }
+
+  // Generate a random "public" bracket (what an average pool member picks)
+  // Uses seed popularity to bias toward chalk, with some randomness
+  function generatePublicBracket(homerTeams) {
+    var picks = {};
+    var slotAdvanced = {};
+    for (var tid in TEAMS) {
+      slotAdvanced['team-' + tid] = parseInt(tid);
+    }
+    for (var mi = 0; mi < MATCHUPS.length; mi++) {
+      var m = MATCHUPS[mi];
+      var ref1 = m.team_1_ref, ref2 = m.team_2_ref;
+      var t1, t2;
+      if (ref1.indexOf('team-') === 0) t1 = slotAdvanced[ref1];
+      else t1 = picks[parseInt(ref1.split('-')[1])];
+      if (ref2.indexOf('team-') === 0) t2 = slotAdvanced[ref2];
+      else t2 = picks[parseInt(ref2.split('-')[1])];
+      // Public pick probability: blend of Torvik (moderate damping) + strong seed bias
+      var pTorvik = winProbability(teamEmsGlobal[t1], teamEmsGlobal[t2], 0.3);
+      // Seed-based bias: lower seeds get picked more
+      var pop1 = seedPopularity(TEAMS[t1].seed);
+      var pop2 = seedPopularity(TEAMS[t2].seed);
+      if (homerTeams.indexOf(t1) >= 0) pop1 *= 2.5;
+      if (homerTeams.indexOf(t2) >= 0) pop2 *= 2.5;
+      var pSeed = pop1 / (pop1 + pop2);
+      // Public blends 40% Torvik + 60% seed bias (casual fans lean chalky)
+      var pPublic = pTorvik * 0.4 + pSeed * 0.6;
+      // Add noise for variety among public brackets
+      pPublic = Math.max(0.05, Math.min(0.95, pPublic + (Math.random() - 0.5) * 0.15));
+      picks[m.id] = (Math.random() < pPublic) ? t1 : t2;
+    }
+    return picks;
+  }
+
+  // Score a bracket's picks against actual tournament results
+  function scorePicks(picks, results) {
+    var score = 0;
+    for (var mi = 0; mi < MATCHUPS.length; mi++) {
+      var m = MATCHUPS[mi];
+      if (picks[m.id] === results[m.id]) {
+        score += SCORING[m.round];
+      }
+    }
+    return score;
+  }
+
+  // Build global team EMs lookup (needed for simulation)
+  var teamEmsGlobal = {};
+  for (var tid in TEAMS) {
+    teamEmsGlobal[tid] = getTorvikEm(TEAMS[tid].name);
+  }
+
+  // Run Monte Carlo simulation
+  var NUM_SIMS = 5000;
+  var bracketPicks = []; // store picks for each bracket
+
+  // We need the actual picks for each bracket to score against simulated results
+  // Re-generate picks for featured brackets (and a sample of others)
+  // Actually, we need to store picks during the grid sweep. Let's re-run for featured only.
+
+  // Collect picks for all brackets that we want to score
+  // For efficiency, only score brackets that made it past filtering
+  var bracketsToScore = brackets;
+  var picksByBracketId = {};
+
+  // Re-compute picks for each bracket (fast — the grid sweep already did this,
+  // we just didn't store the raw picks in the summary)
+  for (var bi = 0; bi < bracketsToScore.length; bi++) {
+    var b = bracketsToScore[bi];
+    var result = computeOptimalBracket(
+      b.contrarian_weight, homerTeams, poolSize,
+      b.model_blend, b.defense_floor, b.upset_boost, b.variance_damping, favTeams
+    );
+    picksByBracketId[b.id] = result.picks;
+  }
+
+  // Pre-generate public brackets for the pool
+  var publicBrackets = [];
+  var numOpponents = Math.max(poolSize - 1, 1);
+  // Use a fixed set of public brackets across sims for consistency
+  for (var pi = 0; pi < numOpponents; pi++) {
+    publicBrackets.push(generatePublicBracket(homerTeams));
+  }
+
+  // Run simulations
+  var winCounts = {};
+  for (var bi = 0; bi < bracketsToScore.length; bi++) {
+    winCounts[bracketsToScore[bi].id] = 0;
+  }
+
+  for (var sim = 0; sim < NUM_SIMS; sim++) {
+    var tourneyResults = simulateTournament();
+
+    // Score all public brackets
+    var bestPublicScore = 0;
+    for (var pi = 0; pi < publicBrackets.length; pi++) {
+      var ps = scorePicks(publicBrackets[pi], tourneyResults);
+      if (ps > bestPublicScore) bestPublicScore = ps;
+    }
+
+    // Score each of our brackets and check if it beats the pool
+    for (var bi = 0; bi < bracketsToScore.length; bi++) {
+      var b = bracketsToScore[bi];
+      var myScore = scorePicks(picksByBracketId[b.id], tourneyResults);
+      if (myScore > bestPublicScore) {
+        winCounts[b.id]++;
+      }
+    }
+  }
+
+  // Attach win probability to each bracket
+  for (var bi = 0; bi < brackets.length; bi++) {
+    var b = brackets[bi];
+    if (winCounts[b.id] !== undefined) {
+      b.pool_win_pct = Math.round((winCounts[b.id] / NUM_SIMS) * 1000) / 10;
+    } else {
+      b.pool_win_pct = 0;
+    }
+  }
+
+  // Add "Best Odds" featured bracket — highest pool win %
+  // (only if it's different from existing featured)
+  var oddsCands = brackets.filter(function(b){return !b.featured && b.pool_win_pct > 0});
+  if (oddsCands.length) {
+    var bestOdds = oddsCands.reduce(function(a,b){ return a.pool_win_pct > b.pool_win_pct ? a : b; });
+    // Only tag if it's meaningfully different from safest
+    if (bestOdds.pool_win_pct > 0) {
+      bestOdds.featured = 'bestodds';
+    }
+  }
+
+  self.postMessage(brackets);
+};
+`;
+
+const workerBlob = new Blob([workerCode], {type: 'application/javascript'});
+const workerUrl = URL.createObjectURL(workerBlob);
+let worker = null;
+
+// ============================================================
+// UI State & Logic
+// ============================================================
+let allBrackets = [];
+let featuredOnly = false;
+
+function isMobile() { return window.innerWidth <= 768; }
+
+function espnLogo(name, size) {
+  const id = ESPN_IDS[name];
+  if (!id) return `<i class="fa-solid fa-basketball" style="font-size:${Math.round(size*0.6)}px;color:var(--text3)"></i>`;
+  return `<img src="https://a.espncdn.com/i/teamlogos/ncaa/500/${id}.png" width="${size}" height="${size}" style="object-fit:contain" onerror="this.outerHTML='<i class=\\'fa-solid fa-basketball\\' style=\\'font-size:${Math.round(size*0.6)}px;color:var(--text3)\\'></i>'">`;
+}
+
+function closeOverlay() {
+  document.getElementById('detailOverlay').classList.remove('open');
+}
+
+function openInfo() {
+  document.getElementById('infoOverlay').classList.add('open');
+}
+function closeInfo() {
+  document.getElementById('infoOverlay').classList.remove('open');
+}
+// Close info on backdrop click
+document.addEventListener('click', function(e) {
+  var overlay = document.getElementById('infoOverlay');
+  if (e.target === overlay) closeInfo();
+});
+
+// Populate homer dropdown from embedded data
+(function loadTeams() {
+  const teamList = Object.values(TEAMS).sort((a,b) => a.seed - b.seed || a.name.localeCompare(b.name));
+  // Homer teams dropdown
+  const dd = document.getElementById('homerDropdown');
+  dd.innerHTML = '<div class="homer-search"><input type="text" id="homerFilter" placeholder="Type to filter..." oninput="filterHomers(this.value)"></div>' +
+    teamList.map(t =>
+      `<label data-name="${t.name.toLowerCase()}"><input type="checkbox" value="${t.id}" onchange="updateHomerTags()"><span class="seed-num">${t.seed}</span> ${t.name}</label>`
+    ).join('');
+  // Favorite teams dropdown (multi-select checkboxes)
+  const fd = document.getElementById('favDropdown');
+  fd.innerHTML = '<div class="homer-search"><input type="text" id="favFilter" placeholder="Type to filter..." oninput="filterFavs(this.value)"></div>' +
+    teamList.map(t =>
+      `<label data-name="${t.name.toLowerCase()}"><input type="checkbox" value="${t.id}" onchange="updateFavLabel()"><span class="seed-num">${t.seed}</span> ${t.name}</label>`
+    ).join('');
+})();
+
+document.getElementById('homerTrigger').addEventListener('click', function(e) {
+  const dd = document.getElementById('homerDropdown');
+  dd.classList.toggle('open');
+  document.getElementById('favDropdown').classList.remove('open');
+  if (dd.classList.contains('open')) {
+    setTimeout(function(){ var f = document.getElementById('homerFilter'); if(f) f.focus(); }, 50);
+  }
+  e.stopPropagation();
+});
+
+document.getElementById('favTrigger').addEventListener('click', function(e) {
+  const fd = document.getElementById('favDropdown');
+  fd.classList.toggle('open');
+  document.getElementById('homerDropdown').classList.remove('open');
+  if (fd.classList.contains('open')) {
+    setTimeout(function(){ var f = document.getElementById('favFilter'); if(f) f.focus(); }, 50);
+  }
+  e.stopPropagation();
+});
+
+function filterHomers(query) {
+  const q = query.toLowerCase();
+  document.querySelectorAll('#homerDropdown label[data-name]').forEach(function(lbl) {
+    lbl.style.display = lbl.dataset.name.includes(q) ? '' : 'none';
+  });
+}
+
+function filterFavs(query) {
+  const q = query.toLowerCase();
+  document.querySelectorAll('#favDropdown label[data-name]').forEach(function(lbl) {
+    lbl.style.display = lbl.dataset.name.includes(q) ? '' : 'none';
+  });
+}
+
+document.addEventListener('click', function() {
+  document.getElementById('homerDropdown').classList.remove('open');
+  document.getElementById('favDropdown').classList.remove('open');
+});
+document.getElementById('homerDropdown').addEventListener('click', function(e) { e.stopPropagation(); });
+document.getElementById('favDropdown').addEventListener('click', function(e) { e.stopPropagation(); });
+
+function getSelectedFav() {
+  const ids = getSelectedFavs();
+  return ids.length > 0 ? ids[0] : -1;
+}
+
+function getSelectedFavs() {
+  return [...document.querySelectorAll('#favDropdown input:checked')].map(function(cb){ return parseInt(cb.value); });
+}
+
+function updateFavLabel() {
+  const ids = getSelectedFavs();
+  const placeholder = document.getElementById('favPlaceholder');
+  if (ids.length === 0) {
+    placeholder.textContent = 'None (optional)';
+  } else {
+    const names = ids.map(function(id){ return TEAMS[id] ? TEAMS[id].name : null; }).filter(Boolean);
+    placeholder.textContent = names.length <= 2 ? names.join(', ') : names.length + ' teams selected';
+  }
+}
+
+function showMobileControls() {
+  document.querySelector('.controls').classList.remove('collapsed-mobile');
+  document.getElementById('mobileReconfig').classList.remove('visible');
+}
+
+function getSelectedHomers() {
+  return [...document.querySelectorAll('#homerDropdown input:checked')].map(function(cb){ return parseInt(cb.value); });
+}
+
+function updateHomerTags() {
+  const ids = getSelectedHomers();
+  const placeholder = document.getElementById('homerPlaceholder');
+  if (ids.length === 0) {
+    placeholder.textContent = 'Select teams...';
+    return;
+  }
+  const names = ids.map(function(id){ return TEAMS[id] ? TEAMS[id].name : null; }).filter(Boolean);
+  placeholder.textContent = names.length <= 2 ? names.join(', ') : names.length + ' teams selected';
+}
+
+function removeHomer(id) {
+  const cb = document.querySelector('#homerDropdown input[value="' + id + '"]');
+  if (cb) cb.checked = false;
+  updateHomerTags();
+}
+
+function getFilteredBrackets() {
+  if (featuredOnly) return allBrackets.filter(function(b){ return b.featured; });
+  return allBrackets;
+}
+
+function toggleFeaturedOnly() {
+  featuredOnly = !featuredOnly;
+  if (allBrackets.length > 0) renderChart();
+}
+
+function generate() {
+  const btn = document.getElementById('generateBtn');
+  btn.disabled = true;
+  btn.querySelector('span').textContent = 'Working...';
+
+  const poolSize = parseInt(document.getElementById('poolSize').value) || 25;
+  const homerTeams = getSelectedHomers();
+  const favTeam = getSelectedFav();
+  const favTeamsFromUI = getSelectedFavs();
+
+  if (worker) worker.terminate();
+  worker = new Worker(workerUrl);
+
+  worker.onmessage = function(e) {
+    allBrackets = e.data;
+    // Render both views — CSS handles which is visible
+    renderMobileCards();
+    if (isMobile()) {
+      document.querySelector('.controls').classList.add('collapsed-mobile');
+      document.getElementById('mobileReconfig').classList.add('visible');
+    }
+    // Always re-enable button immediately — sidebar is already populated
+    btn.disabled = false;
+    btn.querySelector('span').textContent = 'Generate';
+    // Chart needs Plotly — render when ready (may be instant if already loaded)
+    onPlotlyReady(function() {
+      renderChart();
+    });
+    worker.terminate();
+    worker = null;
+  };
+
+  worker.onerror = function(err) {
+    console.error('Worker error:', err);
+    btn.disabled = false;
+    btn.querySelector('span').textContent = 'Generate';
+    worker.terminate();
+    worker = null;
+  };
+
+  // Collect fav teams from wizard state or the dropdown
+  const favTeams = (wizardState && wizardState.favTeams && wizardState.favTeams.length > 0)
+    ? wizardState.favTeams : (favTeamsFromUI.length > 0 ? favTeamsFromUI : (favTeam >= 0 ? [favTeam] : []));
+  const uniqueWinners = document.getElementById('uniqueWinners') ? document.getElementById('uniqueWinners').checked : false;
+  worker.postMessage({pool_size: poolSize, homer_teams: homerTeams, fav_team: favTeam, fav_teams: favTeams, unique_winners: uniqueWinners});
+}
+
+function renderMobileCards() {
+  const container = document.getElementById('mobileCards');
+  const featured = allBrackets.filter(function(b){ return b.featured; });
+  if (!featured.length) return;
+
+  featured.sort(function(a,b){ return b.total_ev - a.total_ev; });
+
+  const featColors = {
+    safest: {color: 'rgb(30,200,150)', bg: 'rgba(30,200,150,0.08)'},
+    profile: {color: 'rgb(130,90,200)', bg: 'rgba(130,90,200,0.08)'},
+    historic: {color: 'rgba(0,5,10,0.45)', bg: 'rgba(0,5,10,0.04)'},
+    balanced: {color: 'rgb(30,47,200)', bg: 'rgba(30,47,200,0.06)'},
+    sleeper: {color: 'rgb(60,130,200)', bg: 'rgba(60,130,200,0.06)'},
+    riskiest: {color: 'rgb(220,80,60)', bg: 'rgba(220,80,60,0.06)'},
+    homer: {color: 'rgb(220,150,30)', bg: 'rgba(220,150,30,0.08)'},
+    bestodds: {color: 'rgb(0,160,100)', bg: 'rgba(0,160,100,0.08)'}
+  };
+
+  // Store featured brackets for click access
+  window._mobileFeatured = featured;
+
+  container.innerHTML = featured.map(function(b, i) {
+    const fc = featColors[b.featured] || {color: 'var(--text2)', bg: 'var(--surface2)'};
+    return '<div class="pick-card" onclick="showDetail(window._mobileFeatured['+i+'])">' +
+      '<span class="card-badge" style="color:'+fc.color+';background:'+fc.bg+'">'+b.featured+'</span>' +
+      '<div class="card-logo">'+espnLogo(b.champion.name, 40)+'</div>' +
+      '<div class="card-info">' +
+        '<div class="card-champ">'+b.champion.name+'</div>' +
+        '<div class="card-seed">'+b.champion.seed+'-seed &middot; '+b.champion.prob+'% to win</div>' +
+        '<div class="card-meta">' +
+          '<span>EV <strong>'+b.total_ev+'</strong></span>' +
+          '<span>Upsets <strong>'+b.upset_count+'</strong></span>' +
+          (b.pool_win_pct != null ? '<span>Win <strong>'+b.pool_win_pct+'%</strong></span>' : '<span>Diff <strong>'+b.divergence+'</strong></span>') +
+        '</div>' +
+      '</div>' +
+      '<span class="card-arrow"><i class="fa-solid fa-chevron-right"></i></span>' +
+    '</div>';
+  }).join('');
+}
+
+function renderSidebarList(filtered, featMeta) {
+  const header = document.getElementById('sidebarHeader');
+  const container = document.getElementById('sidebarCards');
+  header.style.display = 'flex';
+
+  // Sidebar always shows only featured/recommended brackets
+  const ordered = allBrackets.filter(function(b){ return b.featured; });
+  ordered.sort(function(a,b){ return b.total_ev - a.total_ev; });
+
+  // Store for click access
+  window._sidebarBrackets = ordered;
+
+  const featColors = {
+    safest: {color:'rgb(30,200,150)',bg:'rgba(30,200,150,0.08)'},
+    profile: {color:'rgb(130,90,200)',bg:'rgba(130,90,200,0.08)'},
+    historic: {color:'rgba(0,5,10,0.45)',bg:'rgba(0,5,10,0.04)'},
+    balanced: {color:'rgb(30,47,200)',bg:'rgba(30,47,200,0.06)'},
+    sleeper: {color:'rgb(60,130,200)',bg:'rgba(60,130,200,0.06)'},
+    riskiest: {color:'rgb(220,80,60)',bg:'rgba(220,80,60,0.06)'},
+    homer: {color:'rgb(220,150,30)',bg:'rgba(220,150,30,0.08)'},
+    bestodds: {color:'rgb(0,160,100)',bg:'rgba(0,160,100,0.08)'}
+  };
+
+  container.innerHTML = ordered.map(function(b, i) {
+    const fc = b.featured ? (featColors[b.featured] || {color:'var(--text2)',bg:'var(--surface2)'}) : null;
+    const badge = fc ? '<span class="card-badge" style="color:'+fc.color+';background:'+fc.bg+'">'+(featMeta[b.featured]?featMeta[b.featured].label:b.featured)+'</span>' : '';
+    return '<div class="pick-card" data-idx="'+i+'" onclick="selectSidebarCard('+i+')">' +
+      badge +
+      '<div class="card-logo">'+espnLogo(b.champion.name, 30)+'</div>' +
+      '<div class="card-info">' +
+        '<div class="card-champ">'+b.champion.name+'</div>' +
+        '<div class="card-seed">'+b.champion.seed+'-seed &middot; '+b.champion.prob+'%</div>' +
+        '<div class="card-meta">' +
+          '<span>EV <strong>'+b.total_ev+'</strong></span>' +
+          '<span>Upsets <strong>'+b.upset_count+'</strong></span>' +
+          (b.pool_win_pct != null ? '<span>Win <strong>'+b.pool_win_pct+'%</strong></span>' : '<span>Diff <strong>'+b.divergence+'</strong></span>') +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  document.querySelector('.sidebar-count').innerHTML = '';
+}
+
+function clearSidebarSelection() {
+  document.querySelectorAll('.sidebar-cards .pick-card').forEach(function(el) {
+    el.classList.remove('active-card');
+  });
+}
+
+function highlightSidebarForBracket(bracket) {
+  clearSidebarSelection();
+  if (!bracket || !bracket.featured || !window._sidebarBrackets) return;
+  // Sidebar only has featured brackets — find match by id
+  for (var i = 0; i < window._sidebarBrackets.length; i++) {
+    if (window._sidebarBrackets[i].id === bracket.id) {
+      var card = document.querySelector('.sidebar-cards .pick-card[data-idx="'+i+'"]');
+      if (card) {
+        card.classList.add('active-card');
+        card.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+      }
+      return;
+    }
+  }
+}
+
+function highlightChartBubble(bracket) {
+  var plotDiv = document.getElementById('plotDiv');
+  if (!plotDiv || !plotDiv._filteredBrackets || !_plotlyReady) return;
+  // Find the index of this bracket in the filtered list
+  var ptIdx = -1;
+  for (var i = 0; i < plotDiv._filteredBrackets.length; i++) {
+    if (plotDiv._filteredBrackets[i].id === bracket.id) { ptIdx = i; break; }
+  }
+  if (ptIdx >= 0) {
+    // Use Plotly's restyle to add a selection ring
+    var sizes = plotDiv.data[0].marker.size.slice();
+    var lineWidths = sizes.map(function(){ return 1; });
+    var lineColors = sizes.map(function(){ return 'rgba(0,5,10,0.08)'; });
+    lineWidths[ptIdx] = 3;
+    lineColors[ptIdx] = 'rgba(0,5,10,0.7)';
+    Plotly.restyle(plotDiv, {
+      'marker.line.width': [lineWidths],
+      'marker.line.color': [lineColors]
+    }, [0]);
+  }
+}
+
+function clearChartSelection() {
+  var plotDiv = document.getElementById('plotDiv');
+  if (!plotDiv || !plotDiv.data || !plotDiv.data[0] || !_plotlyReady) return;
+  var n = plotDiv.data[0].marker.size.length;
+  var lineWidths = new Array(n).fill(1);
+  var lineColors = new Array(n).fill('rgba(0,5,10,0.08)');
+  Plotly.restyle(plotDiv, {
+    'marker.line.width': [lineWidths],
+    'marker.line.color': [lineColors]
+  }, [0]);
+}
+
+function deselectAll() {
+  clearSidebarSelection();
+  clearChartSelection();
+  document.getElementById('detailPanel').classList.add('collapsed');
+  if (_plotlyReady) {
+    setTimeout(function(){ Plotly.Plots.resize(document.getElementById('plotDiv')); }, 300);
+  }
+}
+
+function selectSidebarCard(idx) {
+  const b = window._sidebarBrackets[idx];
+  if (!b) return;
+  // Toggle: if already selected, deselect
+  const card = document.querySelector('.sidebar-cards .pick-card[data-idx="'+idx+'"]');
+  if (card && card.classList.contains('active-card')) {
+    deselectAll();
+    return;
+  }
+  clearSidebarSelection();
+  if (card) card.classList.add('active-card');
+  clearChartSelection();
+  highlightChartBubble(b);
+  showDetail(b);
+}
+
+function renderChart() {
+  document.getElementById('emptyState').style.display = 'none';
+  const plotDiv = document.getElementById('plotDiv');
+  plotDiv.style.display = 'block';
+
+  const cs = getComputedStyle(document.documentElement);
+
+  const allEarly = allBrackets.map(function(b){ return b.early_ev; });
+  const allLate = allBrackets.map(function(b){ return b.late_ev; });
+  const padBot = 25;
+  const padTop = 35;
+  const axisRanges = {
+    x: [Math.min.apply(null, allEarly) - padBot, Math.max.apply(null, allEarly) + padTop],
+    y: [Math.min.apply(null, allLate) - padBot, Math.max.apply(null, allLate) + padTop]
+  };
+
+  const filtered = getFilteredBrackets();
+
+  if (filtered.length === 0) {
+    Plotly.purge(plotDiv);
+    return;
+  }
+
+  const x = filtered.map(function(b){ return b.early_ev; });
+  const y = filtered.map(function(b){ return b.late_ev; });
+  const evMin = Math.min.apply(null, filtered.map(function(b){ return b.total_ev; }));
+  const evMax = Math.max.apply(null, filtered.map(function(b){ return b.total_ev; }));
+  const evRange = evMax - evMin || 1;
+  const sizes = filtered.map(function(b){ return 8 + ((b.total_ev - evMin) / evRange) * 28; });
+  const colors = filtered.map(function(b){ return b.divergence; });
+
+  const hoverText = filtered.map(function(b) {
+    const f4 = b.final_four.map(function(t){ return '('+t.seed+') '+t.name+'  '+t.prob+'%'; }).join('<br>');
+    const e8 = b.elite_eight.map(function(t){ return '('+t.seed+') '+t.name; }).join('<br>');
+    const tags = b.strategy_tags.join(', ');
+    return '<b>Champion: ('+b.champion.seed+') '+b.champion.name+'</b>  '+b.champion.prob+'%' +
+      '<br><br><b>Championship</b><br>'+f4 +
+      '<br><br><b>Final Four</b><br>'+e8 +
+      '<br><br>Total: '+b.total_ev+'  |  Early: '+b.early_ev+'  |  Late: '+b.late_ev +
+      '<br>Picks from chalk: '+b.divergence+'  |  Upsets: '+b.upset_count +
+      (b.pool_win_pct != null ? '  |  Pool win: '+b.pool_win_pct+'%' : '') +
+      '<br>Strategy: '+tags;
+  });
+
+  const customData = filtered.map(function(b, i){ return i; });
+
+  const trace = {
+    x: x, y: y,
+    mode: 'markers',
+    type: 'scatter',
+    marker: {
+      size: sizes,
+      color: colors,
+      colorscale: [[0,'rgb(30,200,150)'],[0.3,'rgb(60,130,200)'],[0.6,'rgb(200,120,50)'],[1,'rgb(220,80,60)']],
+      colorbar: {
+        title: {text: 'Chalk \u2190\u2192 Chaos', font: {family:'Bricolage Grotesque, sans-serif',size:10,color:cs.getPropertyValue('--text2').trim()}, side:'bottom'},
+        tickfont: {family:'IBM Plex Mono, monospace',size:9,color:cs.getPropertyValue('--text3').trim()},
+        thickness: 8, len: 0.3, x: 0.78, xanchor: 'center', y: 0.02, yanchor: 'bottom',
+        orientation: 'h', bgcolor: 'rgba(0,0,0,0)', borderwidth: 0, outlinewidth: 0
+      },
+      line: {width: 1, color: cs.getPropertyValue('--border').trim()},
+      opacity: 0.7
+    },
+    text: hoverText,
+    hoverinfo: isMobile() ? 'none' : 'text',
+    hoverlabel: {
+      bgcolor: cs.getPropertyValue('--hover-bg').trim(),
+      bordercolor: cs.getPropertyValue('--border-bright').trim(),
+      font: {family:'IBM Plex Mono, monospace',size:11,color:cs.getPropertyValue('--text').trim()}
+    },
+    customdata: customData
+  };
+
+  const layout = {
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: cs.getPropertyValue('--plot-bg').trim(),
+    font: {family:'IBM Plex Mono, monospace',color:cs.getPropertyValue('--text3').trim()},
+    xaxis: {
+      title: {text:'Early Rounds EV (R64 + R32 + S16)',font:{family:'Bricolage Grotesque, sans-serif',size:11,color:cs.getPropertyValue('--text2').trim()}},
+      gridcolor: cs.getPropertyValue('--plot-grid').trim(),
+      zerolinecolor: cs.getPropertyValue('--plot-grid').trim(),
+      tickfont: {size:10},
+      range: axisRanges.x
+    },
+    yaxis: {
+      title: {text:'Late Rounds EV (E8 + F4 + Championship)',font:{family:'Bricolage Grotesque, sans-serif',size:11,color:cs.getPropertyValue('--text2').trim()}},
+      gridcolor: cs.getPropertyValue('--plot-grid').trim(),
+      zerolinecolor: cs.getPropertyValue('--plot-grid').trim(),
+      tickfont: {size:10},
+      range: axisRanges.y
+    },
+    margin: {l:56,r:16,t:16,b:60},
+    hovermode: 'closest'
+  };
+
+  // Featured bar
+  const featMeta = {
+    safest:   {color:'rgb(30,200,150)',label:'Safest',desc:'Highest EV'},
+    profile:  {color:'rgb(130,90,200)',label:'Darlings',desc:'Analytics favorites'},
+    historic: {color:'rgba(0,5,10,0.45)',label:'Historic',desc:'Seed norms'},
+    balanced: {color:'rgb(30,47,200)',label:'Balanced',desc:'Best of both'},
+    sleeper:  {color:'rgb(60,130,200)',label:'Sleeper',desc:'Late upside'},
+    riskiest: {color:'rgb(220,80,60)',label:'Riskiest',desc:'Max chaos'},
+    homer:    {color:'rgb(220,150,30)',label:'My Team',desc:'Best for fav'},
+    bestodds: {color:'rgb(0,160,100)',label:'Best Odds',desc:'Wins pool most'}
+  };
+
+  // Render sidebar list
+  renderSidebarList(filtered, featMeta);
+
+  // Update toggle state
+  const toggle = document.getElementById('featuredToggle');
+  if (toggle) {
+    toggle.className = 'featured-toggle' + (featuredOnly ? ' active' : '');
+  }
+
+  // Annotations for featured
+  const annotations = [];
+  filtered.forEach(function(b) {
+    if (b.featured && featMeta[b.featured]) {
+      const m = featMeta[b.featured];
+      annotations.push({
+        x: b.early_ev, y: b.late_ev,
+        text: m.label.toUpperCase(),
+        font: {family:'Bricolage Grotesque, sans-serif',size:9,color:m.color},
+        showarrow: true, arrowhead: 0, arrowwidth: 1.5, arrowcolor: m.color,
+        ax: 0, ay: -35,
+        bgcolor: cs.getPropertyValue('--bg').trim(),
+        bordercolor: m.color, borderwidth: 1, borderpad: 3
+      });
+    }
+  });
+  layout.annotations = annotations;
+
+  // Remove old Plotly event listeners before adding new ones
+  if (plotDiv.removeAllListeners) plotDiv.removeAllListeners('plotly_click');
+
+  Plotly.newPlot(plotDiv, [trace], layout, {responsive:true,displayModeBar:false});
+  plotDiv._filteredBrackets = filtered;
+
+  plotDiv.on('plotly_click', function(data) {
+    if (data.points.length > 0) {
+      window._chartPointClicked = true;
+      const idx = data.points[0].customdata;
+      const bracket = plotDiv._filteredBrackets[idx];
+      clearChartSelection();
+      highlightChartBubble(bracket);
+      highlightSidebarForBracket(bracket);
+      showDetail(bracket);
+    }
+  });
+
+  // Bind native click handler only once (not per render)
+  if (!plotDiv._blankClickBound) {
+    plotDiv._blankClickBound = true;
+    plotDiv.addEventListener('click', function() {
+      if (window._chartPointClicked) {
+        window._chartPointClicked = false;
+        return;
+      }
+      deselectAll();
+    });
+  }
+}
+
+function showDetail(bracket) {
+  const panel = document.getElementById('detailPanel');
+  panel.classList.remove('collapsed');
+  const mobile = isMobile();
+
+  const tagColorMap = {
+    'pure-ev':'rgb(30,47,200)','contrarian':'rgb(220,80,60)','seed-blend':'rgb(220,150,30)',
+    'def-floor':'rgb(30,200,150)','upset-boost':'rgb(130,90,200)','tourney-var':'rgb(200,120,50)'
+  };
+  const tagTips = {
+    'pure-ev':'Max expected points, no pool strategy',
+    'contrarian':'Picks less popular teams for pool edge',
+    'seed-blend':'Blends Torvik model with historical seed rates',
+    'def-floor':'Penalizes bad defenses in late rounds',
+    'upset-boost':'Nudges toward historical upset rates',
+    'tourney-var':'Accounts for single-elimination variance'
+  };
+  const tagsHtml = (bracket.strategy_tags || []).map(function(tag) {
+    return '<span title="'+(tagTips[tag]||tag)+'" style="display:inline-block;background:'+(tagColorMap[tag]||'#555')+';color:#fff;padding:2px 8px;border-radius:6px;font-size:9px;font-family:Inter,sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:help">'+tag+'</span>';
+  }).join(' ');
+
+  let html = '<div class="champ-card">' +
+    '<div>'+espnLogo(bracket.champion.name, 64)+'</div>' +
+    '<div class="seed-label">'+bracket.champion.seed+'-seed</div>' +
+    '<div class="team-name">'+bracket.champion.name+'</div>' +
+    '<div class="win-prob">'+bracket.champion.prob+'% to win it all</div>' +
+  '</div>' +
+  '<div style="display:flex;gap:4px;flex-wrap:wrap;margin:10px 0 4px">'+tagsHtml+'</div>' +
+  '<div class="stat-row">' +
+    '<div class="stat-pill"><div class="stat-val">'+bracket.total_ev+'</div><div class="stat-label">Total EV</div></div>' +
+    '<div class="stat-pill"><div class="stat-val">'+bracket.early_ev+'</div><div class="stat-label">Early EV</div></div>' +
+    '<div class="stat-pill"><div class="stat-val">'+bracket.late_ev+'</div><div class="stat-label">Late EV</div></div>' +
+  '</div>' +
+  '<div class="stat-row">' +
+    '<div class="stat-pill"><div class="stat-val upsets-val">'+bracket.upset_count+'</div><div class="stat-label">Upsets</div></div>' +
+    '<div class="stat-pill"><div class="stat-val">'+bracket.divergence+'</div><div class="stat-label">From Chalk</div></div>' +
+    (bracket.pool_win_pct != null ? '<div class="stat-pill"><div class="stat-val" style="color:rgb(0,160,100)">'+bracket.pool_win_pct+'%</div><div class="stat-label">Pool Win</div></div>' : '') +
+  '</div>';
+
+  html += '<div class="section-label">Final Four</div>';
+  html += '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center">';
+  bracket.elite_eight.forEach(function(t) {
+    html += '<div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;background:var(--surface2);border-radius:8px">' +
+      espnLogo(t.name, 32) +
+      '<div style="font-size:11px;font-weight:500;color:var(--text);line-height:1.2"><span style="color:var(--text3);font-size:10px">'+t.seed+'</span> '+t.name+'</div>' +
+      '<div style="font-size:10px;color:var(--text2)">'+t.prob+'%</div></div>';
+  });
+  html += '</div>';
+
+  const roundOrder = ['Round of 64','Round of 32','Sweet 16','Elite Eight','Final Four','Championship'];
+  roundOrder.forEach(function(rname) {
+    const games = bracket.full_bracket[rname];
+    if (!games) return;
+    html += '<div class="section-label">'+rname+'</div><div class="round-section">';
+    games.forEach(function(g) {
+      const cls = g.upset ? 'matchup-row upset' : 'matchup-row';
+      html += '<div class="'+cls+'">' +
+        '<span class="matchup-teams"><span class="pick">'+g.pick+'</span><span class="vs">over</span><span class="loser">'+g.opponent+'</span></span>' +
+        '<span class="stats">'+g.prob+'%&ensp;'+g.ev+'ev</span></div>';
+    });
+    html += '</div>';
+  });
+
+  if (mobile) {
+    document.getElementById('overlayBody').innerHTML = html;
+    document.getElementById('detailOverlay').classList.add('open');
+  } else {
+    document.getElementById('detailContent').innerHTML = html;
+    setTimeout(function(){ if (_plotlyReady) Plotly.Plots.resize(document.getElementById('plotDiv')); }, 300);
+  }
+}
+
+window.addEventListener('resize', function() {
+  if (_plotlyReady) {
+    const plotDiv = document.getElementById('plotDiv');
+    if (plotDiv && plotDiv.style.display !== 'none') {
+      Plotly.Plots.resize(plotDiv);
+    }
+  }
+  // If resizing to mobile after generating, collapse controls
+  if (isMobile() && allBrackets.length > 0) {
+    document.querySelector('.controls').classList.add('collapsed-mobile');
+    document.getElementById('mobileReconfig').classList.add('visible');
+  } else {
+    document.querySelector('.controls').classList.remove('collapsed-mobile');
+    document.getElementById('mobileReconfig').classList.remove('visible');
+  }
+});
+
+// ============================================================
+// Wizard Logic
+// ============================================================
+var wizardState = {step: 1, poolSize: 25, homerTeams: [], favTeam: -1, prefs: [null, null, null], uniqueWinners: false};
+var _wizGenDone = false;
+var _wizGenPending = false;
+
+(function initWizardTeamGrids() {
+  var teamList = Object.values(TEAMS).sort(function(a,b){ return a.seed - b.seed || a.name.localeCompare(b.name); });
+
+  // Homer grid (multi-select)
+  var hGrid = document.getElementById('wizHomerGrid');
+  hGrid.innerHTML = teamList.map(function(t) {
+    return '<div class="wiz-team-chip" data-id="'+t.id+'" onclick="wizToggleHomer(this, '+t.id+')">' +
+      '<span class="chip-seed">'+t.seed+'</span>'+t.name+'</div>';
+  }).join('');
+
+  // Fav grid (single-select)
+  var fGrid = document.getElementById('wizFavGrid');
+  fGrid.innerHTML = teamList.map(function(t) {
+    return '<div class="wiz-team-chip" data-id="'+t.id+'" onclick="wizSelectFav(this, '+t.id+')">' +
+      '<span class="chip-seed">'+t.seed+'</span>'+t.name+'</div>';
+  }).join('');
+})();
+
+function wizToggleHomer(el, id) {
+  el.classList.toggle('selected');
+  var idx = wizardState.homerTeams.indexOf(id);
+  if (idx >= 0) {
+    wizardState.homerTeams.splice(idx, 1);
+  } else {
+    wizardState.homerTeams.push(id);
+  }
+}
+
+function wizSelectFav(el, id) {
+  // Multi-select toggle
+  el.classList.toggle('selected');
+  wizardState.favTeams = [];
+  document.querySelectorAll('#wizFavGrid .wiz-team-chip.selected').forEach(function(c) {
+    wizardState.favTeams.push(parseInt(c.dataset.id));
+  });
+  wizardState.favTeam = wizardState.favTeams.length > 0 ? wizardState.favTeams[0] : -1;
+}
+
+function wizardSetStep(n) {
+  wizardState.step = n;
+  var steps = document.querySelectorAll('.wizard-step');
+  steps.forEach(function(s) {
+    s.classList.remove('active');
+    if (parseInt(s.dataset.step) === n) s.classList.add('active');
+  });
+  // Update dots
+  var dots = document.querySelectorAll('.wizard-dots .dot');
+  dots.forEach(function(d, i) {
+    d.classList.toggle('active', i < n);
+  });
+  // Show/hide Back button (hidden on step 1 and step 8)
+  var backBtn = document.getElementById('wizBackBtn');
+  if (backBtn) {
+    backBtn.style.visibility = (n <= 1 || n >= 8) ? 'hidden' : 'visible';
+  }
+  // Hide footer on step 8 (reveal)
+  var footer = document.getElementById('wizardFooter');
+  if (footer) {
+    footer.style.display = (n >= 8) ? 'none' : 'flex';
+  }
+}
+
+function wizardNext() {
+  var current = wizardState.step;
+  if (current === 1) {
+    wizardState.poolSize = parseInt(document.getElementById('wizPoolSize').value) || 25;
+  }
+  if (current < 8) {
+    var nextStep = current + 1;
+    // When entering step 5, kick off generation (after unique winners choice)
+    if (nextStep === 5) {
+      wizardTriggerGeneration();
+    }
+    wizardSetStep(nextStep);
+  }
+}
+
+function wizardBack() {
+  if (wizardState.step > 1) {
+    wizardSetStep(wizardState.step - 1);
+  }
+}
+
+function wizardSelectUniqueWinners(enabled) {
+  wizardState.uniqueWinners = enabled;
+  // Highlight selected card
+  var step = document.querySelector('.wizard-step[data-step="4"]');
+  if (step) {
+    step.querySelectorAll('.wiz-choice-card').forEach(function(c, i) {
+      c.classList.toggle('selected', (enabled ? i === 1 : i === 0));
+    });
+  }
+  // Sync to main UI checkbox
+  var mainUw = document.getElementById('uniqueWinners');
+  if (mainUw) mainUw.checked = enabled;
+  // Auto-advance after brief delay
+  setTimeout(function(){ wizardNext(); }, 400);
+}
+
+function wizardSelectPref(prefIdx, choice) {
+  wizardState.prefs[prefIdx] = choice;
+  // Highlight selected card
+  var step = document.querySelector('.wizard-step[data-step="'+(prefIdx + 5)+'"]');
+  if (step) {
+    step.querySelectorAll('.wiz-choice-card').forEach(function(c, i) {
+      c.classList.toggle('selected', i === choice);
+    });
+  }
+  // Auto-advance after 400ms
+  setTimeout(function() {
+    if (prefIdx < 2) {
+      wizardNext();
+    } else {
+      // Last pref question -> go to reveal
+      wizardSetStep(8);
+      wizardReveal();
+    }
+  }, 400);
+}
+
+function wizardTriggerGeneration() {
+  if (_wizGenPending || _wizGenDone) return;
+  _wizGenPending = true;
+  _wizGenDone = false;
+
+  // Populate the hidden form inputs
+  document.getElementById('poolSize').value = wizardState.poolSize;
+
+  // Set homer checkboxes
+  document.querySelectorAll('#homerDropdown input[type="checkbox"]').forEach(function(cb) {
+    cb.checked = wizardState.homerTeams.indexOf(parseInt(cb.value)) >= 0;
+  });
+  updateHomerTags();
+
+  // Sync unique winners from wizard state to main UI
+  var mainUw = document.getElementById('uniqueWinners');
+  if (mainUw) mainUw.checked = !!wizardState.uniqueWinners;
+
+  // Set fav checkboxes from wizard state
+  document.querySelectorAll('#favDropdown input[type="checkbox"]').forEach(function(cb) {
+    cb.checked = (wizardState.favTeams || []).indexOf(parseInt(cb.value)) >= 0;
+  });
+  updateFavLabel();
+
+  // Call generate (the existing function)
+  generate();
+
+  // The worker's onmessage will set allBrackets. We watch for completion.
+  var checkInterval = setInterval(function() {
+    if (allBrackets.length > 0) {
+      clearInterval(checkInterval);
+      _wizGenDone = true;
+      _wizGenPending = false;
+      // If we're already on step 7, render the reveal
+      if (wizardState.step === 8) {
+        wizardReveal();
+      }
+    }
+  }, 200);
+}
+
+function wizardReveal() {
+  var container = document.getElementById('wizRevealContent');
+
+  if (!_wizGenDone) {
+    container.innerHTML = '<div class="wiz-loading"><div class="wiz-spinner"></div><div class="wiz-loading-text">Crunching brackets...</div></div>';
+    return;
+  }
+
+  // Map preference answers to bracket type scores
+  var scores = {};
+  var types = ['safest','balanced','bestodds','riskiest','sleeper','profile','historic','homer'];
+  types.forEach(function(t){ scores[t] = 0; });
+
+  // Pref 0: strategy
+  var p0 = wizardState.prefs[0];
+  if (p0 === 0) { scores.safest += 3; }
+  else if (p0 === 1) { scores.balanced += 3; scores.bestodds += 2; }
+  else if (p0 === 2) { scores.riskiest += 3; scores.sleeper += 1; }
+
+  // Pref 1: trust
+  var p1 = wizardState.prefs[1];
+  if (p1 === 0) { scores.profile += 3; }
+  else if (p1 === 1) { scores.historic += 3; }
+  else if (p1 === 2) { scores.bestodds += 3; scores.balanced += 1; }
+
+  // Pref 2: win style
+  var p2 = wizardState.prefs[2];
+  if (p2 === 0) { scores.safest += 2; scores.balanced += 1; }
+  else if (p2 === 1) { scores.sleeper += 3; scores.riskiest += 1; }
+  else if (p2 === 2) { scores.bestodds += 3; scores.balanced += 2; }
+
+  // Homer bonus
+  if (wizardState.favTeam >= 0) {
+    scores.homer += 1;
+  }
+
+  // Find highest scoring type
+  var bestType = 'safest';
+  var bestScore = -1;
+  for (var t in scores) {
+    if (scores[t] > bestScore) { bestScore = scores[t]; bestType = t; }
+  }
+
+  // Find the matching bracket
+  var bracket = null;
+  for (var i = 0; i < allBrackets.length; i++) {
+    if (allBrackets[i].featured === bestType) { bracket = allBrackets[i]; break; }
+  }
+  // Store for "View Bracket" button
+  window._wizSelectedBracket = bracket;
+  // Fallback to safest if not found
+  if (!bracket) {
+    for (var i = 0; i < allBrackets.length; i++) {
+      if (allBrackets[i].featured === 'safest') { bracket = allBrackets[i]; break; }
+    }
+  }
+  if (!bracket && allBrackets.length > 0) {
+    bracket = allBrackets[0];
+  }
+
+  if (!bracket) {
+    container.innerHTML = '<div class="wiz-loading-text">No brackets generated. Try again.</div>';
+    return;
+  }
+
+  var featColors = {
+    safest: {color:'rgb(30,200,150)',bg:'rgba(30,200,150,0.08)'},
+    profile: {color:'rgb(130,90,200)',bg:'rgba(130,90,200,0.08)'},
+    historic: {color:'rgba(0,5,10,0.45)',bg:'rgba(0,5,10,0.04)'},
+    balanced: {color:'rgb(30,47,200)',bg:'rgba(30,47,200,0.06)'},
+    sleeper: {color:'rgb(60,130,200)',bg:'rgba(60,130,200,0.06)'},
+    riskiest: {color:'rgb(220,80,60)',bg:'rgba(220,80,60,0.06)'},
+    homer: {color:'rgb(220,150,30)',bg:'rgba(220,150,30,0.08)'},
+    bestodds: {color:'rgb(0,160,100)',bg:'rgba(0,160,100,0.08)'}
+  };
+
+  var featLabels = {
+    safest:'Safest',profile:'Darlings',historic:'Historic',balanced:'Balanced',
+    sleeper:'Sleeper',riskiest:'Riskiest',homer:'My Team',bestodds:'Best Odds'
+  };
+
+  var fc = featColors[bracket.featured] || {color:'var(--accent)',bg:'var(--accent-dim)'};
+  var label = featLabels[bracket.featured] || bracket.featured || 'Recommended';
+
+  var html = '<div class="wiz-reveal">';
+  html += '<div class="wiz-reveal-title">Your bracket</div>';
+  html += '<div class="wiz-reveal-badge" style="color:'+fc.color+';background:'+fc.bg+'">'+label+'</div>';
+
+  // Champion card
+  html += '<div class="champ-card">';
+  html += '<div>'+espnLogo(bracket.champion.name, 64)+'</div>';
+  html += '<div class="seed-label">'+bracket.champion.seed+'-seed</div>';
+  html += '<div class="team-name">'+bracket.champion.name+'</div>';
+  html += '<div class="win-prob">'+bracket.champion.prob+'% to win it all</div>';
+  html += '</div>';
+
+  // Stats
+  html += '<div class="stat-row">';
+  html += '<div class="stat-pill"><div class="stat-val">'+bracket.total_ev+'</div><div class="stat-label">Total EV</div></div>';
+  html += '<div class="stat-pill"><div class="stat-val upsets-val">'+bracket.upset_count+'</div><div class="stat-label">Upsets</div></div>';
+  if (bracket.pool_win_pct != null) {
+    html += '<div class="stat-pill"><div class="stat-val" style="color:rgb(0,160,100)">'+bracket.pool_win_pct+'%</div><div class="stat-label">Pool Win</div></div>';
+  }
+  html += '</div>';
+
+  // Final Four
+  html += '<div style="font-family:Inter,sans-serif;font-size:9px;text-transform:uppercase;letter-spacing:3px;color:var(--text2);margin:20px 0 10px;display:flex;align-items:center;gap:8px"><span>Final Four</span><span style="flex:1;height:1px;background:var(--border)"></span></div>';
+  html += '<div class="wiz-reveal-f4">';
+  (bracket.elite_eight || []).forEach(function(t) {
+    html += '<div class="wiz-reveal-f4-team">';
+    html += espnLogo(t.name, 32);
+    html += '<div class="f4-name">'+t.name+'</div>';
+    html += '<div class="f4-seed">'+t.seed+'-seed</div>';
+    html += '</div>';
+  });
+  html += '</div>';
+
+  // CTAs
+  html += '<div class="wiz-cta-row">';
+  html += '<div class="wiz-cta-buttons">';
+  html += '<button class="wiz-btn" onclick="viewWizardBracket()"><i class="fa-solid fa-basketball" style="margin-right:6px"></i> View Bracket</button>';
+  html += '<button class="wiz-btn-outline" onclick="dismissWizard()"><i class="fa-solid fa-arrow-right" style="margin-right:6px"></i> Explore Others</button>';
+  html += '</div>';
+  html += '<button class="wiz-start-over" onclick="resetWizard()">Start Over</button>';
+  html += '</div>';
+
+  html += '</div>';
+
+  container.innerHTML = html;
+}
+
+function viewWizardBracket() {
+  var bracket = window._wizSelectedBracket;
+  if (!bracket) return;
+  // Use the detail overlay (works on both desktop and mobile)
+  document.getElementById('overlayBody').innerHTML = '';
+  showDetail(bracket);
+  // Force overlay open (showDetail uses overlay on mobile, panel on desktop — use overlay for both here)
+  if (!isMobile()) {
+    // Build the detail HTML and put it in the overlay instead of the side panel
+    var panel = document.getElementById('detailPanel');
+    var panelHtml = document.getElementById('detailContent').innerHTML;
+    document.getElementById('overlayBody').innerHTML = panelHtml;
+    panel.classList.add('collapsed');
+  }
+  document.getElementById('detailOverlay').classList.add('open');
+}
+
+function dismissWizard() {
+  document.body.classList.remove('wizard-active');
+  document.getElementById('wizardOverlay').classList.add('hidden');
+  // Close any open overlay from "View Bracket"
+  document.getElementById('detailOverlay').classList.remove('open');
+  // Collapse detail panel — nothing is selected yet
+  document.getElementById('detailPanel').classList.add('collapsed');
+  // Ensure chart renders (may have failed on first attempt before Plotly was ready)
+  if (allBrackets.length > 0) {
+    onPlotlyReady(function(){ renderChart(); });
+  }
+}
+
+function resetWizard() {
+  wizardState = {step: 1, poolSize: 25, homerTeams: [], favTeam: -1, prefs: [null, null, null], uniqueWinners: false};
+  _wizGenDone = false;
+  _wizGenPending = false;
+  allBrackets = [];
+
+  // Reset UI
+  document.getElementById('wizPoolSize').value = 25;
+  document.querySelectorAll('#wizHomerGrid .wiz-team-chip').forEach(function(c){ c.classList.remove('selected'); });
+  document.querySelectorAll('#wizFavGrid .wiz-team-chip').forEach(function(c){ c.classList.remove('selected'); });
+  document.querySelectorAll('.wiz-choice-card').forEach(function(c){ c.classList.remove('selected'); });
+
+  document.getElementById('wizRevealContent').innerHTML = '<div class="wiz-loading"><div class="wiz-spinner"></div><div class="wiz-loading-text">Crunching brackets...</div></div>';
+
+  wizardSetStep(1);
+}
+
+// === Lazy-load Plotly in the background ===
+// Starts immediately but non-blocking. Will be ready by the time user clicks Generate.
+var _plotlyReady = false;
+var _plotlyCallbacks = [];
+function onPlotlyReady(fn) {
+  if (_plotlyReady) return fn();
+  _plotlyCallbacks.push(fn);
+}
+(function() {
+  var s = document.createElement('script');
+  s.src = 'https://cdn.plot.ly/plotly-2.35.0.min.js';
+  s.async = true;
+  s.onload = function() {
+    _plotlyReady = true;
+    _plotlyCallbacks.forEach(function(fn){ fn(); });
+    _plotlyCallbacks = [];
+  };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
