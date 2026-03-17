@@ -2393,39 +2393,53 @@ function computeOptimalBracket(cw, homerTeams, poolSize, modelBlend, defenseFloo
       continue;
     }
 
+    // Resolve the two actual candidates from feeder matchups/slots
+    // This ensures we only pick from teams that were actually advanced in prior rounds
+    var ref1 = matchup.team_1_ref, ref2 = matchup.team_2_ref;
+    var cand1, cand2;
+    if (ref1.indexOf('team-') === 0) cand1 = parseInt(ref1.split('-')[1]);
+    else cand1 = picks[parseInt(ref1.split('-')[1])];
+    if (ref2.indexOf('team-') === 0) cand2 = parseInt(ref2.split('-')[1]);
+    else cand2 = picks[parseInt(ref2.split('-')[1])];
+    var candidates = [cand1, cand2];
+
     var bestTeam = null;
     var bestScore = -Infinity;
 
     if (cw > 0) {
       var roundBoost = 1.0 + (mRound / 5.0) * 0.5;
-      for (var tid in ep) {
+      for (var ci = 0; ci < candidates.length; ci++) {
+        var tid = candidates[ci];
+        var tidEp = ep[tid] || 0;
         var pop = seedPopularity(TEAMS[tid].seed);
-        var isHomer = homerTeams && homerTeams.indexOf(parseInt(tid)) !== -1;
-        var isFav = hasFavs && favTeams.indexOf(parseInt(tid)) !== -1;
+        var isHomer = homerTeams && homerTeams.indexOf(tid) !== -1;
+        var isFav = hasFavs && favTeams.indexOf(tid) !== -1;
         if (isHomer) {
           var homerRoundPenalty = 1.0 + mRound * 0.5;
           pop = Math.min(pop * 3.0 * homerRoundPenalty, 0.85);
         }
-        var leverage = ep[tid] / Math.max(pop, 0.001);
-        var score = ep[tid] + cw * poolFactor * roundBoost * leverage;
+        var leverage = tidEp / Math.max(pop, 0.001);
+        var score = tidEp + cw * poolFactor * roundBoost * leverage;
         if (isHomer && mRound >= 3) {
-          score -= cw * poolFactor * ep[tid] * (mRound - 2) * 0.4;
+          score -= cw * poolFactor * tidEp * (mRound - 2) * 0.4;
         }
         // Favorite team boost: nudge picks toward user's favorites
         // Moderate boost that scales with round (bigger payoff for advancing favs deep)
         if (isFav) {
           var favRoundBoost = 1.0 + mRound * 0.3;
-          score += ep[tid] * 0.15 * favRoundBoost;
+          score += tidEp * 0.15 * favRoundBoost;
         }
-        if (score > bestScore) { bestScore = score; bestTeam = parseInt(tid); }
+        if (score > bestScore) { bestScore = score; bestTeam = tid; }
       }
     } else {
-      for (var tid in ep) {
-        var isFav2 = hasFavs && favTeams.indexOf(parseInt(tid)) !== -1;
-        var s = ep[tid];
+      for (var ci = 0; ci < candidates.length; ci++) {
+        var tid = candidates[ci];
+        var tidEp = ep[tid] || 0;
+        var isFav2 = hasFavs && favTeams.indexOf(tid) !== -1;
+        var s = tidEp;
         // Even in pure-EV mode, give a slight nudge to favorites
-        if (isFav2) s += ep[tid] * 0.08 * (1.0 + mRound * 0.2);
-        if (s > bestScore) { bestScore = s; bestTeam = parseInt(tid); }
+        if (isFav2) s += tidEp * 0.08 * (1.0 + mRound * 0.2);
+        if (s > bestScore) { bestScore = s; bestTeam = tid; }
       }
     }
     picks[mId] = bestTeam;
