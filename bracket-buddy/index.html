@@ -2771,6 +2771,7 @@ self.onmessage = function(e) {
         summary.upset_boost = Math.round(cc[3] * 100) / 100;
         summary.variance_damping = Math.round(cc[4] * 100) / 100;
         summary.strategy_tags = ['champion-locked'];
+        summary.forced_champion = top12[ti].id;
         if (summary.upset_count <= 20) {
           brackets.push(summary);
           idx++;
@@ -3005,7 +3006,8 @@ self.onmessage = function(e) {
     var b = bracketsToScore[bi];
     var result = computeOptimalBracket(
       b.contrarian_weight, homerTeams, poolSize,
-      b.model_blend, b.defense_floor, b.upset_boost, b.variance_damping, favTeams
+      b.model_blend, b.defense_floor, b.upset_boost, b.variance_damping, favTeams,
+      b.forced_champion != null ? b.forced_champion : -1
     );
     picksByBracketId[b.id] = result.picks;
   }
