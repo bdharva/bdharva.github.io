@@ -2302,146 +2302,31 @@ function pairWinProb(t1, t2, mRound, modelBlend, defenseFloor, upsetBoost, varia
   return Math.max(0.001, Math.min(0.999, pT1Wins));
 }
 
-function computeWinProbs(modelBlend, defenseFloor, upsetBoost, varianceDamping) {
-  var slotProbs = {};
-  for (var tid in TEAMS) {
-    slotProbs['team-' + tid] = {};
-    slotProbs['team-' + tid][tid] = 1.0;
-  }
-
-  var teamEms = {};
-  var teamDefs = {};
-  for (var tid in TEAMS) {
-    teamEms[tid] = getTorvikEm(TEAMS[tid].name);
-    teamDefs[tid] = getTorvikDe(TEAMS[tid].name);
-  }
-
-  var upsetHistory = {};
-  var pairs = [[5,12,0.356],[6,11,0.368],[7,10,0.382],[8,9,0.500],[3,14,0.154],[4,13,0.206]];
-  for (var i = 0; i < pairs.length; i++) {
-    var p = pairs[i];
-    upsetHistory[p[0]+','+p[1]] = p[2];
-    upsetHistory[p[1]+','+p[0]] = p[2];
-  }
-
-  var DEFENSE_THRESHOLD = 98.0;
-  var winnerProbs = {};
-
-  for (var mi = 0; mi < MATCHUPS.length; mi++) {
-    var matchup = MATCHUPS[mi];
-    var mId = matchup.id;
-    var mRound = matchup.round;
-    var ref1 = matchup.team_1_ref;
-    var ref2 = matchup.team_2_ref;
-
-    var probs1, probs2;
-    if (ref1.indexOf('team-') === 0) {
-      probs1 = slotProbs[ref1];
-    } else {
-      probs1 = winnerProbs[parseInt(ref1.split('-')[1])];
-    }
-    if (ref2.indexOf('team-') === 0) {
-      probs2 = slotProbs[ref2];
-    } else {
-      probs2 = winnerProbs[parseInt(ref2.split('-')[1])];
-    }
-
-    var wpHere = {};
-    for (var t1 in probs1) {
-      for (var t2 in probs2) {
-        var pairProb = probs1[t1] * probs2[t2];
-        var pTorvik = winProbability(teamEms[t1], teamEms[t2], varianceDamping);
-        var pT1Wins = pTorvik;
-
-        if (modelBlend > 0) {
-          var s1Odds = SEED_ODDS[TEAMS[t1].seed] || [50,50,50,50,50,50];
-          var s2Odds = SEED_ODDS[TEAMS[t2].seed] || [50,50,50,50,50,50];
-          var r = Math.min(mRound, 5);
-          var total = s1Odds[r] + s2Odds[r];
-          var pSeed = total > 0 ? s1Odds[r] / total : 0.5;
-          pT1Wins = pTorvik * (1.0 - modelBlend) + pSeed * modelBlend;
-        }
-
-        if (upsetBoost > 0) {
-          // R1: use specific historical seed-pair upset rates
-          if (mRound === 0) {
-            var seedPair = TEAMS[t1].seed + ',' + TEAMS[t2].seed;
-            if (upsetHistory[seedPair] !== undefined) {
-              var histRate = upsetHistory[seedPair];
-              if (TEAMS[t1].seed > TEAMS[t2].seed) {
-                pT1Wins = pT1Wins + upsetBoost * (histRate - pT1Wins);
-              } else {
-                pT1Wins = pT1Wins + upsetBoost * ((1.0 - histRate) - pT1Wins);
-              }
-            }
-          } else {
-            // Later rounds: nudge toward parity based on seed gap
-            // Historical data: later rounds have more parity than models predict
-            // Round factors: R32 0.5, S16 0.6, E8 0.65, F4 0.7, Championship 0.75
-            var roundParity = [0, 0.5, 0.6, 0.65, 0.7, 0.75];
-            var seedDiff = Math.abs(TEAMS[t1].seed - TEAMS[t2].seed);
-            if (seedDiff > 0) {
-              // Target: shift underdog win prob toward historical rates
-              // Bigger seed gaps get stronger correction (those are the most over-confident)
-              var gapFactor = Math.min(seedDiff / 15.0, 1.0);
-              var parityTarget = 0.5 - gapFactor * 0.15; // underdog target: 35-50%
-              var correction = upsetBoost * (roundParity[mRound] || 0.5);
-              if (TEAMS[t1].seed > TEAMS[t2].seed) {
-                // t1 is underdog
-                if (pT1Wins < parityTarget) {
-                  pT1Wins = pT1Wins + correction * (parityTarget - pT1Wins);
-                }
-              } else {
-                // t2 is underdog
-                var t2Target = 1.0 - parityTarget;
-                if (pT1Wins > t2Target) {
-                  pT1Wins = pT1Wins - correction * (pT1Wins - t2Target);
-                }
-              }
-            }
-          }
-        }
-
-        if (defenseFloor && mRound >= 2) {
-          var penaltyScale = (mRound - 1) / 4.0;
-          var d1Pen = Math.max(0, teamDefs[t1] - DEFENSE_THRESHOLD) * 0.02 * penaltyScale;
-          var d2Pen = Math.max(0, teamDefs[t2] - DEFENSE_THRESHOLD) * 0.02 * penaltyScale;
-          var denom = pT1Wins * (1.0 - d1Pen) + (1.0 - pT1Wins) * (1.0 - d2Pen);
-          pT1Wins = pT1Wins * (1.0 - d1Pen) / Math.max(denom, 0.001);
-        }
-
-        pT1Wins = Math.max(0.001, Math.min(0.999, pT1Wins));
-
-        wpHere[t1] = (wpHere[t1] || 0) + pairProb * pT1Wins;
-        wpHere[t2] = (wpHere[t2] || 0) + pairProb * (1.0 - pT1Wins);
-      }
-    }
-    winnerProbs[mId] = wpHere;
-  }
-  return winnerProbs;
-}
-
 function computeOptimalBracket(cw, homerTeams, poolSize, modelBlend, defenseFloor, upsetBoost, varianceDamping, favTeams, forcedChampion) {
-  var winnerProbs = computeWinProbs(modelBlend, defenseFloor, upsetBoost, varianceDamping);
   var picks = {};
   var expectedPoints = {};
+  var bracketProbs = {};  // P(picked team reaches AND wins each matchup) given our bracket
+  var pathProb = {};      // P(team reaches current matchup) given our bracket picks so far
   var poolFactor = Math.log(Math.max(poolSize, 2)) / Math.log(10);
   var hasFavs = favTeams && favTeams.length > 0;
+
+  // Initialize: every team starts in R64 with certainty
+  for (var tid in TEAMS) { pathProb[parseInt(tid)] = 1.0; }
 
   // Build forced path if forcedChampion is set
   var forcedMatchups = {};
   if (forcedChampion != null && forcedChampion >= 0) {
-    var m = Math.floor(forcedChampion / 2); // R64 matchup
+    var m = Math.floor(forcedChampion / 2);
     forcedMatchups[m] = forcedChampion;
-    m = 32 + Math.floor(m / 2); // R32
+    m = 32 + Math.floor(m / 2);
     forcedMatchups[m] = forcedChampion;
-    m = 48 + Math.floor((m - 32) / 2); // S16
+    m = 48 + Math.floor((m - 32) / 2);
     forcedMatchups[m] = forcedChampion;
-    m = 56 + Math.floor((m - 48) / 2); // E8
+    m = 56 + Math.floor((m - 48) / 2);
     forcedMatchups[m] = forcedChampion;
-    m = 60 + Math.floor((m - 56) / 2); // F4
+    m = 60 + Math.floor((m - 56) / 2);
     forcedMatchups[m] = forcedChampion;
-    forcedMatchups[62] = forcedChampion; // Championship
+    forcedMatchups[62] = forcedChampion;
   }
 
   for (var mi = 0; mi < MATCHUPS.length; mi++) {
@@ -2450,7 +2335,7 @@ function computeOptimalBracket(cw, homerTeams, poolSize, modelBlend, defenseFloo
     var mRound = matchup.round;
     var points = SCORING[mRound];
 
-    // Resolve the two actual candidates from feeder matchups/slots
+    // Resolve the two candidates from feeder matchups
     var ref1 = matchup.team_1_ref, ref2 = matchup.team_2_ref;
     var cand1, cand2;
     if (ref1.indexOf('team-') === 0) cand1 = parseInt(ref1.split('-')[1]);
@@ -2458,64 +2343,71 @@ function computeOptimalBracket(cw, homerTeams, poolSize, modelBlend, defenseFloo
     if (ref2.indexOf('team-') === 0) cand2 = parseInt(ref2.split('-')[1]);
     else cand2 = picks[parseInt(ref2.split('-')[1])];
 
-    // Compute head-to-head EP for the two known candidates
-    // (not winnerProbs which factors in reach probability — both teams are already here)
+    // Head-to-head probability for this specific matchup
     var h2h = pairWinProb(cand1, cand2, mRound, modelBlend, defenseFloor, upsetBoost, varianceDamping);
+
+    // EP = P(team reaches here) × P(team wins here) × points
     var ep = {};
-    ep[cand1] = h2h * points;
-    ep[cand2] = (1.0 - h2h) * points;
+    ep[cand1] = pathProb[cand1] * h2h * points;
+    ep[cand2] = pathProb[cand2] * (1.0 - h2h) * points;
     expectedPoints[mId] = ep;
 
-    // If this matchup is on the forced champion's path, pick the forced team
+    // Pick winner
+    var winner;
     if (forcedMatchups[mId] != null) {
-      picks[mId] = forcedMatchups[mId];
-      continue;
-    }
-
-    var bestTeam = null;
-    var bestScore = -Infinity;
-
-    if (cw > 0) {
-      var roundBoost = 1.0 + (mRound / 5.0) * 0.5;
-      var candidates = [cand1, cand2];
-      for (var ci = 0; ci < candidates.length; ci++) {
-        var tid = candidates[ci];
-        var tidEp = ep[tid];
-        var pop = seedPopularity(TEAMS[tid].seed);
-        var isHomer = homerTeams && homerTeams.indexOf(tid) !== -1;
-        var isFav = hasFavs && favTeams.indexOf(tid) !== -1;
-        if (isHomer) {
-          var homerRoundPenalty = 1.0 + mRound * 0.5;
-          pop = Math.min(pop * 3.0 * homerRoundPenalty, 0.85);
-        }
-        var leverage = tidEp / Math.max(pop, 0.001);
-        var score = tidEp + cw * poolFactor * roundBoost * leverage;
-        if (isHomer && mRound >= 3) {
-          score -= cw * poolFactor * tidEp * (mRound - 2) * 0.4;
-        }
-        if (isFav) {
-          var favRoundBoost = 1.0 + mRound * 0.3;
-          score += tidEp * 0.15 * favRoundBoost;
-        }
-        if (score > bestScore) { bestScore = score; bestTeam = tid; }
-      }
+      winner = forcedMatchups[mId];
     } else {
-      var candidates = [cand1, cand2];
-      for (var ci = 0; ci < candidates.length; ci++) {
-        var tid = candidates[ci];
-        var tidEp = ep[tid];
-        var isFav2 = hasFavs && favTeams.indexOf(tid) !== -1;
-        var s = tidEp;
-        if (isFav2) s += tidEp * 0.08 * (1.0 + mRound * 0.2);
-        if (s > bestScore) { bestScore = s; bestTeam = tid; }
+      var bestTeam = null;
+      var bestScore = -Infinity;
+
+      if (cw > 0) {
+        var roundBoost = 1.0 + (mRound / 5.0) * 0.5;
+        var candidates = [cand1, cand2];
+        for (var ci = 0; ci < candidates.length; ci++) {
+          var tid = candidates[ci];
+          var tidEp = ep[tid];
+          var pop = seedPopularity(TEAMS[tid].seed);
+          var isHomer = homerTeams && homerTeams.indexOf(tid) !== -1;
+          var isFav = hasFavs && favTeams.indexOf(tid) !== -1;
+          if (isHomer) {
+            var homerRoundPenalty = 1.0 + mRound * 0.5;
+            pop = Math.min(pop * 3.0 * homerRoundPenalty, 0.85);
+          }
+          var leverage = tidEp / Math.max(pop, 0.001);
+          var score = tidEp + cw * poolFactor * roundBoost * leverage;
+          if (isHomer && mRound >= 3) {
+            score -= cw * poolFactor * tidEp * (mRound - 2) * 0.4;
+          }
+          if (isFav) {
+            var favRoundBoost = 1.0 + mRound * 0.3;
+            score += tidEp * 0.15 * favRoundBoost;
+          }
+          if (score > bestScore) { bestScore = score; bestTeam = tid; }
+        }
+      } else {
+        var candidates = [cand1, cand2];
+        for (var ci = 0; ci < candidates.length; ci++) {
+          var tid = candidates[ci];
+          var tidEp = ep[tid];
+          var isFav2 = hasFavs && favTeams.indexOf(tid) !== -1;
+          var s = tidEp;
+          if (isFav2) s += tidEp * 0.08 * (1.0 + mRound * 0.2);
+          if (s > bestScore) { bestScore = s; bestTeam = tid; }
+        }
       }
+      winner = bestTeam;
     }
-    picks[mId] = bestTeam;
+
+    picks[mId] = winner;
+    // Update path probability: winner's prob of reaching next round
+    var winH2h = (winner === cand1) ? h2h : (1.0 - h2h);
+    bracketProbs[mId] = pathProb[winner] * winH2h;
+    pathProb[winner] = pathProb[winner] * winH2h;
   }
-  return {picks: picks, expectedPoints: expectedPoints, winnerProbs: winnerProbs};
+  return {picks: picks, expectedPoints: expectedPoints, bracketProbs: bracketProbs};
 }
 
-function summarizeBracket(picks, expectedPoints, winnerProbs, chalkPicks) {
+function summarizeBracket(picks, expectedPoints, bracketProbs, chalkPicks) {
   var totalEv = 0, earlyEv = 0, lateEv = 0, divergence = 0, weightedDiv = 0;
   var roundWeights = {0:1,1:2,2:4,3:8,4:16,5:32};
 
@@ -2540,7 +2432,7 @@ function summarizeBracket(picks, expectedPoints, winnerProbs, chalkPicks) {
 
   var champId = picks[MATCHUPS[MATCHUPS.length - 1].id];
   var champ = TEAMS[champId];
-  var champProb = winnerProbs[MATCHUPS[MATCHUPS.length - 1].id][champId] || 0;
+  var champProb = bracketProbs[MATCHUPS[MATCHUPS.length - 1].id] || 0;
 
   var finalFour = [];
   var eliteEight = [];
@@ -2548,11 +2440,11 @@ function summarizeBracket(picks, expectedPoints, winnerProbs, chalkPicks) {
     var m = MATCHUPS[mi];
     if (m.round === 4) {
       var t = TEAMS[picks[m.id]];
-      finalFour.push({name:t.name,seed:t.seed,prob:Math.round((winnerProbs[m.id][picks[m.id]]||0)*1000)/10});
+      finalFour.push({name:t.name,seed:t.seed,prob:Math.round((bracketProbs[m.id]||0)*1000)/10});
     }
     if (m.round === 3) {
       var t = TEAMS[picks[m.id]];
-      eliteEight.push({name:t.name,seed:t.seed,prob:Math.round((winnerProbs[m.id][picks[m.id]]||0)*1000)/10});
+      eliteEight.push({name:t.name,seed:t.seed,prob:Math.round((bracketProbs[m.id]||0)*1000)/10});
     }
   }
 
@@ -2565,7 +2457,7 @@ function summarizeBracket(picks, expectedPoints, winnerProbs, chalkPicks) {
 
     var picked = picks[m.id];
     var t = TEAMS[picked];
-    var prob = winnerProbs[m.id][picked] || 0;
+    var prob = bracketProbs[m.id] || 0;
     var ep = expectedPoints[m.id][picked];
 
     var ref1 = m.team_1_ref, ref2 = m.team_2_ref;
@@ -2780,7 +2672,7 @@ self.onmessage = function(e) {
           for (var vi = 0; vi < dampings.length; vi++) {
             var cw = contrarian[ci], blend = blends[bi], defense = defenses[di], upset = upsets[ui], damp = dampings[vi];
             var result = computeOptimalBracket(cw, homerTeams, poolSize, blend, defense, upset, damp, favTeams);
-            var summary = summarizeBracket(result.picks, result.expectedPoints, result.winnerProbs, chalkPicks);
+            var summary = summarizeBracket(result.picks, result.expectedPoints, result.bracketProbs, chalkPicks);
             summary.picks = result.picks;
 
             var dedupKey = summary.total_ev + '|' + summary.divergence + '|' + summary.late_ev;
@@ -2829,7 +2721,7 @@ self.onmessage = function(e) {
       for (var ci2 = 0; ci2 < champCombos.length; ci2++) {
         var cc = champCombos[ci2];
         var result = computeOptimalBracket(cc[0], homerTeams, poolSize, cc[1], cc[2], cc[3], cc[4], favTeams, top12[ti].id);
-        var summary = summarizeBracket(result.picks, result.expectedPoints, result.winnerProbs, chalkPicks);
+        var summary = summarizeBracket(result.picks, result.expectedPoints, result.bracketProbs, chalkPicks);
         summary.picks = result.picks;
         var dedupKey = summary.champion.name + '|' + summary.total_ev + '|' + summary.divergence + '|' + summary.late_ev;
         if (seenKeys[dedupKey]) continue;
@@ -3318,9 +3210,8 @@ function generate() {
     worker = null;
   };
 
-  // Collect fav teams from wizard state or the dropdown
-  const favTeams = (wizardState && wizardState.favTeams && wizardState.favTeams.length > 0)
-    ? wizardState.favTeams : (favTeamsFromUI.length > 0 ? favTeamsFromUI : (favTeam >= 0 ? [favTeam] : []));
+  // Collect fav teams: always use current dropdown state (wizard syncs to dropdown before generating)
+  const favTeams = favTeamsFromUI.length > 0 ? favTeamsFromUI : (favTeam >= 0 ? [favTeam] : []);
   const uniqueWinners = document.getElementById('uniqueWinners') ? document.getElementById('uniqueWinners').checked : false;
   worker.postMessage({pool_size: poolSize, homer_teams: homerTeams, fav_team: favTeam, fav_teams: favTeams, unique_winners: uniqueWinners});
 }
