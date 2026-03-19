@@ -2089,7 +2089,7 @@ const MATCHUPS = [
   {id:54,round:2,team_1_ref:'winner-44',team_2_ref:'winner-45'},{id:55,round:2,team_1_ref:'winner-46',team_2_ref:'winner-47'},
   {id:56,round:3,team_1_ref:'winner-48',team_2_ref:'winner-49'},{id:57,round:3,team_1_ref:'winner-50',team_2_ref:'winner-51'},
   {id:58,round:3,team_1_ref:'winner-52',team_2_ref:'winner-53'},{id:59,round:3,team_1_ref:'winner-54',team_2_ref:'winner-55'},
-  {id:60,round:4,team_1_ref:'winner-56',team_2_ref:'winner-57'},{id:61,round:4,team_1_ref:'winner-58',team_2_ref:'winner-59'},
+  {id:60,round:4,team_1_ref:'winner-56',team_2_ref:'winner-59'},{id:61,round:4,team_1_ref:'winner-57',team_2_ref:'winner-58'},
   {id:62,round:5,team_1_ref:'winner-60',team_2_ref:'winner-61'}
 ];
 
@@ -2324,7 +2324,8 @@ function computeOptimalBracket(cw, homerTeams, poolSize, modelBlend, defenseFloo
     forcedMatchups[m] = forcedChampion;
     m = 56 + Math.floor((m - 48) / 2);
     forcedMatchups[m] = forcedChampion;
-    m = 60 + Math.floor((m - 56) / 2);
+    // F4 pairing: E8 56+59→F4 60, E8 57+58→F4 61
+    m = (m === 56 || m === 59) ? 60 : 61;
     forcedMatchups[m] = forcedChampion;
     forcedMatchups[62] = forcedChampion;
   }
