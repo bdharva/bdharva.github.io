@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/banff-lakes-2019/
 title: Banff Lakes
 location: Banff National Park, BC
 category: photography

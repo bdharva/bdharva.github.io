@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/dc-fourth-of-july-2020/
 title: Flyovers & Fireworks
 location: Washington, DC
 category: photography

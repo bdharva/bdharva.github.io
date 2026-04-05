@@ -1,177 +1,98 @@
 /*
-CSS DOCUMENT - BDHARVA.COM
+CFB CHAOS — D3 STYLES
+Finessed to match bdharva.com design system
 ============================================================*/
 
-
-#hero .screen {
-	background-color: rgb(74,74,74);
-}
-
-#hero .screen h4 {
-	font-family: "Source Code Pro", monospace;
-	font-size: 14px;
-	text-transform: uppercase;
-}
-
-/* Section
+/* Chart containers
 ------------------------------------------------------------*/
-
-section {
-	height: auto;
-	overflow: auto;
-	width: 100%;
-	margin: 0 auto;
-	margin-top: 10px;
-	box-sizing: border-box;
-	background-color: rgb(255,255,255);
-	border-bottom: 1px solid rgb(230,230,230);
-}
-
-section .container {
-	height: auto;
-	overflow: auto;
-	width: 100%;
-	max-width: 1024px;
-	margin: 0 auto;
-	padding: 40px 0 40px 0;
-}
-
 .chart {
 	width: 100%;
 	height: auto;
 	overflow: auto;
-	margin-top: 20px;
+	margin-top: 12px;
 }
 
 .chart.inactive {
-	display: none;;
-}
-
-.toggle {
-	height: auto;
-	overflow: auto;
-	border: 2px solid rgb(70,70,70);
-	display: inline-block;
-}
-
-.toggle .option {
-	height: 30px;
-	line-height: 30px;
-	font-size: 14px;
-	width: 120px;
-	text-align: center;
-	color: rgb(70,70,70);
-	float: left;
-	display: block;
-	text-transform: uppercase;
-	font-weight: 400;
-	font-family: 'Source Sans Pro', sans-serif;
-	cursor: pointer;
-}
-
-.toggle .option.active {
-	background-color: rgb(70,70,70);
-	color: rgb(255,255,255);
-	cursor: default;
-}
-
-.toggle .option:hover {
-	background-color: rgb(230,230,230);
-}
-
-.toggle .option.active:hover {
-	background-color: rgb(70,70,70);
-	color: rgb(255,255,255);
+	display: none;
 }
 
 /* SVG
 ------------------------------------------------------------*/
-
-svg {
+.chart svg {
 	margin: 0 auto;
 	display: block;
-	background: white;
+	background: transparent;
 	cursor: crosshair;
 }
 
 .axis path,
 .axis line {
 	fill: none;
-	stroke: lightgray;
+	stroke: rgba(0, 5, 10, 0.08);
 	shape-rendering: crispEdges;
 }
 
 .axis path,
 .axis .tick line {
-	stroke-width: 2px;
-	stroke: rgb(150,150,150);
+	stroke-width: 1px;
+	stroke: rgba(0, 5, 10, 0.1);
 }
 
-.axis .tick text{
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 400;
-	font-size: 12px;
-	color: rgb(150,150,150);
+.axis .tick text {
+	font-family: 'JetBrains Mono', monospace;
+	font-weight: 500;
+	font-size: 10px;
+	fill: rgba(0, 5, 10, 0.35);
 }
 
 /* Line graph
 ------------------------------------------------------------*/
-
-.line{
+.line {
 	fill: none;
-	stroke:rgb(220,220,220);
-	stroke-width:2px;
+	stroke: rgba(0, 5, 10, 0.12);
+	stroke-width: 1.5px;
 	stroke-linecap: round;
 }
 
 .focus circle {
-	fill: rgb(220,220,220);
-	stroke: rgb(255,255,255);
+	fill: rgba(0, 5, 10, 0.15);
+	stroke: white;
 }
 
 .year-2004 .line {
-	stroke: rgb(240, 40, 40);
-	stroke-width: 4px;
-	z-index: 10;
+	stroke: rgb(220, 75, 55);
+	stroke-width: 2.5px;
 }
 
 .focus-2004 circle,
 .focus-2004 text {
-	fill: rgb(240, 40, 40);
+	fill: rgb(220, 75, 55);
 }
 
 .year-2008 .line {
-	stroke: rgb(50,200,100);
-	stroke-width: 4px;
+	stroke: rgb(30, 200, 150);
+	stroke-width: 2.5px;
 }
 
 .focus-2008 circle,
 .focus-2008 text {
-	fill: rgb(50,200,100);
+	fill: rgb(30, 200, 150);
 }
 
 .year-2017 .line {
-	stroke: rgb(80,85,90);
-	stroke-width: 4px;
+	stroke: rgba(0, 5, 10, 0.7);
+	stroke-width: 2.5px;
 }
 
 .focus-2017 circle,
 .focus-2017 text {
-	fill: rgb(80,85,90);
+	fill: rgba(0, 5, 10, 0.7);
 }
 
-.focus-2002 text,
-.focus-2003 text,
-.focus-2005 text,
-.focus-2006 text,
-.focus-2007 text,
-.focus-2009 text,
-.focus-2010 text,
-.focus-2011 text,
-.focus-2012 text,
-.focus-2013 text,
-.focus-2014 text,
-.focus-2015 text,
+.focus-2002 text, .focus-2003 text, .focus-2005 text,
+.focus-2006 text, .focus-2007 text, .focus-2009 text,
+.focus-2010 text, .focus-2011 text, .focus-2012 text,
+.focus-2013 text, .focus-2014 text, .focus-2015 text,
 .focus-2016 text {
 	display: none;
 }
@@ -182,78 +103,82 @@ svg {
 }
 
 .focus {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 400;
-	font-size: 16px;
+	font-family: 'DM Sans', sans-serif;
+	font-weight: 500;
+	font-size: 13px;
 }
 
 .label {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 14px;
-	font-weight: 400;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 10px;
+	font-weight: 500;
 	text-transform: uppercase;
 	text-align: right;
 	line-height: 100%;
-	fill: rgb(150,150,150);
+	fill: rgba(0, 5, 10, 0.3);
+	letter-spacing: 0.5px;
 }
 
 .hoverline {
 	stroke-width: 1px;
-	stroke: rgb(100,100,100);
-	stroke-dasharray: 4, 2;
+	stroke: rgba(0, 5, 10, 0.2);
+	stroke-dasharray: 3, 3;
 }
 
 /* Bar chart
 ------------------------------------------------------------*/
-
 .gamebar {
-	fill: rgb(230,230,230);
+	fill: rgba(0, 5, 10, 0.06);
 }
 
 .rankedlossbar {
-	fill: rgb(140,215,165);
+	fill: rgba(30, 200, 150, 0.25);
 }
 
 .upsetbar {
-	fill: rgb(50,200,100);
+	fill: rgb(30, 200, 150);
 }
 
 /* Bubble chart
 ------------------------------------------------------------*/
-
-circle {
-	stroke: rgb(150,150,150);
-	stroke-width: 2px;
+.chart circle {
+	stroke: rgba(0, 5, 10, 0.1);
+	stroke-width: 1.5px;
 }
 
-circle:hover {
-	stroke: rgb(70,70,70);
+.chart circle:hover {
+	stroke: rgba(0, 5, 10, 0.4);
 }
 
 .axisline {
 	fill: none;
-	stroke:rgb(200,200,200);
-	stroke-width:2px;
-	stroke-dasharray:5;
+	stroke: rgba(0, 5, 10, 0.08);
+	stroke-width: 1.5px;
+	stroke-dasharray: 4;
 }
 
-
+/* Tooltips
+------------------------------------------------------------*/
 .tooltip,
 .bartooltip {
-  position: absolute;
-  height: auto;
-  overflow: auto;
+	position: absolute;
+	height: auto;
+	overflow: auto;
 	width: 250px;
-  pointer-events: none;
-  background-color: rgb(255,255,255);
-  border: 2px solid rgb(70,70,70);
-	padding-bottom: 10px;
+	pointer-events: none;
+	background-color: white;
+	border: 1px solid rgba(0, 5, 10, 0.1);
+	border-radius: 8px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 	z-index: 100;
+	padding-bottom: 10px;
 }
 
 .bartooltip {
 	padding: 0;
-	color: rgb(70,70,70);
+	color: rgba(0, 5, 10, 0.8);
+	border-radius: 8px;
+	overflow: hidden;
 }
 
 .bartooltip .entry {
@@ -263,12 +188,12 @@ circle:hover {
 	text-align: center;
 	padding: 10px;
 	box-sizing: border-box;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'DM Sans', sans-serif;
 	text-transform: uppercase;
 }
 
 .bartooltip .entry:nth-child(even) {
-	background-color: rgb(230,230,230);
+	background-color: rgba(0, 5, 10, 0.03);
 }
 
 .bartooltip span.number,
@@ -277,30 +202,33 @@ circle:hover {
 }
 
 .bartooltip span.number {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 600;
+	letter-spacing: -0.3px;
 }
 
 .bartooltip span.description {
-	font-size: 14px;
-	font-weight: 300;
+	font-size: 11px;
+	font-weight: 500;
+	color: rgba(0, 5, 10, 0.4);
 }
 
 .tooltip .topper,
 .bartooltip .topper {
-	padding: 6px;
-	font-family: 'Source Sans Pro', sans-serif;
-	color: rgb(255,255,255);
-	background-color: rgb(70,70,70);
+	padding: 8px 12px;
+	font-family: 'JetBrains Mono', monospace;
+	color: white;
+	background-color: rgba(0, 5, 10, 0.85);
 	text-transform: uppercase;
-	font-weight: 300;
-	font-size: 12px;
-	border-bottom: 2px solid rgb(70,70,70);
+	font-weight: 500;
+	font-size: 10px;
+	letter-spacing: 0.5px;
+	border-radius: 8px 8px 0 0;
 }
 
 .tooltip .teamline {
-	height: 20px;
-	padding: 10px 10px 0 10px;
+	min-height: 20px;
+	padding: 10px 12px 8px 12px;
 }
 
 .tooltip .logo {
@@ -312,29 +240,24 @@ circle:hover {
 .tooltip .teamdiv {
 	height: 20px;
 	line-height: 20px;
-	font-size: 14px;
-	color: rgb(90,90,90);
+	font-size: 13px;
+	color: rgba(0, 5, 10, 0.7);
 }
 
 /* Table
 ------------------------------------------------------------*/
-
 table {
 	width: 100%;
 	max-width: 1024px;
-	margin: 20px auto;
+	margin: 12px auto;
 	border-collapse: collapse;
-	background-color: rgb(255,255,255);
-	font-size: 16px;
-	color: rgb(90,90,90);
+	background-color: white;
+	font-size: 14px;
+	color: rgba(0, 5, 10, 0.7);
 }
 
 thead {
-	border-left: 0px solid transparent;
-	border-right: 0px solid transparent;
-	border-top: 0px solid transparent;
-	border-bottom: 2px solid rgb(70,70,70);
-	border-style: double;
+	border-bottom: 2px solid rgba(0, 5, 10, 0.1);
 }
 
 thead.static {
@@ -345,7 +268,8 @@ thead.static {
 	top: 0;
 	left: 0;
 	right: 0;
-	background-color: rgba(255,255,255,0.9);
+	background-color: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(8px);
 	display: block;
 }
 
@@ -364,49 +288,55 @@ thead.static th {
 }
 
 tr {
-	border-bottom: 2px solid rgb(230,230,230);
+	border-bottom: 1px solid rgba(0, 5, 10, 0.06);
 }
 
 th {
 	padding: 10px;
-	border-top: none;
-	border-bottom: none;
+	border: none;
 }
 
 thead th {
-	font-size: 14px;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 10px;
+	font-weight: 500;
 	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: rgba(0, 5, 10, 0.4);
 	cursor: pointer;
+	transition: all 0.15s ease;
 }
 
 thead th:hover {
-	background-color: rgb(230,230,230);
+	background-color: rgba(0, 5, 10, 0.03);
+	color: rgba(0, 5, 10, 0.7);
 }
 
 thead th.active {
-	background-color: rgb(70,70,70);
-	color: rgb(255,255,255);
+	background-color: rgba(0, 5, 10, 0.85);
+	color: white;
 }
 
 th.team {
-	 width: 40%;
-	 text-align: left;
+	width: 40%;
+	text-align: left;
 }
 
 th.number {
 	width: 12%;
 	text-align: right;
-	font-weight: 300;
+	font-weight: 400;
 }
 
 tbody th.number {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 400;
-	font-size: 16px;
+	font-family: 'JetBrains Mono', monospace;
+	font-weight: 500;
+	font-size: 13px;
 }
 
 tbody th.team {
-	color: rgb(70,70,70);
+	color: rgba(0, 5, 10, 0.8);
+	font-weight: 500;
 }
 
 tr.entry .teamdiv,
@@ -418,16 +348,11 @@ tr.entry .teamdiv,
 tr.entry .teamdiv {
 	height: 30px;
 	line-height: 30px;
-	font-size: 18px;
+	font-size: 14px;
 }
 
 tr.entry:hover {
-	background-color: rgb(230,230,230);
-	border-left: 0px solid transparent;
-	border-right: 0px solid transparent;
-	border-top: 2px solid rgb(90,90,90);
-	border-bottom: 2px solid rgb(90,90,90);
-	border-style: double;
+	background-color: rgba(0, 5, 10, 0.02);
 }
 
 tr.entry .logo,
@@ -447,24 +372,45 @@ tr.entry .logo,
 .logoholder {
 	width: 32px;
 	height: 32px;
+	min-width: 32px;
+	min-height: 32px;
 	padding: 8px;
 	display: block;
 	float: left;
 	margin: 0 auto;
-	background: rgb(240,240,240);
-	border-radius: 3px;
+	background: rgba(0, 5, 10, 0.03);
+	border-radius: 6px;
+	box-sizing: border-box;
+}
+
+.logoholder .logo {
+	width: 16px;
+	height: 16px;
+}
+
+/* Matchups
+------------------------------------------------------------*/
+#matchups {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 12px;
 }
 
 .matchupwrapper {
-	width: 33.33%;
-	float: left;
-	box-sizing: border-box;
-	padding: 8px;
+	width: auto;
+	float: none;
+	padding: 0;
 }
 
 .matchup {
-	border: 1px solid rgb(230,230,230);
-	border-radius: 4px;
+	border: 1px solid rgba(0, 5, 10, 0.08);
+	border-radius: 8px;
+	overflow: hidden;
+	transition: box-shadow 0.15s ease;
+}
+
+.matchup:hover {
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .matchup div.team {
@@ -472,62 +418,69 @@ tr.entry .logo,
 }
 
 .matchup div.team:first-child {
-	margin-bottom: 16px;
+	margin-bottom: 12px;
 }
 
 .teams {
-	padding: 16px;
+	padding: 14px 16px;
 }
 
 span.name {
 	text-align: left;
 	margin-left: 8px;
+	font-size: 14px;
+	font-weight: 500;
 }
 
 span.rank {
-	font-size: 14px;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 12px;
 	font-weight: 600;
-	color: rgb(50,55,60);
+	color: rgba(0, 5, 10, 0.7);
 	margin-right: 4px;
 }
 
 span.record {
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 400;
-	color: rgb(200,200,200);
-	margin-left: 8px;
+	color: rgba(0, 5, 10, 0.3);
+	margin-left: 6px;
 }
 
 span.metric {
-	font-size: 12px;
-	font-weight: 400;
-	color: rgb(150,150,150);
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 10px;
+	font-weight: 500;
+	color: rgba(0, 5, 10, 0.3);
 	text-transform: uppercase;
-	margin-left: 8px;
+	letter-spacing: 0.5px;
+	margin-left: 6px;
 }
 
 span.metric.agent {
-	color: rgba(50,200,100,0.7);
+	color: rgba(30, 200, 150, 0.7);
 }
 
 span.info,
 span.chaosscore {
 	width: 100%;
-	color: rgba(0,5,10,0.54);
+	color: rgba(0, 5, 10, 0.45);
 	display: block;
-	font-size: 12px;
-	font-weight: 600;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 10px;
+	font-weight: 500;
 	text-transform: uppercase;
-	padding: 4px 16px;
+	letter-spacing: 0.3px;
+	padding: 6px 16px;
 	box-sizing: border-box;
 }
 
 span.info {
-	background: rgb(230,230,230);
+	background: rgba(0, 5, 10, 0.03);
 }
 
 span.chaosscore {
-	border-top: 1px solid rgb(240,240,240);
+	border-top: 1px solid rgba(0, 5, 10, 0.06);
 	text-align: center;
 }
 
@@ -538,82 +491,19 @@ span.info .network {
 	display: inline-block;
 }
 
-span.info .date {
-	text-align: left;
-}
-
-span.info .time {
-	text-align: center;
-}
-
-span.info .network {
-	text-align: right;
-}
+span.info .date { text-align: left; }
+span.info .time { text-align: center; }
+span.info .network { text-align: right; }
 
 tr.entry .logo {
 	width: 30px;
 	height: 30px;
-	margin-right: 20px;
+	margin-right: 16px;
 }
 
 /* Media queries
 ============================================================*/
-
-@media (max-width:940px){
-
-		.card-holder{
-		width: 50%;
-	}
-
-}
-
-@media (max-width:940px){
-
-	.matchupwrapper {
-		width: 50%;
-	}
-
-@media (max-width:800px){
-
-		.stats{
-		width: 100%;
-	}
-
-}
-
-@media (max-width:660px){
-
-	.matchupwrapper {
-		width: 100%;
-		padding: 8px 0;
-	}
-
-	.card-holder{
-		width: 100%;
-		padding: 10px 0;
-	}
-
-	section {
-		padding: 40px 20px;
-	}
-
-	#hero .screen {
-		padding: 20px;
-	}
-
-	.stats p {
-		text-align: center;
-	}
-
-	.menu li {
-		padding: 0 5px;
-	}
-
-	button{
-		width: 100%;
-		margin: 16px 0;
-		color: rgb(255,255,255);
-		background-color: rgb(230,80,80);
-	}
-
+@media (max-width: 660px) {
+	#matchups { grid-template-columns: 1fr; }
+	section { padding: 0; }
 }

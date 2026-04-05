@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/selfoss-to-hof-2016/
 title: Selfoss to Hof
 location: Iceland
 category: photography

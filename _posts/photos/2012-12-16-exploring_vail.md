@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/exploring-vail-2012/
 title: Exploring Vail
 location: Vail, CO
 category: photography

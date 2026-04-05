@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/brooklyn-bridge-2017/
 title: Brooklyn Bridge
 location: New York, NY
 category: photography

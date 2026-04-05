@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/iowa-highpoint/
 title: Hawkeye Point
 location: Iowa
 state: IA

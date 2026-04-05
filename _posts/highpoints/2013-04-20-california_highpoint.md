@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/california-highpoint/
 title: Mt. Whitney
 location: California
 state: CA

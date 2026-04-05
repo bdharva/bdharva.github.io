@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/easter-jeep-roadtrip-2018/
 title: Easter Jeep Roadtrip
 location: Burlington, VT
 category: photography

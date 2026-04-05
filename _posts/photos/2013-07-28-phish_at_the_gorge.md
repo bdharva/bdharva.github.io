@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/phish-at-the-gorge-2013/
 title: Phish Live at The Gorge
 location: George, WA
 category: photography

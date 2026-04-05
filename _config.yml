@@ -4,7 +4,7 @@ email: bdharva@alum.mit.edu
 description: > # this means to ignore newlines until "baseurl:"
   Ben Harvatine. Engineer by training, designer at heart, entrepreneur through trial and error.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://bdharva.com" # the base hostname & protocol for your site
+url: "https://bdharva.com" # the base hostname & protocol for your site
 twitter_username: bdharva
 github_username:  bdharva
 

@@ -1,10 +1,11 @@
 ---
 layout: post
+permalink: /thinking/jolt-postmortem/
 title: Jolt Postmortem
 category: blog
-tag: Entrepreneurship
+tag: Wandering
 tagline: A sober retrospective of a successful failure
-thumbnail: /assets/blog/jolt_postmortem/jolt_postmortem-1.jpg
+thumbnail: /assets/thinking/jolt_postmortem/jolt_postmortem-1.webp
 ---
 
 I recently shared this note with close friends, family, and investors. I'm posting it here in the hope that lifting the veil on the hard realities of trying to get a startup off the ground might prove useful to someone out there. We hear all too often about the massive successes and catastrophic failures that are big enough to make the news, but hear very little of the realities more reflective of the experiences at scrappy little upstarts you'll never even hear of. With the benefit of time and perspective, I hope this provides an unvarnished account of the up and downs and lessons learned while pouring everything into our attempt to manifest our vision for a better world as reality.

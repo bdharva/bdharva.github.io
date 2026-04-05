@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/wisconsin-highpoint/
 title: Timms Hill
 location: Wisconsin
 state: WI

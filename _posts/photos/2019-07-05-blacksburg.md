@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/blacksburg-2019/
 title: Virginia Tech
 location: Blacksburg, VA
 category: photography

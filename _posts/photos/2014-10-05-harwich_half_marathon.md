@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/harwich-half-marathon-2014/
 title: Harwich Half Marathon
 location: Harwich, MA
 category: photography

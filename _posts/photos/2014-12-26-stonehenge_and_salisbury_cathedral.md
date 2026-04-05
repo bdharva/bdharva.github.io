@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/stonehenge-and-salisbury-cathedral-2014/
 title: Stonehenge & Salisbury Cathedral
 location: United Kingdom
 category: photography

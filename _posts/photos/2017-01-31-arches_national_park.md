@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/arches-national-park-2017/
 title: Arches National Park
 location: Moab, UT
 category: photography

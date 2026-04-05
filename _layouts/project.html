@@ -5,25 +5,7 @@ layout: default
 	<div class="content full">
 		<h1>{{page.title}}</h1>
 		<h2>{{page.tagline}}</h2>
-		<span class='tictactag'><i class="material-icons md-24">
-			{% if page.tag == "Data Visualization" %}
-			bubble_chart
-			{% elsif page.tag == "Product Development" %}
-			settings
-			{% elsif page.tag == "Web Development" %}
-			devices
-			{% elsif page.tag == "Graphic Design" %}
-			color_lens
-			{% elsif page.tag == "Rapid Prototyping" %}
-			bolt
-			{% elsif page.tag == "DIY" %}
-			carpenter
-			{% elsif page.tag == "Architecture & Construction" %}
-			villa
-			{% elsif page.tag == "Vehicles" %}
-			directions_car
-			{% endif %}
-		</i>{{page.tag}}</span>
+		<span class='tictactag'><i data-lucide="{% if page.tag == "Data Visualization" %}bar-chart-3{% elsif page.tag == "Product Development" %}settings{% elsif page.tag == "Web Development" %}monitor{% elsif page.tag == "Graphic Design" %}palette{% elsif page.tag == "Rapid Prototyping" %}zap{% elsif page.tag == "DIY" %}hammer{% elsif page.tag == "Architecture & Construction" %}building{% elsif page.tag == "Vehicles" %}car{% else %}circle{% endif %}"></i>{{page.tag}}</span>
 	</div>
 </div>
 <div class="section medium">

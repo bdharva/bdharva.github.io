@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/stone-mountain-2012/
 title: Stone Mountain Park
 location: Stone Mountain, GA
 category: photography

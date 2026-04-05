@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/departing-zion-2018/
 title: Departing Zion
 location: Southern Utah
 category: photography

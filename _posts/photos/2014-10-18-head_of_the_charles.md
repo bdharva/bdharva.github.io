@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/head-of-the-charles-2014/
 title: Head of the Charles Regatta
 location: Cambridge, MA
 category: photography

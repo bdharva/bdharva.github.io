@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/giant-peach-2019/
 title: Jeep & The Giant Peach
 location: Clanton, AL
 category: photography

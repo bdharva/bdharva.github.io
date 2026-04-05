@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/bay-state-half-marathon-2014/
 title: Baystate Half Marathon
 location: Lowell, MA
 category: photography

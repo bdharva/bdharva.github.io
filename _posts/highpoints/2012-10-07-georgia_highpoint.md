@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/georgia-highpoint/
 title: Brasstown Bald
 location: Georgia
 state: GA

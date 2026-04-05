@@ -1,44 +1,17 @@
-<div class="overlay">
-	<div class="content">
-		<div class="top">
-			<i id="hidemenu" class="material-icons md-24">close</i>
-		</div>
-		<div class="buttons">
-			<a href="/" {% if page.title == "bdharva" %}class="active"{% endif %}>
-				<span class="cta">
-					<i class="material-icons">home</i>Home
-				</span>
-			</a>
-			<a href="/about" {% if page.title == "About - bdharva" %}class="active"{% endif %}>
-				<span class="cta">
-					<i class="material-icons">account_circle</i>About
-				</span>
-			</a>
-			<a href="/work" {% if page.title == "Projects - bdharva" %}class="active"{% endif %}>
-				<span class="cta">
-					<i class="material-icons">handyman</i>Work
-				</span>
-			</a>
-			<a href="/blog" {% if page.title == "Blog - bdharva" %}class="active"{% endif %}>
-				<span class="cta">
-					<i class="material-icons">text_snippet</i>Blog
-				</span>
-			</a>
-			<a href="/photos" {% if page.title == "Photography - bdharva" %}class="active"{% endif %}>
-				<span class="cta">
-					<i class="material-icons">image</i>Photography
-				</span>
-			</a>
-			<a href="/highpoints" {% if page.title == "Highpoints - bdharva" %}class="active"{% endif %}>
-				<span class="cta">
-					<i class="material-icons">terrain</i>Highpoints
-				</span>
-			</a>
-			<a href="/connect">
-				<span class="cta special">
-					<i class="material-icons">share</i>Connect
-				</span>
-			</a>
-		</div>
-	</div>
+<div class="mobile-menu" id="mobileMenu">
+	<a href="/" {% if page.title == "bdharva" %}class="active"{% endif %}>
+		<i data-lucide="home"></i><span>Home</span>
+	</a>
+	<a href="/about" {% if page.title == "About - bdharva" %}class="active"{% endif %}>
+		<i data-lucide="user"></i><span>About</span>
+	</a>
+	<a href="/making" {% if page.title == "Making - bdharva" %}class="active"{% endif %}>
+		<i data-lucide="hammer"></i><span>Making</span>
+	</a>
+	<a href="/thinking" {% if page.title == "Thinking - bdharva" %}class="active"{% endif %}>
+		<i data-lucide="book-open"></i><span>Thinking</span>
+	</a>
+	<a href="/living" {% if page.title == "Living - bdharva" %}class="active"{% endif %}>
+		<i data-lucide="mountain-snow"></i><span>Living</span>
+	</a>
 </div>

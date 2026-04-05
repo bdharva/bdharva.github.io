@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/upper-keys-2020/
 title: Upper Keys & Everglades
 location: Florida
 category: photography

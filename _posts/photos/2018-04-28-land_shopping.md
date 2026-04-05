@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/land-shopping-2018/
 title: NH Land Shopping
 location: Central New Hampshire
 category: photography

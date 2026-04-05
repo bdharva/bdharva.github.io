@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/louisiana-highpoint/
 title: Driskill Mountain
 location: Louisiana
 state: LA

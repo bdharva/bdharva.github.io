@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/kitch-iti-kipi-2017/
 title: Kitch-iti-kipi
 location: Manistique, MI
 category: photography

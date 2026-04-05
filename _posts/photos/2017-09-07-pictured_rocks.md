@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/pictured-rocks-2017/
 title: Pictured Rocks National Lakeshore
 location: Munising, MI
 category: photography

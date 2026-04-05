@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/door-county-2017/
 title: Door County
 location: Ephraim, WI
 category: photography

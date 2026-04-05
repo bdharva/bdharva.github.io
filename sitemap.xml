@@ -1,0 +1,68 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/about/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/making/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/thinking/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/living/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/photography/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/highpoints/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/bracket-buddy/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/cfb-chaos/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/county-counting/</loc>
+    <priority>0.7</priority>
+  </url>
+  {% for post in site.categories.blog %}
+  <url>
+    <loc>{{ post.url | prepend: site.url }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    <priority>0.6</priority>
+  </url>
+  {% endfor %}
+  {% for post in site.categories.photography %}
+  <url>
+    <loc>{{ post.url | prepend: site.url }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    <priority>0.5</priority>
+  </url>
+  {% endfor %}
+  {% for post in site.categories.highpoints %}
+  <url>
+    <loc>{{ post.url | prepend: site.url }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    <priority>0.5</priority>
+  </url>
+  {% endfor %}
+</urlset>

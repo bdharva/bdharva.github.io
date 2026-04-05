@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/bethlehem-iron-works-2016/
 title: Bethlehem Iron Works
 location: Bethlehem, PA
 category: photography

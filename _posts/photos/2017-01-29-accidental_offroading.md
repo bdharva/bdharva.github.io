@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/accidental-offroading-2017/
 title: Accidental Offroading
 location: Thompson Springs, UT
 category: photography

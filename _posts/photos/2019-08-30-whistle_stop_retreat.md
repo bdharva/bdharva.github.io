@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/whistle-stop-retreat-2019/
 title: Whistle Stop Retreat
 location: West Glacier, MT
 category: photography

@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/landmannalaugar-2016/
 title: Landmannalaugar
 location: Iceland
 category: photography

@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/tiny-home-village-2019/
 title: Tiny Home Village
 location: Saint Mary, MT
 category: photography

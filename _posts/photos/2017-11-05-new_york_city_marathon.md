@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/new-york-city-marathon-2017/
 title: New York City Marathon
 location: New York, NY
 category: photography

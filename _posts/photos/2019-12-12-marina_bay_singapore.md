@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/marina-bay-singapore-2019/
 title: Marina Bay
 location: Singapore
 category: photography

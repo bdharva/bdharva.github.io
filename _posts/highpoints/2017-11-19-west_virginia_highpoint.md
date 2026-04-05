@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/west-virginia-highpoint/
 title: Spruce Knob
 location: West Virginia
 state: WV

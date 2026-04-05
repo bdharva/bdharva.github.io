@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/hiking-around-denver-2012/
 title: Hiking Around Denver
 location: Denver, CO
 category: photography

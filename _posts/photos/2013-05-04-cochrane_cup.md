@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/cochrane-cup-2013/
 title: MIT Rowing Cochrane Cup
 location: Cambridge, MA
 category: photography

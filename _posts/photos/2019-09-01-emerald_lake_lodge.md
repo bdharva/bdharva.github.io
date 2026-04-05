@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/emerald-lake-lodge-2019/
 title: Emerald Lake Lodge
 location: Field, BC
 category: photography

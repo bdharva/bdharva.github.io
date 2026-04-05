@@ -1,0 +1,24 @@
+---
+layout: default
+title: Photography - bdharva
+---
+<div class="section">
+	<div class="content max">
+		<div class="features">
+			{% for post in site.categories.photography %}
+			<div class="feature">
+				<a href="{{ post.url }}">
+					<div class="image-holder">
+						<div class="image" data-bg="/assets/photography/{{post.date | date: '%Y'}}/{{post.date | date: '%m'}}/{{post.date | date: '%d'}}-{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.webp" {% if post.position %}style="background-position: {{ post.position }}"{% endif %}></div>
+					</div>
+					<div class="text">
+						<div class="label">{{ post.date | date: "%b %Y" }}</div>
+						<div class="title">{{post.title}}</div>
+						<div class="description"><i data-lucide="map-pin"></i>{{post.location}}</div>
+					</div>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>

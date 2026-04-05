@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/south-dakota-highpoint/
 title: Black Elk Peak
 location: South Dakota
 state: SD

@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/kentucky-highpoint/
 title: Black Mountain
 location: Kentucky
 state: KY

@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/charlottesville-2020/
 title: University of Virginia
 location: Charlottesville, VA
 category: photography

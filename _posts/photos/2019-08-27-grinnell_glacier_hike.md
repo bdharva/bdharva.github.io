@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/grinnell-glacier-hike-2019/
 title: Grinnell Glacier Hike
 location: Glacier County, MT
 category: photography

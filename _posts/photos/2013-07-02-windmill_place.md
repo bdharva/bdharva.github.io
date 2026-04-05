@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/windmill-place-2013/
 title: Windmill Place
 location: Ephraim, WI
 category: photography

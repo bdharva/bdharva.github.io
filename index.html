@@ -2,110 +2,245 @@
 layout: default
 title: bdharva
 ---
+<div class="section home-hero">
+	<div class="home-hero-layout">
+		<img src="/assets/heros/headshot.webp" alt="Ben Harvatine" class="home-hero-headshot">
+		<h1 class="home-hero-greeting">Hi, I'm Ben Harvatine.</h1>
+		<p class="home-hero-bio">I'm an MIT engineer, with stints in big business, early-stage startups, and, most recently, nearly a decade in the trenches at Palantir. On nights and weekends, I'm hand-building an off-grid camp in the mountains, writing a book, and juggling a half dozen other side projects... with three kids under five and a house under construction.</p>
+		<div class="home-hero-traits">
+			<div class="trait"><i data-lucide="hammer" class="trait-icon"></i><span>Hands of a craftsman</span></div>
+			<div class="trait"><i data-lucide="compass" class="trait-icon"></i><span>Eyes of an architect</span></div>
+			<div class="trait"><i data-lucide="cpu" class="trait-icon"></i><span>Mind of an engineer</span></div>
+			<div class="trait"><i data-lucide="pen-tool" class="trait-icon"></i><span>Heart of an artist</span></div>
+		</div>
+		<div class="home-cta-wrap">
+			<a href="https://powersandproxies.com" target="_blank" rel="noopener" class="home-cta">
+				<div class="home-cta-text">
+					<span class="home-cta-main">Play My New Game</span>
+					<span class="home-cta-sub">It's like if Risk, Catan, and Jackbox had a baby</span>
+				</div>
+				<i data-lucide="play" class="home-cta-ext"></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+<!-- APPS CAROUSEL -->
+<div class="apps-carousel-wrap">
+	<div class="apps-carousel-header">
+		<span class="section-label"><i data-lucide="layout-grid"></i> Interactives</span>
+	</div>
+	<div class="apps-carousel" id="appsCarousel">
+		<a href="/bracket-buddy" class="app-card">
+			<div class="app-icon"><i data-lucide="trophy"></i></div>
+			<div class="app-text">
+				<div class="app-title">Bracket Buddy</div>
+				<div class="app-desc">NCAA bracket pool optimizer</div>
+			</div>
+		</a>
+		<a href="/cfb-chaos" class="app-card">
+			<div class="app-icon"><i data-lucide="flame"></i></div>
+			<div class="app-text">
+				<div class="app-title">CFB Chaos</div>
+				<div class="app-desc">College football upset tracker</div>
+			</div>
+		</a>
+		<a href="/county-counting" class="app-card">
+			<div class="app-icon"><i data-lucide="map"></i></div>
+			<div class="app-text">
+				<div class="app-title">County Counting</div>
+				<div class="app-desc">Automated county visit tracking</div>
+			</div>
+		</a>
+		<a href="https://powersandproxies.com" target="_blank" class="app-card app-external">
+			<i data-lucide="external-link" class="external-badge"></i>
+			<div class="app-icon"><i data-lucide="globe"></i></div>
+			<div class="app-text">
+				<div class="app-title">Powers &amp; Proxies</div>
+				<div class="app-desc">Turn-based strategy game</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+<!-- SELECTED WORK + RECENT THINKING -->
 <div class="section">
-	<div class="content full">
-		<div class="polaroid" style="background-image: url('/assets/heros/family.jpeg'); background-position: bottom;"></div>
-		<h1>
-			<span class='accent'>Engineer</span> by training, <span class='accent'>designer</span> at heart, <span class='accent'>entrepreneur</span> through trial and error
-		</h1>
-		
-		<div class="callouts">
-			<div class="callout">
-				<div class="title"><i class="material-icons md-24">memory</i>Engineer</div>
-				<div class="description">MIT mechanical engineer, with experience ranging from connected hardware systems to enterprise data &amp; analytics solutions</div>
-				<!-- <div class="description">MIT mechanical engineer, with experience designing and building web-connected electro-mechanical hardware systems</div> -->
-			</div>
-			<div class="callout">
-				<div class="title"><i class="material-icons md-24">architecture</i>Designer</div>
-				<div class="description">Broad design expertise, including print, digital, packaging, consumer electronics, architecture, furniture, and interiors</div>
-			</div>
-			<div class="callout">
-				<div class="title"><i class="material-icons md-24">rocket_launch</i>Entrepreneur</div>
-				<div class="description">Hardware startup founder; Arch Grants, MassChallenge, Techstars, Kickstarter, and MIT Venture Mentoring Service alum</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="section medium">
 	<div class="content max">
-		<div class="features">
-			{% assign post = site.posts | where:"pinned", "true" | first %}
+		<div class="split-section">
+			<div class="split-left">
+				<div class="section-bar">
+					<span class="section-label"><i data-lucide="hammer"></i> Selected Making</span>
+					<a href="/making" class="section-link">View all <i data-lucide="arrow-right"></i></a>
+				</div>
+				<div class="features">
+					{% assign featured_count = 0 %}
+					{% for shot in site.data.shots %}
+					{% if shot.featured and featured_count < 4 %}
+					<div class="feature featured-shot" data-image="{{ shot.image }}" data-video="{{ shot.video }}" data-title="{{ shot.title }}" data-desc="{{ shot.description }}" data-tags="{{ shot.tags | join: ',' }}" data-url="{{ shot.url }}" data-url-text="{{ shot.url_text }}" data-date="{{ shot.date }}">
+						<a href="javascript:void(0)">
+							<div class="image-holder">
+								{% if shot.video %}
+								<video class="image" src="{{ shot.video }}" autoplay loop muted playsinline preload="auto"{% if shot.image %} poster="{{ shot.image }}"{% endif %}></video>
+								{% else %}
+								<div class="image" style="background-image: url('{{ shot.image }}');"></div>
+								{% endif %}
+							</div>
+							<div class="text">
+								<div class="label">{% for tag in shot.tags %}{% if tag == "Atoms" %}<i data-lucide="box"></i>{% elsif tag == "Bits" %}<i data-lucide="binary"></i>{% elsif tag == "Pixels" %}<i data-lucide="pencil-ruler"></i>{% endif %}{% endfor %}{{ shot.tags | join: " / " }}</div>
+								<div class="title">{{ shot.title }}</div>
+								<div class="description">{{ shot.description }}</div>
+							</div>
+						</a>
+					</div>
+					{% assign featured_count = featured_count | plus: 1 %}
+					{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+			<div class="split-right">
+				<div class="section-bar">
+					<span class="section-label"><i data-lucide="book-open"></i> Recent Thinking</span>
+					<a href="/thinking" class="section-link">View all <i data-lucide="arrow-right"></i></a>
+				</div>
+				<div class="thinking-list">
+					{% for post in site.categories.blog limit:10 %}
+					<a href="{{ post.url }}" class="thinking-item">
+						<span class="thinking-date">{{ post.date | date: "%b %Y" }}</span>
+						<span class="thinking-title">{{ post.title }}</span>
+						<span class="thinking-tag"><i data-lucide="{% if post.tag == "Spitballing" %}lightbulb{% elsif post.tag == "Tinkering" %}wrench{% elsif post.tag == "Wandering" %}route{% else %}circle{% endif %}"></i>{{ post.tag }}</span>
+					</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- LIVING -->
+<div class="section section-bordered">
+	<div class="content max">
+		<div class="features living-three">
+			{% assign post = site.categories.photography.first %}
 			<div class="feature">
-				<a href="{{ post.url }}">
+				<a href="/photography">
 					<div class="image-holder">
-						<div class="image" style="background-image: url('{{ post.thumbnail }}');"></div>
+						<div class="image" style="background-image:url('/assets/heros/photos.webp')"></div>
 					</div>
 					<div class="text">
-						<div class="label"><i class="material-icons md-24">bookmark</i>Featured Project</div>
-						<div class="title">{{ post.title }}</div>
-						<div class="description">{{ post.tagline }}</div>
+						<div class="label"><i data-lucide="camera"></i>Photography</div>
+						<div class="title">{{ site.categories.photography | size }} collections from the road</div>
+						<div class="description">Trips, landscapes, and moments worth remembering</div>
+					</div>
+				</a>
+			</div>
+			{% assign post = site.categories.highpoints.first %}
+			<div class="feature">
+				<a href="/highpoints">
+					<div class="image-holder">
+						<div class="image" style="background-image:url('/assets/heros/highpoints.webp')"></div>
+					</div>
+					<div class="text">
+						<div class="label"><i data-lucide="mountain-snow"></i>Highpoints</div>
+						<div class="title">{{ site.categories.highpoints | size }} of 50 state highpoints summited</div>
+						<div class="description">Climbing the highest natural point in every US state</div>
 					</div>
 				</a>
 			</div>
 			<div class="feature">
-				<a href="/homestead">
+				<a href="https://www.instagram.com/bdharva/" target="_blank" rel="noopener">
 					<div class="image-holder">
-						<div class="image" style="background-image: url('/assets/heros/landaff.jpg');"></div>
+						<div class="image" style="background-image: url('/assets/heros/landaff.webp');"></div>
 					</div>
 					<div class="text">
-						<div class="label"><i class="material-icons md-24">timelapse</i>Work in Progress</div>
-						<div class="title">A 50 acre architectural playground in NH</div>
-						<div class="description">Barn &amp; cabin construction, planting, trail-cutting, and more</div>
-					</div>
-				</a>
-			</div>
-			<div class="feature">
-				{% assign post = site.categories.projects | where:"wip", "false" | first %}
-				<a href="{{ post.url }}">
-					<div class="image-holder">
-						<div class="image" style="background-image: url('{{ post.thumbnail }}');"></div>
-					</div>
-					<div class="text">
-						<div class="label"><i class="material-icons md-24">construction</i>Latest Project</div>
-						<div class="title">{{ post.title }}</div>
-						<div class="description">{{ post.tagline }}</div>
-					</div>
-				</a>
-			</div>
-			<div class="feature">
-				{% assign post = site.categories.blog.first %}
-				<a href="{{ post.url }}">
-					<div class="image-holder">
-						<div class="image" style="background-image: url('{{ post.thumbnail }}');"></div>
-					</div>
-					<div class="text">
-						<div class="label"><i class="material-icons md-24">edit_note</i>Latest Post</div>
-						<div class="title">{{ post.title }}</div>
-						<div class="description">{{ post.tagline }}</div>
-					</div>
-				</a>
-			</div>
-			<div class="feature">
-				{% assign post = site.categories.photography.first %}
-				<a href="{{ post.url }}">
-					<div class="image-holder">
-						<div class="image" style="background-image:url('/assets/photography/{{post.date | date: '%Y'}}/{{post.date | date: '%m'}}/{{post.date | date: '%d'}}-{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
-					</div>
-					<div class="text">
-						<div class="label"><i class="material-icons md-24">photo_camera</i>Latest Photography</div>
-						<div class="title">{{ post.title }}</div>
-						<div class="description">in {{ post.location }}</div>
-					</div>
-				</a>
-			</div>
-			<div class="feature">
-				{% assign post = site.categories.highpoints.first %}
-				<a href="{{ post.url }}">
-					<div class="image-holder">
-						<div class="image" style="background-image:url('/assets/highpoints/{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
-					</div>
-					<div class="text">
-						<div class="label"><i class="material-icons md-24">hiking</i>Latest Highpoint</div>
-						<div class="title">{{post.title}}, {{post.state}}</div>
-						<div class="description">{{post.location}} state highpoint - {{post.tagline}} above sea level</div>
+						<div class="label"><i data-lucide="trees"></i>Homestead</div>
+						<div class="title">50 acres in the White Mountains of NH</div>
+						<div class="description">Follow our build progress on Instagram</div>
 					</div>
 				</a>
 			</div>
 		</div>
 	</div>
 </div>
+
+<div class="shot-modal-overlay" id="homeShotModal">
+	<div class="shot-modal">
+		<button class="shot-modal-close" id="homeShotModalClose"><i data-lucide="x"></i></button>
+		<div class="shot-modal-img" id="homeShotModalImg"></div>
+		<div class="shot-modal-body">
+			<span class="shot-modal-date" id="homeShotModalDate"></span>
+			<h2 id="homeShotModalTitle"></h2>
+			<p id="homeShotModalDesc"></p>
+			<div class="shot-modal-tags" id="homeShotModalTags"></div>
+			<a href="#" class="shot-modal-link" id="homeShotModalLink" target="_blank" rel="noopener" style="display:none"><i data-lucide="external-link"></i> View project</a>
+		</div>
+	</div>
+</div>
+
+<script>
+(function() {
+	var tagIcons = { Atoms: 'box', Bits: 'binary', Pixels: 'pencil-ruler' };
+	var modal = document.getElementById('homeShotModal');
+	if (!modal) return;
+	var cards = document.querySelectorAll('.featured-shot');
+
+	cards.forEach(function(card) {
+		card.addEventListener('click', function() {
+			var modalImg = document.getElementById('homeShotModalImg');
+			modalImg.style.backgroundImage = '';
+			var oldVid = modalImg.querySelector('video');
+			if (oldVid) oldVid.remove();
+			if (card.dataset.video) {
+				var vid = document.createElement('video');
+				vid.setAttribute('autoplay', '');
+				vid.setAttribute('loop', '');
+				vid.setAttribute('muted', '');
+				vid.setAttribute('playsinline', '');
+				vid.muted = true;
+				vid.src = card.dataset.video;
+				modalImg.appendChild(vid);
+				var p = vid.play(); if (p) p.catch(function() {});
+			} else {
+				modalImg.style.backgroundImage = 'url(' + card.dataset.image + ')';
+			}
+			document.getElementById('homeShotModalTitle').textContent = card.dataset.title;
+			document.getElementById('homeShotModalDesc').textContent = card.dataset.desc;
+			var tags = card.dataset.tags.split(',');
+			document.getElementById('homeShotModalTags').innerHTML = tags.map(function(t) {
+				var icon = tagIcons[t] || 'circle';
+				return '<span class="shot-tag"><i data-lucide="' + icon + '"></i>' + t + '</span>';
+			}).join('');
+			var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+			if (card.dataset.date) {
+				var parts = card.dataset.date.split('-');
+				document.getElementById('homeShotModalDate').textContent = months[parseInt(parts[1])-1] + ' ' + parts[0];
+			} else {
+				document.getElementById('homeShotModalDate').textContent = '';
+			}
+			var link = document.getElementById('homeShotModalLink');
+			if (card.dataset.url) {
+				link.href = card.dataset.url;
+				link.textContent = '';
+				var icon = document.createElement('i');
+				icon.setAttribute('data-lucide', 'external-link');
+				link.appendChild(icon);
+				link.appendChild(document.createTextNode(' ' + (card.dataset.urlText || 'View project')));
+				link.style.display = '';
+			} else { link.style.display = 'none'; }
+			modal.classList.add('open');
+			document.body.style.overflow = 'hidden';
+			lucide.createIcons();
+		});
+	});
+
+	document.getElementById('homeShotModalClose').addEventListener('click', closeHome);
+	modal.addEventListener('click', function(e) { if (e.target === modal) closeHome(); });
+	document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeHome(); });
+
+	function closeHome() {
+		modal.classList.remove('open');
+		document.body.style.overflow = '';
+		var vid = document.getElementById('homeShotModalImg').querySelector('video');
+		if (vid) vid.pause();
+	}
+})();
+</script>

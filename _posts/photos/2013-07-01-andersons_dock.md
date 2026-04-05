@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/andersons-dock-2013/
 title: Anderson's Dock
 location: Ephraim, WI
 category: photography

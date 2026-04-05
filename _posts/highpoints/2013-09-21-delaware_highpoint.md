@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/delaware-highpoint/
 title: Ebright Azimuth
 location: Delaware
 state: DE

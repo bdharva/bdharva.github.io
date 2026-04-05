@@ -45,19 +45,466 @@ $margin-standard: 1rem 0
 
 // Body & wrapper
 
-html, body
+html
 	height: 100%
 	font-size: 16px
 
 body
+	min-height: 100%
+	display: flex
+	flex-direction: column
+
+body
 	background: $light-bg
-	font-family: 'Inter', sans-serif
+	font-family: 'DM Sans', sans-serif
 	font-weight: $weight-body
 	color: $dark-text
 	text-align: left
 
 // GENERAL TEXT FORMATTING
 // ------------------------------------------------------------
+
+// DARK MODE
+// ------------------------------------------------------------
+
+html.dark
+	background: #141413
+
+html.dark body
+	background: #141413
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark nav
+	background: rgba(20, 20, 19, 0.96)
+	border-bottom-color: rgba(255, 255, 255, 0.06)
+
+	.left a
+		color: rgba(255, 255, 255, 0.85)
+
+	.right a
+		color: rgba(255, 255, 255, 0.35)
+
+	.right a.active, .right a:hover
+		color: rgba(255, 255, 255, 0.85)
+
+html.dark .home-hero-greeting
+	color: rgba(255, 255, 255, 0.9)
+
+html.dark .home-hero-bio
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .home-hero-traits .trait span
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .home-hero-traits .trait .trait-icon
+	color: rgba(255, 255, 255, 0.2)
+
+html.dark .apps-carousel-wrap
+	border-top-color: rgba(255, 255, 255, 0.06)
+	border-bottom-color: rgba(255, 255, 255, 0.06)
+
+html.dark .app-card
+	background: #1e1e1c
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark .app-card:hover
+	border-color: rgba(255, 255, 255, 0.1)
+
+html.dark .app-card:hover .app-title
+	color: $accent
+
+html.dark .app-title
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .app-desc
+	color: rgba(255, 255, 255, 0.35)
+
+html.dark .app-icon
+	background: rgba(255, 255, 255, 0.06)
+
+html.dark .app-icon [data-lucide]
+	color: rgba(255, 255, 255, 0.3)
+
+html.dark .section-bar .section-label
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .section-bar .section-link
+	color: rgba(255, 255, 255, 0.3)
+
+html.dark .section-bar .section-link:hover
+	color: rgba(255, 255, 255, 0.7)
+
+html.dark .feature
+	background: #1e1e1c
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark .feature:hover
+	box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2)
+
+html.dark .feature .text .label
+	color: rgba(255, 255, 255, 0.3)
+
+html.dark .feature .text .title
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .feature .text .description
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .split-right
+	border-left-color: rgba(255, 255, 255, 0.06)
+
+html.dark .thinking-item
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark .thinking-title
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .thinking-date
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .thinking-tag
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark footer
+	border-top-color: rgba(255, 255, 255, 0.06)
+
+html.dark .footer-logo
+	color: rgba(255, 255, 255, 0.5)
+
+html.dark .footer-copyright
+	color: rgba(255, 255, 255, 0.2)
+
+html.dark .footer-social a
+	color: rgba(255, 255, 255, 0.3)
+
+html.dark .footer-social a:hover
+	color: rgba(255, 255, 255, 0.7)
+
+html.dark .section.medium
+	background: #1a1a18
+
+html.dark nav .menu-toggle
+	color: rgba(255, 255, 255, 0.5)
+
+// Shots page
+html.dark .shots-page .shots-header h1
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .filter-btn
+	color: rgba(255, 255, 255, 0.35)
+	border-color: rgba(255, 255, 255, 0.08)
+
+html.dark .filter-btn:hover
+	color: rgba(255, 255, 255, 0.7)
+	border-color: rgba(255, 255, 255, 0.15)
+
+html.dark .filter-btn.active
+	background: rgba(255, 255, 255, 0.85)
+	border-color: rgba(255, 255, 255, 0.85)
+	color: #141413
+
+html.dark .shot-modal
+	background: #1e1e1c
+
+html.dark .shot-modal-body h2
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .shot-modal-body p
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .shot-modal-date
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .shot-modal-tags .shot-tag
+	color: rgba(255, 255, 255, 0.3)
+	border-color: rgba(255, 255, 255, 0.08)
+
+html.dark .shot-modal-link
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .shot-modal-link:hover
+	color: rgba(255, 255, 255, 0.8)
+
+// About page
+html.dark .about-body
+	border-top-color: rgba(255, 255, 255, 0.06)
+	border-top: 1px solid rgba(255, 255, 255, 0.06)
+
+html.dark .about-section
+	border-bottom-color: rgba(255, 255, 255, 0.06)
+
+html.dark .about-label
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .about-content p
+	color: rgba(255, 255, 255, 0.6)
+
+html.dark .about-content a
+	color: $accent
+
+html.dark .about-content a:hover
+	color: rgb(50, 220, 170)
+
+html.dark .about-credits h4
+	color: rgba(255, 255, 255, 0.75)
+
+html.dark .about-credits h4 [data-lucide]
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .about-credits li
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .about-credits a
+	color: $accent
+
+html.dark .about-credits a:hover
+	color: rgb(50, 220, 170)
+
+// Thinking page
+html.dark .thinking-featured a h2
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .thinking-featured a:hover h2
+	color: $accent
+
+html.dark .thinking-featured p
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .thinking-featured-meta
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .thinking-desc
+	color: rgba(255, 255, 255, 0.3)
+
+// Living page
+html.dark .section.hero::before
+	background: linear-gradient(to bottom, rgba(20, 20, 19, 0.85), rgba(20, 20, 19, 0.6))
+
+// General section borders
+html.dark hr
+	border-top-color: rgba(255, 255, 255, 0.06)
+
+html.dark .external-badge
+	color: rgba(255, 255, 255, 0.2)
+
+// Links
+html.dark a
+	color: rgba(255, 255, 255, 0.6)
+
+html.dark a:hover
+	color: rgba(255, 255, 255, 0.9)
+
+// Global dark overrides for all remaining elements
+html.dark h1, html.dark h2, html.dark h3, html.dark h4
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark p, html.dark li
+	color: rgba(255, 255, 255, 0.55)
+
+html.dark .section
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark .section .content .side-by-side .image-holder
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark .section .content .features .feature
+	background: #1e1e1c
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark .section .content .features .feature .text .label
+	color: rgba(255, 255, 255, 0.3)
+
+html.dark .section .content .features .feature .text .title
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .section .content .features .feature .text .description
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .section .content .features .feature:hover
+	box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3)
+
+html.dark .section.medium
+	background: #1a1a18
+
+html.dark .section.hero::before
+	background: linear-gradient(to bottom, rgba(20, 20, 19, 0.85), rgba(20, 20, 19, 0.65))
+
+html.dark .section .content .polaroid
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3)
+
+html.dark .tictactag
+	color: $accent
+
+html.dark .accent
+	color: $accent
+
+html.dark code, html.dark pre
+	background: rgba(255, 255, 255, 0.05)
+
+html.dark pre
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark table, html.dark th, html.dark td
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark th
+	background: rgba(255, 255, 255, 0.04)
+
+html.dark tr:nth-child(even)
+	background: rgba(255, 255, 255, 0.02)
+
+// Post page dark
+html.dark .post-brand
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .post-date, html.dark .post-tag
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .post-header
+	border-bottom-color: rgba(255, 255, 255, 0.06)
+
+html.dark .post-tagline
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .post-body p
+	color: rgba(255, 255, 255, 0.6)
+
+html.dark .post-body a
+	color: $accent
+
+html.dark .post-body a:hover
+	color: rgb(50, 220, 170)
+
+html.dark .post-body code
+	background: rgba(255, 255, 255, 0.06)
+	color: rgba(255, 255, 255, 0.55)
+
+html.dark .post-body pre
+	background: rgba(255, 255, 255, 0.04)
+	border-color: rgba(255, 255, 255, 0.06)
+	color: rgba(255, 255, 255, 0.5)
+
+html.dark .post-body blockquote
+	border-left-color: rgba(255, 255, 255, 0.1)
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .post-body li
+	color: rgba(255, 255, 255, 0.55)
+
+html.dark .post-body table
+	color: rgba(255, 255, 255, 0.55)
+
+html.dark .post-body thead th
+	color: rgba(255, 255, 255, 0.35)
+	border-bottom-color: rgba(255, 255, 255, 0.1)
+
+html.dark .post-body tbody td
+	border-bottom-color: rgba(255, 255, 255, 0.05)
+
+html.dark .post-body tbody tr:nth-child(even)
+	background: rgba(255, 255, 255, 0.02)
+
+html.dark .post-body tbody tr:hover
+	background: rgba(255, 255, 255, 0.04)
+
+html.dark .post-body h2, html.dark .post-body h3, html.dark .post-body h4
+	color: rgba(255, 255, 255, 0.75)
+
+html.dark .post-footer
+	border-top-color: rgba(255, 255, 255, 0.06)
+
+html.dark .post-footer span
+	color: rgba(255, 255, 255, 0.2)
+
+html.dark .post-footer .footer-logo
+	color: rgba(255, 255, 255, 0.5)
+
+html.dark .post-footer-right a
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .post-footer-right a:hover
+	color: rgba(255, 255, 255, 0.6)
+
+.section-bordered
+	border-top: 1px solid rgba(0, 5, 10, 0.08)
+
+html.dark .section-bordered
+	border-top-color: rgba(255, 255, 255, 0.06)
+
+// Callouts dark (highpoints stats etc)
+html.dark .section .content .callouts .callout .title
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .section .content .callouts .callout .description
+	color: rgba(255, 255, 255, 0.4)
+
+// Connect page dark
+html.dark .connect .logo
+	border-bottom-color: rgba(255, 255, 255, 0.06)
+
+html.dark .connect .logo a
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .connect .lockup .text .blurb
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .connect .lockup .text .location
+	color: rgba(255, 255, 255, 0.35)
+
+html.dark .connect .buttons .cta
+	background: rgba(255, 255, 255, 0.04)
+	border-color: rgba(255, 255, 255, 0.06)
+	color: rgba(255, 255, 255, 0.7)
+
+// DARK TOGGLE
+// ------------------------------------------------------------
+
+.dark-toggle
+	display: flex
+	align-items: center
+
+.dark-toggle-input
+	display: none
+
+.dark-toggle-label
+	position: relative
+	width: 36px
+	height: 18px
+	background: rgba(0, 5, 10, 0.12)
+	border-radius: 9px
+	cursor: pointer
+	transition: background 0.2s ease
+
+	&:before
+		content: ""
+		position: absolute
+		height: 12px
+		width: 12px
+		left: 3px
+		bottom: 3px
+		background: rgba(0, 5, 10, 0.45)
+		border-radius: 50%
+		transition: transform 0.2s ease, background 0.2s ease
+
+.dark-toggle-input:checked + .dark-toggle-label
+	background: rgba(255, 255, 255, 0.12)
+
+	&:before
+		transform: translateX(18px)
+		background: rgba(255, 255, 255, 0.6)
+
+// Lucide icons (global)
+[data-lucide]
+	width: 18px
+	height: 18px
+	stroke-width: 1.5
+	vertical-align: middle
+	display: inline-block
+	margin: 0 4px 2px -2px
+
+.app-icon [data-lucide]
+	margin: 0
+	vertical-align: baseline
 
 // Color
 .accent
@@ -121,7 +568,7 @@ hr
 // Code
 
 code, pre
-	font-family: 'Roboto Mono'
+	font-family: 'JetBrains Mono'
 	font-size: .875rem
 	border-radius: 4px
 	background-color: rgba(0, 5, 10, 0.05)
@@ -211,48 +658,72 @@ span.removed
 nav
 	display: flex
 	background: rgba(255, 255, 255, 0.96)
-	flex-flow: row nowrap
-	justify-content: space-between
-	line-height: 3rem
-	vertical-align: middle
-	font-weight: 600
-	padding: 2rem 4rem
+	justify-content: center
 	position: fixed
 	width: 100%
 	box-sizing: border-box
 	top: 0
-	transition: top 0.1s ease-in-out
+	transition: top 0.2s ease
 	z-index: 100
+	border-bottom: 1px solid rgba(0, 5, 10, 0.08)
+
+	.nav-inner
+		display: flex
+		justify-content: space-between
+		align-items: center
+		width: 100%
+		padding: 16px 52px 14px
+
+	.menu-toggle
+		display: none
+		cursor: pointer
+		font-size: 13px
+		font-weight: 500
+		color: rgba(0, 5, 10, 0.45)
+		letter-spacing: -0.2px
+		background: none
+		border: none
+		padding: 0
+
+		[data-lucide]
+			margin: 0
 
 	a:hover
 		text-decoration: none
 
 	.left
-		float: left
-		font-size: 1.25rem
 
 		a
+			display: flex
+			align-items: center
+			gap: 10px
 			text-decoration: none
 			color: $dark-text
+			font-size: 19px
+			font-weight: 400
+			letter-spacing: -0.5px
 
 			img
-				height: 2rem
+				height: 28px
 				width: auto
-				margin: 0 0.5rem 0.25rem 0
-				vertical-align: middle
+				margin: 0
+				border-radius: 5px
 
 	.right
-		float: right
-		font-size: 0.875rem
-		color: $dark-text
+		display: flex
+		align-items: center
+		gap: 24px
 
 		a
-			color: $dark-text
-			opacity: 0.7
+			font-size: 13px
+			font-weight: 500
+			color: rgba(0, 5, 10, 0.45)
+			letter-spacing: -0.2px
+			transition: color 0.2s ease
 
 		a.active,
 		a:hover
-			opacity: 1
+			color: rgba(0, 5, 10, 0.9)
 
 		span
 			margin-left: 1.5rem
@@ -291,10 +762,16 @@ nav
 // Hidden navbar triggered on scroll down
 
 nav.tucked
-	top: -112px
+	top: -60px
 
 .scroll-content
-	margin-top: 112px
+	margin-top: 52px
+	flex: 1
+	display: flex
+	flex-direction: column
+
+	footer
+		margin-top: auto
 
 .socials
 	display: flex
@@ -499,6 +976,82 @@ nav.tucked
 
 
 
+// HOME HERO
+// ------------------------------------------------------------
+
+.home-hero
+	margin: 0
+	padding: 0
+
+.home-hero-layout
+	display: flex
+	flex-direction: column
+	align-items: center
+	text-align: center
+	max-width: 680px
+	margin: 0 auto
+	padding: 5rem 2rem
+
+.home-hero-headshot
+	width: 120px
+	height: 120px
+	border-radius: 50%
+	object-fit: cover
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08)
+	margin-bottom: 1.5rem
+
+.home-hero-greeting
+	font-size: 1.5rem
+	font-weight: 600
+	line-height: 1.3
+	letter-spacing: -0.3px
+	margin: 0 0 1rem 0
+
+.home-hero-bio
+	font-size: 1rem
+	line-height: 1.65
+	color: rgba(0, 5, 10, 0.65)
+	margin: 0
+	text-align: center
+
+.home-hero-traits
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+	gap: 0.5rem 1.25rem
+	margin-top: 1.75rem
+
+	.trait
+		display: flex
+		align-items: center
+		gap: 0.5rem
+
+		.trait-icon
+			width: 14px
+			height: 14px
+			color: rgba(0, 5, 10, 0.25)
+			stroke-width: 1.5
+
+		span
+			font-family: 'JetBrains Mono', monospace
+			font-size: 0.75rem
+			font-weight: 500
+			color: rgba(0, 5, 10, 0.45)
+
+@media (max-width: 690px)
+	.home-hero-layout
+		padding: 3rem 1.5rem
+
+	.home-hero-headshot
+		width: 100px
+		height: 100px
+
+	.home-hero-greeting
+		font-size: 1.25rem
+
+// SECTIONS
+// ------------------------------------------------------------
+
 .section
 	margin: 0
 	padding: 0
@@ -544,6 +1097,13 @@ nav.tucked
 				font-size: 16px
 				margin: 0 2px 4px -2px
 
+			[data-lucide]
+				width: 14px
+				height: 14px
+				vertical-align: middle
+				margin: 0 4px 3px 0
+				stroke-width: 2
+
 		.polaroid
 			background-size: cover
 			height: 172px
@@ -581,62 +1141,64 @@ nav.tucked
 					margin-top: 8px
 
 		.features
-			display: flex
-			flex-flow: row wrap
+			display: grid
+			grid-template-columns: repeat(auto-fill, minmax(340px, 1fr))
+			gap: 16px
 
 			.feature
 				display: flex
 				flex-flow: column nowrap
-				flex-grow: 1
-				flex: 1 1 0px
-				margin: 12px
-				justify-content: top
 				background: white
-				box-shadow: 0 0 8px rgba(0, 0, 0, 0.05)
-				border-radius: 8px
-				min-width: 400px
-				animation-duration: 0.5s
+				border: 1px solid rgba(0, 5, 10, 0.06)
+				border-radius: 6px
+				overflow: hidden
+				transition: box-shadow 0.3s ease, transform 0.3s ease
 
 				a:hover
 					text-decoration: none
-
 
 				.text
 					display: flex
 					flex-flow: column nowrap
 					justify-content: top
-					padding: 48px
+					padding: 24px 28px 28px
 					flex-basis: 0
 					flex-grow: 1
 
 					.label
-						color: rgb(50, 200, 150)
-						font-size: 16px
-						font-weight: 600
+						font-family: 'JetBrains Mono', monospace
+						color: rgba(0, 5, 10, 0.4)
+						font-size: 11px
+						font-weight: 500
+						letter-spacing: 0.5px
 
-						i.material-icons.md-24
+						[data-lucide]
+							width: 12px
+							height: 12px
 							vertical-align: middle
-							font-size: 16px
-							margin: 0 2px 4px -2px
+							margin: 0 4px 2px 0
+							stroke-width: 2
 
 					.title
 						color: rgba(0, 5, 10, 0.9)
-						font-size: 24px
+						font-size: 17px
 						font-weight: 600
-						margin-top: 4px
+						margin-top: 6px
+						letter-spacing: -0.2px
 
 					.description
-						font-size: 18px
+						font-size: 14px
 						font-weight: 400
-						color: rgba(0, 5, 10, 0.7)
-						margin-top: 8px
+						color: rgba(0, 5, 10, 0.5)
+						margin-top: 4px
+						line-height: 1.5
 
 						ul
 							padding-left: 0px
 							list-style: none
 
 							li
-								margin-bottom: 24px
+								margin-bottom: 16px
 
 					span.cta
 						background: none
@@ -644,51 +1206,49 @@ nav.tucked
 						padding: 0
 						margin-top: auto
 						color: $accent
+						font-size: 13px
 						line-height: 24px
-						vertical-align: middle
-
-						i.material-icons
-							line-height: 24px
-							height: 24px
-							vertical-align: middle
-							padding-bottom: 2px
-							margin-right: 4px
 
 				.image-holder
 					flex-basis: 0
 					flex-grow: 1
 					background-size: cover
 					background-position: center
-					border-radius: 8px 8px 0px 0px
-					min-height: 300px
-					max-height: 300px
+					border-radius: 0
+					min-height: 200px
+					max-height: 200px
 					overflow: hidden
-				
+
 					.image
 						flex-basis: 0
 						flex-grow: 1
 						background-size: cover
 						background-position: center
-						border-radius: 8px 8px 0px 0px
-						min-height: 300px
-						max-height: 300px
-						transition: transform .5s ease
+						min-height: 200px
+						max-height: 200px
+						transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)
+
+					video.image
+						width: 100%
+						object-fit: cover
 
 			.feature.wip
-				background: rgba(0,0,0,0.05)
-				box-shadow: none
+				background: rgba(0,0,0,0.02)
+				border-color: rgba(0, 5, 10, 0.04)
 
 			.feature.wip:hover
+				transform: none
 				box-shadow: none
 
 				.image
 					transform: none
 
 			.feature:hover
-				box-shadow: 0 0 12px rgba(0, 0, 0, 0.10)
+				box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06)
+				transform: translateY(-2px)
 
 				.image
-					transform: scale(1.05)
+					transform: scale(1.03)
 
 		.side-by-side
 			display: flex
@@ -754,143 +1314,1985 @@ nav.tucked
 				.target
 					color: rgb(255, 255, 255)
 
-footer
-	text-align: center
-	padding: 144px 0 64px 0
+// HOME CTA
+// ------------------------------------------------------------
 
-	.content.full
-		padding: 0 2rem
+.home-cta-wrap
+	display: flex
+	justify-content: center
+	margin-top: 1.75rem
 
-	span.copyright
-		color: rgba(0, 5, 10, 0.5)
+.home-cta
+	display: flex
+	align-items: center
+	gap: 16px
+	padding: 14px 24px 14px 16px
+	background: rgba(30, 200, 150, 0.06)
+	border: 1px solid rgba(30, 200, 150, 0.2)
+	border-radius: 12px
+	text-decoration: none
+	transition: all 0.2s ease
+
+	&:hover
+		background: rgba(30, 200, 150, 0.1)
+		border-color: rgba(30, 200, 150, 0.35)
+		text-decoration: none
+		transform: translateY(-1px)
+
+.home-cta-icon
+	width: 44px
+	height: 44px
+	min-width: 44px
+	border-radius: 10px
+	background: $accent
+	display: flex
+	align-items: center
+	justify-content: center
+
+	[data-lucide]
+		width: 22px
+		height: 22px
+		margin: 0
+		color: white
+		stroke-width: 1.5
+
+.home-cta-text
+	display: flex
+	flex-direction: column
+	align-items: flex-start
+	gap: 2px
+
+.home-cta-main
+	font-size: 15px
+	font-weight: 600
+	color: rgba(0, 5, 10, 0.85)
+	letter-spacing: -0.2px
+
+.home-cta-sub
+	font-size: 12px
+	color: rgba(0, 5, 10, 0.4)
+
+.home-cta-ext
+	width: 14px
+	height: 14px
+	margin: 0
+	padding: 8px
+	color: $accent
+	fill: $accent
+	stroke-width: 0
+	flex-shrink: 0
+	background: rgba(30, 200, 150, 0.1)
+	border-radius: 50%
+	box-sizing: content-box
+
+// Dark mode
+html.dark .home-cta
+	background: rgba(30, 200, 150, 0.06)
+	border-color: rgba(30, 200, 150, 0.15)
+
+html.dark .home-cta:hover
+	background: rgba(30, 200, 150, 0.1)
+	border-color: rgba(30, 200, 150, 0.3)
+
+html.dark .home-cta-main
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .home-cta-sub
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .home-cta-ext
+	color: rgba(255, 255, 255, 0.2)
+
+@media (max-width: 690px)
+	.home-cta-wrap
+		margin-top: 20px
+
+	.home-cta-wrap
+		align-self: stretch
+
+// APPS CAROUSEL
+// ------------------------------------------------------------
+
+.apps-carousel-wrap
+	overflow: hidden
+	border-top: 1px solid rgba(0, 5, 10, 0.06)
+	border-bottom: 1px solid rgba(0, 5, 10, 0.06)
+	padding: 0 0 20px
+
+.apps-carousel-header
+	padding: 16px 52px 12px
+
+	.section-label
+		display: flex
+		align-items: center
+		gap: 5px
+
+		[data-lucide]
+			width: 12px
+			height: 12px
+
+	&:hover .apps-carousel
+		animation-play-state: paused
+
+.apps-carousel
+	display: flex
+	gap: 12px
+	width: max-content
+
+.app-card
+	display: flex
+	align-items: center
+	gap: 12px
+	padding: 8px 16px 8px 8px
+	background: white
+	border: 1px solid rgba(0, 5, 10, 0.06)
+	border-radius: 14px
+	text-decoration: none
+	white-space: nowrap
+	flex-shrink: 0
+	transition: border-color 0.2s ease, box-shadow 0.2s ease
+
+	&:hover
+		border-color: rgba(0, 5, 10, 0.12)
+		box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04)
+		text-decoration: none
+
+.app-icon
+	width: 40px
+	height: 40px
+	min-width: 40px
+	min-height: 40px
+	border-radius: 8px
+	flex-shrink: 0
+	display: flex
+	align-items: center
+	justify-content: center
+	background: rgb(244, 246, 247)
+
+	[data-lucide]
+		width: 18px
+		height: 18px
+		margin: 0
+		color: rgba(0, 5, 10, 0.35)
+		stroke-width: 1.5
 		display: block
-		margin-top: 144px
 
-	h1
-		max-width: 800px
-		margin: 0 auto
-		text-align: center
-		margin-bottom: 48px
+.app-text
+	display: flex
+	flex-direction: column
+	gap: 1px
 
-	h2
-		max-width: 600px
-		margin: 0 auto
-		text-align: center
-		margin-bottom: 48px
+.app-card
+	position: relative
 
-.overlay
-	background-color: rgba(25, 25, 35, 0.7)
-	width: 100%
-	height: 100%
+	&:hover .app-title
+		color: $accent
+
+	&:hover .app-icon
+		background: rgba(30, 200, 150, 0.1)
+
+	&:hover .app-icon [data-lucide]
+		color: $accent
+
+.app-external .external-badge
+	position: absolute
+	top: 6px
+	right: 6px
+	width: 10px
+	height: 10px
+	margin: 0
+	color: rgba(0, 5, 10, 0.2)
+	stroke-width: 2
+
+.app-title
+	font-size: 13px
+	font-weight: 600
+	color: rgba(0, 5, 10, 0.85)
+	letter-spacing: -0.2px
+
+.app-desc
+	font-size: 11px
+	color: rgba(0, 5, 10, 0.4)
+	letter-spacing: 0
+
+// SPLIT SECTION
+// ------------------------------------------------------------
+
+.split-section
+	display: flex
+	gap: 0
+
+	.split-left
+		flex: 2
+		padding-right: 48px
+
+	.split-left .features
+		display: grid
+		grid-template-columns: 1fr 1fr
+		gap: 16px
+
+		.feature
+			min-width: 0
+			margin: 0
+
+	.split-right
+		flex: 1
+		display: flex
+		flex-direction: column
+		border-left: 1px solid rgba(0, 5, 10, 0.08)
+		padding-left: 48px
+
+		.thinking-list
+			flex: 1
+
+@media (max-width: 960px)
+	.split-section
+		flex-direction: column
+
+		.split-left
+			padding-right: 0
+
+		.split-right
+			border-left: none
+			border-top: 1px solid rgba(0, 5, 10, 0.08)
+			padding-left: 0
+			padding-top: 32px
+
+@media (max-width: 600px)
+	.split-left .features
+		grid-template-columns: 1fr
+
+// SECTION BAR
+// ------------------------------------------------------------
+
+.section-bar
+	display: flex
+	justify-content: space-between
+	align-items: center
+	margin-bottom: 28px
+
+	.section-label
+		font-size: 16px
+		font-weight: 500
+		color: rgba(0, 5, 10, 0.85)
+		display: flex
+		align-items: center
+		gap: 6px
+
+		[data-lucide]
+			width: 16px
+			height: 16px
+
+	.section-link
+		display: flex
+		align-items: center
+		gap: 4px
+		font-size: 13px
+		font-weight: 500
+		color: rgba(0, 5, 10, 0.4)
+		text-decoration: none
+		letter-spacing: -0.2px
+		transition: color 0.2s ease
+
+		[data-lucide]
+			width: 13px
+			height: 13px
+
+		&:hover
+			color: rgba(0, 5, 10, 0.8)
+			text-decoration: none
+
+// RECENT THINKING
+// ------------------------------------------------------------
+
+.thinking-list
+	display: flex
+	flex-direction: column
+
+.thinking-item
+	display: grid
+	grid-template-columns: 60px 1fr 1.2fr auto
+	align-items: center
+	gap: 16px
+	padding: 14px 0
+	border-bottom: 1px solid rgba(0, 5, 10, 0.06)
+	text-decoration: none
+	transition: transform 0.25s ease
+
+	&:first-child
+		border-top: 1px solid rgba(0, 5, 10, 0.06)
+
+	&:hover
+		transform: translateX(8px)
+		text-decoration: none
+
+		.thinking-title
+			color: $accent
+
+.thinking-date
+	font-family: 'JetBrains Mono', monospace
+	font-size: 11px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.3)
+	min-width: 60px
+	text-transform: uppercase
+
+.thinking-title
+	font-size: 15px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.85)
+	letter-spacing: -0.2px
+	transition: color 0.2s ease
+
+.thinking-tag
+	display: flex
+	align-items: center
+	gap: 5px
+	justify-self: end
+	font-family: 'JetBrains Mono', monospace
+	font-size: 10px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.3)
+	white-space: nowrap
+
+	[data-lucide]
+		width: 12px
+		height: 12px
+		stroke-width: 1.5
+
+@media (max-width: 690px)
+	.thinking-item
+		grid-template-columns: auto 1fr auto
+		gap: 4px 12px
+
+	.thinking-desc
+		display: none
+
+// POST PAGE
+// ------------------------------------------------------------
+
+.post-page
+	max-width: 680px
+	margin: 0 auto
+	padding: 0 2rem
+
+.post-header
+	padding: 72px 0 36px
+
+.post-topbar
+	display: flex
+	justify-content: space-between
+	align-items: center
+	padding: 16px 2rem 14px
 	position: fixed
 	top: 0
-	z-index: 10000
-	opacity: 0
-	display: none
-	font-size: 14px
-	font-weight: 600
-	line-height: 36px
+	left: 0
+	right: 0
+	max-width: 680px
+	margin: 0 auto
+	background: rgba(255, 255, 255, 0.96)
+	backdrop-filter: blur(12px)
+	-webkit-backdrop-filter: blur(12px)
+	z-index: 100
+	transition: top 0.2s ease
 
-	.content
-		background-color: rgb(255, 255, 255)
-		height: auto
-		width: 100%
-		max-width: 300px
-		height: 100%
-		float: right
-		padding: 26px 52px
-		overflow: auto
+	.menu-toggle
 		display: flex
-		flex-flow: column nowrap
+		align-items: center
+		cursor: pointer
+		font-size: 13px
+		font-weight: 500
+		color: rgba(0, 5, 10, 0.45)
+		background: none
+		border: none
+		padding: 0
+		letter-spacing: -0.2px
 
-		.top,
-		.menu-item
-			flex: 0 0 1
-			margin: 4px 0
-			padding: 12px
-			vertical-align: middle
-			color: rgba(0,5,10,0.7)
-			height: 36px
-	
-		.top
-			text-align: right
+		[data-lucide]
+			margin: 0
 
-		.menu-item
-			border: 1px solid rgb(235,235,235)
-			border-radius: 8px
+.post-topbar-right
+	display: flex
+	align-items: center
+	gap: 24px
 
-			i.material-icons
-				vertical-align: middle
-				line-height: 36px
-				margin: 0 8px 2px 0
-				padding: 0
+.post-topbar.tucked
+	top: -60px
 
-		.buttons
-			display: flex
-			flex-flow: column nowrap
-			margin-bottom: 24px
+html.dark .post-topbar
+	background: rgba(20, 20, 19, 0.96)
 
-			a
-				display: block
-				margin-bottom: 12px
-				color: rgba(0, 5, 10, 0.7)
+html.dark .post-topbar .menu-toggle
+	color: rgba(255, 255, 255, 0.5)
 
-				.cta
-					min-height: 64px
-					line-height: 64px
-					display: block
-					padding: 0 24px
-					border-radius: 12px
-					//border: 1px solid rgba(0, 5, 10, 0.05)
-					transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1)
-					text-overflow: ellipsis
+.post-brand
+	display: inline-flex
+	align-items: center
+	gap: 7px
+	font-size: 15px
+	font-weight: 400
+	letter-spacing: -0.3px
+	color: rgba(0, 5, 10, 0.85)
+	text-decoration: none
 
-					i.material-icons
-						line-height: 36px
-						vertical-align: middle
-						margin: 0 12px 2px -2px
-						padding-right: 12px
-						border-right: 1px solid rgba(0, 5, 10, 0.1)
+	img
+		height: 22px
+		width: auto
+		margin: 0
+		border-radius: 4px
 
-				.cta.special
-					color: rgb(30, 200, 150)
-					background: rgba(30, 200, 150, 0.2)
+	&:hover
+		text-decoration: none
+		opacity: 0.6
 
-					i.material-icons
-						border-right: 1px solid rgba(30, 200, 150, 0.3)
+.post-meta
+	display: flex
+	align-items: center
+	gap: 12px
+	margin-bottom: 12px
 
-			a.active
-				color: rgba(0, 5, 10, 0.9)
+.post-date
+	font-family: 'JetBrains Mono', monospace
+	font-size: 11px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.3)
+	letter-spacing: 0.3px
 
-				.cta
-					background: rgba(0, 5, 10, 0.03)
+.post-tag
+	display: flex
+	align-items: center
+	gap: 4px
+	font-family: 'JetBrains Mono', monospace
+	font-size: 11px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.3)
 
-			a:hover
-				color: rgb(30, 200, 150)
-				text-decoration: none
+	[data-lucide]
+		width: 11px
+		height: 11px
+		margin: 0
 
-				.cta
-					background: rgba(30, 200, 150, 0.2)
+.post-header h1
+	font-size: 28px
+	font-weight: 600
+	letter-spacing: -0.5px
+	line-height: 1.25
+	margin: 0
 
-					i.material-icons
-						border-right: 1px solid rgba(30, 200, 150, 0.3)
+.post-tagline
+	font-size: 16px
+	color: rgba(0, 5, 10, 0.5)
+	line-height: 1.5
+	margin: 8px 0 0
+	text-align: left
 
-				.cta.special
-					color: rgba(255, 255, 255, 0.95)
-					background: rgb(30, 200, 150)
+.post-divider
+	border: none
+	border-top: 1px solid rgba(0, 5, 10, 0.08)
+	margin: 0
 
-					i.material-icons
-						border-right: 1px solid rgba(255, 255, 255, 0.7)
+html.dark .post-divider
+	border-top-color: rgba(255, 255, 255, 0.06)
 
-#showmenu
-	color: var(--color-white)
+.post-body
+	padding: 40px 0 64px
+
+	p
+		margin: 0 0 1.25rem
+		text-align: left
+		color: rgba(0, 5, 10, 0.7)
+
+	hr
+		margin: 2rem 0
+
+	h2
+		font-size: 20px
+		font-weight: 600
+		letter-spacing: -0.3px
+		color: rgba(0, 5, 10, 0.8)
+		margin: 2.5rem 0 0.75rem
+
+	h3
+		font-size: 16px
+		font-weight: 600
+		letter-spacing: -0.2px
+		color: rgba(0, 5, 10, 0.8)
+		margin: 2rem 0 0.5rem
+
+	h4
+		font-size: 14px
+		font-weight: 600
+		color: rgba(0, 5, 10, 0.75)
+		margin: 1.5rem 0 0.375rem
+
+	ul, ol
+		margin: 0 0 1.25rem 1.5rem
+
+	li
+		font-size: 1rem
+		line-height: 1.65
+		color: rgba(0, 5, 10, 0.7)
+		margin-bottom: 0.375rem
+		text-align: left
+
+	img
+		border-radius: 6px
+		margin: 1.5rem 0
+
+	code
+		font-family: 'JetBrains Mono', monospace
+		font-size: 0.8125rem
+		background: rgba(0, 5, 10, 0.04)
+		padding: 2px 6px
+		border-radius: 3px
+		color: rgba(0, 5, 10, 0.65)
+
+	pre
+		font-family: 'JetBrains Mono', monospace
+		font-size: 0.8125rem
+		background: rgba(0, 5, 10, 0.03)
+		border: 1px solid rgba(0, 5, 10, 0.06)
+		border-radius: 6px
+		padding: 1.25rem
+		margin: 1.5rem 0
+		overflow-x: auto
+		color: rgba(0, 5, 10, 0.6)
+
+	pre code
+		background: none
+		padding: 0
+		border-radius: 0
+		color: inherit
+
+	table
+		width: 100%
+		border-collapse: collapse
+		font-size: 0.875rem
+		margin: 1.5rem 0
+		color: rgba(0, 5, 10, 0.65)
+
+	thead th
+		font-family: 'JetBrains Mono', monospace
+		font-size: 0.75rem
+		font-weight: 500
+		text-transform: uppercase
+		letter-spacing: 0.3px
+		color: rgba(0, 5, 10, 0.4)
+		text-align: left
+		padding: 8px 12px
+		border-bottom: 2px solid rgba(0, 5, 10, 0.1)
+		background: none
+
+	tbody td
+		padding: 8px 12px
+		border-bottom: 1px solid rgba(0, 5, 10, 0.05)
+
+	tbody tr:nth-child(even)
+		background: rgba(0, 5, 10, 0.02)
+
+	tbody tr:hover
+		background: rgba(0, 5, 10, 0.03)
+
+	.table_wrapper
+		overflow-x: auto
+		margin: 1.5rem 0
+
+	blockquote
+		border-left: 2px solid rgba(0, 5, 10, 0.1)
+		padding-left: 1.25rem
+		margin: 1.5rem 0
+		color: rgba(0, 5, 10, 0.55)
+
+.post-nav
+	display: grid
+	grid-template-columns: 1fr auto 1fr
+	gap: 24px
+	align-items: start
+	padding: 40px 0
+
+.post-nav-item
+	text-decoration: none
+	display: flex
+	flex-direction: column
+	gap: 4px
+
+.post-nav-prev
+	align-items: flex-start
+
+.post-nav-next
+	align-items: flex-end
+	text-align: right
+
+.post-nav-label
+	display: flex
+	align-items: center
+	gap: 4px
+	font-size: 12px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.3)
+	transition: color 0.2s ease
+
+	[data-lucide]
+		width: 12px
+		height: 12px
+		margin: 0
+
+.post-nav-title
+	font-size: 15px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.7)
+	letter-spacing: -0.2px
+	transition: color 0.2s ease
+
+.post-nav-item:hover
+	text-decoration: none
+
+	.post-nav-label
+		color: $accent
+
+	.post-nav-title
+		color: $accent
+
+.post-nav-all
+	font-size: 12px
+	line-height: 18px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.3)
+	text-decoration: none
+	transition: color 0.2s ease
+
+.post-nav-all:hover
+	color: rgba(0, 5, 10, 0.7)
+	text-decoration: none
+
+html.dark .post-nav
+	border: none
+
+html.dark .post-nav-label
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .post-nav-title
+	color: rgba(255, 255, 255, 0.6)
+
+html.dark .post-nav-item:hover .post-nav-label,
+html.dark .post-nav-item:hover .post-nav-title
+	color: $accent
+
+html.dark .post-nav-all
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .post-nav-all:hover
+	color: rgba(255, 255, 255, 0.6)
+
+@media (max-width: 690px)
+	.post-nav
+		grid-template-columns: 1fr
+		gap: 20px
+		text-align: left
+
+	.post-nav-next
+		align-items: flex-start
+		text-align: left
+
+	.post-nav-all
+		order: -1
+
+.post-footer
+	display: grid
+	grid-template-columns: 1fr auto 1fr
+	align-items: center
+	padding: 28px 0 40px
+	border-top: 1px solid rgba(0, 5, 10, 0.06)
+
+	span
+		font-size: 12px
+		color: rgba(0, 5, 10, 0.25)
+
+	.footer-logo
+		display: flex
+		align-items: center
+		gap: 7px
+		font-size: 13px
+		font-weight: 600
+		color: rgba(0, 5, 10, 0.5)
+		text-decoration: none
+		letter-spacing: -0.3px
+
+		&:hover
+			text-decoration: none
+			opacity: 0.6
+
+		img
+			height: 18px
+			width: auto
+			margin: 0
+			border-radius: 3px
+
+.post-footer-logo
+	display: flex
+
+	img
+		height: 16px
+		width: auto
+		margin: 0
+		border-radius: 3px
+		opacity: 0.35
+
+.post-footer-right
+	display: flex
+	justify-content: flex-end
+	gap: 16px
+
+	a
+		font-size: 12px
+		color: rgba(0, 5, 10, 0.25)
+		text-decoration: none
+		transition: color 0.2s ease
+
+	a:hover
+		color: rgba(0, 5, 10, 0.6)
+
+@media (max-width: 690px)
+	.post-footer
+		flex-direction: column
+		gap: 12px
+		align-items: flex-start
+
+// THINKING PAGE
+// ------------------------------------------------------------
+
+.thinking-page
+	max-width: 960px
+	margin: 0 auto
+	padding: 0 52px
+
+.thinking-featured
+	padding: 48px 0
+
+	a
+		display: block
+		text-decoration: none
+		color: inherit
+
+	a:hover
+		text-decoration: none
+
+		h2
+			color: $accent
+
+	h2
+		font-size: 22px
+		font-weight: 600
+		letter-spacing: -0.5px
+		margin: 6px 0 8px
+		transition: color 0.2s ease
+
+	p
+		font-size: 14px
+		color: rgba(0, 5, 10, 0.5)
+		line-height: 1.6
+		margin: 0
+		text-align: left
+
+.thinking-featured-meta
+	font-family: 'JetBrains Mono', monospace
+	font-size: 11px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.3)
+	letter-spacing: 0.3px
+	display: flex
+	align-items: center
+	gap: 4px
+
+	[data-lucide]
+		width: 11px
+		height: 11px
+		margin: 0
+
+.thinking-desc
+	font-size: 13px
+	color: rgba(0, 5, 10, 0.35)
+	text-align: left
+	text-decoration: none
+	overflow: hidden
+	text-overflow: ellipsis
+	white-space: nowrap
+
+.thinking-page .thinking-list
+	padding: 24px 0 64px
+
+@media (max-width: 768px)
+	.thinking-page
+		padding: 0 1.5rem
+
+	.thinking-featured a
+		grid-template-columns: 1fr
+		gap: 20px
+
+	.thinking-featured-img
+		height: 200px
+
+// ABOUT PAGE
+// ------------------------------------------------------------
+
+.about-hero
+	border-bottom: 1px solid rgba(0, 5, 10, 0.08)
+	padding: 64px 52px 56px
+	text-align: center
+
+.about-hero-inner
+	max-width: 620px
+	margin: 0 auto
+
+.about-headshot
+	width: 120px
+	height: 120px
+	border-radius: 50%
+	object-fit: cover
+	margin: 0 auto 24px
+	display: block
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08)
+
+.about-hero h1
+	font-size: 24px
+	font-weight: 600
+	letter-spacing: -0.5px
+	margin: 0 0 16px
+
+.about-lead
+	font-size: 15px
+	line-height: 1.7
+	color: rgba(0, 5, 10, 0.6)
+	margin: 0 0 12px
+	text-align: center
+
+.about-body
+	padding: 0 52px
+	border-top: 1px solid rgba(0, 5, 10, 0.08)
+
+.about-inner
+	max-width: 680px
+	margin: 0 auto
+
+.about-section
+	padding: 48px 0
+	border-bottom: 1px solid rgba(0, 5, 10, 0.08)
+
+	&:last-child
+		border-bottom: none
+
+.about-label
+	display: flex
+	align-items: center
+	gap: 6px
+	font-size: 13px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.5)
+	margin-bottom: 20px
+
+	[data-lucide]
+		width: 14px
+		height: 14px
+		margin: 0
+
+.about-content p
+	font-size: 15px
+	line-height: 1.75
+	color: rgba(0, 5, 10, 0.75)
+	margin: 0 0 12px
+	text-align: left
+
+.about-content p:last-child
+	margin-bottom: 0
+
+.about-credits
+	display: flex
+	flex-direction: column
+	gap: 24px
+
+	h4
+		font-size: 13px
+		font-weight: 600
+		letter-spacing: -0.2px
+		margin: 0 0 10px
+		color: rgba(0, 5, 10, 0.85)
+		display: flex
+		align-items: center
+		gap: 5px
+
+		[data-lucide]
+			width: 13px
+			height: 13px
+			margin: 0
+			color: rgba(0, 5, 10, 0.35)
+
+	ul
+		list-style: none
+		padding: 0
+		margin: 0
+
+	li
+		font-size: 13px
+		line-height: 1.6
+		color: rgba(0, 5, 10, 0.5)
+		margin: 0 0 4px
+		padding: 0
+
+	a
+		color: $accent
+		text-decoration: none
+		transition: color 0.2s ease
+
+	a:hover
+		color: rgb(20, 170, 125)
+
+@media (max-width: 690px)
+	.about-hero
+		padding: 48px 1.5rem 40px
+
+	.about-body
+		padding: 0 1.5rem
+
+	.about-credits
+		gap: 20px
+
+// HIGHPOINTS PAGE
+// ------------------------------------------------------------
+
+.hp-page
+
+.hp-header
+	display: flex
+	gap: 40px
+	align-items: center
+	padding: 40px 52px
+	border-bottom: 1px solid rgba(0, 5, 10, 0.08)
+
+.hp-intro
+	flex: 1
+
+	p
+		font-size: 15px
+		line-height: 1.7
+		color: rgba(0, 5, 10, 0.6)
+		margin: 0
+		text-align: left
+
+.hp-stats
+	display: flex
+	gap: 0
+	flex-shrink: 0
+
+.hp-stat
+	display: flex
+	flex-direction: column
+	align-items: center
+	padding: 16px 24px
+	border-left: 1px solid rgba(0, 5, 10, 0.06)
+
+	&:first-child
+		border-left: none
+
+.hp-stat-icon
+	width: 16px
+	height: 16px
+	color: rgba(0, 5, 10, 0.2)
+	margin: 0 0 4px
+	stroke-width: 1.5
+
+html.dark .hp-stat-icon
+	color: rgba(255, 255, 255, 0.2)
+
+.hp-stat-num
+	font-size: 22px
+	font-weight: 600
+	letter-spacing: -0.5px
+	color: rgba(0, 5, 10, 0.8)
+
+.hp-stat-label
+	font-family: 'JetBrains Mono', monospace
+	font-size: 9px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.3)
+	text-transform: uppercase
+	letter-spacing: 0.5px
+	margin-top: 2px
+
+.hp-grid
+	padding: 0
+
+	.content.max
+		padding: 32px 52px 64px
+
+html.dark .hp-header
+	border-bottom-color: rgba(255, 255, 255, 0.06)
+
+html.dark .hp-intro p
+	color: rgba(255, 255, 255, 0.5)
+
+html.dark .hp-stat
+	border-left-color: rgba(255, 255, 255, 0.06)
+
+html.dark .hp-stat-num
+	color: rgba(255, 255, 255, 0.8)
+
+html.dark .hp-stat-label
+	color: rgba(255, 255, 255, 0.25)
+
+@media (max-width: 768px)
+	.hp-page
+		padding: 0 1.5rem
+
+	.hp-header
+		flex-direction: column
+		gap: 24px
+		padding: 32px 1.5rem
+
+	.hp-stats
+		width: 100%
+		justify-content: center
+
+// GALLERY PAGE (photography + highpoints detail)
+// ------------------------------------------------------------
+
+.gallery-back
+	display: inline-flex
+	align-items: center
+	gap: 4px
+	font-size: 13px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.35)
+	text-decoration: none
+	margin-bottom: 8px
+	transition: color 0.2s ease
+
+	[data-lucide]
+		width: 13px
+		height: 13px
+		margin: 0
+
+	&:hover
+		color: rgba(0, 5, 10, 0.7)
+		text-decoration: none
+
+html.dark .gallery-back
+	color: rgba(255, 255, 255, 0.3)
+
+html.dark .gallery-back:hover
+	color: rgba(255, 255, 255, 0.7)
+
+.gallery-page
+	width: 100%
+	max-width: 960px
+	margin: 0 auto
+	padding: 32px 52px 64px
+
+.gallery-header
+	display: flex
+	gap: 24px
+	align-items: center
+	padding: 16px 0 32px
+
+.gallery-thumb
+	width: 120px
+	height: 120px
+	min-width: 120px
+	border-radius: 10px
+	background-size: cover
+	background-position: center
+
+.gallery-info
+	display: flex
+	flex-direction: column
+	gap: 4px
+
+	h1
+		font-size: 22px
+		font-weight: 600
+		letter-spacing: -0.5px
+		margin: 0
+
+	p
+		font-size: 14px
+		color: rgba(0, 5, 10, 0.55)
+		margin: 0
+		text-align: left
+		display: flex
+		align-items: center
+		gap: 4px
+
+		[data-lucide]
+			width: 13px
+			height: 13px
+			margin: 0
+
+.gallery-meta
+	display: flex
+	align-items: center
+	gap: 4px
+	font-family: 'JetBrains Mono', monospace
+	font-size: 11px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.3)
+	letter-spacing: 0.3px
+
+	[data-lucide]
+		width: 12px
+		height: 12px
+		margin: 0
+
+.gallery-count
+	font-size: 12px
+	color: rgba(0, 5, 10, 0.35)
+
+.gallery-controls
+	display: flex
+	justify-content: flex-end
+	padding: 0 0 16px
+
+.gallery-toggle
+	display: flex
+	border: 1px solid rgba(0, 5, 10, 0.08)
+	border-radius: 6px
+	overflow: hidden
+
+.gallery-toggle-btn
+	background: none
+	border: none
+	padding: 6px 10px
 	cursor: pointer
-	opacity: 0
+	color: rgba(0, 5, 10, 0.3)
+	transition: all 0.15s ease
+	display: flex
+	align-items: center
+
+	[data-lucide]
+		width: 16px
+		height: 16px
+		margin: 0
+
+	&:hover
+		color: rgba(0, 5, 10, 0.6)
+
+	&.active
+		background: rgba(0, 5, 10, 0.85)
+		color: white
+
+.gallery-grid
+	display: grid
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+	gap: 8px
+
+.gallery-item
+	cursor: pointer
+	overflow: hidden
+	border-radius: 4px
+	aspect-ratio: 4 / 3
+
+	img
+		width: 100%
+		height: 100%
+		object-fit: cover
+		display: block
+		transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)
+		margin: 0
+		border-radius: 0
+
+	&:hover img
+		transform: scale(1.04)
+
+.gallery-slideshow
+	display: flex
+	align-items: center
+	justify-content: center
+	position: relative
+	width: 100%
+	min-height: 60vh
+	background: #0a0a0a
+	border-radius: 8px
+	overflow: hidden
+
+.slide-img
+	position: absolute
+	inset: 0
+	background-size: contain
+	background-repeat: no-repeat
+	background-position: center
+
+.slide-prev, .slide-next
+	position: absolute
+	top: 50%
+	transform: translateY(-50%)
+	background: rgba(255, 255, 255, 0.08)
+	border: none
+	color: rgba(255, 255, 255, 0.6)
+	width: 44px
+	height: 44px
+	border-radius: 8px
+	cursor: pointer
+	display: flex
+	align-items: center
+	justify-content: center
+	transition: all 0.15s ease
+	z-index: 2
+
+	[data-lucide]
+		width: 22px
+		height: 22px
+		margin: 0
+
+	&:hover
+		background: rgba(255, 255, 255, 0.15)
+		color: white
+
+.slide-prev
+	left: 12px
+
+.slide-next
+	right: 12px
+
+.slide-counter
+	position: absolute
+	bottom: 12px
+	left: 50%
+	transform: translateX(-50%)
+	font-family: 'JetBrains Mono', monospace
+	font-size: 11px
+	font-weight: 500
+	color: rgba(255, 255, 255, 0.4)
+
+.slide-fullscreen
+	position: absolute
+	top: 12px
+	right: 12px
+	background: rgba(255, 255, 255, 0.08)
+	border: none
+	color: rgba(255, 255, 255, 0.6)
+	width: 36px
+	height: 36px
+	border-radius: 8px
+	cursor: pointer
+	display: flex
+	align-items: center
+	justify-content: center
+	transition: all 0.15s ease
+	z-index: 2
+
+	[data-lucide]
+		width: 16px
+		height: 16px
+		margin: 0
+
+	&:hover
+		background: rgba(255, 255, 255, 0.15)
+		color: white
+
+// Fullscreen slideshow styles
+.gallery-slideshow:fullscreen
+	background: #000
+	border-radius: 0
+
+	.slide-img
+		height: 100vh
+
+// Gallery dark mode
+html.dark .gallery-thumb
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3)
+
+html.dark .gallery-info p
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .gallery-meta
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .gallery-count
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .gallery-toggle
+	border-color: rgba(255, 255, 255, 0.08)
+
+html.dark .gallery-toggle-btn
+	color: rgba(255, 255, 255, 0.3)
+
+	&:hover
+		color: rgba(255, 255, 255, 0.6)
+
+	&.active
+		background: rgba(255, 255, 255, 0.85)
+		color: #141413
+
+
+@media (max-width: 690px)
+	.gallery-page
+		padding: 24px 1.5rem 48px
+
+	.gallery-header
+		flex-direction: column
+		align-items: flex-start
+
+	.gallery-thumb
+		width: 80px
+		height: 80px
+		min-width: 80px
+
+	.gallery-grid
+		grid-template-columns: repeat(2, 1fr)
+
+	.slide-img
+		height: 50vh
+
+// LIVING PAGE
+// ------------------------------------------------------------
+
+.living-page
+	padding: 48px 52px 64px
+
+.living-columns
+	display: grid
+	grid-template-columns: repeat(3, 1fr)
+	gap: 20px
+
+.living-col
+	border: 1px solid rgba(0, 5, 10, 0.08)
+	border-radius: 12px
+	overflow: hidden
+	display: flex
+	flex-direction: column
+
+.living-col-hero
+	height: 180px
+	background-size: cover
+	background-position: center
+	position: relative
+	display: flex
+	align-items: flex-end
+
+.living-col-hero-text
+	padding: 20px
+	background: linear-gradient(180deg, transparent, rgba(0,0,0,0.55))
+	width: 100%
+
+	h2
+		font-size: 18px
+		font-weight: 600
+		letter-spacing: -0.3px
+		color: #fff
+		margin: 0 0 2px
+
+	p
+		font-size: 12px
+		color: rgba(255,255,255,0.6)
+		margin: 0
+		text-align: left
+
+.living-col-stats
+	display: flex
+	border-bottom: 1px solid rgba(0, 5, 10, 0.06)
+
+.living-stat
+	flex: 1
+	display: flex
+	flex-direction: column
+	align-items: center
+	padding: 14px 8px
+	border-right: 1px solid rgba(0, 5, 10, 0.06)
+
+	&:last-child
+		border-right: none
+
+.living-stat-num
+	font-size: 18px
+	font-weight: 600
+	letter-spacing: -0.5px
+	color: rgba(0, 5, 10, 0.8)
+
+.living-stat-label
+	font-family: 'JetBrains Mono', monospace
+	font-size: 9px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.3)
+	text-transform: uppercase
+	letter-spacing: 0.5px
+	margin-top: 2px
+
+.living-col-items
+	flex: 1
+	padding: 8px
+
+.living-col-item
+	display: flex
+	align-items: center
+	gap: 10px
+	padding: 8px
+	border-radius: 6px
+	text-decoration: none
+	transition: background 0.15s ease
+
+	&:hover
+		background: rgba(0, 5, 10, 0.03)
+		text-decoration: none
+
+.living-col-thumb
+	width: 40px
+	height: 40px
+	min-width: 40px
+	border-radius: 6px
+	background-size: cover
+	background-position: center
+
+.living-col-item-text
+	display: flex
+	flex-direction: column
+	gap: 1px
+	min-width: 0
+
+.living-col-item-title
+	font-size: 13px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.8)
+	letter-spacing: -0.2px
+	white-space: nowrap
+	overflow: hidden
+	text-overflow: ellipsis
+
+.living-col-item-sub
+	font-size: 11px
+	color: rgba(0, 5, 10, 0.35)
+	white-space: nowrap
+	overflow: hidden
+	text-overflow: ellipsis
+
+.living-col-more
+	display: flex
+	align-items: center
+	justify-content: center
+	gap: 4px
+	padding: 14px
+	font-size: 13px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.35)
+	text-decoration: none
+	border-top: 1px solid rgba(0, 5, 10, 0.06)
+	transition: color 0.2s ease
+
+	[data-lucide]
+		width: 13px
+		height: 13px
+		margin: 0
+
+	&:hover
+		color: $accent
+		text-decoration: none
+
+// Living page dark mode
+html.dark .living-col
+	border-color: rgba(255, 255, 255, 0.06)
+	background: #1a1a18
+
+html.dark .living-col-stats
+	border-bottom-color: rgba(255, 255, 255, 0.06)
+
+html.dark .living-stat
+	border-right-color: rgba(255, 255, 255, 0.06)
+
+html.dark .living-stat-num
+	color: rgba(255, 255, 255, 0.8)
+
+html.dark .living-stat-label
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .living-col-item:hover
+	background: rgba(255, 255, 255, 0.04)
+
+html.dark .living-col-item-title
+	color: rgba(255, 255, 255, 0.8)
+
+html.dark .living-col-item-sub
+	color: rgba(255, 255, 255, 0.3)
+
+html.dark .living-col-more
+	border-top-color: rgba(255, 255, 255, 0.06)
+	color: rgba(255, 255, 255, 0.3)
+
+@media (max-width: 960px)
+	.living-columns
+		grid-template-columns: 1fr
+
+	.living-page
+		padding: 24px 1.5rem 48px
+
+// SHOTS PAGE (BUILDING/DRIBBBLE GRID)
+// ------------------------------------------------------------
+
+.shots-page
+	padding: 0 52px
+
+.shots-header
+	padding: 48px 0 32px
+
+	h1
+		font-size: 24px
+		font-weight: 600
+		letter-spacing: -0.5px
+		margin: 0 0 20px
+
+.shots-filters
+	display: flex
+	flex-wrap: wrap
+	gap: 6px
+
+.filter-btn
+	display: inline-flex
+	align-items: center
+	gap: 4px
+	font-family: 'DM Sans', sans-serif
+	font-size: 12px
+
+	[data-lucide]
+		width: 12px
+		height: 12px
+		margin: 0
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.45)
+	background: none
+	border: 1px solid rgba(0, 5, 10, 0.08)
+	border-radius: 6px
+	padding: 6px 14px
+	cursor: pointer
+	transition: all 0.15s ease
+
+.filter-btn:hover
+	border-color: rgba(0, 5, 10, 0.15)
+	color: rgba(0, 5, 10, 0.7)
+
+.filter-btn.active
+	background: rgba(0, 5, 10, 0.85)
+	border-color: rgba(0, 5, 10, 0.85)
+	color: white
+
+.shots-grid
+	display: grid
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr))
+	gap: 12px
+	padding-bottom: 64px
+
+.shot
+	position: relative
+	cursor: pointer
+	overflow: hidden
+	border-radius: 6px
+	aspect-ratio: 4 / 3
+
+	.shot-img
+		position: absolute
+		inset: 0
+		background-size: cover
+		background-position: center
+		transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)
+
+		video
+			width: 100%
+			height: 100%
+			object-fit: cover
+
+	.shot-hover
+		position: absolute
+		inset: 0
+		display: flex
+		align-items: flex-end
+		padding: 16px
+		background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.6))
+		opacity: 0
+		transition: opacity 0.25s ease
+
+	.shot-title
+		font-size: 13px
+		font-weight: 500
+		color: white
+		letter-spacing: -0.2px
+
+.shot:hover
+	.shot-img
+		transform: scale(1.04)
+	.shot-hover
+		opacity: 1
+
+// Shot modal
+.shot-modal-overlay
 	display: none
+	position: fixed
+	inset: 0
+	z-index: 600
+	background: rgba(0, 5, 10, 0.5)
+	align-items: center
+	justify-content: center
+	padding: 32px
 
-#hidemenu
-	color: var(--color-text-medium-on-light)
+.shot-modal-overlay.open
+	display: flex
+	animation: shotFadeIn 0.2s ease
+
+@keyframes shotFadeIn
+	from
+		opacity: 0
+	to
+		opacity: 1
+
+.shot-modal
+	background: white
+	border-radius: 10px
+	box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2)
+	width: 100%
+	max-width: 720px
+	max-height: 90vh
+	overflow: hidden
+	display: flex
+	flex-direction: column
+	position: relative
+
+.shot-modal-close
+	position: absolute
+	top: 12px
+	right: 12px
+	z-index: 10
+	background: rgba(0, 0, 0, 0.4)
+	border: none
+	color: white
+	width: 32px
+	height: 32px
+	border-radius: 6px
 	cursor: pointer
+	display: flex
+	align-items: center
+	justify-content: center
+	transition: background 0.15s ease
+
+	[data-lucide]
+		width: 16px
+		height: 16px
+		margin: 0
+
+.shot-modal-close:hover
+	background: rgba(0, 0, 0, 0.6)
+
+.shot-modal-img
+	position: relative
+	width: 100%
+	height: 0
+	padding-bottom: 56%
+	background-size: cover
+	background-position: center
+
+	video
+		position: absolute
+		inset: 0
+		width: 100%
+		height: 100%
+		object-fit: cover
+	flex-shrink: 0
+
+.shot-modal-date
+	font-family: 'JetBrains Mono', monospace
+	font-size: 11px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.3)
+	letter-spacing: 0.3px
+	display: block
+	margin-bottom: 6px
+
+.shot-modal-body
+	padding: 24px 28px 28px
+
+	h2
+		font-size: 18px
+		font-weight: 600
+		letter-spacing: -0.3px
+		margin: 0 0 8px
+
+	p
+		font-size: 14px
+		color: rgba(0, 5, 10, 0.55)
+		line-height: 1.6
+		margin: 0 0 16px
+		text-align: left
+
+.shot-modal-tags
+	display: flex
+	flex-wrap: wrap
+	gap: 6px
+
+.shot-modal-link
+	display: inline-flex
+	align-items: center
+	gap: 5px
+	margin-top: 16px
+	font-size: 13px
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.5)
+	text-decoration: none
+	transition: color 0.2s ease
+
+	[data-lucide]
+		width: 13px
+		height: 13px
+		margin: 0
+
+.shot-modal-link:hover
+	color: rgba(0, 5, 10, 0.85)
+	text-decoration: none
+
+.shot-tag
+	display: inline-flex
+	align-items: center
+	gap: 4px
+	font-family: 'JetBrains Mono', monospace
+	font-size: 10px
+
+	[data-lucide]
+		width: 10px
+		height: 10px
+		margin: 0
+	font-weight: 500
+	color: rgba(0, 5, 10, 0.4)
+	border: 1px solid rgba(0, 5, 10, 0.08)
+	border-radius: 4px
+	padding: 3px 8px
+	letter-spacing: 0.3px
+
+@media (max-width: 690px)
+	.shots-page
+		padding: 0 1.5rem
+
+	.shots-grid
+		grid-template-columns: repeat(2, 1fr)
+
+	.shot-modal-overlay
+		padding: 16px
+
+// LIVING THREE
+// ------------------------------------------------------------
+
+.living-three
+	grid-template-columns: repeat(3, 1fr) !important
+
+@media (max-width: 880px)
+	.living-three
+		grid-template-columns: 1fr !important
+
+// LIVING BANNER
+// ------------------------------------------------------------
+
+.living-banner
+	display: grid
+	grid-template-columns: repeat(4, 1fr)
+
+.living-banner-item
+	position: relative
+	display: block
+	overflow: hidden
+	text-decoration: none
+
+	&:hover .living-banner-img
+		transform: scale(1.04)
+
+	&:hover .living-banner-label
+		opacity: 1
+
+.living-banner-img
+	height: 180px
+	background-size: cover
+	background-position: center
+	transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)
+
+.living-banner-label
+	position: absolute
+	bottom: 0
+	left: 0
+	right: 0
+	display: flex
+	align-items: center
+	gap: 6px
+	padding: 12px 16px
+	background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5))
+	opacity: 0.75
+	transition: opacity 0.3s ease
+
+	[data-lucide]
+		width: 13px
+		height: 13px
+		color: rgba(255, 255, 255, 0.6)
+		stroke-width: 1.5
+
+	span
+		font-family: 'JetBrains Mono', monospace
+		font-size: 11px
+		font-weight: 500
+		letter-spacing: 0.3px
+		color: rgba(255, 255, 255, 0.85)
+
+@media (max-width: 690px)
+	.living-banner
+		grid-template-columns: repeat(2, 1fr)
+
+	.living-banner-img
+		height: 140px
+
+// FOOTER
+// ------------------------------------------------------------
+
+footer
+	border-top: 1px solid rgba(0, 5, 10, 0.08)
+
+	.footer-inner
+		display: grid
+		grid-template-columns: 1fr auto 1fr
+		align-items: center
+		padding: 28px 52px
+
+	.footer-logo
+		display: flex
+		align-items: center
+		gap: 7px
+		font-size: 13px
+		font-weight: 600
+		color: rgba(0, 5, 10, 0.5)
+		text-decoration: none
+		letter-spacing: -0.3px
+
+		&:hover
+			text-decoration: none
+			opacity: 0.6
+
+		img
+			height: 18px
+			width: auto
+			margin: 0
+			border-radius: 3px
+
+	.footer-social
+		display: flex
+		justify-content: flex-end
+		gap: 20px
+
+		a
+			font-size: 12px
+			font-weight: 500
+			color: rgba(0, 5, 10, 0.35)
+			text-decoration: none
+			transition: color 0.2s ease
+
+		a:hover
+			color: rgba(0, 5, 10, 0.7)
+			text-decoration: none
+
+	.footer-copyright
+		font-size: 12px
+		color: rgba(0, 5, 10, 0.25)
+
+// Mobile menu card
+.mobile-menu
+	position: fixed
+	top: 56px
+	right: 52px
+	width: 200px
+	padding: 8px
+	background: rgb(255, 255, 255)
+	border: 1px solid rgba(0, 5, 10, 0.08)
+	border-radius: 12px
+	box-shadow: 0 8px 32px rgba(0, 5, 10, 0.08), 0 2px 8px rgba(0, 5, 10, 0.04)
+	z-index: 10001
+	opacity: 0
+	transform: scale(0.92) translateY(-8px)
+	transform-origin: top right
+	pointer-events: none
+	transition: opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)
+
+	a
+		display: flex
+		align-items: center
+		gap: 10px
+		padding: 10px 16px
+		font-size: 13px
+		font-weight: 500
+		letter-spacing: -0.2px
+		color: rgba(0, 5, 10, 0.45)
+		text-decoration: none
+		border-radius: 8px
+		opacity: 0
+		transform: translateY(4px)
+		transition: color 0.15s ease, background 0.15s ease, opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1), transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)
+
+	a:nth-child(1)
+		transition-delay: 0ms
+	a:nth-child(2)
+		transition-delay: 30ms
+	a:nth-child(3)
+		transition-delay: 60ms
+	a:nth-child(4)
+		transition-delay: 90ms
+	a:nth-child(5)
+		transition-delay: 120ms
+
+	a [data-lucide]
+		width: 16px
+		height: 16px
+		margin: 0
+		flex-shrink: 0
+
+	a:hover
+		color: rgba(0, 5, 10, 0.9)
+		background: rgba(0, 5, 10, 0.03)
+		text-decoration: none
+
+	a.active
+		color: rgba(0, 5, 10, 0.9)
+		background: rgba(30, 200, 150, 0.06)
+
+	a.active [data-lucide]
+		color: $accent
+
+.mobile-menu.is-open
+	opacity: 1
+	transform: scale(1) translateY(0)
+	pointer-events: auto
+
+	a
+		opacity: 1
+		transform: translateY(0)
+
+.mobile-menu:not(.is-open) a
+	transition-delay: 0ms !important
+
+html.dark .mobile-menu
+	background: #1e1e1c
+	border-color: rgba(255, 255, 255, 0.06)
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2)
+
+	a
+		color: rgba(255, 255, 255, 0.4)
+
+	a:hover
+		color: rgba(255, 255, 255, 0.85)
+		background: rgba(255, 255, 255, 0.04)
+
+	a.active
+		color: rgba(255, 255, 255, 0.85)
+		background: rgba(30, 200, 150, 0.08)
+
+	a.active [data-lucide]
+		color: $accent
+
+.post-topbar .mobile-menu
+	position: absolute
+	top: 100%
+	right: 2rem
+	margin-top: -1px
+
+@media (prefers-reduced-motion: reduce)
+	.mobile-menu,
+	.mobile-menu a
+		transition-duration: 0.01ms !important
+		transition-delay: 0ms !important
 
 .section .content .grid_gallery
 	display: flex
@@ -915,8 +3317,11 @@ footer
 	h1
 		font-size: 2rem
 
-	nav
-		padding: 2rem
+	nav .nav-inner
+		padding: 12px 2rem
+
+	.mobile-menu
+		right: 2rem
 
 	.section
 		.content
@@ -928,15 +3333,15 @@ footer
 		.content.max
 			padding: 2rem
 
+	.apps-carousel-header
+		padding: 16px 2rem 12px
 
 @media (max-width:880px)
 
-	nav .right span.hide
-		opacity: 0
+	nav .right a.hide
 		display: none
 
-	#showmenu
-		opacity: 1
+	nav .right .menu-toggle
 		display: inline-block
 
 	.section .content .callouts
@@ -1011,4 +3416,10 @@ footer
 		.social
 			width: 100%
 			margin: 8px 0
+
+	footer .footer-inner
+		flex-direction: column
+		gap: 12px
+		padding: 24px 2rem
+		text-align: center
 

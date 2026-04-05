@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/rhode-island-highpoint/
 title: Jerimoth Hill
 location: Rhode Island
 state: RI
