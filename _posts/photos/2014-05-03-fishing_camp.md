@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/fishing-camp-2014/
 title: Fishing Camp
 location: Belgrade, ME
 category: photography

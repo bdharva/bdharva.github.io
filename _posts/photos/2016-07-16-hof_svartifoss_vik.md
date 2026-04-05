@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/hof-svartifoss-vik-2016/
 title: Hof, Svartifoss, & Vík
 location: Iceland
 category: photography

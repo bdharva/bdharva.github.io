@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/mississippi-highpoint/
 title: Woodall Mountain
 location: Mississippi
 state: MS

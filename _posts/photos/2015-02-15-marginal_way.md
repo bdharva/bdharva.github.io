@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/marginal-way-2015/
 title: Snowshoeing Marginal Way
 location: Ogunquit, ME
 category: photography

@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/missouri-highpoint/
 title: Taum Sauk
 location: Missouri
 state: MO

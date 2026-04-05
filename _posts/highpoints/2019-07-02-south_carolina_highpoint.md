@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/south-carolina-highpoint/
 title: Sassafras Mountain
 location: South Carolina
 state: SC

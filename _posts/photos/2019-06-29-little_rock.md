@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/little-rock-2019/
 title: Arkansas State Capitol
 location: Little Rock, AR
 category: photography

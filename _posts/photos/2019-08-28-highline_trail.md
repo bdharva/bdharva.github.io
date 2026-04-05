@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/highline-trail-2019/
 title: Highline Trail
 location: Glacier County, MT
 category: photography

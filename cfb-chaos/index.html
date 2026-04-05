@@ -7,91 +7,335 @@ title: College Football Chaos
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width">
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-		<meta name="p:domain_verify" content="963fb8b6037d52bd2cc58e579956670e"/>
-		<title>{{ page.title }} -- {{ page.tagline }}</title>
-		<meta name="description" content="{% if page.tagline %}{{ page.tagline }}{% else %}{{ site.description }}{% endif %}">
-		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="/css/styles.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>CFB Chaos - bdharva</title>
+		<meta name="description" content="College football upset tracker — visualizing ranked upsets and chaos agents vs. victims">
 		<link rel="icon" type="image/png" href="/assets/favicon.png">
-		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="canonical" href="https://bdharva.com/cfb-chaos/">
+		<meta property="og:title" content="CFB Chaos">
+		<meta property="og:description" content="College football upset tracker — visualizing ranked upsets and chaos agents vs. victims">
+		<meta property="og:url" content="https://bdharva.com/cfb-chaos/">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="https://bdharva.com/assets/making/cfb-chaos.webp">
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="CFB Chaos">
+		<meta name="twitter:description" content="College football upset tracker — visualizing ranked upsets and chaos agents vs. victims">
+		<meta name="twitter:image" content="https://bdharva.com/assets/making/cfb-chaos.webp">
+		<meta name="twitter:creator" content="@bdharva">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/main.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script>
 		<script src="//d3js.org/d3-queue.v3.min.js"></script>
 		<script src="https://d3js.org/d3-time.v1.min.js"></script>
 		<script src="https://d3js.org/d3-time-format.v2.min.js"></script>
-		<script src="https://kit.fontawesome.com/08f3b48f90.js" crossorigin="anonymous"></script>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script src="https://unpkg.com/lucide@latest"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-H72TQ2EZ1L"></script>
 		<script>
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
-
 		  gtag('config', 'G-H72TQ2EZ1L');
 		</script>
+		<style>
+			:root {
+				--bg: #ffffff;
+				--surface: rgb(247, 248, 249);
+				--border: rgba(0, 5, 10, 0.08);
+				--border-light: rgba(0, 5, 10, 0.04);
+				--text: rgba(0, 5, 10, 0.9);
+				--text2: rgba(0, 5, 10, 0.5);
+				--text3: rgba(0, 5, 10, 0.3);
+				--accent: rgb(30, 200, 150);
+				--accent-dim: rgba(30, 200, 150, 0.12);
+				--red: rgb(220, 75, 55);
+				--green: rgb(50, 200, 100);
+			}
+			* { box-sizing: border-box; margin: 0; padding: 0; }
+			body {
+				font-family: 'DM Sans', sans-serif;
+				background: var(--bg);
+				color: var(--text);
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+			}
+			a { color: var(--text2); text-decoration: none; transition: color 0.2s ease; }
+			a:hover { color: var(--text); text-decoration: none; }
+
+			/* HEADER */
+			.header {
+				position: sticky;
+				top: 0;
+				z-index: 100;
+				padding: 16px 52px 14px;
+				display: flex;
+				align-items: center;
+				gap: 16px;
+				border-bottom: 1px solid var(--border);
+				background: rgba(255,255,255,0.96);
+				backdrop-filter: blur(12px);
+				-webkit-backdrop-filter: blur(12px);
+			}
+			.header-logo {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				text-decoration: none;
+				color: var(--text);
+			}
+			.header-logo img { height: 28px; width: auto; border-radius: 5px; }
+			.header h1 { font-size: 19px; font-weight: 600; letter-spacing: -0.5px; }
+			.header h1 span { font-weight: 400; }
+			.header-sub { font-size: 10px; color: var(--text3); letter-spacing: 1px; }
+			.header-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+			.header-right a { font-size: 13px; font-weight: 500; letter-spacing: -0.2px; }
+
+			/* INFO BTN */
+			.info-btn {
+				background: none;
+				border: 1px solid var(--border);
+				color: var(--text3);
+				width: 32px; height: 32px;
+				border-radius: 8px;
+				cursor: pointer;
+				display: flex; align-items: center; justify-content: center;
+				transition: all 0.2s;
+			}
+			.info-btn { cursor: pointer; }
+			.info-btn:hover { border-color: var(--accent); color: var(--accent); }
+			.info-btn [data-lucide], .info-btn svg { width: 16px; height: 16px; margin: 0; cursor: pointer; pointer-events: none; }
+
+			/* SECTIONS */
+			.section-meta {
+				font-family: 'JetBrains Mono', monospace;
+				font-size: 10px;
+				font-weight: 500;
+				color: var(--text3);
+				letter-spacing: 0.3px;
+				margin-left: 8px;
+			}
+			section { border-bottom: 1px solid var(--border); }
+			section .container { max-width: 1024px; margin: 0 auto; padding: 36px 52px; }
+			section .container h2 {
+				font-size: 15px; font-weight: 600; letter-spacing: -0.2px;
+				color: var(--text); margin-bottom: 12px;
+			}
+
+			/* TOGGLE */
+			.toggle {
+				display: inline-flex;
+				border: 1px solid var(--border);
+				border-radius: 6px;
+				overflow: hidden;
+				margin-bottom: 16px;
+			}
+			.toggle .option {
+				padding: 5px 14px;
+				font-size: 12px; font-weight: 500;
+				color: var(--text3);
+				cursor: pointer;
+				transition: all 0.15s ease;
+				font-family: 'DM Sans', sans-serif;
+				text-transform: none;
+				border: none; float: none; display: inline-block;
+				width: auto; height: auto; line-height: 1.4;
+			}
+			.toggle .option:hover { background: var(--surface); color: var(--text2); }
+			.toggle .option.active { background: var(--text); color: white; }
+			.toggle .option.active:hover { background: var(--text); color: white; }
+			.dash { display: none; }
+
+			/* FOOTER — matches site footer */
+			.app-footer {
+				display: grid;
+				grid-template-columns: 1fr auto 1fr;
+				align-items: center;
+				padding: 28px 52px;
+				border-top: 1px solid var(--border);
+				margin-top: auto;
+			}
+			.app-footer-logo {
+				display: flex;
+				align-items: center;
+				gap: 7px;
+				font-size: 13px;
+				font-weight: 600;
+				color: rgba(0, 5, 10, 0.5);
+				text-decoration: none;
+				letter-spacing: -0.3px;
+			}
+			.app-footer-logo:hover { opacity: 0.6; }
+			.app-footer-logo img { height: 18px; width: auto; border-radius: 3px; }
+			.app-footer-copy { font-size: 12px; color: rgba(0, 5, 10, 0.25); text-align: center; }
+			.app-footer-links {
+				display: flex; gap: 20px; justify-content: flex-end;
+			}
+			.app-footer-links a {
+				font-size: 12px; font-weight: 500;
+				color: rgba(0, 5, 10, 0.35);
+			}
+			.app-footer-links a:hover { color: rgba(0, 5, 10, 0.7); }
+
+			/* INFO MODAL */
+			.info-overlay {
+				display: none; position: fixed; inset: 0; z-index: 600;
+				background: rgba(0,5,10,0.4);
+				align-items: center; justify-content: center; padding: 24px;
+			}
+			.info-overlay.open { display: flex; animation: fadeIn 0.25s ease; }
+			@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+			.info-modal {
+				background: var(--bg); border-radius: 12px;
+				box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+				width: 100%; max-width: 680px; max-height: 90vh;
+				display: flex; flex-direction: column; overflow: hidden;
+			}
+			.info-modal-header {
+				display: flex; align-items: center; justify-content: space-between;
+				padding: 20px 24px; border-bottom: 1px solid var(--border); flex-shrink: 0;
+			}
+			.info-modal-header h2 { font-size: 16px; font-weight: 600; margin: 0; }
+			.info-modal-close {
+				background: none; border: none; color: var(--text3);
+				cursor: pointer; padding: 4px;
+			}
+			.info-modal-close:hover { color: var(--text); }
+			.info-modal-close [data-lucide], .info-modal-close svg { width: 18px; height: 18px; margin: 0; pointer-events: none; }
+			.info-modal-body { padding: 24px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+			.info-modal-body h3 {
+				font-size: 15px; font-weight: 600;
+				margin: 28px 0 10px; padding-bottom: 8px;
+				border-bottom: 1px solid var(--border);
+			}
+			.info-modal-body h3:first-child { margin-top: 0; }
+			.info-modal-body p { font-size: 13px; color: var(--text2); line-height: 1.7; margin: 0 0 10px; text-align: left; }
+			.info-modal-body a { color: var(--green); text-decoration: none; }
+			.info-modal-body a:hover { text-decoration: underline; }
+
+			/* LUCIDE ICONS — prevent chart styles from leaking */
+			.header svg, .info-btn svg, .info-modal-close svg {
+				width: auto;
+				cursor: default;
+				background: none;
+			}
+
+			/* RESPONSIVE */
+			@media (max-width: 768px) {
+				.header { padding: 14px 1.5rem 12px; }
+				.hero-banner { padding: 32px 1.5rem 28px; }
+				section .container { padding: 28px 1.5rem; }
+				.app-footer { padding: 20px 1.5rem; flex-direction: column; gap: 8px; text-align: center; }
+			}
+		</style>
 	</head>
 	<body>
-		{% include header.html %}
-		<div class="scroll-content">
-			<div class="section hero" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7)), url('assets/hero.jpg');">
-				<div class="screen">
-					<div class="content">
-						<h1>Quantifying Chaos</h1>
-						<h3>Crunching the numbers on the success of Team Chaos in turning college football rankings on their head</h3>
-						<h4>Last Updated: November 11, 2017</h4>
+		<div class="header">
+			<a href="/" class="header-logo">
+				<img src="/assets/favicon.png" alt="bdharva">
+			</a>
+			<div>
+				<h1>CFB <span>Chaos</span></h1>
+			</div>
+			<a href="/" class="header-sub" style="text-decoration:none;color:var(--text3)">by bdharva</a>
+			<div class="header-right">
+				<button class="info-btn" onclick="openInfo()" title="About this project"><i data-lucide="info"></i></button>
+			</div>
+		</div>
+		<section>
+			<div class="container center" style="max-width:none">
+				<h2>This Week's Matchups <span class="section-meta">Updated Nov 11, 2017</span></h2>
+				<div class="chart" id="matchups">
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="container center">
+				<h2>Chaos Over Time</h2>
+				<div class="dash"></div>
+				<div class="toggle">
+					<div class="option" data="lineweeks">Seasons</div>
+					<div class="option" data="barweeks">Weeks</div>
+				</div>
+				<div class="charttoggle">
+					<div class="chart" id="lineweeks">
+					</div>
+					<div class="chart" id="barweeks">
 					</div>
 				</div>
 			</div>
-			<section>
-				<div class="container center">
-					<h2>This Week's Matchups</h2>
-					<div class="chart" id="matchups">
+		</section>
+		<section>
+			<div class="container center">
+				<h2>Chaos by Team</h2>
+				<div class="dash"></div>
+				<div class="toggle">
+					<div class="option" data="chartteams">Chart</div>
+					<div class="option" data="tableteams">Table</div>
+				</div>
+				<div class="charttoggle">
+					<div class="chart" id="chartteams">
+					</div>
+					<div class="chart" id="tableteams">
 					</div>
 				</div>
-			</section>
-			<section>
-				<div class="container center">
-					<h2>Chaos Over Time</h2>
-					<div class="dash"></div>
-					<div class="toggle">
-						<div class="option" data="lineweeks">Seasons</div>
-						<div class="option" data="barweeks">Weeks</div>
-					</div>
-					<div class="charttoggle">
-						<div class="chart" id="lineweeks">
-						</div>
-						<div class="chart" id="barweeks">
-						</div>
-					</div>
+			</div>
+		</section>
+		<div class="info-overlay" id="infoOverlay">
+			<div class="info-modal">
+				<div class="info-modal-header">
+					<h2>About CFB Chaos</h2>
+					<button class="info-modal-close" onclick="closeInfo()"><i data-lucide="x"></i></button>
 				</div>
-			</section>
-			<section>
-				<div class="container center">
-					<h2>Chaos by Team</h2>
-					<div class="dash"></div>
-					<div class="toggle">
-						<div class="option" data="chartteams">Chart</div>
-						<div class="option" data="tableteams">Table</div>
-					</div>
-					<div class="charttoggle">
-						<div class="chart" id="chartteams">
-						</div>
-						<div class="chart" id="tableteams">
-						</div>
-					</div>
+				<div class="info-modal-body">
+					<p>Anyone who knows me knows that I'm a huge college football fan. Aside from watching my beloved Penn State Nittany Lions every weekend, I have a four screen setup for watching all of the other big games, pulling for Team Chaos all the way. With respect to college football, chaos is best described as higher ranked teams losing to lower ranked (or unranked teams). Each week, the teams looking to pull of these upsets are collectively the members of Team Chaos.</p>
+					<p>While there are plenty of good stats out there on teams' records against ranked opponents, I'd never come across data on the specifics of how teams fair against higher or lower ranked opponents. Through the first few weeks of the 2016 season, it was starting to feel like Team Chaos was having a particularly good run, so I set out to pull together data to see if this was indeed the case. I wrote a simple Python script utilizing a headless browser to pull the source code for weekly top 25 game results from ESPN's site, render the pages, scrape the pertinent data, and aggregate it into a workable format.</p>
+					<p>Using D3.js, I've pulled together a couple of basic visualizations for exploring the data. It's still a work in progress, but I update the data weekly and am working on building a more comprehensive and compelling experience around the stories that this data tells.</p>
+					<h3>Frequently Asked Questions</h3>
+					<h4>What is "Team Chaos"?</h4>
+					<p>If you want to descend down the rabbit hole that is /r/cfb (I highly recommend it), <a href="https://www.reddit.com/r/CFB/comments/2iorj0/team_chaos_can_we_have_a_discussion/" target="_blank">this thread</a> captures the range of nuanced opinions on what chaos is. Here we'll be working with the simplest definition: upsets of ranked teams. When a ranked team is upset, it's a win for Team Chaos. Teams that defeat higher ranked opponents are "agents" of chaos (and de facto members of Team Chaos that week), while ranked teams losing to lower ranked (or unranked) opponents are "victims" of chaos.</p>
+					<h4>What's the point?</h4>
+					<p>Some people just want to watch the world burn. But you don't need to be a maniac to enjoy chaos. It's always fun to pull for an upset, especially when it throws the rankings (and playoff contenders) into disarray. Whether you don't have a favorite team to pull for, or your team is having a rough season, chaos is always the answer. It makes every game more exciting to watch. And nothing is sweeter than watching your hated rivals fall victim to the underdog.</p>
+					<h4>Ok, so how do you quantify chaos?</h4>
+					<p>This is another place where you could go down a rabbit hole developing complex equations to output a master chaos metric. And any solution would be incomplete and contentious. To keep things simple, we're considering chaos over time — ranked upsets per week — and chaos by team — counting how often a given team is an agent or victim of chaos and their win percentages when in a position to take on either role.</p>
+					<h4>Interpreting Results</h4>
+					<p>While it's hard to draw definitive conclusions from the data, it's definitely interesting to explore. For example, is a team that often falls victim to chaos consistently overrated? Underperforming? Both? Neither? That's up to you to decide. This data is meant to start conversations and grant visibility into some stats that aren't often discussed. This project is also very much a work in progress and will be updated as I find more effective ways to summarize and communicate the data. If you have feedback or suggestions, feel free to <a href="https://twitter.com/bdharva" target="_blank">tweet at me</a>. Note: the data visualizations, while responsive, are not yet properly optimized for small screens and mobile devices.</p>
 				</div>
-			</section>
-			{% include footer.html %}
+			</div>
 		</div>
-  </body>
-	<script src="js/scripts.js"></script>
-	<script src="js/linechart.js"></script>
-	<script src="js/barchart.js"></script>
-	<script src="js/bubblechart.js"></script>
-	<script src="js/table.js"></script>
-	<script src="js/matchups.js"></script>
+		<div class="app-footer">
+			<a href="/" class="app-footer-logo"><img src="/assets/favicon.png" alt="bdharva">bdharva</a>
+			<span class="app-footer-copy">&copy; {{ site.time | date: '%Y' }} Ben Harvatine</span>
+			<div class="app-footer-links">
+				<a href="https://github.com/bdharva" target="_blank" rel="noopener">GitHub</a>
+				<a href="https://www.instagram.com/bdharva/" target="_blank" rel="noopener">Instagram</a>
+				<a href="https://twitter.com/bdharva" target="_blank" rel="noopener">X</a>
+			</div>
+		</div>
+		<script>
+			lucide.createIcons();
+			function openInfo() {
+				document.getElementById('infoOverlay').classList.add('open');
+				document.body.style.overflow = 'hidden';
+			}
+			function closeInfo() {
+				document.getElementById('infoOverlay').classList.remove('open');
+				document.body.style.overflow = '';
+			}
+			document.addEventListener('click', function(e) {
+				if (e.target === document.getElementById('infoOverlay')) closeInfo();
+			});
+			document.addEventListener('keydown', function(e) {
+				if (e.key === 'Escape') closeInfo();
+			});
+		</script>
+		<script src="js/scripts.js"></script>
+		<script src="js/linechart.js"></script>
+		<script src="js/barchart.js"></script>
+		<script src="js/bubblechart.js"></script>
+		<script src="js/table.js"></script>
+		<script src="js/matchups.js"></script>
+	</body>
 </html>

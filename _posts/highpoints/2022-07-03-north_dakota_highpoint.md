@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/north-dakota-highpoint/
 title: White Butte
 location: North Dakota
 state: ND

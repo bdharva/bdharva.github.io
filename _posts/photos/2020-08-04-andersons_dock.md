@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/andersons-dock-2020/
 title: 10 Years at Anderson Dock
 location: Ephraim, WI
 category: photography

@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/virginia-highpoint/
 title: Mount Rogers
 location: Virginia
 state: VA

@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/nantucket-2013/
 title: Nantucket
 location: Nantucket, MA
 category: photography

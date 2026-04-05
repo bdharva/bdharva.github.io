@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/connecticut-highpoint/
 title: Mt. Frissell
 location: Connecticut
 state: CT

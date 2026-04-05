@@ -1,10 +1,11 @@
 ---
 layout: post
+permalink: /thinking/lazy-bracket-picker/
 title: Lazy Bracket Picker
 category: blog
-tag: Programming
+tag: Tinkering
 tagline: Making NCAA bracket pool picks with Python
-thumbnail: /assets/blog/lazy_bracket_picker/cropped.png
+thumbnail: /assets/thinking/lazy_bracket_picker/cropped.webp
 ---
 
 I've participated in NCAA March Madness bracket pools since I was in fifth grade, with decent success over the years. However, I've recently found it more difficult and tedious to pick "good" brackets, as my free time (and level of interest) for keeping up with the wide world of sports has waned. However, I still enjoy the annual tradition that brings family and friends together, and the games just aren't nearly as fun to watch without a reason to care about who wins (since Penn State generally isn't in any of them).
@@ -70,11 +71,11 @@ Intuitively, larger numbers tend to follow the selected odds more closely, while
 
 With the script finished quickly enough to leave some time for fiddling, I just slammed around in Terminal until I saw an upset distribution that I liked and a champion that I could live with. I also applied a little strategic thinking to avoid scenarios with champions that homers in my pools were likely to select (Duke, North Carolina, Purdue, and Michigan in one; Kansas and Wisconsin in the other).
 
-![](/assets/blog/lazy_bracket_picker/terminal.png)
+![](/assets/thinking/lazy_bracket_picker/terminal.webp)
 
 Going all the way back to my first bracket (in fifth grade), I've always been an irrational sucker for Gonzaga and Xavier... Content with my picks, and ready to fill out my bracket, I pulled up the human-readable exports that the script had generated and saved as I ran scenarios:
 
-![](/assets/blog/lazy_bracket_picker/sublime.png)
+![](/assets/thinking/lazy_bracket_picker/sublime.webp)
 
 I'm crossing my fingers for success, but, either way, I've accomplished my goal of a low-overhead way to participate in some friendly trash-talking and generate personal interest in the games. If you'd like to pick your own lazy bracket, you can check out the source code and documentation [here](https://github.com/bdharva/lazy_bracket_picker). Enjoy!
 
@@ -84,9 +85,9 @@ I'm crossing my fingers for success, but, either way, I've accomplished my goal 
 
 Things turned out surprisingly well! I made three entries in a 25 bracket pool, and another in a seven person group. The historic seed-based odds fared the worse, finishing dead last in the large group and in the 12th percentile of all brackets submitted on ESPN. I used team odds bracket in both groups, finishing 2nd in the small one, 5th in the other, and at in the 91st percentile overall. While my hybrid odds bracket just edged it out (4th place, 94th percentile), it only surged ahead with a correct pick for the national champion. With a few different bounces late in some very close games, the team odds bracket would've finished even stronger.
 
-![](/assets/blog/lazy_bracket_picker/pool1.png)
+![](/assets/thinking/lazy_bracket_picker/pool1.webp)
 
-![](/assets/blog/lazy_bracket_picker/pool2.png)
+![](/assets/thinking/lazy_bracket_picker/pool2.webp)
 
 Following up on this surprising success, I intend to run a more rigorous analysis of how varying input parameters would've fared this year, as well as how "typical" my results were given my selected parameters. It will be interesting to see (with a couple thousand more simulations) whether my brackets were lucky outliers or in the meat of potential outcome distributions.
 
@@ -96,4 +97,4 @@ Following up on this surprising success, I intend to run a more rigorous analysi
 
 Thanks to my good buddy Claude, I finally got around to extending this to a user-friendly web-based flow with some snazzy new data, metrics, methodology, and UI/UX -- give it a try [here](/bracket-buddy/).
 
-![](/assets/blog/lazy_bracket_picker/web.png)
+![](/assets/thinking/lazy_bracket_picker/web.webp)

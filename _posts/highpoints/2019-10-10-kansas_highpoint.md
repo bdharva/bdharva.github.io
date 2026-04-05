@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/kansas-highpoint/
 title: Mount Sunflower
 location: Kansas
 state: KS

@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/new-years-in-hawaii-2018/
 title: New Years in Hawaii
 location: Oahu, HI
 category: photography

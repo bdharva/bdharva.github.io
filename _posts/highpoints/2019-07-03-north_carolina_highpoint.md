@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/north-carolina-highpoint/
 title: Mount Mitchell
 location: North Carolina
 state: NC

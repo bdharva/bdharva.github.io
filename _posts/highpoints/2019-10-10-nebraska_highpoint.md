@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/nebraska-highpoint/
 title: Panorama Point
 location: Nebraska
 state: NE

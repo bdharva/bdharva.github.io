@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/vermont-highpoint/
 title: Mt. Mansfield
 location: Vermont
 state: VT

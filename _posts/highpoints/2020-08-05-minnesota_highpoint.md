@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/minnesota-highpoint/
 title: Eagle Mountain
 location: Minnesota
 state: MN

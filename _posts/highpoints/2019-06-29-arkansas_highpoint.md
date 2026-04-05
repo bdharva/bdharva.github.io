@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/arkansas-highpoint/
 title: Mount Magazine
 location: Arkansas
 state: AR

@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/florida-highpoint/
 title: Britton Hill
 location: Florida
 state: FL

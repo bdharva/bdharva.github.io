@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/windsor-castle-2014/
 title: Windsor Castle
 location: Windsor, UK
 category: photography

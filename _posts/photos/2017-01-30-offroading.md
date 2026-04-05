@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/offroading-2017/
 title: Jeep Offroading
 location: Moab, UT
 category: photography

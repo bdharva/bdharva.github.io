@@ -134,8 +134,6 @@ var Chart = ((document, window, d3) => {
 		// snapshot = take_snapshot(snapshot, 'hours')
 		snapshot = take_snapshot(snapshot, '2014-01')
 
-		console.log(county_details)
-		console.log(snapshot)
 
 		svg = d3.select('#map')
 			.append('svg')
@@ -195,15 +193,15 @@ var Chart = ((document, window, d3) => {
 			.join("path")
 				.attr("fill", d => color(snapshot[d.id]))
 				.attr("class", "county")
-				.attr("stroke", "#191923")
-				.attr("stroke-width", 0.1)
+				.attr("stroke", "rgba(0,5,10,0.12)")
+				.attr("stroke-width", 0.5)
 				.attr("d", path)
 
 		states = svg.append("path")
 			.datum(topojson.mesh(map, map.objects.states, (a, b) => a !== b))
 			.attr("fill", "none")
-			.attr("stroke", "#191923")
-			.attr("stroke-width", 0.2)
+			.attr("stroke", "rgba(0,5,10,0.25)")
+			.attr("stroke-width", 0.75)
 			.attr("stroke-linejoin", "round")
 			.attr("d", path)
 
@@ -470,9 +468,13 @@ var Chart = ((document, window, d3) => {
 
 	update_dimensions = () => {
 
-		width =  document.getElementById('map').clientWidth;
-		width = width > 900 ? 900 : width
+		width = document.getElementById('map').clientWidth;
+		var maxHeight = window.innerHeight - 280;
 		height = width / 1.68;
+		if (height > maxHeight) {
+			height = maxHeight;
+			width = height * 1.68;
+		}
 
 	}
 

@@ -1,4 +1,7 @@
 _site
-cfb-chaos/data/ghostdriver.log
 .jekyll-cache
+.jekyll-metadata
 _drafts
+.DS_Store
+*.mov
+cfb-chaos/data/ghostdriver.log

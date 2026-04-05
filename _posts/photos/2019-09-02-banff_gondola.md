@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/banff-gondola-2019/
 title: Banff Gondola
 location: Banff, AB
 category: photography

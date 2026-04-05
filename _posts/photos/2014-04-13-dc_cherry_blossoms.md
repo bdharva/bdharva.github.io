@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/dc-cherry-blossoms-2014/
 title: DC Cherry Blossom Festival
 location: Washington DC
 category: photography

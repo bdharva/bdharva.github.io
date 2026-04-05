@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/madison-color-run-2013/
 title: Madison Color Run
 location: Madison, WI
 category: photography

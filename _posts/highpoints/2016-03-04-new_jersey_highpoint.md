@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/new-jersey-highpoint/
 title: High Point
 location: New Jersey
 state: NJ

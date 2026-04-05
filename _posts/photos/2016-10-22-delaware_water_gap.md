@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/delaware-water-gap-2016/
 title: Delaware Water Gap
 location: Bushkill, PA
 category: photography

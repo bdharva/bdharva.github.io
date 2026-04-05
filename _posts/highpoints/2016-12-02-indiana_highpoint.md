@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/indiana-highpoint/
 title: Hoosier Hill
 location: Indiana
 state: IN

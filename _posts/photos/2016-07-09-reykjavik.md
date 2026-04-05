@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/reykjavik-2016/
 title: Reykjavík
 location: Iceland
 category: photography

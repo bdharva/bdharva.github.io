@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/sugarloaf-mountain-2017/
 title: Sugarloaf Mountain
 location: Marquette, MI
 category: photography

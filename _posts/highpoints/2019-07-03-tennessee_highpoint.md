@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/tennessee-highpoint/
 title: Clingmans Dome
 location: Tennessee
 state: TN

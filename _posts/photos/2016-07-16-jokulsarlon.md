@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/jokulsarlon-2016/
 title: Jökulsárlón
 location: Iceland
 category: photography

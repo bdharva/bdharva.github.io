@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/penn-state-at-purdue-2012/
 title: Penn State @ Purdue
 location: West Lafayette, IN
 category: photography

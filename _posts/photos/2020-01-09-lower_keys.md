@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/lower-keys-2020/
 title: Lower Keys & Key West
 location: Florida Keys
 category: photography

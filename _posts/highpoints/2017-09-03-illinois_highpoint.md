@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/illinois-highpoint/
 title: Charles Mound
 location: Illinois
 state: IL

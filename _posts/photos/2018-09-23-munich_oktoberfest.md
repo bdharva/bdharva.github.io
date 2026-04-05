@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/munich-oktoberfest-2018/
 title: Munich Oktoberfest
 location: Munich, Germany
 category: photography

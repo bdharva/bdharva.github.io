@@ -1,0 +1,119 @@
+---
+layout: default
+title: Living - bdharva
+---
+<div class="living-page">
+	<div class="living-columns">
+
+		<!-- PHOTOGRAPHY -->
+		<div class="living-col">
+			<div class="living-col-hero" style="background-image:url('/assets/heros/photos.webp')">
+				<div class="living-col-hero-text">
+					<h2>Photography</h2>
+					<p>Through the lens, on the road</p>
+				</div>
+			</div>
+			<div class="living-col-stats">
+				<div class="living-stat">
+					<span class="living-stat-num">{{ site.categories.photography | size }}</span>
+					<span class="living-stat-label">Collections</span>
+				</div>
+				{% assign total_photos = 0 %}
+				{% for p in site.categories.photography %}{% assign total_photos = total_photos | plus: p.files %}{% endfor %}
+				<div class="living-stat">
+					{% assign tp = total_photos | toString %}{% assign tlen = total_photos | divided_by: 1000 %}{% if tlen > 0 %}{% assign remainder = total_photos | modulo: 1000 %}{% if remainder < 10 %}<span class="living-stat-num">{{ tlen }},00{{ remainder }}</span>{% elsif remainder < 100 %}<span class="living-stat-num">{{ tlen }},0{{ remainder }}</span>{% else %}<span class="living-stat-num">{{ tlen }},{{ remainder }}</span>{% endif %}{% else %}<span class="living-stat-num">{{ total_photos }}</span>{% endif %}
+					<span class="living-stat-label">Photos</span>
+				</div>
+			</div>
+			<div class="living-col-items">
+				{% for post in site.categories.photography limit:4 %}
+				<a href="{{ post.url }}" class="living-col-item">
+					<div class="living-col-thumb" style="background-image:url('/assets/photography/{{post.date | date: '%Y'}}/{{post.date | date: '%m'}}/{{post.date | date: '%d'}}-{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.webp'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+					<div class="living-col-item-text">
+						<span class="living-col-item-title">{{ post.title }}</span>
+						<span class="living-col-item-sub">{{ post.location }}</span>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
+			<a href="/photography" class="living-col-more">See all <i data-lucide="arrow-right"></i></a>
+		</div>
+
+		<!-- HIGHPOINTS -->
+		<div class="living-col">
+			<div class="living-col-hero" style="background-image:url('/assets/heros/highpoints.webp')">
+				<div class="living-col-hero-text">
+					<h2>Highpoints</h2>
+					<p>50 states, 50 peaks</p>
+				</div>
+			</div>
+			<div class="living-col-stats">
+				<div class="living-stat">
+					<span class="living-stat-num">{{ site.categories.highpoints | size }}/50</span>
+					<span class="living-stat-label">Summits</span>
+				</div>
+				<div class="living-stat">
+					<span class="living-stat-num">14,505'</span>
+					<span class="living-stat-label">Highest</span>
+				</div>
+			</div>
+			<div class="living-col-items">
+				{% for post in site.categories.highpoints limit:4 %}
+				<a href="{{ post.url }}" class="living-col-item">
+					<div class="living-col-thumb" style="background-image:url('/assets/highpoints/{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.webp'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+					<div class="living-col-item-text">
+						<span class="living-col-item-title">{{ post.title }}, {{ post.state }}</span>
+						<span class="living-col-item-sub">{{ post.tagline }}</span>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
+			<a href="/highpoints" class="living-col-more">See all <i data-lucide="arrow-right"></i></a>
+		</div>
+
+		<!-- HOMESTEAD -->
+		<div class="living-col">
+			<div class="living-col-hero" style="background-image:url('/assets/heros/landaff.webp')">
+				<div class="living-col-hero-text">
+					<h2>Homestead</h2>
+					<p>Building in the White Mountains</p>
+				</div>
+			</div>
+			<div class="living-col-stats">
+				<div class="living-stat">
+					<span class="living-stat-num">50</span>
+					<span class="living-stat-label">Acres</span>
+				</div>
+				<div class="living-stat">
+					<span class="living-stat-num">NH</span>
+					<span class="living-stat-label">White Mtns</span>
+				</div>
+			</div>
+			<div class="living-col-items">
+				<a href="https://www.youtube.com/embed/kFtUrFWkonI" target="_blank" rel="noopener" class="living-col-item">
+					<div class="living-col-thumb" style="background:rgb(255,0,0); display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+					<div class="living-col-item-text">
+						<span class="living-col-item-title">Property Tour</span>
+						<span class="living-col-item-sub">YouTube</span>
+					</div>
+				</a>
+				<a href="https://www.instagram.com/explore/tags/harvacamp/" target="_blank" rel="noopener" class="living-col-item">
+					<div class="living-col-thumb" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg></div>
+					<div class="living-col-item-text">
+						<span class="living-col-item-title">Off-grid camp: #harvacamp</span>
+						<span class="living-col-item-sub">Instagram</span>
+					</div>
+				</a>
+				<a href="https://www.instagram.com/explore/tags/harvahouse/" target="_blank" rel="noopener" class="living-col-item">
+					<div class="living-col-thumb" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); display:flex; align-items:center; justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/></svg></div>
+					<div class="living-col-item-text">
+						<span class="living-col-item-title">Home build: #harvahouse</span>
+						<span class="living-col-item-sub">Instagram</span>
+					</div>
+				</a>
+			</div>
+			<a href="https://www.instagram.com/bdharva/" target="_blank" rel="noopener" class="living-col-more">Follow build progress <i data-lucide="arrow-right"></i></a>
+		</div>
+
+	</div>
+</div>

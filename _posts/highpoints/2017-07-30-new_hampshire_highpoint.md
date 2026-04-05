@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/new-hampshire-highpoint/
 title: Mount Washington
 location: New Hampshire
 state: NH

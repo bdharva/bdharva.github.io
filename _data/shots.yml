@@ -1,0 +1,451 @@
+# Sorted newest to oldest
+# Tags: Bits (software, data viz), Atoms (physical builds, hardware, furniture), Pixels (digital design, branding)
+
+# 2026
+- title: Bracket Buddy
+  description: "NCAA bracket pool optimizer"
+  video: /assets/making/bracket-buddy.mp4
+  image: /assets/making/bracket-buddy.webp
+  tags: [Bits]
+  url: /bracket-buddy/
+  url_text: Try Bracket Buddy
+  date: 2026-03
+
+- title: Mini Factory v2
+  description: "Robotic orchestration demonstrating Palantir AIP's edge, OSDK, and embedded ontology capabilities"
+  video: /assets/making/robots.mp4
+  tags: [Atoms,Bits]
+  date: 2026-02
+  featured: true
+
+- title: Work Cell Admin Panel
+  description: "Configuring/calibrating and monitoring custom robotic work cells built around SO-100 arms"
+  video: /assets/making/work-cell-admin.mp4
+  tags: [Bits]
+  date: 2026-02
+
+# 2025
+- title: Powers & Proxies
+  description: "Turn-based strategy game — like if Risk, Catan, and Jackbox had a baby"
+  image: /assets/making/powers-and-proxies.webp
+  tags: [Bits]
+  url: https://powersandproxies.com
+  url_text: Play Powers & Proxies
+  date: 2025-12
+
+- title: Mini Factory Operator Screen
+  description: "Screen design for custom robotics installation"
+  image: /assets/making/mini-factory-03.webp
+  tags: [Bits,Pixels]
+  date: 2025-09
+
+- title: Whitewater
+  description: "Branding concept for a process orchestration/automation company"
+  image: /assets/making/whitewater.webp
+  tags: [Pixels]
+  date: 2025-05
+
+- title: Off-Grid Camp
+  description: "An off-grid camp built on our 50 acre property in the White Mountains of NH"
+  image: /assets/making/camp-11.webp
+  tags: [Atoms]
+  date: 2025-05
+  featured: true
+
+- title: Index Robotics
+  description: "Branding concept for an industrial dexterity company"
+  image: /assets/making/index.webp
+  tags: [Pixels]
+  date: 2025-02
+
+# 2024
+- title: Camp Progress
+  description: Hanging stringlights around camp
+  image: /assets/making/camp-10.webp
+  tags: [Atoms]
+  date: 2024-11
+
+- title: Camp Progress
+  description: Baby steps on screenroom interior finishing while the snow piles up outside
+  image: /assets/making/camp-09.webp
+  tags: [Atoms]
+  date: 2024-11
+
+- title: Mini Factory v1
+  description: "Custom ontology-defined hardware installation"
+  image: /assets/making/mini-factory-13.webp
+  tags: [Atoms,Bits]
+  date: 2024-09
+
+- title: Mini Factory Artwork
+  description: "Blueprint-style brainding/graphic for ontology-defined hardware installation"
+  image: /assets/making/mini-factory-01.webp
+  tags: [Pixels]
+  date: 2024-09
+
+- title: Palantir Spinners
+  description: "Pure CSS Palantir logo indicators/status spinners"
+  video: /assets/making/spinners.mp4
+  tags: [Bits,Pixels]
+  date: 2024-08
+
+# 2023
+- title: Home Office Phone Booth
+  description: "Custom home office phone booth for WFH from the garage"
+  image: /assets/making/pod.webp
+  tags: [Atoms]
+  date: 2023-10
+
+- title: Camp Progress
+  description: All wired up, with electric trenched between buildings, and the screenroom is buttoned up
+  image: /assets/making/camp-08.webp
+  tags: [Atoms]
+  date: 2023-10
+
+- title: Camp Progress
+  description: Framing underway on the screenroom
+  image: /assets/making/camp-07.webp
+  tags: [Atoms]
+  date: 2023-08
+
+- title: Camp Progress
+  description: Grading around the studio and trenching lines from the solar array to the solar shed
+  image: /assets/making/camp-06.webp
+  tags: [Atoms]
+  date: 2023-07
+
+- title: Camp Progress
+  description: Working on finishing roofing, trim, and siding on the solar shed
+  image: /assets/making/camp-05.webp
+  tags: [Atoms]
+  date: 2023-06
+
+- title: Laminar
+  description: "Branding concept for a process orchestration/automation company"
+  image: /assets/making/laminar.webp
+  tags: [Pixels]
+  date: 2023-03
+
+# 2022
+- title: Picnic Table Refresh
+  description: A fresh coat of paint and a new look for our trusty old picnic table
+  image: /assets/making/picnic-table-03.webp
+  tags: [Atoms]
+  date: 2022-08
+
+- title: Camp Progress
+  description: Continued studio progress, viewed from mobile workshop/tool trailer I built out
+  image: /assets/making/camp-04.webp
+  tags: [Atoms]
+  date: 2022-09
+
+- title: Camp Progress
+  description: Studio exterior trim and siding completed
+  image: /assets/making/camp-03.webp
+  tags: [Atoms]
+  date: 2022-08
+
+- title: Camp Progress
+  description: "Working on interior finishing in the studio"
+  image: /assets/making/camp-02.webp
+  tags: [Atoms]
+  date: 2022-06
+
+- title: Camp Progress
+  description: "Studio closed in enough to start exterior siding"
+  image: /assets/making/camp-01.webp
+  tags: [Atoms]
+  date: 2022-05
+
+# 2021
+- title: Mobile Workshop
+  description: A custom tool trailer for the off-grid camp build (aka killing time waiting on a building permit)
+  image: /assets/making/tool-trailer.webp
+  tags: [Atoms]
+  date: 2021-10
+
+- title: Home Depot Hydroponics
+  description: Balcony hydroponics setup with Home Depot buckets that yielded 46lbs 10oz of tomatoes, green beans, and bell peppers in a season
+  image: /assets/making/hydroponics.webp
+  tags: [Atoms]
+  date: 2021-09
+
+- title: Float Trip
+  description: Shirt design for college friend group reunion in Broken Bow, OK
+  image: /assets/making/float-trip.webp
+  tags: [Pixels]
+  date: 2021-06
+
+- title: Goliad
+  description: Branding for real estate holding company, inspired by the Goliad flag
+  image: /assets/making/goliad.webp
+  tags: [Pixels]
+  date: 2021-01
+
+
+# 2020
+- title: County Counting
+  description: "Automated county counting using Google Timeline data, GeoPandas, and D3"
+  image: /assets/making/county-counting.webp
+  tags: [Bits]
+  date: 2020-04
+
+- title: Jeep Wrangler Build
+  description: Lift, tires, winch, lights, roof rack, and fenders... to name a few of the holes in my pockets
+  image: /assets/making/jeep.webp
+  tags: [Atoms]
+  date: 2020-08
+
+# 2019
+- title: Retail Robotics
+  description: Branding concept for a company that brings web-quality tracking, analytics, and auto-merchandising to physical retail
+  image: /assets/making/retail-robotics.webp
+  tags: [Pixels]
+  date: 2019-12
+
+- title: College Gameday Sign
+  description: Trashing Michigan's inferior dairy ahead of Penn State's White Out victory
+  image: /assets/making/gameday-sign-01.webp
+  tags: [Pixels]
+  date: 2019-10
+
+- title: REX AgLabs
+  description: Brand refresh for animal health startup pivoting toward agricultural sciences
+  image: /assets/making/rex.webp
+  tags: [Pixels]
+  date: 2019-04
+
+- title: Google Timeline Maps
+  description: Using Processing + Unfolding to visualize Google Timeline location history data
+  image: /assets/making/google-timeline-maps.webp
+  tags: [Bits]
+  date: 2019-03
+  url: https://github.com/bdharva/google_timeline_maps
+  url_text: View on GitHub
+
+# 2018
+- title: Hobbitcon 8
+  description: Logo mockup for an event that should have been but never was...
+  image: /assets/making/hobbitcon-8.webp
+  tags: [Pixels]
+  date: 2018-11
+
+- title: Neon Recon
+  description: Rubicon-inspired custom badging for a Jeep Wrangler
+  image: /assets/making/neon-recon.webp
+  tags: [Pixels]
+  date: 2018-05
+
+- title: SimpliSafe 3
+  description: Full SimpliSafe system redesign that won CNET Editors' Choice Award 2018
+  image: /assets/making/simplisafe.webp
+  tags: [Atoms, Bits]
+  date: 2018-01
+  featured: true
+
+# 2016
+- title: Framed MBTA Map
+  description: A custom framed MBTA transit map
+  image: /assets/making/mbta-map-frame.webp
+  tags: [Atoms]
+  date: 2016-11
+
+- title: Campus Pulse
+  description: Branding concept for a startup focused on student coordination and academic administration
+  image: /assets/making/campus-pulse.webp
+  tags: [Pixels]
+  date: 2016-11
+
+- title: CFB Chaos
+  description: "Measuring the success of Team Chaos"
+  image: /assets/making/cfb-chaos.webp
+  tags: [Bits]
+  url: /cfb-chaos/
+  url_text: CFB Chaos
+  date: 2016-10
+
+- title: Ergonomic Picnic Table v1
+  description: A custom-designed modular picnic table with improved ergonomics
+  image: /assets/making/picnic-table.webp
+  tags: [Atoms]
+  date: 2016-09
+
+- title: Llama
+  description: Llama illustration as part of a broader set of art for a sorority event shirt
+  image: /assets/making/llama.webp
+  tags: [Pixels]
+  date: 2016-09
+
+- title: Quincy
+  description: MBTA red line illustration for change of address cards
+  image: /assets/making/quincy-01.webp
+  tags: [Pixels]
+  date: 2016-08
+
+- title: Floops
+  description: Brand and product mock-up for a footwear startup
+  image: /assets/making/floops.webp
+  tags: [Pixels]
+  date: 2016-08
+
+- title: Jolt Sensor
+  description: "Building head impact sensors for athletes, with a connected app for parents & coaches."
+  image: /assets/making/jolt_sensor-12.webp
+  tags: [Atoms,Bits]
+  url: https://joltsensor.github.io/
+  url_text: Learn more about Jolt
+  date: 2016-08
+  featured: true
+
+- title: Jolt
+  description: A major rebrand
+  image: /assets/making/jolt-04.webp
+  tags: [Pixels]
+  url: https://joltsensor.github.io/
+  url_text: Learn more about Jolt
+  date: 2016-04
+
+- title: Election 2016
+  description: Practicing a new illustration style with some topical subjects
+  image: /assets/making/election.webp
+  tags: [Pixels]
+  date: 2016-03
+
+- title: MIT
+  description: Playing with alternate illustration styles for MIT's beaver mascot
+  image: /assets/making/roll-tech-01.webp
+  tags: [Pixels]
+  date: 2016-03
+
+- title: Prompt
+  description: Branding for a startup specializing in writing feedback and college admissions coaching
+  image: /assets/making/prompt.webp
+  tags: [Pixels]
+  date: 2016-01
+
+#2015
+- title: Jolt Sensor Packaging
+  description: Fully packaged Jolt Sensors ready to ship to customers
+  image: /assets/making/jolt_sensor-10.webp
+  tags: [Atoms]
+  url: https://joltsensor.github.io/
+  url_text: Learn more about Jolt
+  date: 2015-09
+
+- title: Jolt Sensor Packaging
+  description: Sensors are clipped onto a special insert for clean simple presentation when unboxing
+  image: /assets/making/jolt_sensor-9.webp
+  tags: [Atoms]
+  url: https://joltsensor.github.io/
+  url_text: Learn more about Jolt
+  date: 2015-09
+
+- title: Jolt Sensor Enclosures
+  description: Assembling PCBs into overmolded enclosures (prior to adding end caps)
+  image: /assets/making/jolt_sensor-8.webp
+  tags: [Atoms]
+  url: https://joltsensor.github.io/
+  url_text: Learn more about Jolt
+  date: 2015-09
+
+- title: Jolt Sensor PCBs
+  description: Circuit boards ready for testing and assembly into enclsoures
+  image: /assets/making/jolt_sensor-7.webp
+  tags: [Atoms]
+  url: https://joltsensor.github.io/
+  url_text: Learn more about Jolt
+  date: 2015-09
+
+- title: Card & Key Caddy
+  description: A 3D printed place for my girlfriend to keep keys and loose cards by the door (instead of losing them)
+  image: /assets/making/card-and-key-caddy.webp
+  tags: [Atoms]
+  date: 2015-02
+
+- title: Jolt
+  description: Refining logo wordmark for head impact sensor startup
+  image: /assets/making/jolt-03.webp
+  tags: [Pixels]
+  url: https://joltsensor.github.io/
+  url_text: Learn more about Jolt
+  date: 2015-02
+
+# 2014
+- title: Clearinghouse
+  description: Branding concept for MIT FSILG clearing house
+  image: /assets/making/clearinghouse.webp
+  tags: [Pixels]
+  date: 2014-10
+
+- title: Jolt
+  description: Secondary brand asset for head impact sensor startup
+  image: /assets/making/jolt-02.webp
+  tags: [Pixels]
+  url: https://joltsensor.github.io/
+  url_text: Learn more about Jolt
+  date: 2014-08
+
+- title: Jolt
+  description: Original branding for head impact sensor startup
+  image: /assets/making/jolt-01.webp
+  tags: [Pixels]
+  url: https://joltsensor.github.io/
+  url_text: Learn more about Jolt
+  date: 2014-08
+
+- title: tryna
+  description: Branding concept for a social messaging app
+  image: /assets/making/tryna-02.webp
+  tags: [Pixels]
+  date: 2014-03
+
+- title: tryna
+  description: Branding concept for a social messaging app
+  image: /assets/making/tryna-01.webp
+  tags: [Pixels]
+  date: 2014-03
+
+- title: Magazine Rack Side Table
+  description: A side table that keeps books and magazines within easy reach
+  image: /assets/making/magazine-rack-side-table-01.webp
+  tags: [Atoms]
+  date: 2014-01
+
+# 2013
+- title: No-Bend Bottle Opener
+  description: A stainless steel bottle opener that doesn't crimp the caps
+  image: /assets/making/no-bend-bottle-opener.webp
+  tags: [Atoms]
+  date: 2013-08
+
+- title: Maryland Flag Cornhole Boards
+  description: Cornhole boards that can be put together to make the Maryland flag
+  image: /assets/making/maryland-flag-cornhole-boards-01.webp
+  tags: [Atoms]
+  date: 2013-08
+
+- title: Maryland Flag Cornhole Boards
+  description: Cornhole boards that can be put together to make the Maryland flag
+  image: /assets/making/maryland-flag-cornhole-boards-02.webp
+  tags: [Atoms]
+  date: 2013-08
+
+- title: Deck Chairs
+  description: A clean modern take on the traditional adirondack chair
+  image: /assets/making/deck-chairs-01.webp
+  tags: [Atoms]
+  date: 2013-06
+
+- title: Rainwater-Harvesting Shed
+  description: Design & construction of a novel inverted roof structure for rainwater collection
+  image: /assets/making/rainwater-harvesting-shed.webp
+  tags: [Atoms]
+  date: 2013-03
+
+# 2012
+
+- title: "Birddog Innovations"
+  description: Branding for small business specializing in branding, graphic design, and print marketing
+  image: /assets/making/birddog.webp
+  tags: [Pixels]
+  date: 2012-12

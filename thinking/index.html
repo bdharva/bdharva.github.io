@@ -1,0 +1,27 @@
+---
+layout: default
+title: Thinking - bdharva
+---
+<div class="thinking-page">
+	{% assign posts = site.categories.blog %}
+	{% assign first = posts.first %}
+
+	<div class="thinking-featured">
+		<a href="{{ first.url }}">
+			<span class="thinking-featured-meta">{{ first.date | date: "%b %Y" }} · <i data-lucide="{% if first.tag == "Spitballing" %}lightbulb{% elsif first.tag == "Tinkering" %}wrench{% elsif first.tag == "Wandering" %}route{% else %}circle{% endif %}"></i>{{ first.tag }}</span>
+			<h2>{{ first.title }}</h2>
+			<p>{{ first.tagline }}</p>
+		</a>
+	</div>
+
+	<div class="thinking-list">
+		{% for post in posts offset:1 %}
+		<a href="{{ post.url }}" class="thinking-item">
+			<span class="thinking-date">{{ post.date | date: "%b %Y" }}</span>
+			<span class="thinking-title">{{ post.title }}</span>
+			<span class="thinking-desc">{{ post.tagline }}</span>
+			<span class="thinking-tag"><i data-lucide="{% if post.tag == "Spitballing" %}lightbulb{% elsif post.tag == "Tinkering" %}wrench{% elsif post.tag == "Wandering" %}route{% else %}circle{% endif %}"></i>{{ post.tag }}</span>
+		</a>
+		{% endfor %}
+	</div>
+</div>

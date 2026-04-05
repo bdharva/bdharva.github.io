@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/alabama-highpoint/
 title: Cheaha Mountain
 location: Alabama
 state: AL

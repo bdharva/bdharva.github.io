@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/michigan-highpoint/
 title: Mount Arvon
 location: Michigan
 state: MI

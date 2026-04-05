@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/massachusetts-highpoint/
 title: Mt. Greylock
 location: Massachusetts
 state: MA

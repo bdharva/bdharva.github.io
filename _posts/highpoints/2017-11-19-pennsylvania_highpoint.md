@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/pennsylvania-highpoint/
 title: Mount Davis
 location: Pennsylvania
 state: PA

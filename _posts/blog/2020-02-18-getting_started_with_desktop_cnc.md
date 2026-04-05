@@ -1,10 +1,11 @@
 ---
 layout: post
+permalink: /thinking/getting-started-with-desktop-cnc/
 title: Getting Started with Desktop CNC
 category: blog
 tag: Tinkering
 tagline: Making circuit boards at home (aka trials and tribulations in isolation routing)
-thumbnail: /assets/blog/cnc/cnc-1.jpg
+thumbnail: /assets/thinking/cnc/cnc-1.webp
 ---
 
 I'm embarrassed to admit that my 3018 desktop mill had been collecting dust since I received it as a Christmas gift in 2018, largely due to my open project backlog (and a busy year between work travel, getting married, and moving back to Boston). But, following that recent move (and after putting a dent in the project backlog), I finally had enough downtime around work travel to put some nights and weekends toward getting it up and running.
@@ -27,11 +28,11 @@ My first priority was adding limit switches to prevent accidentally slamming int
 
 I designed some 3D printed mounts to affix the limit switches to the mill frame. It's worth noting that I took an unorthodox approach here, opting for a cradle/clamp around the plastic body of the switch assembly, rather than screwing the switch's through-holes. I only did this because none of the standard hardware I keep on-hand was compatible with the switches and I was impatient to move things along.
 
-![](/assets/blog/cnc/cnc-9.png)
+![](/assets/thinking/cnc/cnc-9.webp)
 
 When running the wiring, I made sure to leave plenty of length in the wires to both account for the distances of the mounting positions from the control board and the fact that the z-axis switches need enough slack for the z-carriage to move up and down while also sliding back and forth across the x-axis. The x- and y-axis mounts are easy to connect directly to the metal frame using extra hardware included with the mill. To mount the z-axis switches, I just glued them to the plastic body of the z-carriage (and clamped them for 24 hours to get a strong cure). Five of the six switches, as well as my approach to wire management (twist wires, tuck in extrusion channels, and zip tie in place), are visible in the shot below:
 
-![](/assets/blog/cnc/cnc-1.jpg)
+![](/assets/thinking/cnc/cnc-1.webp)
 
 With the switches wired and mounted, I next needed to update the machine's settings to actually enable monitoring of the switches. In Universal Gcode Sender (my machine controller of choice; more on this in the  discussion of software toolchain), enabling limit switch monitoring is as simple as sending command `$21=1` to the machine. This is also a good place to go ahead and enabled homing with `$22=1`. With those two options enabled, sending a `$H` command will home all of the axes, testing the switches in the process.
 
@@ -45,7 +46,7 @@ Installing a waste board was my next step in "protecting the machine from itself
 
 At home, I used a circular saw and a straight edge to rip the sheet (across the 24" dimension) into 11" strips and then cross-cut those to 7", approximating the footprint of the mills's build platform. I then struck a 4.5cm grid onto the cut pieces (to correspond with the spacing of the build plate's slotted rails) and drilled a grid of through holes for mounting the plate to the build platform (with plenty of holes leftover for fixturing). As I had a ton of M5 machine screws laying around, whose heads were almost the perfect size for the build plate's slotted rails, I pre-drilled all of the holes with a 5/64" bit before finishing them at 7/32". As MDF has a tendency to "blow out" or sort of delaminate on the backside while drilling through, I made sure to clamp the work-in-progress wasteboards to a (secondary) wasteboard for the drilling process.
 
-![](/assets/blog/cnc/cnc-3.jpg)
+![](/assets/thinking/cnc/cnc-3.webp)
 
 This will be covered in more detail in subsequent sections, but, I'll likely take a differnt approach in future iterations. The through holes are a bit of a pain because they require first sliding the mounting bolts into the build plate's rails, getting them roughly in place relative to the waste board's grid, and then getting the waste board to slide down onto them. And, whenever I want to change up fixturing locations, I have to remove the entire wasteboard to move the mounting bolts around in the rails.
 
@@ -55,11 +56,11 @@ Slots that extend to the ends of the waste board would make this process much sm
 
 A great thing about having a couple 3D printers on-hand is that I can quickly and easily produce purpose-designed fixturing hardware for whatever I'm trying to mill. For isolation routing circuit boards, I designed some notched lever arms to clamp the edges of the circuit board blanks, along with some general purpose knobs for holding down both the clamps and the waste board, as well as some blocks to take up the slack around the mounting bolts heads placed in the build plate's slotted rails.
 
-![](/assets/blog/cnc/cnc-11.png)
+![](/assets/thinking/cnc/cnc-11.webp)
 
 I press fit the M5 nuts and bolts into the knobs and blocks, respectively, and put it all together. Aside from the aforementioned challenges in assembly mechanics, everything fit together perfectly, the knobs are a breeze to adjust, and, in my subsequent circuit board attempts, everything held in place perfectly.
 
-![](/assets/blog/cnc/cnc-2.jpg)
+![](/assets/thinking/cnc/cnc-2.webp)
 
 
 ## Software Toolchain
@@ -84,7 +85,7 @@ With all of the hardware preparations out of the way, I turned my attention to t
 
 To keep things brief here, I designed my circuit schematic, defined physical footprints for the circuit components, created a mapping between the physical pins/pads and the schematic, layed out the physical components on a board, and manually routed the connections. In finishing the board design/layout, I also defined some through holes to be used for mounting the finished circuit board in an enclosure, as well as the outline of the board to be routed (as indicated by the thin yellow lines below) out of the larger circuit board blank.
 
-![](/assets/blog/cnc/cnc-10.png)
+![](/assets/thinking/cnc/cnc-10.webp)
 
 As I'm used to designing boards with fine pitch components for board houses with very precise capabilities, I had to take a step back, consider the capabilites of my machine, and adjust my design accordingly (and with some trial and error to get a feel for realistic precision). In addition to a conservative use of exclusively through-hole components, I also kept every pad's smallest dimension above 1.8mm, sized all through-holes to 1.1mm, made all traces 1mm+ thick, and made sure I kept the layout loose enough to allow at least 1mm of space between traces.
 
@@ -229,7 +230,7 @@ Running the script in my project-specific directory generates a nested `/gcode` 
 
 Milling is now as easy as putting a blank on the mill, using my multimeter (in continuity mode, with one lead connected to the mill bit and one lead connected to the copper circuit board blank) to zero the z-axis, and dropping in the successive files to be run. After the first two drilling steps, I dropped in thumb tacks to further fixture the board -- these holes are important for indexing against once it's time to flip the board and mill out the other side.
 
-![](/assets/blog/cnc/cnc-12.png)
+![](/assets/thinking/cnc/cnc-12.webp)
 
 ## Experimentation
 
@@ -244,19 +245,19 @@ My `millproject` file included above shows what worked, but here's a list of som
 
 Despite the handful of broken bits and false starts, it was a thing of beauty once I got it dialed in (and realized that, among the bits I had on-hand, v-bits were going to give me the cleanest results).
 
-![](/assets/blog/cnc/cnc-4.jpg)
+![](/assets/thinking/cnc/cnc-4.webp)
 
 Routing the edges with a nice fat 1.1mm end mill worked fantastically, generating a clean edge through the entire thickness of the board, while leaving paper-thin tabs to keep the board in place.
 
-![](/assets/blog/cnc/cnc-6.jpg)
+![](/assets/thinking/cnc/cnc-6.webp)
 
 Despite initially clean results, burring did become a bit of a problem as milling continued. I did my best to clean things up with an Olfa knife, but still ran into a lot of problems with shorts (lack of solder mask didn't do me any favors either).
 
-![](/assets/blog/cnc/cnc-7.jpg)
+![](/assets/thinking/cnc/cnc-7.webp)
 
 The waste board worked great and is still in smooth enough shape after multiple boards that it looks like I can get decent mileage per waste board by just lightly adjusting placement between milling attempts.
 
-![](/assets/blog/cnc/cnc-5.jpg)
+![](/assets/thinking/cnc/cnc-5.webp)
 
 ### Takeaways
 

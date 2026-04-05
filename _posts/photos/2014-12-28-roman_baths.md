@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/roman-baths-2014/
 title: The Roman Baths
 location: Bath, UK
 category: photography

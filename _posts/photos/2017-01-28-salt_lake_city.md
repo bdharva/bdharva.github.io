@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/salt-lake-city-2017/
 title: Salt Lake City
 location: Salt Lake City, UT
 category: photography

@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/texarkana-2019/
 title: TX/AR State Line
 location: Texarkana
 category: photography

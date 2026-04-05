@@ -1,14 +1,18 @@
 <nav>
-	<div class='left'>
-		<a href="/"><img src="/assets/favicon.png"/>bdharva</a>
-	</div>
-	<div class='right'>
-		<span class="hide"><a href="/about" {% if page.title == "About - bdharva" %}class="active"{% endif %}>About</a></span>
-		<span class="hide"><a href="/work" {% if page.title == "Projects - bdharva" %}class="active"{% endif %}>Work</a></span>
-		<span class="hide"><a href="/blog" {% if page.title == "Blog - bdharva" %}class="active"{% endif %}>Blog</a></span>
-		<span class="hide"><a href="/photos" {% if page.title == "Photography - bdharva" %}class="active"{% endif %}>Photography</a></span>
-		<span class="hide"><a href="/highpoints" {% if page.title == "Highpoints - bdharva" %}class="active"{% endif %}>Highpoints</a></span>
-		<span class='hide cta'><a href="/connect">Connect</a></span>
-		<span><i id="showmenu" class="material-icons md-24">menu</i></span>
+	<div class="nav-inner">
+		<div class='left'>
+			<a href="/"><img src="/assets/favicon.png"/>bdharva</a>
+		</div>
+		<div class='right'>
+			<a href="/about" class="hide {% if page.title == "About - bdharva" %}active{% endif %}">About</a>
+			<a href="/making" class="hide {% if page.title == "Making - bdharva" %}active{% endif %}">Making</a>
+			<a href="/thinking" class="hide {% if page.title == "Thinking - bdharva" %}active{% endif %}">Thinking</a>
+			<a href="/living" class="hide {% if page.title == "Living - bdharva" %}active{% endif %}">Living</a>
+			<div class="dark-toggle">
+			<input type="checkbox" id="darkToggle" class="dark-toggle-input">
+			<label class="dark-toggle-label" for="darkToggle"></label>
+		</div>
+		<button class="menu-toggle" id="showmenu" aria-expanded="false"><i data-lucide="menu" class="icon-open"></i><i data-lucide="x" class="icon-close" style="display:none"></i></button>
+		</div>
 	</div>
 </nav>

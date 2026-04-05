@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/land-shopping-2018/
 title: ME Land Shopping
 location: Southern Maine
 category: photography

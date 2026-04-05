@@ -1,0 +1,170 @@
+---
+layout: default
+title: Making - bdharva
+---
+<div class="shots-page">
+	<div class="shots-header">
+		<div class="shots-filters">
+			<button class="filter-btn active" data-filter="all">All</button>
+			<button class="filter-btn" data-filter="Atoms"><i data-lucide="box"></i> Atoms</button>
+			<button class="filter-btn" data-filter="Bits"><i data-lucide="binary"></i> Bits</button>
+			<button class="filter-btn" data-filter="Pixels"><i data-lucide="pencil-ruler"></i> Pixels</button>
+		</div>
+	</div>
+	<div class="shots-grid" id="shotsGrid">
+		{% for shot in site.data.shots %}
+		<div class="shot" data-tags="{{ shot.tags | join: ',' }}" data-index="{{ forloop.index0 }}">
+			{% if shot.video %}
+			<div class="shot-img shot-video-thumb">
+				<video src="{{ shot.video }}" autoplay loop muted playsinline preload="auto"{% if shot.image %} poster="{{ shot.image }}"{% endif %}></video>
+			</div>
+			{% else %}
+			<div class="shot-img" style="background-image: url('{{ shot.image }}')"></div>
+			{% endif %}
+			<div class="shot-hover">
+				<span class="shot-title">{{ shot.title }}</span>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="shot-modal-overlay" id="shotModal">
+	<div class="shot-modal">
+		<button class="shot-modal-close" id="shotModalClose"><i data-lucide="x"></i></button>
+		<div class="shot-modal-img" id="shotModalImg"></div>
+		<div class="shot-modal-body">
+			<span class="shot-modal-date" id="shotModalDate"></span>
+			<h2 id="shotModalTitle"></h2>
+			<p id="shotModalDesc"></p>
+			<div class="shot-modal-tags" id="shotModalTags"></div>
+			<a href="#" class="shot-modal-link" id="shotModalLink" target="_blank" rel="noopener" style="display:none"><i data-lucide="external-link"></i> View project</a>
+		</div>
+	</div>
+</div>
+
+<script>
+(function() {
+	var shots = [
+		{% for shot in site.data.shots %}
+		{ title: {{ shot.title | jsonify }}, description: {{ shot.description | jsonify }}, image: {{ shot.image | jsonify }}, video: {{ shot.video | jsonify }}, tags: {{ shot.tags | jsonify }}, url: {{ shot.url | jsonify }}, url_text: {{ shot.url_text | jsonify }}, date: {{ shot.date | jsonify }} }{% unless forloop.last %},{% endunless %}
+		{% endfor %}
+	];
+
+	var tagIcons = { Atoms: 'box', Bits: 'binary', Pixels: 'pencil-ruler',  };
+	var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+	var filterBtns = document.querySelectorAll('.filter-btn');
+	var shotEls = document.querySelectorAll('.shot');
+	var modal = document.getElementById('shotModal');
+	var currentIndex = -1;
+
+	// Filtering
+	filterBtns.forEach(function(btn) {
+		btn.addEventListener('click', function() {
+			filterBtns.forEach(function(b) { b.classList.remove('active'); });
+			btn.classList.add('active');
+			var filter = btn.getAttribute('data-filter');
+			shotEls.forEach(function(el) {
+				if (filter === 'all' || el.getAttribute('data-tags').indexOf(filter) !== -1) {
+					el.style.display = '';
+				} else {
+					el.style.display = 'none';
+				}
+			});
+		});
+	});
+
+	function getVisibleIndices() {
+		var indices = [];
+		shotEls.forEach(function(el) {
+			if (el.style.display !== 'none') {
+				indices.push(parseInt(el.getAttribute('data-index')));
+			}
+		});
+		return indices;
+	}
+
+	function showShot(idx) {
+		currentIndex = idx;
+		var shot = shots[idx];
+		var modalImg = document.getElementById('shotModalImg');
+		modalImg.style.backgroundImage = '';
+		var oldVid = modalImg.querySelector('video');
+		if (oldVid) oldVid.remove();
+		if (shot.video) {
+			var vid = document.createElement('video');
+			vid.setAttribute('autoplay', '');
+			vid.setAttribute('loop', '');
+			vid.setAttribute('muted', '');
+			vid.setAttribute('playsinline', '');
+			vid.muted = true;
+			vid.src = shot.video;
+			modalImg.appendChild(vid);
+			var p = vid.play(); if (p) p.catch(function() {});
+		} else {
+			modalImg.style.backgroundImage = 'url(' + shot.image + ')';
+		}
+		document.getElementById('shotModalTitle').textContent = shot.title;
+		document.getElementById('shotModalDesc').textContent = shot.description;
+		document.getElementById('shotModalTags').innerHTML = shot.tags.map(function(t) {
+			var ic = tagIcons[t] || 'circle';
+			return '<span class="shot-tag"><i data-lucide="' + ic + '"></i>' + t + '</span>';
+		}).join('');
+		if (shot.date) {
+			var parts = shot.date.split('-');
+			document.getElementById('shotModalDate').textContent = months[parseInt(parts[1])-1] + ' ' + parts[0];
+		} else {
+			document.getElementById('shotModalDate').textContent = '';
+		}
+		var link = document.getElementById('shotModalLink');
+		if (shot.url) {
+			link.href = shot.url;
+			link.textContent = '';
+			var iconEl = document.createElement('i');
+			iconEl.setAttribute('data-lucide', 'external-link');
+			link.appendChild(iconEl);
+			link.appendChild(document.createTextNode(' ' + (shot.url_text || 'View project')));
+			link.style.display = '';
+		} else {
+			link.style.display = 'none';
+		}
+		modal.classList.add('open');
+		document.body.style.overflow = 'hidden';
+		lucide.createIcons();
+	}
+
+	shotEls.forEach(function(el) {
+		el.addEventListener('click', function() {
+			showShot(parseInt(el.getAttribute('data-index')));
+		});
+	});
+
+	function closeModal() {
+		modal.classList.remove('open');
+		document.body.style.overflow = '';
+		var vid = document.getElementById('shotModalImg').querySelector('video');
+		if (vid) vid.pause();
+		currentIndex = -1;
+	}
+
+	document.getElementById('shotModalClose').addEventListener('click', closeModal);
+	modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+
+	document.addEventListener('keydown', function(e) {
+		if (e.key === 'Escape') { closeModal(); return; }
+		if (currentIndex === -1) return;
+		var visible = getVisibleIndices();
+		var pos = visible.indexOf(currentIndex);
+		if (pos === -1) return;
+		if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+			e.preventDefault();
+			var next = (pos + 1) % visible.length;
+			showShot(visible[next]);
+		} else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+			e.preventDefault();
+			var prev = (pos - 1 + visible.length) % visible.length;
+			showShot(visible[prev]);
+		}
+	});
+})();
+</script>

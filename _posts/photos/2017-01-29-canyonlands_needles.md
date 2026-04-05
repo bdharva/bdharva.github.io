@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/canyonlands-needles-2017/
 title: Canyonlands NP - Needles
 location: Moab, UT
 category: photography

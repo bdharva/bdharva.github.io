@@ -1,19 +1,116 @@
 ---
 layout: default
 ---
-<div class="section hero" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7)), url('/assets/highpoints/{{ page.name }}/{{ page.name }}-{{ page.thumbnail }}.jpg');">
-	<div class="content full">
-		<h1>{{page.title}}</h1>
-		<h2>{{page.location}} state highpoint</br>{{page.tagline}} above sea level</h2>
-		<span class='tictactag'><i class="material-icons md-24">terrain</i>{{page.date | date: "%B %-d, %Y"}}</span>
+<div class="gallery-page">
+	<a href="/highpoints" class="gallery-back"><i data-lucide="arrow-left"></i> All Highpoints</a>
+	<div class="gallery-header">
+		<div class="gallery-thumb" style="background-image:url('/assets/highpoints/{{ page.name }}/{{ page.name }}-{{ page.thumbnail }}.webp')"></div>
+		<div class="gallery-info">
+			<span class="gallery-meta"><i data-lucide="mountain-snow"></i> {{ page.date | date: "%B %-d, %Y" }}</span>
+			<h1>{{ page.title }}</h1>
+			<p><i data-lucide="map-pin"></i> {{ page.location }} · {{ page.tagline }}</p>
+			<span class="gallery-count">{{ page.files }} photos</span>
+		</div>
 	</div>
-</div>
-<div class="section medium">
-	<div class="content full">
-		{{content}}
+	{{ content }}
+	<div class="gallery-controls">
+		<div class="gallery-toggle">
+			<button class="gallery-toggle-btn active" data-view="grid"><i data-lucide="layout-grid"></i></button>
+			<button class="gallery-toggle-btn" data-view="slideshow"><i data-lucide="maximize"></i></button>
+		</div>
+	</div>
+	<div class="gallery-grid" id="galleryGrid">
 		{% assign num = page.files %}
 		{% for i in (1..num) %}
-		<img src="/assets/highpoints/{% if page.folder %}{{ page.folder }}/{% endif %}{{ page.name }}/{{ page.name }}-{{ i }}.jpg" loading="lazy"/>
+		<div class="gallery-item" data-index="{{ forloop.index0 }}">
+			<img src="/assets/highpoints/{% if page.folder %}{{ page.folder }}/{% endif %}{{ page.name }}/{{ page.name }}-{{ i }}.webp" loading="lazy"/>
+		</div>
 		{% endfor %}
 	</div>
+	<div class="gallery-slideshow" id="gallerySlideshow" style="display:none">
+		<button class="slide-prev" id="slidePrev"><i data-lucide="chevron-left"></i></button>
+		<div class="slide-img" id="slideImg"></div>
+		<button class="slide-next" id="slideNext"><i data-lucide="chevron-right"></i></button>
+		<span class="slide-counter" id="slideCounter"></span>
+		<button class="slide-fullscreen" id="slideFullscreen"><i data-lucide="maximize"></i></button>
+	</div>
 </div>
+<script>
+(function(){
+	var images = [];
+	{% assign num = page.files %}
+	{% for i in (1..num) %}
+	images.push("/assets/highpoints/{% if page.folder %}{{ page.folder }}/{% endif %}{{ page.name }}/{{ page.name }}-{{ i }}.webp");
+	{% endfor %}
+
+	var grid = document.getElementById('galleryGrid');
+	var slideshow = document.getElementById('gallerySlideshow');
+	var slideImg = document.getElementById('slideImg');
+	var slideCounter = document.getElementById('slideCounter');
+	var toggleBtns = document.querySelectorAll('.gallery-toggle-btn');
+	var currentSlide = 0;
+
+	toggleBtns.forEach(function(btn){
+		btn.addEventListener('click', function(){
+			toggleBtns.forEach(function(b){ b.classList.remove('active'); });
+			btn.classList.add('active');
+			if(btn.dataset.view === 'grid'){
+				grid.style.display = '';
+				slideshow.style.display = 'none';
+			} else {
+				grid.style.display = 'none';
+				slideshow.style.display = 'flex';
+				showSlide(currentSlide);
+			}
+		});
+	});
+
+	document.querySelectorAll('.gallery-item').forEach(function(item){
+		item.addEventListener('click', function(){
+			currentSlide = parseInt(item.dataset.index);
+			toggleBtns.forEach(function(b){ b.classList.remove('active'); });
+			toggleBtns[1].classList.add('active');
+			grid.style.display = 'none';
+			slideshow.style.display = 'flex';
+			showSlide(currentSlide);
+		});
+	});
+
+	function showSlide(n){
+		currentSlide = n;
+		slideImg.style.backgroundImage = 'url(' + images[n] + ')';
+		slideCounter.textContent = (n+1) + ' / ' + images.length;
+	}
+
+	function prev(){ showSlide((currentSlide - 1 + images.length) % images.length); }
+	function next(){ showSlide((currentSlide + 1) % images.length); }
+
+	document.getElementById('slidePrev').addEventListener('click', prev);
+	document.getElementById('slideNext').addEventListener('click', next);
+	document.addEventListener('keydown', function(e){
+		if(slideshow.style.display === 'none') return;
+		if(e.key === 'ArrowLeft') prev();
+		if(e.key === 'ArrowRight') next();
+		if(e.key === 'Escape' && document.fullscreenElement) document.exitFullscreen();
+	});
+
+	// Fullscreen
+	document.getElementById('slideFullscreen').addEventListener('click', function(){
+		if(document.fullscreenElement){
+			document.exitFullscreen();
+		} else {
+			slideshow.requestFullscreen().catch(function(){});
+		}
+	});
+
+	// Swipe
+	var touchStartX = 0;
+	slideshow.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; }, {passive:true});
+	slideshow.addEventListener('touchend', function(e){
+		var diff = touchStartX - e.changedTouches[0].clientX;
+		if(Math.abs(diff) > 50){
+			if(diff > 0) next(); else prev();
+		}
+	});
+})();
+</script>

@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/purgatory-chasm-2016/
 title: Purgatory Chasm
 location: Sutton, MA
 category: photography

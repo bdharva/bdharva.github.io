@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/maryland-highpoint/
 title: Hoye Crest
 location: Maryland
 state: MD

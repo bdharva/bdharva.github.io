@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/canyonlands-island-in-the-sky-2017/
 title: Canyonlands NP - Island in the Sky
 location: Moab, UT
 category: photography

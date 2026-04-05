@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/laugavegurinn-part-1-2016/
 title: Laugavegurinn (Part 1)
 location: Iceland
 category: photography

@@ -2,55 +2,47 @@
 layout: default
 title: Highpoints - bdharva
 ---
-<div class="section hero" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7)), url('/assets/heros/highpoints.jpg');">
-	<div class="content full">
-		<i class="material-icons md-24">hiking</i>
-		<h1>State Highpoints</h1>
-		<h2>50 states. 50 peaks.</h2>
-	</div>
-</div>
-<div class="section">
-	<div class="content">
-		<p>I have a goal of summiting the highest natural elevation point in all 50 states. While travelling around the country for my rotation-based training program at Anheuser-Busch, I started seeking out local highpoints as a way to get outside and explore the new places I was in. Around the same time, I was lucky enough to be picked for a charity climb of Mt. Whitney (the highest point in the lower 48 states) led by Backpacker Magazine. Between all of the training climbs and that awe-inspiring trip, I was hooked.</p>
-		<div class="callouts">
-			<div class="callout">
-				<div class="title"><i class="material-icons md-24">terrain</i></br>{{ site.categories.highpoints | size }}/50</div>
-				<div class="description">peaks completed</div>
+<div class="hp-page">
+	<div class="hp-header">
+		<div class="hp-intro">
+			<p>I have a goal of summiting the highest natural elevation point in all 50 states. While travelling around the country for my rotation-based training program at Anheuser-Busch, I started seeking out local highpoints as a way to get outside and explore the new places I was in. Around the same time, I was lucky enough to be picked for a charity climb of Mt. Whitney (the highest point in the lower 48 states) led by Backpacker Magazine. Between all of the training climbs and that awe-inspiring trip, I was hooked.</p>
+		</div>
+		<div class="hp-stats">
+			<div class="hp-stat">
+				<i data-lucide="mountain-snow" class="hp-stat-icon"></i>
+				<span class="hp-stat-num">{{ site.categories.highpoints | size }}/50</span>
+				<span class="hp-stat-label">Summits</span>
 			</div>
-			<div class="callout">
-				<div class="title"><i class="material-icons md-24">trending_up</i></br>14,505'</div>
-				<div class="description">highest elevation</div>
+			<div class="hp-stat">
+				<i data-lucide="trending-up" class="hp-stat-icon"></i>
+				<span class="hp-stat-num">14,505'</span>
+				<span class="hp-stat-label">Highest</span>
 			</div>
-			<div class="callout">
-				<div class="title"><i class="material-icons md-24">trending_down</i></br>345'</div>
-				<div class="description">lowest elevation</div>
+			<div class="hp-stat">
+				<i data-lucide="trending-down" class="hp-stat-icon"></i>
+				<span class="hp-stat-num">345'</span>
+				<span class="hp-stat-label">Lowest</span>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="section medium">
-	<div class="content max">
+	<div class="hp-grid section">
+		<div class="content max">
 		<div class="features">
 			{% for post in site.categories.highpoints %}
 			<div class="feature">
 				<a href="{{ post.url }}">
 					<div class="image-holder">
-						<div class="image" style="background-image:url('/assets/highpoints/{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.jpg'); {% if post.position %}background-position: {{ post.position }}{% endif %}"></div>
+						<div class="image" data-bg="/assets/highpoints/{{ post.name }}/{{ post.name }}-{{ post.thumbnail }}.webp" {% if post.position %}style="background-position: {{ post.position }}"{% endif %}></div>
 					</div>
 					<div class="text">
-						<div class="tictac">
-							<div class="label">
-								<i class="material-icons md-24">trending_up</i><span class="tag">{{post.tagline}} above sea level</span>
-							</div>
-							<div class="title">{{post.title}}, {{post.state}}</div>
-							<div class="description">
-								<span class="tag">Climbed {{post.date | date: "%b %e, %Y"}} (#{{ forloop.length | minus: forloop.index0 }})</span>
-							</div>
-						</div>
+						<div class="label"><i data-lucide="trending-up"></i>{{post.tagline}}</div>
+						<div class="title">{{post.title}}, {{post.state}}</div>
+						<div class="description">{{ post.date | date: "%b %Y" }} · #{{ forloop.length | minus: forloop.index0 }}</div>
 					</div>
 				</a>
 			</div>
 			{% endfor %}
+		</div>
 		</div>
 	</div>
 </div>

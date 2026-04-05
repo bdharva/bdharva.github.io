@@ -1,25 +1,83 @@
 ---
-layout: default
+layout: none
 ---
-<div class="section hero" style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7)), url('{{ page.thumbnail }}');">
-	<div class="content full">
-		<h1>{{page.title}}</h1>
-		<h2>{{page.tagline}}</h2>
-		<span class='tictactag'><i class="material-icons md-24">
-			{% if page.tag == "Data Visualization" %}
-			bubble_chart
-			{% elsif page.tag == "Tinkering" %}
-			settings
-			{% elsif page.tag == "Entrepreneurship" %}
-			rocket_launch
-			{% elsif page.tag == "Programming" %}
-			code
-			{% endif %}
-		</i>{{page.tag}}</span>
-	</div>
-</div>
-<div class="section medium">
-	<div class="content">
-		{{ content }}
-	</div>
-</div>
+<!DOCTYPE html>
+<html>
+	<head>
+		{% include head.html %}
+	</head>
+	<body>
+		<article class="post-page">
+			<div class="post-topbar">
+				<a href="/" class="post-brand"><img src="/assets/favicon.png" alt="bdharva">bdharva</a>
+				<div class="post-topbar-right">
+					<div class="dark-toggle">
+						<input type="checkbox" id="darkToggle" class="dark-toggle-input">
+						<label class="dark-toggle-label" for="darkToggle"></label>
+					</div>
+					<button class="menu-toggle" id="showmenu" aria-expanded="false"><i data-lucide="menu" class="icon-open"></i><i data-lucide="x" class="icon-close" style="display:none"></i></button>
+				</div>
+				{% include menu.html %}
+			</div>
+			<div class="post-header">
+				<div class="post-meta">
+					<span class="post-date">{{ page.date | date: "%B %-d, %Y" }}</span>
+					<span class="post-tag"><i data-lucide="{% if page.tag == "Spitballing" %}lightbulb{% elsif page.tag == "Tinkering" %}wrench{% elsif page.tag == "Wandering" %}route{% else %}circle{% endif %}"></i>{{ page.tag }}</span>
+				</div>
+				<h1>{{ page.title }}</h1>
+				{% if page.tagline %}<p class="post-tagline">{{ page.tagline }}</p>{% endif %}
+			</div>
+			<hr class="post-divider">
+			<div class="post-body">
+				{{ content }}
+			</div>
+			{% assign blog_posts = site.categories.blog %}
+			{% assign prev_post = nil %}
+			{% assign next_post = nil %}
+			{% for post in blog_posts %}
+				{% if post.url == page.url %}
+					{% assign prev_idx = forloop.index0 | minus: 1 %}
+					{% assign next_idx = forloop.index0 | plus: 1 %}
+					{% if prev_idx >= 0 %}
+						{% assign prev_post = blog_posts[prev_idx] %}
+					{% endif %}
+					{% if next_idx < blog_posts.size %}
+						{% assign next_post = blog_posts[next_idx] %}
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+			<div class="post-nav">
+				{% if next_post %}
+				<a href="{{ next_post.url }}" class="post-nav-item post-nav-prev">
+					<span class="post-nav-label"><i data-lucide="arrow-left"></i> Older</span>
+					<span class="post-nav-title">{{ next_post.title }}</span>
+				</a>
+				{% else %}
+				<div class="post-nav-item"></div>
+				{% endif %}
+
+				<a href="/thinking" class="post-nav-all">All posts</a>
+
+				{% if prev_post %}
+				<a href="{{ prev_post.url }}" class="post-nav-item post-nav-next">
+					<span class="post-nav-label">Newer <i data-lucide="arrow-right"></i></span>
+					<span class="post-nav-title">{{ prev_post.title }}</span>
+				</a>
+				{% else %}
+				<div class="post-nav-item"></div>
+				{% endif %}
+			</div>
+
+			<div class="post-footer">
+				<a href="/" class="footer-logo"><img src="/assets/favicon.png" alt="bdharva"/>bdharva</a>
+				<span>&copy; {{ site.time | date: '%Y' }} Ben Harvatine</span>
+				<div class="post-footer-right">
+					<a href="https://github.com/bdharva" target="_blank" rel="noopener">GitHub</a>
+					<a href="https://www.instagram.com/bdharva/" target="_blank" rel="noopener">Instagram</a>
+					<a href="https://twitter.com/bdharva" target="_blank" rel="noopener">X</a>
+				</div>
+			</div>
+		</article>
+		{% include foot.html %}
+	</body>
+</html>

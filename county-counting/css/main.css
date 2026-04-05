@@ -1,44 +1,24 @@
 /*
-CSS DOCUMENT - BDHARVA.COM
+COUNTY COUNTING — D3 STYLES
+Finessed to match bdharva.com design system
 ============================================================*/
 
-#wrapper {
-	margin-top: -60px;
-}
-
-h2 {
-	font-weight: 400;
-}
-
-/* Section
+/* Chart containers
 ------------------------------------------------------------*/
-
-section {
-	height: auto;
-	overflow: auto;
+.chart {
 	width: 100%;
-	margin: 0 auto;
-	margin-top: 10px;
-	box-sizing: border-box;
+	height: auto;
+	overflow: visible;
+	margin-top: 8px;
 }
 
-section .container {
-	height: auto;
-	overflow: auto;
-	width: 100%;
-	/*max-width: 1024px;*/
-	margin: 0 auto;
-	padding: 40px 0 40px 0;
+#legend {
+	margin-bottom: -24px;
 }
 
 /* SVG
 ------------------------------------------------------------*/
-
-#legend {
-	margin-bottom: -32px;
-}
-
-svg {
+.chart svg {
 	margin: 0 auto;
 	display: block;
 }
@@ -50,207 +30,170 @@ svg {
 .axis path,
 .axis line {
 	fill: none;
-	stroke: lightgray;
+	stroke: rgba(0, 5, 10, 0.08);
 	shape-rendering: crispEdges;
 }
 
 .axis path,
 .axis .tick line {
-	stroke-width: 2px;
-	stroke: rgb(150,150,150);
+	stroke-width: 1px;
+	stroke: rgba(0, 5, 10, 0.1);
 }
 
-.axis .tick text{
-	font-weight: 400;
-	font-size: 12px;
-	color: rgb(150,150,150);
+.axis .tick text {
+	font-family: 'JetBrains Mono', monospace;
+	font-weight: 500;
+	font-size: 10px;
+	fill: rgba(0, 5, 10, 0.35);
 }
 
 /* Counties
-============================================================*/
-
+------------------------------------------------------------*/
 path.county:hover {
-	/*opacity: 0;*/
-	/*stroke: "black";
-	stroke-wdith: 20;*/
+	opacity: 0.85;
 }
 
 .county.active {
-	stroke: #000;
+	stroke: rgba(0, 5, 10, 0.5);
+	stroke-width: 1px;
 }
 
-/* Counties
-============================================================*/
-
+/* Buttons
+------------------------------------------------------------*/
 button {
 	box-sizing: border-box;
-    display: inline-block;
-    border: 1px solid rgb(25,118,210);
-    border-radius: 3px;
-    padding: 4px 12px;
-    margin: 0;
-    margin-bottom: 16px;
-    text-decoration: none;
-    opacity: 0.8;
-    background: rgb(25,118,210);
-    color: rgb(255,255,255);
-    line-height: 24px;
-    vertical-align: middle;
-    font-size: 14px;
-    cursor: pointer;
-    text-align: center;
-    transition: background 250ms ease-in-out, 
-                transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+	display: inline-block;
+	border: 1px solid rgba(0, 5, 10, 0.08);
+	border-radius: 6px;
+	padding: 5px 14px;
+	margin: 0 4px 12px 0;
+	text-decoration: none;
+	background: transparent;
+	color: rgba(0, 5, 10, 0.5);
+	font-family: 'DM Sans', sans-serif;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.4;
+	cursor: pointer;
+	transition: all 0.15s ease;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+button:hover {
+	border-color: rgba(0, 5, 10, 0.15);
+	color: rgba(0, 5, 10, 0.7);
 }
 
 button.active {
-	background: rgb(250,250,250);
-	border: 1px solid rgb(240,240,240);
-	color: rgba(0,5,10,0.9);
-}
-
-button:hover,
-button:focus {
-    opacity: 1;
+	background: rgba(0, 5, 10, 0.85);
+	border-color: rgba(0, 5, 10, 0.85);
+	color: white;
 }
 
 button:active {
-    transform: scale(0.9);
+	transform: scale(0.97);
 }
 
-/* Media queries
-============================================================*/
-
+/* Tooltip
+------------------------------------------------------------*/
 .tooltip {
 	position: absolute;
 	height: auto;
-	padding: 10px;
-	background-color: rgba(255,255,255,0.7);
-	pointer-events: none; /* ¡MUY IMPORTANTE! */
-	font-size:12px;
-	color: rgba(0,5,10,0.7);
-	border: 1px solid rgb(200,200,200);
-	z-index: 1000000;
+	padding: 10px 14px;
+	background-color: white;
+	pointer-events: none;
+	font-size: 13px;
+	color: rgba(0, 5, 10, 0.7);
+	border: 1px solid rgba(0, 5, 10, 0.1);
+	border-radius: 8px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+	z-index: 1000;
 	text-align: center;
-	border-radius: 3px;
-	border: 1px solid rgba(0,5,10,0.5);
+	line-height: 1.5;
 }
 
 .tooltip strong {
 	font-size: 14px;
-	color: rgba(0,5,10,0.9);
+	font-weight: 600;
+	color: rgba(0, 5, 10, 0.85);
+	letter-spacing: -0.2px;
 }
 
 /* Slider
-============================================================*/
-
+------------------------------------------------------------*/
 .ticks {
-  font: 10px sans-serif;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 10px;
+	font-weight: 500;
+	fill: rgba(0, 5, 10, 0.35);
 }
 
 .track,
 .track-inset,
 .track-overlay,
 .track-progress {
-  stroke-linecap: round;
+	stroke-linecap: round;
 }
 
 .track {
-  stroke: #000;
-  stroke-opacity: 0.2;
-  stroke-width: 4px;
+	stroke: rgba(0, 5, 10, 0.1);
+	stroke-width: 4px;
 }
 
 .track-progress {
-  stroke: rgb(50, 200, 150);
-  stroke-width: 4px;
+	stroke: rgb(30, 200, 150);
+	stroke-width: 4px;
 }
 
 .track-overlay {
-  pointer-events: stroke;
-  stroke-width: 50px;
-  stroke: transparent;
-  cursor: pointer;
+	pointer-events: stroke;
+	stroke-width: 50px;
+	stroke: transparent;
+	cursor: pointer;
 }
 
 .label {
-	font-weight: 400;
+	font-family: 'DM Sans', sans-serif;
+	font-weight: 500;
 	font-size: 14px;
+	fill: rgba(0, 5, 10, 0.7);
 }
 
 .action {
-	font-weight: 400;
-	font-size: 12px;
+	font-family: 'JetBrains Mono', monospace;
+	font-weight: 500;
+	font-size: 11px;
 	text-transform: uppercase;
+	letter-spacing: 0.5px;
 	cursor: pointer;
-	opacity: 0.7;
+	fill: rgba(0, 5, 10, 0.3);
+	transition: fill 0.15s ease;
 }
 
 .action:hover {
-	opacity: 1;
+	fill: rgba(0, 5, 10, 0.7);
 }
 
 .handle {
-  fill: rgb(50, 200, 150);
+	fill: rgb(30, 200, 150);
+}
+
+/* Footnote
+------------------------------------------------------------*/
+.map-footnote {
+	font-size: 12px;
+	font-style: italic;
+	color: rgba(0, 5, 10, 0.3);
+	text-align: center;
+	margin-top: 24px;
+	line-height: 1.5;
 }
 
 /* Media queries
 ============================================================*/
-
-@media (max-width:940px){
-
-		.card-holder{
-		width: 50%;
-	}
-
-}
-
-@media (max-width:940px){
-
-	.matchupwrapper {
-		width: 50%;
-	}
-
-@media (max-width:800px){
-
-	.stats{
-		width: 100%;
-	}
-
+@media (max-width: 800px) {
 	#legend {
-		margin-bottom: 0px;
+		margin-bottom: 0;
 	}
-
-}
-
-@media (max-width:660px){
-
-	.matchupwrapper {
-		width: 100%;
-		padding: 8px 0;
-	}
-
-	.card-holder{
-		width: 100%;
-		padding: 10px 0;
-	}
-
-	section {
-		padding: 40px 20px;
-	}
-
-	#hero .screen {
-		padding: 20px;
-	}
-
-	.stats p {
-		text-align: center;
-	}
-
-	.menu li {
-		padding: 0 5px;
-	}
-
 }

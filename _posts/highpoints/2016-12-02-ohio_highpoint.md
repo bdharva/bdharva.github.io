@@ -1,5 +1,6 @@
 ---
 layout: highpoint
+permalink: /highpoints/ohio-highpoint/
 title: Campbell Hill
 location: Ohio
 state: OH

@@ -1,5 +1,6 @@
 ---
 layout: gallery
+permalink: /photos/berlin-marathon-2018/
 title: Berlin Marathon
 location: Berlin, Germany
 category: photography
