@@ -170,5 +170,23 @@ title: Making - bdharva
 			showShot(visible[prev]);
 		}
 	});
+
+	// Swipe
+	var touchStartX = 0;
+	modal.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, {passive: true});
+	modal.addEventListener('touchend', function(e) {
+		if (currentIndex === -1) return;
+		var diff = touchStartX - e.changedTouches[0].clientX;
+		if (Math.abs(diff) > 50) {
+			var visible = getVisibleIndices();
+			var pos = visible.indexOf(currentIndex);
+			if (pos === -1) return;
+			if (diff > 0) {
+				showShot(visible[(pos + 1) % visible.length]);
+			} else {
+				showShot(visible[(pos - 1 + visible.length) % visible.length]);
+			}
+		}
+	});
 })();
 </script>
