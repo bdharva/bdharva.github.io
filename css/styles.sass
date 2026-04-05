@@ -1672,10 +1672,11 @@ html.dark .home-cta-ext
 // ------------------------------------------------------------
 
 .post-page
-	max-width: 680px
+	width: 100%
+	max-width: calc(680px + 4rem)
 	margin: 0 auto
 	padding: 0 2rem
-	overflow-x: hidden
+	box-sizing: border-box
 
 .post-header
 	padding: 72px 0 36px
@@ -1689,8 +1690,9 @@ html.dark .home-cta-ext
 	top: 0
 	left: 0
 	right: 0
-	max-width: 680px
+	max-width: calc(680px + 4rem)
 	margin: 0 auto
+	box-sizing: border-box
 	background: rgba(255, 255, 255, 0.96)
 	backdrop-filter: blur(12px)
 	-webkit-backdrop-filter: blur(12px)
@@ -1837,6 +1839,8 @@ html.dark .post-divider
 		text-align: left
 
 	img
+		max-width: 100%
+		height: auto
 		border-radius: 6px
 		margin: 1.5rem 0
 
@@ -1989,11 +1993,15 @@ html.dark .post-nav-all:hover
 	.post-nav
 		grid-template-columns: 1fr
 		gap: 20px
-		text-align: left
+		text-align: center
+		justify-items: center
 
 	.post-nav-next
-		align-items: flex-start
-		text-align: left
+		align-items: center
+		text-align: center
+
+	.post-nav-prev
+		align-items: center
 
 	.post-nav-all
 		order: -1
@@ -2057,9 +2065,11 @@ html.dark .post-nav-all:hover
 	.post-footer
 		grid-template-columns: 1fr
 		gap: 12px
+		text-align: center
+		justify-items: center
 
 	.post-footer-right
-		justify-content: flex-start
+		justify-content: center
 
 // THINKING PAGE
 // ------------------------------------------------------------
@@ -3191,6 +3201,17 @@ footer
 	.footer-copyright
 		font-size: 12px
 		color: rgba(0, 5, 10, 0.25)
+
+@media (max-width: 690px)
+	footer .footer-inner
+		grid-template-columns: 1fr
+		gap: 12px
+		text-align: center
+		justify-items: center
+		padding: 28px 2rem
+
+	footer .footer-social
+		justify-content: center
 
 // Mobile menu card
 .mobile-menu
