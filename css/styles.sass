@@ -1675,6 +1675,7 @@ html.dark .home-cta-ext
 	max-width: 680px
 	margin: 0 auto
 	padding: 0 2rem
+	overflow-x: hidden
 
 .post-header
 	padding: 72px 0 36px
@@ -2054,9 +2055,11 @@ html.dark .post-nav-all:hover
 
 @media (max-width: 690px)
 	.post-footer
-		flex-direction: column
+		grid-template-columns: 1fr
 		gap: 12px
-		align-items: flex-start
+
+	.post-footer-right
+		justify-content: flex-start
 
 // THINKING PAGE
 // ------------------------------------------------------------
@@ -2890,7 +2893,7 @@ html.dark .living-col-more
 		background-position: center
 		transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)
 
-		video
+		img, video
 			width: 100%
 			height: 100%
 			object-fit: cover

@@ -80,7 +80,7 @@ title: bdharva
 						<a href="javascript:void(0)">
 							<div class="image-holder">
 								{% if shot.video %}
-								<video class="image" src="{{ shot.video }}" autoplay loop muted playsinline preload="auto"{% if shot.image %} poster="{{ shot.image }}"{% endif %}></video>
+								<video class="image" src="{{ shot.video }}" autoplay loop muted playsinline preload="metadata"{% if shot.image %} poster="{{ shot.image }}"{% endif %}></video>
 								{% else %}
 								<div class="image" style="background-image: url('{{ shot.image }}');"></div>
 								{% endif %}

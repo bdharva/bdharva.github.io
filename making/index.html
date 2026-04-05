@@ -16,10 +16,14 @@ title: Making - bdharva
 		<div class="shot" data-tags="{{ shot.tags | join: ',' }}" data-index="{{ forloop.index0 }}">
 			{% if shot.video %}
 			<div class="shot-img shot-video-thumb">
-				<video src="{{ shot.video }}" autoplay loop muted playsinline preload="auto"{% if shot.image %} poster="{{ shot.image }}"{% endif %}></video>
+				<video loop muted playsinline preload="metadata"{% if shot.image %} poster="{{ shot.image }}"{% endif %}>
+					<source data-src="{{ shot.video }}" type="video/mp4">
+				</video>
 			</div>
 			{% else %}
-			<div class="shot-img" style="background-image: url('{{ shot.image }}')"></div>
+			<div class="shot-img">
+				<img src="{{ shot.image }}" alt="{{ shot.title }}" loading="lazy">
+			</div>
 			{% endif %}
 			<div class="shot-hover">
 				<span class="shot-title">{{ shot.title }}</span>

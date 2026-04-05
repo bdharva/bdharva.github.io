@@ -4,7 +4,9 @@
 (function() {
   var toggle = document.getElementById('darkToggle');
   if (!toggle) return;
-  if (localStorage.getItem('darkMode') === 'true') toggle.checked = true;
+  var stored = localStorage.getItem('darkMode');
+  var isDark = stored === 'true' || (stored === null && window.matchMedia('(prefers-color-scheme:dark)').matches);
+  toggle.checked = isDark;
   toggle.addEventListener('change', function() {
     document.documentElement.classList.toggle('dark', toggle.checked);
     localStorage.setItem('darkMode', toggle.checked);
@@ -158,25 +160,49 @@
   function safePlay(vid) {
     var p = vid.play();
     if (p) p.catch(function() {
-      // Source not ready — reload and retry once
       vid.load();
       vid.play().catch(function() {});
     });
   }
 
-  var videos = document.querySelectorAll('video[autoplay]');
-  if (!videos.length) return;
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      var vid = entry.target;
-      if (entry.isIntersecting) {
-        safePlay(vid);
-      } else {
-        vid.pause();
-      }
+  // Autoplay videos (homepage featured): play/pause on visibility
+  var autoplayVideos = document.querySelectorAll('video[autoplay]');
+  if (autoplayVideos.length) {
+    var autoplayObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        var vid = entry.target;
+        if (entry.isIntersecting) {
+          safePlay(vid);
+        } else {
+          vid.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+    autoplayVideos.forEach(function(vid) { autoplayObserver.observe(vid); });
+  }
+
+  // Lazy-loaded videos (making grid): load src and autoplay when visible
+  var lazyVideos = document.querySelectorAll('video source[data-src]');
+  if (lazyVideos.length) {
+    var lazyObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var vid = entry.target;
+          var source = vid.querySelector('source[data-src]');
+          if (source) {
+            source.src = source.getAttribute('data-src');
+            source.removeAttribute('data-src');
+            vid.load();
+          }
+          safePlay(vid);
+          lazyObserver.unobserve(vid);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '200px' });
+    lazyVideos.forEach(function(source) {
+      lazyObserver.observe(source.closest('video'));
     });
-  }, { threshold: 0.1 });
-  videos.forEach(function(vid) { observer.observe(vid); });
+  }
 
   // Restore videos after bfcache (back/forward navigation)
   window.addEventListener('pageshow', function(e) {
