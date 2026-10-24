@@ -1,0 +1,106 @@
+// Runtime design tokens: the CSS custom properties named in DESIGN_SYSTEM.md section 1.
+// Loaded by both css/styles.css (site) and css/apps.css (apps). Light values on :root,
+// dark values on html.dark (the class the site's theme script sets from localStorage 'darkMode').
+// Anything built on these gets dark mode for free; prefer them over raw rgba() in new work.
+
+// Breakpoints are compile-time (media queries can't read custom properties).
+$bp-tablet: 960px
+$bp-menu: 880px
+$bp-mobile: 690px
+
+:root
+	// Brand
+	--accent: #{$accent}
+	--accent-hover: rgb(50, 220, 170)
+	--accent-deep: rgb(20, 170, 125)
+	--accent-bg-soft: rgba(30, 200, 150, 0.06)
+	--accent-bg-medium: rgba(30, 200, 150, 0.10)
+	--accent-border: rgba(30, 200, 150, 0.20)
+
+	// Surfaces
+	--bg: #{$light-bg}
+	--bg-medium: rgb(244, 246, 247)
+	--bg-card: white
+	--bg-overlay: rgba(255, 255, 255, 0.96)
+
+	// Ink: rgba(var(--ink-rgb), α) for any step of the alpha ladder; named roles below.
+	--ink-rgb: 0, 5, 10
+	--text: rgba(var(--ink-rgb), 0.9)
+	--text-strong: rgba(var(--ink-rgb), 0.85)
+	--text-body: rgba(var(--ink-rgb), 0.7)
+	--text-muted: rgba(var(--ink-rgb), 0.55)
+	--text-caption: rgba(var(--ink-rgb), 0.4)
+	--text-faint: rgba(var(--ink-rgb), 0.3)
+
+	// Lines and fills
+	--border: rgba(var(--ink-rgb), 0.08)
+	--border-soft: rgba(var(--ink-rgb), 0.06)
+	--border-strong: rgba(var(--ink-rgb), 0.12)
+	--hover-bg: rgba(var(--ink-rgb), 0.03)
+	--fill: rgba(var(--ink-rgb), 0.05)
+
+	// Type
+	--font-sans: 'DM Sans', system-ui, sans-serif
+	--font-mono: 'JetBrains Mono', ui-monospace, monospace
+	--weight-body: #{$weight-body}
+	--weight-ui: 500
+	--weight-heading: #{$weight-heading}
+
+	// Radius
+	--radius-xs: 3px
+	--radius-sm: 4px
+	--radius-md: 6px
+	--radius-lg: 8px
+	--radius-xl: 10px
+	--radius-2xl: 12px
+	--radius-3xl: 14px
+	--radius-pill: 24px
+
+	// Shadows
+	--shadow-avatar: 0 2px 12px rgba(0, 0, 0, 0.08)
+	--shadow-card-hover: 0 2px 16px rgba(0, 0, 0, 0.06)
+	--shadow-app-hover: 0 1px 8px rgba(0, 0, 0, 0.04)
+	--shadow-modal: 0 12px 48px rgba(0, 0, 0, 0.20)
+	--shadow-popover: 0 8px 32px rgba(0, 5, 10, 0.08), 0 2px 8px rgba(0, 5, 10, 0.04)
+
+	// Motion
+	--ease: cubic-bezier(0.22, 1, 0.36, 1)
+	--dur-fast: 0.15s
+	--dur: 0.2s
+	--dur-modal: 0.25s
+
+	// Layout
+	--gutter: 52px
+
+@media (max-width: $bp-tablet)
+	:root
+		--gutter: 2rem
+
+@media (max-width: $bp-mobile)
+	:root
+		--gutter: 1.5rem
+
+html.dark
+	--bg: #141413
+	--bg-medium: #1a1a18
+	--bg-card: #1e1e1c
+	--bg-overlay: rgba(20, 20, 19, 0.96)
+
+	--ink-rgb: 255, 255, 255
+	--text: rgba(var(--ink-rgb), 0.85)
+	--text-strong: rgba(var(--ink-rgb), 0.85)
+	--text-body: rgba(var(--ink-rgb), 0.6)
+	--text-muted: rgba(var(--ink-rgb), 0.45)
+	--text-caption: rgba(var(--ink-rgb), 0.35)
+	--text-faint: rgba(var(--ink-rgb), 0.25)
+
+	--border: rgba(var(--ink-rgb), 0.06)
+	--border-soft: rgba(var(--ink-rgb), 0.06)
+	--border-strong: rgba(var(--ink-rgb), 0.12)
+	--hover-bg: rgba(var(--ink-rgb), 0.04)
+	--fill: rgba(var(--ink-rgb), 0.05)
+
+	--shadow-card-hover: 0 2px 16px rgba(0, 0, 0, 0.20)
+	--shadow-app-hover: 0 1px 8px rgba(0, 0, 0, 0.20)
+	--shadow-modal: 0 12px 48px rgba(0, 0, 0, 0.30)
+	--shadow-popover: 0 8px 32px rgba(0, 0, 0, 0.30), 0 2px 8px rgba(0, 0, 0, 0.20)
