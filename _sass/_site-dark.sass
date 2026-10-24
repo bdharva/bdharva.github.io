@@ -1,0 +1,398 @@
+// Site dark mode: per-component html.dark overrides. Shrinks as rules move onto tokens.
+// Split out of css/styles.sass (2026-10). Imported in order by css/styles.sass; order matters.
+
+// GENERAL TEXT FORMATTING
+// ------------------------------------------------------------
+
+// DARK MODE
+// ------------------------------------------------------------
+
+html.dark
+	background: #141413
+
+html.dark body
+	background: #141413
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark nav
+	background: rgba(20, 20, 19, 0.96)
+	border-bottom-color: rgba(255, 255, 255, 0.06)
+
+	.left a
+		color: rgba(255, 255, 255, 0.85)
+
+	.right a
+		color: rgba(255, 255, 255, 0.35)
+
+	.right a.active, .right a:hover
+		color: rgba(255, 255, 255, 0.85)
+
+html.dark .home-hero-greeting
+	color: rgba(255, 255, 255, 0.9)
+
+html.dark .home-hero-bio
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .home-hero-traits .trait span
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .home-hero-traits .trait .trait-icon
+	color: rgba(255, 255, 255, 0.2)
+
+html.dark .apps-carousel-wrap
+	border-top-color: rgba(255, 255, 255, 0.06)
+	border-bottom-color: rgba(255, 255, 255, 0.06)
+
+html.dark .app-card
+	background: #1e1e1c
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark .app-card:hover
+	border-color: rgba(255, 255, 255, 0.1)
+
+html.dark .app-card:hover .app-title
+	color: $accent
+
+html.dark .app-title
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .app-desc
+	color: rgba(255, 255, 255, 0.35)
+
+html.dark .app-icon
+	background: rgba(255, 255, 255, 0.06)
+
+html.dark .app-icon [data-lucide]
+	color: rgba(255, 255, 255, 0.3)
+
+html.dark .section-bar .section-label
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .section-bar .section-link
+	color: rgba(255, 255, 255, 0.3)
+
+html.dark .section-bar .section-link:hover
+	color: rgba(255, 255, 255, 0.7)
+
+html.dark .feature
+	background: #1e1e1c
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark .feature:hover
+	box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2)
+
+html.dark .feature .text .label
+	color: rgba(255, 255, 255, 0.3)
+
+html.dark .feature .text .title
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .feature .text .description
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .split-right
+	border-left-color: rgba(255, 255, 255, 0.06)
+
+html.dark .thinking-item
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark .thinking-title
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .thinking-date
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .thinking-tag
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark footer
+	border-top-color: rgba(255, 255, 255, 0.06)
+
+html.dark .footer-logo
+	color: rgba(255, 255, 255, 0.5)
+
+html.dark .footer-copyright
+	color: rgba(255, 255, 255, 0.2)
+
+html.dark .footer-social a
+	color: rgba(255, 255, 255, 0.3)
+
+html.dark .footer-social a:hover
+	color: rgba(255, 255, 255, 0.7)
+
+html.dark .section.medium
+	background: #1a1a18
+
+html.dark nav .menu-toggle
+	color: rgba(255, 255, 255, 0.5)
+
+// Shots page
+html.dark .shots-page .shots-header h1
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .filter-btn
+	color: rgba(255, 255, 255, 0.35)
+	border-color: rgba(255, 255, 255, 0.08)
+
+html.dark .filter-btn:hover
+	color: rgba(255, 255, 255, 0.7)
+	border-color: rgba(255, 255, 255, 0.15)
+
+html.dark .filter-btn.active
+	background: rgba(255, 255, 255, 0.85)
+	border-color: rgba(255, 255, 255, 0.85)
+	color: #141413
+
+html.dark .shot-modal
+	background: #1e1e1c
+
+html.dark .shot-modal-body h2
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .shot-modal-body p
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .shot-modal-date
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .shot-modal-tags .shot-tag
+	color: rgba(255, 255, 255, 0.3)
+	border-color: rgba(255, 255, 255, 0.08)
+
+html.dark .shot-modal-link
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .shot-modal-link:hover
+	color: rgba(255, 255, 255, 0.8)
+
+// About page
+html.dark .about-body
+	border-top-color: rgba(255, 255, 255, 0.06)
+	border-top: 1px solid rgba(255, 255, 255, 0.06)
+
+html.dark .about-section
+	border-bottom-color: rgba(255, 255, 255, 0.06)
+
+html.dark .about-label
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .about-content p
+	color: rgba(255, 255, 255, 0.6)
+
+html.dark .about-content a
+	color: $accent
+
+html.dark .about-content a:hover
+	color: rgb(50, 220, 170)
+
+html.dark .about-credits h4
+	color: rgba(255, 255, 255, 0.75)
+
+html.dark .about-credits h4 [data-lucide]
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .about-credits li
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .about-credits a
+	color: $accent
+
+html.dark .about-credits a:hover
+	color: rgb(50, 220, 170)
+
+// Thinking page
+html.dark .thinking-featured a h2
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .thinking-featured a:hover h2
+	color: $accent
+
+html.dark .thinking-featured p
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .thinking-featured-meta
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .thinking-desc
+	color: rgba(255, 255, 255, 0.3)
+
+// Living page
+html.dark .section.hero::before
+	background: linear-gradient(to bottom, rgba(20, 20, 19, 0.85), rgba(20, 20, 19, 0.6))
+
+// General section borders
+html.dark hr
+	border-top-color: rgba(255, 255, 255, 0.06)
+
+html.dark .external-badge
+	color: rgba(255, 255, 255, 0.2)
+
+// Links
+html.dark a
+	color: rgba(255, 255, 255, 0.6)
+
+html.dark a:hover
+	color: rgba(255, 255, 255, 0.9)
+
+// Global dark overrides for all remaining elements
+html.dark h1, html.dark h2, html.dark h3, html.dark h4
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark p, html.dark li
+	color: rgba(255, 255, 255, 0.55)
+
+html.dark .section
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark .section .content .side-by-side .image-holder
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark .section .content .features .feature
+	background: #1e1e1c
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark .section .content .features .feature .text .label
+	color: rgba(255, 255, 255, 0.3)
+
+html.dark .section .content .features .feature .text .title
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .section .content .features .feature .text .description
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .section .content .features .feature:hover
+	box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3)
+
+html.dark .section.medium
+	background: #1a1a18
+
+html.dark .section.hero::before
+	background: linear-gradient(to bottom, rgba(20, 20, 19, 0.85), rgba(20, 20, 19, 0.65))
+
+html.dark .section .content .polaroid
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3)
+
+html.dark .tictactag
+	color: $accent
+
+html.dark .accent
+	color: $accent
+
+html.dark code, html.dark pre
+	background: rgba(255, 255, 255, 0.05)
+
+html.dark pre
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark table, html.dark th, html.dark td
+	border-color: rgba(255, 255, 255, 0.06)
+
+html.dark th
+	background: rgba(255, 255, 255, 0.04)
+
+html.dark tr:nth-child(even)
+	background: rgba(255, 255, 255, 0.02)
+
+// Post page dark
+html.dark .post-brand
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .post-date, html.dark .post-tag
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .post-header
+	border-bottom-color: rgba(255, 255, 255, 0.06)
+
+html.dark .post-tagline
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .post-body p
+	color: rgba(255, 255, 255, 0.6)
+
+html.dark .post-body a
+	color: $accent
+
+html.dark .post-body a:hover
+	color: rgb(50, 220, 170)
+
+html.dark .post-body code
+	background: rgba(255, 255, 255, 0.06)
+	color: rgba(255, 255, 255, 0.55)
+
+html.dark .post-body pre
+	background: rgba(255, 255, 255, 0.04)
+	border-color: rgba(255, 255, 255, 0.06)
+	color: rgba(255, 255, 255, 0.5)
+
+html.dark .post-body blockquote
+	border-left-color: rgba(255, 255, 255, 0.1)
+	color: rgba(255, 255, 255, 0.4)
+
+html.dark .post-body li
+	color: rgba(255, 255, 255, 0.55)
+
+html.dark .post-body table
+	color: rgba(255, 255, 255, 0.55)
+
+html.dark .post-body thead th
+	color: rgba(255, 255, 255, 0.35)
+	border-bottom-color: rgba(255, 255, 255, 0.1)
+
+html.dark .post-body tbody td
+	border-bottom-color: rgba(255, 255, 255, 0.05)
+
+html.dark .post-body tbody tr:nth-child(even)
+	background: rgba(255, 255, 255, 0.02)
+
+html.dark .post-body tbody tr:hover
+	background: rgba(255, 255, 255, 0.04)
+
+html.dark .post-body h2, html.dark .post-body h3, html.dark .post-body h4
+	color: rgba(255, 255, 255, 0.75)
+
+html.dark .post-footer
+	border-top-color: rgba(255, 255, 255, 0.06)
+
+html.dark .post-footer span
+	color: rgba(255, 255, 255, 0.2)
+
+html.dark .post-footer .footer-logo
+	color: rgba(255, 255, 255, 0.5)
+
+html.dark .post-footer-right a
+	color: rgba(255, 255, 255, 0.25)
+
+html.dark .post-footer-right a:hover
+	color: rgba(255, 255, 255, 0.6)
+
+.section-bordered
+	border-top: 1px solid rgba(0, 5, 10, 0.08)
+
+html.dark .section-bordered
+	border-top-color: rgba(255, 255, 255, 0.06)
+
+// Callouts dark (highpoints stats etc)
+html.dark .section .content .callouts .callout .title
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .section .content .callouts .callout .description
+	color: rgba(255, 255, 255, 0.4)
+
+// Connect page dark
+html.dark .connect .logo
+	border-bottom-color: rgba(255, 255, 255, 0.06)
+
+html.dark .connect .logo a
+	color: rgba(255, 255, 255, 0.85)
+
+html.dark .connect .lockup .text .blurb
+	color: rgba(255, 255, 255, 0.45)
+
+html.dark .connect .lockup .text .location
+	color: rgba(255, 255, 255, 0.35)
+
+html.dark .connect .buttons .cta
+	background: rgba(255, 255, 255, 0.04)
+	border-color: rgba(255, 255, 255, 0.06)
+	color: rgba(255, 255, 255, 0.7)
+
