@@ -1,0 +1,172 @@
+---
+layout: null
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Apps Kit - bdharva</title>
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<script>(function(){try{var d=localStorage.getItem('darkMode');if(d==='true'||(d===null&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/apps.css">
+<style>
+  /* kit-only layout; not part of the app layer */
+  .kit { max-width: 960px; margin: 0 auto; padding: 32px var(--gutter) 64px; }
+  .kit h2.kit-h { margin: 40px 0 6px; font-size: 20px; font-weight: 600; letter-spacing: -0.4px; }
+  .kit .kit-note { color: var(--text-muted); margin-bottom: 16px; max-width: 640px; }
+  .kit .row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .kit code { font: 12px var(--font-mono); color: var(--text-muted); }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .swatch { border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; background: var(--bg-card); }
+  .swatch i { display: block; height: 44px; }
+  .swatch span { display: block; padding: 6px 8px; font: 10.5px var(--font-mono); color: var(--text-muted); }
+  .ink { display: grid; gap: 4px; }
+  .ink span { font-size: 15px; }
+  .demo-shell { height: 220px; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; }
+  .demo-shell .app-main { background: var(--bg); }
+  .demo-shell .app-panel:first-child { flex: 0 0 240px; }
+  .demo-shell .app-panel:last-child { flex: 1; background: var(--bg-medium); }
+  .hub-demo { border: 1px solid var(--border); border-radius: var(--radius-lg); }
+  .hub-demo .hub-preview { display: grid; place-items: center; color: var(--text-caption); font: 11px var(--font-mono); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
+  <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+  <symbol id="icon-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+  <symbol id="icon-walk" viewBox="0 0 24 24"><circle cx="13" cy="4.5" r="1.5"/><path d="m9 20 3-6 3 3v5M8 10l4-3 3 4 3 1"/></symbol>
+  <symbol id="icon-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+</svg>
+
+<header class="app-header">
+  <a class="app-logo" href="/"><img src="/assets/favicon.png" alt="bdharva"></a>
+  <h1 class="app-title">Apps <span>Kit</span></h1>
+  <a class="app-by" href="/">by bdharva</a>
+  <div class="app-header-actions">
+    <label class="switch"><span>Dark mode</span><input type="checkbox" role="switch" data-theme-toggle><i></i></label>
+    <button class="icon-button" data-open-modal="info-dialog" aria-label="About"><svg class="icon"><use href="#icon-info"/></svg></button>
+  </div>
+</header>
+
+<main class="kit">
+  <p class="kit-note">Every shared element in <code>/css/apps.css</code>, in both themes. Apps build on these and the tokens; one-offs go in each app's own CSS. Spec: <code>APPS.md</code>. Not linked from the site.</p>
+
+  <h2 class="kit-h">Tokens</h2>
+  <p class="kit-note">Surfaces and brand. Flip dark mode to see the same names resolve to dark values.</p>
+  <div class="swatches">
+    <div class="swatch"><i style="background:var(--bg)"></i><span>--bg</span></div>
+    <div class="swatch"><i style="background:var(--bg-medium)"></i><span>--bg-medium</span></div>
+    <div class="swatch"><i style="background:var(--bg-card)"></i><span>--bg-card</span></div>
+    <div class="swatch"><i style="background:var(--accent)"></i><span>--accent</span></div>
+    <div class="swatch"><i style="background:var(--accent-deep)"></i><span>--accent-deep</span></div>
+    <div class="swatch"><i style="background:var(--accent-bg-medium)"></i><span>--accent-bg-medium</span></div>
+    <div class="swatch"><i style="background:var(--fill)"></i><span>--fill</span></div>
+    <div class="swatch"><i style="background:var(--hover-bg)"></i><span>--hover-bg</span></div>
+  </div>
+  <div class="ink" style="margin-top:16px">
+    <span style="color:var(--text)">--text: primary copy and titles</span>
+    <span style="color:var(--text-body)">--text-body: long-form paragraphs</span>
+    <span style="color:var(--text-muted)">--text-muted: secondary copy</span>
+    <span style="color:var(--text-caption)">--text-caption: descriptions, labels</span>
+    <span style="color:var(--text-faint)">--text-faint: mono meta, dates</span>
+  </div>
+
+  <h2 class="kit-h">Header</h2>
+  <p class="kit-note">The page header above: favicon logo to <code>/</code>, two-word title with an accent second word, "by bdharva", actions on the right. Sticky, overlay background.</p>
+
+  <h2 class="kit-h">Buttons</h2>
+  <div class="row">
+    <button class="button">Button</button>
+    <button class="button button-primary">Primary</button>
+    <button class="button button-quiet">Quiet</button>
+    <button class="button" disabled>Disabled</button>
+    <button class="button" onclick="appToast('Link copied. It opens this exact view.')"><svg class="icon"><use href="#icon-link"/></svg>Show toast</button>
+    <button class="icon-button" aria-label="Search"><svg class="icon"><use href="#icon-search"/></svg></button>
+    <button class="icon-button" aria-pressed="true" aria-label="Walk"><svg class="icon"><use href="#icon-walk"/></svg></button>
+  </div>
+
+  <h2 class="kit-h">Segmented and switch</h2>
+  <div class="row">
+    <div class="segmented" id="seg">
+      <button aria-pressed="true"><svg class="icon"><use href="#icon-walk"/></svg>Walk</button>
+      <button aria-pressed="false">Ride</button>
+      <button aria-pressed="false">Train</button>
+    </div>
+    <label class="switch"><span>Show alternatives</span><input type="checkbox" role="switch" checked><i></i></label>
+  </div>
+
+  <h2 class="kit-h">Fields</h2>
+  <div class="row" style="align-items:flex-end">
+    <div class="field"><label for="k1">Pool size</label><input class="input" id="k1" type="number" value="25"></div>
+    <div class="field"><label for="k2">Week</label><select class="select" id="k2"><option>Week 8</option><option>Week 9</option></select></div>
+    <label class="search" style="min-width:260px"><svg class="icon"><use href="#icon-search"/></svg><input type="search" placeholder="Search a team or a bar"></label>
+  </div>
+
+  <h2 class="kit-h">Labels, tags, badges</h2>
+  <div class="row">
+    <span class="eyebrow">001 / Eyebrow label</span>
+    <span class="tag">Club</span>
+    <span class="tag tag-accent">Official</span>
+    <span class="tag">ESPN</span>
+    <span class="badge badge-high">High</span>
+    <span class="badge badge-medium">Medium</span>
+    <span class="badge badge-low">Low</span>
+  </div>
+
+  <h2 class="kit-h">Popover</h2>
+  <div class="popover" style="width:220px">
+    <button class="button button-quiet" style="width:100%;justify-content:flex-start">Copy link</button>
+    <button class="button button-quiet" style="width:100%;justify-content:flex-start">Share as image</button>
+  </div>
+
+  <h2 class="kit-h">App shell and panels</h2>
+  <p class="kit-note">Full apps use <code>body.app-shell</code> → <code>.app-header</code> + <code>.app-main</code> with <code>.app-panel</code> columns (they stack on phones).</p>
+  <div class="demo-shell app-shell" style="min-height:0">
+    <div class="app-main">
+      <div class="app-panel"><span class="eyebrow">Panel</span><div class="app-section">Section one</div><div class="app-section">Section two</div></div>
+      <div class="app-panel"><span class="eyebrow">Stage</span></div>
+    </div>
+  </div>
+
+  <h2 class="kit-h">Hub</h2>
+  <div class="hub-demo">
+    <div class="hub">
+      <div class="hub-heading">
+        <div><div class="eyebrow">A collection of interactive studies</div><h1>Hub Title</h1><p>One line about what ties the pieces together.</p></div>
+        <span class="tag">Two studies</span>
+      </div>
+      <div class="hub-gallery">
+        <a class="hub-card" href="#"><div class="hub-preview">preview</div><div class="hub-card-meta"><span class="eyebrow">001 / First piece</span><span>Explore ↗</span></div><h2>Piece one</h2><p>A question the piece answers, in one sentence.</p><span class="hub-card-note">What it plots · where the data comes from</span></a>
+        <a class="hub-card" href="#"><div class="hub-preview">preview</div><div class="hub-card-meta"><span class="eyebrow">002 / Second piece</span><span>Explore ↗</span></div><h2>Piece two</h2><p>Another question, another sentence.</p><span class="hub-card-note">What it plots · where the data comes from</span></a>
+      </div>
+      <footer class="hub-footer"><span>HUB TITLE</span><a href="/">bdharva.com</a></footer>
+    </div>
+  </div>
+</main>
+
+<dialog class="app-modal" id="info-dialog">
+  <header class="app-modal-header"><h2>How it works</h2><button class="icon-button" data-close-modal aria-label="Close"><svg class="icon"><use href="#icon-x"/></svg></button></header>
+  <div class="app-modal-body">
+    <p>The info modal stands in for a footer on interactives: what the app is, how to use it, and where the data comes from.</p>
+    <h3>Data</h3>
+    <p>Sources and caveats go here, with <a href="#">links</a>.</p>
+  </div>
+  <footer class="app-modal-meta"><span>Data updated Oct 24, 2026</span><a href="/">bdharva.com</a></footer>
+</dialog>
+
+<script src="/js/apps.js"></script>
+<script>
+  document.getElementById('seg').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    this.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+  });
+</script>
+</body>
+</html>
