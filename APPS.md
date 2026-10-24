@@ -96,7 +96,7 @@ layout: null
 
 **Jekyll rules:**
 - Jekyll skips files and folders whose names start with `_` or `.`, so don't ship any.
-- A file with front matter is run through Liquid. Only `index.html` gets front matter (`layout: null`), so `{{ }}` inside JS and JSON is safe.
+- A file with front matter is run through Liquid. Only `index.html` gets front matter (`layout: null`), so Liquid's double-brace syntax inside JS and JSON is left alone.
 - Keep each app's folder under about 5 MB. Large media goes in `/assets/<slug>/`.
 
 ## 6. Styles
