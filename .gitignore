@@ -5,3 +5,6 @@ _drafts
 .DS_Store
 *.mov
 cfb-chaos/data/ghostdriver.log
+Gemfile.lock
+vendor/
+.bundle/

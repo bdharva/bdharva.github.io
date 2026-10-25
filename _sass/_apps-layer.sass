@@ -1,0 +1,713 @@
+// App layer: shared elements for interactives and hubs hosted on the site (see APPS.md).
+// Compiled into css/apps.css with _variables and _tokens; never loaded by regular site pages.
+// Built only on tokens, so dark mode comes from html.dark with no per-component overrides.
+//
+// Promotion rule: a pattern that shows up in a second app moves here; a pattern here that
+// matches a site element moves into _tokens/_base. Record each move in DESIGN_SYSTEM.md section 9.
+
+
+// ------------------------------------------------------------
+// BASE (apps only; replaces the site's page-level reset)
+// ------------------------------------------------------------
+
+*, *::before, *::after
+	box-sizing: border-box
+
+html
+	color-scheme: light
+	-webkit-text-size-adjust: 100%
+
+html.dark
+	color-scheme: dark
+
+body
+	margin: 0
+	background: var(--bg)
+	color: var(--text)
+	font: var(--weight-body) 14px/1.5 var(--font-sans)
+	font-synthesis: none
+	-webkit-font-smoothing: antialiased
+
+h1, h2, h3, h4, p
+	margin: 0
+
+button, input, select, textarea
+	font: inherit
+	color: inherit
+
+a
+	color: inherit
+	text-decoration: none
+
+*:focus-visible
+	outline: 2px solid var(--accent)
+	outline-offset: 2px
+
+[hidden]
+	display: none !important
+
+.sr-only
+	position: absolute
+	width: 1px
+	height: 1px
+	overflow: hidden
+	clip: rect(0 0 0 0)
+	white-space: nowrap
+
+@media (prefers-reduced-motion: reduce)
+	*, *::before, *::after
+		transition-duration: 0.01ms !important
+		animation-duration: 0.01ms !important
+
+
+// ------------------------------------------------------------
+// APP HEADER (from Bracket Buddy)
+// <header class="app-header">
+//   <a class="app-logo" href="/"><img src="/assets/favicon.png" alt="bdharva"></a>
+//   <h1 class="app-title">Bracket <span>Buddy</span></h1>
+//   <a class="app-by" href="/">by bdharva</a>
+//   <div class="app-header-actions">...icon buttons...</div>
+// </header>
+// ------------------------------------------------------------
+
+.app-header
+	position: sticky
+	top: 0
+	z-index: 50
+	display: flex
+	align-items: center
+	gap: 16px
+	padding: 16px var(--gutter) 14px
+	background: var(--bg-overlay)
+	border-bottom: 1px solid var(--border)
+
+.app-logo
+	display: flex
+	flex-shrink: 0
+
+	img
+		display: block
+		height: 28px
+		width: auto
+		border-radius: 5px
+		opacity: 0.85
+		transition: opacity var(--t-base)
+
+	&:hover img
+		opacity: 1
+
+html.dark .app-logo img
+	filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.35))
+
+.app-title
+	font-size: 19px
+	font-weight: var(--weight-heading)
+	letter-spacing: -0.5px
+	line-height: 1.2
+	color: var(--text)
+	white-space: nowrap
+
+	span
+		color: var(--accent)
+		font-weight: var(--weight-body)
+
+.app-by
+	font: var(--weight-body) 10px var(--font-sans)
+	letter-spacing: 1px
+	color: var(--text-faint)
+	white-space: nowrap
+	transition: color var(--t-base)
+
+	&:hover
+		color: var(--accent-deep)
+
+.app-header-actions
+	margin-left: auto
+	display: flex
+	align-items: center
+	gap: 4px
+
+@media (max-width: $bp-mobile)
+	.app-header
+		gap: 10px
+		padding-top: 12px
+		padding-bottom: 10px
+
+	.app-title
+		font-size: 17px
+
+	.app-by
+		display: none
+
+
+// ------------------------------------------------------------
+// CONTROLS
+// ------------------------------------------------------------
+
+// Icon glyphs: inline SVG (<svg class="icon"><use href="#icon-x"/></svg>) or Lucide.
+.icon
+	width: 18px
+	height: 18px
+	flex-shrink: 0
+	stroke: currentColor
+	stroke-width: 1.5
+	fill: none
+
+.icon-button
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	width: 34px
+	height: 34px
+	padding: 0
+	border: 1px solid transparent
+	border-radius: var(--radius-lg)
+	background: none
+	color: var(--text-muted)
+	cursor: pointer
+	transition: color var(--t-base), background var(--t-base), border-color var(--t-base)
+	-webkit-tap-highlight-color: transparent
+
+	&:hover
+		color: var(--text)
+		background: var(--hover-bg)
+
+	&[aria-pressed="true"]
+		color: var(--accent-deep)
+		background: var(--accent-bg-soft)
+
+	&:disabled
+		opacity: 0.4
+		cursor: default
+
+.button
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	gap: 6px
+	min-height: 34px
+	padding: 0 14px
+	border: 1px solid var(--border)
+	border-radius: var(--radius-md)
+	background: var(--bg-card)
+	color: var(--text)
+	font-size: 13px
+	font-weight: var(--weight-medium)
+	letter-spacing: -0.2px
+	cursor: pointer
+	transition: border-color var(--t-base), background var(--t-base), color var(--t-base)
+
+	&:hover
+		border-color: var(--border-strong)
+		background: var(--hover-bg)
+
+	&:disabled
+		opacity: 0.45
+		cursor: default
+
+.button-primary
+	border-color: var(--accent)
+	background: var(--accent)
+	color: white
+
+	&:hover
+		border-color: var(--accent-deep)
+		background: var(--accent-deep)
+
+.button-quiet
+	border-color: transparent
+	background: none
+	color: var(--text-muted)
+
+	&:hover
+		color: var(--text)
+
+// Segmented control: buttons with aria-pressed inside a .segmented group.
+.segmented
+	display: inline-flex
+	padding: 2px
+	gap: 2px
+	border: 1px solid var(--border)
+	border-radius: var(--radius-lg)
+	background: var(--bg-card)
+
+	button
+		display: inline-flex
+		align-items: center
+		gap: 6px
+		min-height: 30px
+		padding: 0 12px
+		border: 0
+		border-radius: var(--radius-md)
+		background: none
+		color: var(--text-muted)
+		font-size: 12.5px
+		font-weight: var(--weight-medium)
+		cursor: pointer
+		transition: color var(--t-fast), background var(--t-fast)
+
+		&:hover
+			color: var(--text)
+
+		&[aria-pressed="true"]
+			background: var(--text-strong)
+			color: var(--bg)
+
+// Switch: <label class="switch"><span>Dark mode</span><input type="checkbox" role="switch"><i></i></label>
+// Same 36x18 pill as the site's .dark-toggle.
+.switch
+	display: inline-flex
+	align-items: center
+	gap: 8px
+	font-size: 12px
+	color: var(--text-muted)
+	cursor: pointer
+
+	input
+		position: absolute
+		opacity: 0
+		pointer-events: none
+
+	i
+		position: relative
+		width: 36px
+		height: 18px
+		border-radius: 9px
+		background: var(--border-strong)
+		transition: background var(--t-base)
+
+		&::before
+			content: ""
+			position: absolute
+			left: 3px
+			top: 3px
+			width: 12px
+			height: 12px
+			border-radius: 50%
+			background: var(--text-muted)
+			transition: transform 0.2s var(--ease-spring), background var(--t-base)
+
+	input:checked + i
+		background: var(--accent-bg-medium)
+
+		&::before
+			transform: translateX(18px)
+			background: var(--accent)
+
+	input:focus-visible + i
+		outline: 2px solid var(--accent)
+		outline-offset: 2px
+
+
+// ------------------------------------------------------------
+// FIELDS
+// ------------------------------------------------------------
+
+.field
+	display: flex
+	flex-direction: column
+	gap: 5px
+
+.label, .field > label
+	font: var(--weight-medium) 10px var(--font-mono)
+	letter-spacing: 0.5px
+	text-transform: uppercase
+	color: var(--text-caption)
+
+.input, .select
+	min-height: 34px
+	padding: 0 10px
+	border: 1px solid var(--border)
+	border-radius: var(--radius-md)
+	background: var(--bg-card)
+	color: var(--text)
+	font-size: 13px
+	transition: border-color var(--t-base)
+
+	&:hover
+		border-color: var(--border-strong)
+
+	&:focus
+		outline: none
+		border-color: var(--accent)
+
+.select
+	padding-right: 28px
+	appearance: none
+	background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%)
+	background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%
+	background-size: 5px 5px
+	background-repeat: no-repeat
+
+// Search: <label class="search"><svg class="icon">...</svg><input type="search"></label>
+.search
+	display: flex
+	align-items: center
+	gap: 8px
+	min-height: 36px
+	padding: 0 10px
+	border: 1px solid var(--border)
+	border-radius: var(--radius-lg)
+	background: var(--bg-card)
+	color: var(--text-caption)
+
+	&:focus-within
+		border-color: var(--accent)
+
+	input
+		flex: 1
+		min-width: 0
+		border: 0
+		outline: 0
+		background: none
+		color: var(--text)
+		font-size: 13px
+
+
+// ------------------------------------------------------------
+// LABELS, TAGS, BADGES
+// ------------------------------------------------------------
+
+// Mono micro-label, the system's connective tissue.
+.eyebrow
+	font: var(--weight-medium) 10px var(--font-mono)
+	letter-spacing: 0.5px
+	text-transform: uppercase
+	color: var(--text-caption)
+
+.tag
+	display: inline-flex
+	align-items: center
+	gap: 4px
+	padding: 2px 7px
+	border-radius: var(--radius-xs)
+	background: var(--fill)
+	color: var(--text-muted)
+	font: var(--weight-medium) 10.5px var(--font-mono)
+	letter-spacing: 0.3px
+	white-space: nowrap
+
+.tag-accent
+	background: var(--accent-bg-soft)
+	color: var(--accent-deep)
+
+// Confidence / status badge: .badge.badge-high | .badge-medium | .badge-low
+.badge
+	display: inline-flex
+	align-items: center
+	gap: 5px
+	font: var(--weight-medium) 10px var(--font-mono)
+	letter-spacing: 0.3px
+	text-transform: uppercase
+	color: var(--text-caption)
+
+	&::before
+		content: ""
+		width: 6px
+		height: 6px
+		border-radius: 50%
+		background: currentColor
+
+.badge-high
+	color: var(--accent-deep)
+
+.badge-medium
+	color: var(--text-muted)
+
+.badge-low
+	color: var(--text-faint)
+
+
+// ------------------------------------------------------------
+// OVERLAYS: info modal, popover, toast
+// ------------------------------------------------------------
+
+// Info modal on <dialog class="app-modal">. Every app has one (APPS.md: it stands in for a footer).
+// <dialog class="app-modal">
+//   <header class="app-modal-header"><h2>How it works</h2><button class="icon-button">x</button></header>
+//   <div class="app-modal-body">...</div>
+//   <footer class="app-modal-meta"><span>Data updated Oct 4, 2026</span><a href="/">bdharva.com</a></footer>
+// </dialog>
+.app-modal
+	width: min(560px, calc(100vw - 2 * var(--gutter)))
+	max-height: min(80vh, 760px)
+	padding: 0
+	border: 1px solid var(--border)
+	border-radius: var(--radius-xl)
+	background: var(--bg-card)
+	color: var(--text)
+	box-shadow: var(--shadow-modal)
+	overflow: auto
+
+	&::backdrop
+		background: rgba(0, 5, 10, 0.35)
+		backdrop-filter: blur(2px)
+
+	&[open]
+		animation: app-modal-in 0.25s var(--ease-spring)
+
+@keyframes app-modal-in
+	from
+		opacity: 0
+		transform: translateY(8px) scale(0.98)
+
+.app-modal-header
+	display: flex
+	align-items: center
+	justify-content: space-between
+	gap: 12px
+	padding: 22px 24px 0
+
+	h2
+		font-size: 20px
+		font-weight: var(--weight-heading)
+		letter-spacing: -0.4px
+
+.app-modal-body
+	padding: 14px 24px 22px
+	font-size: 14px
+	line-height: 1.65
+	color: var(--text-body)
+
+	h3
+		margin: 20px 0 6px
+		font-size: 14px
+		font-weight: var(--weight-heading)
+		color: var(--text)
+
+	p + p
+		margin-top: 10px
+
+	a
+		color: var(--accent-deep)
+
+		&:hover
+			text-decoration: underline
+
+.app-modal-meta
+	display: flex
+	justify-content: space-between
+	gap: 12px
+	padding: 14px 24px 18px
+	border-top: 1px solid var(--border-soft)
+	font: 10.5px var(--font-mono)
+	letter-spacing: 0.3px
+	color: var(--text-faint)
+
+	a:hover
+		color: var(--accent-deep)
+
+.popover
+	padding: 6px
+	border: 1px solid var(--border)
+	border-radius: var(--radius-2xl)
+	background: var(--bg-card)
+	box-shadow: var(--shadow-popover)
+
+.toast
+	position: fixed
+	left: 50%
+	bottom: calc(24px + env(safe-area-inset-bottom, 0px))
+	z-index: 100
+	transform: translate(-50%, 12px)
+	padding: 10px 16px
+	border-radius: var(--radius-lg)
+	background: var(--text-strong)
+	color: var(--bg)
+	font-size: 13px
+	font-weight: var(--weight-medium)
+	opacity: 0
+	pointer-events: none
+	transition: opacity var(--t-base), transform 0.2s var(--ease-spring)
+
+	&.is-visible
+		opacity: 1
+		transform: translate(-50%, 0)
+
+
+// ------------------------------------------------------------
+// LAYOUT: full-viewport app shell with side panels
+// <body class="app-shell"><header class="app-header">...</header><main class="app-main">...</main></body>
+// ------------------------------------------------------------
+
+.app-shell
+	display: flex
+	flex-direction: column
+	min-height: 100vh
+	min-height: 100dvh
+
+.app-main
+	flex: 1
+	display: flex
+	min-height: 0
+
+.app-panel
+	display: flex
+	flex-direction: column
+	min-width: 0
+	padding: 20px var(--gutter)
+	overflow: auto
+
+	& + .app-panel
+		border-left: 1px solid var(--border)
+
+.app-section + .app-section
+	margin-top: 20px
+	padding-top: 20px
+	border-top: 1px solid var(--border-soft)
+
+@media (max-width: $bp-mobile)
+	.app-main
+		flex-direction: column
+
+	.app-panel + .app-panel
+		border-left: 0
+		border-top: 1px solid var(--border)
+
+	.icon-button, .button, .segmented button, .input, .select
+		min-height: 44px
+
+	.icon-button
+		width: 44px
+
+
+// ------------------------------------------------------------
+// HUBS: a gallery of related pieces (from yarnball's Personal Geographies)
+// ------------------------------------------------------------
+
+.hub
+	max-width: 1200px
+	margin: 0 auto
+	padding: 0 var(--gutter)
+
+.hub-heading
+	display: flex
+	justify-content: space-between
+	align-items: flex-end
+	gap: 24px
+	padding: 64px 0 44px
+
+	h1
+		margin-top: 10px
+		font-size: 42px
+		font-weight: var(--weight-heading)
+		letter-spacing: -1.5px
+		line-height: 1.1
+
+	p
+		margin-top: 12px
+		max-width: 520px
+		font-size: 16px
+		line-height: 1.65
+		color: var(--text-muted)
+
+.hub-gallery
+	display: grid
+	grid-template-columns: 1fr 1fr
+	gap: 40px
+	padding: 36px 0 70px
+	border-top: 1px solid var(--border)
+
+.hub-card
+	display: block
+	min-width: 0
+
+	h2
+		margin: 10px 0
+		font-size: 27px
+		font-weight: var(--weight-medium)
+		letter-spacing: -0.6px
+		transition: color var(--t-base)
+
+	p
+		max-width: 440px
+		margin-bottom: 12px
+		font-size: 14px
+		line-height: 1.7
+		color: var(--text-muted)
+
+	&:hover h2
+		color: var(--accent-deep)
+
+	&:hover .hub-preview img
+		transform: scale(1.025)
+
+// Light/dark preview pair: <img data-preview-theme="light"> + <img data-preview-theme="dark">
+.hub-preview
+	position: relative
+	aspect-ratio: 10 / 7
+	overflow: hidden
+	border: 1px solid var(--border)
+	border-radius: var(--radius-xs)
+	background: var(--bg-medium)
+
+	img
+		display: block
+		width: 100%
+		height: 100%
+		object-fit: cover
+		transition: transform 0.4s var(--ease-spring)
+
+	img[data-preview-theme="dark"]
+		display: none
+
+html.dark .hub-preview
+	img[data-preview-theme="light"]
+		display: none
+
+	img[data-preview-theme="dark"]
+		display: block
+
+.hub-card-meta
+	display: flex
+	justify-content: space-between
+	gap: 10px
+	margin-top: 24px
+
+	& > span:last-child
+		font-size: 12px
+		color: var(--accent-deep)
+
+.hub-card-note
+	font: 9px/1.6 var(--font-mono)
+	color: var(--text-caption)
+
+// Hubs keep a footer (interactives use the info modal instead).
+.hub-footer
+	display: flex
+	justify-content: space-between
+	gap: 16px
+	padding: 24px 0 32px
+	border-top: 1px solid var(--border)
+	font: 10.5px var(--font-mono)
+	letter-spacing: 0.3px
+	color: var(--text-faint)
+
+	a:hover
+		color: var(--accent-deep)
+
+@media (max-width: $bp-tablet)
+	.hub-gallery
+		gap: 24px
+
+	.hub-heading h1
+		font-size: 36px
+
+@media (max-width: $bp-mobile)
+	.hub-heading
+		flex-direction: column
+		align-items: flex-start
+		padding: 38px 0 28px
+
+		h1
+			font-size: 32px
+
+	.hub-gallery
+		grid-template-columns: 1fr
+		gap: 44px
+		padding-top: 24px
+
+	.hub-footer
+		flex-direction: column
+		align-items: center
+		text-align: center

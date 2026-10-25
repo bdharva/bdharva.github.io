@@ -1,0 +1,1214 @@
+{
+ "updated": "2026-10-02T03:35:16+00:00",
+ "brunch": [
+  {
+   "id": "blue-haven-south",
+   "name": "Blue Haven South",
+   "address": "121 Fulton St, New York, NY 10038",
+   "neighborhood": "FiDi",
+   "borough": "Manhattan",
+   "lng": -74.007013,
+   "lat": 40.710146,
+   "blurb": "Upscale sports bar in FiDi that opens at 11 AM on Saturdays, just in time for GameDay's last hour.",
+   "hours": "11 AM",
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://south.bluehavennyc.com/",
+    "https://www.theinfatuation.com/new-york/guides/best-sports-bars-nyc"
+   ]
+  },
+  {
+   "id": "blue-haven-west-village",
+   "name": "Blue Haven West Village",
+   "address": "108 W Houston St, New York, NY 10012",
+   "neighborhood": "West Village/Greenwich Village",
+   "borough": "Manhattan",
+   "lng": -74.000556,
+   "lat": 40.727581,
+   "blurb": "Gastropub sports bar with wall-to-wall TV screens; confirm Saturday opening time before going.",
+   "hours": null,
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "low",
+   "sources": [
+    "https://westvillage.bluehavennyc.com/",
+    "https://www.theinfatuation.com/new-york/guides/best-sports-bars-nyc"
+   ]
+  },
+  {
+   "id": "stout-nyc-financial-district",
+   "name": "Stout NYC (Financial District)",
+   "address": "90 John St, New York, NY 10038",
+   "neighborhood": "FiDi",
+   "borough": "Manhattan",
+   "lng": -74.006477,
+   "lat": 40.707899,
+   "blurb": "Big sports pub with a three-hour bottomless brunch package on weekends, so mimosas and GameDay work.",
+   "hours": null,
+   "bottomless": true,
+   "vibe": null,
+   "confidence": "low",
+   "sources": [
+    "https://www.theinfatuation.com/new-york/guides/best-sports-bars-nyc",
+    "https://www.stoutnyc.com/"
+   ]
+  },
+  {
+   "id": "the-hairy-lemon",
+   "name": "The Hairy Lemon",
+   "address": "28 Avenue B, New York, NY 10009",
+   "neighborhood": "East Village",
+   "borough": "Manhattan",
+   "lng": -73.983367,
+   "lat": 40.72249,
+   "blurb": "Alphabet City bar with about 20 TVs that leans hard into college football season.",
+   "hours": null,
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "low",
+   "sources": [
+    "https://www.theinfatuation.com/new-york/guides/best-sports-bars-nyc"
+   ]
+  },
+  {
+   "id": "legends",
+   "name": "Legends",
+   "address": "6 W 33rd St, New York, NY 10001",
+   "neighborhood": "Midtown West",
+   "borough": "Manhattan",
+   "lng": -73.986024,
+   "lat": 40.747967,
+   "blurb": "Big Herald Square sports bar a block from the Empire State Building, with a full Irish breakfast menu and screens on every wall.",
+   "hours": "9 AM",
+   "bottomless": false,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://p2bars.com/bars-near-me/legends-on-west-33rd-street/",
+    "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+   ]
+  },
+  {
+   "id": "printers-alley",
+   "name": "Printers Alley",
+   "address": "215 W 40th St, New York, NY 10018",
+   "neighborhood": "Midtown West",
+   "borough": "Manhattan",
+   "lng": -73.988616,
+   "lat": 40.755314,
+   "blurb": "Southern-leaning sports bar off Times Square with two projector screens, 15+ TVs, and weekend brunch.",
+   "hours": "10:30 AM",
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "high",
+   "sources": [
+    "https://www.printersalleynyc.com/",
+    "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+   ]
+  },
+  {
+   "id": "mchale-s-bar-grill",
+   "name": "McHale's Bar & Grill",
+   "address": "251 W 51st St, New York, NY 10019",
+   "neighborhood": "Hell's Kitchen",
+   "borough": "Manhattan",
+   "lng": -73.985003,
+   "lat": 40.762896,
+   "blurb": "Theater District Irish pub known for its Bloody Marys and hearty plates, and the city's Minnesota Gophers bar.",
+   "hours": "9:30 AM",
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://www.timessquarenyc.org/food-beverage/mchale-s",
+    "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+   ]
+  },
+  {
+   "id": "tara-m-r",
+   "name": "Tara M\u00f3r",
+   "address": "150 W 30th St, New York, NY 10001",
+   "neighborhood": "Midtown West",
+   "borough": "Manhattan",
+   "lng": -73.991972,
+   "lat": 40.748056,
+   "blurb": "Multi-floor Irish bar a block from Madison Square Garden with 16 HD screens and $25 bottomless mimosas with brunch.",
+   "hours": "11 AM",
+   "bottomless": true,
+   "vibe": null,
+   "confidence": "high",
+   "sources": [
+    "https://www.taramornyc.com/location/tara-mor/",
+    "https://www.taramornyc.com/bottomless-brunch/",
+    "https://www.taramornyc.com/news-item/tara-mor-the-top-spot-for-live-sports-near-penn-station-msg-16-hd-screens/"
+   ]
+  },
+  {
+   "id": "jack-doyle-s",
+   "name": "Jack Doyle's",
+   "address": "240 W 35th St, New York, NY 10001",
+   "neighborhood": "Midtown West",
+   "borough": "Manhattan",
+   "lng": -73.991854,
+   "lat": 40.752141,
+   "blurb": "Penn Station Irish pub that opens at 10 every day, serves a full food menu, and hosts West Virginia and Texas A&M fans.",
+   "hours": "10 AM",
+   "bottomless": false,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://www.jackdoylesnyc.com/",
+    "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+   ]
+  },
+  {
+   "id": "tara-rose",
+   "name": "Tara Rose",
+   "address": "384 3rd Ave, New York, NY 10016",
+   "neighborhood": "Kips Bay",
+   "borough": "Manhattan",
+   "lng": -73.981403,
+   "lat": 40.741839,
+   "blurb": "Third Avenue cafe-bar with a big screen, sound on for big games, and 90-minute bottomless brunch starting at 10.",
+   "hours": "10 AM",
+   "bottomless": true,
+   "vibe": null,
+   "confidence": "high",
+   "sources": [
+    "https://www.tararosenyc.com/",
+    "https://www.tararosenyc.com/news-item/bottomless-brunch-in-murray-hill-why-tara-rose-is-nycs-best-weekend-brunch-spot/",
+    "https://www.tararosenyc.com/world-cup-2026-at-tara-rose/"
+   ]
+  },
+  {
+   "id": "seven-sins",
+   "name": "Seven Sins",
+   "address": "293 3rd Ave, New York, NY 10010",
+   "neighborhood": "Gramercy",
+   "borough": "Manhattan",
+   "lng": -73.983064,
+   "lat": 40.73839,
+   "blurb": "Neon-lit Gramercy sports bar with wall-to-wall HD screens, bottomless weekend brunch, and the city's Notre Dame crowd.",
+   "hours": "11 AM",
+   "bottomless": true,
+   "vibe": null,
+   "confidence": "high",
+   "sources": [
+    "https://sevensinsnyc.com/",
+    "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+   ]
+  },
+  {
+   "id": "blue-haven-east",
+   "name": "Blue Haven East",
+   "address": "493 3rd Ave, New York, NY 10016",
+   "neighborhood": "Murray Hill",
+   "borough": "Manhattan",
+   "lng": -73.978181,
+   "lat": 40.745186,
+   "blurb": "Murray Hill outpost of the Blue Haven sports-bar group, open at 11 with a full kitchen and a Michigan following.",
+   "hours": "11 AM",
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://bluehaveneast.com/",
+    "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+   ]
+  },
+  {
+   "id": "horn-s-hook-tavern",
+   "name": "Horn's Hook Tavern",
+   "address": "1589 1st Ave, New York, NY 10028",
+   "neighborhood": "Upper East Side",
+   "borough": "Manhattan",
+   "lng": -73.95117,
+   "lat": 40.774879,
+   "blurb": "Neighborhood tavern at 83rd and First with eight TVs, a projector screen, and brunch dishes served all day.",
+   "hours": "11 AM",
+   "bottomless": false,
+   "vibe": null,
+   "confidence": "high",
+   "sources": [
+    "https://www.hornshooktavern.com/",
+    "https://www.hornshooktavern.com/visit",
+    "https://www.theinfatuation.com/new-york/guides/best-sports-bars-nyc"
+   ]
+  },
+  {
+   "id": "dorrian-s-red-hand",
+   "name": "Dorrian's Red Hand",
+   "address": "1616 2nd Ave, New York, NY 10028",
+   "neighborhood": "Upper East Side",
+   "borough": "Manhattan",
+   "lng": -73.952454,
+   "lat": 40.776329,
+   "blurb": "Classic Upper East Side saloon with weekend brunch from 11, many big hi-def screens with sound, and the city's Wisconsin Badgers fans.",
+   "hours": "11 AM",
+   "bottomless": false,
+   "vibe": null,
+   "confidence": "high",
+   "sources": [
+    "https://www.dorrians-nyc.com/",
+    "https://www.dorrians-nyc.com/about-us-1",
+    "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+   ]
+  },
+  {
+   "id": "meller-s-sports-hub-grill",
+   "name": "Meller's Sports Hub & Grill",
+   "address": "1702 2nd Ave, New York, NY 10128",
+   "neighborhood": "Yorkville",
+   "borough": "Manhattan",
+   "lng": -73.950389,
+   "lat": 40.779232,
+   "blurb": "Yorkville sports bar known for its wings, with screens throughout and a Florida Gators following.",
+   "hours": "11 AM",
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://maps.roadtrippers.com/us/new-york-ny/food-drink/mellers-sports-hub-and-grill",
+    "https://patch.com/new-york/upper-east-side-nyc/where-watch-big-game-upper-east-side",
+    "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+   ]
+  },
+  {
+   "id": "the-wolfe",
+   "name": "The Wolfe",
+   "address": "425 Amsterdam Ave, New York, NY 10024",
+   "neighborhood": "Upper West Side",
+   "borough": "Manhattan",
+   "lng": -73.977381,
+   "lat": 40.783946,
+   "blurb": "Upscale Upper West Side sports bar with several TVs and a $30 bottomless brunch from 10 AM on weekends.",
+   "hours": "10 AM",
+   "bottomless": true,
+   "vibe": null,
+   "confidence": "high",
+   "sources": [
+    "https://www.thewolfenyc.com/",
+    "https://www.thewolfenyc.com/happenings/",
+    "https://business.nyctourism.com/places/the-wolfe"
+   ]
+  },
+  {
+   "id": "amity-hall-uptown",
+   "name": "Amity Hall Uptown",
+   "address": "982 Amsterdam Ave, New York, NY 10025",
+   "neighborhood": "Upper West Side",
+   "borough": "Manhattan",
+   "lng": -73.964733,
+   "lat": 40.802215,
+   "blurb": "Columbia-area craft beer and sports bar with weekend brunch from 10:30 and bottomless deals on Saturdays.",
+   "hours": "10:30 AM",
+   "bottomless": true,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://www.amityhallnyc.com/location/uptown/",
+    "https://www.ilovetheupperwestside.com/amity-hall-uptown/"
+   ]
+  },
+  {
+   "id": "city-coffee-bar",
+   "name": "City Coffee & Bar",
+   "address": "914 Columbus Ave, New York, NY 10025",
+   "neighborhood": "Upper West Side",
+   "borough": "Manhattan",
+   "lng": -73.963756,
+   "lat": 40.798574,
+   "blurb": "Upper West Side cafe-turned-sports bar with a huge LED screen, 12+ TVs, and a cheap 90-minute bottomless brunch.",
+   "hours": "8 AM",
+   "bottomless": true,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://citycoffeebar.com/"
+   ]
+  },
+  {
+   "id": "smithfield-hall",
+   "name": "Smithfield Hall",
+   "address": "138 W 25th St, New York, NY 10001",
+   "neighborhood": "Chelsea",
+   "borough": "Manhattan",
+   "lng": -73.993629,
+   "lat": 40.744726,
+   "blurb": "Chelsea's big soccer-and-everything sports bar with screens at every angle and an Irish and American weekend brunch.",
+   "hours": "9 AM",
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://www.smithfieldnyc.com/",
+    "https://sideways.nyc/discover/5pSEJJ3qujh0sqLqHrNU9l/smithfield-hall",
+    "https://www.theinfatuation.com/new-york/guides/best-sports-bars-nyc"
+   ]
+  },
+  {
+   "id": "the-red-lion",
+   "name": "The Red Lion",
+   "address": "151 Bleecker St, New York, NY 10012",
+   "neighborhood": "Greenwich Village",
+   "borough": "Manhattan",
+   "lng": -73.999416,
+   "lat": 40.728487,
+   "blurb": "Bleecker Street pub with 10+ HD screens and bottomless brunch from 10 AM on weekends.",
+   "hours": "10 AM",
+   "bottomless": true,
+   "vibe": null,
+   "confidence": "high",
+   "sources": [
+    "https://www.redlionnyc.com/sports/",
+    "https://www.redlionnyc.com/"
+   ]
+  },
+  {
+   "id": "shaffer-s",
+   "name": "Shaffer's",
+   "address": "151 8th Ave, New York, NY 10011",
+   "neighborhood": "Chelsea",
+   "borough": "Manhattan",
+   "lng": -74.001155,
+   "lat": 40.74211,
+   "blurb": "Chelsea sports bar that fills with Michigan and UCF fans on fall Saturdays, with weekend brunch from 11.",
+   "hours": "11 AM",
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://shaffersnyc.com/",
+    "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+   ]
+  },
+  {
+   "id": "the-grafton",
+   "name": "The Grafton",
+   "address": "126 1st Ave, New York, NY 10009",
+   "neighborhood": "East Village",
+   "borough": "Manhattan",
+   "lng": -73.985227,
+   "lat": 40.727211,
+   "blurb": "East Village Irish pub and sports bar that opens at 10 on weekends and serves a proper Irish breakfast.",
+   "hours": "10 AM",
+   "bottomless": false,
+   "vibe": null,
+   "confidence": "high",
+   "sources": [
+    "https://www.thegraftonnyc.com/",
+    "https://www.theinfatuation.com/new-york/guides/best-sports-bars-nyc"
+   ]
+  },
+  {
+   "id": "linen-hall",
+   "name": "Linen Hall",
+   "address": "101 3rd Ave, New York, NY 10003",
+   "neighborhood": "East Village",
+   "borough": "Manhattan",
+   "lng": -73.987539,
+   "lat": 40.732333,
+   "blurb": "Polished Third Avenue bar with a $25 bottomless weekend brunch from 11 and the city's Vanderbilt watch crowd.",
+   "hours": "11 AM",
+   "bottomless": true,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://www.linenhallnyc.com/location/linen-hall/",
+    "https://www.linenhallnyc.com/menus/",
+    "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+   ]
+  },
+  {
+   "id": "one4one-sports-club-lounge",
+   "name": "one4one Sports Club & Lounge",
+   "address": "141 Chrystie St, New York, NY 10002",
+   "neighborhood": "Lower East Side",
+   "borough": "Manhattan",
+   "lng": -73.993347,
+   "lat": 40.719808,
+   "blurb": "Lower East Side sports club that shows every game, college football included, with wings and burgers from 11 on weekends.",
+   "hours": "11 AM",
+   "bottomless": false,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://www.one4onenyc.com/",
+    "https://www.theinfatuation.com/new-york/guides/best-sports-bars-nyc"
+   ]
+  },
+  {
+   "id": "roebling-sporting-club",
+   "name": "Roebling Sporting Club",
+   "address": "225 N 8th St, Brooklyn, NY 11211",
+   "neighborhood": "Williamsburg",
+   "borough": "Brooklyn",
+   "lng": -73.954615,
+   "lat": 40.717026,
+   "blurb": "Williamsburg sports bar with 14 big HD screens carrying every package, including NCAA, open at 9 on Saturdays.",
+   "hours": "9 AM",
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "high",
+   "sources": [
+    "https://www.roeblingsportingclub.com/",
+    "https://www.theinfatuation.com/new-york/guides/best-sports-bars-nyc"
+   ]
+  },
+  {
+   "id": "kent-ale-house",
+   "name": "Kent Ale House",
+   "address": "51 Kent Ave, Brooklyn, NY 11249",
+   "neighborhood": "Williamsburg",
+   "borough": "Brooklyn",
+   "lng": -73.959266,
+   "lat": 40.722338,
+   "blurb": "Waterfront Williamsburg ale house with 12 flat screens, 24 taps, skyline views, and weekend brunch from 10.",
+   "hours": "9 AM",
+   "bottomless": false,
+   "vibe": null,
+   "confidence": "high",
+   "sources": [
+    "https://www.kentalehouse.com/location/kent-ale-house/",
+    "https://www.kentalehouse.com/about/"
+   ]
+  },
+  {
+   "id": "o-keefe-s-bar-grill",
+   "name": "O'Keefe's Bar & Grill",
+   "address": "62 Court St, Brooklyn, NY 11201",
+   "neighborhood": "Downtown Brooklyn",
+   "borough": "Brooklyn",
+   "lng": -73.991467,
+   "lat": 40.692084,
+   "blurb": "Two-floor Court Street pub with wings, burgers, and fish and chips, and the borough's Oklahoma State crowd.",
+   "hours": "11 AM",
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://www.restaurantji.com/ny/brooklyn/okeefes-bar-and-grill-/",
+    "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+   ]
+  },
+  {
+   "id": "black-horse-pub",
+   "name": "Black Horse Pub",
+   "address": "568 5th Ave, Brooklyn, NY 11215",
+   "neighborhood": "South Slope",
+   "borough": "Brooklyn",
+   "lng": -73.990004,
+   "lat": 40.665196,
+   "blurb": "Roomy South Slope pub with about 10 TVs and a full English breakfast, open at 10 on Saturdays.",
+   "hours": "10 AM",
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://www.restaurantji.com/ny/brooklyn/black-horse-pub-/",
+    "https://www.atly.com/united-states/new-york/new-york/park-slope/best-bars-live-sports",
+    "https://www.yelp.com/biz/black-horse-pub-brooklyn-2"
+   ]
+  },
+  {
+   "id": "mcmahon-s-public-house",
+   "name": "McMahon's Public House",
+   "address": "39 5th Ave, Brooklyn, NY 11217",
+   "neighborhood": "Park Slope",
+   "borough": "Brooklyn",
+   "lng": -73.976568,
+   "lat": 40.681675,
+   "blurb": "Two-floor Park Slope sports bar with a dozen big HD screens, a brunch menu, and a dog-friendly garden, open daily at 11.",
+   "hours": "11 AM",
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "medium",
+   "sources": [
+    "https://www.mcmahonspublic.com/",
+    "https://www.atly.com/united-states/new-york/new-york/park-slope/best-bars-live-sports"
+   ]
+  },
+  {
+   "id": "rivercrest",
+   "name": "Rivercrest",
+   "address": "33-15 Ditmars Blvd, Astoria, NY 11105",
+   "neighborhood": "Astoria",
+   "borough": "Queens",
+   "lng": -73.908882,
+   "lat": 40.775087,
+   "blurb": "Ditmars craft beer and sports bar with TVs in the dining room and a $29 two-hour bottomless brunch from 11 on weekends.",
+   "hours": "11 AM",
+   "bottomless": true,
+   "vibe": null,
+   "confidence": "high",
+   "sources": [
+    "https://www.rivercrestny.com/location/rivercrest/",
+    "https://www.rivercrestny.com/event/brunch/",
+    "https://boast.nyc/rivercrest-on-ditmars-is-open-for-business/"
+   ]
+  },
+  {
+   "id": "doyle-s-corner",
+   "name": "Doyle's Corner",
+   "address": "42-02 Broadway, Astoria, NY 11103",
+   "neighborhood": "Astoria",
+   "borough": "Queens",
+   "lng": -73.917399,
+   "lat": 40.758019,
+   "blurb": "Long-running Astoria Irish pub with game-day TVs and a weekend brunch menu that includes a full Irish breakfast.",
+   "hours": "11 AM",
+   "bottomless": null,
+   "vibe": null,
+   "confidence": "low",
+   "sources": [
+    "https://www.restaurantji.com/ny/astoria/doyles-corner-/",
+    "https://www.qgazette.com/articles/doyles-corner/",
+    "https://www.yelp.com/biz/doyles-corner-astoria"
+   ]
+  }
+ ],
+ "nightcaps": [
+  {
+   "id": "the-waylon",
+   "name": "The Waylon",
+   "address": "736 10th Ave, New York, NY 10019",
+   "neighborhood": "Hell's Kitchen",
+   "borough": "Manhattan",
+   "lng": -73.991434,
+   "lat": 40.764753,
+   "blurb": "Tiny honky-tonk with a jukebox, cheap beer and whiskey, open till 4 AM on Saturdays.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "country",
+   "confidence": "high",
+   "sources": [
+    "https://www.thewaylon.com"
+   ]
+  },
+  {
+   "id": "rudy-s-bar-grill",
+   "name": "Rudy's Bar & Grill",
+   "address": "627 9th Ave, New York, NY 10036",
+   "neighborhood": "Hell's Kitchen",
+   "borough": "Manhattan",
+   "lng": -73.991779,
+   "lat": 40.76003,
+   "blurb": "Classic cheap-beer Hell's Kitchen dive with free hot dogs, open until 4 AM.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dive",
+   "confidence": "high",
+   "sources": [
+    "https://www.rudysbarnyc.com"
+   ]
+  },
+  {
+   "id": "skinny-dennis",
+   "name": "Skinny Dennis",
+   "address": "152 Metropolitan Ave, Brooklyn, NY 11249",
+   "neighborhood": "Williamsburg",
+   "borough": "Brooklyn",
+   "lng": -73.962182,
+   "lat": 40.715874,
+   "blurb": "Williamsburg honky-tonk with live country nightly and a 4 AM close.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "country",
+   "confidence": "high",
+   "sources": [
+    "https://skinnydennisbrooklyn.com",
+    "https://skinnydennis.com"
+   ]
+  },
+  {
+   "id": "flaming-saddles-saloon",
+   "name": "Flaming Saddles Saloon",
+   "address": "793 9th Ave, New York, NY 10019",
+   "neighborhood": "Hell's Kitchen",
+   "borough": "Manhattan",
+   "lng": -73.987943,
+   "lat": 40.765315,
+   "blurb": "A rowdy, LGBTQ-friendly country saloon where bartenders line-dance on the bar to pop-country hits.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "country",
+   "confidence": "high",
+   "sources": [
+    "https://www.flamingsaddles.com/",
+    "https://www.yelp.com/biz/flaming-saddles-saloon-new-york"
+   ]
+  },
+  {
+   "id": "beer-authority",
+   "name": "Beer Authority",
+   "address": "300 W 40th St, New York, NY 10018",
+   "neighborhood": "Midtown West",
+   "borough": "Manhattan",
+   "lng": -73.991133,
+   "lat": 40.755947,
+   "blurb": "A huge multi-level beer bar by Port Authority with a long tap list and plenty of TVs for late games.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "sports",
+   "confidence": "medium",
+   "sources": [
+    "https://www.beerauthoritynyc.com/",
+    "https://www.yelp.com/biz/beer-authority-new-york-6"
+   ]
+  },
+  {
+   "id": "gagopa-karaoke",
+   "name": "Gagopa Karaoke",
+   "address": "28 W 32nd St, 3rd Fl, New York, NY 10001",
+   "neighborhood": "Midtown West",
+   "borough": "Manhattan",
+   "lng": -73.987084,
+   "lat": 40.747599,
+   "blurb": "Private karaoke rooms in the heart of Koreatown, a short walk from Penn Station, for belting out a post-game victory anthem.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "karaoke",
+   "confidence": "medium",
+   "sources": [
+    "https://www.yelp.com/biz/gagopa-karaoke-new-york?start=40",
+    "https://maps.apple.com/place?place-id=IA85C95FFD2B1B58E"
+   ]
+  },
+  {
+   "id": "strangelove",
+   "name": "Strangelove",
+   "address": "229 E 53rd St, New York, NY 10022",
+   "neighborhood": "Midtown East",
+   "borough": "Manhattan",
+   "lng": -73.9681,
+   "lat": 40.757385,
+   "blurb": "A punk-rock dive with cheap beer and loud records, an unexpected Midtown East refuge open late every night.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dive",
+   "confidence": "medium",
+   "sources": [
+    "https://strangeloveny.com/",
+    "https://www.yelp.com/biz/strangelove-new-york"
+   ]
+  },
+  {
+   "id": "peter-dillon-s",
+   "name": "Peter Dillon's",
+   "address": "130 E 40th St, New York, NY 10016",
+   "neighborhood": "Murray Hill",
+   "borough": "Manhattan",
+   "lng": -73.976831,
+   "lat": 40.749919,
+   "blurb": "A no-fuss Irish pub near Grand Central with all-day happy hour, cheap shots and pints, and games on every screen.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "sports",
+   "confidence": "high",
+   "sources": [
+    "https://www.peterdillons.com/40th",
+    "https://www.yelp.com/biz/peter-dillons-new-york"
+   ]
+  },
+  {
+   "id": "blue-haven-east",
+   "name": "Blue Haven East",
+   "address": "493 3rd Ave, New York, NY 10016",
+   "neighborhood": "Murray Hill",
+   "borough": "Manhattan",
+   "lng": -73.978181,
+   "lat": 40.745186,
+   "blurb": "A lively Murray Hill sports bar with 24 TVs, projectors, craft beer and a young crowd that stays out late.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "sports",
+   "confidence": "medium",
+   "sources": [
+    "https://www.bluehaveneast.com/new-york-kips-bay-blue-haven-east-about",
+    "https://www.nyctourism.com/nightlife/blue-haven-east/",
+    "https://www.yelp.com/biz/blue-haven-east-new-york-3"
+   ]
+  },
+  {
+   "id": "the-penrose",
+   "name": "The Penrose",
+   "address": "1590 2nd Ave, New York, NY 10028",
+   "neighborhood": "Upper East Side",
+   "borough": "Manhattan",
+   "lng": -73.953097,
+   "lat": 40.775434,
+   "blurb": "A warm, vintage-styled Upper East Side gastropub with classic cocktails and a bar that stays busy until close.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "cocktail",
+   "confidence": "high",
+   "sources": [
+    "https://www.penrosebar.com/"
+   ]
+  },
+  {
+   "id": "iggy-s",
+   "name": "Iggy's",
+   "address": "1452 2nd Ave, New York, NY 10021",
+   "neighborhood": "Upper East Side",
+   "borough": "Manhattan",
+   "lng": -73.956289,
+   "lat": 40.771095,
+   "blurb": "A long-running Upper East Side karaoke bar with plenty of TVs, where weekend nights turn into sing-alongs and dancing.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "karaoke",
+   "confidence": "high",
+   "sources": [
+    "https://iggysnewyork.com/",
+    "https://www.yelp.com/biz/iggys-new-york"
+   ]
+  },
+  {
+   "id": "dorrian-s-red-hand",
+   "name": "Dorrian's Red Hand",
+   "address": "1616 2nd Ave, New York, NY 10028",
+   "neighborhood": "Upper East Side",
+   "borough": "Manhattan",
+   "lng": -73.952454,
+   "lat": 40.776329,
+   "blurb": "A 60-plus-year-old Upper East Side preppy institution with a packed bar scene late into the night.",
+   "hours": "3:45 AM",
+   "bottomless": null,
+   "vibe": "sports",
+   "confidence": "high",
+   "sources": [
+    "https://www.dorrians-nyc.com/",
+    "https://www.yelp.com/biz/dorrians-red-hand-new-york-2"
+   ]
+  },
+  {
+   "id": "the-gin-mill",
+   "name": "The Gin Mill",
+   "address": "442 Amsterdam Ave, New York, NY 10024",
+   "neighborhood": "Upper West Side",
+   "borough": "Manhattan",
+   "lng": -73.977524,
+   "lat": 40.784762,
+   "blurb": "An Upper West Side college-crowd favorite with cheap drinks, game-day TVs and a back speakeasy room.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "sports",
+   "confidence": "high",
+   "sources": [
+    "https://www.theginmillnyc.com/location/the-gin-mill/"
+   ]
+  },
+  {
+   "id": "dive-75",
+   "name": "Dive 75",
+   "address": "101 W 75th St, New York, NY 10023",
+   "neighborhood": "Upper West Side",
+   "borough": "Manhattan",
+   "lng": -73.977582,
+   "lat": 40.779591,
+   "blurb": "A cozy neighborhood dive with a giant fish tank, board games, couches and plenty of craft taps.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dive",
+   "confidence": "medium",
+   "sources": [
+    "https://www.theinfatuation.com/new-york/reviews/dive-75",
+    "https://www.timeout.com/newyork/bars/dive-75",
+    "https://www.yelp.com/biz/dive-75-new-york"
+   ]
+  },
+  {
+   "id": "jake-s-dilemma",
+   "name": "Jake's Dilemma",
+   "address": "430 Amsterdam Ave, New York, NY 10024",
+   "neighborhood": "Upper West Side",
+   "borough": "Manhattan",
+   "lng": -73.977785,
+   "lat": 40.784378,
+   "blurb": "A rowdy, game-friendly Amsterdam Avenue bar with a deep happy hour and a crowd that keeps going late.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "sports",
+   "confidence": "medium",
+   "sources": [
+    "https://www.yelp.com/biz/jakes-dilemma-new-york",
+    "https://happy-hour.nyc/bars-restaurants/jakes-dilemma"
+   ]
+  },
+  {
+   "id": "the-red-lion",
+   "name": "The Red Lion",
+   "address": "151 Bleecker St, New York, NY 10012",
+   "neighborhood": "Greenwich Village",
+   "borough": "Manhattan",
+   "lng": -73.999416,
+   "lat": 40.728487,
+   "blurb": "A Bleecker Street pub with live cover bands playing rock, soul and funk every night until 4 AM.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dance",
+   "confidence": "high",
+   "sources": [
+    "https://www.redlionnyc.com/"
+   ]
+  },
+  {
+   "id": "off-the-wagon",
+   "name": "Off the Wagon",
+   "address": "109 MacDougal St, New York, NY 10012",
+   "neighborhood": "Greenwich Village",
+   "borough": "Manhattan",
+   "lng": -74.000817,
+   "lat": 40.729932,
+   "blurb": "A two-story MacDougal Street party bar with 17 TVs, a 100-inch screen and cheap beer-and-shot combos.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "sports",
+   "confidence": "high",
+   "sources": [
+    "https://www.offthewagonnyc.com/hours-and-location/"
+   ]
+  },
+  {
+   "id": "peter-mcmanus-cafe",
+   "name": "Peter McManus Cafe",
+   "address": "152 7th Ave, New York, NY 10011",
+   "neighborhood": "Chelsea",
+   "borough": "Manhattan",
+   "lng": -73.997645,
+   "lat": 40.741871,
+   "blurb": "New York's oldest family-run bar, a classic Irish corner tavern in Chelsea with a great burger.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dive",
+   "confidence": "high",
+   "sources": [
+    "https://www.mcmanus.nyc/contact-us",
+    "https://www.yelp.com/biz/peter-mcmanus-cafe-new-york"
+   ]
+  },
+  {
+   "id": "marie-s-crisis-cafe",
+   "name": "Marie's Crisis Cafe",
+   "address": "59 Grove St, New York, NY 10014",
+   "neighborhood": "West Village",
+   "borough": "Manhattan",
+   "lng": -74.003384,
+   "lat": 40.733227,
+   "blurb": "A tiny basement piano bar where the whole room sings Broadway show tunes together, cash only.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "piano",
+   "confidence": "medium",
+   "sources": [
+    "https://www.mariescrisiscafe.com/",
+    "https://www.yelp.com/biz/maries-crisis-cafe-new-york-2"
+   ]
+  },
+  {
+   "id": "doc-holliday-s",
+   "name": "Doc Holliday's",
+   "address": "141 Ave A, New York, NY 10009",
+   "neighborhood": "East Village",
+   "borough": "Manhattan",
+   "lng": -73.982934,
+   "lat": 40.727248,
+   "blurb": "An East Village honky-tonk dive since 1994, with a country jukebox and cheap drinks on Avenue A.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "country",
+   "confidence": "medium",
+   "sources": [
+    "https://www.yelp.com/biz/doc-hollidays-new-york",
+    "https://happy-hour.nyc/bars-restaurants/doc-hollidays"
+   ]
+  },
+  {
+   "id": "home-sweet-home",
+   "name": "Home Sweet Home",
+   "address": "131 Chrystie St, New York, NY 10002",
+   "neighborhood": "Lower East Side",
+   "borough": "Manhattan",
+   "lng": -73.993519,
+   "lat": 40.719514,
+   "blurb": "A basement dance bar with a disco ball and DJs that keeps the Lower East Side moving until close.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dance",
+   "confidence": "medium",
+   "sources": [
+    "https://www.yelp.com/biz/home-sweet-home-new-york"
+   ]
+  },
+  {
+   "id": "the-library",
+   "name": "The Library",
+   "address": "7 Ave A, New York, NY 10009",
+   "neighborhood": "East Village",
+   "borough": "Manhattan",
+   "lng": -73.986352,
+   "lat": 40.722622,
+   "blurb": "A dark East Village dive with a strong jukebox, B-movies on the screens and 2-for-1 happy hour.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dive",
+   "confidence": "medium",
+   "sources": [
+    "https://happy-hour.nyc/bars-restaurants/the-library",
+    "https://www.yelp.com/biz/the-library-new-york"
+   ]
+  },
+  {
+   "id": "union-pool",
+   "name": "Union Pool",
+   "address": "484 Union Ave, Brooklyn, NY 11211",
+   "neighborhood": "Williamsburg",
+   "borough": "Brooklyn",
+   "lng": -73.951552,
+   "lat": 40.715004,
+   "blurb": "A Williamsburg landmark with a big back patio, a photo booth, live shows and late-night DJs.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dance",
+   "confidence": "high",
+   "sources": [
+    "https://www.union-pool.com/"
+   ]
+  },
+  {
+   "id": "bushwick-country-club",
+   "name": "Bushwick Country Club",
+   "address": "608 Grand St, Brooklyn, NY 11211",
+   "neighborhood": "Williamsburg",
+   "borough": "Brooklyn",
+   "lng": -73.947758,
+   "lat": 40.711097,
+   "blurb": "A cheap, friendly dive with a mini-golf course out back and a photo booth inside.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dive",
+   "confidence": "high",
+   "sources": [
+    "https://www.bushwickcountryclub.com/",
+    "https://www.timeout.com/newyork/bars/bushwick-country-club"
+   ]
+  },
+  {
+   "id": "mood-ring",
+   "name": "Mood Ring",
+   "address": "1260 Myrtle Ave, Brooklyn, NY 11221",
+   "neighborhood": "Bushwick",
+   "borough": "Brooklyn",
+   "lng": -73.926906,
+   "lat": 40.697743,
+   "blurb": "An astrology-themed Bushwick bar with zodiac cocktails and a laser-filled back room where DJs play late.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dance",
+   "confidence": "high",
+   "sources": [
+    "https://www.moodringnyc.club/",
+    "https://www.theinfatuation.com/new-york/guides/best-bushwick-bars"
+   ]
+  },
+  {
+   "id": "hart-bar",
+   "name": "Hart Bar",
+   "address": "538 Hart St, Brooklyn, NY 11221",
+   "neighborhood": "Bushwick",
+   "borough": "Brooklyn",
+   "lng": -73.929936,
+   "lat": 40.696388,
+   "blurb": "A gothic saloon-style bar with a covered patio and a basement for live sets and dancing until 4 AM on weekends.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dance",
+   "confidence": "medium",
+   "sources": [
+    "https://www.theinfatuation.com/new-york/guides/best-bushwick-bars",
+    "https://www.theinfatuation.com/new-york/reviews/hart-bar",
+    "https://www.yelp.com/biz/hart-bar-brooklyn"
+   ]
+  },
+  {
+   "id": "union-hall",
+   "name": "Union Hall",
+   "address": "702 Union St, Brooklyn, NY 11215",
+   "neighborhood": "Park Slope",
+   "borough": "Brooklyn",
+   "lng": -73.980133,
+   "lat": 40.675996,
+   "blurb": "A sprawling Park Slope bar with a library-style lounge, two bocce courts and a downstairs stage for comedy, karaoke and dance parties.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "beer hall",
+   "confidence": "medium",
+   "sources": [
+    "https://www.unionhallny.com/",
+    "https://www.yelp.com/biz/union-hall-brooklyn"
+   ]
+  },
+  {
+   "id": "molly-s-shebeen",
+   "name": "Molly's Shebeen",
+   "address": "287 3rd Ave, New York, NY 10010",
+   "neighborhood": "Gramercy",
+   "borough": "Manhattan",
+   "lng": -73.983214,
+   "lat": 40.738254,
+   "blurb": "Sawdust-floor Irish pub with a fireplace and a famous burger; bar pours until 4 AM every night.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dive",
+   "confidence": "high",
+   "sources": [
+    "https://mollysshebeennyc.com/",
+    "https://www.timeout.com/newyork/bars/mollys-pub-and-shebeen"
+   ]
+  },
+  {
+   "id": "society-billiards-bar",
+   "name": "Society Billiards + Bar",
+   "address": "10 E 21st St, New York, NY 10010",
+   "neighborhood": "Flatiron",
+   "borough": "Manhattan",
+   "lng": -73.990005,
+   "lat": 40.739825,
+   "blurb": "Big pool hall with 19 tables and a full bar between Broadway and Fifth; open until 4 AM Friday through Sunday.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dive",
+   "confidence": "high",
+   "sources": [
+    "https://societybilliards.com/",
+    "https://www.timeout.com/newyork/bars/society-billiards-bar"
+   ]
+  },
+  {
+   "id": "nassau-bar",
+   "name": "Nassau Bar",
+   "address": "118 Nassau St, New York, NY 10038",
+   "neighborhood": "Financial District",
+   "borough": "Manhattan",
+   "lng": -74.006859,
+   "lat": 40.710762,
+   "blurb": "Red-lit downtown dive with cheap drinks near City Hall; open until 4 AM Monday through Saturday.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dive",
+   "confidence": "medium",
+   "sources": [
+    "https://www.restaurantji.com/ny/new-york/nassau-bar-/",
+    "https://foursquare.com/v/nassau-bar/4aebb2f8f964a52079c421e3"
+   ]
+  },
+  {
+   "id": "the-malt-house-fidi",
+   "name": "The Malt House FiDi",
+   "address": "9 Maiden Ln, New York, NY 10038",
+   "neighborhood": "Financial District",
+   "borough": "Manhattan",
+   "lng": -74.009265,
+   "lat": 40.70961,
+   "blurb": "Three-level, 7,000-square-foot beer bar with a long draft list; open until 2 AM on Saturdays.",
+   "hours": "2 AM",
+   "bottomless": null,
+   "vibe": "beer hall",
+   "confidence": "high",
+   "sources": [
+    "https://themalthousefidi.com/"
+   ]
+  },
+  {
+   "id": "cedar-local",
+   "name": "Cedar Local",
+   "address": "25 Cedar St, New York, NY 10038",
+   "neighborhood": "Financial District",
+   "borough": "Manhattan",
+   "lng": -74.006176,
+   "lat": 40.71065,
+   "blurb": "Family-owned craft cocktail bar near Wall Street that stays open until 2 AM Monday through Saturday.",
+   "hours": "2 AM",
+   "bottomless": null,
+   "vibe": "cocktail",
+   "confidence": "high",
+   "sources": [
+    "https://cedarlocal.com/"
+   ]
+  },
+  {
+   "id": "sweet-afton",
+   "name": "Sweet Afton",
+   "address": "30-09 34th St, Astoria, NY 11103",
+   "neighborhood": "Astoria",
+   "borough": "Queens",
+   "lng": -73.919013,
+   "lat": 40.765368,
+   "blurb": "Astoria gastropub known for craft beer and its burger, with a garden patio; open until 4 AM every night.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "beer hall",
+   "confidence": "high",
+   "sources": [
+    "https://www.sweetaftonbar.com/"
+   ]
+  },
+  {
+   "id": "parlay-astoria",
+   "name": "Parlay Astoria",
+   "address": "36-08 30th Ave, Astoria, NY 11103",
+   "neighborhood": "Astoria",
+   "borough": "Queens",
+   "lng": -73.917245,
+   "lat": 40.764689,
+   "blurb": "Sports bar with HD screens everywhere and a kitchen that runs until 4 AM Wednesday through Saturday.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "sports",
+   "confidence": "high",
+   "sources": [
+    "https://parlayastoria.com/",
+    "https://parlayastoria.com/sports-bar-astoria"
+   ]
+  },
+  {
+   "id": "l-i-c-bar",
+   "name": "L.I.C. Bar",
+   "address": "45-58 Vernon Blvd, Long Island City, NY 11101",
+   "neighborhood": "Long Island City",
+   "borough": "Queens",
+   "lng": -73.95289,
+   "lat": 40.747041,
+   "blurb": "Century-old saloon with a tin ceiling, antique wood bar, backyard garden and frequent live music; open until 4 AM on Saturdays.",
+   "hours": "4 AM",
+   "bottomless": null,
+   "vibe": "dive",
+   "confidence": "medium",
+   "sources": [
+    "https://www.licbar.com/",
+    "https://www.tripadvisor.com/Restaurant_Review-g48080-d4569278-Reviews-L_I_C_Bar-Long_Island_City_Queens_New_York.html"
+   ]
+  },
+  {
+   "id": "dutch-kills",
+   "name": "Dutch Kills",
+   "address": "27-24 Jackson Ave, Long Island City, NY 11101",
+   "neighborhood": "Long Island City",
+   "borough": "Queens",
+   "lng": -73.940163,
+   "lat": 40.747628,
+   "blurb": "Dark, booth-lined classic cocktail bar with hand-cut ice; open until 3 AM on Fridays and Saturdays.",
+   "hours": "3 AM",
+   "bottomless": null,
+   "vibe": "cocktail",
+   "confidence": "medium",
+   "sources": [
+    "https://punchdrink.com/venues/dutch-kills/",
+    "https://www.theinfatuation.com/new-york/guides/late-night-bars-one-last-drink"
+   ]
+  }
+ ]
+}

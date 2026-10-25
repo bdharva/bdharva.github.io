@@ -1,0 +1,158 @@
+// Runtime design tokens: the CSS custom properties of DESIGN_SYSTEM.md section 5, made live.
+// Loaded by both css/styles.css (site) and css/apps.css (apps). Light values on :root, dark on
+// html.dark (the class the site's theme script sets from localStorage 'darkMode').
+// Anything built on these gets dark mode for free; prefer them over raw rgba() in new work.
+//
+// Keep this file and DESIGN_SYSTEM.md section 5 in step. Additions beyond the section 5 export are
+// marked "added" and listed in section 9.
+
+// Breakpoints are compile-time (media queries can't read custom properties).
+$bp-tablet: 960px;
+$bp-menu: 880px;
+$bp-mobile: 690px;
+
+:root {
+	// Brand
+	--accent: #{$accent};
+	--accent-hover: rgb(50, 220, 170);
+	--accent-deep: rgb(20, 170, 125);
+	--accent-bg-soft: rgba(30, 200, 150, 0.06);
+	--accent-bg-medium: rgba(30, 200, 150, 0.10);
+	--accent-border: rgba(30, 200, 150, 0.20);
+
+	// Surfaces
+	--bg: #ffffff;
+	--bg-medium: rgb(244, 246, 247);
+	--bg-card: #ffffff;
+	--bg-overlay: rgba(255, 255, 255, 0.96);
+
+	// Ink: rgb(var(--ink) / alpha) for any step of the alpha ladder
+	--ink: 0 5 10;
+	--ink-90: rgb(0 5 10 / 0.90);
+	--ink-85: rgb(0 5 10 / 0.85);
+	--ink-75: rgb(0 5 10 / 0.75);
+	--ink-65: rgb(0 5 10 / 0.65);
+	--ink-50: rgb(0 5 10 / 0.50);
+	--ink-40: rgb(0 5 10 / 0.40);
+	--ink-30: rgb(0 5 10 / 0.30);
+	--ink-20: rgb(0 5 10 / 0.20);
+
+	// Text roles (added): the ink ladder by job, so dark mode can shift each step
+	--text: rgb(0 5 10 / 0.90);
+	--text-strong: rgb(0 5 10 / 0.85);
+	--text-body: rgb(0 5 10 / 0.70);
+	--text-muted: rgb(0 5 10 / 0.55);
+	--text-caption: rgb(0 5 10 / 0.40);
+	--text-faint: rgb(0 5 10 / 0.30);
+
+	// Borders and fills
+	--border-strong: rgba(0, 5, 10, 0.10);
+	--border: rgba(0, 5, 10, 0.08);
+	--border-soft: rgba(0, 5, 10, 0.06);
+	--border-faint: rgba(0, 5, 10, 0.04);
+	--hover-bg: rgba(0, 5, 10, 0.03);
+	--fill: rgba(0, 5, 10, 0.05);
+
+	// Type
+	--font-sans: 'DM Sans', system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
+	--weight-body: 400;
+	--weight-medium: 500;
+	--weight-heading: 600;
+
+	--fs-display: 2.625rem;
+	--fs-h2: 1.5rem;
+	--fs-h3: 1.25rem;
+	--fs-h4: 1.125rem;
+	--fs-body: 1rem;
+	--fs-small: 0.875rem;
+	--fs-mono: 0.6875rem;
+	--fs-mono-xs: 0.5625rem;
+	--tracking-tight: -0.5px;
+	--tracking-snug: -0.3px;
+	--tracking-ui: -0.2px;
+	--tracking-mono: 0.3px;
+	--tracking-mono-wide: 0.5px;
+
+	// Spacing: --gutter steps down at the tablet and mobile breakpoints (added)
+	--gutter: 52px;
+	--gutter-tablet: 2rem;
+	--gutter-mobile: 1.5rem;
+
+	// Radius
+	--radius-xs: 3px;
+	--radius-sm: 4px;
+	--radius-md: 6px;
+	--radius-lg: 8px;
+	--radius-xl: 10px;
+	--radius-2xl: 12px;
+	--radius-3xl: 14px;
+
+	// Shadows
+	--shadow-avatar: 0 2px 12px rgba(0, 0, 0, 0.08);
+	--shadow-card-hover: 0 2px 16px rgba(0, 0, 0, 0.06);
+	--shadow-app-hover: 0 1px 8px rgba(0, 0, 0, 0.04);
+	--shadow-modal: 0 12px 48px rgba(0, 0, 0, 0.20);
+	--shadow-popover: 0 8px 32px rgba(0, 5, 10, 0.08), 0 2px 8px rgba(0, 5, 10, 0.04);
+	--shadow-polaroid: 0 0 8px rgba(0, 0, 0, 0.30);
+
+	// Motion
+	--ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+	--t-fast: 0.15s ease;
+	--t-base: 0.2s ease;
+	--t-modal: 0.25s ease;
+	--t-card: 0.3s ease;
+	--t-image: 0.6s var(--ease-spring);
+
+	// Layout
+	--max-post: 680px;
+	--max-content: 800px;
+	--max-page: 960px;
+	--max-wide: 1200px;
+	--nav-height: 52px;
+}
+@media (max-width: $bp-tablet) {
+	:root {
+		--gutter: var(--gutter-tablet);
+	}
+}
+@media (max-width: $bp-mobile) {
+	:root {
+		--gutter: var(--gutter-mobile);
+	}
+}
+html.dark {
+	--bg: #141413;
+	--bg-medium: #1a1a18;
+	--bg-card: #1e1e1c;
+	--bg-overlay: rgba(20, 20, 19, 0.96);
+
+	--ink: 255 255 255;
+	--ink-90: rgb(255 255 255 / 0.90);
+	--ink-85: rgb(255 255 255 / 0.85);
+	--ink-75: rgb(255 255 255 / 0.75);
+	--ink-65: rgb(255 255 255 / 0.60);
+	--ink-50: rgb(255 255 255 / 0.45);
+	--ink-40: rgb(255 255 255 / 0.40);
+	--ink-30: rgb(255 255 255 / 0.30);
+	--ink-20: rgb(255 255 255 / 0.20);
+
+	--text: rgb(255 255 255 / 0.85);
+	--text-strong: rgb(255 255 255 / 0.85);
+	--text-body: rgb(255 255 255 / 0.60);
+	--text-muted: rgb(255 255 255 / 0.45);
+	--text-caption: rgb(255 255 255 / 0.35);
+	--text-faint: rgb(255 255 255 / 0.25);
+
+	--border-strong: rgba(255, 255, 255, 0.10);
+	--border: rgba(255, 255, 255, 0.08);
+	--border-soft: rgba(255, 255, 255, 0.06);
+	--border-faint: rgba(255, 255, 255, 0.04);
+	--hover-bg: rgba(255, 255, 255, 0.04);
+	--fill: rgba(255, 255, 255, 0.05);
+
+	--shadow-card-hover: 0 2px 16px rgba(0, 0, 0, 0.20);
+	--shadow-app-hover: 0 1px 8px rgba(0, 0, 0, 0.20);
+	--shadow-modal: 0 12px 48px rgba(0, 0, 0, 0.40);
+	--shadow-popover: 0 8px 32px rgba(0, 0, 0, 0.30), 0 2px 8px rgba(0, 0, 0, 0.20);
+}

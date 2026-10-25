@@ -493,7 +493,7 @@ These aren't CSS but they are part of the design system and are visible on every
 
 ## 5. Reusable token export (CSS custom properties)
 
-Drop this in any new project to recreate the system without Sass:
+**These are live.** `_sass/_tokens.sass` defines every token below, plus the additions listed in §9, in both `/css/styles.css` and `/css/apps.css`. Apps hosted on the site load `/css/apps.css` instead of copying this block (see `APPS.md`). For projects outside the site, drop this in to recreate the system without Sass:
 
 ```css
 :root {
@@ -713,3 +713,47 @@ If you can answer "yes" to all of these, you're rendering in the bdharva visual 
 - [ ] Hover transforms use `cubic-bezier(0.22, 1, 0.36, 1)` and are subtle (`scale(1.03–1.04)`, `translateY(-2px)`, `translateX(8px)`).
 - [ ] Dividers are 1px hairlines at 6–10% ink alpha.
 - [ ] Dark mode reads `#141413` page / `#1e1e1c` cards / `#1a1a18` muted, not pure black.
+
+---
+
+## 9. Apps layer
+
+Interactives and hubs hosted on the site (see `APPS.md`) share one more level of styles on top of the tokens: `_sass/_apps-layer.sass`, compiled into `/css/apps.css`. Every element is shown in both themes at `/apps-kit/` (unlinked, `noindex`).
+
+**Stack:** tokens (§5) → app layer → each app's own `app.css`. Apps never load `/css/styles.css`, because its page-level rules (body flex, heading sizes, justified paragraphs) would fight app layouts. The app layer has its own minimal base instead.
+
+**Token additions beyond §5** (in `_tokens.sass`):
+| Token | Light → dark | Use |
+|---|---|---|
+| `--text` | ink 0.90 → 0.85 | Primary copy, titles |
+| `--text-strong` | 0.85 → 0.85 | Selected states, emphasis |
+| `--text-body` | 0.70 → 0.60 | Long-form paragraphs (modal body) |
+| `--text-muted` | 0.55 → 0.45 | Secondary copy |
+| `--text-caption` | 0.40 → 0.35 | Descriptions, field labels, eyebrows |
+| `--text-faint` | 0.30 → 0.25 | Mono meta, dates, "by bdharva" |
+| `--hover-bg` | ink 0.03 → white 0.04 | Hover fill |
+| `--fill` | ink 0.05 → white 0.05 | Tag and chip fill |
+| `--t-modal` | `0.25s ease` | Modal and menu fades |
+| `--gutter` | 52px → 2rem (≤960px) → 1.5rem (≤690px) | Responsive page edge |
+
+**Elements**
+| Element | Classes | Origin |
+|---|---|---|
+| App header | `.app-header`, `.app-logo`, `.app-title` (accent `<span>` second word), `.app-by`, `.app-header-actions` | Bracket Buddy |
+| Icon button | `.icon-button` (`aria-pressed` for toggles), `.icon` for SVG glyphs | Bar Crawler, Bracket Buddy |
+| Buttons | `.button`, `.button-primary`, `.button-quiet` | Bar Crawler |
+| Segmented control | `.segmented` with `aria-pressed` buttons | Bar Crawler, yarnball |
+| Switch | `.switch` (same 36×18 pill as `.dark-toggle`) | Site dark toggle |
+| Fields | `.field`, `.label`, `.input`, `.select`, `.search` | Bracket Buddy controls, Bar Crawler search |
+| Labels | `.eyebrow`, `.tag`, `.tag-accent`, `.badge` + `.badge-high`/`-medium`/`-low` | Bar Crawler, yarnball |
+| Info modal | `dialog.app-modal`, `.app-modal-header`, `.app-modal-body`, `.app-modal-meta` (data-updated line) | Bracket Buddy, Bar Crawler |
+| Popover, toast | `.popover`, `.toast` (+ `window.appToast()`) | Bar Crawler |
+| App shell | `.app-shell`, `.app-main`, `.app-panel`, `.app-section` | Bar Crawler, yarnball |
+| Hub | `.hub`, `.hub-heading`, `.hub-gallery`, `.hub-card`, `.hub-preview` (light/dark image pair), `.hub-card-meta`, `.hub-card-note`, `.hub-footer` | yarnball |
+
+`/js/apps.js` wires the theme switch (`[data-theme-toggle]`, same `darkMode` key as the site), modals (`[data-open-modal]`, `[data-close-modal]`, backdrop click) and toasts.
+
+**Promotion log** (newest first). When an element moves between levels, add a row.
+| Date | Element | Move |
+|---|---|---|
+| 2026-10 | Everything above | Initial app layer, drawn from Bracket Buddy, NYC CFB Bar Crawler and yarnball |
