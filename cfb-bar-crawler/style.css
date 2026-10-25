@@ -386,7 +386,10 @@ a.button:hover { background: var(--hover); color: var(--text); }
 .toast { position: fixed; left: 50%; bottom: 84px; transform: translateX(-50%); background: var(--selected); color: var(--selected-text); padding: 10px 14px; border-radius: 6px; font-size: 12px; z-index: 50; box-shadow: var(--shadow-popover); }
 
 @media (max-width: 1240px) {
-  main { grid-template-columns: 310px minmax(0, 1fr); grid-template-rows: 55% 45%; }
+  /* The map row never shrinks below its contents (tools, map, legend), so on short windows the crawl
+     row gives up the space and scrolls, instead of the legend spilling under the crawl tabs. */
+  main { grid-template-columns: 310px minmax(0, 1fr); grid-template-rows: minmax(min-content, 55%) minmax(0, 1fr); }
+  #map { min-height: 200px; }
   .picks { grid-row: 1 / span 2; }
   .stage { grid-column: 2; grid-row: 1; padding-bottom: 8px; }
   .crawl { grid-column: 2; grid-row: 2; padding: 20px 0 32px 20px; border-left: 0; border-top: 1px solid var(--border); }
