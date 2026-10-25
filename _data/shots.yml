@@ -2,6 +2,14 @@
 # Tags: Bits (software, data viz), Atoms (physical builds, hardware, furniture), Pixels (digital design, branding)
 
 # 2026
+- title: CFB Bar Crawler
+  description: "Every FBS alumni club's game-watch bar in NYC, set against the week's schedule, with a Saturday crawl planner"
+  image: /assets/making/cfb-bar-crawler.webp
+  tags: [Bits]
+  url: /cfb-bar-crawler/
+  url_text: Try CFB Bar Crawler
+  date: 2026-10
+
 - title: Bracket Buddy
   description: "NCAA bracket pool optimizer"
   video: /assets/making/bracket-buddy.mp4

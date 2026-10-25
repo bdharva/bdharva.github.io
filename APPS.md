@@ -31,7 +31,8 @@ What ships is an explicit list. A new file in the dev repo stays private until i
   "title": "NYC CFB Bar Crawler",
   "title_split": ["CFB", "Bar Crawler"],
   "description": "Plan college football Saturdays around NYC alumni game-watch bars",
-  "card": { "icon": "beer", "title": "CFB Bar Crawler", "desc": "NYC alumni game-watch bars" },
+  "card": { "icon": "beer", "title": "CFB Bar Crawler", "desc": "NYC alumni game-watch bar planner" },
+  "making": { "description": "One or two lines for the Making page", "url_text": "Try CFB Bar Crawler", "date": "2026-10" },
   "preview": "docs/screens/preview.webp",
   "ship": ["index.html", "*.js", "app.css", "data/*.json"],
   "data_updated_from": "data/schedule.json#updated",
@@ -42,6 +43,7 @@ What ships is an explicit list. A new file in the dev repo stays private until i
 - `ship` is an allowlist of globs, relative to the dev repo. Nothing else is copied.
 - `title_split` drives the header title: first part plain, second part in the accent color.
 - `card` is the homepage carousel entry (Lucide icon name, title, one-line description).
+- `making` is the entry in `_data/shots.yml` (the Making page), with `preview` as its image and the tag `Bits`.
 - `preview` is a 1200×630 image, published to `/assets/making/<slug>.webp` and used for OG/Twitter cards.
 - `runtime_services` lists every outside host the public page calls, so it's clear what can break.
 - A hub adds `"pieces": [{ "slug": "yarnball", "ship": [...] }, …]`; each piece publishes to `/slug/piece/`.
@@ -133,7 +135,7 @@ One shared workflow (the `publish-to-site` skill), run from the dev repo:
 3. **Commit:**
    - **Data-only changes** (only files under `data/` changed) commit and push straight to `master`. Scheduled refreshes go live without review.
    - **Code, style or markup changes** go on a branch with a PR. Preview it with `jekyll serve` before merging.
-4. **First publish only**, in the same PR: the carousel card in `index.html`, the `sitemap.xml` entry, and the preview image in `/assets/making/`.
+4. **First publish only**, in the same PR: the carousel card in `index.html`, the Making entry in `_data/shots.yml`, the `sitemap.xml` entry, and the preview image in `/assets/making/`.
 
 ## 8. Scheduled refreshes
 
@@ -149,5 +151,5 @@ Apps with changing data (schedules, rankings, prices) refresh in the dev repo, n
 - [ ] Header, info modal (with "Data updated") and theme switch, per §5
 - [ ] `app.css` on tokens and the app layer; shared candidates noted for promotion
 - [ ] Works at `/slug/` (relative paths, hash state), on a phone, and in both themes
-- [ ] Preview image, carousel card and sitemap entry
+- [ ] Preview image, carousel card, Making entry and sitemap entry
 - [ ] First publish through a PR, previewed with `jekyll serve`

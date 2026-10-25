@@ -44,6 +44,10 @@ layout: null
     <loc>{{ site.url }}/county-counting/</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>{{ site.url }}/cfb-bar-crawler/</loc>
+    <priority>0.7</priority>
+  </url>
   {% for post in site.categories.blog %}
   <url>
     <loc>{{ post.url | prepend: site.url }}</loc>

@@ -1,0 +1,3578 @@
+{
+ "updated": "2026-10-02T03:35:16+00:00",
+ "bars": [
+  {
+   "id": "3-sheets-saloon-134w3s",
+   "name": "3 Sheets Saloon",
+   "address": "134 W 3rd St, New York, NY 10012",
+   "neighborhood": "Greenwich Village",
+   "borough": "Manhattan",
+   "lng": -74.001031,
+   "lat": 40.730689,
+   "teams": [
+    {
+     "id": "2509",
+     "role": "official",
+     "confidence": "medium",
+     "club": "Purdue Alumni Club of New York City",
+     "lastSeen": "2026",
+     "sources": [
+      "https://gamewatch.info/teams/purdue-boilermakers/bars/3-sheets-saloon-134-west-3rd-street-manhattan-new-york-ny-united-states",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://vinepair.com/articles/best-new-york-college-football-bars/"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "151",
+     "role": "official",
+     "confidence": "medium",
+     "club": "New York Metro Chapter of the ECU Alumni Association",
+     "lastSeen": "2021",
+     "sources": [
+      "http://murphguide.com/sports/aac-football/",
+      "https://www.3sheetsnyc.com/hours-and-location/",
+      "https://www.piratealumni.com/s/722/19/interior.aspx?sid=722&gid=1&pgid=3937&crid=0&calpgid=362&calcid=921"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "5th-madison-5th-mad-7e36st",
+   "name": "5th & Madison (5th&Mad)",
+   "address": "7 E 36th St, New York, NY 10016",
+   "neighborhood": "Murray Hill / Midtown East",
+   "borough": "Manhattan",
+   "lng": -73.983014,
+   "lat": 40.749672,
+   "teams": [
+    {
+     "id": "194",
+     "role": "official",
+     "confidence": "high",
+     "club": "Ohio State Alumni Club of New York City",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.osu.edu/alumni/get-involved/clubs-societies/new-york-city-alumni-club-game-watch",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "awol-bar-grill-3373av",
+   "name": "AWOL Bar & Grill",
+   "address": "337 3rd Ave, New York, NY 10010",
+   "neighborhood": "Kips Bay / Gramercy",
+   "borough": "Manhattan",
+   "lng": -73.981984,
+   "lat": 40.739893,
+   "teams": [
+    {
+     "id": "59",
+     "role": "official",
+     "confidence": "high",
+     "club": "Georgia Tech Alumni Association NYC",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.gtalumni.org/regional-networks/game-watching/default.html"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "american-whiskey-247w30",
+   "name": "American Whiskey",
+   "address": "247 W 30th St, New York, NY 10001",
+   "neighborhood": "Chelsea / Penn Station area",
+   "borough": "Manhattan",
+   "lng": -73.994072,
+   "lat": 40.749383,
+   "teams": [
+    {
+     "id": "61",
+     "role": "official",
+     "confidence": "medium",
+     "club": "NYC Dawgs (UGA Alumni Chapter - New York City)",
+     "lastSeen": "2025",
+     "sources": [
+      "https://teambarfinder.com/fan-bar-tag/best-alumni-bars-to-watch-georgia-bulldogs-new-york-city/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://gamewatch.info/teams/georgia-bulldogs/bars/american-whiskey-247-west-30th-street-manhattan-new-york-ny-united-states"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "258",
+     "role": "official",
+     "confidence": "high",
+     "club": "Virginia Club of New York",
+     "lastSeen": "2025",
+     "sources": [
+      "https://engagement.virginia.edu/virginia-club-of-new-york-uva-vs-duke-football-game-watch-tickets-1965481069789",
+      "https://engagement.virginia.edu/virginia-club-of-new-york-uva-vs-unc-football-game-watch-tickets-1047036643787"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "beckett-s-sports-bar-81pear",
+   "name": "Beckett's Sports Bar",
+   "address": "81 Pearl St, New York, NY 10004",
+   "neighborhood": "Financial District",
+   "borough": "Manhattan",
+   "lng": -74.010341,
+   "lat": 40.70414,
+   "teams": [
+    {
+     "id": "2641",
+     "role": "official",
+     "confidence": "high",
+     "club": "Texas Tech Alumni Association of New York City",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.texastechalumni.org/gameday",
+      "https://www.texastechalumni.org/?sid=1422&gid=1001&pgid=6761&cid=15848&ecid=15848&crid=97&calpgid=1345&calcid=4104"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "bella-union-4113av",
+   "name": "Bella Union",
+   "address": "411 3rd Ave, New York, NY 10016",
+   "neighborhood": "Kips Bay",
+   "borough": "Manhattan",
+   "lng": -73.980185,
+   "lat": 40.74237,
+   "teams": [
+    {
+     "id": "2116",
+     "role": "secondary",
+     "confidence": "high",
+     "club": "UCF Alumni NYC / Knights Around the Nation",
+     "lastSeen": "2026",
+     "sources": [
+      "https://ucfalumni.com/watchparties-eastern/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "blondie-s-sports-bar-212w79",
+   "name": "Blondie's Sports Bar",
+   "address": "212 W 79th St, New York, NY 10024",
+   "neighborhood": "Upper West Side",
+   "borough": "Manhattan",
+   "lng": -73.97921,
+   "lat": 40.7832,
+   "teams": [
+    {
+     "id": "77",
+     "role": "official",
+     "confidence": "high",
+     "club": "Northwestern Alumni Association (NYC chapter)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://nusports.com/national-watch-parties",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "127",
+     "role": "official",
+     "confidence": "medium",
+     "club": "MSU Alumni Club of Greater NYC (Greater NYC Spartans)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.greaternycspartans.org/s/1393/18/interior.aspx?sid=1393&gid=82&pgid=7740",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "blue-haven-east-4933av",
+   "name": "Blue Haven East",
+   "address": "493 3rd Ave, New York, NY 10016",
+   "neighborhood": "Murray Hill",
+   "borough": "Manhattan",
+   "lng": -73.978181,
+   "lat": 40.745186,
+   "teams": [
+    {
+     "id": "130",
+     "role": "official",
+     "confidence": "high",
+     "club": "U-M Club of New York",
+     "lastSeen": "2026",
+     "sources": [
+      "https://alumni.umich.edu/communities-clubs/new-york-city/calendar/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "blue-haven-south-121ful",
+   "name": "Blue Haven South",
+   "address": "121 Fulton St, New York, NY 10038",
+   "neighborhood": "Financial District",
+   "borough": "Manhattan",
+   "lng": -74.007013,
+   "lat": 40.710146,
+   "teams": [
+    {
+     "id": "213",
+     "role": "official",
+     "confidence": "high",
+     "club": "Penn State Alumni Association NYC Chapter (PSU-NYC)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.pennstatenyc.com/game-watch-parties"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "brickyard-craft-kitchen-bar-23park",
+   "name": "Brickyard Craft Kitchen & Bar",
+   "address": "23 Park Pl, New York, NY 10007",
+   "neighborhood": "Tribeca / FiDi",
+   "borough": "Manhattan",
+   "lng": -74.00863,
+   "lat": 40.713366,
+   "teams": [
+    {
+     "id": "130",
+     "role": "official",
+     "confidence": "high",
+     "club": "U-M Club of New York",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "carragher-s-bar-boot-room-17john",
+   "name": "Carragher's Bar & Boot Room",
+   "address": "17 John St, New York, NY 10038",
+   "neighborhood": "Financial District",
+   "borough": "Manhattan",
+   "lng": -74.008657,
+   "lat": 40.710042,
+   "teams": [
+    {
+     "id": "84",
+     "role": "fan",
+     "confidence": "low",
+     "club": "IU Alumni Association Metro New York Chapter",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://gamewatch.info/bars/carraghers-new-york-ny"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "239",
+     "role": "official",
+     "confidence": "medium",
+     "club": "Baylor Alumni New York City",
+     "lastSeen": "2025",
+     "sources": [
+      "https://alumni.web.baylor.edu/get-involved/regional-groups/new-york-city-ny",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://asuevents.asu.edu/event/asu-baylor-football-game-watch-party-new-york-alumni-chapter",
+      "https://downtownny.com/news/carraghers-irish-american/"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "9",
+     "role": "official",
+     "confidence": "medium",
+     "club": "ASU Alumni New York Chapter",
+     "lastSeen": "2025",
+     "sources": [
+      "https://asuevents.asu.edu/event/asu-baylor-football-game-watch-party-new-york-alumni-chapter",
+      "https://asuevents.asu.edu/event/asu-sun-devils-peach-bowl-game-watch-party-new-york-alumni-chapter"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "central-park-tavern-327w57",
+   "name": "Central Park Tavern",
+   "address": "327 W 57th St, New York, NY 10019",
+   "neighborhood": "Midtown West",
+   "borough": "Manhattan",
+   "lng": -73.984036,
+   "lat": 40.767473,
+   "teams": [
+    {
+     "id": "130",
+     "role": "official",
+     "confidence": "high",
+     "club": "U-M Club of New York",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.centralparktavern.com/event/michigan-werewolves/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "clarke-and-moore-2018av",
+   "name": "Clarke and Moore",
+   "address": "201 8th Ave, New York, NY 10011",
+   "neighborhood": "Chelsea",
+   "borough": "Manhattan",
+   "lng": -73.999997,
+   "lat": 40.743737,
+   "teams": [
+    {
+     "id": "254",
+     "role": "official",
+     "confidence": "high",
+     "club": "University of Utah Alumni Association New York City Chapter",
+     "lastSeen": "2026",
+     "sources": [
+      "https://ulink.utah.edu/s/1077/23/1col.aspx?sid=1077&gid=1&pgid=6342&cid=17778&ecid=17778&ciid=85066&crid=0",
+      "https://www.facebook.com/NewYorkUtes/",
+      "https://clarkeandmoore.com/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "clinton-hall-16w36s",
+   "name": "Clinton Hall",
+   "address": "16 W 36th St, Suite 501, New York, NY 10018",
+   "neighborhood": "Midtown / Garment District",
+   "borough": "Manhattan",
+   "lng": -73.984791,
+   "lat": 40.749976,
+   "teams": [
+    {
+     "id": "2390",
+     "role": "official",
+     "confidence": "high",
+     "club": "New York 'Canes (University of Miami Alumni Association)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://events.miami.edu/event/new-york-canes-miami-vs-wake-forest-game-watch",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "clinton-hall-51st-st-230e51",
+   "name": "Clinton Hall (51st St)",
+   "address": "230 E 51st St, New York, NY 10022",
+   "neighborhood": "Midtown East",
+   "borough": "Manhattan",
+   "lng": -73.969105,
+   "lat": 40.755726,
+   "teams": [
+    {
+     "id": "12",
+     "role": "official",
+     "confidence": "high",
+     "club": "University of Arizona New York City MetroCats",
+     "lastSeen": "2026",
+     "sources": [
+      "https://alumni.arizona.edu/events/new-york-ny-nyc-alumni-chapter-football-watch-party-arizona-vs-byu",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "continental-sports-lounge-82beav",
+   "name": "Continental Sports Lounge",
+   "address": "82 Beaver St, New York, NY 10005",
+   "neighborhood": "Financial District",
+   "borough": "Manhattan",
+   "lng": -74.008564,
+   "lat": 40.705204,
+   "teams": [
+    {
+     "id": "84",
+     "role": "official",
+     "confidence": "medium",
+     "club": "IU Alumni Association Metro New York Chapter",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.myiu.org/get-involved/chapters-groups/united-states-chapters/new-york-nyc.html"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "cornerstone-tavern-9612av",
+   "name": "Cornerstone Tavern",
+   "address": "961 2nd Ave, New York, NY 10022",
+   "neighborhood": "Midtown East",
+   "borough": "Manhattan",
+   "lng": -73.968427,
+   "lat": 40.755536,
+   "teams": [
+    {
+     "id": "2305",
+     "role": "official",
+     "confidence": "medium",
+     "club": "KU Alumni NYC chapter",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.cornerstonetavern.com/event/ku-watch-parties/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "diamante-s-4108av",
+   "name": "Diamante's",
+   "address": "410 8th Ave, New York, NY 10001",
+   "neighborhood": "Midtown West / Penn Station",
+   "borough": "Manhattan",
+   "lng": -73.994737,
+   "lat": 40.749887,
+   "teams": [
+    {
+     "id": "204",
+     "role": "official",
+     "confidence": "high",
+     "club": "Oregon State Alumni Association",
+     "lastSeen": "2026",
+     "sources": [
+      "https://fororegonstate.org/get-involved/events/football-2026/football-game-watch-sites"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "district-tap-house-246w38",
+   "name": "District Tap House",
+   "address": "246 W 38th St, New York, NY 10018",
+   "neighborhood": "Garment District",
+   "borough": "Manhattan",
+   "lng": -73.990464,
+   "lat": 40.75398,
+   "teams": [
+    {
+     "id": "164",
+     "role": "official",
+     "confidence": "high",
+     "club": "The Rutgers Club of NYC",
+     "lastSeen": "2026",
+     "sources": [
+      "https://rutgersfoundation.org/football-watch-parties",
+      "https://rutgersfoundation.org/event/sporting-tailgate-events/rutgers-game-watch-parties-fall-2026",
+      "https://www.yelp.com/biz/district-tap-house-new-york",
+      "https://districttaphouse.com/"
+     ],
+     "publicNote": "Rutgers Club of NYC's 2026 home; watch parties start 30 minutes before kickoff, no RSVP needed."
+    },
+    {
+     "id": "25",
+     "role": "official",
+     "confidence": "medium",
+     "club": "Cal Alumni Club of New York (CACNY)",
+     "lastSeen": "2025",
+     "sources": [
+      "https://bearinsider.com/forums/2/topics/103425",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "dorrian-s-red-hand-16162a",
+   "name": "Dorrian's Red Hand",
+   "address": "1616 2nd Ave, New York, NY 10028",
+   "neighborhood": "Upper East Side",
+   "borough": "Manhattan",
+   "lng": -73.952454,
+   "lat": 40.776329,
+   "teams": [
+    {
+     "id": "275",
+     "role": "official",
+     "confidence": "medium",
+     "club": "Big Apple Badgers (Wisconsin Alumni Association)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.dorrians-nyc.com/",
+      "https://happy-hour.nyc/deals/wisconsin-badgers-bars-nyc",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "downtown-social-1492av",
+   "name": "Downtown Social",
+   "address": "149 2nd Ave, New York, NY 10003",
+   "neighborhood": "East Village",
+   "borough": "Manhattan",
+   "lng": -73.987417,
+   "lat": 40.729543,
+   "teams": [
+    {
+     "id": "145",
+     "role": "official",
+     "confidence": "high",
+     "club": "The Ole Miss Club of New York",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.olemissalumni.com/watch-parties/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "earnie-s-bar-at-half-pint-76w3st",
+   "name": "Earnie's Bar at Half Pint",
+   "address": "76 W 3rd St, New York, NY 10012",
+   "neighborhood": "Greenwich Village",
+   "borough": "Manhattan",
+   "lng": -73.998536,
+   "lat": 40.729482,
+   "teams": [
+    {
+     "id": "333",
+     "role": "official",
+     "confidence": "medium",
+     "club": "Greater New York Alabama Alumni Association (UANYC)",
+     "lastSeen": "2025",
+     "sources": [
+      "https://alumni.ua.edu/blog/2025/08/22/2025-chapter-watch-party-locations/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "east-end-bar-grill-16641a",
+   "name": "East End Bar & Grill",
+   "address": "1664 1st Ave, New York, NY 10028",
+   "neighborhood": "Upper East Side",
+   "borough": "Manhattan",
+   "lng": -73.948724,
+   "lat": 40.777282,
+   "teams": [
+    {
+     "id": "183",
+     "role": "fan",
+     "confidence": "medium",
+     "club": "Syracuse University Alumni Club of NYC (Big Apple Orange)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://vinepair.com/articles/best-new-york-college-football-bars/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "failte-5312av",
+   "name": "Failte",
+   "address": "531 2nd Ave, New York, NY 10016",
+   "neighborhood": "Kips Bay",
+   "borough": "Manhattan",
+   "lng": -73.978184,
+   "lat": 40.742078,
+   "teams": [
+    {
+     "id": "66",
+     "role": "official",
+     "confidence": "medium",
+     "club": "Iowa State Alumni (NYC)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.facebook.com/isunyc/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://iowastater.iastate.edu/summer-2023/article/club-connection",
+      "https://2ndhomesports.com/blogs/iowa-state-cyclones-bars-in-new-york-city/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "finnerty-s-18w33s",
+   "name": "Finnerty's",
+   "address": "18 W 33rd St, New York, NY 10001",
+   "neighborhood": "Midtown / Koreatown",
+   "borough": "Manhattan",
+   "lng": -73.986332,
+   "lat": 40.748072,
+   "teams": [
+    {
+     "id": "24",
+     "role": "fan",
+     "confidence": "low",
+     "club": "Stanford New York Alumni",
+     "lastSeen": "2022",
+     "sources": [
+      "http://murphguide.com/sports/pac-12-football-game-watching-in-nyc/",
+      "https://www.yelp.com/biz/finnerty-s-new-york",
+      "https://www.sfgate.com/food/article/nyc-sports-bar-warriors-giants-love-sf-20275858.php"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "fools-gold-nyc-145eho",
+   "name": "Fools Gold NYC",
+   "address": "145 E Houston St, New York, NY 10002",
+   "neighborhood": "Lower East Side",
+   "borough": "Manhattan",
+   "lng": -73.989808,
+   "lat": 40.723005,
+   "teams": [
+    {
+     "id": "130",
+     "role": "official",
+     "confidence": "high",
+     "club": "U-M Club of New York",
+     "lastSeen": "2026",
+     "sources": [
+      "https://alumni.umich.edu/communities-clubs/new-york-city/calendar/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "gossip-bar-restaurant-7339av",
+   "name": "Gossip Bar & Restaurant",
+   "address": "733 9th Ave, New York, NY 10019",
+   "neighborhood": "Hell's Kitchen",
+   "borough": "Manhattan",
+   "lng": -73.989438,
+   "lat": 40.76338,
+   "teams": [
+    {
+     "id": "97",
+     "role": "official",
+     "confidence": "medium",
+     "club": "University of Louisville NYC Alumni Chapter",
+     "lastSeen": "2025",
+     "sources": [
+      "https://www.uoflalumni.org/s/1157/19/alumni/interior.aspx?sid=1157&gid=1&pgid=11217&cid=19239&ecid=19239&crid=0&calpgid=6040&calcid=10305",
+      "http://murphguide.com/sports/acc-football-game-watching-in-nyc/",
+      "https://www.yelp.com/biz/gossip-bar-and-restaurant-new-york"
+     ],
+     "publicNote": "Irish pub where the Louisville NYC alumni chapter holds its game watches."
+    }
+   ]
+  },
+  {
+   "id": "gramercy-ale-house-2723av",
+   "name": "Gramercy Ale House",
+   "address": "272 3rd Ave, New York, NY 10010",
+   "neighborhood": "Gramercy",
+   "borough": "Manhattan",
+   "lng": -73.98413,
+   "lat": 40.737977,
+   "teams": [
+    {
+     "id": "61",
+     "role": "official",
+     "confidence": "medium",
+     "club": "NYC Dawgs (UGA Alumni Chapter - New York City)",
+     "lastSeen": "2025",
+     "sources": [
+      "https://calendar.uga.edu/event/nyc_dawgs_g-day_game_watch_gramercy_ale_house_41523",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "2628",
+     "role": "fan",
+     "confidence": "medium",
+     "club": "TCU Alumni New York City",
+     "lastSeen": "2026",
+     "sources": [
+      "https://gamewatch.info/teams/tcu-horned-frogs/cities/new-york-ny",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "green-rock-tap-grill-70huds",
+   "name": "Green Rock Tap & Grill",
+   "address": "70 Hudson St, Hoboken, NJ 07030",
+   "neighborhood": "Hoboken",
+   "borough": "NJ",
+   "lng": -74.008269,
+   "lat": 40.717659,
+   "teams": [
+    {
+     "id": "164",
+     "role": "secondary",
+     "confidence": "high",
+     "club": "The Rutgers Club of NYC",
+     "lastSeen": "2026",
+     "sources": [
+      "https://rutgersfoundation.org/football-watch-parties",
+      "https://rutgersfoundation.org/event/sporting-tailgate-events/rutgers-game-watch-parties-fall-2026",
+      "https://www.hobokengirl.com/green-rock-tap-grill-hoboken-nj-rutgers-games/",
+      "https://www.yelp.com/biz/green-rock-tap-and-grill-hoboken"
+     ],
+     "publicNote": "Official Hoboken Rutgers watch spot; parties start an hour before kickoff and the bar serves fat sandwiches on game days."
+    }
+   ]
+  },
+  {
+   "id": "harlem-tavern-2153fr",
+   "name": "Harlem Tavern",
+   "address": "2153 Frederick Douglass Blvd, New York, NY 10026",
+   "neighborhood": "Harlem",
+   "borough": "Manhattan",
+   "lng": -73.955592,
+   "lat": 40.804797,
+   "teams": [
+    {
+     "id": "2226",
+     "role": "secondary",
+     "confidence": "low",
+     "club": "FAU Alumni Association (no dedicated NYC football club found)",
+     "lastSeen": "2023",
+     "sources": [
+      "https://www.wptv.com/sports/college-sports/florida-atlantic-university/florida-atlantic-university-alumni-association-to-host-final-four-watch-parties-across-us",
+      "https://harlemtavern.com/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "haswell-green-s-240w52",
+   "name": "Haswell Green's",
+   "address": "240 W 52nd St, New York, NY 10019",
+   "neighborhood": "Theater District",
+   "borough": "Manhattan",
+   "lng": -73.984205,
+   "lat": 40.762951,
+   "teams": [
+    {
+     "id": "201",
+     "role": "official",
+     "confidence": "high",
+     "club": "OU Alumni Club of New York City (NYC Sooners)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.haswellgreens.com/news-item/ou-sooners/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": "Dedicated Sooners section, first come, first served; no reservations."
+    }
+   ]
+  },
+  {
+   "id": "horn-s-hook-tavern-15891a",
+   "name": "Horn's Hook Tavern",
+   "address": "1589 1st Ave, New York, NY 10028",
+   "neighborhood": "Upper East Side",
+   "borough": "Manhattan",
+   "lng": -73.95117,
+   "lat": 40.774879,
+   "teams": [
+    {
+     "id": "251",
+     "role": "secondary",
+     "confidence": "medium",
+     "club": "Texas Exes New York Chapter",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.texasexes.org/chapters-and-networks/find-chapter-or-network/80/new-york/game-watches"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "idaho-bar-349e13",
+   "name": "Idaho Bar",
+   "address": "349 E 13th St, New York, NY 10003",
+   "neighborhood": "East Village",
+   "borough": "Manhattan",
+   "lng": -73.983361,
+   "lat": 40.730944,
+   "teams": [
+    {
+     "id": "68",
+     "role": "official",
+     "confidence": "high",
+     "club": "Boise State Alumni NYC",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.boisestate.edu/alumni/2026/08/01/oregon/",
+      "https://www.idahobarnyc.com/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "j-kennedy-s-nyc-8w38st",
+   "name": "J. Kennedy's NYC",
+   "address": "8 W 38th St, New York, NY 10018",
+   "neighborhood": "Midtown / Garment District",
+   "borough": "Manhattan",
+   "lng": -73.98365,
+   "lat": 40.751107,
+   "teams": [
+    {
+     "id": "26",
+     "role": "official",
+     "confidence": "high",
+     "club": "UCLA Alumni New York Tri-State Network",
+     "lastSeen": "2026",
+     "sources": [
+      "https://alumni.ucla.edu/event/new-york-tri-state-network-ucla-football-game-watch-party-vs-san-diego-state/",
+      "https://alumni.ucla.edu/event/new-york-tri-state-network-ucla-football-game-watch-party-oregon/",
+      "https://alumni.ucla.edu/event/new-york-tri-state-network-ucla-football-game-watch-party-vs-wisconsin/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "jack-demsey-s-36w33s",
+   "name": "Jack Demsey's",
+   "address": "36 W 33rd St, New York, NY 10001",
+   "neighborhood": "Midtown / Herald Square",
+   "borough": "Manhattan",
+   "lng": -73.986983,
+   "lat": 40.7483,
+   "teams": [
+    {
+     "id": "96",
+     "role": "official",
+     "confidence": "high",
+     "club": "NYC UK Alumni Club",
+     "lastSeen": "2026",
+     "sources": [
+      "https://jackdemseys.com/university-of-kentucky.html",
+      "https://nycukwildcats.com/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "41",
+     "role": "fan",
+     "confidence": "low",
+     "club": "UConn Alumni NYC",
+     "lastSeen": "2025",
+     "sources": [
+      "https://gamewatch.info/teams/uconn-huskies/cities/new-york-ny",
+      "https://www.events.foundation.uconn.edu/ereg/inactive.php?eventid=340303"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "jack-doyle-s-240w35",
+   "name": "Jack Doyle's",
+   "address": "240 W 35th St, New York, NY 10001",
+   "neighborhood": "Garment District",
+   "borough": "Manhattan",
+   "lng": -73.991854,
+   "lat": 40.752141,
+   "teams": [
+    {
+     "id": "245",
+     "role": "official",
+     "confidence": "high",
+     "club": "New York Aggies (Aggie Network)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://nyaggies.aggienetwork.com/2025-game-watch-parties/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://www.yelp.com/biz/jack-doyles-bar-and-restaurant-new-york"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "277",
+     "role": "official",
+     "confidence": "high",
+     "club": "WVU Alumni NY/NJ Metro Chapter",
+     "lastSeen": "2025",
+     "sources": [
+      "https://cal.wvu.edu/event/nynj-metro-chapter-tcu-game-watch"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "john-sullivan-s-210w35",
+   "name": "John Sullivan's",
+   "address": "210 W 35th St, New York, NY 10001",
+   "neighborhood": "Midtown / Herald Square",
+   "borough": "Manhattan",
+   "lng": -73.990702,
+   "lat": 40.751654,
+   "teams": [
+    {
+     "id": "135",
+     "role": "official",
+     "confidence": "high",
+     "club": "UMAA Greater New York, New Jersey & Connecticut Network",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.umnalumni.org/s/1867/23/1col.aspx?sid=1867&gid=2&pgid=4707",
+      "https://www.umnalumni.org/s/1867/23/1col.aspx?sid=1867&gid=2&pgid=801",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": "Club watch parties for select games: Oct 3 Michigan, Oct 10 at Purdue, Oct 24 Iowa (Homecoming), Nov 7 UCLA, Nov 21 Northwestern, Nov 27 at Wisconsin."
+    }
+   ]
+  },
+  {
+   "id": "judy-z-s-sports-tavern-kitchen-17aves",
+   "name": "Judy Z's Sports Tavern & Kitchen",
+   "address": "1 7th Ave S, New York, NY 10014",
+   "neighborhood": "West Village",
+   "borough": "Manhattan",
+   "lng": -74.004754,
+   "lat": 40.729775,
+   "teams": [
+    {
+     "id": "238",
+     "role": "official",
+     "confidence": "high",
+     "club": "Vanderbilt Alumni Association New York Chapter",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.vanderbilt.edu/alumni/game-watch-parties/"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "38",
+     "role": "official",
+     "confidence": "high",
+     "club": "Forever Buffs New York",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.colorado.edu/alumni/events/game-watches",
+      "https://www.colorado.edu/alumni/2026/07/17/forever-buffs-volunteer-spotlight-judith-glyde"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "legends-6w33st",
+   "name": "Legends",
+   "address": "6 W 33rd St, New York, NY 10001",
+   "neighborhood": "Midtown / Herald Square",
+   "borough": "Manhattan",
+   "lng": -73.986024,
+   "lat": 40.747967,
+   "teams": [
+    {
+     "id": "99",
+     "role": "official",
+     "confidence": "high",
+     "club": "LSU NYC Metro Alumni",
+     "lastSeen": "2026",
+     "sources": [
+      "https://vinepair.com/articles/best-new-york-college-football-bars/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://legendsbarnyc.com/"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "41",
+     "role": "official",
+     "confidence": "high",
+     "club": "UConn Alumni NYC",
+     "lastSeen": "2026",
+     "sources": [
+      "https://x.com/uconnnycalumni?lang=en",
+      "https://gamewatch.info/teams/uconn-huskies/cities/new-york-ny",
+      "https://www.events.foundation.uconn.edu/ereg/inactive.php?eventid=836525",
+      "https://legendsbarnyc.com/"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "2483",
+     "role": "official",
+     "confidence": "high",
+     "club": "University of Oregon Alumni Association New York Ducks",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.uoalumni.com/event/athletic/2026/new-york-ducks-watch-party",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://legendsbarnyc.com/"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "167",
+     "role": "official",
+     "confidence": "medium",
+     "club": "UNM Alumni Association New York City Chapter",
+     "lastSeen": "2024",
+     "sources": [
+      "https://www.unmalumni.com/s/1730/20/interior-wide.aspx?sid=1730&gid=2&pgid=2646&cid=6055&ecid=6055&crid=0&calpgid=13&calcid=664",
+      "https://legendsbarnyc.com/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "lydia-s-161ave",
+   "name": "Lydia's",
+   "address": "16 1st Ave, New York, NY 10009",
+   "neighborhood": "East Village",
+   "borough": "Manhattan",
+   "lng": -73.98801,
+   "lat": 40.723407,
+   "teams": [
+    {
+     "id": "275",
+     "role": "secondary",
+     "confidence": "medium",
+     "club": "Big Apple Badgers (Wisconsin Alumni Association)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://happy-hour.nyc/deals/wisconsin-badgers-bars-nyc",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "mj-smith-s-food-spirits-9e45st",
+   "name": "MJ Smith's Food & Spirits",
+   "address": "9 E 45th St, New York, NY 10017",
+   "neighborhood": "Midtown East",
+   "borough": "Manhattan",
+   "lng": -73.978518,
+   "lat": 40.755255,
+   "teams": [
+    {
+     "id": "344",
+     "role": "official",
+     "confidence": "high",
+     "club": "Mississippi State Alumni Association - New York chapter",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.alumni.msstate.edu/gamewatch",
+      "https://murphguide.com/sports/sec-football-game-watching-in-nyc/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "mason-jar-43e30s",
+   "name": "Mason Jar",
+   "address": "43 E 30th St, New York, NY 10016",
+   "neighborhood": "Murray Hill",
+   "borough": "Manhattan",
+   "lng": -73.983594,
+   "lat": 40.744993,
+   "teams": [
+    {
+     "id": "2579",
+     "role": "official",
+     "confidence": "high",
+     "club": "New York City Gamecock Club (USC Alumni)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://sc.edu/uofsc/posts/2024/11/gamecock-nation-new-york.php",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "mchale-s-bar-grill-251w51",
+   "name": "McHale's Bar & Grill",
+   "address": "251 W 51st St, New York, NY 10019",
+   "neighborhood": "Theater District",
+   "borough": "Manhattan",
+   "lng": -73.985003,
+   "lat": 40.762896,
+   "teams": [
+    {
+     "id": "135",
+     "role": "fan",
+     "confidence": "low",
+     "club": "UMAA Greater New York, New Jersey & Connecticut Network",
+     "lastSeen": "2026",
+     "sources": [
+      "https://gamewatch.info/teams/minnesota-golden-gophers/bars/mchale-s-bar-grill-251-west-51st-street-manhattan-new-york-ny-united-states",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "mcmahon-s-public-house-395ave",
+   "name": "McMahon's Public House",
+   "address": "39 5th Ave, Brooklyn, NY 11217",
+   "neighborhood": "Park Slope",
+   "borough": "Brooklyn",
+   "lng": -73.976568,
+   "lat": 40.681675,
+   "teams": [
+    {
+     "id": "77",
+     "role": "secondary",
+     "confidence": "medium",
+     "club": "Northwestern Alumni Association (NYC chapter)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://nusports.com/national-watch-parties"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "meller-s-sports-hub-grill-17022a",
+   "name": "Meller's Sports Hub & Grill",
+   "address": "1702 2nd Ave, New York, NY 10128",
+   "neighborhood": "Upper East Side",
+   "borough": "Manhattan",
+   "lng": -73.950389,
+   "lat": 40.779232,
+   "teams": [
+    {
+     "id": "57",
+     "role": "official",
+     "confidence": "high",
+     "club": "Gotham Gator Club",
+     "lastSeen": "2026",
+     "sources": [
+      "http://www.gothamgators.com/viewingpartylocations",
+      "https://www.yelp.com/biz/mellers-sports-hub-and-grill-new-york"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "mommy-s-cocktail-bar-323gra",
+   "name": "Mommy's Cocktail Bar",
+   "address": "323 Graham Ave, Brooklyn, NY 11211",
+   "neighborhood": "East Williamsburg",
+   "borough": "Brooklyn",
+   "lng": -73.94452,
+   "lat": 40.713975,
+   "teams": [
+    {
+     "id": "264",
+     "role": "fan",
+     "confidence": "low",
+     "club": "UW Alumni Association New York City Huskies",
+     "lastSeen": "2026",
+     "sources": [
+      "https://2ndhomesports.com/blogs/washington-huskies-bars-in-new-york-city/",
+      "https://www.washington.edu/alumni/event/husky-social-brooklyn-edition/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "murphy-s-pub-9862av",
+   "name": "Murphy's Pub",
+   "address": "986 2nd Ave, New York, NY 10022",
+   "neighborhood": "Turtle Bay / Midtown East",
+   "borough": "Manhattan",
+   "lng": -73.967233,
+   "lat": 40.756167,
+   "teams": [
+    {
+     "id": "221",
+     "role": "fan",
+     "confidence": "low",
+     "club": "Pitt Alumni: New York City",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://murphguide.com/sports/acc-football-game-watching-in-nyc/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "mustang-harry-s-3527av",
+   "name": "Mustang Harry's",
+   "address": "352 7th Ave, New York, NY 10001",
+   "neighborhood": "Midtown / Penn Station",
+   "borough": "Manhattan",
+   "lng": -73.992989,
+   "lat": 40.748537,
+   "teams": [
+    {
+     "id": "120",
+     "role": "official",
+     "confidence": "medium",
+     "club": "New York Terps Alumni Network",
+     "lastSeen": "2026",
+     "sources": [
+      "https://x.com/newyorkterps?lang=en",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "2641",
+     "role": "secondary",
+     "confidence": "low",
+     "club": "Texas Tech Alumni Association of New York City",
+     "lastSeen": "2025",
+     "sources": [
+      "https://www.texastechalumni.org/gameday"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "239",
+     "role": "secondary",
+     "confidence": "low",
+     "club": "Baylor Alumni New York City",
+     "lastSeen": "",
+     "sources": [
+      "https://www.facebook.com/events/mustang-harrys-nyc/new-york-new-york-official-baylor-alumni-football-watch-party/648295409428521/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "o-keefe-s-bar-grill-62cour",
+   "name": "O'Keefe's Bar & Grill",
+   "address": "62 Court St, Brooklyn, NY 11201",
+   "neighborhood": "Downtown Brooklyn",
+   "borough": "Brooklyn",
+   "lng": -73.991467,
+   "lat": 40.692084,
+   "teams": [
+    {
+     "id": "197",
+     "role": "official",
+     "confidence": "medium",
+     "club": "NYC Cowboys (OSU Alumni Association NYC chapter)",
+     "lastSeen": "2025",
+     "sources": [
+      "https://2ndhomesports.com/blogs/oklahoma-state-cowboys-bars-in-new-york-city/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "olde-city-cheesesteaks-brew-9th-ave-5769av",
+   "name": "Olde City Cheesesteaks & Brew (9th Ave)",
+   "address": "576 9th Ave, New York, NY 10036",
+   "neighborhood": "Hell's Kitchen",
+   "borough": "Manhattan",
+   "lng": -73.992545,
+   "lat": 40.758089,
+   "teams": [
+    {
+     "id": "218",
+     "role": "official",
+     "confidence": "high",
+     "club": "Temple University Alumni Chapter of Metropolitan New York",
+     "lastSeen": "2026",
+     "sources": [
+      "https://alumni.temple.edu/s/705/bp24/interior.aspx?sid=705&gid=1&pgid=16828&cid=34558&ecid=34558&ciid=140389&crid=0",
+      "https://alumni.temple.edu/s/705/bp24/interior.aspx?sid=705&gid=1&pgid=16837&cid=34570&ecid=34570&ciid=140412&crid=0",
+      "https://www.loveoldecity.com/location/olde-city-576-9th-ave/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "olde-city-nomad-66madi",
+   "name": "Olde City NoMad",
+   "address": "66 Madison Ave, New York, NY 10016",
+   "neighborhood": "NoMad",
+   "borough": "Manhattan",
+   "lng": -73.986349,
+   "lat": 40.743746,
+   "teams": [
+    {
+     "id": "213",
+     "role": "official",
+     "confidence": "high",
+     "club": "Penn State Alumni Association NYC Chapter (PSU-NYC)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.pennstatenyc.com/game-watch-parties"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "olde-city-upper-east-side-16643a",
+   "name": "Olde City Upper East Side",
+   "address": "1664 3rd Ave, New York, NY 10128",
+   "neighborhood": "Upper East Side",
+   "borough": "Manhattan",
+   "lng": -73.950905,
+   "lat": 40.783549,
+   "teams": [
+    {
+     "id": "213",
+     "role": "official",
+     "confidence": "high",
+     "club": "Penn State Alumni Association NYC Chapter (PSU-NYC)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.pennstatenyc.com/game-watch-parties"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "overlook-225e44",
+   "name": "Overlook",
+   "address": "225 E 44th St, New York, NY 10017",
+   "neighborhood": "Midtown East / Grand Central",
+   "borough": "Manhattan",
+   "lng": -73.9722,
+   "lat": 40.751779,
+   "teams": [
+    {
+     "id": "356",
+     "role": "official",
+     "confidence": "medium",
+     "club": "Metro New York Illini Club",
+     "lastSeen": "2026",
+     "sources": [
+      "https://2ndhomesports.com/blogs/illinois-fighting-illini-bar-in-nyc-2024/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "pennsylvania-6-132w31",
+   "name": "Pennsylvania 6",
+   "address": "132 W 31st St, New York, NY 10001",
+   "neighborhood": "Midtown / Penn Station",
+   "borough": "Manhattan",
+   "lng": -73.99077,
+   "lat": 40.748226,
+   "teams": [
+    {
+     "id": "30",
+     "role": "official",
+     "confidence": "high",
+     "club": "USC Alumni Association / New York Trojan Network",
+     "lastSeen": "2026",
+     "sources": [
+      "https://alumni.usc.edu/game-watch/map/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "phebe-s-361bow",
+   "name": "Phebe's",
+   "address": "361 Bowery, New York, NY 10003",
+   "neighborhood": "East Village",
+   "borough": "Manhattan",
+   "lng": -73.991291,
+   "lat": 40.726836,
+   "teams": [
+    {
+     "id": "2132",
+     "role": "official",
+     "confidence": "medium",
+     "club": "University of Cincinnati New York Alumni (UC Alumni New York Network)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://gamewatch.info/teams/cincinnati-bearcats",
+      "https://www.alumni.uc.edu/events/athletics/game-watches/wvu.html"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "phebe-s-tavern-grill-359bow",
+   "name": "Phebe's Tavern & Grill",
+   "address": "359 Bowery, New York, NY 10003",
+   "neighborhood": "NoHo / East Village",
+   "borough": "Manhattan",
+   "lng": -73.991291,
+   "lat": 40.726836,
+   "teams": [
+    {
+     "id": "84",
+     "role": "fan",
+     "confidence": "low",
+     "club": "IU Alumni Association Metro New York Chapter",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://alumni.iu.edu/events/game-watches.html"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "printers-alley-215w40",
+   "name": "Printers Alley",
+   "address": "215 W 40th St, New York, NY 10018",
+   "neighborhood": "Garment District / Times Square",
+   "borough": "Manhattan",
+   "lng": -73.988616,
+   "lat": 40.755314,
+   "teams": [
+    {
+     "id": "2633",
+     "role": "official",
+     "confidence": "high",
+     "club": "NYC UT Knoxville Alumni Chapter",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.printersalleynyc.com/tennessee",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "reilley-s-38w48s",
+   "name": "Reilley's",
+   "address": "38 W 48th St, New York, NY 10036",
+   "neighborhood": "Midtown / Rockefeller Center",
+   "borough": "Manhattan",
+   "lng": -73.980037,
+   "lat": 40.757849,
+   "teams": [
+    {
+     "id": "2567",
+     "role": "secondary",
+     "confidence": "medium",
+     "club": "SMU Alumni New York",
+     "lastSeen": "2024",
+     "sources": [
+      "https://s3.smu.edu/apps/events/rsvp_form.asp?e=newyorkcity2"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "reservoir-bar-70univ",
+   "name": "Reservoir Bar",
+   "address": "70 University Pl, New York, NY 10003",
+   "neighborhood": "Greenwich Village",
+   "borough": "Manhattan",
+   "lng": -73.993755,
+   "lat": 40.73322,
+   "teams": [
+    {
+     "id": "26",
+     "role": "fan",
+     "confidence": "low",
+     "club": "UCLA Alumni New York Tri-State Network",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://alumni.ucla.edu/event/new-york-tri-state-network-ucla-football-game-watch-party-vs-san-diego-state/"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "84",
+     "role": "fan",
+     "confidence": "low",
+     "club": "IU Alumni Association Metro New York Chapter",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://vinepair.com/articles/best-new-york-college-football-bars/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "roebling-sporting-club-225n8s",
+   "name": "Roebling Sporting Club",
+   "address": "225 N 8th St, Brooklyn, NY 11211",
+   "neighborhood": "Williamsburg",
+   "borough": "Brooklyn",
+   "lng": -73.954615,
+   "lat": 40.717026,
+   "teams": [
+    {
+     "id": "57",
+     "role": "official",
+     "confidence": "high",
+     "club": "Gotham Gator Club",
+     "lastSeen": "2026",
+     "sources": [
+      "http://www.gothamgators.com/viewingpartylocations",
+      "http://www.gothamgators.com/roebling-sporting-club"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "scruffy-duffy-s-63910a",
+   "name": "Scruffy Duffy's",
+   "address": "639 10th Ave, New York, NY 10036",
+   "neighborhood": "Hell's Kitchen",
+   "borough": "Manhattan",
+   "lng": -73.994254,
+   "lat": 40.76185,
+   "teams": [
+    {
+     "id": "259",
+     "role": "secondary",
+     "confidence": "high",
+     "club": "Manhattan Hokies (VT Alumni NYC Chapter)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.manhattanhokies.com/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "seven-sins-2933av",
+   "name": "Seven Sins",
+   "address": "293 3rd Ave, New York, NY 10010",
+   "neighborhood": "Gramercy",
+   "borough": "Manhattan",
+   "lng": -73.983064,
+   "lat": 40.73839,
+   "teams": [
+    {
+     "id": "87",
+     "role": "official",
+     "confidence": "high",
+     "club": "Notre Dame Club of New York City",
+     "lastSeen": "2026",
+     "sources": [
+      "https://happy-hour.nyc/deals/notre-dame-bars-nyc",
+      "https://sevensinsnyc.com/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "shades-of-green-pub-125e15",
+   "name": "Shades of Green Pub",
+   "address": "125 E 15th St, New York, NY 10003",
+   "neighborhood": "Union Square / Gramercy",
+   "borough": "Manhattan",
+   "lng": -73.987738,
+   "lat": 40.734681,
+   "teams": [
+    {
+     "id": "259",
+     "role": "official",
+     "confidence": "high",
+     "club": "Manhattan Hokies (VT Alumni NYC Chapter)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.manhattanhokies.com/",
+      "https://alumni.vt.edu/chapters/watch_parties.html"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "shaffer-s-1518av",
+   "name": "Shaffer's",
+   "address": "151 8th Ave, New York, NY 10011",
+   "neighborhood": "Chelsea",
+   "borough": "Manhattan",
+   "lng": -74.001155,
+   "lat": 40.74211,
+   "teams": [
+    {
+     "id": "152",
+     "role": "fan",
+     "confidence": "low",
+     "club": "NC State New York City Alumni Network",
+     "lastSeen": "2026",
+     "sources": [
+      "https://gamewatch.info/teams/north-carolina-state-wolfpack/cities/new-york-ny",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "2116",
+     "role": "secondary",
+     "confidence": "medium",
+     "club": "UCF Alumni NYC / Knights Around the Nation",
+     "lastSeen": "2025",
+     "sources": [
+      "https://www.instagram.com/p/DPRgOKVjgba/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "slattery-s-midtown-pub-8e36st",
+   "name": "Slattery's Midtown Pub",
+   "address": "8 E 36th St, New York, NY 10016",
+   "neighborhood": "Murray Hill",
+   "borough": "Manhattan",
+   "lng": -73.98302,
+   "lat": 40.749218,
+   "teams": [
+    {
+     "id": "87",
+     "role": "official",
+     "confidence": "high",
+     "club": "Notre Dame Club of New York City",
+     "lastSeen": "2026",
+     "sources": [
+      "https://happy-hour.nyc/deals/notre-dame-bars-nyc",
+      "https://ndnyc.org/"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "153",
+     "role": "official",
+     "confidence": "medium",
+     "club": "New York Carolina Club (UNC General Alumni Association)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://chapelapple.org/event/2024-football-game-watches/",
+      "https://murphguide.com/sports/acc-football-game-watching-in-nyc/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "2229",
+     "role": "official",
+     "confidence": "high",
+     "club": "FIU Alumni Greater New York Panther Network",
+     "lastSeen": "2026",
+     "sources": [
+      "https://webforms.fiu.edu/view.php?id=4965528",
+      "https://www.opentable.com/r/slatterys-mid-town-pub"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "sl-inte-bar-and-lounge-304bow",
+   "name": "Sl\u00e1inte Bar and Lounge",
+   "address": "304 Bowery, New York, NY 10012",
+   "neighborhood": "NoHo",
+   "borough": "Manhattan",
+   "lng": -73.992764,
+   "lat": 40.724809,
+   "teams": [
+    {
+     "id": "127",
+     "role": "secondary",
+     "confidence": "medium",
+     "club": "MSU Alumni Club of Greater NYC (Greater NYC Spartans)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.greaternycspartans.org/s/1393/18/interior.aspx?sid=1393&gid=82&pgid=7740",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "smithfield-hall-nyc-138w25",
+   "name": "Smithfield Hall NYC",
+   "address": "138 W 25th St, New York, NY 10001",
+   "neighborhood": "Chelsea",
+   "borough": "Manhattan",
+   "lng": -73.993629,
+   "lat": 40.744726,
+   "teams": [
+    {
+     "id": "26",
+     "role": "fan",
+     "confidence": "low",
+     "club": "UCLA Alumni New York Tri-State Network",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "248",
+     "role": "official",
+     "confidence": "high",
+     "club": "University of Houston Alumni Association NYC",
+     "lastSeen": "2026",
+     "sources": [
+      "https://houstonalumni.com/2025-postseason-bowl/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "social-bar-lounge-7958av",
+   "name": "Social Bar & Lounge",
+   "address": "795 8th Ave, New York, NY 10019",
+   "neighborhood": "Hell's Kitchen / Theater District",
+   "borough": "Manhattan",
+   "lng": -73.987188,
+   "lat": 40.761323,
+   "teams": [
+    {
+     "id": "326",
+     "role": "official",
+     "confidence": "low",
+     "club": "Texas State Alumni Association New York Area Bobcats",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.facebook.com/TxStNYC"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "st-pat-s-bar-grill-22w46s",
+   "name": "St. Pat's Bar & Grill",
+   "address": "22 W 46th St, New York, NY 10036",
+   "neighborhood": "Midtown",
+   "borough": "Manhattan",
+   "lng": -73.98041,
+   "lat": 40.756357,
+   "teams": [
+    {
+     "id": "2",
+     "role": "official",
+     "confidence": "medium",
+     "club": "New York Auburn Club",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://vinepair.com/articles/best-new-york-college-football-bars/",
+      "https://alumni.auburn.edu/project/newyork-watchparty/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "stout-bryant-park-109w39",
+   "name": "Stout Bryant Park",
+   "address": "109 W 39th St, New York, NY 10018",
+   "neighborhood": "Midtown / Bryant Park",
+   "borough": "Manhattan",
+   "lng": -73.985949,
+   "lat": 40.753458,
+   "teams": [
+    {
+     "id": "264",
+     "role": "fan",
+     "confidence": "medium",
+     "club": "UW Alumni Association New York City Huskies",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://www.feilenyc.com/event/washington-husky/"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "150",
+     "role": "official",
+     "confidence": "medium",
+     "club": "DukeNY (Duke Alumni Association, New York)",
+     "lastSeen": "2025",
+     "sources": [
+      "https://alumni.duke.edu/events/dukeny-game-watch-party-vs-unc",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "256",
+     "role": "official",
+     "confidence": "medium",
+     "club": "JMU Alumni Chapter - NYC Metro Dukes",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.stoutnyc.com/event/where-to-watch-nfl-college-football/",
+      "https://www.breezejmu.org/culture/jmu-bar-reunites-alumni-brings-jmu-football-to-the-big-apple/article_f02bce30-0b73-11ec-bfe2-f3639f30e703.html",
+      "https://www.yelp.com/biz/stout-nyc-new-york-10"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "stout-nyc-financial-district-90john",
+   "name": "Stout NYC Financial District",
+   "address": "90 John St, New York, NY 10038",
+   "neighborhood": "Financial District",
+   "borough": "Manhattan",
+   "lng": -74.006477,
+   "lat": 40.707899,
+   "teams": [
+    {
+     "id": "142",
+     "role": "official",
+     "confidence": "high",
+     "club": "Mizzou Alumni Association - New York City (MizzouNYC)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.mizzou.com/watchparties",
+      "https://www.stoutnyc.com/event/where-to-watch-nfl-college-football/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "stout-nyc-grand-central-60e41s",
+   "name": "Stout NYC Grand Central",
+   "address": "60 E 41st St, New York, NY 10017",
+   "neighborhood": "Midtown East / Grand Central",
+   "borough": "Manhattan",
+   "lng": -73.979002,
+   "lat": 40.751347,
+   "teams": [
+    {
+     "id": "251",
+     "role": "official",
+     "confidence": "high",
+     "club": "Texas Exes New York Chapter",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.texasexes.org/chapters-and-networks/find-chapter-or-network/80/new-york/game-watches",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "stout-penn-station-215w35",
+   "name": "Stout Penn Station",
+   "address": "215 W 35th St, New York, NY 10001",
+   "neighborhood": "Garment District / Penn Station",
+   "borough": "Manhattan",
+   "lng": -73.990677,
+   "lat": 40.752146,
+   "teams": [
+    {
+     "id": "8",
+     "role": "official",
+     "confidence": "high",
+     "club": "NYC Razorbacks (Arkansas Alumni NYC Chapter)",
+     "lastSeen": "2025",
+     "sources": [
+      "https://sites.google.com/view/nycrazorbacks/home",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://www.stoutnyc.com/location/stout-nyc-penn-station/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "sugar-mouse-473ave",
+   "name": "Sugar Mouse",
+   "address": "47 3rd Ave, New York, NY 10003",
+   "neighborhood": "East Village",
+   "borough": "Manhattan",
+   "lng": -73.988649,
+   "lat": 40.730789,
+   "teams": [
+    {
+     "id": "24",
+     "role": "secondary",
+     "confidence": "medium",
+     "club": "Stanford New York Alumni",
+     "lastSeen": "2025",
+     "sources": [
+      "https://www.berkeleyrealestate.org/event-6438647",
+      "https://www.sugarmousenyc.com/"
+     ],
+     "publicNote": "Where Stanford and Cal alumni held a joint Big Game watch party in 2025."
+    }
+   ]
+  },
+  {
+   "id": "t-squared-social-7e42st",
+   "name": "T-Squared Social",
+   "address": "7 E 42nd St, New York, NY 10017",
+   "neighborhood": "Midtown East",
+   "borough": "Manhattan",
+   "lng": -73.979803,
+   "lat": 40.753507,
+   "teams": [
+    {
+     "id": "213",
+     "role": "fan",
+     "confidence": "low",
+     "club": "Penn State Alumni Association NYC Chapter (PSU-NYC)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-ainsworth-midtown-45e33s",
+   "name": "The Ainsworth Midtown",
+   "address": "45 E 33rd St, New York, NY 10016",
+   "neighborhood": "Murray Hill",
+   "borough": "Manhattan",
+   "lng": -73.982376,
+   "lat": 40.746902,
+   "teams": [
+    {
+     "id": "333",
+     "role": "official",
+     "confidence": "medium",
+     "club": "Greater New York Alabama Alumni Association (UANYC)",
+     "lastSeen": "2025",
+     "sources": [
+      "https://www.instagram.com/uanyc/",
+      "https://www.theainsworth.com/ainsworth-nyc",
+      "http://www.uanyc.com/article.html?aid=102",
+      "https://www.yelp.com/biz/the-ainsworth-midtown-new-york?start=140"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-brazen-tavern-356w44",
+   "name": "The Brazen Tavern",
+   "address": "356 W 44th St, New York, NY 10036",
+   "neighborhood": "Hell's Kitchen",
+   "borough": "Manhattan",
+   "lng": -73.991307,
+   "lat": 40.759337,
+   "teams": [
+    {
+     "id": "158",
+     "role": "official",
+     "confidence": "high",
+     "club": "NYC Huskers (Nebraska Alumni Association chapter)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.nychuskers.com/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-chelsea-bell-3168av",
+   "name": "The Chelsea Bell",
+   "address": "316 8th Ave, New York, NY 10001",
+   "neighborhood": "Chelsea",
+   "borough": "Manhattan",
+   "lng": -73.996797,
+   "lat": 40.746824,
+   "teams": [
+    {
+     "id": "183",
+     "role": "official",
+     "confidence": "medium",
+     "club": "Syracuse University Alumni Club of NYC (Big Apple Orange)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.thechelseabell.com/",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-hairy-lemon-28aveb",
+   "name": "The Hairy Lemon",
+   "address": "28 Avenue B, New York, NY 10009",
+   "neighborhood": "Alphabet City",
+   "borough": "Manhattan",
+   "lng": -73.983367,
+   "lat": 40.72249,
+   "teams": [
+    {
+     "id": "213",
+     "role": "secondary",
+     "confidence": "high",
+     "club": "Penn State Alumni Association NYC Chapter (PSU-NYC)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.pennstatenyc.com/game-watch-parties"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-high-note-119e15",
+   "name": "The High Note",
+   "address": "119 E 15th St, New York, NY 10003",
+   "neighborhood": "Union Square",
+   "borough": "Manhattan",
+   "lng": -73.988455,
+   "lat": 40.734928,
+   "teams": [
+    {
+     "id": "2116",
+     "role": "official",
+     "confidence": "high",
+     "club": "UCF Alumni NYC / Knights Around the Nation",
+     "lastSeen": "2026",
+     "sources": [
+      "https://ucfalumni.com/watchparties-eastern/",
+      "https://www.thehighnoteny.com/"
+     ],
+     "publicNote": "Watch parties start 30 minutes before kickoff, with food and drink deals."
+    }
+   ]
+  },
+  {
+   "id": "the-keg-room-53w36s",
+   "name": "The Keg Room",
+   "address": "53 W 36th St, New York, NY 10018",
+   "neighborhood": "Garment District",
+   "borough": "Manhattan",
+   "lng": -73.985848,
+   "lat": 40.750898,
+   "teams": [
+    {
+     "id": "97",
+     "role": "secondary",
+     "confidence": "low",
+     "club": "University of Louisville NYC Alumni Chapter",
+     "lastSeen": "2023",
+     "sources": [
+      "http://murphguide.com/sports/acc-football-game-watching-in-nyc/",
+      "https://www.opentable.com/r/the-keg-room-new-york"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "66",
+     "role": "fan",
+     "confidence": "low",
+     "club": "Iowa State Alumni (NYC)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-perfect-pint-times-square-123w45",
+   "name": "The Perfect Pint - Times Square",
+   "address": "123 W 45th St, New York, NY 10036",
+   "neighborhood": "Theater District / Times Square",
+   "borough": "Manhattan",
+   "lng": -73.983681,
+   "lat": 40.757404,
+   "teams": [
+    {
+     "id": "2426",
+     "role": "official",
+     "confidence": "high",
+     "club": "Naval Academy Alumni Association - NY Metro Chapter (with New York Council Navy League)",
+     "lastSeen": "2025",
+     "sources": [
+      "https://www.nynavyleague.org/events/usna-football-watch-party-air-force-at-navy-chllk-763s2",
+      "https://www.nynavyleague.org/events/navy-vs-notre-dame-game-watch-party"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-playwright-irish-pub-27w35s",
+   "name": "The Playwright Irish Pub",
+   "address": "27 W 35th St, New York, NY 10001",
+   "neighborhood": "Midtown / Koreatown",
+   "borough": "Manhattan",
+   "lng": -73.985353,
+   "lat": 40.749884,
+   "teams": [
+    {
+     "id": "2294",
+     "role": "official",
+     "confidence": "high",
+     "club": "New York Metro Iowa Club",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.foriowa.org/networks/game-watches.php",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    },
+    {
+     "id": "265",
+     "role": "official",
+     "confidence": "medium",
+     "club": "Big Apple Cougars (WSU Alumni NYC)",
+     "lastSeen": "2025",
+     "sources": [
+      "https://www.playwrightirishpubnyc.com/washington-state-university/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-pony-bar-14441a",
+   "name": "The Pony Bar",
+   "address": "1444 1st Ave, New York, NY 10021",
+   "neighborhood": "Upper East Side",
+   "borough": "Manhattan",
+   "lng": -73.954235,
+   "lat": 40.76975,
+   "teams": [
+    {
+     "id": "2567",
+     "role": "official",
+     "confidence": "medium",
+     "club": "SMU Alumni New York",
+     "lastSeen": "2026",
+     "sources": [
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide",
+      "https://murphguide.com/sports/acc-football-game-watching-in-nyc/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-rutherford-w33st8",
+   "name": "The Rutherford",
+   "address": "W 33rd St & 8th Ave, New York, NY 10119",
+   "neighborhood": "Penn Station / Midtown",
+   "borough": "Manhattan",
+   "lng": -73.99538,
+   "lat": 40.752137,
+   "teams": [
+    {
+     "id": "228",
+     "role": "official",
+     "confidence": "high",
+     "club": "New York/Tri-State Clemson Club",
+     "lastSeen": "2026",
+     "sources": [
+      "https://alumni.clemson.edu/event/new-york-tri-state-clemson-club-watch-party-25/",
+      "https://events.clemson.edu/event/26277-new-yorktri-state-clemson-club-watch-party",
+      "https://www.therutherfordnyc.com/clemson-2025",
+      "https://www.therutherfordnyc.com/clemson",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-storehouse-7576av",
+   "name": "The Storehouse",
+   "address": "757 6th Ave, New York, NY 10010",
+   "neighborhood": "Flatiron / Chelsea",
+   "borough": "Manhattan",
+   "lng": -73.991971,
+   "lat": 40.744449,
+   "teams": [
+    {
+     "id": "2306",
+     "role": "official",
+     "confidence": "high",
+     "club": "New York City K-Staters (K-State Alumni Association)",
+     "lastSeen": "2026",
+     "sources": [
+      "https://www.k-state.com/participate/alumniandfriends/clubs/newyork.php",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-stumble-inn-14542a",
+   "name": "The Stumble Inn",
+   "address": "1454 2nd Ave, New York, NY 10021",
+   "neighborhood": "Upper East Side",
+   "borough": "Manhattan",
+   "lng": -73.956241,
+   "lat": 40.771159,
+   "teams": [
+    {
+     "id": "2309",
+     "role": "official",
+     "confidence": "medium",
+     "club": "Kent State University NYC Alumni Chapter",
+     "lastSeen": "2023",
+     "sources": [
+      "https://www.kent.edu/today/news/gearing-game-day",
+      "https://www.thestumbleinnnyc.com/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-tailor-public-house-kitchen-5058av",
+   "name": "The Tailor Public House & Kitchen",
+   "address": "505 8th Ave, New York, NY 10018",
+   "neighborhood": "Midtown West",
+   "borough": "Manhattan",
+   "lng": -73.993222,
+   "lat": 40.753186,
+   "teams": [
+    {
+     "id": "57",
+     "role": "official",
+     "confidence": "high",
+     "club": "Gotham Gator Club",
+     "lastSeen": "2026",
+     "sources": [
+      "http://www.gothamgators.com/viewingpartylocations",
+      "https://roamrecs.com/guide/nyc-college-football-bars-guide"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-three-monkeys-8328av",
+   "name": "The Three Monkeys",
+   "address": "832 8th Ave, New York, NY 10019",
+   "neighborhood": "Hell's Kitchen",
+   "borough": "Manhattan",
+   "lng": -73.98572,
+   "lat": 40.762347,
+   "teams": [
+    {
+     "id": "52",
+     "role": "official",
+     "confidence": "high",
+     "club": "Seminole Club of New York City",
+     "lastSeen": "2025",
+     "sources": [
+      "https://calendar.fsu.edu/event/seminole-club-of-new-york-city-game-watch-party-location-2"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "the-waylon-73610a",
+   "name": "The Waylon",
+   "address": "736 10th Ave, New York, NY 10019",
+   "neighborhood": "Hell's Kitchen",
+   "borough": "Manhattan",
+   "lng": -73.991434,
+   "lat": 40.764753,
+   "teams": [
+    {
+     "id": "195",
+     "role": "official",
+     "confidence": "high",
+     "club": "Metro NY Bobcats (Ohio University Alumni Network)",
+     "lastSeen": "2025",
+     "sources": [
+      "https://www.ohio.edu/news/2025/10/ohio-university-celebrate-homecoming-oct-13-18",
+      "https://calendar.ohio.edu/event/metro-ny-bobcats-2024-mac-football-championship-game-watch",
+      "https://calendar.ohio.edu/event/metro-ny-bobcats-give-thanks-november-football-watch-parties-and-food-drive",
+      "https://www.yelp.com/biz/the-waylon-new-york"
+     ],
+     "publicNote": "Ohio's NYC alumni gather at this Hell's Kitchen honky-tonk for Bobcats games, especially big MAC weekends."
+    }
+   ]
+  },
+  {
+   "id": "tipsy-nomad-37e28s",
+   "name": "Tipsy NoMad",
+   "address": "37 E 28th St, New York, NY 10016",
+   "neighborhood": "NoMad",
+   "borough": "Manhattan",
+   "lng": -73.984618,
+   "lat": 40.743798,
+   "teams": [
+    {
+     "id": "103",
+     "role": "official",
+     "confidence": "high",
+     "club": "BCNYC Alumni Chapter",
+     "lastSeen": "2026",
+     "sources": [
+      "https://bcnycalumni.com/gamewatches/",
+      "https://alumni-events.bc.edu/c/calendar/02192911-994d-489c-867e-1b2010d490f9"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "turnmill-bar-119e27",
+   "name": "Turnmill Bar",
+   "address": "119 E 27th St, New York, NY 10016",
+   "neighborhood": "NoMad",
+   "borough": "Manhattan",
+   "lng": -73.983569,
+   "lat": 40.74256,
+   "teams": [
+    {
+     "id": "154",
+     "role": "official",
+     "confidence": "high",
+     "club": "WAKENewYork (Wake Forest Alumni & Friends)",
+     "lastSeen": "2025",
+     "sources": [
+      "https://alumni.wfu.edu/wakewatches/",
+      "https://murphguide.com/sports/acc-football-game-watching-in-nyc/"
+     ],
+     "publicNote": ""
+    }
+   ]
+  },
+  {
+   "id": "versa-218w35",
+   "name": "VERSA",
+   "address": "218 W 35th St, New York, NY 10001",
+   "neighborhood": "Garment District",
+   "borough": "Manhattan",
+   "lng": -73.991043,
+   "lat": 40.751772,
+   "teams": [
+    {
+     "id": "130",
+     "role": "official",
+     "confidence": "high",
+     "club": "U-M Club of New York",
+     "lastSeen": "2026",
+     "sources": [
+      "https://alumni.umich.edu/communities-clubs/new-york-city/",
+      "https://versanyc.com/",
+      "https://versanyc.com/watch-college-football-versa"
+     ],
+     "publicNote": "Club watch spot for select games only: Western Michigan, Oklahoma, UTEP, Iowa, Minnesota, Penn State, Indiana, Michigan State, UCLA and Ohio State."
+    }
+   ]
+  },
+  {
+   "id": "wicked-willy-s-149ble",
+   "name": "Wicked Willy's",
+   "address": "149 Bleecker St, New York, NY 10012",
+   "neighborhood": "Greenwich Village",
+   "borough": "Manhattan",
+   "lng": -73.99923,
+   "lat": 40.72847,
+   "teams": [
+    {
+     "id": "52",
+     "role": "official",
+     "confidence": "high",
+     "club": "Seminole Club of New York City",
+     "lastSeen": "2025",
+     "sources": [
+      "https://calendar.fsu.edu/event/Seminole-club-of-New-York-City-game-watch-party-location-1"
+     ],
+     "publicNote": ""
+    }
+   ]
+  }
+ ],
+ "clubs": [
+  {
+   "team": "333",
+   "club": "Greater New York Alabama Alumni Association (UANYC)",
+   "url": "http://www.uanyc.com/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "57",
+   "club": "Gotham Gator Club",
+   "url": "http://www.gothamgators.com/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 3
+  },
+  {
+   "team": "61",
+   "club": "NYC Dawgs (UGA Alumni Chapter - New York City)",
+   "url": "https://calendar.uga.edu/group/uga_alumni_chapter_-_new_york_city",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "344",
+   "club": "Mississippi State Alumni Association - New York chapter",
+   "url": "https://www.alumni.msstate.edu/gamewatch",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "251",
+   "club": "Texas Exes New York Chapter",
+   "url": "https://www.texas.nyc/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "145",
+   "club": "The Ole Miss Club of New York",
+   "url": "https://www.facebook.com/nycrebelclub/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2",
+   "club": "New York Auburn Club",
+   "url": "https://alumni.auburn.edu/project/newyork-watchparty/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "96",
+   "club": "NYC UK Alumni Club",
+   "url": "https://nycukwildcats.com/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "99",
+   "club": "LSU NYC Metro Alumni",
+   "url": "https://www.instagram.com/lsunymetro/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "142",
+   "club": "Mizzou Alumni Association - New York City (MizzouNYC)",
+   "url": "https://www.mizzou.com/MIZNYC",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2633",
+   "club": "NYC UT Knoxville Alumni Chapter",
+   "url": "https://www.instagram.com/bigorangenyc/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "238",
+   "club": "Vanderbilt Alumni Association New York Chapter",
+   "url": "https://www.vanderbilt.edu/alumni/game-watch-parties/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "8",
+   "club": "NYC Razorbacks (Arkansas Alumni NYC Chapter)",
+   "url": "https://sites.google.com/view/nycrazorbacks/home",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "201",
+   "club": "OU Alumni Club of New York City (NYC Sooners)",
+   "url": "http://nysooners.com/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2579",
+   "club": "New York City Gamecock Club (USC Alumni)",
+   "url": "https://uofscalumni.org/donor_stories/new-york-city-gamecocks/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "245",
+   "club": "New York Aggies (Aggie Network)",
+   "url": "https://nyaggies.aggienetwork.com/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "87",
+   "club": "Notre Dame Club of New York City",
+   "url": "https://ndnyc.org/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "41",
+   "club": "UConn Alumni NYC",
+   "url": "https://x.com/uconnnycalumni",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "26",
+   "club": "UCLA Alumni New York Tri-State Network",
+   "url": "https://alumni.ucla.edu/event/new-york-tri-state-network-ucla-football-game-watch-party-vs-san-diego-state/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 3
+  },
+  {
+   "team": "84",
+   "club": "IU Alumni Association Metro New York Chapter",
+   "url": "https://www.myiu.org/get-involved/chapters-groups/united-states-chapters/new-york-nyc.html",
+   "publicNote": "",
+   "status": "found",
+   "bars": 4
+  },
+  {
+   "team": "2294",
+   "club": "New York Metro Iowa Club",
+   "url": "https://www.facebook.com/NYCHawkeyes/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "158",
+   "club": "NYC Huskers (Nebraska Alumni Association chapter)",
+   "url": "https://www.nychuskers.com/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "30",
+   "club": "USC Alumni Association / New York Trojan Network",
+   "url": "https://alumni.usc.edu/game-watch/map/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "135",
+   "club": "UMAA Greater New York, New Jersey & Connecticut Network",
+   "url": "https://www.umnalumni.org/s/1867/23/1col.aspx?sid=1867&gid=2&pgid=4707",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "194",
+   "club": "Ohio State Alumni Club of New York City",
+   "url": "https://www.osu.edu/alumni/get-involved/clubs-societies/new-york-city-alumni-club",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2483",
+   "club": "University of Oregon Alumni Association New York Ducks",
+   "url": "https://www.uoalumni.com/newyorkducks",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "275",
+   "club": "Big Apple Badgers (Wisconsin Alumni Association)",
+   "url": "https://www.facebook.com/BigAppleBadgers/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "130",
+   "club": "U-M Club of New York",
+   "url": "https://alumni.umich.edu/communities-clubs/new-york-city/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 5
+  },
+  {
+   "team": "213",
+   "club": "Penn State Alumni Association NYC Chapter (PSU-NYC)",
+   "url": "https://www.pennstatenyc.com/game-watch-parties",
+   "publicNote": "",
+   "status": "found",
+   "bars": 5
+  },
+  {
+   "team": "264",
+   "club": "UW Alumni Association New York City Huskies",
+   "url": "https://www.washington.edu/alumni/communities/chapters/new-york-city/",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 2
+  },
+  {
+   "team": "77",
+   "club": "Northwestern Alumni Association (NYC chapter)",
+   "url": "https://nusports.com/national-watch-parties",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "356",
+   "club": "Metro New York Illini Club",
+   "url": "https://nyc.illiniclub.org/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "120",
+   "club": "New York Terps Alumni Network",
+   "url": "https://alumni.umd.edu/networks/new-york-terps",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "127",
+   "club": "MSU Alumni Club of Greater NYC (Greater NYC Spartans)",
+   "url": "https://www.greaternycspartans.org/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "2509",
+   "club": "Purdue Alumni Club of New York City",
+   "url": "https://www.purdueforlife.org/clubs/new-york-city/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "164",
+   "club": "The Rutgers Club of NYC",
+   "url": "https://www.rutgersclubnyc.org/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "2390",
+   "club": "New York 'Canes (University of Miami Alumni Association)",
+   "url": "https://www.alumni.miami.edu/connect/canes-communities/us-canes-communities/alumni-clubs/new-york-canes/index.html",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "150",
+   "club": "DukeNY (Duke Alumni Association, New York)",
+   "url": "https://alumni.duke.edu/events/dukeny-game-watch-party-vs-unc",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "221",
+   "club": "Pitt Alumni: New York City",
+   "url": "https://www.facebook.com/PittAlumniNYC/",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 1
+  },
+  {
+   "team": "259",
+   "club": "Manhattan Hokies (VT Alumni NYC Chapter)",
+   "url": "https://www.manhattanhokies.com/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "228",
+   "club": "New York/Tri-State Clemson Club",
+   "url": "https://alumni.clemson.edu/event/new-york-tri-state-clemson-club-watch-party-25/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "258",
+   "club": "Virginia Club of New York",
+   "url": "https://engagement.virginia.edu/virginia-club-of-new-york-uva-vs-duke-football-game-watch-tickets-1965481069789",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "154",
+   "club": "WAKENewYork (Wake Forest Alumni & Friends)",
+   "url": "https://alumni.wfu.edu/wakewatches/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2567",
+   "club": "SMU Alumni New York",
+   "url": "https://s3.smu.edu/apps/events/rsvp_form.asp?e=newyorkcity2",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "153",
+   "club": "New York Carolina Club (UNC General Alumni Association)",
+   "url": "https://chapelapple.org/event/2024-football-game-watches/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "97",
+   "club": "University of Louisville NYC Alumni Chapter",
+   "url": "https://www.uoflalumni.org/?pgid=2456",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "25",
+   "club": "Cal Alumni Club of New York (CACNY)",
+   "url": "https://www.facebook.com/CalNewYork/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "24",
+   "club": "Stanford New York Alumni",
+   "url": "https://groups.stanford.edu/topics/3309/home",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 2
+  },
+  {
+   "team": "103",
+   "club": "BCNYC Alumni Chapter",
+   "url": "https://bcnycalumni.com/gamewatches/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "52",
+   "club": "Seminole Club of New York City",
+   "url": "https://alumni.fsu.edu/clubs/seminole-club-new-york-city",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "152",
+   "club": "NC State New York City Alumni Network",
+   "url": "https://alumni.ncsu.edu/connect/find-your-community/new-york-city-alumni-network/",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 1
+  },
+  {
+   "team": "183",
+   "club": "Syracuse University Alumni Club of NYC (Big Apple Orange)",
+   "url": "https://www.facebook.com/BigAppleOrange/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "59",
+   "club": "Georgia Tech Alumni Association NYC",
+   "url": "https://www.gtalumni.org/regional-networks/game-watching/default.html",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2132",
+   "club": "University of Cincinnati New York Alumni (UC Alumni New York Network)",
+   "url": "https://www.alumni.uc.edu/get-involved/national-networks/new-york-city.html",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2641",
+   "club": "Texas Tech Alumni Association of New York City",
+   "url": "https://www.facebook.com/TTUalumniNYC/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "254",
+   "club": "University of Utah Alumni Association New York City Chapter",
+   "url": "https://ulink.utah.edu/s/1077/23/1col.aspx?sid=1077&gid=1&pgid=6342&cid=17778&ecid=17778&ciid=85225&crid=0",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "252",
+   "club": "BYU New York City Chapter",
+   "url": "https://alumnitools.byu.edu/chapter_page/chapter_page.cfm?cid=NY001",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "239",
+   "club": "Baylor Alumni New York City",
+   "url": "https://alumni.web.baylor.edu/get-involved/regional-groups/new-york-city-ny",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "197",
+   "club": "NYC Cowboys (OSU Alumni Association NYC chapter)",
+   "url": "https://www.facebook.com/nyccowboys/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2116",
+   "club": "UCF Alumni NYC / Knights Around the Nation",
+   "url": "https://ucfalumni.com/watchparties/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 3
+  },
+  {
+   "team": "12",
+   "club": "University of Arizona New York City MetroCats",
+   "url": "https://alumni.arizona.edu/alumni-networks/new-york-city-metrocats",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "248",
+   "club": "University of Houston Alumni Association NYC",
+   "url": "https://uhaaf.com/alumni-associations/regionally-based-network/new-york-city-alumni-network/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2306",
+   "club": "New York City K-Staters (K-State Alumni Association)",
+   "url": "https://www.k-state.com/participate/alumniandfriends/clubs/newyork.php",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "277",
+   "club": "WVU Alumni NY/NJ Metro Chapter",
+   "url": "https://cal.wvu.edu/event/nynj-metro-chapter-tcu-game-watch",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "9",
+   "club": "ASU Alumni New York Chapter",
+   "url": "https://alumni.asu.edu/chapters/new-york-chapter",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "38",
+   "club": "Forever Buffs New York",
+   "url": "https://www.colorado.edu/alumni/communities/chapters/nyc",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "66",
+   "club": "Iowa State Alumni (NYC)",
+   "url": "https://www.facebook.com/isunyc/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 2
+  },
+  {
+   "team": "2628",
+   "club": "TCU Alumni New York City",
+   "url": "https://www.facebook.com/TCUAlumniNewYorkCity/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2305",
+   "club": "KU Alumni NYC chapter",
+   "url": "https://kualumni.org/watch-parties/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "68",
+   "club": "Boise State Alumni NYC",
+   "url": "https://www.boisestate.edu/alumni/football/watch-parties/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "278",
+   "club": "",
+   "url": "https://alumni.fresnostate.edu/index.html",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "36",
+   "club": "CSU Alumni Association",
+   "url": "https://alumni.colostate.edu/game-watch-parties/",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "204",
+   "club": "Oregon State Alumni Association",
+   "url": "https://fororegonstate.org/get-involved/events/football-2026/football-game-watch-sites",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "326",
+   "club": "Texas State Alumni Association New York Area Bobcats",
+   "url": "https://www.facebook.com/TxStNYC/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "21",
+   "club": "SDSU New York Tri-State Aztecs",
+   "url": "http://www.sdsualumni.org/s/997/rd16/wide.aspx?sid=997&gid=1&pgid=3128",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "328",
+   "club": "USU Alumni Association",
+   "url": "https://www.usu.edu/alumni/chapters/",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "265",
+   "club": "Big Apple Cougars (WSU Alumni NYC)",
+   "url": "https://www.facebook.com/bigapplecougars",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "58",
+   "club": "USF New York Alumni Chapter (USF NYC)",
+   "url": "https://www.facebook.com/usfnyc/",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 0
+  },
+  {
+   "team": "2226",
+   "club": "FAU Alumni Association (no dedicated NYC football club found)",
+   "url": null,
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 1
+  },
+  {
+   "team": "235",
+   "club": "University of Memphis Alumni Association (NY-area outreach)",
+   "url": "https://www.facebook.com/memphisalumni/",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 0
+  },
+  {
+   "team": "202",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2636",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "349",
+   "club": "West Point Association of Graduates",
+   "url": "https://www.westpointaog.org/events/football-tailgates/",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "5",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "151",
+   "club": "New York Metro Chapter of the ECU Alumni Association",
+   "url": "https://www.facebook.com/NewYorkMetroPirates/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "249",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2655",
+   "club": "Tulane Club of New York",
+   "url": "https://evergreen.tulane.edu/club/tulane-club-of-new-york/",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 0
+  },
+  {
+   "team": "2426",
+   "club": "Naval Academy Alumni Association - NY Metro Chapter (with New York Council Navy League)",
+   "url": "https://www.nynavyleague.org/events/usna-football-watch-party-air-force-at-navy-chllk-763s2",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "242",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "218",
+   "club": "Temple University Alumni Chapter of Metropolitan New York",
+   "url": "https://www.facebook.com/templeNY/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2429",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "256",
+   "club": "JMU Alumni Chapter - NYC Metro Dukes",
+   "url": "https://www.facebook.com/nycmetrodukes",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2026",
+   "club": "App State New York City Alumni Chapter",
+   "url": "https://www.alumni.appstate.edu/s/1727/index.aspx?sid=1727&gid=2&pgid=670",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 0
+  },
+  {
+   "team": "2247",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "276",
+   "club": null,
+   "url": "https://www.formarshallu.org/get-involved/alumni-chapters/",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "324",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "290",
+   "club": "Georgia Southern Alumni New York Chapter",
+   "url": "https://alumni.georgiasouthern.edu/networks-groups/georgia-southern-alumni-networks/georgia-southern-alumni-new-york-chapter/",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 0
+  },
+  {
+   "team": "295",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "309",
+   "club": "New York Metro Ragin' Cajun Club",
+   "url": "https://alumni.louisiana.edu/news-events/news/20221116/club-spotlight-new-york-metro-ragin-cajun-club",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 0
+  },
+  {
+   "team": "2032",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "6",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2653",
+   "club": "Troy University Greater New York Metropolitan Area Alumni Chapter",
+   "url": "https://www.troy.edu/alumni/chapters.html",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 0
+  },
+  {
+   "team": "2348",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2572",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2433",
+   "club": null,
+   "url": null,
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2449",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "167",
+   "club": "UNM Alumni Association New York City Chapter",
+   "url": "https://www.unmalumni.com/s/1730/20/interior-wide.aspx?sid=1730&gid=2&pgid=1679",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 1
+  },
+  {
+   "team": "2005",
+   "club": "USAFA AOG New York City Chapter",
+   "url": "https://www.usafa.org/chapters",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2439",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2751",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "23",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2638",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2440",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "62",
+   "club": "UHAA\u2013East Chapter (University of Hawai'i Alumni Association, NY/NJ/CT)",
+   "url": "https://uhalumni.org/uhaa/chapters/east",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2459",
+   "club": "NIU Alumni - New York",
+   "url": "https://www.facebook.com/niu.newyork/",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "113",
+   "club": "UMass Amherst New York City Metro Alumni Network",
+   "url": "https://www.umassalumni.com/?pgid=575&gid=2",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2649",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2309",
+   "club": "Kent State University NYC Alumni Chapter",
+   "url": "https://www.kent.edu/today/news/gearing-game-day",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 1
+  },
+  {
+   "team": "2084",
+   "club": "University at Buffalo NYC Alumni Network",
+   "url": "https://www.buffalo.edu/alumni/get-involved/networks.host.html/content/shared/www/alumni/alumni-chapters/domestic/new-york-city.detail.html",
+   "publicNote": "",
+   "status": "unclear",
+   "bars": 0
+  },
+  {
+   "team": "2117",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "193",
+   "club": "Miami University Alumni Association - New York City Chapter",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "195",
+   "club": "Metro NY Bobcats (Ohio University Alumni Network)",
+   "url": "https://www.ohio.edu/alumni/get-involved/volunteer/alumni-networks/metro-new-york",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2711",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2199",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2006",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2050",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "16",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "189",
+   "club": "BGSU Alumni Metro NYC Network",
+   "url": "https://www.bgsu.edu/alumni/get-involved/regional-networks.html",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2335",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "55",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "48",
+   "club": "",
+   "url": "https://www.udel.edu/alumni-friends/connect/events/",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2229",
+   "club": "FIU Alumni Greater New York Panther Network",
+   "url": "https://www.facebook.com/FIUNYC/",
+   "publicNote": "",
+   "status": "found",
+   "bars": 1
+  },
+  {
+   "team": "2393",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "338",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2623",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "166",
+   "club": "NMSU Alumni / NM State Foundation NYC",
+   "url": "https://alwaysanaggie.org/event/nm-state-aggies-watch-party-in-nyc/",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "2534",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  },
+  {
+   "team": "98",
+   "club": "",
+   "url": "",
+   "publicNote": "",
+   "status": "none_found",
+   "bars": 0
+  }
+ ]
+}
