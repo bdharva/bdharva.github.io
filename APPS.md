@@ -29,11 +29,14 @@ What ships is an explicit list. A new file in the dev repo stays private until i
   "slug": "cfb-bar-crawler",
   "shape": "interactive",
   "title": "NYC CFB Bar Crawler",
+  "seo_title": "NYC CFB Bar Crawler: College Football Alumni Bars in New York",
   "title_split": ["CFB", "Bar Crawler"],
   "description": "Plan college football Saturdays around NYC alumni game-watch bars",
   "card": { "icon": "beer", "title": "CFB Bar Crawler", "desc": "NYC alumni game-watch bar planner" },
   "making": { "description": "One or two lines for the Making page", "url_text": "Try CFB Bar Crawler", "date": "2026-10" },
   "preview": "docs/screens/preview.webp",
+  "share_image": "docs/screens/share.jpg",
+  "share_alt": "What the share image shows, for screen readers",
   "ship": ["index.html", "*.js", "app.css", "data/*.json"],
   "data_updated_from": "data/schedule.json#updated",
   "runtime_services": ["tiles.openfreemap.org", "routing.openstreetmap.de", "a.espncdn.com"]
@@ -44,7 +47,10 @@ What ships is an explicit list. A new file in the dev repo stays private until i
 - `title_split` drives the header title: first part plain, second part in the accent color.
 - `card` is the homepage carousel entry (Lucide icon name, title, one-line description).
 - `making` is the entry in `_data/shots.yml` (the Making page), with `preview` as its image and the tag `Bits`.
-- `preview` is a 1200×630 image, published to `/assets/making/<slug>.webp` and used for OG/Twitter cards.
+- `seo_title` is the `<title>` for search results (about 60 characters, the keywords people search for). `title` stays the short name used in link previews.
+- `description` is the meta and link-preview description: 150-160 characters, written for someone searching.
+- `preview` is a 1200×630 screenshot, published to `/assets/making/<slug>.webp` for the Making page.
+- `share_image` is a designed 1200×630 JPEG for link previews (iMessage, Slack, X, LinkedIn): name, one line, one picture, legible at thumbnail size. Published to `/assets/share/<slug>.jpg` and used for `og:image` and `twitter:image`. JPEG or PNG, not WebP: some previewers skip WebP. Keep its source (HTML and a render script) in the dev repo. `share_alt` is its alt text.
 - `runtime_services` lists every outside host the public page calls, so it's clear what can break.
 - A hub adds `"pieces": [{ "slug": "yarnball", "ship": [...] }, …]`; each piece publishes to `/slug/piece/`.
 
@@ -72,13 +78,15 @@ layout: null
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{title} - bdharva</title>
+<title>{seo_title} - bdharva</title>
 <meta name="description" content="{description}">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="canonical" href="https://bdharva.com/{slug}/">
-<meta property="og:title" content="{title}">            <!-- + og:description, og:url, og:type=website -->
-<meta property="og:image" content="https://bdharva.com/assets/making/{slug}.webp">
-<meta name="twitter:card" content="summary_large_image"> <!-- + twitter:title/description/image, twitter:creator=@bdharva -->
+<meta property="og:title" content="{title}">            <!-- + og:description, og:url, og:type=website, og:site_name, og:locale -->
+<meta property="og:image" content="https://bdharva.com/assets/share/{slug}.jpg"> <!-- + og:image:width/height/alt -->
+<meta name="twitter:card" content="summary_large_image"> <!-- + twitter:title/description/image/image:alt, twitter:creator=@bdharva -->
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+<script type="application/ld+json">{WebApplication: name, url, description, image, author}</script>
 <script>(function(){try{var d=localStorage.getItem('darkMode');if(d==='true'||(d===null&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -151,5 +159,5 @@ Apps with changing data (schedules, rankings, prices) refresh in the dev repo, n
 - [ ] Header, info modal (with "Data updated") and theme switch, per §5
 - [ ] `app.css` on tokens and the app layer; shared candidates noted for promotion
 - [ ] Works at `/slug/` (relative paths, hash state), on a phone, and in both themes
-- [ ] Preview image, carousel card, Making entry and sitemap entry
+- [ ] Preview image, share image, SEO title and description, carousel card, Making entry and sitemap entry
 - [ ] First publish through a PR, previewed with `jekyll serve`
