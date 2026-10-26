@@ -2,6 +2,14 @@
 # Tags: Bits (software, data viz), Atoms (physical builds, hardware, furniture), Pixels (digital design, branding)
 
 # 2026
+- title: CFB Chaos
+  description: "The Chaotic Times, a weekly college football paper for Team Chaos: poll losses, real vs. fluky upsets, circles of suck, and what to watch Saturday"
+  image: /assets/making/cfb-chaos.webp
+  tags: [Bits]
+  url: /cfb-chaos/
+  url_text: Read CFB Chaos
+  date: 2026-10
+
 - title: CFB Bar Crawler
   description: "Every FBS alumni club's game-watch bar in NYC, set against the week's schedule, with a Saturday crawl planner"
   image: /assets/making/cfb-bar-crawler.webp
@@ -275,14 +283,6 @@
   image: /assets/making/campus-pulse.webp
   tags: [Pixels]
   date: 2016-11
-
-- title: CFB Chaos
-  description: "Measuring the success of Team Chaos"
-  image: /assets/making/cfb-chaos.webp
-  tags: [Bits]
-  url: /cfb-chaos/
-  url_text: CFB Chaos
-  date: 2016-10
 
 - title: Ergonomic Picnic Table v1
   description: A custom-designed modular picnic table with improved ergonomics
