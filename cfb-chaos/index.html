@@ -581,8 +581,8 @@ layout: null
         <div class="chart" id="c-dumbbell"></div>
       </div>
       <div>
-        <h2>Early-ranked SEC teams are the least likely to flop</h2>
-        <p class="desc">How often a team ranked in the first half of the season ended up outside the top 25 by year's end (2005–25), by conference. So no, the poll isn't propping up the SEC more than anybody else.</p>
+        <h2 id="hind-h"></h2>
+        <p class="desc">How often a team ranked in the first half of the season ended up outside the scoreboard top 25 by year's end (2005–25), by conference. The tick is how often teams ranked in the same spots flop in general, so a red bar past its tick means voters rated that conference's teams too high.</p>
         <div class="chart" id="c-hind"></div>
         <p class="note" id="hind-note" style="margin-top:10px"></p>
       </div>
@@ -1075,14 +1075,16 @@ function drawDumbbell(svg, W) {
 
 function drawHind(svg, W) {
   const NAME = { SEC: "SEC", B1G: "Big Ten", B12: "Big 12", ACC: "ACC", P12: "Pac-12", "G5/Ind": "Everyone else" };
-  const rows = [...Q.hindsight.by_conf].sort((a, b) => a.share - b.share), l = 100, rh = 30, H = rows.length * rh + 4;
+  const rows = [...Q.hindsight.by_conf].sort((a, b) => a.share / a.expected - b.share / b.expected), l = 100, rh = 30, H = rows.length * rh + 4;
   size(svg, W, H);
-  const x = v => (W - l - 44) * v / 0.5;
+  const x = v => (W - l - 92) * v / 0.5;
   rows.forEach((d, i) => {
-    const y = i * rh + 6, isSec = d.conf === "SEC";
+    const y = i * rh + 6, isSec = d.conf === "SEC", over = d.share > d.expected * 1.05;
     txt({ x: l - 10, y: y + 12, "text-anchor": "end", "font-size": 12, fill: isSec ? C.ink85 : C.ink50, "font-weight": isSec ? 600 : 400, style: "font-family:var(--font-sans)" }, NAME[d.conf] || d.conf, svg);
-    bindTip(el("path", { d: barPath(l, y, x(d.share), 16), fill: isSec ? C.accent : C.ink20 }, svg), `<b>${NAME[d.conf] || d.conf}</b><br>${pct(d.share)} of ${d.n} early-ranked team-weeks flopped`);
-    txt({ x: l + x(d.share) + 6, y: y + 12, "font-size": 11, fill: C.ink65 }, pct(d.share), svg);
+    bindTip(el("path", { d: barPath(l, y, x(d.share), 16), fill: over ? C.counter : isSec ? C.accent : C.ink20 }, svg),
+      `<b>${NAME[d.conf] || d.conf}</b><br>${pct(d.share)} of ${d.n} early-ranked team-weeks flopped<br>Teams ranked in the same spots: ${pct(d.expected)}`);
+    el("line", { x1: l + x(d.expected), x2: l + x(d.expected), y1: y - 3, y2: y + 19, stroke: C.ink85, "stroke-width": 2, "stroke-linecap": "round" }, svg);
+    txt({ x: l + Math.max(x(d.share), x(d.expected)) + 8, y: y + 12, "font-size": 11, fill: C.ink65 }, `${pct(d.share)} vs ${pct(d.expected)}`, svg);
   });
 }
 
@@ -1398,7 +1400,7 @@ const take = g => (ST.takes || {})[g.eid] || autoTake(g);
     ["no", "Nope", "More upsets by unranked teams",
       `Only ${cur.upsets_by_unranked} ranked teams have lost to unranked teams, below the usual ${fmt(mean("upsets_by_unranked"), 0)}. This year the chaos is coming from inside the poll.`],
     [secOver ? "part" : "no", secOver ? "Kind of" : "Not really", "The SEC is over-ranked",
-      `ESPN's FPI, which grades every play, has ranked SEC teams ${spots(secF)}, and everybody else's ranked teams ${spots(nonF)}. My scores-only rating is tougher on the SEC (${fmt(c.sec_mean_gap)} spots too high, vs ${fmt(c.nonsec_mean_gap)} for everyone else), partly because SEC teams keep beating each other. But early-ranked SEC teams have historically flopped less than anybody (see below).`],
+      `ESPN's FPI, which grades every play, has ranked SEC teams ${spots(secF)}, and everybody else's ranked teams ${spots(nonF)}. My scores-only rating is tougher on the SEC (${fmt(c.sec_mean_gap)} spots too high, vs ${fmt(c.nonsec_mean_gap)} for everyone else), partly because SEC teams keep beating each other. But historically, early-ranked SEC teams have held up as well as their rankings predicted (see below).`],
     ["yes", "Yep", "Voters stick with last year's teams",
       (neb ? `${neb.team} is #${neb.results_rank} by scoreboard${neb.fpi_rank ? ` and #${neb.fpi_rank} by ESPN's FPI` : ""}, and still unranked after finishing last year #${neb.prior_results_rank}. ` : "") +
       (lsu ? `${lsu.team} started this year ranked #${lsu.pre} after finishing #${lsu.prior}.` : "")],
@@ -1412,14 +1414,18 @@ const take = g => (ST.takes || {})[g.eid] || autoTake(g);
   chart("c-dumbbell", drawDumbbell);
   chart("c-hind", drawHind);
   const sec = Q.hindsight.by_conf.find(r => r.conf === "SEC");
-  set("hind-note", `Early-ranked SEC teams flopped <b>${pct(sec.share)}</b> of the time, the lowest of any conference.`);
+  const overC = Q.hindsight.by_conf.filter(d => d.share > d.expected * 1.05).sort((a, b) => b.share / b.expected - a.share / a.expected);
+  const NAMES = { SEC: "SEC", B1G: "Big Ten", B12: "Big 12", ACC: "ACC", P12: "Pac-12", "G5/Ind": "smaller-conference" };
+  set("hind-h", sec.share <= sec.expected * 1.05 ? "Ranked in the same spots, early SEC teams have held up as well as anyone's" : "Early-ranked SEC teams have flopped more than their rankings predicted");
+  set("hind-note", `Early-ranked SEC teams flopped <b>${pct(sec.share)}</b> of the time, against ${pct(sec.expected)} for teams ranked in the same spots.` +
+    (overC.length ? ` The ones the poll has tended to rank too high are ${andList(overC.map(d => NAMES[d.conf]))} teams.` : ""));
 
   const FC = B.fpi.check.results, live = FC["2016-25 (FPI live)"], all = FC.all, Wn = B.model.winners;
   set("poll-how", `
     <p>The losses come straight from ESPN's AP polls, and I rebuilt every team's record from the game logs to double-check them. The Week ${PW} poll covers games through Week ${PW - 1}, and every comparison is to the same poll in past seasons (2001 on, skipping 2020).</p>
     <p><b>Scoreboard rank</b> is a simple power rating: every final score this season, solved for the team strengths that best fit the margins (home field adjusted, blowouts capped at 28, everybody pulled toward average since 7–8 games isn't much to go on). No preseason input, on purpose, since the point is to check the poll against what's actually happened. I also tested it against ESPN's FPI at predicting the rest of each season (${all.scores.n.toLocaleString()} games, 2005–25): FPI picks ${pct(all.fpi.accuracy, 1)} of winners to my rating's ${pct(all.scores.accuracy, 1)}, and its win odds are better calibrated, so anything predictive in here uses FPI.</p>
     <p><b>Poll movement:</b> I built a model of how far teams move after a win or loss (both teams' ranks, home or away, margin, how the game played out, the betting line, and how many teams around them lost), fit on 2016–25. Adding conference or specific teams didn't make it any better at predicting, so I don't see a standing bias for anybody. Upset winners do jump more: a 20% underdog that wins rises about ${fmt(-Wn.coefs.pre_wp.coef * 0.6, 0)} spots more than an 80% favorite.</p>
-    <p><b>Flopping</b> means a team ranked at kickoff in Weeks 1–${PW - 1} that finished the season outside the scoreboard top 25. At the same AP rank and week, SEC teams' odds of flopping are ${fmt(Q.hindsight.sec_vs_b1g_odds, 2)}× the Big Ten's (p = ${fmt(Q.hindsight.sec_vs_b1g_p, 2)}), so there's no real difference there.</p>`);
+    <p><b>Flopping</b> means a team ranked at kickoff in Weeks 1–${PW - 1} that finished the season outside the scoreboard top 25. At the same AP rank and week, SEC teams' odds of flopping are ${fmt(Q.hindsight.sec_vs_b1g_odds, 2)}× the Big Ten's (p = ${fmt(Q.hindsight.sec_vs_b1g_p, 2)}), so there's no real difference there. The tick on each bar comes from a model of flop odds using only AP rank and week, fit on every conference together; ACC and Pac-12 teams are the ones that flopped meaningfully more than it predicts.</p>`);
 })();
 
 // ======================================================================================
