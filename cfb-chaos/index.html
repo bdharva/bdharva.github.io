@@ -258,16 +258,21 @@ layout: null
   .effect .muted { color: var(--ink-30); }
 
   /* kiffin */
-  .kf-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
-  .kf-card { border: 1px solid var(--border-soft); border-radius: 8px; padding: 18px 20px; min-width: 0; }
-  .kf-card .top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-  .kf-card .top img { width: 44px; height: 44px; object-fit: contain; }
-  .kf-card .tn { font-size: 20px; font-weight: 600; letter-spacing: -0.4px; color: var(--ink-90); }
-  .kf-card .ts { font: 500 10.5px var(--font-mono); color: var(--ink-40); letter-spacing: 0.3px; text-transform: uppercase; }
-  .kf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 14px; }
-  .kf-grid .n { font-size: 22px; font-weight: 600; letter-spacing: -0.4px; color: var(--ink-85); line-height: 1.1; }
-  .kf-grid .l { font-size: 12px; color: var(--ink-50); margin-top: 2px; }
-  .kf-grid .n.win { color: var(--accent-deep); }
+  .kf-score { margin-top: 28px; border: 1px solid var(--border-soft); border-radius: 8px; overflow: hidden; }
+  .ks-row { display: grid; grid-template-columns: minmax(0, 1fr) 130px 130px; align-items: center; gap: 8px; padding: 11px 18px; }
+  .ks-row + .ks-row { border-top: 1px solid var(--border-soft); }
+  .ks-row .lbl { font-size: 14px; color: var(--ink-65); }
+  .ks-row .ks-v { text-align: center; font: 600 15px var(--font-mono); color: var(--ink-35); }
+  .ks-row .ks-v.win { color: var(--accent-deep); }
+  .ks-row .ks-v.win::before { content: "✓ "; }
+  .ks-row .ks-v.even { color: var(--ink-50); }
+  .ks-head { background: var(--bg-soft, rgba(127, 127, 127, 0.05)); }
+  .ks-head .ks-v { display: flex; flex-direction: column; align-items: center; gap: 4px; font: 600 15px var(--font-sans); color: var(--ink-90); }
+  .ks-head .ks-v img { width: 36px; height: 36px; object-fit: contain; }
+  .ks-total .lbl { font: 500 11px var(--font-mono); letter-spacing: 0.6px; text-transform: uppercase; color: var(--ink-50); }
+  .ks-total .ks-v { font: 700 30px var(--font-sans); letter-spacing: -1px; color: var(--ink-35); }
+  .ks-total .ks-v.lead { color: var(--ink-90); }
+  @media (max-width: 690px) { .ks-row { grid-template-columns: minmax(0, 1fr) 76px 76px; padding: 10px 12px; } .ks-row .lbl { font-size: 13px; } .ks-row .ks-v { font-size: 13px; } }
   .rest-head { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--ink-85); margin-bottom: 6px; }
   .rest-head img { width: 22px; height: 22px; object-fit: contain; }
   .rest-head .proj { margin-left: auto; font: 500 11px var(--font-mono); color: var(--ink-50); }
@@ -420,7 +425,7 @@ layout: null
     .stat:nth-child(3) { border-left: 0; padding-left: 0; }
     .stat:nth-child(n+3) { border-top: 1px solid var(--border-soft); }
     .stat .num { font-size: 28px; }
-    .verdicts, .kf-cards { grid-template-columns: 1fr; }
+    .verdicts { grid-template-columns: 1fr; }
     .link { grid-template-columns: 30px 1fr 48px 1fr; gap: 6px; }
     .wrow { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); row-gap: 6px; }
     .wrow .when, .wrow .pbar, .wrow .effect { grid-column: 1 / -1; }
@@ -444,7 +449,7 @@ layout: null
   <h1 class="app-title">CFB <span>Chaos</span></h1>
   <a class="app-by" href="/">by bdharva</a>
   <div class="app-header-actions">
-    <label class="switch"><span>Dark mode</span><input type="checkbox" role="switch" data-theme-toggle><i></i></label>
+    <label class="switch" aria-label="Dark mode"><input type="checkbox" role="switch" data-theme-toggle><i></i></label>
     <button class="icon-button" data-open-modal="info-dialog" aria-label="About CFB Chaos"><svg class="icon"><use href="#icon-info"/></svg></button>
   </div>
 </header>
@@ -537,7 +542,7 @@ layout: null
       <div class="chart" id="f-race"></div>
     </article>
     <article class="story" data-go="poll/s-wrong">
-      <div class="kicker"><i data-lucide="arrow-left-right"></i>Poll vs. scoreboard</div>
+      <div class="kicker"><i data-lucide="arrow-left-right"></i>Poll vs. FPI</div>
       <h3 class="hl" id="f-gap-hl"></h3>
       <p class="dek" id="f-gap-dek"></p>
       <div id="f-gap"></div>
@@ -572,7 +577,7 @@ layout: null
       <div>
         <h2 id="wrong-h"></h2>
         <p class="desc" id="wrong-desc"></p>
-        <div class="legend"><span class="key"><span class="sw ring"></span>AP rank</span><span class="key"><span class="sw dot"></span>Scoreboard rank, same or better</span><span class="key"><span class="sw dot" style="background:var(--counter)"></span>Scoreboard rank, worse</span><span class="key"><span class="sw tick"></span>ESPN FPI</span></div>
+        <div class="legend"><span class="key"><span class="sw ring"></span>AP rank</span><span class="key"><span class="sw dot"></span>ESPN FPI, same or better</span><span class="key"><span class="sw dot" style="background:var(--counter)"></span>ESPN FPI, worse</span><span class="key"><span class="sw tick"></span>Scoreboard rank</span></div>
         <div class="chart" id="c-dumbbell"></div>
       </div>
       <div>
@@ -745,12 +750,17 @@ layout: null
 <!-- ============================== KIFFIN BOWL ============================== -->
 <div class="page" data-page="kiffin" hidden>
   <div class="page-head"><div class="kicker"><i data-lucide="heart-crack"></i>The Kiffin bowl</div><h1 id="kf-h1"></h1><p class="tagline" id="kf-dek"></p></div>
-  <div class="kf-cards" id="kf-cards"></div>
-  <section id="s-kpath">
-    <h2>The poll vs. the scoreboard, week by week</h2>
-    <p class="desc">AP rank each week (solid) and scoreboard rank from games so far (dashed, starting Week 4). Up is better.</p>
+  <div class="kf-score" id="kf-score"></div>
+  <section id="s-ktraj">
+    <h2 id="kf-traj-h"></h2>
+    <p class="desc" id="kf-traj-desc"></p>
     <div class="legend" id="kf-legend"></div>
-    <div class="chart" id="c-kpath"></div>
+    <div class="chart" id="c-ktraj"></div>
+  </section>
+  <section id="s-klines">
+    <h2 id="kf-lines-h"></h2>
+    <p class="desc">Each game's final margin minus the margin the betting line expected. Mint bars beat the line; red bars fell short.</p>
+    <div class="two"><div><div class="mini-label" id="kf-lines-l0"></div><div class="chart" id="c-klines-0"></div></div><div><div class="mini-label" id="kf-lines-l1"></div><div class="chart" id="c-klines-1"></div></div></div>
   </section>
   <section id="s-krest">
     <h2 id="kf-rest-h"></h2>
@@ -897,6 +907,10 @@ const prevSecHigh = Math.max(...hist.map(s => s.sec_intra_losses)), prevSecHighY
 const POLL_HL = `The Top 25 has ${cur.losses} losses, ${standing("losses")}`;
 const RACE = X.race, CR = RACE.find(r => r.season === B.season), HR = RACE.filter(r => r.season < B.season), NWK = CR.upsets.length;
 const UP = last(CR.upsets), EXP = last(CR.expected), SEC_UP = last(CR.sec), AVG_SEC_UP = avg(HR.map(r => last(r.sec)));
+// this year's upset count against every past season at the same point: is it a chaotic year at all?
+const UP_AVG = avg(HR.map(r => last(r.upsets))), UP_RANK = 1 + HR.filter(r => last(r.upsets) > UP).length, UP_N = HR.length + 1;
+const UP_REC = HR.reduce((a, r) => last(r.upsets) > last(a.upsets) ? r : a), UP_SINCE = Math.min(...RACE.map(r => r.season));
+const UP_VS = UP > UP_AVG * 1.15 ? "more than a normal year" : UP < UP_AVG * 0.85 ? "fewer than a normal year" : "about a normal year";
 const rankDesc = (vals, v) => [...vals].sort((a, b) => b - a).indexOf(v) + 1;
 const LOOP_PREV = Math.max(...LP.history.map(r => r.cycle_length)), LOOP_BIG = LP.current.filter(c => c.cycle_length > LOOP_PREV);
 const SEC_LOOP = LP.current.find(c => c.conf === "SEC");
@@ -914,7 +928,20 @@ const ptsOf = gs => gs.flatMap(g => g.scoring), notSustained = gs => sum(ptsOf(g
 const HG = TR.hangover, HC = HG.seasons.find(s => s.season === B.season), BL = TR.blown, BC = BL.seasons.find(s => s.season === B.season);
 const E = TR.eras, E0 = E[0], E1 = E[1], E3 = last(E), TS = TR.seasons, TSC = TS.find(r => r.season === B.season);
 const MV = TR.moves, KF = TR.kiffin, [KA, KB] = Object.values(KF.teams).sort((x, y) => x.results - y.results);
-const GAPS = Q.teams.map(t => ({ ...t, gap: t.results_rank - t.ap })).sort((a, b) => b.gap - a.gap);
+// the Kiffin breakup scorecard, tallied: who leads, and a sentence saying who's winning what
+const KSUM = (() => {
+  const won = { [KA.tid]: 0, [KB.tid]: 0 }; let even = 0;
+  KF.scorecard.forEach(r => r.winner ? won[r.winner]++ : even++);
+  const said = { h2h: "won head to head", now: "is the better team right now", pre: "is beating its preseason expectations",
+    lines: "has beaten the betting lines by more this season", recent: "has the better recent form", finish: "projects to finish better" };
+  const short = { h2h: "Head to head", now: "Better now", pre: "Vs. expectations", lines: "Vs. the lines", recent: "Recent form", finish: "Projected finish" };
+  const lead = won[KA.tid] === won[KB.tid] ? null : won[KA.tid] > won[KB.tid] ? KA : KB, trail = lead === KA ? KB : KA;
+  const says = t => { const ks = KF.scorecard.filter(r => r.winner === t.tid).map(r => said[r.key]); return ks.length ? `${t.team} ${andList(ks)}.` : ""; };
+  return { won, even, lead, short,
+    headline: lead ? `${lead.team} leads, ${won[lead.tid]}–${won[trail.tid]}` : `Dead even, ${won[KA.tid]}–${won[KB.tid]}`,
+    sentence: [says(KA), says(KB), KF.scorecard.some(r => r.key === "finish" && !r.winner) ? "They project to finish about even." : ""].filter(Boolean).join(" ") };
+})();
+const GAPS = Q.teams.filter(t => t.fpi_rank).map(t => ({ ...t, gap: t.fpi_rank - t.ap })).sort((a, b) => b.gap - a.gap);   // vs. ESPN's FPI
 const TL = TR.logos, logo = id => (TL[id] || X.logos[id] || LP.logos[id] || IND.logos[id] || B.ticker.logos[id]) ? `<img class="logo" alt="" src="${TL[id] || X.logos[id] || LP.logos[id] || IND.logos[id] || B.ticker.logos[id]}">` : "";
 
 // ======================================================================================
@@ -1022,7 +1049,7 @@ function drawOverrank(svg, W) {
 }
 
 function drawDumbbell(svg, W) {
-  const teams = [...Q.teams, ...Q.unranked_results_top25.map(t => ({ ...t, ap: null }))];
+  const teams = [...Q.teams.filter(t => t.fpi_rank), ...Q.unranked_fpi_top25.map(t => ({ ...t, ap: null }))];
   const l = W < 480 ? 112 : 126, rh = 19, t = 20, H = t + teams.length * rh + 6, xmax = 60;
   size(svg, W, H);
   const dx = v => l + (W - l - 10) * (Math.min(v, xmax) - 1) / (xmax - 1);
@@ -1031,17 +1058,17 @@ function drawDumbbell(svg, W) {
     txt({ x: dx(v), y: 11, "text-anchor": "middle", "font-size": 10, fill: C.ink35 }, `#${v}`, svg);
   }
   teams.forEach((tm, i) => {
-    const cy = t + i * rh + rh / 2, apx = tm.ap ? dx(tm.ap) : null, rx = dx(tm.results_rank), big = !tm.ap || Math.abs(tm.results_rank - tm.ap) >= 10;
-    const over = tm.ap && tm.results_rank > tm.ap, col = over ? C.counter : C.accent;   // red: the poll has them higher than the scoreboard does
+    const cy = t + i * rh + rh / 2, apx = tm.ap ? dx(tm.ap) : null, rx = dx(tm.fpi_rank), big = !tm.ap || Math.abs(tm.fpi_rank - tm.ap) >= 10;
+    const over = tm.ap && tm.fpi_rank > tm.ap, col = over ? C.counter : C.accent;   // red: the poll has them higher than FPI does
     txt({ x: l - 8, y: cy + 4, "text-anchor": "end", "font-size": 11.5, fill: big ? C.ink85 : C.ink50, style: "font-family:var(--font-sans)", "font-weight": big ? 600 : 400 },
       `${tm.ap ? "#" + tm.ap : "NR"} ${tm.team}`, svg);
     if (apx) el("line", { x1: apx, x2: rx, y1: cy, y2: cy, stroke: col, "stroke-width": 1.5, opacity: big ? 0.75 : 0.4 }, svg);
-    if (tm.fpi_rank) el("line", { x1: dx(tm.fpi_rank), x2: dx(tm.fpi_rank), y1: cy - 5, y2: cy + 5, stroke: C.ink65, "stroke-width": 2, "stroke-linecap": "round" }, svg);
+    if (tm.results_rank) el("line", { x1: dx(tm.results_rank), x2: dx(tm.results_rank), y1: cy - 5, y2: cy + 5, stroke: C.ink65, "stroke-width": 2, "stroke-linecap": "round" }, svg);
     if (apx) el("circle", { cx: apx, cy, r: 4, fill: C.bg, stroke: C.ink50, "stroke-width": 1.5 }, svg);
     el("circle", { cx: rx, cy, r: 4.5, fill: col, stroke: C.bg, "stroke-width": 1.5 }, svg);
-    if (tm.results_rank > xmax) txt({ x: rx - 7, y: cy - 6, "text-anchor": "end", "font-size": 9.5, fill: C.ink50 }, `#${tm.results_rank} →`, svg);
+    if (tm.fpi_rank > xmax) txt({ x: rx - 7, y: cy - 6, "text-anchor": "end", "font-size": 9.5, fill: C.ink50 }, `#${tm.fpi_rank} →`, svg);
     bindTip(el("rect", { x: 0, y: cy - rh / 2, width: W, height: rh, fill: "transparent" }, svg),
-      `<b>${tm.team}</b><br>AP ${tm.ap ? "#" + tm.ap : "unranked"} · scoreboard #${tm.results_rank} · FPI #${tm.fpi_rank ?? "—"}` +
+      `<b>${tm.team}</b><br>AP ${tm.ap ? "#" + tm.ap : "unranked"} · FPI #${tm.fpi_rank ?? "—"} · scoreboard #${tm.results_rank ?? "—"}` +
       (tm.prior_results_rank ? `<br>Finished 2025 #${tm.prior_results_rank} by scoreboard` : ""));
   });
 }
@@ -1151,25 +1178,40 @@ function drawIndSeason(svg, W) {
   });
 }
 
-function drawKPath(svg, W) {
-  const colors = { [KA.tid]: C.accent, [KB.tid]: C.counter }, H = W < 480 ? 220 : 260, m = { t: 14, r: W < 480 ? 64 : 84, b: 24, l: 34 };
+function drawKTraj(svg, W) {
+  const colors = { [KA.tid]: C.accent, [KB.tid]: C.ink65 }, H = W < 480 ? 220 : 260, m = { t: 14, r: W < 480 ? 74 : 96, b: 24, l: 34 };
   size(svg, W, H);
-  const n = KA.path.length, x = i => m.l + (W - m.l - m.r) * i / (n - 1), y = r => m.t + (H - m.t - m.b) * ((r ?? 30) - 1) / 29;
-  for (const r of [1, 10, 20, 30]) { el("line", { x1: m.l, x2: W - m.r, y1: y(r), y2: y(r), stroke: C.grid }, svg);
-    txt({ x: m.l - 6, y: y(r) + 3.5, "text-anchor": "end", "font-size": 10, fill: C.ink35 }, r === 30 ? "NR" : "#" + r, svg); }
-  const k = labelEvery((W - m.l - m.r) / (n - 1), 40);
-  KA.path.forEach((p, i) => { if (i % k === 0 || i === n - 1) txt({ x: x(i), y: H - 7, "text-anchor": "middle", "font-size": 10, fill: C.ink35 }, i ? `WK ${p.week}` : "PRE", svg); });
-  const hx = x(KF.h2h.week - 1) + (x(1) - x(0)) / 2;
+  const all = [...KA.fpi_path, ...KB.fpi_path], wk = KA.fpi_path.map(p => p.week), lo = Math.floor(Math.min(...all.map(p => p.fpi)) / 5) * 5, hi = Math.ceil(Math.max(...all.map(p => p.fpi)) / 5) * 5;
+  const x = w => m.l + (W - m.l - m.r) * (w - wk[0]) / (last(wk) - wk[0]), y = v => m.t + (H - m.t - m.b) * (hi - v) / (hi - lo);
+  for (let v = lo; v <= hi; v += 5) { el("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: C.grid }, svg);
+    txt({ x: m.l - 6, y: y(v) + 3.5, "text-anchor": "end", "font-size": 10, fill: C.ink35 }, v, svg); }
+  const k = labelEvery((W - m.l - m.r) / (wk.length - 1), 40);
+  wk.forEach((w, i) => { if (i % k === 0 || i === wk.length - 1) txt({ x: x(w), y: H - 7, "text-anchor": "middle", "font-size": 10, fill: C.ink35 }, `WK ${w}`, svg); });
+  const hx = x(KF.h2h.week);
   el("line", { x1: hx, x2: hx, y1: m.t, y2: H - m.b, stroke: C.ink35, "stroke-dasharray": "2 3" }, svg);
   txt({ x: hx + 4, y: m.t + 9, "font-size": 10, fill: C.ink50 }, `${KF.h2h.winner} ${KF.h2h.score}`, svg);
-  [KA, KB].forEach(t => {
+  const ends = [KA, KB].map(t => y(last(t.fpi_path).fpi)), gap = Math.abs(ends[0] - ends[1]) < 16 ? (16 - Math.abs(ends[0] - ends[1])) / 2 : 0;
+  [KA, KB].forEach((t, j) => {
     const c = colors[t.tid];
-    el("path", { d: t.path.map((p, i) => `${i ? "L" : "M"}${x(i)},${y(p.ap)}`).join(""), fill: "none", stroke: c, "stroke-width": 2.5, "stroke-linejoin": "round" }, svg);
-    const rp = t.path.map((p, i) => [i, p.results]).filter(([, r]) => r);
-    el("path", { d: rp.map(([i, r], j) => `${j ? "L" : "M"}${x(i)},${y(Math.min(r, 30))}`).join(""), fill: "none", stroke: c, "stroke-width": 1.5, "stroke-dasharray": "4 3", opacity: 0.85 }, svg);
-    t.path.forEach((p, i) => bindTip(el("circle", { cx: x(i), cy: y(p.ap), r: 3.5, fill: c, stroke: C.bg, "stroke-width": 1.5 }, svg),
-      `<b>${t.team}, ${i ? "Week " + p.week : "preseason"}</b><br>AP ${p.ap ? "#" + p.ap : "unranked"}${p.results ? `<br>Scoreboard #${p.results}` : ""}`));
-    txt({ x: x(n - 1) + 8, y: y(last(t.path).ap) + 4, "font-size": 11, "font-weight": 600, fill: c === C.accent ? C.accentDeep : c }, `${t.team} #${last(t.path).ap}`, svg);
+    el("path", { d: t.fpi_path.map((p, i) => `${i ? "L" : "M"}${x(p.week)},${y(p.fpi)}`).join(""), fill: "none", stroke: c, "stroke-width": 2.5, "stroke-linejoin": "round" }, svg);
+    t.fpi_path.forEach(p => bindTip(el("circle", { cx: x(p.week), cy: y(p.fpi), r: 3.5, fill: c, stroke: C.bg, "stroke-width": 1.5 }, svg),
+      `<b>${t.team}, after Week ${p.week}</b><br>FPI ${fmt(p.fpi)} (#${p.rank})<br>Projected wins ${fmt(p.proj_wins)}`));
+    const up = ends[j] <= ends[1 - j];
+    txt({ x: W - m.r + 8, y: ends[j] + 4 + (up ? -gap : gap), "font-size": 11, "font-weight": 600, fill: c === C.accent ? C.accentDeep : C.ink85 }, `${t.team} ${fmt(last(t.fpi_path).fpi)}`, svg);
+  });
+}
+
+function drawKLines(svg, W, t) {
+  const g = t.ats, H = 170, m = { t: 18, r: 4, b: 30, l: 4 }, mx = Math.max(10, ...KA.ats.concat(KB.ats).map(x => Math.abs(x.beat)));
+  size(svg, W, H);
+  const bw = (W - m.l - m.r) / g.length, y0 = m.t + (H - m.t - m.b) / 2, sc = (H - m.t - m.b) / 2 / mx;
+  el("line", { x1: m.l, x2: W - m.r, y1: y0, y2: y0, stroke: C.axis }, svg);
+  g.forEach((x, i) => {
+    const h = Math.abs(x.beat) * sc, cx = m.l + bw * i + bw / 2, up = x.beat >= 0;
+    bindTip(el("rect", { x: cx - bw * 0.32, y: up ? y0 - h : y0, width: bw * 0.64, height: Math.max(h, 1), rx: 2, fill: up ? C.accent : C.counter }, svg),
+      `<b>Week ${x.week} vs ${x.opp}</b><br>Won by ${x.margin} (line expected ${x.expected >= 0 ? "+" : ""}${fmt(x.expected)})`.replace("Won by -", "Lost by "));
+    txt({ x: cx, y: up ? y0 - h - 4 : y0 + h + 11, "text-anchor": "middle", "font-size": 9.5, fill: C.ink50 }, `${up ? "+" : "−"}${fmt(Math.abs(x.beat), 0)}`, svg);
+    txt({ x: cx, y: H - 6, "text-anchor": "middle", "font-size": 9.5, fill: C.ink35 }, `WK ${x.week}`, svg);
   });
 }
 
@@ -1274,7 +1316,7 @@ const take = g => (ST.takes || {})[g.eid] || autoTake(g);
   set("f-wp-label", ST.front_wp_label || `${wpGame.home ? "vs" : "at"} ${wpGame.opp}: ${NM}'s chance to win, play by play`);
   chart("f-wp", (svg, W) => drawWP(svg, W, wpGame));
   set("f-champs-games", G.map(g => { const t = take(g);
-    return `<div class="row" data-go="champs/g-wk${g.week}"><span class="wk">Wk ${g.week}</span><span><b>${g.score > g.opp_score ? "W" : "L"} ${g.score}–${g.opp_score}</b> ${g.home ? "vs" : "at"} ${g.opp}</span>${chip(t.verdict, t.label, true)}</div>`; }).join(""));
+    return `<div class="row" data-go="champs/g-wk${g.week}"><span class="wk">Wk ${g.week}</span><span>${logo(g.opp_id)}<b>${g.score > g.opp_score ? "W" : "L"} ${g.score}–${g.opp_score}</b> ${g.home ? "vs" : "at"} ${g.opp}</span>${chip(t.verdict, t.label, true)}</div>`; }).join(""));
 
   const top = LP.current[0];
   set("f-loops-hl", top.cycle_length > LOOP_PREV ? `The ${top.conf} has ${aNum(top.cycle_length)} ${top.cycle_length}-team circle of suck, the biggest ever this early` : `The ${top.conf} has ${aNum(top.cycle_length)} ${top.cycle_length}-team circle of suck`);
@@ -1300,18 +1342,19 @@ const take = g => (ST.takes || {})[g.eid] || autoTake(g);
   const mvRows = [...MV.current.filter(t => t.delta > 0).slice(0, 3), ...MV.current.filter(t => t.delta < 0).sort((a, b) => a.delta - b.delta).slice(0, 3)];
   set("f-moves", mvRows.map(t => `<div class="row"><span>${logo(t.tid)}</span><span><b>${t.team}</b> ${t.pre ? "#" + t.pre : "NR"} → ${t.now ? "#" + t.now : "NR"}</span><span class="rtag ${t.delta > 0 ? "w" : "l"}">${t.delta > 0 ? "+" : "−"}${Math.abs(t.delta)}</span></div>`).join(""));
 
-  set("f-kf-hl", `${KF.h2h.winner} won the Kiffin breakup game, but ${KA.team} has the better numbers`);
-  set("f-kf-dek", `${KF.h2h.winner} won head to head ${KF.h2h.score} and the AP still has them ahead. By scoreboard, though, ${KA.team} is #${KA.results} and ${KB.team} #${KB.results}, and ESPN's FPI agrees ${KA.team} is better. Both project to about ${fmt((KA.proj_wins + KB.proj_wins) / 2, 1)} wins.`);
-  set("f-kf", [KA, KB].map(t => `<div class="row"><span>${logo(t.tid)}</span><span><b>${t.team}</b> ${t.record} · AP #${t.ap} · scoreboard #${t.results}</span><span class="rtag">${fmt(t.proj_wins)} W</span></div>`).join(""));
+  set("f-kf-hl", `Who's winning the Kiffin breakup? ${KSUM.headline}`);
+  set("f-kf-dek", `${KF.h2h.winner} won the Week ${KF.h2h.week} meeting, but one game doesn't settle it. ${KSUM.sentence}`);
+  set("f-kf", KF.scorecard.map(r => { const w = r.winner && KF.teams[r.winner];
+    return `<div class="row"><span>${w ? logo(w.tid) : ""}</span><span>${KSUM.short[r.key]}</span><span class="rtag${w ? " w" : ""}">${w ? w.team : "Even"}</span></div>`; }).join(""));
 
-  set("f-up-hl", `As many upsets as Vegas expected, and ${SEC_UP / UP > 0.4 ? "almost half" : SEC_UP} of them came in the SEC`);
-  set("f-up-dek", `${UP} ranked teams have been upset so far (Vegas expected ${fmt(EXP, 0)}). <b>${SEC_UP}</b> were SEC teams beating other SEC teams, when a normal year has about ${fmt(AVG_SEC_UP, 0)} at this point.`);
+  set("f-up-hl", `${UP} upsets so far, ${UP_VS}, but ${SEC_UP / UP > 0.4 ? "almost half" : SEC_UP} came in the SEC`);
+  set("f-up-dek", `That's the ${ord(UP_RANK)}-most of the ${UP_N} seasons since ${UP_SINCE} at this point (the record is ${last(UP_REC.upsets)}, in ${UP_REC.season}). What's unusual is where they happened: <b>${SEC_UP}</b> were SEC teams beating other SEC teams, when a normal year has about ${fmt(AVG_SEC_UP, 0)}.`);
   chart("f-race", drawRace);
 
   const over = GAPS[0], under = last(GAPS);
   set("f-gap-hl", `The poll's most over-ranked team: ${over.team}`);
-  set("f-gap-dek", `${over.team} is #${over.ap} in the AP but #${over.results_rank} going by scoreboard (ESPN's FPI has them #${over.fpi_rank}). On the flip side, ${under.team} is #${under.ap} in the AP and #${under.results_rank} by scoreboard.`);
-  const gapRow = t => `<div class="row"><span class="wk">AP #${t.ap}</span><span><b>${t.team}</b></span><span class="rtag ${t.gap > 0 ? "l" : "w"}">scoreboard #${t.results_rank}</span></div>`;
+  set("f-gap-dek", `${over.team} is #${over.ap} in the AP but #${over.fpi_rank} by ESPN's FPI. On the flip side, ${under.team} is #${under.ap} in the AP and #${under.fpi_rank} by FPI.`);
+  const gapRow = t => `<div class="row"><span class="wk">AP #${t.ap}</span><span>${logo(t.tid)}<b>${t.team}</b></span><span class="rtag ${t.gap > 0 ? "l" : "w"}">FPI #${t.fpi_rank}</span></div>`;
   set("f-gap", `<div class="list-head" style="margin-top:4px">Over-ranked</div>${GAPS.slice(0, 3).map(gapRow).join("")}<div class="list-head">Under-ranked</div>${GAPS.slice(-3).reverse().map(gapRow).join("")}`);
 
   set("f-par-hl", "Ranked teams lose more often than they used to");
@@ -1324,6 +1367,10 @@ const take = g => (ST.takes || {})[g.eid] || autoTake(g);
 // ======================================================================================
 (function poll() {
   const h = Q.hist, c = Q.current;
+  // AP rank vs. ESPN FPI rank for ranked teams, SEC vs everyone else (positive = the poll has them too high)
+  const fgap = f => avg(Q.teams.filter(t => t.fpi_rank && f(t)).map(t => t.fpi_rank - t.ap));
+  const secF = fgap(t => t.conf === "SEC"), nonF = fgap(t => t.conf !== "SEC"), secOver = secF > nonF + 2;
+  const spots = g => Math.abs(g) < 1.5 ? "right about where the AP has them" : `about ${fmt(Math.abs(g), 0)} spots ${g > 0 ? "too high" : "too low"}`;
   // examples for "voters stick with last year's teams": the best unranked team by scoreboard that finished
   // last year far lower, and the preseason top-15 team that finished last year the worst
   const neb = [...Q.unranked_results_top25].filter(t => t.prior_results_rank).sort((a, b) => a.results_rank - b.results_rank)[0];
@@ -1350,8 +1397,8 @@ const take = g => (ST.takes || {})[g.eid] || autoTake(g);
       `By the poll's own labels, a record ${c.losses_to_ranked} of the losses came against ranked teams. Judged by scoreboard instead, it's ${c.losses_to_results_top25}, still a little high (a normal year has about ${fmt(h.losses_to_results_top25, 0)}).`],
     ["no", "Nope", "More upsets by unranked teams",
       `Only ${cur.upsets_by_unranked} ranked teams have lost to unranked teams, below the usual ${fmt(mean("upsets_by_unranked"), 0)}. This year the chaos is coming from inside the poll.`],
-    ["no", "Nope", "The SEC is over-ranked",
-      `Ranked SEC teams sit about ${fmt(c.sec_mean_gap)} spots higher in the poll than their scoreboard rank, which is the SEC's normal gap. And historically, early-ranked SEC teams flop less than anybody (see below).`],
+    [secOver ? "part" : "no", secOver ? "Kind of" : "Not really", "The SEC is over-ranked",
+      `ESPN's FPI, which grades every play, has ranked SEC teams ${spots(secF)}, and everybody else's ranked teams ${spots(nonF)}. My scores-only rating is tougher on the SEC (${fmt(c.sec_mean_gap)} spots too high, vs ${fmt(c.nonsec_mean_gap)} for everyone else), partly because SEC teams keep beating each other. But early-ranked SEC teams have historically flopped less than anybody (see below).`],
     ["yes", "Yep", "Voters stick with last year's teams",
       (neb ? `${neb.team} is #${neb.results_rank} by scoreboard${neb.fpi_rank ? ` and #${neb.fpi_rank} by ESPN's FPI` : ""}, and still unranked after finishing last year #${neb.prior_results_rank}. ` : "") +
       (lsu ? `${lsu.team} started this year ranked #${lsu.pre} after finishing #${lsu.prior}.` : "")],
@@ -1361,7 +1408,7 @@ const take = g => (ST.takes || {})[g.eid] || autoTake(g);
   set("verdicts", items.map(([cls, lab, hd, t]) => `<div class="v"><div class="v-head"><span class="v-title">${hd}</span>${chip(cls, lab)}</div><p>${t}</p></div>`).join(""));
 
   set("wrong-h", `Who the poll has wrong`);
-  set("wrong-desc", `AP rank vs. "scoreboard rank," a rating I built from nothing but this season's scores (who you beat, and by how much, with no preseason opinions mixed in). ESPN's FPI, which does lean on preseason expectations, is the tick mark. Bold names are off by 10+ spots.`);
+  set("wrong-desc", `AP rank vs. ESPN's FPI, a power rating built from every play this season (early on it still leans a little on preseason expectations). Red means the AP has a team higher than FPI does. The tick is "scoreboard rank," my scores-only rating. Bold names are off by 10+ spots.`);
   chart("c-dumbbell", drawDumbbell);
   chart("c-hind", drawHind);
   const sec = Q.hindsight.by_conf.find(r => r.conf === "SEC");
@@ -1380,12 +1427,12 @@ const take = g => (ST.takes || {})[g.eid] || autoTake(g);
 // ======================================================================================
 (function upsets() {
   const F = X.flows, CHR = X.chronic, hi = last(CHR.by_overrank), lo = CHR.by_overrank[0];
-  const exRank = rankDesc(RACE.map(r => last(r.expected)), EXP), secRank = rankDesc(RACE.map(r => last(r.sec)), SEC_UP);
-  set("up-h1", `As many upsets as Vegas expected, and ${SEC_UP / UP > 0.4 ? "almost half" : SEC_UP} of them came in the SEC`);
-  set("up-dek", `This season was set up for chaos (Vegas expected the ${ord(exRank)}-most upsets of any year since 2005) and has delivered about that many. What's different is where they're happening: ${pct(F.intra_share_current)} came inside a conference, and the SEC has basically been Team Chaos for itself.`);
+  const secRank = rankDesc(RACE.map(r => last(r.sec)), SEC_UP);
+  set("up-h1", `${UP} upsets so far, ${UP_VS}, but ${SEC_UP / UP > 0.4 ? "almost half" : SEC_UP} came in the SEC`);
+  set("up-dek", `${UP} ranked teams have lost to lower-ranked or unranked teams through Week ${NWK}, the ${ord(UP_RANK)}-most of the ${UP_N} seasons since ${UP_SINCE} (a typical year has about ${fmt(UP_AVG, 0)}; the record is ${last(UP_REC.upsets)}, in ${UP_REC.season}). It's also about what the betting lines expected for this schedule (${fmt(EXP, 0)}). What's different is where they're happening: ${pct(F.intra_share_current)} came inside a conference, and the SEC has basically been Team Chaos for itself.`);
   statTiles("up-stats", [
-    [UP, "Ranked teams upset", `avg ${fmt(avg(HR.map(r => last(r.upsets))))} since 2005`],
-    [fmt(EXP, 0), "What Vegas expected", `${ord(exRank)}-most since 2005`],
+    [UP, "Ranked teams upset", `${ord(UP_RANK)}-most of ${UP_N} seasons`],
+    [fmt(UP_AVG, 0), "A typical year by now", `record ${last(UP_REC.upsets)} (${UP_REC.season}) · lines expected ${fmt(EXP, 0)}`],
     [SEC_UP, "SEC teams upsetting SEC teams", `${secRank === 1 ? "most" : ord(secRank) + "-most"} since 2005 · avg ${fmt(AVG_SEC_UP)}`],
     [pct(F.intra_share_current), "Of upsets came inside a conference", `normally ${pct(F.intra_share_hist)}`],
   ]);
@@ -1810,24 +1857,24 @@ ledgerText(ledgerView);
 // KIFFIN BOWL
 // ======================================================================================
 (function kiffin() {
-  const colors = { [KA.tid]: "var(--accent)", [KB.tid]: "var(--counter)" }, h2h = KF.h2h;
-  set("kf-h1", `${h2h.winner} won the Kiffin breakup game, but ${KA.team} has the better numbers`);
-  set("kf-dek", `Lane Kiffin left Ole Miss for LSU at the end of the 2025 regular season, and ${h2h.winner} won the first meeting ${h2h.score} in Week ${h2h.week}. The AP has kept ${KB.ap < KA.ap ? KB.team : KA.team} ahead ever since. Going by scoreboard, though, ${KA.team} is #${KA.results} and ${KB.team} #${KB.results}, and ESPN's FPI agrees ${KA.team} is the better team. With what's left, both project to about ${fmt((KA.proj_wins + KB.proj_wins) / 2, 1)} wins.`);
-  const card = t => {
-    const o = t === KA ? KB : KA, win = (k, low = true) => (low ? t[k] < o[k] : t[k] > o[k]) ? " win" : "";
-    return `<div class="kf-card" style="border-top:3px solid ${colors[t.tid]}"><div class="top"><img alt="" src="${TL[t.tid]}"><div><div class="tn">${t.team}</div>` +
-      `<div class="ts">${t.record} · preseason #${t.pre}</div></div></div><div class="kf-grid">` +
-      `<div><div class="n${win("ap")}">#${t.ap}</div><div class="l">AP rank</div></div>` +
-      `<div><div class="n${win("results")}">#${t.results}</div><div class="l">Scoreboard rank</div></div>` +
-      `<div><div class="n${win("fpi_rank")}">#${t.fpi_rank}</div><div class="l">ESPN FPI rank</div></div>` +
-      `<div><div class="n${win("proj_wins", false)}">${fmt(t.proj_wins)}</div><div class="l">Projected wins</div></div>` +
-      `<div><div class="n${win("prior_results")}">#${t.prior_results}</div><div class="l">Last year (scoreboard)</div></div>` +
-      `<div><div class="n">#${fmt(t.rest_sos, 0)}</div><div class="l">Avg. opponent left (FPI rank)</div></div></div></div>`;
-  };
-  set("kf-cards", card(KA) + card(KB));
+  const colors = { [KA.tid]: "var(--accent)", [KB.tid]: "var(--ink-65)" }, h2h = KF.h2h;
+  set("kf-h1", `Who's winning the Kiffin breakup? ${KSUM.headline}`);
+  set("kf-dek", `Lane Kiffin left Ole Miss for LSU after the 2025 regular season, and ${h2h.winner} won the first meeting ${h2h.score} in Week ${h2h.week}. One early game doesn't settle it, so this keeps score all season: who's better now, who's beating expectations, and who's trending up. ${KSUM.sentence}`);
+  const head = `<div class="ks-row ks-head"><span class="lbl"></span>` + [KA, KB].map(t => `<span class="ks-v"><img alt="" src="${TL[t.tid]}">${t.team}</span>`).join("") + `</div>`;
+  const rows = KF.scorecard.map(r => `<div class="ks-row"><span class="lbl">${r.label}</span>` +
+    [KA, KB].map(t => `<span class="ks-v${r.winner === t.tid ? " win" : r.winner ? "" : " even"}">${(r.values[t.tid] || "—").replace("-", "−")}</span>`).join("") + `</div>`).join("");
+  const total = `<div class="ks-row ks-total"><span class="lbl">Measures won${KSUM.even ? ` (${word(KSUM.even)} even)` : ""}</span>` +
+    [KA, KB].map(t => `<span class="ks-v${KSUM.won[t.tid] > KSUM.won[(t === KA ? KB : KA).tid] ? " lead" : ""}">${KSUM.won[t.tid]}</span>`).join("") + `</div>`;
+  set("kf-score", head + rows + total);
+  const ch = t => last(t.fpi_path).fpi - t.fpi_path[0].fpi, riser = ch(KA) > ch(KB) ? KA : KB, other = riser === KA ? KB : KA;
+  set("kf-traj-h", Math.abs(ch(KA) - ch(KB)) < 1 ? "Both are about where they started" : `${riser.team} is the one trending up`);
+  set("kf-traj-desc", `ESPN's FPI after each week: how many points better than an average team each one is on a neutral field. ${riser.team} is ${fmt(Math.abs(ch(riser)))} points ${ch(riser) >= 0 ? "better" : "worse"} than in Week 1; ${other.team} is ${fmt(Math.abs(ch(other)))} ${ch(other) >= 0 ? "better" : "worse"}. ${KA.team} is still the better team by ${fmt(last(KA.fpi_path).fpi - last(KB.fpi_path).fpi)}.`);
   set("kf-legend", [KA, KB].map(t => `<span class="key"><span class="ln" style="border-top-color:${colors[t.tid]}"></span>${t.team}</span>`).join("") +
-    `<span class="key"><span class="ln dash"></span>Scoreboard rank</span>`);
-  chart("c-kpath", drawKPath);
+    `<span class="key"><span class="ln dash"></span>Head-to-head game</span>`);
+  chart("c-ktraj", drawKTraj);
+  const beat = t => sum(t.ats, g => g.beat);
+  set("kf-lines-h", `Against the betting lines: ${KA.team} ${beat(KA) >= 0 ? "+" : "−"}${fmt(Math.abs(beat(KA)), 0)} for the season, ${KB.team} ${beat(KB) >= 0 ? "+" : "−"}${fmt(Math.abs(beat(KB)), 0)}`);
+  [KA, KB].forEach((t, k) => { set(`kf-lines-l${k}`, t.team); chart(`c-klines-${k}`, (svg, W) => drawKLines(svg, W, t)); });
   const tougher = KA.rest_sos < KB.rest_sos ? KA : KB;
   set("kf-rest-h", `What's left (${tougher.team}'s road is a lot tougher)`);
   set("kf-rest-desc", `Each team's chance to win its remaining games, from ESPN's FPI with home field factored in.`);
@@ -1835,6 +1882,7 @@ ledgerText(ledgerView);
     t.remaining.map(r => `<div class="srow"><span class="wk">Wk ${r.week}</span><span class="team">${TL[r.opp_id] ? `<img alt="" src="${TL[r.opp_id]}">` : ""}<span class="rk">${r.venue === "at" ? "at" : "vs"}${r.opp_rank ? " #" + r.opp_rank : ""}</span><span class="nm">${r.opp}</span></span>` +
       `${pbar(r.p_win, colors[t.tid])}</div>`).join("")));
   set("kf-how", `
+    <p><b>The scorecard.</b> Head to head is the Week ${h2h.week} result. "Better team now" is ESPN's FPI rating. "Vs. preseason expectations" is the change in ESPN's projected wins since its Week 1 numbers. "Vs. the betting lines" adds up how many points each team beat (or missed) the closing line by, for the season and the last three games. "Projected finish" is ESPN's projected wins. A measure counts as even when the gap is small (under 1 point of FPI, 0.3 projected wins of change, 7 points against the lines, or half a projected win at the finish), so noise doesn't flip it week to week.</p>
     <p><b>Win chances</b> use the gap between the two teams' ESPN FPI ratings plus home field, calibrated on how Week ${B.fpi.week} FPI predicted the rest of every season from 2005–25. Projected wins = wins so far + the sum of those chances. ESPN's own FPI projections (${KA.team} ${KA.espn_proj}, ${KB.team} ${KB.espn_proj}) also count a possible conference title game and bowl.</p>
     <p><b>Scoreboard rank</b> is my scores-only rating (see The Poll). By play-by-play stats over their FBS games, ${KA.team} has played like ${aNum(fmt(KA.deserved, 1))} ${fmt(KA.deserved, 1)}-win team and gone ${KA.fbs_wins}–${KA.deserved_games - KA.fbs_wins}, and ${KB.team} like ${aNum(fmt(KB.deserved, 1))} ${fmt(KB.deserved, 1)}-win team and gone ${KB.fbs_wins}–${KB.deserved_games - KB.fbs_wins}, so ${KA.team} has been a little unlucky and ${KB.team} a little lucky.</p>`);
 })();
