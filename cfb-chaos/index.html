@@ -1607,13 +1607,14 @@ const tone = v => `color:${v >= 0 ? "var(--accent-deep)" : "var(--counter)"}`;
 const dogPct = r => r.agent_att ? r.agent_w / r.agent_att : -1, favPct = r => r.victim_att ? 1 - r.victim_l / r.victim_att : -1;
 const tdPct = v => `<td class="num">${v < 0 ? "—" : pct(v)}</td>`;
 const NET_COL = ["net", "Net", r => r.agent_w - r.victim_l, r => `<td class="num" style="${tone(r.agent_w - r.victim_l)}">${r.agent_w - r.victim_l >= 0 ? "+" : ""}${r.agent_w - r.victim_l}</td>`];
-const PCT_COLS = [["dog", "Win % as underdog", dogPct, r => tdPct(dogPct(r))], ["fav", "Win % as favorite", favPct, r => tdPct(favPct(r))]];
+const DOG_COL = ["dog", "Win % as underdog", dogPct, r => tdPct(dogPct(r))], FAV_COL = ["fav", "Win % as favorite", favPct, r => tdPct(favPct(r))];
 const LEDGER_COLS = {
   alltime: { rows: () => LK.all_time, def: ["net", "asc"], cols: [
     ["team", "Program", r => r.team, tdTeam],
     ["pulled", "Upsets pulled", r => r.agent_w, r => `<td><span class="num">${r.agent_w}</span> of ${r.agent_att}</td>`],
+    DOG_COL,
     ["upset", "Times upset", r => r.victim_l, r => `<td><span class="num">${r.victim_l}</span> of ${r.victim_att}</td>`],
-    NET_COL, ...PCT_COLS] },
+    FAV_COL, NET_COL] },
   luck: { rows: () => LK.teams.filter(luckSet(new Set(Q.teams.map(t => String(t.tid))))), def: ["luck", "desc"], cols: [
     ["team", "Team", r => r.team, tdTeam],
     ["wins", "FBS record", r => r.wins - (r.games - r.wins) / 100, r => `<td class="num">${r.wins}–${r.games - r.wins}</td>`],
@@ -1623,8 +1624,9 @@ const LEDGER_COLS = {
   counts: { rows: () => LK.teams.filter(t => t.agent_w + t.victim_l > 0), def: ["net", "asc"], cols: [
     ["team", "Team", r => r.team, tdTeam],
     ["pulled", "Upsets pulled", r => r.agent_w + r.agent_earned / 100, r => `<td><span class="num">${r.agent_w}</span>${PIPS(r.agent_earned, r["agent_toss-up"], r.agent_fluke)}</td>`],
+    DOG_COL,
     ["upset", "Times upset", r => r.victim_l + r.victim_fluke / 100, r => `<td><span class="num">${r.victim_l}</span>${PIPS(r.victim_earned, r["victim_toss-up"], r.victim_fluke)}</td>`],
-    NET_COL, ...PCT_COLS,
+    FAV_COL, NET_COL,
     ["luck", "Wins vs. deserved", r => r.games ? r.luck : -99, r => `<td class="num" style="${tone(r.luck)}">${r.games ? signed(r.luck) : "—"}</td>`]] },
 };
 function renderLedgerTable(view) {
