@@ -6,7 +6,7 @@ layout: null
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>CFB Chaos: College Football Upsets, Polls and Circles of Suck - bdharva</title>
+<title>CFB Chaos: College Football Upsets, Polls, and Circles of Suck - bdharva</title>
 <meta name="description" content="A weekly college football paper for Team Chaos: AP poll losses, which upsets were real, circles of suck, who's good vs. lucky, and this week's likeliest upsets.">
 <link rel="canonical" href="https://bdharva.com/cfb-chaos/">
 <meta property="og:type" content="website">
@@ -35,7 +35,7 @@ layout: null
 <link rel="stylesheet" href="/css/apps.css">
 <style>
   /* bdharva design system tokens (personal_website/DESIGN_SYSTEM.md); chart colors follow cfb-chaos */
-  /* This page's CSS (app.css level of APPS.md). Uses the app layer's header, switch, icon buttons and info modal;
+  /* This page's CSS (app.css level of APPS.md). Uses the app layer's header, switch, icon buttons, and info modal;
      tokens come from /css/apps.css (light on :root, dark on html.dark). Adds: masthead, ticker, section bar,
      front-page grid, charts, matchup cards, ledger. Extras below build on --ink so they follow the theme. */
   :root {
@@ -770,7 +770,7 @@ layout: null
     <div id="wk-table"></div>
     <a class="house-ad wide" href="/cfb-bar-crawler/"><span class="ad-label"><span>From bdharva</span><span>NYC</span></span>
         <img class="shot" alt="NYC CFB Bar Crawler: a crawl route between college football alumni bars in Midtown Manhattan" src="/assets/share/cfb-bar-crawler.jpg" loading="lazy">
-        <div class="ad-body"><div class="ad-hl">Watching Saturday in NYC?</div><p class="ad-txt">Find every FBS alumni club’s game-watch bar in the city, see who’s playing where this week, and plan a Saturday crawl by walk, ride or train.</p><span class="ad-cta">Plan your bar crawl <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span></div></a>
+        <div class="ad-body"><div class="ad-hl">Watching Saturday in NYC?</div><p class="ad-txt">Find every FBS alumni club’s game-watch bar in the city, see who’s playing where this week, and plan a Saturday crawl by walk, ride, or train.</p><span class="ad-cta">Plan your bar crawl <i data-lucide="arrow-right" style="width:14px;height:14px"></i></span></div></a>
   </section>
 </div>
 
@@ -784,7 +784,7 @@ layout: null
     <h3>Sections</h3>
     <p>The poll (why the Top 25 has so many losses), Upsets (how many, where, and which ones were for real), Circles of suck (every conference's loop), The champs (Indiana's slide), Trends (parity, hangovers, blown leads), the Kiffin bowl (LSU vs. Ole Miss), and this week's ranked games.</p>
     <h3>Data</h3>
-    <p>ESPN's AP polls, scoreboards, play-by-play, win probability, betting lines and FPI, 2001–2026 (2020 left out). "Scoreboard rank" is my own rating built only from this season's scores. Logos from ESPN. The original 2016 version of this page started as a Python scraper and a couple of D3 charts.</p>
+    <p>ESPN's AP polls, scoreboards, play-by-play, win probability, betting lines, and FPI, 2001–2026 (2020 left out). "Scoreboard rank" is my own rating built only from this season's scores. Logos from ESPN. The original 2016 version of this page started as a Python scraper and a couple of D3 charts.</p>
   </div>
   <footer class="app-modal-meta"><span id="data-updated"></span><a href="/">bdharva.com</a></footer>
 </dialog>
@@ -809,6 +809,8 @@ const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "e
 const word = n => WORDS[n] ?? String(n), Word = n => { const w = word(n); return w[0].toUpperCase() + w.slice(1); };
 const oneIn = p => `1 in ${Math.round(1 / p)}`;
 const last = a => a[a.length - 1], avg = a => a.reduce((s, v) => s + v, 0) / a.length, sum = (a, f) => a.reduce((s, x) => s + f(x), 0);
+// "A", "A and B", "A, B, and C" (always the Oxford comma); and "a"/"an" before a number ("an 11-team loop")
+const andList = a => a.length > 2 ? a.slice(0, -1).join(", ") + ", and " + last(a) : a.join(" and "), aNum = n => /^(8|11$|18$)/.test(String(n)) ? "an" : "a";
 const rk = r => r ? `#${r}` : "unranked";
 // chart colors are read from the theme tokens, and re-read when the dark-mode switch flips (charts then redraw)
 const palette = () => ({ accent: css("--accent"), accentDeep: css("--accent-deep"), counter: css("--counter"), ink85: css("--ink-85"), ink65: css("--ink-65"),
@@ -854,7 +856,7 @@ function monoPath(pts) {
 }
 const yearLabel = (y, full) => full ? String(y) : `'${String(y).slice(2)}`;
 
-// ---- charts draw at their container's real width (constant line weights, dots and text at any size) ----
+// ---- charts draw at their container's real width (constant line weights, dots, and text at any size) ----
 const CHARTS = [];
 function chart(id, draw) { const host = document.getElementById(id); if (host) CHARTS.push({ host, draw, w: 0 }); }
 function size(svg, W, H) { svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("width", W); svg.setAttribute("height", H); }
@@ -886,7 +888,7 @@ const PW = B.poll_week, hist = B.seasons.filter(s => s.season < B.season), cur =
 const mean = k => avg(hist.map(s => s[k]));
 function standing(k, dir = "most") {
   const v = cur[k], better = hist.filter(s => dir === "most" ? s[k] > v : s[k] < v).length, ties = hist.filter(s => s[k] === v);
-  if (better === 0 && ties.length) return `tied with ${ties.map(s => s.season).join(" and ")} for the ${dir} since 2001`;
+  if (better === 0 && ties.length) return `tied with ${andList(ties.map(s => s.season))} for the ${dir} since 2001`;
   if (better === 0) return `the ${dir} since 2001`;
   return `the ${ord(better + 1)}-${dir} since 2001`;
 }
@@ -1275,7 +1277,7 @@ const take = g => (ST.takes || {})[g.eid] || autoTake(g);
     return `<div class="row" data-go="champs/g-wk${g.week}"><span class="wk">Wk ${g.week}</span><span><b>${g.score > g.opp_score ? "W" : "L"} ${g.score}–${g.opp_score}</b> ${g.home ? "vs" : "at"} ${g.opp}</span>${chip(t.verdict, t.label, true)}</div>`; }).join(""));
 
   const top = LP.current[0];
-  set("f-loops-hl", top.cycle_length > LOOP_PREV ? `The ${top.conf} has a ${top.cycle_length}-team circle of suck, the biggest ever this early` : `The ${top.conf} has a ${top.cycle_length}-team circle of suck`);
+  set("f-loops-hl", top.cycle_length > LOOP_PREV ? `The ${top.conf} has ${aNum(top.cycle_length)} ${top.cycle_length}-team circle of suck, the biggest ever this early` : `The ${top.conf} has ${aNum(top.cycle_length)} ${top.cycle_length}-team circle of suck`);
   set("f-loops-dek", `${Word(LOOP_BIG.length)} conferences already have loops longer than anything we'd seen by Week ${LP.through_week} (going back to 2005).` +
     (SEC_LOOP && SEC_LOOP !== top ? ` The SEC's is ${SEC_LOOP.cycle_length}` : "") +
     (loopSwing && loopSwing.cycle > LOOP.cycle_length ? `, and it hits ${loopSwing.cycle} if ${loopSwing.w} beats ${loopSwing.l} this week.` : "."));
@@ -1335,7 +1337,7 @@ const take = g => (ST.takes || {})[g.eid] || autoTake(g);
     [LOOP.cycle_length, "SEC teams in one circle of suck", `${LOOP.component.length} of ${LOOP.teams} caught in the web`],
   ]);
   set("poll-cols-h", `Top 25 losses at this point in the season, every year since 2001`);
-  set("poll-cols-desc", `Mint is SEC teams losing to other SEC teams. ${B.season} matches ${hist.filter(s => s.losses === cur.losses).map(s => s.season).join(" and ") || "the record"} for total losses, and nobody's come close to this many SEC-on-SEC losses.`);
+  set("poll-cols-desc", `Mint is SEC teams losing to other SEC teams. ${B.season} matches ${andList(hist.filter(s => s.losses === cur.losses).map(s => s.season)) || "the record"} for total losses, and nobody's come close to this many SEC-on-SEC losses.`);
   chart("c-seasons", drawLossColumns);
 
   const L = B.model.losers;
@@ -1587,7 +1589,6 @@ function ledgerText(view) {
   const T = LK.teams, c = LK.counts;
   const lucky = [...T].filter(t => t.games >= 5).sort((a, b) => b.luck - a.luck), robbed = [...T].sort((a, b) => b.victim_fluke - a.victim_fluke || b.victim_l - a.victim_l);
   const maxA = Math.max(...T.map(t => t.agent_w)), maxV = Math.max(...T.map(t => t.victim_l));
-  const andList = a => a.length > 1 ? a.slice(0, -1).join(", ") + " and " + last(a) : a[0];
   const agentsTop = T.filter(t => t.agent_w === maxA).map(t => t.team).sort(), victimsTop = T.filter(t => t.victim_l === maxV).map(t => t.team).sort();
   const notes = {
     all: `<b>${andList(agentsTop)}</b> ${agentsTop.length > 1 ? "lead" : "leads"} Team Chaos with ${word(maxA)} upsets${agentsTop.length > 1 ? " each" : ""}, and <b>${andList(victimsTop)}</b> ${victimsTop.length > 1 ? "have" : "has"} been upset the most (${word(maxV)} times${victimsTop.length > 1 ? " each" : ""}). Teams that share a spot are grouped together. Hover a logo for the details.`,
@@ -1660,7 +1661,7 @@ ledgerText(ledgerView);
 // ======================================================================================
 (function loops() {
   const curL = LP.current, wk = LP.through_week, prevN = LP.history.filter(r => r.cycle_length === LOOP_PREV);
-  const listTxt = LOOP_BIG.map(c => `the ${c.conf} has a ${c.cycle_length}-team loop`).join(", ").replace(/, ([^,]*)$/, " and $1");
+  const listTxt = andList(LOOP_BIG.map(c => `the ${c.conf} has ${aNum(c.cycle_length)} ${c.cycle_length}-team loop`));
   set("lp-h1", `${Word(LOOP_BIG.length)} conferences already have record-size circles of suck`);
   set("lp-dek", `A circle of suck is when the results loop back on themselves: A beat B, B beat C, and so on until somebody beat A. Through Week ${wk}, ${listTxt}. Before this year, no conference had a loop longer than ${LOOP_PREV} this early (going back to 2005).`);
   set("lp-list-head", `Longest loop in each conference, through Week ${wk} (tap one)`);
@@ -1698,7 +1699,7 @@ ledgerText(ledgerView);
   set("lp-how", `
     <p>For each conference I took every conference game so far and searched every possible chain of wins for the longest one that loops back to where it started (an exhaustive search, so it's the true longest loop, not an estimate).</p>
     <p><b>Caught in the web</b> means teams that can all reach each other through some chain of wins. Teams outside it haven't beaten anybody who connects back to them (or haven't lost to anyone in the web).</p>
-    <p>The old record of ${LOOP_PREV} by Week ${wk} happened ${prevN.length} times, most recently ${prevN.filter(r => r.season === ly).map(r => r.conf).join(" and ")} in ${ly}. Conference membership comes from ESPN's standings for each season, since the per-game conference tags on older scoreboards have errors (Pac-10 teams tagged as Big Ten, for example).</p>`);
+    <p>The old record of ${LOOP_PREV} by Week ${wk} happened ${prevN.length} times, most recently ${andList(prevN.filter(r => r.season === ly).map(r => r.conf))} in ${ly}. Conference membership comes from ESPN's standings for each season, since the per-game conference tags on older scoreboards have errors (Pac-10 teams tagged as Big Ten, for example).</p>`);
 })();
 
 // ======================================================================================
@@ -1712,7 +1713,7 @@ ledgerText(ledgerView);
     [`${W3}–${3 - W3}`, "Record over the last three", `${LAST3.filter(g => ats(g) > 0).length}–${LAST3.filter(g => ats(g) < 0).length} against the spread`],
     [pct(P3), "Chance a team playing like this wins all three", `${pct(P3SR)} judged on plays that worked alone`],
     [pct(OFF3), `Of ${NM}'s plays worked in the last three`, `${pct(FIRST.team.sr)} ${FIRST.home ? "vs" : "at"} ${FIRST.opp} · typical team ${pct(IND.model.baseline.sr)}`],
-    [pct(notSustained(LAST3) / sum(ptsOf(LAST3), p => p.points)), `Of points in the last three came off big plays, short fields or OT`, ""],
+    [pct(notSustained(LAST3) / sum(ptsOf(LAST3), p => p.points)), `Of points in the last three came off big plays, short fields, or OT`, ""],
   ]);
   set("ch-games", G.map(g => {
     const t = take(g), won = g.score > g.opp_score, a = ats(g);
@@ -1745,14 +1746,14 @@ ledgerText(ledgerView);
       return v ? `<span style="flex:${v};background:${c};color:${tc};${k === "overtime" ? "border:1.5px solid var(--ink-35)" : ""}" title="${l}: ${v}">${v >= 3 ? v : ""}</span>` : ""; }).join("")}</div>` +
     `<span class="tot">${g.score}</span></div>`).join(""));
   const tot = sum(ptsOf(G), p => p.points);
-  set("pts-note", ST.points_note || `Over these ${G.length} games, <b>${notSustained(G)} of ${tot}</b> points came off big plays, short fields or overtime.`);
+  set("pts-note", ST.points_note || `Over these ${G.length} games, <b>${notSustained(G)} of ${tot}</b> points came off big plays, short fields, or overtime.`);
   set("off-h", ST.offense_h || `${NM}'s offense and defense, game by game`);
   chart("c-ind-season", drawIndSeason);
 
   const M = IND.model, S = M.stability, iu = IND.peers.find(p => p.tid === IND.team);
   set("ch-how", `
     <p><b>Plays that worked</b> is what analytics folks call success rate: a play works if it gains at least half the needed yards on 1st down, 70% on 2nd, or all of them on 3rd or 4th. A typical team in games with a ranked opponent hits about ${pct(M.baseline.sr)}.</p>
-    <p><b>"How often a team with these stats wins"</b> comes from a model fit on ${M.n_games.toLocaleString()} FBS games involving a ranked team (${M.seasons[0]}–${M.seasons[1]}), using regulation plays only: how many plays worked, yards per play, and how many plays went for 20+. It picks the right winner ${pct(M.snaps.accuracy)} of the time. Two other versions are in the data too: plays-that-worked alone (stricter, ${pct(M.sr.accuracy)} accurate) and one that adds turnovers and field position (${pct(M.box.accuracy)}). For the last three games they give ${NM} ${fmt(sum(LAST3, g => g.p_sr), 1)}, ${fmt(sum(LAST3, g => g.p_snaps), 1)} and ${fmt(sum(LAST3, g => g.p_box), 1)} expected wins, against ${W3} actual.</p>
+    <p><b>"How often a team with these stats wins"</b> comes from a model fit on ${M.n_games.toLocaleString()} FBS games involving a ranked team (${M.seasons[0]}–${M.seasons[1]}), using regulation plays only: how many plays worked, yards per play, and how many plays went for 20+. It picks the right winner ${pct(M.snaps.accuracy)} of the time. Two other versions are in the data too: plays-that-worked alone (stricter, ${pct(M.sr.accuracy)} accurate) and one that adds turnovers and field position (${pct(M.box.accuracy)}). For the last three games they give ${NM} ${fmt(sum(LAST3, g => g.p_sr), 1)}, ${fmt(sum(LAST3, g => g.p_snaps), 1)}, and ${fmt(sum(LAST3, g => g.p_box), 1)} expected wins, against ${W3} actual.</p>
     <p><b>Luck vs. skill:</b> comparing teams' odd-numbered and even-numbered games within a season (${S.n_team_seasons} team-seasons), turnover margin barely carries over (correlation ${fmt(S.to, 2)}), while yards per play (${fmt(S.ypp, 2)}) and plays that worked (${fmt(S.sr, 2)}) hold up much better. ${NM}'s last ${G.length} games leaned on ${sum(G, g => g.opp_stats.to)} takeaways to ${sum(G, g => g.team.to)} giveaways.</p>
     <p><b>Compared to the rest of the Top 10</b> over each team's last four games, ${NM}'s record is right about what its play stats deserve (${iu.last4_wins} wins vs ${fmt(iu.last4_snaps, 1)} expected). Kentucky has outrun its stats the most.</p>
     <p><b>Points</b> are tagged by how each scoring drive started: "big play" means it turned on one gain of 40+ yards (or was three snaps or fewer with a 20+ yard gain), and "short field" means it started in the opponent's half or right after a takeaway.</p>`);
@@ -1835,7 +1836,7 @@ ledgerText(ledgerView);
       `${pbar(r.p_win, colors[t.tid])}</div>`).join("")));
   set("kf-how", `
     <p><b>Win chances</b> use the gap between the two teams' ESPN FPI ratings plus home field, calibrated on how Week ${B.fpi.week} FPI predicted the rest of every season from 2005–25. Projected wins = wins so far + the sum of those chances. ESPN's own FPI projections (${KA.team} ${KA.espn_proj}, ${KB.team} ${KB.espn_proj}) also count a possible conference title game and bowl.</p>
-    <p><b>Scoreboard rank</b> is my scores-only rating (see The Poll). By play-by-play stats over their FBS games, ${KA.team} has played like a ${fmt(KA.deserved, 1)}-win team and gone ${KA.fbs_wins}–${KA.deserved_games - KA.fbs_wins}, and ${KB.team} like a ${fmt(KB.deserved, 1)}-win team and gone ${KB.fbs_wins}–${KB.deserved_games - KB.fbs_wins}, so ${KA.team} has been a little unlucky and ${KB.team} a little lucky.</p>`);
+    <p><b>Scoreboard rank</b> is my scores-only rating (see The Poll). By play-by-play stats over their FBS games, ${KA.team} has played like ${aNum(fmt(KA.deserved, 1))} ${fmt(KA.deserved, 1)}-win team and gone ${KA.fbs_wins}–${KA.deserved_games - KA.fbs_wins}, and ${KB.team} like ${aNum(fmt(KB.deserved, 1))} ${fmt(KB.deserved, 1)}-win team and gone ${KB.fbs_wins}–${KB.deserved_games - KB.fbs_wins}, so ${KA.team} has been a little unlucky and ${KB.team} a little lucky.</p>`);
 })();
 
 // ======================================================================================
