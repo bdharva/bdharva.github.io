@@ -4,7 +4,7 @@ import { initTheme, readTheme } from './theme.js';
 import { initMap, renderMap, setMapTheme, showPopup, setPicking, resizeMap, snapshot, setRouteGeometry, setSubway, setSubwayFocus } from './map.js';
 import { routeGeometry, stationPair } from './routes.js';
 import { drawCard } from './card.js';
-import { suggestDay, visits as toVisits, reasons, segmentKey } from './suggest.js';
+import { suggestDay, visits as toVisits, reasons, segmentKey, switchesSides } from './suggest.js';
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -256,6 +256,8 @@ const matchup = g => `${esc(teamName(g.away))} ${g.neutral ? 'vs' : 'at'} ${esc(
 const PART = { first: '1st half of', second: '2nd half of', live: 'the rest of' };
 const PART_SHORT = { first: '1st half', second: '2nd half', live: 'in progress' };
 const catchText = option => option.catches.map(g => `${PART[option.parts[g.id]]} ${matchup(g)}`).join(' + ');
+// The side a bar is for in a game: "Ohio State" when it's the Ohio State bar.
+const sideName = (teamIds, g) => teamName([g.home, g.away].find(t => teamIds.has(t.id)));
 
 // ---------- getting there ----------
 const LINE_COLOR = line => ({ 1: '#EE352E', 2: '#EE352E', 3: '#EE352E', 4: '#00933C', 5: '#00933C', 6: '#00933C', 7: '#B933AD',
@@ -341,14 +343,25 @@ const halvesLabel = halves => halves.length === 2 ? 'Full game' : halves[0] === 
 
 // Per half in a visit: what's pinned, and the next-best swaps (tap to pin one and replan).
 function visitSwapGroups(v, from) {
-  const groups = v.games.map(({ game }) => {
+  const groups = v.games.flatMap(({ game, halves }) => {
     const segs = v.segments.filter(seg => seg.game.id === game.id);
     const replace = segs.map(segmentKey).join(',');
-    return {
-      label: `Watch ${teamName(game.away)}–${teamName(game.home)} elsewhere`,
-      rows: otherBars(game, v.bar.id, from).slice(0, 3).map(o =>
-        swapRow(`data-lock="${segs.map(seg => `${game.id}:${seg.half}:${o.bar.id}`).join(',')}" data-replace="${replace}"`, teamColor(o.teams[0]), esc(o.bar.name), `${o.distance.toFixed(1)} mi`)),
-    };
+    const others = otherBars(game, v.bar.id, from);
+    // A whole game at one team's bar can hand off to the other team's bar at the half.
+    const mine = new Set(barsForGame(game, data.barsByTeam).find(o => o.bar.id === v.bar.id)?.teams);
+    const across = halves.length === 2 && mine.size === 1 ? others.filter(o => !o.teams.some(t => mine.has(t))) : [];
+    return [
+      ...(across.length ? [{
+        label: `Switch sides at the half · ${sideName(new Set(across[0].teams), game)} bars`,
+        rows: across.slice(0, 2).map(o => swapRow(`data-lock="${game.id}:1:${v.bar.id},${game.id}:2:${o.bar.id}" data-replace="${replace}"`, teamColor(o.teams[0]),
+          `${esc(o.bar.name)} <span class="swap-note">2nd half</span>`, `${miles([v.bar.lng, v.bar.lat], [o.bar.lng, o.bar.lat]).toFixed(1)} mi`)),
+      }] : []),
+      {
+        label: `Watch ${teamName(game.away)}–${teamName(game.home)} elsewhere`,
+        rows: others.slice(0, 3).map(o =>
+          swapRow(`data-lock="${segs.map(seg => `${game.id}:${seg.half}:${o.bar.id}`).join(',')}" data-replace="${replace}"`, teamColor(o.teams[0]), esc(o.bar.name), `${o.distance.toFixed(1)} mi`)),
+      },
+    ];
   });
   const when = seg => ({ 0: 'Instead of this game', 1: 'Instead, for the 1st half', 2: seg === v.segments[0] ? 'Instead, for the 2nd half' : 'Switch at the half' })[seg.half];
   for (const seg of v.segments) {
@@ -382,12 +395,14 @@ function renderSuggestion({ day, visits: vs }) {
   vs.forEach((v, i) => {
     const legBits = [legText(v.leg, from, [v.bar.lng, v.bar.lat]), `leave ${esc(clock(new Date(+v.start - v.leg.minutes * 60000)))}`].join('<span>·</span>');
     const late = v.lateMinutes >= 5 ? `<p class="note">You'll join about ${v.lateMinutes} minutes in.</p>` : '';
+    const handoff = vs[i - 1]?.segments.at(-1), here = v.segments[0];
+    const crossed = handoff && switchesSides(handoff, here) ? `<p class="note">Switching sides: the 2nd half with ${esc(sideName(new Set(here.teams), here.game))} fans.</p>` : '';
     const games = v.games.map(({ game, halves }) => gameRow(game, { part: halvesLabel(halves), why: reasons(game, context).join(' · ') })).join('');
     const pinned = v.segments.filter(seg => seg.locked).map(segmentKey);
     items.push(stopItem({
       n: i + 1, color: stopColor(v), time: `${esc(clock(v.start))} – ${esc(clock(v.end))}`, leg: legBits, bar: v.bar, teams: v.teams,
       action: pinned.length ? textLink(`data-unlock="${pinned.join(',')}"`, 'Pinned · undo') : '',
-      body: `<ul class="stop-games">${games}</ul>${late}${swaps(`v:${v.bar.id}:${v.segments[0].start}`, visitSwapGroups(v, from))}`,
+      body: `<ul class="stop-games">${games}</ul>${crossed}${late}${swaps(`v:${v.bar.id}:${v.segments[0].start}`, visitSwapGroups(v, from))}`,
     }));
     from = [v.bar.lng, v.bar.lat];
   });
@@ -436,10 +451,13 @@ function renderCrawl(plan) {
     let move = '';
     if (!step.second && step.halftimeOptions.length) {
       const catcher = step.halftimeOptions.find(o => o.catches.length);
+      const crossing = step.halftimeOptions.find(o => o.sides);
       const at = step.slot.tba ? 'At halftime' : `At halftime · ${clock(step.halftime)}`;
-      move = catcher
-        ? `<button class="move" data-split="${step.splitKey}" data-to="${catcher.bar.id}" style="--team:${stopColor(catcher)}"><span class="move-when">${esc(at)}</span><span class="move-what"><i></i>${catchText(catcher)}</span><span class="move-where">${esc(catcher.bar.name)} · ${esc(describeTravel(travel(catcher.distance)))}</span></button>`
-        : `<button class="move quiet" data-split="${step.splitKey}" data-to="auto"><svg class="icon"><use href="#icon-route"/></svg>Move bars at halftime</button>`;
+      const button = (o, what) => `<button class="move" data-split="${step.splitKey}" data-to="${o.bar.id}" style="--team:${stopColor(o)}"><span class="move-when">${esc(at)}</span><span class="move-what"><i></i>${what}</span><span class="move-where">${esc(o.bar.name)} · ${esc(describeTravel(travel(o.distance)))}</span></button>`;
+      move = [
+        crossing && button(crossing, `Switch sides: 2nd half with ${esc(sideName(crossing.teams, crossing.sides))} fans`),
+        catcher && button(catcher, catchText(catcher)),
+      ].filter(Boolean).join('') || `<button class="move quiet" data-split="${step.splitKey}" data-to="auto"><svg class="icon"><use href="#icon-route"/></svg>Move bars at halftime</button>`;
     }
     items.push(stopItem({
       n, color: stopColor(stop), bar: stop.bar, teams: stop.teams, leg: legBits,
@@ -452,14 +470,15 @@ function renderCrawl(plan) {
       n += 1;
       const second = step.second;
       const moveBits = [legText(second.leg, [stop.bar.lng, stop.bar.lat], [second.bar.lng, second.bar.lat]), !step.slot.tba && `leave ${esc(clock(second.leave))}, in by ${esc(clock(second.arrive))}`].filter(Boolean).join('<span>·</span>');
-      const late = second.lateMinutes > 0 ? `<p class="note warn">Longer than the 20-minute halftime: you'll miss about ${second.lateMinutes} minutes.</p>` : '';
+      const crossed = second.sides && second.games.includes(second.sides) ? `<p class="note">Switching sides: the 2nd half with ${esc(sideName(second.teams, second.sides))} fans.</p>` : '';
+      const late = second.lateMinutes > 0 ? `<p class="note warn">Longer than the 20-minute halftime: you'll miss about ${second.lateMinutes} minute${second.lateMinutes === 1 ? '' : 's'}.</p>` : '';
       const joins = second.progress?.filter(p => p.phase !== 'halftime').map(p => `<p class="note">${matchup(p.game)} will be in the ${esc(p.phase)} when you walk in.</p>`).join('') || '';
       const moveRows = step.halftimeOptions.filter(o => o.bar.id !== second.bar.id).slice(0, 4).map(o =>
-        swapRow(`data-split="${step.splitKey}" data-to="${o.bar.id}"`, stopColor(o), esc(o.bar.name) + (o.catches.length ? ` <span class="swap-note">${esc(PART_SHORT[o.parts[o.catches[0].id]])}, ${shortMatch(o.catches[0])}</span>` : ' <span class="swap-note">same game</span>'), `${travel(o.distance).miles.toFixed(1)} mi`));
+        swapRow(`data-split="${step.splitKey}" data-to="${o.bar.id}"`, stopColor(o), esc(o.bar.name) + (o.catches.length ? ` <span class="swap-note">${esc(PART_SHORT[o.parts[o.catches[0].id]])}, ${shortMatch(o.catches[0])}</span>` : ` <span class="swap-note">${o.sides ? `same game, ${esc(sideName(o.teams, o.sides))} side` : 'same game'}</span>`), `${travel(o.distance).miles.toFixed(1)} mi`));
       items.push(stopItem({
         n, cls: 'second-half', color: stopColor(second), bar: second.bar, teams: second.teams, leg: moveBits,
         time: 'Halftime', action: textLink(`data-unsplit="${step.splitKey}"`, 'Stay put'),
-        body: `<ul class="stop-games">${second.games.map(g => gameRow(g, { part: PART_SHORT[second.parts[g.id]] })).join('')}</ul>${late}${joins}${swaps(`h:${step.splitKey}`, [{ label: 'Or at halftime, go to', rows: moveRows }])}`,
+        body: `<ul class="stop-games">${second.games.map(g => gameRow(g, { part: PART_SHORT[second.parts[g.id]] })).join('')}</ul>${crossed}${late}${joins}${swaps(`h:${step.splitKey}`, [{ label: 'Or at halftime, go to', rows: moveRows }])}`,
       }));
     }
   }
@@ -548,7 +567,7 @@ function render({ fit = true } = {}) {
   $('priority-switch').checked = state.priority === 'teams';
   $('halves-switch').checked = state.halves === 'split';
   $('priority-note').textContent = state.priority === 'teams' ? 'Your teams’ games come first' : 'Off: best matchups of the day';
-  $('halves-note').textContent = state.halves === 'split' ? 'Moves when another game is as good' : 'Off: full games in one place';
+  $('halves-note').textContent = state.halves === 'split' ? 'Switches sides of neutral games, or moves for a better one' : 'Off: full games in one place';
   document.querySelectorAll('#mode button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.value === state.mode)));
   if (lastSuggestion) renderSuggestion(lastSuggestion); else renderCrawl(plan);
   renderDirectory();

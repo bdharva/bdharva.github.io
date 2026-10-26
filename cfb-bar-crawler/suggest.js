@@ -21,6 +21,8 @@ const WINDOW = 25 * MIN;      // alternatives start within this much of the half
 export const segmentKey = s => `${s.game.id}:${s.half}:${s.bar.id}`;
 const ROLE_FIT = { official: 1, secondary: 0.95, fan: 0.9 };
 const FAVORITE_BAR = 1.25;    // a bar you saved is worth a bit more for any game it shows
+const SWITCH_SIDES = 1.15;    // 2nd half at the other team's bar after the 1st at this one's: the best way to see a game
+                              // you're neutral on, when the hop fits inside halftime
 
 /** How much is this game worth watching? Rankings, a close line, and your teams and picks. */
 // priority 'teams' makes your teams and ticked games dominate; 'matchups' only nudges toward them.
@@ -67,10 +69,16 @@ function segmentsFor(game, barsByTeam, context) {
     const yours = context.favorites?.size && [game.home.id, game.away.id].some(t => context.favorites.has(t));
     const fit = yours && !teams.some(t => context.favorites.has(t)) ? 0.6 * role : role;
     const liked = context.favoriteBars?.has(bar.id) ? FAVORITE_BAR : 1;
-    for (const h of halves) out.push({ game, bar, ...h, value: quality * h.weight * fit * liked });
+    // `sides`: what the 2nd half here is worth after the 1st half at the other team's bar. No opponent-bar
+    // discount, since crossing over is the point.
+    for (const h of halves) out.push({ game, bar, teams, ...h, value: quality * h.weight * fit * liked, sides: quality * h.weight * role * liked * SWITCH_SIDES });
   }
   return out;
 }
+
+/** 1st half at one team's bar, 2nd half at the other team's: same game, no team in common. */
+export const switchesSides = (first, second) => first.game.id === second.game.id && first.half === 1 && second.half === 2
+  && first.bar.id !== second.bar.id && !second.teams.some(t => first.teams.includes(t));
 
 const minutesBetween = (a, b) => (a.id === b.id ? 0 : travel(miles([a.lng, a.lat], [b.lng, b.lat])).minutes);
 
@@ -94,7 +102,14 @@ export function suggestDay({ games, barsByTeam, home, favorites = new Set(), fav
   const bonus = s => (locked.has(segmentKey(s)) ? LOCKED : 0);
   const mustSee = g => [g.home.id, g.away.id].some(t => favorites.has(t)) || picked.has(g.id);
   // What a segment is worth right after another one (or after home, when p is null).
-  const worth = (s, p) => (p && s.half === 2 && p.game.id === s.game.id && p.half === 1 && !mustSee(s.game) ? CONTINUE : 1) * s.value;
+  // Switching sides at the half (1st half at one team's bar, 2nd at the other's) beats staying put, for a
+  // game that isn't your team's and a walk short enough to miss nothing. Your team's game stays with your crowd.
+  const crossOver = (p, s) => switchesSides(p, s) && !mustSee(s.game) && minutesBetween(p.bar, s.bar) <= HALFTIME_BREAK;
+  const worth = (s, p) => {
+    if (!p || s.half !== 2 || p.half !== 1 || p.game.id !== s.game.id) return s.value;
+    if (crossOver(p, s)) return s.sides;
+    return (mustSee(s.game) ? 1 : CONTINUE) * s.value;
+  };
 
   const homePoint = { id: '__home', lng: home[0], lat: home[1] };
   const best = new Array(segs.length), parent = new Array(segs.length), arrival = new Array(segs.length);

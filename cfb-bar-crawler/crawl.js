@@ -163,12 +163,20 @@ export function planCrawl({ games, barsByTeam, home, pins = {}, splits = {}, fav
     }
     // A bar showing a game you'd otherwise miss gets a mile's edge (half that for a game you didn't pick).
     const picked = new Set(games.map(g => g.id));
+    // Switching sides: the same game at the other team's bar, when this stop is one team's and not both.
+    const sideOf = (option, g) => [g.home.id, g.away.id].filter(t => option.teams.has(t));
+    const switchesSides = option => stop.games.find(g => {
+      const here = sideOf(stop, g), there = sideOf(option, g);
+      return here.length === 1 && there.length === 1 && here[0] !== there[0];
+    }) || null;
     const halftimeOptions = [...moves.values()].map(option => {
       const catches = option.games.filter(g => !firstCovered.has(g.id));
-      // The opponent-bar handicap is for the same game; going somewhere for a *different* game is the point.
-      const { distance, base } = cost(option, origin, { catching: catches.length > 0 });
+      const sides = catches.length ? null : switchesSides(option);
+      // The opponent-bar handicap is for the same game; going somewhere for a *different* game, or to
+      // the other side's bar on purpose, is the point.
+      const { distance, base } = cost(option, origin, { catching: catches.length > 0 || Boolean(sides) });
       const bonus = catches.some(g => picked.has(g.id)) ? 1 : catches.length ? 0.5 : 0;
-      return { ...option, distance, catches, score: base - bonus };
+      return { ...option, distance, catches, sides, score: base - bonus };
     }).sort((a, b) => a.score - b.score);
 
     const splitChoice = slot.games.map(g => splits[g.id]).find(Boolean);
