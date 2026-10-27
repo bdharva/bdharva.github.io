@@ -17,7 +17,8 @@ const HOME_WEIGHT = 0.5;      // the first trip out is cheaper: you'd have to le
 const CONTINUE = 0.75;        // the 2nd half of a game you just watched is worth less than a fresh one...
                               // ...unless it's your team or your pick: then you want the whole thing
 const LOCKED = 50;            // a choice you pinned always makes the plan if it's feasible
-const WINDOW = 25 * MIN;      // alternatives start within this much of the half they'd replace
+const WINDOW = 25 * MIN;      // a swapped-in half starts within this much of the half it replaces
+const SAME_WINDOW = 45 * MIN; // a swapped-in game kicks off within this much of the game it replaces
 export const segmentKey = s => `${s.game.id}:${s.half}:${s.bar.id}`;
 const ROLE_FIT = { official: 1, secondary: 0.95, fan: 0.9 };
 const FAVORITE_BAR = 1.25;    // a bar you saved is worth a bit more for any game it shows
@@ -97,7 +98,8 @@ export function suggestDay({ games, barsByTeam, home, favorites = new Set(), fav
   const todays = timed.filter(g => dayKey(new Date(g.date)) === day && hourNY(new Date(g.date)) >= from && hourNY(new Date(g.date)) < until);
   const context = { favorites, favoriteBars, picked, priority, halves };
   const segs = todays.flatMap(g => segmentsFor(g, barsByTeam, context)).sort((a, b) => a.start - b.start || b.value - a.value);
-  if (!segs.length) return { day, path: [], score: 0 };
+  const homePoint = { id: '__home', lng: home[0], lat: home[1] };
+  if (!segs.length) return { day, path: [], score: 0, segments: [], home: homePoint };
   const locked = new Set(locks);
   const bonus = s => (locked.has(segmentKey(s)) ? LOCKED : 0);
   const mustSee = g => [g.home.id, g.away.id].some(t => favorites.has(t)) || picked.has(g.id);
@@ -111,7 +113,6 @@ export function suggestDay({ games, barsByTeam, home, favorites = new Set(), fav
     return (mustSee(s.game) ? 1 : CONTINUE) * s.value;
   };
 
-  const homePoint = { id: '__home', lng: home[0], lat: home[1] };
   const best = new Array(segs.length), parent = new Array(segs.length), arrival = new Array(segs.length);
   for (let i = 0; i < segs.length; i++) {
     const s = segs[i];
@@ -137,31 +138,65 @@ export function suggestDay({ games, barsByTeam, home, favorites = new Set(), fav
   const path = [];
   for (let i = end; i !== -1; i = parent[i]) path.unshift({ ...segs[i], arrive: arrival[i], i });
   let here = homePoint;
-  const inPath = new Set(path.map(segmentKey));
-  path.forEach((step, k) => {
+  for (const step of path) {
     step.travelMinutes = minutesBetween(here, step.bar);
     step.lateMinutes = Math.max(0, Math.round((step.arrive - step.start) / MIN));
     step.locked = locked.has(segmentKey(step));
-    // Next-best swaps for this half: same time window, judged from where you'd be coming from.
-    const prev = path[k - 1] || null, from = prev ? prev.bar : homePoint;
-    const scored = segs
-      .filter(c => Math.abs(c.start - step.start) <= WINDOW && !inPath.has(segmentKey(c)))
-      .map(c => ({ ...c, score: worth(c, prev) - minutesBetween(from, c.bar) * PER_MINUTE - (from.id === c.bar.id ? 0 : SWITCH),
-        distance: miles([from.lng, from.lat], [c.bar.lng, c.bar.lat]) }))
-      .sort((a, b) => b.score - a.score);
-    // Prefer different games; fall back to the same game at another bar.
-    const seen = new Set([`${step.game.id}:${step.half}`]);
-    step.alternatives = [];
-    for (const c of [...scored.filter(c => c.game.id !== step.game.id), ...scored.filter(c => c.game.id === step.game.id)]) {
-      const id = `${c.game.id}:${c.half}`;
-      if (seen.has(id)) continue;
-      seen.add(id);
-      step.alternatives.push(c);
-      if (step.alternatives.length === 2) break;
-    }
     here = step.bar;
-  });
-  return { day, path, score: best[end] };
+  }
+  return { day, path, score: best[end], segments: segs, home: homePoint };
+}
+
+/**
+ * Every way to change one game in a suggested day, as segments to pin (and the game's current pins to drop):
+ *   stay       the whole game at a bar where you already watch part of it
+ *   elsewhere  the whole game at another bar
+ *   split      keep one half where it is, watch the other half of this game at another bar (other side first)
+ *   after      keep the 1st half, then the 2nd half of a different game (or the 1st, for a staggered kickoff)
+ *   before     a different game's half first, then this game's 2nd half
+ *   swap       a different game from this window, whole
+ * Each option is { game, half, bar, lock: [keys], replace: [keys] }, best first.
+ */
+export function editsFor({ path, segments, home }, gameId, { limit = 3 } = {}) {
+  const mine = path.filter(s => s.game.id === gameId);
+  if (!mine.length) return {};
+  const game = mine[0].game, full = mine[0].half === 0, kickoff = +new Date(game.date);
+  const first = mine.find(s => s.half === 1), second = mine.find(s => s.half === 2);
+  const k = path.indexOf(mine[0]);
+  const from = k > 0 ? path[k - 1].bar : home;
+  const replace = mine.map(segmentKey);
+  const key = (g, half, bar) => `${g.id}:${half}:${bar.id}`;
+  const whole = (g, bar) => (full ? [key(g, 0, bar)] : [key(g, 1, bar), key(g, 2, bar)]);
+  const option = (seg, lock) => ({ game: seg.game, half: seg.half, bar: seg.bar, lock, replace });
+  const scored = (cands, origin) => cands.map(c => ({ c, score: c.value - minutesBetween(origin, c.bar) * PER_MINUTE })).sort((a, b) => b.score - a.score).map(x => x.c);
+  // The best bar for each game-half, best first.
+  const bestPer = (cands, origin) => {
+    const seen = new Set();
+    return scored(cands, origin).filter(c => !seen.has(`${c.game.id}:${c.half}`) && seen.add(`${c.game.id}:${c.half}`)).slice(0, limit);
+  };
+  const ofThis = half => segments.filter(s => s.game.id === gameId && s.half === half);
+  const here = new Set(mine.map(s => s.bar.id));
+  const others = segments.filter(s => s.game.id !== gameId);
+  const out = {};
+
+  const isWhole = full || (first && second && first.bar.id === second.bar.id);
+  out.stay = isWhole ? [] : [...here].map(id => ofThis(1).find(s => s.bar.id === id)).filter(Boolean).map(s => option(s, whole(game, s.bar)));
+  out.elsewhere = scored(ofThis(full ? 0 : 1).filter(s => !here.has(s.bar.id)), from).slice(0, limit).map(s => option(s, whole(game, s.bar)));
+  if (full) {
+    out.split = out.after = out.before = [];
+  } else if (first) {
+    const sides = s => (switchesSides(first, s) ? 0 : 1);
+    out.split = scored(ofThis(2).filter(s => s.bar.id !== first.bar.id && s.bar.id !== second?.bar.id), first.bar)
+      .sort((a, b) => sides(a) - sides(b)).slice(0, limit).map(s => option(s, [segmentKey(first), key(game, 2, s.bar)]));
+    const restart = kickoff + (HALFTIME_AT + HALFTIME_BREAK) * MIN;
+    out.after = bestPer(others.filter(s => Math.abs(s.start - restart) <= WINDOW), first.bar).map(s => option(s, [segmentKey(first), segmentKey(s)]));
+  } else {
+    out.split = scored(ofThis(1).filter(s => s.bar.id !== second.bar.id), from).slice(0, limit).map(s => option(s, [key(game, 1, s.bar), segmentKey(second)]));
+    out.after = [];
+  }
+  out.before = second && !full ? bestPer(others.filter(s => Math.abs(s.start - kickoff) <= WINDOW && s.end <= second.start), from).map(s => option(s, [segmentKey(s), segmentKey(second)])) : [];
+  out.swap = bestPer(others.filter(s => s.half === (full ? 0 : 1) && Math.abs(s.start - kickoff) <= SAME_WINDOW), from).map(s => option(s, whole(s.game, s.bar)));
+  return out;
 }
 
 /** Collapse consecutive segments at the same bar into visits, for display. */

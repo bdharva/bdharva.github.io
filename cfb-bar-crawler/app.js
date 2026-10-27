@@ -4,7 +4,7 @@ import { initTheme, readTheme } from './theme.js';
 import { initMap, renderMap, setMapTheme, showPopup, setPicking, resizeMap, snapshot, setRouteGeometry, setSubway, setSubwayFocus } from './map.js';
 import { routeGeometry, stationPair } from './routes.js';
 import { drawCard } from './card.js';
-import { suggestDay, visits as toVisits, reasons, segmentKey, switchesSides } from './suggest.js';
+import { suggestDay, visits as toVisits, reasons, segmentKey, switchesSides, editsFor } from './suggest.js';
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -341,44 +341,32 @@ function suggestion() {
 }
 const halvesLabel = halves => halves.length === 2 ? 'Full game' : halves[0] === 1 ? '1st half' : '2nd half';
 
-// Per half in a visit: what's pinned, and the next-best swaps (tap to pin one and replan).
-function visitSwapGroups(v, from) {
-  const groups = v.games.flatMap(({ game, halves }) => {
-    const segs = v.segments.filter(seg => seg.game.id === game.id);
-    const replace = segs.map(segmentKey).join(',');
-    const others = otherBars(game, v.bar.id, from);
-    // A whole game at one team's bar can hand off to the other team's bar at the half.
-    const mine = new Set(barsForGame(game, data.barsByTeam).find(o => o.bar.id === v.bar.id)?.teams);
-    const across = halves.length === 2 && mine.size === 1 ? others.filter(o => !o.teams.some(t => mine.has(t))) : [];
+// Every way to change each game in a visit (suggest.js editsFor): tap one to pin it and replan the rest.
+function visitSwapGroups(edits, v, from) {
+  const here = [v.bar.lng, v.bar.lat];
+  const dist = (origin, bar) => `${miles(origin, [bar.lng, bar.lat]).toFixed(1)} mi`;
+  const mi = (origin, bar) => (bar.id === v.bar.id ? 'stay here' : `${esc(bar.name)} · ${dist(origin, bar)}`);
+  const color = o => teamColor(o.bar.teams.find(t => t.id === o.game.home.id || t.id === o.game.away.id)?.id);
+  const row = (o, main, side) => swapRow(`data-lock="${o.lock.join(',')}" data-replace="${o.replace.join(',')}"`, color(o), main, side);
+  const half = o => (o.half === 2 ? '2nd half' : '1st half');
+  return v.games.flatMap(({ game }) => {
+    const e = edits.get(game.id);
+    const name = v.games.length > 1 ? `${teamName(game.away)}–${teamName(game.home)}: ` : '';
+    const side = o => (o.bar.teams.some(t => t.id === game.home.id) !== o.bar.teams.some(t => t.id === game.away.id)
+      ? ` <span class="swap-note">${esc(sideName(new Set(o.bar.teams.map(t => t.id)), game))} side</span>` : '');
     return [
-      ...(across.length ? [{
-        label: `Switch sides at the half · ${sideName(new Set(across[0].teams), game)} bars`,
-        rows: across.slice(0, 2).map(o => swapRow(`data-lock="${game.id}:1:${v.bar.id},${game.id}:2:${o.bar.id}" data-replace="${replace}"`, teamColor(o.teams[0]),
-          `${esc(o.bar.name)} <span class="swap-note">2nd half</span>`, `${miles([v.bar.lng, v.bar.lat], [o.bar.lng, o.bar.lat]).toFixed(1)} mi`)),
-      }] : []),
-      {
-        label: `Watch ${teamName(game.away)}–${teamName(game.home)} elsewhere`,
-        rows: others.slice(0, 3).map(o =>
-          swapRow(`data-lock="${segs.map(seg => `${game.id}:${seg.half}:${o.bar.id}`).join(',')}" data-replace="${replace}"`, teamColor(o.teams[0]), esc(o.bar.name), `${o.distance.toFixed(1)} mi`)),
-      },
+      { label: `${name}The whole game at`, rows: [...e.stay.filter(o => o.bar.id !== v.bar.id), ...e.elsewhere].map(o => row(o, esc(o.bar.name) + side(o), dist(from, o.bar))) },
+      { label: `${name}Move the ${e.split[0] ? half(e.split[0]) : 'half'} to`, rows: e.split.map(o => row(o, esc(o.bar.name) + side(o), dist(here, o.bar))) },
+      // Only a staggered kickoff's 1st half needs saying; otherwise the label says which half.
+      { label: `${name}Swap the 2nd half for`, rows: e.after.map(o => row(o, `${o.half === 1 ? '1st half · ' : ''}${shortMatch(o.game)}`, mi(here, o.bar))) },
+      { label: `${name}Swap the 1st half for`, rows: e.before.map(o => row(o, shortMatch(o.game), mi(from, o.bar))) },
+      { label: `${name}A different game`, rows: e.swap.map(o => row(o, shortMatch(o.game), mi(from, o.bar))) },
     ];
   });
-  const when = seg => ({ 0: 'Instead of this game', 1: 'Instead, for the 1st half', 2: seg === v.segments[0] ? 'Instead, for the 2nd half' : 'Switch at the half' })[seg.half];
-  for (const seg of v.segments) {
-    groups.push({
-      label: `${when(seg)} · ${clock(new Date(seg.start))}`,
-      rows: seg.alternatives.map(c => {
-        const team = c.bar.teams.find(t => t.id === c.game.home.id || t.id === c.game.away.id)?.id;
-        const part = { 0: '', 1: '1st · ', 2: '2nd · ' }[c.half];
-        return swapRow(`data-lock="${segmentKey(c)}" data-replace="${segmentKey(seg)}"`, teamColor(team), `${part}${shortMatch(c.game)}`,
-          c.distance < 0.05 ? 'stay here' : `${esc(c.bar.name)} · ${c.distance.toFixed(1)} mi`);
-      }),
-    });
-  }
-  return groups;
 }
 
-function renderSuggestion({ day, visits: vs }) {
+function renderSuggestion(result) {
+  const vs = result.visits;
   const week = data.weeks.find(w => weekKey(w) === state.week);
   $('crawl-eyebrow').textContent = `SUGGESTED / ${week?.label.toUpperCase() ?? ''}`;
   $('tab-count').textContent = vs.length ? `· ${vs.length}` : '';
@@ -390,6 +378,7 @@ function renderSuggestion({ day, visits: vs }) {
   const gameCount = new Set(vs.flatMap(v => v.games.map(g => g.game.id))).size;
   $('crawl-title').textContent = `${dayName(vs[0].start).split(',')[0]}: ${gameCount} games, ${vs.length} bar${vs.length > 1 ? 's' : ''}`;
   const context = { favorites: state.teams, picked: new Set(selectedGames().map(g => g.id)) };
+  const edits = new Map(vs.flatMap(v => v.games.map(({ game }) => [game.id, editsFor(result, game.id)])));
   const items = startItems();
   let from = startPoint();
   vs.forEach((v, i) => {
@@ -397,12 +386,15 @@ function renderSuggestion({ day, visits: vs }) {
     const late = v.lateMinutes >= 5 ? `<p class="note">You'll join about ${v.lateMinutes} minutes in.</p>` : '';
     const handoff = vs[i - 1]?.segments.at(-1), here = v.segments[0];
     const crossed = handoff && switchesSides(handoff, here) ? `<p class="note">Switching sides: the 2nd half with ${esc(sideName(new Set(here.teams), here.game))} fans.</p>` : '';
+    // Doubling down: when part of a game is watched here, one tap keeps you here for all of it.
+    const stay = v.games.map(({ game, halves }) => ({ game, halves, o: edits.get(game.id).stay.find(o => o.bar.id === v.bar.id) })).filter(x => x.o)
+      .map(({ game, halves, o }) => `<button class="move quiet" data-lock="${o.lock.join(',')}" data-replace="${o.replace.join(',')}"><svg class="icon"><use href="#icon-pin"/></svg>${halves[0] === 1 ? `Stay here for the 2nd half of ${shortMatch(game)}` : `Watch all of ${shortMatch(game)} here`}</button>`).join('');
     const games = v.games.map(({ game, halves }) => gameRow(game, { part: halvesLabel(halves), why: reasons(game, context).join(' · ') })).join('');
     const pinned = v.segments.filter(seg => seg.locked).map(segmentKey);
     items.push(stopItem({
       n: i + 1, color: stopColor(v), time: `${esc(clock(v.start))} – ${esc(clock(v.end))}`, leg: legBits, bar: v.bar, teams: v.teams,
       action: pinned.length ? textLink(`data-unlock="${pinned.join(',')}"`, 'Pinned · undo') : '',
-      body: `<ul class="stop-games">${games}</ul>${crossed}${late}${swaps(`v:${v.bar.id}:${v.segments[0].start}`, visitSwapGroups(v, from))}`,
+      body: `<ul class="stop-games">${games}</ul>${crossed}${late}${stay}${swaps(`v:${v.bar.id}:${v.segments[0].start}`, visitSwapGroups(edits, v, from))}`,
     }));
     from = [v.bar.lng, v.bar.lat];
   });
