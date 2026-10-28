@@ -254,14 +254,30 @@ html.dark .app-logo img
 			color: var(--bg)
 
 // Switch: <label class="switch"><span>Dark mode</span><input type="checkbox" role="switch"><i></i></label>
-// Same 36x18 pill as the site's .dark-toggle.
+// Drawn as the light/dark glyph, a half-filled circle, in an icon-button hit area;
+// the words stay for screen readers and the checkbox keeps the state.
 .switch
 	display: inline-flex
 	align-items: center
-	gap: 8px
-	font-size: 12px
+	justify-content: center
+	width: 34px
+	height: 34px
+	border-radius: var(--radius-lg)
 	color: var(--text-muted)
 	cursor: pointer
+	transition: color var(--t-base), background var(--t-base)
+
+	&:hover
+		color: var(--text)
+		background: var(--hover-bg)
+
+	span
+		position: absolute
+		width: 1px
+		height: 1px
+		overflow: hidden
+		clip: rect(0 0 0 0)
+		white-space: nowrap
 
 	input
 		position: absolute
@@ -269,34 +285,16 @@ html.dark .app-logo img
 		pointer-events: none
 
 	i
-		position: relative
-		width: 36px
-		height: 18px
-		border-radius: 9px
-		background: var(--border-strong)
-		transition: background var(--t-base)
-
-		&::before
-			content: ""
-			position: absolute
-			left: 3px
-			top: 3px
-			width: 12px
-			height: 12px
-			border-radius: 50%
-			background: var(--text-muted)
-			transition: transform 0.2s var(--ease-spring), background var(--t-base)
-
-	input:checked + i
-		background: var(--accent-bg-medium)
-
-		&::before
-			transform: translateX(18px)
-			background: var(--accent)
+		width: 15px
+		height: 15px
+		box-sizing: border-box
+		border: 1.5px solid currentColor
+		border-radius: 50%
+		background: linear-gradient(90deg, transparent 50%, currentColor 50%)
 
 	input:focus-visible + i
 		outline: 2px solid var(--accent)
-		outline-offset: 2px
+		outline-offset: 4px
 
 
 // ------------------------------------------------------------
