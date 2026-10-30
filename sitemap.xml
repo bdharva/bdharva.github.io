@@ -41,7 +41,7 @@ layout: null
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>{{ site.url }}/county-counting/</loc>
+    <loc>{{ site.url }}/map-room/county-counting/</loc>
     <priority>0.7</priority>
   </url>
   <url>

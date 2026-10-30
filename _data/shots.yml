@@ -2,43 +2,12 @@
 # Tags: Bits (software, data viz), Atoms (physical builds, hardware, furniture), Pixels (digital design, branding)
 
 # 2026
-- title: CFB Chaos
-  description: "The Chaotic Times, a weekly college football paper for Team Chaos: poll losses, real vs. fluky upsets, circles of suck, and what to watch Saturday"
-  image: /assets/making/cfb-chaos.webp
-  tags: [Bits]
-  url: /cfb-chaos/
-  url_text: Read CFB Chaos
-  date: 2026-10
-
-- title: CFB Bar Crawler
-  description: "Every FBS alumni club's game-watch bar in NYC, set against the week's schedule, with a Saturday crawl planner"
-  image: /assets/making/cfb-bar-crawler.webp
-  tags: [Bits]
-  url: /cfb-bar-crawler/
-  url_text: Try CFB Bar Crawler
-  date: 2026-10
-
-- title: Bracket Buddy
-  description: "NCAA bracket pool optimizer"
-  video: /assets/making/bracket-buddy.mp4
-  image: /assets/making/bracket-buddy.webp
-  tags: [Bits]
-  url: /bracket-buddy/
-  url_text: Try Bracket Buddy
-  date: 2026-03
-
 - title: Mini Factory v2
   description: "Robotic orchestration demonstrating Palantir AIP's edge, OSDK, and embedded ontology capabilities"
   video: /assets/making/robots.mp4
   tags: [Atoms,Bits]
   date: 2026-02
   featured: true
-
-- title: Work Cell Admin Panel
-  description: "Configuring/calibrating and monitoring custom robotic work cells built around SO-100 arms"
-  video: /assets/making/work-cell-admin.mp4
-  tags: [Bits]
-  date: 2026-02
 
 # 2025
 - title: Powers & Proxies

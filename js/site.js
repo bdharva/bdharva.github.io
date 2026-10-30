@@ -125,11 +125,19 @@
   var el = document.getElementById('appsCarousel');
   if (!el) return;
 
+  // On a phone the cards stack instead (see _site.sass): copies hidden, no motion.
+  var stacked = window.matchMedia('(max-width: 690px)');
   var cards = el.querySelectorAll('.app-card');
-  var needed = Math.ceil((window.innerWidth * 3) / 250);
+  var needed = Math.ceil((Math.max(window.innerWidth, 960) * 3) / 250);
   var copies = Math.ceil(needed / cards.length);
   for (var i = 0; i < copies; i++) {
-    cards.forEach(function(card) { el.appendChild(card.cloneNode(true)); });
+    cards.forEach(function(card) {
+      var copy = card.cloneNode(true);
+      copy.classList.add('app-clone');
+      copy.setAttribute('aria-hidden', 'true');
+      copy.tabIndex = -1;
+      el.appendChild(copy);
+    });
   }
 
   var speed = 0.5;
@@ -137,13 +145,15 @@
   var paused = false;
   var firstSetWidth = 0;
   var gap = 12;
-  cards.forEach(function(c) { firstSetWidth += c.offsetWidth + gap; });
+  function measure() { firstSetWidth = 0; cards.forEach(function(c) { firstSetWidth += c.offsetWidth + gap; }); }
+  measure();
+  stacked.addEventListener('change', function() { pos = 0; measure(); });
 
   el.addEventListener('mouseenter', function() { paused = true; });
   el.addEventListener('mouseleave', function() { paused = false; });
 
   function tick() {
-    if (!paused) {
+    if (!paused && !stacked.matches) {
       pos -= speed;
       if (Math.abs(pos) >= firstSetWidth) pos += firstSetWidth;
       el.style.transform = 'translateX(' + pos + 'px)';

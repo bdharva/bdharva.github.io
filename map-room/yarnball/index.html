@@ -1,0 +1,96 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yarnball: Every Day Since 2011, Wound Into Yarn - Map Room - bdharva</title>
+<meta name="description" content="How far from home I was at every minute of every day, wound into a yarnball for each of the places I've lived since 2011.">
+<link rel="canonical" href="https://bdharva.com/map-room/yarnball/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="bdharva">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Yarnball">
+<meta property="og:description" content="How far from home I was at every minute of every day, wound into a yarnball for each of the places I've lived since 2011.">
+<meta property="og:url" content="https://bdharva.com/map-room/yarnball/">
+<meta property="og:image" content="https://bdharva.com/map-room/share/yarnball.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Yarnball, from Map Room: How far from home I was at every minute of every day, wound into a yarnball for each of the places I've lived since 2011.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@bdharva">
+<meta name="twitter:title" content="Yarnball">
+<meta name="twitter:description" content="How far from home I was at every minute of every day, wound into a yarnball for each of the places I've lived since 2011.">
+<meta name="twitter:image" content="https://bdharva.com/map-room/share/yarnball.jpg">
+<meta name="twitter:image:alt" content="Yarnball, from Map Room: How far from home I was at every minute of every day, wound into a yarnball for each of the places I've lived since 2011.">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Yarnball", "url": "https://bdharva.com/map-room/yarnball/", "description": "How far from home I was at every minute of every day, wound into a yarnball for each of the places I've lived since 2011.", "image": "https://bdharva.com/map-room/share/yarnball.jpg", "applicationCategory": "ReferenceApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Ben Harvatine", "url": "https://bdharva.com/"}}</script>
+<script>(function(){var t;try{t=localStorage.getItem('mapRoomTheme')}catch(e){}if(t!=='light')document.documentElement.classList.add('dark')})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/apps.css">
+<link rel="stylesheet" href="../present.css">
+<link rel="stylesheet" href="../map-room.css">
+</head>
+<body class="map-room bleed present-mode loading">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="icon-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
+  <symbol id="icon-theme" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></symbol>
+  <symbol id="icon-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+  <symbol id="icon-pause" viewBox="0 0 24 24"><path d="M8 5.5v13M16 5.5v13" stroke-width="2.5"/></symbol>
+  <symbol id="icon-reset" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3"/><path d="M4.5 4.5v4h4"/></symbol>
+  <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M4.5 9V4.5H9M15 4.5h4.5V9M19.5 15v4.5H15M9 19.5H4.5V15"/></symbol>
+  <symbol id="icon-shrink" viewBox="0 0 24 24"><path d="M9 4.5V9H4.5M19.5 9H15V4.5M15 19.5V15h4.5M4.5 15H9v4.5"/></symbol>
+  <symbol id="icon-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+</svg>
+<main class="bleed-stage yarn-stage">
+  <div class="present-tools" id="present-tools">
+    <nav class="bleed-nav" aria-label="Map Room"><a class="button bleed-back" href="../"><svg class="icon"><use href="#icon-back"/></svg>Map Room</a><div class="present-slot" id="present-slot"></div></nav>
+    <div class="present-buttons">
+      <button class="icon-button" id="present-full" aria-label="Full screen" title="Full screen"><svg class="icon"><use href="#icon-expand"/></svg></button>
+      <button class="icon-button" data-open-modal="info-dialog" aria-label="About this chart" title="About this chart"><svg class="icon"><use href="#icon-info"/></svg></button>
+      <button class="icon-button" type="button" data-map-room-theme aria-label="Switch light or dark" title="Switch light or dark"><svg class="icon"><use href="#icon-theme"/></svg></button>
+    </div>
+  </div>
+  <section class="present" aria-label="Home chapters">
+    <div class="present-grid" id="present-grid"></div>
+    <div class="present-overlay" id="present-overlay" role="region" aria-label="One home's yarnball" hidden>
+      <div class="present-stage"><div class="present-map" id="present-map"></div><canvas id="present-canvas" role="img" aria-label="One thread per recorded day: clockwise angle is time of day, distance from the centre is distance from home. Space plays and pauses; the left and right arrows step through the days."></canvas><canvas id="present-active" aria-hidden="true"></canvas></div>
+      <div class="globe-corner" aria-hidden="true"><span class="map-date" id="present-date"></span><span id="present-count"></span></div>
+      <div class="map-transport">
+        <button class="icon-button" id="present-play" aria-label="Play" title="Play"><svg class="icon"><use href="#icon-play"/></svg></button>
+        <button class="icon-button" id="present-reset" aria-label="Reset to the finished yarnball" title="Reset to the finished yarnball"><svg class="icon"><use href="#icon-reset"/></svg></button>
+      </div>
+      <p class="map-keys">Space play/pause · ← → step (Shift ×10) · R reset · F full screen · Esc back</p>
+      <div class="map-progress" aria-hidden="true"><i id="present-bar"></i></div>
+    </div>
+  </section>
+  <p id="load-status" role="status">Spinning yarnballs</p>
+</main>
+<dialog class="app-modal" id="info-dialog">
+  <header class="app-modal-header"><h2>Yarnballs</h2><button class="icon-button" data-close-modal aria-label="Close"><svg class="icon"><use href="#icon-x"/></svg></button></header>
+  <div class="app-modal-body">
+    <p>Yarnballs are polar plots representing 24-hour clocks that measure distance from home at each minute of the day. Each day is a thread of yarn laid around it to track the movements of that day.</p>
+    <h3>Data</h3>
+    <ul>
+      <li>Google Timeline location history, plus old Moves app exports</li>
+      <li>Short gaps bridged, long stays filled in, otherwise uncleaned</li>
+      <li>Expect some gaps and chunkiness, especially in earlier years, when phone GPS was less reliable and apps sampled less often</li>
+    </ul>
+    <p class="map-credit">Maps: <a href="https://openfreemap.org/">OpenFreeMap</a> · <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a></p>
+  </div>
+  <footer class="app-modal-meta"><span>Data updated Oct 3, 2026</span></footer>
+</dialog>
+<script src="/js/apps.js"></script>
+<script src="../map-room.js"></script>
+<script type="module">
+import {present,decodeChapters,fetchJson} from '../lib/yarnball-present.js';
+present(async report=>decodeChapters(await fetchJson('data.json',report)));
+</script>
+</body>
+</html>

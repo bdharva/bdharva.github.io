@@ -194,7 +194,7 @@ This `52px` value is the most distinctive measurement in the system — nav, foo
 
 ### 1.5 Radius
 
-A small, tight scale. The system never uses pill-rounding except on the dark-toggle, accent CTA pill, and circular avatars/badges.
+A small, tight scale. The system never uses pill-rounding except on the accent CTA pill and circular avatars/badges.
 
 | Token | Value | Use |
 |---|---|---|
@@ -203,7 +203,7 @@ A small, tight scale. The system never uses pill-rounding except on the dark-tog
 | `md` | `6px` | Feature cards, post-body code blocks, gallery toggle, filter buttons, shots. |
 | `lg` | `8px` | Section content images, app-icon, post body images, slideshow buttons. |
 | `xl` | `10px` | Shot modal, gallery thumb, CTA icon. |
-| `2xl` | `12px` | Polaroids, living-col, mobile menu, dark-toggle pill (9px height). |
+| `2xl` | `12px` | Polaroids, living-col, mobile menu. |
 | `3xl` | `14px` | App-card. |
 | `pill` | `24px` | Nav `.cta` (`height/2`). |
 | `full` | `50%` | Headshot, accent badge, avatar. |
@@ -286,7 +286,7 @@ Apply this pattern to any spring/stagger animation you add.
 - Right links: `13px / 500 / -0.2px`, color `0.45` ink, active/hover `0.9`. Gap `24px`.
 - Behavior: tucks via `.tucked { top: -60px }`.
 
-**Dark toggle** — custom `36×18px` pill with `12×12` circular knob, `0.2s ease` slide.
+**Dark toggle** — a half-filled circle icon (`15px`, `1.5px` border, right half filled with `currentColor` by a hard-stop `linear-gradient`) in a `34×34px` hit area, `--text-muted`, `--text` with `--hover-bg` on hover. Labelled "Switch light or dark"; the checkbox underneath is unchanged.
 
 **Mobile menu** — popover positioned `top: 56px; right: 52px; width: 200px`. Spring open with stagger (`30ms` per item). Each row: lucide icon + label, 13px/500 text, accent active state with `rgba(30,200,150,0.06)` bg.
 
@@ -688,9 +688,9 @@ html.dark {
 
 - ❌ No additional accent colors. The mint is the only saturated hue. Status colors live in tables only (`installed/no-install/removed` etc.).
 - ❌ No drop shadows on body text or icons.
-- ❌ No gradients except subtle photo-overlay darkening (`linear-gradient(180deg, transparent, rgba(0,0,0,0.5))`).
+- ❌ No gradients except subtle photo-overlay darkening (`linear-gradient(180deg, transparent, rgba(0,0,0,0.5))`) and the dark toggle's hard-stop half fill.
 - ❌ No pure black `#000` or white `#fff` for text — use the alpha ladder.
-- ❌ No rounded-pill buttons except the nav `.cta` and dark-toggle. Cards are `6–14px` radius, not pills.
+- ❌ No rounded-pill buttons except the nav `.cta`. Cards are `6–14px` radius, not pills.
 - ❌ No mono font for body copy, headings, or descriptions. Mono is reserved for labels, dates, tags, code.
 - ❌ No center-aligned body paragraphs except in hero/about contexts.
 - ❌ No emoji as iconography. Lucide only (FA only for brand glyphs).
@@ -743,7 +743,7 @@ Interactives and hubs hosted on the site (see `APPS.md`) share one more level of
 | Icon button | `.icon-button` (`aria-pressed` for toggles), `.icon` for SVG glyphs | Bar Crawler, Bracket Buddy |
 | Buttons | `.button`, `.button-primary`, `.button-quiet` | Bar Crawler |
 | Segmented control | `.segmented` with `aria-pressed` buttons | Bar Crawler, yarnball |
-| Switch | `.switch` (same 36×18 pill as `.dark-toggle`) | Site dark toggle |
+| Switch | `.switch` (same half-filled circle icon as `.dark-toggle`; its text label is visually hidden) | Site dark toggle |
 | Fields | `.field`, `.label`, `.input`, `.select`, `.search` | Bracket Buddy controls, Bar Crawler search |
 | Labels | `.eyebrow`, `.tag`, `.tag-accent`, `.badge` + `.badge-high`/`-medium`/`-low` | Bar Crawler, yarnball |
 | Info modal | `dialog.app-modal`, `.app-modal-header`, `.app-modal-body`, `.app-modal-meta` (data-updated line) | Bracket Buddy, Bar Crawler |
