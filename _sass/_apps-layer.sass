@@ -287,10 +287,11 @@ html.dark .app-logo img
 	i
 		width: 15px
 		height: 15px
-		box-sizing: border-box
-		border: 1.5px solid currentColor
-		border-radius: 50%
-		background: linear-gradient(90deg, transparent 50%, currentColor 50%)
+		// The glyph is one SVG mask in the text color, like the apps' icon: a ring and a
+		// half-fill drawn separately left a hairline between them on phone screens.
+		background: currentColor
+		-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15'%3E%3Ccircle cx='7.5' cy='7.5' r='6.75' fill='none' stroke='%23000' stroke-width='1.5'/%3E%3Cpath d='M7.5 .75a6.75 6.75 0 0 1 0 13.5z'/%3E%3C/svg%3E") center / contain no-repeat
+		mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15'%3E%3Ccircle cx='7.5' cy='7.5' r='6.75' fill='none' stroke='%23000' stroke-width='1.5'/%3E%3Cpath d='M7.5 .75a6.75 6.75 0 0 1 0 13.5z'/%3E%3C/svg%3E") center / contain no-repeat
 
 	input:focus-visible + i
 		outline: 2px solid var(--accent)
