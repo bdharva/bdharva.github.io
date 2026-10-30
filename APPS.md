@@ -98,9 +98,9 @@ layout: null
 - The inline theme script is the same one the site uses (`darkMode` in localStorage, `html.dark`), so the reader's theme carries across the site and every app.
 - `/js/apps.js` at the end of the body wires up the theme switch, info modal and toasts.
 
-**Header:** `.app-header` with the favicon logo linking to `/`, the two-part title, "by bdharva", and actions on the right (at least the info button and the theme switch). See `/apps-kit/`.
+**Header:** `.app-header` with the favicon logo linking to `/`, the two-part title, "by bdharva", and actions on the right (the theme switch, and the info button on any page that needs explaining; a hub whose own page already says what it is can skip it). See `/apps-kit/`.
 
-**Info modal instead of a footer:** a `<dialog class="app-modal">` that says what the app is, how to use it, where the data comes from, and "Data updated {date}", with a link back to bdharva.com. Full-screen tools have no room for a footer. Hubs keep a `.hub-footer`.
+**Info modal instead of a footer:** a `<dialog class="app-modal">` that says what the app is, how to use it, where the data comes from, and "Data updated {date}", with a link back to bdharva.com. Full-screen tools have no room for a footer, and hubs skip it too: the header's logo already links home.
 
 **Paths:** everything relative to the app's folder, except the shared `/css/apps.css`, `/js/apps.js` and `/assets/favicon.png`. Crawl or view state goes in the URL hash, so shared links survive the move to `/slug/`.
 

@@ -867,6 +867,28 @@ html.dark .home-cta-ext
 	color: rgba(0, 5, 10, 0.4)
 	letter-spacing: 0
 
+// On a phone the interactives stack, full width (to the gutters of the cards below), and hold still: the marquee's
+// looping copies are hidden and the script leaves the row in place.
+@media (max-width: 690px)
+	.apps-carousel-wrap
+		padding: 0 1rem 20px
+
+	.apps-carousel-wrap .apps-carousel-header
+		padding-left: 1rem
+		padding-right: 1rem
+
+	.apps-carousel
+		flex-direction: column
+		gap: 8px
+		width: auto
+		transform: none !important
+
+	.app-card
+		white-space: normal
+
+	.app-card.app-clone
+		display: none
+
 // SPLIT SECTION
 // ------------------------------------------------------------
 
