@@ -48,6 +48,44 @@ function kickoffLabel(game) {
   return game.timeValid ? clock(date) : 'TBA';
 }
 
+// ---------- edit history: every plan edit can be stepped back, one at a time ----------
+// A snapshot of everything an edit can change. Kept in memory only; the URL holds the current plan.
+const undoStack = [];
+const lockGroups = new Map();   // lock key -> every key pinned by the same tap, so undoing one stop undoes the whole edit
+const editSnapshot = () => JSON.stringify({ locks: state.locks, toggles: [...state.toggles], pins: state.pins, splits: state.splits,
+  halves: state.halves, priority: state.priority, brunch: state.brunch, nightcap: state.nightcap });
+function remember() { undoStack.push(editSnapshot()); if (undoStack.length > 50) undoStack.shift(); }
+function undo() {
+  const last = undoStack.pop();
+  if (!last) return;
+  const v = JSON.parse(last);
+  Object.assign(state, { locks: v.locks, toggles: new Map(v.toggles), pins: v.pins, splits: v.splits, halves: v.halves, priority: v.priority, brunch: v.brunch, nightcap: v.nightcap });
+}
+// In Suggest my day, ticks and pins are edits to the suggestion; in Pick games the ticks are the picks themselves,
+// so only bar swaps and halftime moves count.
+const lockedGames = keys => [...new Set(keys.map(k => k.split(':')[0]))];
+const editCount = () => (state.mode === 'auto' ? new Set([...lockedGames(state.locks), ...state.toggles.keys()]).size : Object.keys(state.pins).length + Object.keys(state.splits).length);
+function resetEdits() {
+  if (state.mode === 'auto') { state.toggles.clear(); state.locks = []; lockGroups.clear(); }
+  else { state.pins = {}; state.splits = {}; }
+}
+// Switching between halves and full games: carry the pins over instead of dropping them. A game pinned for its
+// 1st half becomes the whole game there; a 2nd-half-only pin has no full-game equivalent and waits. Switching
+// straight back restores the half-by-half pins exactly.
+let halvesStash = null;
+function convertLocks(to) {
+  if (to === 'split' && halvesStash && halvesStash.full === state.locks.join('.')) { state.locks = halvesStash.split; halvesStash = null; lockGroups.clear(); return; }
+  const before = state.locks, byGame = new Map();
+  for (const k of before) { const [g, half, bar] = k.split(':'); if (!byGame.has(g)) byGame.set(g, []); byGame.get(g).push({ half, bar }); }
+  state.locks = [...byGame].flatMap(([g, ls]) => {
+    if (to === 'split') return ls.flatMap(l => (l.half === '0' ? [`${g}:1:${l.bar}`, `${g}:2:${l.bar}`] : [`${g}:${l.half}:${l.bar}`]));
+    const first = ls.find(l => l.half === '1' || l.half === '0');
+    return first ? [`${g}:0:${first.bar}`] : [];
+  });
+  halvesStash = to === 'full' ? { split: before, full: state.locks.join('.') } : null;
+  lockGroups.clear();
+}
+
 // ---------- persistence: URL hash is shareable, localStorage remembers you ----------
 function writeState() {
   const params = new URLSearchParams();
@@ -281,7 +319,35 @@ const at = spot => [spot.lng, spot.lat];
 // Where the crawl proper starts: brunch if you're having it, otherwise home.
 const startPoint = () => (brunchSpot() ? at(brunchSpot()) : state.home.coords);
 const closestTo = (list, point, n = 3) => list.map(spot => ({ spot, d: miles(point, at(spot)) })).sort((a, b) => a.d - b.d).slice(0, n);
+// Bookend offers around two anchors (home, and the crawl's first or last bar): the closest two to each within
+// a mile and a half, labeled with where they're close to. Anchors under half a mile apart count as one.
+function bookendOffers(list, anchors) {
+  const real = anchors.filter(a => a.point);
+  const together = real.length === 2 && miles(real[0].point, real[1].point) < 0.5;
+  const groups = together ? [{ point: real[0].point, label: real[1].together, n: 3 }] : real.map(a => ({ ...a, n: real.length > 1 ? 2 : 3 }));
+  const seen = new Set(), out = [];
+  for (const g of groups) for (const { spot, d } of closestTo(list.filter(x => !seen.has(x.id)), g.point, g.n)) {
+    if (d > 1.5 && out.length) continue;
+    seen.add(spot.id); out.push({ spot, d, label: g.label });
+  }
+  return out;
+}
+const offerRow = (kind, icon, { spot, d, label }) => `<button class="swap" data-${kind}="${spot.id}"><svg class="icon"><use href="#icon-${icon}"/></svg><span class="swap-main">${esc(spot.name)} <span class="swap-note">${esc(label)}</span></span><span class="swap-side">${travel(d).miles.toFixed(1)} mi</span></button>`;
 
+// Above the crawl once you've changed anything: step back one edit, or start over.
+// `stale`: pins the plan can't fit anymore (a later edit took their time), which have no stop to undo them from.
+function editsBar(stale = []) {
+  const n = editCount();
+  if (!n && !undoStack.length) return [];
+  // Name the half when only one of a game's pinned halves is the one that no longer fits.
+  const names = lockedGames(stale).map(id => {
+    const g = data.games.find(x => x.id === id), halves = stale.filter(k => k.startsWith(`${id}:`)).map(k => k.split(':')[1]);
+    const partial = halves.length === 1 && halves[0] !== '0' && state.locks.some(k => k.startsWith(`${id}:`) && !stale.includes(k));
+    return g && `${shortMatch(g)}${partial ? ` (${halves[0] === '1' ? '1st' : '2nd'} half)` : ''}`;
+  }).filter(Boolean);
+  const loose = stale.length ? `<li class="crawl-banner"><p>Your pin${names.length === 1 ? '' : 's'} on ${names.join(', ')} no longer ${names.length === 1 ? 'fits' : 'fit'} around your other edits, so ${names.length === 1 ? 'it has' : 'they have'} no stop to undo from.</p><button class="text-link" data-unlock="${stale.join(',')}">Clear ${names.length === 1 ? 'it' : 'them'}</button></li>` : '';
+  return [`<li class="crawl-edits"><span>${n ? `${n} game${n === 1 ? '' : 's'} changed` : 'No changes'}</span>${undoStack.length ? '<button class="text-link" data-undo>Undo</button>' : ''}${n ? `<button class="text-link" data-reset-edits>${state.mode === 'auto' ? 'Back to the suggestion' : 'Reset bars'}</button>` : ''}</li>`, ...(loose ? [loose] : [])];
+}
 const removeButton = (kind, label) => `<button class="remove" data-${kind}="" aria-label="${label}" title="${label}"><svg class="icon"><use href="#icon-x"/></svg>Remove</button>`;
 
 // Every other bar showing a game, nearest to `from` first.
@@ -290,7 +356,7 @@ function otherBars(game, currentBarId, from) {
     .map(o => ({ ...o, distance: miles(from, [o.bar.lng, o.bar.lat]) })).sort((a, b) => a.distance - b.distance);
 }
 
-function startItems() {
+function startItems(firstBar = null) {
   const items = [`<li><span class="dot home"><svg class="icon"><use href="#icon-home"/></svg></span><div><div class="stop-time">Start</div><div class="stop-name">${esc(state.home.label)}</div></div></li>`];
   const brunch = brunchSpot();
   if (brunch) {
@@ -302,8 +368,8 @@ function startItems() {
       <div class="stop-addr">${esc(brunch.address.split(',')[0])} · ${esc(brunch.neighborhood || '')}</div>
       ${brunch.blurb ? `<p class="blurb">${esc(brunch.blurb)}</p>` : ''}</div></li>`);
   } else if (data.extras.brunch.length) {
-    const offers = closestTo(data.extras.brunch, state.home.coords).map(({ spot, d }) =>
-      `<button class="swap" data-brunch="${spot.id}"><svg class="icon"><use href="#icon-coffee"/></svg><span class="swap-main">${esc(spot.name)}</span><span class="swap-side">${travel(d).miles.toFixed(1)} mi</span></button>`).join('');
+    const offers = bookendOffers(data.extras.brunch, [{ point: state.home.coords, label: 'near home' },
+      firstBar && { point: [firstBar.lng, firstBar.lat], label: 'near stop 1', together: 'near home and stop 1' }].filter(Boolean)).map(o => offerRow('brunch', 'coffee', o)).join('');
     items.push(`<li class="bookend-offer"><span class="mono">Start early: brunch and College GameDay</span><div class="bookend-list">${offers}</div></li>`);
   }
   return items;
@@ -321,8 +387,8 @@ function endItems(from, after) {
       ${cap.blurb ? `<p class="blurb">${esc(cap.blurb)}</p>` : ''}</div></li>`];
   }
   if (!data.extras.nightcaps.length) return [];
-  const offers = closestTo(data.extras.nightcaps, from).map(({ spot, d }) =>
-    `<button class="swap" data-nightcap="${spot.id}"><svg class="icon"><use href="#icon-moon"/></svg><span class="swap-main">${esc(spot.name)}</span><span class="swap-side">${travel(d).miles.toFixed(1)} mi</span></button>`).join('');
+  const offers = bookendOffers(data.extras.nightcaps, [{ point: from, label: 'near last stop' },
+    { point: state.home.coords, label: 'near home', together: 'near last stop and home' }]).map(o => offerRow('nightcap', 'moon', o)).join('');
   return [`<li class="bookend-offer"><span class="mono">One more? Nightcaps after the late games</span><div class="bookend-list">${offers}</div></li>`];
 }
 
@@ -342,15 +408,17 @@ function suggestion() {
 const halvesLabel = halves => halves.length === 2 ? 'Full game' : halves[0] === 1 ? '1st half' : '2nd half';
 
 // Every way to change each game in a visit (suggest.js editsFor): tap one to pin it and replan the rest.
-function visitSwapGroups(edits, v, from) {
+function visitSwapGroups(edits, v, from, planned = new Set()) {
   const here = [v.bar.lng, v.bar.lat];
   const dist = (origin, bar) => `${miles(origin, [bar.lng, bar.lat]).toFixed(1)} mi`;
   const mi = (origin, bar) => (bar.id === v.bar.id ? 'stay here' : `${esc(bar.name)} · ${dist(origin, bar)}`);
   const color = o => teamColor(o.bar.teams.find(t => t.id === o.game.home.id || t.id === o.game.away.id)?.id);
   const row = (o, main, side) => swapRow(`data-lock="${o.lock.join(',')}" data-replace="${o.replace.join(',')}"`, color(o), main, side);
+  // An option that is already the plan would only pin it; leave it out.
+  const changes = o => !o.lock.every(k => planned.has(k));
   const half = o => (o.half === 2 ? '2nd half' : '1st half');
   return v.games.flatMap(({ game }) => {
-    const e = edits.get(game.id);
+    const all = edits.get(game.id), e = Object.fromEntries(Object.entries(all).map(([k, list]) => [k, list.filter(changes)]));
     const name = v.games.length > 1 ? `${teamName(game.away)}–${teamName(game.home)}: ` : '';
     const side = o => (o.bar.teams.some(t => t.id === game.home.id) !== o.bar.teams.some(t => t.id === game.away.id)
       ? ` <span class="swap-note">${esc(sideName(new Set(o.bar.teams.map(t => t.id)), game))} side</span>` : '');
@@ -379,7 +447,14 @@ function renderSuggestion(result) {
   $('crawl-title').textContent = `${dayName(vs[0].start).split(',')[0]}: ${gameCount} games, ${vs.length} bar${vs.length > 1 ? 's' : ''}`;
   const context = { favorites: state.teams, picked: new Set(selectedGames().map(g => g.id)) };
   const edits = new Map(vs.flatMap(v => v.games.map(({ game }) => [game.id, editsFor(result, game.id)])));
-  const items = startItems();
+  const planned = new Set(result.path.map(segmentKey));
+  const stale = state.locks.filter(k => !planned.has(k));
+  const bar = editsBar(stale);
+  const items = [...bar, ...startItems(vs[0].bar)];
+  // Picks the day couldn't fit: name them, since the slate still shows them ticked.
+  const shown = new Set(vs.flatMap(v => v.games.map(g => g.game.id)));
+  const left = selectedGames().filter(g => g.timeValid && dayKey(new Date(g.date)) === dayKey(vs[0].start) && !shown.has(g.id) && (hasBar(g.home.id) || hasBar(g.away.id)));
+  if (left.length) items.splice(bar.length, 0, `<li class="crawl-banner"><p>${left.length === 1 ? 'One of your picks doesn\'t' : `${left.length} of your picks don't`} fit around the rest: ${left.map(shortMatch).join(', ')}. To trade one in, open <em>Other options</em> on the game it overlaps.</p></li>`);
   let from = startPoint();
   vs.forEach((v, i) => {
     const legBits = [legText(v.leg, from, [v.bar.lng, v.bar.lat]), `leave ${esc(clock(new Date(+v.start - v.leg.minutes * 60000)))}`].join('<span>·</span>');
@@ -394,7 +469,7 @@ function renderSuggestion(result) {
     items.push(stopItem({
       n: i + 1, color: stopColor(v), time: `${esc(clock(v.start))} – ${esc(clock(v.end))}`, leg: legBits, bar: v.bar, teams: v.teams,
       action: pinned.length ? textLink(`data-unlock="${pinned.join(',')}"`, 'Pinned · undo') : '',
-      body: `<ul class="stop-games">${games}</ul>${crossed}${late}${stay}${swaps(`v:${v.bar.id}:${v.segments[0].start}`, visitSwapGroups(edits, v, from))}`,
+      body: `<ul class="stop-games">${games}</ul>${crossed}${late}${stay}${swaps(`v:${v.bar.id}:${v.segments[0].start}`, visitSwapGroups(edits, v, from, planned))}`,
     }));
     from = [v.bar.lng, v.bar.lat];
   });
@@ -418,7 +493,11 @@ function renderCrawl(plan) {
     ? `${stops.length} stop${stops.length > 1 ? 's' : ''}${first && !plan.find(p => p.stop).slot.tba ? `, ${dayName(first).split(',')[0]}` : ''}`
     : 'No bars for these games';
   let n = 0;
-  const items = startItems();
+  const items = startItems(plan.find(p => p.stop)?.stop.bar);
+  // Picks that overlap: say so once, up top, and offer the planner that fits them into halves.
+  const early = plan.filter(p => p.leaveEarly && /quarter/.test(p.leaveEarly.phase) && !/3rd|4th/.test(p.leaveEarly.phase));
+  items.unshift(...editsBar());
+  if (early.length) items.splice(editsBar().length, 0, `<li class="crawl-banner"><p>Your picks overlap, so this crawl leaves ${early.length === 1 ? 'one game' : `${early.length} games`} before halftime to make the next kickoff. <em>Suggest my day</em> fits the same picks into halves instead.</p><button class="text-link" data-mode-to="auto">Fit them into halves</button></li>`);
   for (const step of plan) {
     const when = step.slot.tba ? 'Time TBA' : `${dayName(step.slot.kickoff).split(',')[0].slice(0, 3)} ${clock(step.slot.kickoff)}`;
     if (!step.stop) {
@@ -436,9 +515,13 @@ function renderCrawl(plan) {
       return swapRow(`data-pin="${a.bar.id}" data-games="${a.games.map(g => g.id).join(',')}"`, stopColor(a),
         `${esc(a.bar.name)}${showsSame(a) ? '' : ` <span class="swap-note">${a.games.map(shortMatch).join(', ')}</span>`}`, `${d.toFixed(1)} mi`);
     });
-    const elsewhere = step.elsewhere.length ? `<p class="note warn">Also on now, at other bars: ${step.elsewhere.map(shortMatch).join(', ')}.</p>` : '';
+    // Another pick in this window: the halftime card offers it when a bar has it, so the note only lists the rest.
+    const offered = new Set((!step.second && step.halftimeOptions.find(o => o.catches.length)?.catches.map(g => g.id)) || []);
+    const rest = step.elsewhere.filter(g => !offered.has(g.id));
+    const elsewhere = rest.length ? `<p class="note warn">Also on now, at other bars: ${rest.map(shortMatch).join(', ')}.</p>` : '';
     const unplaceable = step.unplaceable.length ? `<p class="note">No alumni bar for ${step.unplaceable.map(shortMatch).join(', ')}; any sports bar will have it on.</p>` : '';
-    const overlap = step.overlapMinutes > 20 ? `<p class="note">Leaves the last stop about ${step.overlapMinutes} minutes before its game ends.</p>` : '';
+    const leaveNote = s => s.leaveEarly ? `<p class="note warn">Leave by ${esc(clock(s.leaveEarly.at))}, ${s.leaveEarly.phase === 'halftime' ? 'at halftime' : `in the ${esc(s.leaveEarly.phase)}`}, to make ${matchup(s.leaveEarly.next)} at kickoff.</p>` : '';
+    const overlap = step.second ? '' : leaveNote(step);
     // The halftime move stays visible: loudly when it catches a game you'd otherwise miss, quietly otherwise.
     let move = '';
     if (!step.second && step.halftimeOptions.length) {
@@ -448,7 +531,8 @@ function renderCrawl(plan) {
       const button = (o, what) => `<button class="move" data-split="${step.splitKey}" data-to="${o.bar.id}" style="--team:${stopColor(o)}"><span class="move-when">${esc(at)}</span><span class="move-what"><i></i>${what}</span><span class="move-where">${esc(o.bar.name)} · ${esc(describeTravel(travel(o.distance)))}</span></button>`;
       move = [
         crossing && button(crossing, `Switch sides: 2nd half with ${esc(sideName(crossing.teams, crossing.sides))} fans`),
-        catcher && button(catcher, catchText(catcher)),
+        // A later pick joined at halftime replaces leaving early for its kickoff; say that it's the same game.
+        catcher && button(catcher, catcher.catches.some(g => g.id === step.leaveEarly?.next.id) && step.halftime > step.leaveEarly.at ? `Stay till halftime, then ${catchText(catcher)}` : catchText(catcher)),
       ].filter(Boolean).join('') || `<button class="move quiet" data-split="${step.splitKey}" data-to="auto"><svg class="icon"><use href="#icon-route"/></svg>Move bars at halftime</button>`;
     }
     items.push(stopItem({
@@ -470,7 +554,7 @@ function renderCrawl(plan) {
       items.push(stopItem({
         n, cls: 'second-half', color: stopColor(second), bar: second.bar, teams: second.teams, leg: moveBits,
         time: 'Halftime', action: textLink(`data-unsplit="${step.splitKey}"`, 'Stay put'),
-        body: `<ul class="stop-games">${second.games.map(g => gameRow(g, { part: PART_SHORT[second.parts[g.id]] })).join('')}</ul>${crossed}${late}${joins}${swaps(`h:${step.splitKey}`, [{ label: 'Or at halftime, go to', rows: moveRows }])}`,
+        body: `<ul class="stop-games">${second.games.map(g => gameRow(g, { part: PART_SHORT[second.parts[g.id]] })).join('')}</ul>${crossed}${late}${joins}${leaveNote(step)}${swaps(`h:${step.splitKey}`, [{ label: 'Or at halftime, go to', rows: moveRows }])}`,
       }));
     }
   }
@@ -551,7 +635,7 @@ function render({ fit = true } = {}) {
   renderGames();
   $('suggest-options').hidden = state.mode !== 'auto';
   $('mode-note').innerHTML = state.mode === 'auto'
-    ? `Planned from rankings, the line, and your teams, weighed against the walk. Ticked games below are in the plan: untick one to leave it out, tick another to work it in.${state.toggles.size ? ' <button class="alt" id="reset-edits" style="min-height:0;padding:0 4px;border:0">Reset my edits</button>' : ''}`
+    ? `Planned from rankings, the line, and your teams, weighed against the walk. Ticked games below are in the plan: untick one to leave it out, tick another to work it in.${state.toggles.size || state.locks.length ? ' <button class="alt" id="reset-edits" style="min-height:0;padding:0 4px;border:0">Reset my edits</button>' : ''}`
     : 'Tick games below. Your teams’ games start ticked. One bar per kickoff window; split any stop at halftime.';
   document.querySelectorAll('#right-tab button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.value === state.rightTab)));
   $('crawl-panel').hidden = state.rightTab !== 'crawl';
@@ -1048,7 +1132,7 @@ function setHome(home) {
 
 // ---------- events ----------
 function bind() {
-  $('week').addEventListener('change', event => { state.week = event.target.value; state.toggles.clear(); state.pins = {}; state.splits = {}; state.locks = []; render(); });
+  $('week').addEventListener('change', event => { state.week = event.target.value; state.toggles.clear(); state.pins = {}; state.splits = {}; state.locks = []; undoStack.length = 0; render(); });
   for (const [id, step] of [['week-prev', -1], ['week-next', 1]]) $(id).addEventListener('click', () => {
     const select = $('week'), i = select.selectedIndex + step;
     if (i < 0 || i >= select.options.length) return;
@@ -1088,9 +1172,11 @@ function bind() {
     const id = event.target.dataset.game;
     if (!id) return;
     const game = data.games.find(g => g.id === id);
+    remember();
     if (state.mode === 'auto') {
-      // Untick = leave it out of the plan; tick = work it in.
+      // Untick = leave it out of the plan (and drop its pins, so re-ticking starts fresh); tick = work it in.
       state.toggles.set(id, event.target.checked);
+      if (!event.target.checked) state.locks = state.locks.filter(k => !k.startsWith(`${id}:`));
       render({ fit: false });
       return;
     }
@@ -1115,20 +1201,32 @@ function bind() {
     const pin = event.target.closest('[data-pin]'), unpin = event.target.closest('[data-unpin]'), bar = event.target.closest('[data-bar]');
     const split = event.target.closest('[data-split]'), unsplit = event.target.closest('[data-unsplit]');
     const brunch = event.target.closest('[data-brunch]'), nightcap = event.target.closest('[data-nightcap]'), extra = event.target.closest('[data-extra]');
-    const lock = event.target.closest('[data-lock]'), unlock = event.target.closest('[data-unlock]');
-    if (lock) {
-      const replaced = new Set(lock.dataset.replace.split(','));
-      state.locks = [...state.locks.filter(k => !replaced.has(k)), ...lock.dataset.lock.split(',')];
+    const lock = event.target.closest('[data-lock]'), unlock = event.target.closest('[data-unlock]'), modeTo = event.target.closest('[data-mode-to]');
+    const undoBtn = event.target.closest('[data-undo]'), resetBtn = event.target.closest('[data-reset-edits]');
+    if (modeTo) { state.mode = modeTo.dataset.modeTo; render(); }
+    else if (undoBtn) { undo(); render({ fit: false }); }
+    else if (resetBtn) { remember(); resetEdits(); render({ fit: false }); }
+    else if (lock) {
+      remember();
+      const replaced = new Set(lock.dataset.replace.split(',')), keys = lock.dataset.lock.split(',');
+      state.locks = [...state.locks.filter(k => !replaced.has(k)), ...keys.filter(k => !state.locks.includes(k) || replaced.has(k))];
+      const group = new Set(keys);
+      keys.forEach(k => lockGroups.set(k, group));
       render({ fit: false });
     }
-    else if (unlock) { const keys = new Set(unlock.dataset.unlock.split(',')); state.locks = state.locks.filter(k => !keys.has(k)); render({ fit: false }); }
-    else if (brunch) { state.brunch = brunch.dataset.brunch || null; render({ fit: true }); }
-    else if (nightcap) { state.nightcap = nightcap.dataset.nightcap || null; render({ fit: true }); }
+    else if (unlock) {
+      remember();
+      const keys = new Set(unlock.dataset.unlock.split(',').flatMap(k => [...(lockGroups.get(k) || [k])]));
+      state.locks = state.locks.filter(k => !keys.has(k));
+      render({ fit: false });
+    }
+    else if (brunch) { remember(); state.brunch = brunch.dataset.brunch || null; render({ fit: true }); }
+    else if (nightcap) { remember(); state.nightcap = nightcap.dataset.nightcap || null; render({ fit: true }); }
     else if (extra) { const [kind, id] = extra.dataset.extra.split(':'); openExtra(data.extras[kind].find(x => x.id === id)); }
-    else if (split) { state.splits[split.dataset.split] = split.dataset.to; render({ fit: false }); }
-    else if (unsplit) { delete state.splits[unsplit.dataset.unsplit]; render({ fit: false }); }
-    else if (pin) { for (const g of pin.dataset.games.split(',')) state.pins[g] = pin.dataset.pin; render({ fit: false }); }
-    else if (unpin) { for (const g of unpin.dataset.unpin.split(',')) delete state.pins[g]; render({ fit: false }); }
+    else if (split) { remember(); state.splits[split.dataset.split] = split.dataset.to; render({ fit: false }); }
+    else if (unsplit) { remember(); delete state.splits[unsplit.dataset.unsplit]; render({ fit: false }); }
+    else if (pin) { remember(); for (const g of pin.dataset.games.split(',')) state.pins[g] = pin.dataset.pin; render({ fit: false }); }
+    else if (unpin) { remember(); for (const g of unpin.dataset.unpin.split(',')) delete state.pins[g]; render({ fit: false }); }
     else if (bar) openBar(bar.dataset.bar);
   });
   $('directory').addEventListener('click', event => { const li = event.target.closest('[data-bar]'); if (li) { state.explore.view = { kind: 'bar', id: li.dataset.bar }; renderExplore(); openBar(li.dataset.bar, null, { keepPane: true }); } });
@@ -1166,7 +1264,7 @@ function bind() {
   $('bar-search').addEventListener('input', event => { state.barSearch = event.target.value; renderFavoriteBars(); });
   $('bar-list').addEventListener('change', event => { const id = event.target.dataset.favbar; if (id) { toggleFavBar(id, event.target.checked); renderFavoriteBars(); } });
   $('my-bars').addEventListener('click', event => { const chip = event.target.closest('[data-unfav]'); if (chip) { toggleFavBar(chip.dataset.unfav, false); renderFavoriteBars(); } });
-  $('mode-note').addEventListener('click', event => { if (event.target.id === 'reset-edits') { state.toggles.clear(); state.locks = []; render({ fit: false }); } });
+  $('mode-note').addEventListener('click', event => { if (event.target.id === 'reset-edits') { remember(); resetEdits(); render({ fit: false }); } });
   for (const id of ['setup-done', 'setup-skip', 'setup-close']) $(id).addEventListener('click', closeSetup);
   $('setup-dialog').addEventListener('cancel', () => markSetupSeen());
   $('setup-week').addEventListener('change', event => { $('week').value = event.target.value; $('week').dispatchEvent(new Event('change')); });
@@ -1181,8 +1279,8 @@ function bind() {
   $('info-close').addEventListener('click', () => $('info-dialog').close());
   $('info-dialog').addEventListener('click', event => { if (event.target === $('info-dialog')) $('info-dialog').close(); });
   $('share-card').addEventListener('click', openCard);
-  $('priority-switch').addEventListener('change', event => { state.priority = event.target.checked ? 'teams' : 'matchups'; render(); });
-  $('halves-switch').addEventListener('change', event => { state.halves = event.target.checked ? 'split' : 'full'; render(); });
+  $('priority-switch').addEventListener('change', event => { remember(); state.priority = event.target.checked ? 'teams' : 'matchups'; render(); });
+  $('halves-switch').addEventListener('change', event => { remember(); state.halves = event.target.checked ? 'split' : 'full'; convertLocks(state.halves); render(); });
   $('travel').addEventListener('click', event => {
     const button = event.target.closest('button');
     if (button) { state.travel = button.dataset.value; render({ fit: false }); }

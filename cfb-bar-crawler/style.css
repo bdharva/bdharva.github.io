@@ -317,6 +317,17 @@ html.dark .maplibregl-ctrl-icon, html.dark .maplibregl-ctrl-attrib-button { filt
 .stops > li { position: relative; display: grid; grid-template-columns: 28px 1fr; gap: 0 14px; padding-bottom: 22px; }
 .stops > li::before { content: ''; position: absolute; left: 13.5px; top: 30px; bottom: 2px; border-left: 1px dashed var(--border); }
 .stops > li:last-child::before { display: none; }
+/* Edits: undo one step, or go back to the plan as it was. */
+.stops > li.crawl-edits { display: flex; align-items: center; gap: 14px; margin: -6px 0 16px; padding: 0; font: 500 9px var(--mono); letter-spacing: .4px; text-transform: uppercase; color: var(--caption); }
+.stops > li.crawl-edits::before { display: none; }
+.crawl-edits span { margin-right: auto; }
+.crawl-edits .text-link { color: var(--accent-deep); }
+/* Overlapping picks: one note above the crawl, with the way out. */
+.stops > li.crawl-banner { display: block; margin: 0 0 22px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; }
+.stops > li.crawl-banner::before { display: none; }
+.crawl-banner p { font-size: 12px; line-height: 1.55; color: var(--muted); margin: 0 0 8px; }
+.crawl-banner em { font-style: normal; color: var(--text); }
+.crawl-banner .text-link { color: var(--accent-deep); }
 .stops .dot { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font: 600 12px var(--sans); color: #fff; background: var(--team); }
 .stops .dot.home { background: var(--selected); color: var(--selected-text); }
 .stops .dot.home .icon { width: 14px; height: 14px; }

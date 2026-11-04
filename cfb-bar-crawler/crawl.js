@@ -138,6 +138,7 @@ export function planCrawl({ games, barsByTeam, home, pins = {}, splits = {}, fav
     const firstKickoff = new Date(Math.min(...stop.games.map(g => +new Date(g.date))));
     const halftime = new Date(+firstKickoff + HALFTIME_AT * 60000);
     const candidates = new Map();
+    const picked = new Set(games.map(g => g.id));
     const consider = (game, part) => { if (!candidates.has(game.id)) candidates.set(game.id, { game, part }); };
     stop.games.forEach(g => consider(g, 'second'));
     slot.games.filter(g => !firstCovered.has(g.id)).forEach(g => consider(g, 'live'));
@@ -161,8 +162,8 @@ export function planCrawl({ games, barsByTeam, home, pins = {}, splits = {}, fav
         teams.forEach(t => move.teams.add(t));
       }
     }
-    // A bar showing a game you'd otherwise miss gets a mile's edge (half that for a game you didn't pick).
-    const picked = new Set(games.map(g => g.id));
+    // A bar showing a game you'd otherwise miss gets an edge: two and a half miles for one you picked, so it
+    // always beats a game you didn't (half a mile).
     // Switching sides: the same game at the other team's bar, when this stop is one team's and not both.
     const sideOf = (option, g) => [g.home.id, g.away.id].filter(t => option.teams.has(t));
     const switchesSides = option => stop.games.find(g => {
@@ -175,9 +176,9 @@ export function planCrawl({ games, barsByTeam, home, pins = {}, splits = {}, fav
       // The opponent-bar handicap is for the same game; going somewhere for a *different* game, or to
       // the other side's bar on purpose, is the point.
       const { distance, base } = cost(option, origin, { catching: catches.length > 0 || Boolean(sides) });
-      const bonus = catches.some(g => picked.has(g.id)) ? 1 : catches.length ? 0.5 : 0;
-      return { ...option, distance, catches, sides, score: base - bonus };
-    }).sort((a, b) => a.score - b.score);
+      const bonus = catches.some(g => picked.has(g.id)) ? 2.5 : catches.length ? 0.5 : 0;
+      return { ...option, distance, catches, sides, score: base - bonus, caughtPick: catches.some(g => picked.has(g.id)) };
+    }).sort((a, b) => b.caughtPick - a.caughtPick || a.score - b.score);   // another game you picked comes first, however far
 
     const splitChoice = slot.games.map(g => splits[g.id]).find(Boolean);
     let second = null;
@@ -215,6 +216,11 @@ export function planCrawl({ games, barsByTeam, home, pins = {}, splits = {}, fav
       const shown = [...prev.stop.games, ...(prev.second?.games || [])];
       const prevEnd = new Date(Math.max(...shown.map(g => +new Date(g.date))) + GAME_HOURS * 3600000);
       step.overlapMinutes = Math.max(0, Math.round((prevEnd - step.leaveBy) / 60000));
+      // Said on the stop you're leaving: when to go, and how far into its game that is.
+      if (step.overlapMinutes > 20) {
+        const left = prev.second ? prev.second.games : prev.stop.games;
+        prev.leaveEarly = { at: step.leaveBy, game: left[0], phase: phaseAt(left[0], step.leaveBy), next: step.stop.games[0] };
+      }
     }
   }
   return plan;
