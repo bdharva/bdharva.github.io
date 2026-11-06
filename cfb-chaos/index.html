@@ -529,7 +529,7 @@ layout: null
 <div class="page-wrap">
 <main id="brief">
   <header class="mast">
-    <div class="mast-top mono"><span id="m-date"></span><span id="m-edition"></span><span>AP Top 25 · ESPN data</span></div>
+    <div class="mast-top mono"><span id="m-date"></span><span id="m-edition"></span><span id="m-poll">AP Top 25 · ESPN data</span></div>
     <a class="mast-title" href="#front">The Chaotic Times</a>
     <div class="mast-sub">All the news that's fit to pull for Team Chaos</div>
   </header>
@@ -669,7 +669,7 @@ layout: null
       <div>
         <h2 id="wrong-h"></h2>
         <p class="desc" id="wrong-desc"></p>
-        <div class="legend"><span class="key"><span class="sw ring"></span>AP rank</span><span class="key"><span class="sw dot"></span>ESPN FPI, same or better</span><span class="key"><span class="sw dot" style="background:var(--counter)"></span>ESPN FPI, worse</span><span class="key"><span class="sw tick"></span>Scoreboard rank</span></div>
+        <div class="legend"><span class="key"><span class="sw ring"></span><span class="poll-name">AP</span> rank</span><span class="key"><span class="sw dot"></span>ESPN FPI, same or better</span><span class="key"><span class="sw dot" style="background:var(--counter)"></span>ESPN FPI, worse</span><span class="key"><span class="sw tick"></span>Scoreboard rank</span></div>
         <div class="chart" id="c-dumbbell"></div>
       </div>
       <div>
@@ -871,7 +871,7 @@ layout: null
     <div class="two">
       <div>
         <h2>The biggest moves since the preseason poll</h2>
-        <p class="desc">Preseason AP rank → this week's, with where each team ranks by scoreboard this year and where it finished last year.</p>
+        <p class="desc">Preseason AP rank → this week's <span class="poll-name">AP</span> rank, with where each team ranks by scoreboard this year and where it finished last year.</p>
         <div id="moves-list"></div>
       </div>
       <div>
@@ -1041,6 +1041,8 @@ layout: null
 // Shared helpers
 // ======================================================================================
 const B = window.BRIEF, NS = "http://www.w3.org/2000/svg";
+// this week's ranking: the CFP committee's once it ranks the week (November on), else the AP poll; history stays AP
+const PN = B.poll_name || "AP", PN_POLL = PN === "CFP" ? "CFP rankings" : "AP poll", PN_WHO = PN === "CFP" ? "the committee" : "the AP";
 const Q = B.quality, LOOP = B.loop, X = B.chaos, TR = B.trends, IND = B.indiana, LP = B.loops, W9 = X.watch;
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const el = (tag, attrs = {}, parent) => { const e = document.createElementNS(NS, tag);
@@ -1203,6 +1205,8 @@ document.getElementById("sec-toggle").addEventListener("click", e => { e.stopPro
 document.addEventListener("click", e => { if (!e.target.closest("#secbar")) secbar.classList.remove("open"); });
 set("m-date", new Date(B.generated + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" }));
 set("m-edition", `Week ${PW} edition`);
+set("m-poll", `${PN} Top 25 · ESPN data`);
+document.querySelectorAll(".poll-name").forEach(el => { el.textContent = PN; });
 document.querySelectorAll(".champs-kicker").forEach(n => n.textContent = (B.stories?.champs?.kicker) || "Team in focus");
 set("stamp", `Data through Week ${LOOP.through_week}, ${B.season}`);
 // a draft built before Sunday's poll (scripts/provisional_poll.py): ranks are last week's until the real poll lands
@@ -1318,7 +1322,7 @@ function drawDumbbell(svg, W) {
     el("circle", { cx: rx, cy, r: 4.5, fill: col, stroke: C.bg, "stroke-width": 1.5 }, svg);
     if (tm.fpi_rank > xmax) txt({ x: rx - 7, y: cy - 6, "text-anchor": "end", "font-size": 9.5, fill: C.ink50 }, `#${tm.fpi_rank} →`, svg);
     bindTip(el("rect", { x: 0, y: cy - rh / 2, width: W, height: rh, fill: "transparent" }, svg),
-      `<b>${tm.team}</b><br>AP ${tm.ap ? "#" + tm.ap : "unranked"} · FPI #${tm.fpi_rank ?? "—"} · scoreboard #${tm.results_rank ?? "—"}` +
+      `<b>${tm.team}</b><br>${PN} ${tm.ap ? "#" + tm.ap : "unranked"} · FPI #${tm.fpi_rank ?? "—"} · scoreboard #${tm.results_rank ?? "—"}` +
       (tm.prior_results_rank ? `<br>Finished 2025 #${tm.prior_results_rank} by scoreboard` : ""));
   });
 }
@@ -1676,7 +1680,7 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
         (danger ? ` FPI gives ${rn(danger.dog_rank, danger.dog)} a ${pct(danger.p_upset)} chance Saturday.` : "") +
         (CU.under.length ? ` The other way, ${andList(CU.under.map(t => `#${t.ap} ${t.team}`))} ${CU.under.length === 1 ? "is" : "are"} ranked below all three.` : ""));
     }
-    const prow = (t, bad) => `<div class="row"><span class="wk">AP #${t.ap}</span><span>${pql(t.tid)}<b>${t.team}</b></span><span class="rtag ${bad ? "l" : "w"}">${t.epa} · ${t.fpi} · ${t.sb}</span></div>`;
+    const prow = (t, bad) => `<div class="row"><span class="wk">${PN} #${t.ap}</span><span>${pql(t.tid)}<b>${t.team}</b></span><span class="rtag ${bad ? "l" : "w"}">${t.epa} · ${t.fpi} · ${t.sb}</span></div>`;
     set("f-over", (CU.over.length ? `<div class="list-head" style="margin-top:4px">Ranked too high · efficiency, FPI, scoreboard</div>${CU.over.map(t => prow(t, true)).join("")}` : "") +
       (CU.under.length ? `<div class="list-head">Ranked too low</div>${CU.under.map(t => prow(t, false)).join("")}` : ""));
   }
@@ -1729,8 +1733,8 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
   // ---- risers and fallers ----
   const ucla = MV.current[0], fall = MV.current.filter(t => t.delta < 0).sort((a, b) => a.delta - b.delta)[0];
   const further = MV.risers.filter(r => r.prior > ucla.prior && r.season < B.season), top2 = MV.fallers.filter(f => f.pre <= 2 && f.season < B.season);
-  set("f-moves-hl", `${ucla.team} finished ${ord(ucla.prior)} by scoreboard last year. Now it's AP #${ucla.now}.`);
-  set("f-moves-dek", `Only ${word(further.length)} top-10 team since 2006 came from further back (${further.map(r => `${r.team} in ${r.season}`).join(", ")}). Going the other way, ${fall.team} went from #${fall.pre} in the preseason to unranked, which had only happened ${top2.length === 1 ? "once" : top2.length + " times"} before (${top2.map(f => `${f.team}, ${f.season}`).join("; ")}).`);
+  set("f-moves-hl", `${ucla.team} finished ${ord(ucla.prior)} by scoreboard last year. Now it's ${PN} #${ucla.now}.`);
+  set("f-moves-dek", `Only ${word(further.length)} top-10 ${further.length === 1 ? "team" : "teams"} since 2006 came from further back (${further.map(r => `${r.team} in ${r.season}`).join(", ")}). Going the other way, ${fall.team} went from #${fall.pre} in the preseason to unranked, which had only happened ${top2.length === 1 ? "once" : top2.length + " times"} before (${top2.map(f => `${f.team}, ${f.season}`).join("; ")}).`);
   const mvRows = [...MV.current.filter(t => t.delta > 0).slice(0, 3), ...MV.current.filter(t => t.delta < 0).sort((a, b) => a.delta - b.delta).slice(0, 3)];
   set("f-moves", mvRows.map(t => `<div class="row"><span>${logo(t.tid)}</span><span><b>${t.team}</b> ${t.pre ? "#" + t.pre : "NR"} → ${t.now ? "#" + t.now : "NR"}</span><span class="rtag ${t.delta > 0 ? "w" : "l"}">${t.delta > 0 ? "+" : "−"}${Math.abs(t.delta)}</span></div>`).join(""));
 
@@ -1751,7 +1755,7 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
   // AP rank vs. ESPN FPI rank for ranked teams, SEC vs everyone else (positive = the poll has them too high)
   const fgap = f => avg(Q.teams.filter(t => t.fpi_rank && f(t)).map(t => t.fpi_rank - t.ap));
   const secF = fgap(t => t.conf === "SEC"), nonF = fgap(t => t.conf !== "SEC"), secOver = secF > nonF + 2;
-  const spots = g => Math.abs(g) < 1.5 ? "right about where the AP has them" : `about ${fmt(Math.abs(g), 0)} spots ${g > 0 ? "too high" : "too low"}`;
+  const spots = g => Math.abs(g) < 1.5 ? `right about where ${PN_WHO} has them` : `about ${fmt(Math.abs(g), 0)} spots ${g > 0 ? "too high" : "too low"}`;
   // "voters stick with last year's teams": unranked teams that are top 25 by scoreboard, and how many of them were bad last year
   const outs = Q.unranked_results_top25.filter(t => t.prior_results_rank), lastBad = outs.filter(t => t.prior_results_rank > 25);
   const fpiToo = outs.filter(t => t.fpi_rank && t.fpi_rank <= 25), goodNear = (a, b) => Math.abs(a - b) <= Math.max(1.5, b * 0.1);
@@ -1792,7 +1796,7 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
   set("verdicts", items.map(([cls, lab, hd, t]) => `<div class="v"><div class="v-head"><span class="v-title">${hd}</span>${chip(cls, lab)}</div><p>${t}</p></div>`).join(""));
 
   set("wrong-h", `Who the poll has wrong`);
-  set("wrong-desc", `AP rank vs. ESPN's FPI, a power rating built from every play this season (early on it still leans a little on preseason expectations). Red means the AP has a team higher than FPI does. The tick is "scoreboard rank," my scores-only rating. Bold names are off by 10+ spots.`);
+  set("wrong-desc", `${PN} rank vs. ESPN's FPI, a power rating built from every play this season (early on it still leans a little on preseason expectations). Red means ${PN_WHO} has a team higher than FPI does. The tick is "scoreboard rank," my scores-only rating. Bold names are off by 10+ spots.`);
   chart("c-dumbbell", drawDumbbell);
   chart("c-hind", drawHind);
   const sec = Q.hindsight.by_conf.find(r => r.conf === "SEC");
@@ -1817,7 +1821,7 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
       : Math.max(t.now_epa, t.now_fpi, t.now_sb) > 25 ? ["faded", "Faded", "l"] : ["held", `${rec(t.now_wins, t.now_losses)}, out`, ""];
     const by = k => early.filter(t => fate(t)[0] === k);
     set("yr-h", STP.year_h || `In this week's poll, ${over.length ? `${nm(over)} ${over.length > 1 ? "are" : "is"} ranked above every measure` : "nobody is ranked above every measure"}${under.length ? `, ${nm(under)} below` : ""}`);
-    set("yr-desc", STP.year_dek || `The Week ${CU.week} AP poll against three reads of how good each team is: play-by-play efficiency (EPA), ESPN's FPI, and the scoreboard rating. They disagree plenty, so a team only counts as over- or under-ranked if all three agree, by at least ${PQ.gap} spots. ` +
+    set("yr-desc", STP.year_dek || `The Week ${CU.week} ${PN_POLL} against three reads of how good each team is: play-by-play efficiency (EPA), ESPN's FPI, and the scoreboard rating. They disagree plenty, so a team only counts as over- or under-ranked if all three agree, by at least ${PQ.gap} spots. ` +
       (now.length ? `${nm(now)} ${now.length > 1 ? "are" : "is"} unranked with one loss or none.` : `No power-conference team with one loss or none is unranked this week.`));
     set("yr-over", over.length ? over.map(t => trow(t, `+${r0(t.low_gap)}`, "l")).join("") : `<div class="row"><span></span><span>None</span><span></span></div>`);
     set("yr-under", under.length ? under.map(t => trow(t, `−${r0(-t.high_gap)}`, "w")).join("") : `<div class="row"><span></span><span>None</span><span></span></div>`);
@@ -1857,7 +1861,7 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
     <p><b>Scoreboard rank</b> is a simple power rating: every final score this season, solved for the team strengths that best fit the margins (home field adjusted, blowouts capped at 28, everybody pulled toward average since 7–8 games isn't much to go on). No preseason input, on purpose, since the point is to check the poll against what's actually happened. I also tested it against ESPN's FPI at predicting the rest of each season (${all.scores.n.toLocaleString()} games, 2005–25): FPI picks ${pct(all.fpi.accuracy, 1)} of winners to my rating's ${pct(all.scores.accuracy, 1)}, and its win odds are better calibrated, so anything predictive in here uses FPI.</p>
     <p><b>Poll movement:</b> I built a model of how far teams move after a win or loss (both teams' ranks, home or away, margin, how the game played out, ESPN's pregame win probability, and how many teams around them lost), fit on 2016–25. Adding conference or specific teams didn't make it any better at predicting, so I don't see a standing bias for anybody. Upset winners do jump more: a 20% underdog that wins rises about ${fmt(-Wn.coefs.pre_wp.coef * 0.6, 0)} spots more than an 80% favorite.</p>
     ${SQ ? `<p><b>Quality or bias</b> uses cfbfastR's expected points on every non-garbage-time snap, ${SQ.seasons[0]}–${last(SQ.seasons)} (no 2020). Before each AP poll from Week ${SQ.weeks[0]} on, every FBS offense and defense gets a rating from the games so far, adjusted for opponent and home field (ridge regression, FCS teams pooled), turned into points a game against an average team. "Vs. their rating" is each game's final margin against what the two teams' ratings going in predicted (fit on ${SQ.fit.n.toLocaleString()} FBS games). Only games between power-conference teams (Notre Dame counts) are in the table, since a rating that pulls every team toward average understates the gap to Group of 5 teams. The poll bump compares AP points for teams with the same rating, number of losses, season and week, by conference (Big Ten as the baseline, ${SQ.premium_rows.toLocaleString()} team-weeks, about ${fmt(SQ.points_per_rank_spot, 0)} poll points per rank spot). None of the conference gaps against the ratings is big next to its margin of error except the ACC's (about ±${fmt(1.96 * SQ.cross_power.ACC.se, 1)} points).</p>` : ""}
-    ${PQ ? `<p><b>This year, team by team.</b> For each AP poll from Week ${PQ.weeks[0]} on, every FBS team gets three ranks from what was known before that poll: the same EPA rating as the quality-or-bias study, rebuilt on this season's play-by-play; ESPN's FPI after the previous week; and the scoreboard rating through the previous week. "Ranked higher than all three" means this week's poll has a team at least ${PQ.gap} spots above each measure. "Left out earlier" covers power-conference teams (Notre Dame counts) that were unranked with at most one loss and four or more wins in some poll from Week ${PQ.weeks[0]} on, while at least one measure had them in the top 25 (their median ranks over those weeks). Each one's tag says how it turned out: ranked now, faded (all three measures now have them outside the top 25), or still out of the poll.</p>` : ""}
+    ${PQ ? `<p><b>This year, team by team.</b> For each poll from Week ${PQ.weeks[0]} on (the AP's, then the committee's once it ranks a week), every FBS team gets three ranks from what was known before that poll: the same EPA rating as the quality-or-bias study, rebuilt on this season's play-by-play; ESPN's FPI after the previous week; and the scoreboard rating through the previous week. "Ranked higher than all three" means this week's poll has a team at least ${PQ.gap} spots above each measure. "Left out earlier" covers power-conference teams (Notre Dame counts) that were unranked with at most one loss and four or more wins in some poll from Week ${PQ.weeks[0]} on, while at least one measure had them in the top 25 (their median ranks over those weeks). Each one's tag says how it turned out: ranked now, faded (all three measures now have them outside the top 25), or still out of the poll.</p>` : ""}
     <p><b>Flopping</b> means a team ranked at kickoff in Weeks 1–${PW - 1} that finished the season outside the scoreboard top 25. At the same AP rank and week, SEC teams' odds of flopping are ${fmt(Q.hindsight.sec_vs_b1g_odds, 2)}× the Big Ten's (p = ${fmt(Q.hindsight.sec_vs_b1g_p, 2)}), so there's no real difference there. The tick on each bar comes from a model of flop odds using only AP rank and week, fit on every conference together; ACC and Pac-12 teams are the ones that flopped meaningfully more than it predicts.</p>`);
 })();
 
@@ -2212,7 +2216,7 @@ ledgerText(ledgerView);
   if (PM && PM.won && PM.now > PM.prev && PM.above_lost.length) {
     const prior = PM.precedent.filter(r => !(r.season === B.season && r.tid === IND.team)), byYear = {};
     prior.forEach(r => (byYear[r.season] = byYear[r.season] || []).push(r.team));
-    set("ch-poll", `<b>In this week's AP poll:</b> #${PM.prev} → #${PM.now} after a win, while ${andList(PM.above_lost.map(t => `#${t.rank} ${t.team}`))} lost. ` +
+    set("ch-poll", `<b>In this week's ${PM.poll === "CFP" ? "CFP rankings" : "AP poll"}:</b> #${PM.prev} → #${PM.now} after a win, while ${andList(PM.above_lost.map(t => `#${t.rank} ${t.team}`))} lost. ` +
       `Passed by ${andList(PM.passed.map(t => `${t.team} (${t.was ? "#" + t.was : "unranked"} → #${t.now})`))}. ` +
       `A top-${PM.cap} team falling ${PM.now - PM.prev}+ spots after a win, with a team above it losing, has happened ${prior.length ? `${word(prior.length + 1)} times since 2005, counting this one (${andList(Object.entries(byYear).map(([y, t]) => `${andList(t)} in ${y}`))})` : "for the first time since at least 2005"}.` +
       (PM.times_this_season > 1 ? ` It's the ${["", "", "second", "third", "fourth"][PM.times_this_season] || ord(PM.times_this_season)} time this season ${NM} has slipped after a win with a team above it losing.` : ""));
@@ -2420,7 +2424,7 @@ ledgerText(ledgerView);
   set("tr-how", `
     <p><b>Upsets</b> are ranked teams losing to lower-ranked or unranked teams, Weeks 1–${NWK}. "Expected" adds up each game's chance of an upset from ESPN's pregame win probability (see the Upsets page).</p>
     <p><b>Is the sport more even?</b> Another way to see it: the spread of power-conference teams' scoreboard ratings (their standard deviation) has tightened from ${fmt(E0.p4_sd, 2)} points in 2005–13 to ${fmt(E3.p4_sd, 2)} in 2024–26, about ${fmt(-T.p4_sd.per_decade, 2)} points per decade (p = ${fmt(T.p4_sd.p, 2)}). Conference realignment muddies this (the 2024 power conferences aren't the 2014 ones), so I'd treat it as suggestive.</p>
-    <p><b>Moves</b> compare the preseason AP poll to this week's. "Last year" is where a team finished the previous season by scoreboard rank.</p>
+    <p><b>Moves</b> compare the preseason AP poll to this week's ${PN_POLL}. "Last year" is where a team finished the previous season by scoreboard rank.</p>
     ${B.attendance ? `<p><b>Attendance</b> is the crowd ESPN lists for each game, ${B.attendance.first} on (no 2020), at the home team's own stadium against FBS opponents (Notre Dame counts), Weeks 1–${B.attendance.through_week} only so this season is compared on equal terms. Power 4 is the SEC, Big Ten, Big 12, ACC, the old Pac-12 through 2023, and Notre Dame. "The typical program" is the median of each home team's change in average crowd. The chart is a regression of each game's crowd (logged) on the home team at its stadium, the week, and weeknight games, so a new stadium or a heavy late-season home slate doesn't move it. A game reported at under a third of the team's usual crowd is left out as a typo.</p>` : ""}
     <p><b>Blown leads</b> use ESPN's play-by-play win probability, which starts in 2016, and count ranked teams that lost after reaching 90%+ at any point in regulation.</p>`);
 })();
@@ -2513,7 +2517,7 @@ const rankMove = (a, b) => a && b ? `<span class="${b < a ? "mv-up" : b > a ? "m
   set("wk-dek", `About ${word(Math.round(W9.expected_upsets))} upsets expected in the ${games.length} games with a ranked team. The likeliest is ${rn(best.dog_rank, best.dog)} over ${rn(best.fav_rank, best.fav)} (${pct(best.p_upset)}).` +
     (recSteps.length ? ` The likeliest route to a record circle of suck: if ${ifs(recSteps[0])}, the ${recSteps[0].conf}'s grows to ${recSteps[0].cycle} (${pct(recSteps[0].p)}).` : ""));
   statTiles("wk-stats", [
-    [games.length, "Games with a ranked team", `Ranks from the Week ${PW} AP poll`],
+    [games.length, "Games with a ranked team", `Ranks from the Week ${PW} ${PN_POLL}`],
     [fmt(W9.expected_upsets), "Expected upsets", "from ESPN's FPI"],
     [coin.length, "Near coin flips", "ranked favorite 60% or less"],
     [LW.length ? pct(pAnyRec) : "—", "Chance some conference sets a circle-of-suck record", LREC ? `longer than ${LREC}, the most by Week ${W9.week} since 2005` : ""],
@@ -2523,7 +2527,7 @@ const rankMove = (a, b) => a && b ? `<span class="${b < a ? "mv-up" : b > a ? "m
   if (SL) {
     const SLL = SL.logos, lg = id => SLL[id] ? `<img alt="" src="${SLL[id]}">` : "";
     const FLAGS = [["upset", "Upset", "tornado", "Upset watch"], ["loop", "Loop", "refresh-cw", "Grows a circle of suck"], ["title", "Title", "crown", "Conference title race"],
-                   ["playoff", "Playoff", "ticket", "Two AP top-12 teams"], ["story", "Story", "book-open", "A storyline we follow"]];
+                   ["playoff", "Playoff", "ticket", `Two ${PN} top-12 teams`], ["story", "Story", "book-open", "A storyline we follow"]];
     const flagHtml = (k, icon, lab, on) => on.length
       ? `<span class="flag f-${k} on" aria-label="${lab}" data-tip="${on.map(t => t.text).join("<br>").replace(/"/g, "&quot;")}" tabindex="0"><i data-lucide="${icon}"></i></span>`
       : `<span class="flag f-${k}" aria-label="${lab}: no"><i data-lucide="${icon}"></i></span>`;
