@@ -261,6 +261,51 @@ layout: null
 
   /* breakups */
   .bk-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-top: 24px; }
+  /* In Memoriam */
+  .mem-wall-story .hl { font-size: 32px; line-height: 1.15; letter-spacing: -0.8px; }
+  .mem-wall-story { padding-bottom: 26px; border-bottom: 1px solid var(--border); margin-top: 26px; }
+  .wall { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 18px; border-top: 1px solid var(--border); }
+  .tomb { padding: 18px 12px 16px; border-left: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); text-align: center; min-width: 0; }
+  .tomb:nth-child(5n+1) { border-left: 0; }
+  .tomb .lg { display: flex; justify-content: center; align-items: center; gap: 10px; }
+  .tomb .lg img { width: 44px; height: 44px; object-fit: contain; }
+  .tomb .sc { font: 600 14px var(--font-mono); color: var(--ink-85); white-space: nowrap; }
+  .tomb .yr { font-size: 30px; font-weight: 700; letter-spacing: -1px; line-height: 1; color: var(--ink-90); margin-top: 10px; }
+  .tomb .m { font-size: 12.5px; line-height: 1.35; color: var(--ink-50); margin-top: 6px; min-height: 2.7em; }
+  .tomb.bowl .lg img { width: auto; height: 64px; max-width: 100%; margin-bottom: -10px; }
+  .row .wk.new { color: var(--counter); font-weight: 600; }
+  .tomb[data-go] { cursor: pointer; }
+  .tomb .nick, .obit .nick { font: 600 11px var(--font-mono); letter-spacing: 0.6px; text-transform: uppercase; color: var(--ink-75); margin-top: 6px; }
+  .obit .when .nm { color: var(--counter); }
+  .tomb .m .now { color: var(--counter); white-space: nowrap; }
+  .tomb .rip { font: 500 10px var(--font-mono); letter-spacing: 0.6px; text-transform: uppercase; color: var(--counter); margin-top: 8px; }
+  #mem-wall { margin: 22px 0 8px; }
+  @media (max-width: 900px) { .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tomb:nth-child(5n+1) { border-left: 1px solid var(--border-soft); } .tomb:nth-child(odd) { border-left: 0; } }
+  .obits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 26px; }
+  @media (max-width: 900px) { .obits { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .obits { grid-template-columns: 1fr; } }
+  .obit { border-top: 1px solid var(--border); padding: 12px 0 26px; min-width: 0; scroll-margin-top: calc(var(--app-header-h, 56px) + 56px); }
+  .obit .when { font: 500 10px var(--font-mono); letter-spacing: 0.5px; text-transform: uppercase; color: var(--ink-35); }
+  .obit .score { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 8px 0 6px; font-size: 17px; font-weight: 600; letter-spacing: -0.3px; color: var(--ink-85); line-height: 1.3; }
+  .obit .score .side { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .obit .score img { width: 22px; height: 22px; object-fit: contain; }
+  .obit .score .r { font: 500 11px var(--font-mono); color: var(--ink-35); }
+  .obit .then { font-size: 13px; line-height: 1.5; color: var(--ink-50); margin: 0 0 10px; }
+  .obit .then b { color: var(--ink-75); font-weight: 600; }
+  .sub-h { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; color: var(--ink-90); margin: 32px 0 6px; }
+  .bowl-row .bl { width: 44px; text-align: center; }
+  .bowl-row .bl img { width: auto; height: 32px; max-width: 44px; margin: 0; vertical-align: middle; }
+  .fate-rows { margin-bottom: 28px; }
+  .fate-rows .rtag { min-width: 76px; align-self: start; padding-top: 3px; }
+  .fate-rows .rtag.tbd { color: var(--counter); }
+  .fate-rows a, .desc a { color: inherit; text-decoration: underline; text-decoration-color: var(--ink-35); text-underline-offset: 2px; }
+  .toll { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 48px; }
+  @media (max-width: 720px) { .toll { grid-template-columns: 1fr; } }
+  .toll-kind { margin-bottom: 18px; }
+  .toll-kind .k { font-size: 14px; font-weight: 600; color: var(--ink-85); margin-bottom: 2px; }
+  .toll-kind .n { font-size: 12.5px; color: var(--ink-50); margin-bottom: 6px; }
+  .toll-row { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 10px; align-items: center; padding: 3px 0; font: 500 10.5px var(--font-mono); letter-spacing: 0.3px; text-transform: uppercase; color: var(--ink-50); }
+  .row .sub { display: block; font-size: 12px; color: var(--ink-50); }
   .bk-tile { border: 1px solid var(--border-soft); border-radius: 8px; padding: 12px 14px; cursor: pointer; }
   .bk-tile:hover { border-color: var(--border-strong); }
   .bk-tile .k { font: 500 10px var(--font-mono); letter-spacing: 0.5px; text-transform: uppercase; color: var(--ink-50); }
@@ -541,6 +586,13 @@ layout: null
 
 <!-- ============================== FRONT PAGE ============================== -->
 <div class="page front" data-page="front">
+  <article class="story lead mem-wall-story" data-go="memoriam">
+    <div class="kicker"><i data-lucide="flower-2"></i>In Memoriam</div>
+    <h2 class="hl" id="f-mem-hl"></h2>
+    <p class="dek" id="f-mem-dek"></p>
+    <div class="wall" id="f-mem-wall"></div>
+    <a class="more" href="#memoriam">Pay your respects<i data-lucide="arrow-right"></i></a>
+  </article>
   <div class="fgrid lead-row">
     <article class="story lead" data-go="trends/s-top">
       <div class="kicker"><i data-lucide="activity"></i>Top of the field</div>
@@ -674,7 +726,7 @@ layout: null
       </div>
       <div>
         <h2 id="hind-h"></h2>
-        <p class="desc">How often a team ranked in the first half of the season ended up outside the scoreboard top 25 by year's end (2005–25), by conference. The tick is how often teams ranked in the same spots flop in general, so a red bar past its tick means voters rated that conference's teams too high.</p>
+        <p class="desc">How often a team ranked at kickoff in Weeks 1–10 (counted once per week ranked) ended up outside the scoreboard top 25 by year's end (2005–25), by conference. The tick is how often teams ranked in the same spots flop in general, so a red bar past its tick means voters rated that conference's teams too high.</p>
         <div class="chart" id="c-hind"></div>
         <p class="note" id="hind-note" style="margin-top:10px"></p>
       </div>
@@ -876,7 +928,7 @@ layout: null
       </div>
       <div>
         <h2 id="risers-h"></h2>
-        <p class="desc">Every top-10 team (this point in the season, 2006–26) that finished the year before ranked 50th or worse by scoreboard.</p>
+        <p class="desc">The 10 biggest jumps among top-10 teams (this point in the season, 2006–26) that finished the year before ranked 50th or worse by scoreboard.</p>
         <div id="risers-list"></div>
         <p class="note" id="risers-note" style="margin-top:10px"></p>
       </div>
@@ -916,6 +968,15 @@ layout: null
         <div id="att-conf"></div>
       </div>
     </div>
+    <h3 class="sub-h" id="att-cp-h"></h3>
+    <p class="desc" id="att-cp-desc"></p>
+    <div class="two">
+      <div><div class="list-head" style="margin-top:0" id="att-cp-same-h"></div><div id="att-cp-same"></div></div>
+      <div><div class="list-head" style="margin-top:0" id="att-cp-barely-h"></div><div id="att-cp-barely"></div></div>
+    </div>
+    <h3 class="sub-h" id="att-oc-h"></h3>
+    <p class="desc" id="att-oc-desc"></p>
+    <div class="two"><div id="att-oc-0"></div><div id="att-oc-1"></div></div>
     <div class="list-head" id="att-tbl-h"></div>
     <div class="table-wrap" id="att-table"></div>
     <p class="note" id="att-note" style="margin-top:10px"></p>
@@ -990,6 +1051,52 @@ layout: null
     <div id="bk-moves"></div>
   </section>
   <details class="how"><summary>How I figured this</summary><div class="body" id="kf-how"></div></details>
+</div>
+
+<!-- ============================== IN MEMORIAM ============================== -->
+<div class="page" data-page="memoriam" hidden>
+  <div class="page-head"><div class="kicker"><i data-lucide="flower-2"></i>In Memoriam</div><h1 id="mem-h1"></h1><p class="tagline" id="mem-dek"></p></div>
+  <div class="wall" id="mem-wall"></div>
+  <div class="stats" id="mem-stats"></div>
+  <section id="s-obits">
+    <h2 id="mem-obits-h"></h2>
+    <div class="seg" id="mem-seg"></div>
+    <p class="desc" id="mem-obits-desc"></p>
+    <div class="obits" id="mem-obits"></div>
+    <div class="list-head" id="mem-now-h"></div>
+    <div class="obits" id="mem-now"></div>
+  </section>
+  <section id="s-toll">
+    <h2 id="mem-toll-h"></h2>
+    <p class="desc" id="mem-toll-desc"></p>
+    <div class="toll" id="mem-toll"></div>
+  </section>
+  <section id="s-bowls">
+    <h2 id="mem-bowls-h"></h2>
+    <p class="desc" id="mem-bowls-desc"></p>
+    <div class="list-head" id="mem-bowls-fate-h"></div><div id="mem-bowls-fate" class="fate-rows"></div>
+    <p class="desc" id="mem-bowls-desc2"></p>
+    <div class="two">
+      <div><div class="list-head" id="mem-bowls-list-h"></div><div id="mem-bowls-list"></div></div>
+      <div><div class="list-head" id="mem-bowls-hit-h"></div><div id="mem-bowls-hit"></div></div>
+    </div>
+    <div style="max-width:720px;margin-top:36px"><div class="list-head" id="mem-bowls-cmp-h"></div><div id="mem-bowls-cmp"></div><p class="note" id="mem-bowls-note"></p></div>
+  </section>
+  <section id="s-heirs">
+    <div class="two">
+      <div>
+        <h2 id="mem-heirs-h"></h2>
+        <p class="desc" id="mem-heirs-desc"></p>
+        <div id="mem-heirs"></div>
+      </div>
+      <div>
+        <h2 id="mem-cont-h"></h2>
+        <p class="desc" id="mem-cont-desc"></p>
+        <div id="mem-cont"></div>
+      </div>
+    </div>
+  </section>
+  <details class="how"><summary>How I figured this</summary><div class="body" id="mem-how"></div></details>
 </div>
 
 <!-- ============================== THIS WEEK ============================== -->
@@ -1177,9 +1284,9 @@ const TOP = TR.top, TOPC = TOP.seasons.find(r => r.season === B.season), TOPH = 
 const topRank = (k, dir) => 1 + TOPH.filter(r => dir === "low" ? r[k] < TOPC[k] : r[k] > TOPC[k]).length;
 const MV = TR.moves, BK = TR.breakups, KF = BK.items.find(b => b.key === BK.lead), [KA, KB] = Object.values(KF.teams).sort((x, y) => x.results - y.results);
 // a breakup's scorecard, tallied: who leads, and a sentence saying who's winning what
-const SAID = { h2h: "won head to head", now: "is the better team right now", pre: "is beating its preseason expectations",
-  expect: "has beaten expectations by more this season", recent: "has the better recent form", finish: "projects to finish better" };
-const SHORT = { h2h: "Head to head", now: "Better now", pre: "Vs. preseason", expect: "Vs. expectations", recent: "Recent form", finish: "Projected finish" };
+const SAID = { h2h: "won head to head", now: "is the better team right now", pre: "has held up better against preseason expectations",
+  expect: "has done better against expectations this season", recent: "has played better against expectations the last three games", finish: "projects to finish better" };
+const SHORT = { h2h: "Head to head", now: "Better now", pre: "Vs. preseason", expect: "Vs. expectations", recent: "Last 3 vs. expectations", finish: "Projected finish" };
 function tally(b) {
   const [ta, tb] = [b.teams[b.old], b.teams[b.new]], won = { [ta.tid]: 0, [tb.tid]: 0 }; let even = 0;
   b.scorecard.forEach(r => r.winner ? won[r.winner]++ : even++);
@@ -1196,7 +1303,7 @@ const TL = TR.logos, logo = id => (TL[id] || X.logos[id] || LP.logos[id] || IND.
 // ======================================================================================
 // Header: masthead, ticker, section bar
 // ======================================================================================
-const SECTIONS = [["front", "Front page"], ["poll", "The poll"], ["upsets", "Upsets"], ["loops", "Circles of suck"], ["champs", (B.stories?.champs?.kicker) || "Team in focus"],
+const SECTIONS = [["front", "Front page"], ["memoriam", "In Memoriam"], ["poll", "The poll"], ["upsets", "Upsets"], ["loops", "Circles of suck"], ["champs", (B.stories?.champs?.kicker) || "Team in focus"],
                   ["trends", "Trends"], ["breakups", "Breakups"], ["week", `Week ${W9.week}`]];
 set("sec-links", SECTIONS.map(([k, l]) => `<a href="#${k}" data-sec="${k}">${l}</a>`).join(""));
 const secbar = document.getElementById("secbar");
@@ -1397,6 +1504,24 @@ function drawSeasonBars(svg, W, rows, key, { ymin = 0, ymax, f, tipf, H: Hh, hi 
 }
 
 const clockAt = (t, period) => period > 4 ? "OT" : (() => { const rem = period * 900 - t; return `Q${period} ${Math.floor(rem / 60)}:${String(Math.round(rem % 60)).padStart(2, "0")}`; })();
+// the top 12's résumés: a dot per win over a team the current ranking holds, the focus team highlighted, the 12-team cutline dashed
+function drawResume(svg, W) {
+  const RS = B.resume || [], H = W < 480 ? 190 : 220, cw = W / Math.max(RS.length, 1), base = H - 52, cut = RS.findIndex(r => !r.in12), lg = Math.min(26, cw - 6);
+  size(svg, W, H);
+  RS.forEach((r, i) => { const x = i * cw + cw / 2, focus = r.tid === IND.team;
+    if (focus) el("rect", { x: i * cw + 1, y: 0, width: cw - 2, height: H - 2, rx: 4, fill: C.counter, opacity: 0.08 }, svg);
+    r.ranked_wins.forEach((rk, j) => bindTip(el("circle", { cx: x, cy: base - 10 - j * 17, r: Math.min(7, cw / 4), fill: C.accent }, svg), `<b>${r.team}</b> beat a team now ranked #${rk}`));
+    const src = TL[r.tid] || IND.logos[r.tid] || X.logos[r.tid];
+    if (src) el("image", { href: src, x: x - lg / 2, y: base + 2, width: lg, height: lg }, svg);
+    txt({ x, y: H - 8, "text-anchor": "middle", "font-size": 10.5, "font-weight": focus ? 700 : 400, fill: focus ? C.counter : C.ink35 }, `#${r.rank}`, svg);
+  });
+  if (cut > 0) {
+    el("line", { x1: cut * cw, x2: cut * cw, y1: 4, y2: H - 4, stroke: C.ink35, "stroke-dasharray": "4 4" }, svg);
+    txt({ x: cut * cw - 5, y: 12, "text-anchor": "end", "font-size": 10, fill: C.ink35 }, "in", svg);
+    txt({ x: cut * cw + 5, y: 12, "font-size": 10, fill: C.ink35 }, "out", svg);
+  }
+}
+
 function drawWP(svg, W, g) {
   const H = W < 480 ? 150 : 170, m = { t: 10, r: 8, b: 22, l: 36 };
   size(svg, W, H);
@@ -1433,8 +1558,11 @@ function drawIndSeason(svg, W) {
   const log = IND.season_log, H = W < 480 ? 190 : 220, m = { t: 12, r: 12, b: 24, l: 36 };
   size(svg, W, H);
   const nw = Math.max(8, ...log.map(r => r.week));
-  const x = w => m.l + (W - m.l - m.r) * (w - 1) / (nw - 1), y = v => m.t + (H - m.t - m.b) * (0.6 - v) / 0.4;
-  gridY(svg, { m, W, y, ticks: [0.2, 0.3, 0.4, 0.5, 0.6], f: v => pct(v) });
+  // the axis stretches in 10-point steps to fit every game
+  const vals = log.flatMap(r => [r.sr, r.sr_allowed]).concat(IND.model.baseline.sr);
+  const lo = Math.min(0.2, Math.floor(Math.min(...vals) * 10) / 10), hi = Math.max(0.6, Math.ceil(Math.max(...vals) * 10) / 10);
+  const x = w => m.l + (W - m.l - m.r) * (w - 1) / (nw - 1), y = v => m.t + (H - m.t - m.b) * (hi - v) / (hi - lo);
+  gridY(svg, { m, W, y, ticks: Array.from({ length: Math.round((hi - lo) * 10) + 1 }, (_, i) => +(lo + i / 10).toFixed(1)), f: v => pct(v) });
   for (let w = 1; w <= nw; w++) if (W >= 420 || w % 2) txt({ x: x(w), y: H - 7, "text-anchor": "middle", "font-size": 10, fill: C.ink35 }, `WK ${w}`, svg);
   el("line", { x1: m.l, x2: W - m.r, y1: y(IND.model.baseline.sr), y2: y(IND.model.baseline.sr), stroke: C.ink35, "stroke-dasharray": "4 3" }, svg);
   [["sr", C.accent, 2.5], ["sr_allowed", C.ink65, 1.5]].forEach(([k, c, sw]) => {
@@ -1490,7 +1618,7 @@ function drawWhere(svg, W) {
         `<b>${g.site === "A" ? "at" : "vs"} ${g.opponent}</b> · ${g.score}<br>Offense ${(g.off >= 0 ? "+" : "−") + fmt(Math.abs(g.off * 10), 1)} points per 10 plays vs. what ${g.opponent} usually allows<br>Defense ${(g.def >= 0 ? "+" : "−") + fmt(Math.abs(g.def * 10), 1)} vs. what ${g.opponent} usually gets`);
     });
     txt({ x: cx, y: H - 16, "text-anchor": "middle", "font-size": 9.5, fill: C.ink50 }, g.opponent, svg);
-    txt({ x: cx, y: H - 5, "text-anchor": "middle", "font-size": 9, fill: C.ink35 }, g.score.split("-")[0] > g.score.split("-")[1] ? "W" : "L", svg);
+    txt({ x: cx, y: H - 5, "text-anchor": "middle", "font-size": 9, fill: C.ink35 }, (([a, b]) => a > b)(g.score.split("-").map(Number)) ? "W" : "L", svg);
   });
   el("line", { x1: m.l, x2: W - m.r, y1: y(U.base_off * 10), y2: y(U.base_off * 10), stroke: C.ink50, "stroke-width": 1.5, "stroke-dasharray": "4 3" }, svg);
 }
@@ -1499,7 +1627,7 @@ function drawTopGap(svg, W) {
   drawSeasonBars(svg, W, TOP.seasons, "gap_1_10", { ymin: 0, ymax: 16, f: v => fmt(v, 1), tipf: r => `<b>${r.season}</b> · #1 to #10: ${fmt(r.gap_1_10, 1)} points<br>${r.within7} teams within 7 points of #1` });
 }
 function drawTopLoss(svg, W) {
-  drawSeasonBars(svg, W, TOP.seasons, "top2_losses", { ymin: 0, ymax: 8, f: v => fmt(v, 0), tipf: r => `<b>${r.season}</b> · AP #1 or #2 lost ${r.top2_losses} of ${r.top2_games} games<br>${r.top2_close_wins} more wins by a touchdown or less` });
+  drawSeasonBars(svg, W, TOP.seasons, "top2_losses", { ymin: 0, ymax: 8, f: v => fmt(v, 0), tipf: r => `<b>${r.season}</b> · #1 or #2 lost ${r.top2_losses} of ${r.top2_games} games<br>${r.top2_close_wins} more wins by a touchdown or less` });
 }
 
 function drawKTraj(svg, W) {
@@ -1635,9 +1763,9 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
   set("f-lead-hl", (topRank("top2_losses", "high") === 1 ? `${Word(TOPC.top2_losses)} losses by a top-2 team, the most since at least 2005` : `${Word(TOPC.top2_losses)} losses by a top-2 team, the ${ord(topRank("top2_losses", "high"))}-most since 2005`) + t2Line);
   set("f-lead-dek", `Nobody's pulling away: #1 and #10 are ${fmt(TOPC.gap_1_10, 1)} points apart by scoreboard (normally about ${fmt(TOP.hist_mean.gap_1_10, 0)}), and ${TOPC.within7} teams are within a touchdown of the top.` +
     (t2 && t2.p_upset >= 0.3 ? ` Saturday, ESPN's FPI gives ${rn(t2.dog_rank, t2.dog)} a ${pct(t2.p_upset)} chance against ${rn(t2.fav_rank, t2.fav)}.` : ""));
-  set("f-lead-chart-h", `Losses by AP #1 and #2 teams through Week ${TOP.through_week}, every season`);
+  set("f-lead-chart-h", `Losses by #1 and #2 teams through Week ${TOP.through_week}, every season`);
   chart("f-toploss", drawTopLoss);
-  set("f-lead-list", TOP.current_games.filter(g => g.lost).map(g => `<div class="row"><span class="wk">Wk ${g.week}</span><span>${logo(g.top_id)}<b>#${g.top_rank} ${g.top}</b> lost ${g.score} to ${g.opp_rank ? "#" + g.opp_rank + " " : ""}${g.opp}</span><span></span></div>`).join(""));
+  set("f-lead-list", TOP.current_games.filter(g => g.lost).map(g => `<div class="row"><span class="wk">Wk ${g.week}</span><span>${logo(g.top_id)}<b>#${g.top_rank} ${g.top}</b> lost ${g.score.split("–").reverse().join("–")} to ${g.opp_rank ? "#" + g.opp_rank + " " : ""}${g.opp}</span><span></span></div>`).join(""));
 
   // ---- this Saturday ----
   const slg = id => SL && SL.logos[id] ? `<img class="logo" alt="" src="${SL.logos[id]}">` : logo(id);
@@ -1645,13 +1773,13 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
   set("f-week-hl", GOTD ? `${rn(GOTD.away_rank, GOTD.away)} at ${rn(GOTD.home_rank, GOTD.home)} leads the day${recConfs.length ? `, and ${word(recConfs.length)} circle${recConfs.length === 1 ? "" : "s"} of suck could hit a record` : ""}`
     : `Expect about ${word(Math.round(W9.expected_upsets))} upsets this Saturday`);
   const best = ALERTS[0];
-  set("f-week-dek", `About ${word(Math.round(W9.expected_upsets))} upsets expected; the likeliest is ${rn(best.dog_rank, best.dog)} over ${rn(best.fav_rank, best.fav)} (${pct(best.p_upset)}).` +
+  set("f-week-dek", `About ${word(Math.round(W9.expected_upsets))} upsets expected; the likeliest is ${rn(best.dog_rank, best.dog)} over ${rn(best.fav_rank, best.fav)} (${pct(best.p_upset)}${best.p_upset > 0.5 ? `; an upset by rank, but FPI favors ${best.dog}` : ""}).` +
     (recSteps.length ? ` And if ${ifs(recSteps[0])}, the ${recSteps[0].conf}'s circle of suck grows to a record ${recSteps[0].cycle} (${pct(recSteps[0].p)}).` : ""));
   set("f-week", SL ? SL.windows.map(w => { const g = SG[w.games[0]];
     return `<div class="row" style="grid-template-columns:76px minmax(0,1fr) auto"><span class="wk">${w.label}</span><span>${slg(g.away_id)}${rn(g.away_rank, g.away)} at ${slg(g.home_id)}${rn(g.home_rank, g.home)}</span><span class="rtag${g === GOTD ? " w" : ""}">#${g.rank}</span></div>`; }).join("") : "");
   const recBest = Object.values(recSteps.reduce((o, st) => { if (!o[st.conf]) o[st.conf] = st; return o; }, {}));   // one row per conference the headline counts
-  set("f-week-loops-h", recBest.length ? `Circle-of-suck records in reach (most by Week ${W9.week}: ${LREC})` : "");
-  set("f-week-loops", recBest.map(st => `<div class="row" style="grid-template-columns:76px minmax(0,1fr) auto"><span class="wk">${st.conf} ${st.cycle}</span><span>if ${ifs(st)}</span><span class="rtag w">${pctWP(st.p)}</span></div>`).join(""));
+  set("f-week-loops-h", recBest.length ? `Circle-of-suck records in reach (the mark: ${LREC}; chance by any route)` : "");
+  set("f-week-loops", recBest.map(st => `<div class="row" style="grid-template-columns:76px minmax(0,1fr) auto"><span class="wk">${st.conf} ${st.cycle}</span><span>likeliest: if ${ifs(st)}</span><span class="rtag w">${pctWP(LW.find(c => c.conf === st.conf).p_record)}</span></div>`).join(""));
   set("f-week-more", `The full Saturday planner<i data-lucide="arrow-right"></i>`);
 
   // ---- the poll ----
@@ -1663,9 +1791,16 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
   const wins = G.filter(g => g.score > g.opp_score).length;
   set("f-champs-hl", ST.front_hl || ST.h1 || `${NM}'s last ${G.length} games, play by play`);
   set("f-champs-dek", ST.front_dek || `${NM} went ${wins}–${G.length - wins}. By play stats those games were worth ${fmt(sum(G, g => g.p_snaps), 1)} wins.`);
-  const wpGame = G.find(g => g.eid === ST.front_wp_eid) || [...G].sort((a, b) => a.wp.min - b.wp.min)[0];   // default: the closest call
-  set("f-wp-label", ST.front_wp_label || `${wpGame.home ? "vs" : "at"} ${wpGame.opp}: ${NM}'s chance to win, play by play`);
-  chart("f-wp", (svg, W) => drawWP(svg, W, wpGame));
+  // the top 12's résumés (the social card's chart); falls back to the featured game's win chance before there's a ranking
+  if (B.resume && B.resume.length) {
+    const me = B.resume.find(r => r.tid === IND.team);
+    set("f-wp-label", `${PN} top 12 · dots: wins over ranked teams · dashed: the cutline`);
+    chart("f-wp", drawResume);
+  } else {
+    const wpGame = G.find(g => g.eid === ST.front_wp_eid) || [...G].sort((a, b) => a.wp.min - b.wp.min)[0];   // default: the closest call
+    set("f-wp-label", ST.front_wp_label || `${wpGame.home ? "vs" : "at"} ${wpGame.opp}: ${NM}'s chance to win, play by play`);
+    chart("f-wp", (svg, W) => drawWP(svg, W, wpGame));
+  }
 
   // ---- poll vs. reality: ranked above every measure, and in danger this week ----
   const PQ = B.poll_quality;
@@ -1690,17 +1825,18 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
   const lkl = id => B.luck.logos[id] ? `<img class="logo" alt="" src="${B.luck.logos[id]}">` : logo(id);
   if (fw) {
     set("f-fluke-hl", `${rn(fw.agent_rank, fw.agent)} over #${fw.victim_rank} ${fw.victim} was the flukiest upset: teams with ${fw.agent}'s stats win ${pct(fw.p)} of the time`);
-    set("f-fluke-dek", `${LKc.earned} of the ${B.luck.upsets.length} upsets this year were for real: the underdog outplayed the favorite. ${Word(LKc.fluke)} were flukes, where the favorite was the better team that day and lost anyway.`);
+    set("f-fluke-dek", `${LKc.earned} of the ${B.luck.upsets.length} upsets this year were for real: the underdog outplayed the favorite. ${Word(LKc.fluke)} were flukes, where the favorite was the better team that day and lost anyway, and the other ${word(B.luck.upsets.length - LKc.earned - LKc.fluke)} were toss-ups.`);
     set("f-fluke", flukes.slice(0, 5).map(u => `<div class="row"><span class="wk">Wk ${u.week}</span><span>${lkl(u.agent_id)}<b>${rn(u.agent_rank, u.agent)}</b> over #${u.victim_rank} ${u.victim}</span><span class="rtag l">${pct(u.p)}</span></div>`).join(""));
   }
 
   // ---- SEC: quality or bias ----
   const SQ = B.sec;
   if (SQ) {
-    const P = SQ.cross_power, PR = SQ.premium.rating_and_record, fair = PR.SEC.spots * SQ.rating_pts_per_spot <= P.SEC.vs_ratings + 1;
+    // the bump is measured against equally rated Big Ten teams, so weigh it against the SEC's edge over the Big Ten's
+    const P = SQ.cross_power, PR = SQ.premium.rating_and_record, bump = PR.SEC.spots * SQ.rating_pts_per_spot, rel = P.SEC.vs_ratings - P.B1G.vs_ratings, fair = bump <= rel;
     const CN = { SEC: "SEC", B1G: "Big Ten", B12: "Big 12", ACC: "ACC", P12: "Pac-12" }, sg = v => (v >= 0 ? "+" : "−") + fmt(Math.abs(v), 1);
-    set("f-sec-hl", fair ? "Is it SEC bias? No, it's quality." : "Is it SEC bias? Some of each.");
-    set("f-sec-dek", `Against other power conferences (${SQ.seasons[0]}–${String(last(SQ.seasons)).slice(2)}), SEC teams beat their play-by-play ratings by <b>${fmt(P.SEC.vs_ratings, 1)} points</b> a game, more than the ${fmt(PR.SEC.spots, 1)}-spot bump voters give them is worth. The conference voters actually overrate is the ACC.`);
+    set("f-sec-hl", fair ? "Is it SEC bias? No, it's quality." : bump < 1 ? "Is it SEC bias? A little." : "Is it SEC bias? Some of each.");
+    set("f-sec-dek", `Against other power conferences (${SQ.seasons[0]}–${String(last(SQ.seasons)).slice(2)}), SEC teams beat their play-by-play ratings by <b>${fmt(P.SEC.vs_ratings, 1)} points</b> a game, ${Math.abs(rel) < 0.5 ? `but so did the Big Ten (${fmt(P.B1G.vs_ratings, 1)})` : rel > 0 ? `${fmt(rel, 1)} more than the Big Ten` : `${fmt(-rel, 1)} less than the Big Ten`}. Voters rank SEC teams ${fmt(PR.SEC.spots, 1)} spots above equally rated Big Ten teams, worth about ${fmt(bump, 1)} points: ${fair ? "no more than the SEC has earned" : "a small lean"}. The conference voters actually overrate is the ACC.`);
     set("f-sec", `<div class="row" style="grid-template-columns:minmax(0,1fr) 64px 56px"><span class="list-head" style="margin:0">Vs. other power conferences</span><span class="list-head" style="margin:0;text-align:right">Record</span><span class="list-head" style="margin:0;text-align:right">Vs. rating</span></div>` +
       Object.keys(CN).map(c => `<div class="row" style="grid-template-columns:minmax(0,1fr) 64px 56px"><span>${CN[c]}</span><span class="rtag" style="text-align:right">${P[c].record}</span><span class="rtag ${Math.abs(P[c].vs_ratings) < 1 ? "" : P[c].vs_ratings > 0 ? "w" : "l"}" style="text-align:right">${sg(P[c].vs_ratings)}</span></div>`).join(""));
   }
@@ -1709,7 +1845,7 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
   const AT = B.attendance;
   if (AT) {
     const AN = last(AT.yoy), NW = AT.breakout, sp = v => (v > 0 ? "+" : "−") + pct(Math.abs(v));
-    const empty = NW ? 1 - NW.after_opener / NW.capacity : 0, emptyTxt = empty > 0.2 && empty < 0.3 ? "a quarter empty" : `${pct(empty)} empty`;
+    const empty = NW ? 1 - NW.after_opener / NW.capacity : 0, emptyTxt = empty >= 0.22 && empty < 0.28 ? "a quarter empty" : empty >= 0.18 && empty < 0.22 ? "a fifth empty" : `${pct(empty)} empty`;
     set("f-att-hl", `Group of 6 crowds are down ${pct(-AN.G6)}${NW ? `, and ${NW.team}'s $${Math.round(NW.cost / 1e6)} million stadium is ${emptyTxt}` : ""}`);
     set("f-att-dek", `The same home team, this year against last: the typical Group of 6 program is drawing ${pct(-AN.G6)} fewer fans a game, while Power 4 crowds are ${Math.abs(AN.P4) < 0.01 ? "flat" : sp(AN.P4)}.` +
       (NW ? ` ${NW.team} is ${NW.record[0]}–${NW.record[1]} and its new ${kNum(NW.capacity)}-seat stadium has drawn ${andList(NW.games.slice(1).map(g => kNum(g.att)))} since the opener.` : ""));
@@ -1718,23 +1854,29 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
   }
 
   // ---- blown leads ----
-  set("f-blown-hl", `${Word(BC.blown)} ranked teams have blown games they had 90% locked up`);
-  set("f-blown-dek", `That's the most since ESPN started tracking win probability in 2016 (a normal year has about ${fmt(BL.hist_mean, 0)}). The worst ones:`);
-  set("f-blown", BL.current.slice(0, 5).map(c => `<div class="row"><span class="wk">Wk ${c.week}</span><span>${logo(c.tid)}<b>#${c.rank} ${c.team}</b> lost to ${rn(c.winner_rank, c.winner)}</span><span class="rtag l">${c.wp_max > 0.995 ? ">99%" : pct(c.wp_max)}</span></div>`).join(""));
+  set("f-blown-hl", `Ranked teams have blown ${BC.blown} games they had 90% locked up`);
+  const blWk = Math.max(...BL.current.map(c => c.week));
+  set("f-blown-dek", `That's the most by this point in the season since ESPN started tracking win probability in 2016 (a normal year has about ${fmt(BL.hist_mean, 0)} by now). The newest, with this week's in red:`);
+  set("f-blown", [...BL.current].sort((a, b) => b.week - a.week || b.wp_max - a.wp_max).slice(0, 5).map(c => `<div class="row"><span class="wk${c.week === blWk ? " new" : ""}">Wk ${c.week}</span><span>${logo(c.tid)}<b>#${c.rank} ${c.team}</b> lost to ${rn(c.winner_rank, c.winner)}</span><span class="rtag l">${c.wp_max > 0.995 ? ">99%" : pct(c.wp_max)}</span></div>`).join(""));
 
   // ---- hangover ----
-  const pend = (HG.pending || [])[0];
-  set("f-hang-hl", `${HC.n - HC.wins} of ${HC.n} giant-killers lost the next week` + (pend && pend.next_opp ? `. ${pend.team} is next, ${pend.next_home} ${pend.next_opp}.` : ""));
-  set("f-hang-dek", `Teams that knocked off a top-10 team this year went ${HC.wins}–${HC.n - HC.wins} in their very next game. Normally about ${oneIn(1 - HG.hist_rate)} lose it.` +
-    (pend ? ` ${pend.team} just beat #${pend.beat_rank} ${pend.beat}${pend.next_opp ? ` and plays ${pend.next_home === "at" ? "at" : "host to"} ${rn(pend.next_opp_rank, pend.next_opp)} in Week ${pend.next_week}` : ""}.` : ""));
-  set("f-hang", HG.current.filter(c => !c.next_won).sort((a, b) => a.week - b.week).map(c =>
-    `<div class="p l">${TL[c.tid] ? `<img alt="" src="${TL[c.tid]}">` : ""}<div class="t">${c.team}</div><div class="r">Lost next</div></div>`).join(""));
+  // this week's giant-killers on the line (biggest scalp first), with FPI's chance each one wins; before any are pending, the ones that lost next
+  const hgGame = t => W9.games.find(g => g.fav_id === t.tid || g.dog_id === t.tid);
+  const PEND = [...(HG.pending || [])].sort((a, b) => a.beat_rank - b.beat_rank).map(t => { const g = hgGame(t);
+    return { ...t, now: g ? (g.fav_id === t.tid ? g.fav_rank : g.dog_rank) : t.rank, win: g ? (g.fav_id === t.tid ? 1 - g.p_upset : g.p_upset) : null }; });
+  set("f-hang-hl", PEND.length ? `${Word(PEND.length)} giant-killer${PEND.length > 1 ? "s play" : " plays"} this week. This year, ${HC.n - HC.wins} of ${HC.n} lost their next game.` : `${HC.n - HC.wins} of ${HC.n} top-10 knockouts were followed by a loss`);
+  set("f-hang-dek", `Teams that knocked off a top-10 team this year went ${HC.wins}–${HC.n - HC.wins} in their very next game. Normally about ${pct(1 - HG.hist_rate)} lose it.` + (PEND.length ? ` This week's, with ESPN's FPI chance each one wins:` : ""));
+  document.getElementById("f-hang").className = PEND.length ? "" : "picto sm";
+  set("f-hang", PEND.length ? PEND.map(t => `<div class="row"><span class="wk">Wk ${t.next_week}</span><span>${logo(t.tid)}<b>${rn(t.now, t.team)}</b> ${t.next_home} ${rn(t.next_opp_rank, t.next_opp)}<span class="sub">Just beat #${t.beat_rank} ${t.beat}</span></span>` +
+      `<span class="rtag${t.win != null && t.win < 0.6 ? " l" : ""}">${t.win != null ? pct(t.win) : ""}</span></div>`).join("")
+    : HG.current.filter(c => !c.next_won).sort((a, b) => a.week - b.week).map(c =>
+      `<div class="p l">${TL[c.tid] ? `<img alt="" src="${TL[c.tid]}">` : ""}<div class="t">${c.team}</div><div class="r">Lost next</div></div>`).join(""));
 
   // ---- risers and fallers ----
   const ucla = MV.current[0], fall = MV.current.filter(t => t.delta < 0).sort((a, b) => a.delta - b.delta)[0];
-  const further = MV.risers.filter(r => r.prior > ucla.prior && r.season < B.season), top2 = MV.fallers.filter(f => f.pre <= 2 && f.season < B.season);
+  const further = MV.risers.filter(r => r.prior > ucla.prior && r.season < B.season), matched = MV.risers.filter(r => r.prior === ucla.prior && r.season < B.season);
   set("f-moves-hl", `${ucla.team} finished ${ord(ucla.prior)} by scoreboard last year. Now it's ${PN} #${ucla.now}.`);
-  set("f-moves-dek", `Only ${word(further.length)} top-10 ${further.length === 1 ? "team" : "teams"} since 2006 came from further back (${further.map(r => `${r.team} in ${r.season}`).join(", ")}). Going the other way, ${fall.team} went from #${fall.pre} in the preseason to unranked, which had only happened ${top2.length === 1 ? "once" : top2.length + " times"} before (${top2.map(f => `${f.team}, ${f.season}`).join("; ")}).`);
+  set("f-moves-dek", `Only ${word(further.length)} top-10 ${further.length === 1 ? "team" : "teams"} since 2006 came from further back (${further.map(r => `${r.team} in ${r.season}`).join(", ")})${matched.length ? `, and ${andList(matched.map(r => `${r.team} in ${r.season}`))} matched it` : ""}. Going the other way, ${fall.team} went from #${fall.pre} in the preseason to unranked, one of ${word(MV.fallers_current)} preseason top-10 teams already out (normally about ${fmt(MV.fallers_hist_mean, 1)} by now).`);
   const mvRows = [...MV.current.filter(t => t.delta > 0).slice(0, 3), ...MV.current.filter(t => t.delta < 0).sort((a, b) => a.delta - b.delta).slice(0, 3)];
   set("f-moves", mvRows.map(t => `<div class="row"><span>${logo(t.tid)}</span><span><b>${t.team}</b> ${t.pre ? "#" + t.pre : "NR"} → ${t.now ? "#" + t.now : "NR"}</span><span class="rtag ${t.delta > 0 ? "w" : "l"}">${t.delta > 0 ? "+" : "−"}${Math.abs(t.delta)}</span></div>`).join(""));
 
@@ -1757,18 +1899,19 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
   const secF = fgap(t => t.conf === "SEC"), nonF = fgap(t => t.conf !== "SEC"), secOver = secF > nonF + 2;
   const spots = g => Math.abs(g) < 1.5 ? `right about where ${PN_WHO} has them` : `about ${fmt(Math.abs(g), 0)} spots ${g > 0 ? "too high" : "too low"}`;
   // "voters stick with last year's teams": unranked teams that are top 25 by scoreboard, and how many of them were bad last year
-  const outs = Q.unranked_results_top25.filter(t => t.prior_results_rank), lastBad = outs.filter(t => t.prior_results_rank > 25);
+  const outs = Q.unranked_results_top25, lastBad = outs.filter(t => !t.prior_results_rank || t.prior_results_rank > 25);
   const fpiToo = outs.filter(t => t.fpi_rank && t.fpi_rank <= 25), goodNear = (a, b) => Math.abs(a - b) <= Math.max(1.5, b * 0.1);
   set("poll-h1", POLL_HL);
-  set("poll-dek", `Almost all of the extra losses come from SEC teams beating each other (<b>${cur.sec_intra_losses}</b> of them, when the old record was ${prevSecHigh}). Take those out and the rest of the poll looks like a fairly normal year, with fewer upsets by unranked teams than usual.`);
+  set("poll-dek", `Almost all of the extra losses come from SEC teams beating each other (<b>${cur.sec_intra_losses}</b> of them, when the old record was ${prevSecHigh}). Take those out and the rest of the poll looks like a fairly normal year, with ${cur.t25_losses_to_unranked < mean("t25_losses_to_unranked") - 2 ? "fewer losses to unranked teams than usual" : cur.t25_losses_to_unranked > mean("t25_losses_to_unranked") + 2 ? "more losses to unranked teams than usual, too" : "a normal number of losses to unranked teams"}.`);
   statTiles("poll-stats", [
     [cur.losses, "Top 25 losses", `avg ${fmt(mean("losses"))}`],
     [cur.unbeaten, "Unbeaten teams left", `${standing("unbeaten", "fewest").replace(/^the /, "")}`],
-    [cur.sec_intra_losses, "SEC teams losing to SEC teams", `old record ${prevSecHigh} (${prevSecHighYr})`],
+    [cur.sec_intra_losses, "SEC-on-SEC losses", `old record ${prevSecHigh} (${prevSecHighYr})`],
     [LOOP.cycle_length, "SEC teams in one circle of suck", `${LOOP.component.length} of ${LOOP.teams} caught in the web`],
   ]);
   set("poll-cols-h", `Top 25 losses at this point in the season, every year since 2001`);
-  set("poll-cols-desc", `Mint is SEC teams losing to other SEC teams. ${B.season} matches ${andList(hist.filter(s => s.losses === cur.losses).map(s => s.season)) || "the record"} for total losses, and nobody's come close to this many SEC-on-SEC losses.`);
+  set("poll-cols-desc", `Mint is SEC teams losing to other SEC teams. ${B.season} ${(() => { const top = Math.max(...hist.map(s => s.losses)), ties = hist.filter(s => s.losses === cur.losses).map(s => s.season);
+    return cur.losses > top ? `sets the record for total losses (the old one was ${top})` : ties.length ? `matches ${andList(ties)} for total losses` : `has the ${ord(1 + hist.filter(s => s.losses > cur.losses).length)}-most total losses`; })()}, and nobody's come close to this many SEC-on-SEC losses.`);
   chart("c-seasons", drawLossColumns);
 
   const L = B.model.losers;
@@ -1779,18 +1922,18 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
       `There have been ${cur.rvr_games} ranked-vs-ranked games, a few more than usual, but only ${c.rvr_both_results_top25} were between two teams that are actually top 25 by scoreboard. That's a normal number (about ${fmt(h.rvr_both_results_top25, 0)}). The early polls just ranked some teams that weren't that good.`],
     goodNear(c.losses_to_results_top25, h.losses_to_results_top25)
       ? ["no", "Not really", "Good teams beating good teams",
-        `By the poll's own labels, a record ${c.losses_to_ranked} of the losses came against ranked teams. Judged by scoreboard instead, it's ${c.losses_to_results_top25}, a normal number (about ${fmt(h.losses_to_results_top25, 0)}), so the record is in the labels more than the teams.`]
+        `By the poll's own labels, ${Q.current_rank.losses_to_ranked === 1 ? "a record " : ""}${c.losses_to_ranked} of the losses came against ranked teams. Judged by scoreboard instead, it's ${c.losses_to_results_top25}, a normal number (about ${fmt(h.losses_to_results_top25, 0)}), so the record is in the labels more than the teams.`]
       : ["part", "Sort of", "Good teams beating good teams",
-        `By the poll's own labels, a record ${c.losses_to_ranked} of the losses came against ranked teams. Judged by scoreboard instead, it's ${c.losses_to_results_top25}, ${c.losses_to_results_top25 > h.losses_to_results_top25 ? "still high" : "fewer"} (a normal year has about ${fmt(h.losses_to_results_top25, 0)}).`],
+        `By the poll's own labels, ${Q.current_rank.losses_to_ranked === 1 ? "a record " : ""}${c.losses_to_ranked} of the losses came against ranked teams. Judged by scoreboard instead, it's ${c.losses_to_results_top25}, ${c.losses_to_results_top25 > h.losses_to_results_top25 ? "still high" : "fewer"} (a normal year has about ${fmt(h.losses_to_results_top25, 0)}).`],
     ["no", "Nope", "More upsets by unranked teams",
-      `Only ${cur.upsets_by_unranked} ranked teams have lost to unranked teams, below the usual ${fmt(mean("upsets_by_unranked"), 0)}. This year the chaos is coming from inside the poll.`],
+      `${Word(cur.t25_losses_to_unranked)} of the ${cur.losses} losses came against unranked teams, ${cur.t25_losses_to_unranked > mean("t25_losses_to_unranked") + 2 ? "more than" : "about"} the usual ${fmt(mean("t25_losses_to_unranked"), 0)}. The other ${cur.losses - cur.t25_losses_to_unranked} came against ranked teams, so this year the chaos is coming from inside the poll.`],
     [secOver ? "part" : "no", secOver ? "Kind of" : "Not really", "The SEC is over-ranked",
       `ESPN's FPI, which grades every play, has ranked SEC teams ${spots(secF)}, and everybody else's ranked teams ${spots(nonF)}. ${goodNear(c.sec_mean_gap, c.nonsec_mean_gap) ? `My scores-only rating has the SEC and everyone else about equally too high (${fmt(c.sec_mean_gap)} spots vs. ${fmt(c.nonsec_mean_gap)}).` : `My scores-only rating is ${c.sec_mean_gap > c.nonsec_mean_gap ? "tougher" : "easier"} on the SEC (${fmt(c.sec_mean_gap)} spots too high, vs ${fmt(c.nonsec_mean_gap)} for everyone else)${c.sec_mean_gap > c.nonsec_mean_gap ? ", partly because SEC teams keep beating each other" : ""}.`} But historically, early-ranked SEC teams have held up as well as their rankings predicted (see below).`],
     [lastBad.length >= 3 ? "part" : "no", lastBad.length >= 3 ? "Sort of" : "Not really", "Voters are slow on last year's bad teams",
-      outs.length ? `${Word(outs.length)} unranked ${outs.length === 1 ? "team is" : "teams are"} top 25 by scoreboard, and ${lastBad.length === outs.length ? (outs.length === 1 ? "it" : "all of them") : word(lastBad.length)} finished last year outside the top 25 (${andList(lastBad.slice(0, 3).map(t => `${t.team} #${t.prior_results_rank} → #${t.results_rank}`))}). ` +
+      outs.length ? `${Word(outs.length)} unranked ${outs.length === 1 ? "team is" : "teams are"} top 25 by scoreboard, and ${lastBad.length === outs.length ? (outs.length === 1 ? "it" : "all of them") : word(lastBad.length)} finished last year outside the top 25 or outside FBS (${andList(lastBad.map(t => t.prior_results_rank ? `${t.team} #${t.prior_results_rank} → #${t.results_rank}` : `${t.team}, FCS last year → #${t.results_rank}`))}). ` +
         `ESPN's FPI agrees on ${fpiToo.length ? andList(fpiToo.map(t => t.team)) : "none of them"}${fpiToo.length < outs.length ? ", so some of that is the scoreboard rating being generous" : ""}. ` +
         `None of this explains the losses, though: ${c.ranked_outside_results_top40 ? `${c.ranked_outside_results_top40} ranked teams are` : "no ranked team is"} outside the scoreboard top 40 (a normal year has about ${fmt(h.ranked_outside_results_top40, 0)}).` : `Every team in the scoreboard top 25 is ranked.`],
-    ["part", "Not really", "Voters going easy on SEC teams",
+    ["no", "Not really", "Voters going easy on SEC teams",
       `SEC teams that lost dropped about ${fmt(L.current_resid.SEC.mean, 1)} spots less than you'd expect, but that's too small and noisy to call it a bias. Winners jumped a lot, mostly because the teams above them kept losing.`],
   ];
   set("verdicts", items.map(([cls, lab, hd, t]) => `<div class="v"><div class="v-head"><span class="v-title">${hd}</span>${chip(cls, lab)}</div><p>${t}</p></div>`).join(""));
@@ -1818,7 +1961,8 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
     const rec = (w, l) => `${w}–${l}`, nm = a => andList(a.map(t => t.team));
     const early = PQ.snubs.filter(t => t.verdict !== "fair");
     const fate = t => t.now_ap != null ? ["ranked", `Ranked #${r0(t.now_ap)}`, "w"]
-      : Math.max(t.now_epa, t.now_fpi, t.now_sb) > 25 ? ["faded", "Faded", "l"] : ["held", `${rec(t.now_wins, t.now_losses)}, out`, ""];
+      : Math.min(t.now_epa, t.now_fpi, t.now_sb) > 25 ? ["faded", "Faded", "l"]
+      : Math.max(t.now_epa, t.now_fpi, t.now_sb) <= 25 ? ["held", `${rec(t.now_wins, t.now_losses)}, out`, ""] : ["split", `${rec(t.now_wins, t.now_losses)}, split`, ""];
     const by = k => early.filter(t => fate(t)[0] === k);
     set("yr-h", STP.year_h || `In this week's poll, ${over.length ? `${nm(over)} ${over.length > 1 ? "are" : "is"} ranked above every measure` : "nobody is ranked above every measure"}${under.length ? `, ${nm(under)} below` : ""}`);
     set("yr-desc", STP.year_dek || `The Week ${CU.week} ${PN_POLL} against three reads of how good each team is: play-by-play efficiency (EPA), ESPN's FPI, and the scoreboard rating. They disagree plenty, so a team only counts as over- or under-ranked if all three agree, by at least ${PQ.gap} spots. ` +
@@ -1827,15 +1971,17 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
     set("yr-under", under.length ? under.map(t => trow(t, `−${r0(-t.high_gap)}`, "w")).join("") : `<div class="row"><span></span><span>None</span><span></span></div>`);
     const erow = t => { const [, tag, cls] = fate(t);
       return `<div class="row"><span>${PQ.logos[t.tid] ? `<img class="logo" alt="" src="${PQ.logos[t.tid]}">` : ""}</span>` +
-        `<span><b>${t.team}</b> <span style="color:var(--ink-35)">· Week ${t.last_week}: ${three(t)}<br>now: ${three({ epa: t.now_epa, fpi: t.now_fpi, sb: t.now_sb })}</span></span><span class="rtag ${cls}">${tag}</span></div>`; };
+        `<span><b>${t.team}</b> <span style="color:var(--ink-35)">· ${t.weeks > 1 ? `Weeks ${t.first_week ?? t.last_week - t.weeks + 1}–${t.last_week} (median)` : `Week ${t.last_week}`}: ${three(t)}<br>now: ${three({ epa: t.now_epa, fpi: t.now_fpi, sb: t.now_sb })}</span></span><span class="rtag ${cls}">${tag}</span></div>`; };
     set("yr-snubs", early.length ? early.map(erow).join("") : `<div class="row"><span></span><span>None</span><span></span></div>`);
-    set("yr-snub-note", early.length ? `From Week ${PQ.weeks[0]} on, the measures had ${word(early.length)} unranked one-loss power-conference ${early.length > 1 ? "teams" : "team"} in or near their top 20. ` +
-      [by("ranked").length && `${nm(by("ranked"))} made the poll later, so the voters were slow`,
+    set("yr-snub-note", early.length ? `From Week ${PQ.weeks[0]} on, ${word(early.length)} unranked one-loss power-conference ${early.length > 1 ? "teams were" : "team was"} top 25 on at least one measure${early.some(t => t.verdict === "snub") ? ` (${nm(early.filter(t => t.verdict === "snub"))} top 20 on all three)` : ""}. ` +
+      [by("ranked").filter(t => t.verdict === "snub").length && `${nm(by("ranked").filter(t => t.verdict === "snub"))} made the poll later, so the voters were slow`,
+       by("ranked").filter(t => t.verdict !== "snub").length && `${nm(by("ranked").filter(t => t.verdict !== "snub"))} made the poll later, once the other measures caught up`,
        by("faded").length && `${nm(by("faded"))} faded, so leaving ${by("faded").length > 1 ? "them" : "it"} out held up`,
+       by("split").length && `${nm(by("split"))} ${by("split").length > 1 ? "are" : "is"} still unranked and the measures now split on ${by("split").length > 1 ? "them" : "it"}`,
        ...by("held").map(t => { const n = t.now_losses - t.losses_then;
          return `${t.team} ${n > 0 ? `has lost ${n === 1 ? "once" : n === 2 ? "twice" : word(n) + " times"} since (${rec(t.now_wins, t.now_losses)})` : `is ${rec(t.now_wins, t.now_losses)} and still unranked`} but still rates top 25 on all three, so the jury's out`; })].filter(Boolean).join("; ") + "." : "");
     const sec = PQ.by_conf.SEC, H = PQ.hollow, wins = H.games.length;
-    set("yr-note", STP.year_note || `Across ${wk}, ranked SEC teams as a group sat ${sec.fpi === 0 ? "right where FPI had them" : `${fmt(Math.abs(sec.fpi), 0)} spots ${sec.fpi > 0 ? "above" : "below"} FPI`}, ${fmt(sec.sb, 0)} spots above the scoreboard rating, and ${fmt(sec.epa, 0)} above EPA (which reads SEC teams low, per the study above). So there's a lean, but it's mostly a couple of teams. And the circle of suck wasn't built on fake ranked wins: of the ${H.ranked_losses} times a ranked team lost in ${wk}, only ${word(wins)} ${wins === 1 ? "was a team" : "were teams"} that two of the three measures had outside the top 30${wins ? ` (${andList(H.games.map(h => `${h.winner} over ${h.loser}`))})` : ""}.`);
+    set("yr-note", STP.year_note || `Across ${wk}, ranked SEC teams as a group sat ${sec.fpi === 0 ? "right where FPI had them" : `${fmt(Math.abs(sec.fpi), 0)} spot${Math.abs(Math.round(sec.fpi)) === 1 ? "" : "s"} ${sec.fpi > 0 ? "above" : "below"} FPI`}, ${fmt(sec.sb, 0)} spots above the scoreboard rating, and ${fmt(sec.epa, 0)} above EPA (which reads SEC teams low, per the study above). So there's a lean, but it's mostly a couple of teams. And the circle of suck wasn't built on fake ranked wins: of the ${H.ranked_losses} times a ranked team lost before the ${wk} polls, only ${word(wins)} ${wins === 1 ? "was a team" : "were teams"} that two of the three measures had outside the top 30${wins ? ` (${andList(H.games.map(h => `${h.winner} over ${h.loser}`))})` : ""}.`);
   }
 
   // SEC quality or SEC bias? (B.sec, from sec_premium.py: EPA ratings before every poll, 2014-25)
@@ -1843,8 +1989,9 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
   if (SQ) {
     const P = SQ.cross_power, PR = SQ.premium.rating_and_record, s_ = P.SEC, yrs = `${SQ.seasons[0]}–${String(last(SQ.seasons)).slice(2)}`;
     const sg = (v, d = 1) => (v >= 0 ? "+" : "−") + fmt(Math.abs(v), d);
-    const fair = PR.SEC.spots * SQ.rating_pts_per_spot <= s_.vs_ratings + 1;   // the poll's SEC bump is no bigger than the edge SEC teams have shown
-    set("sec-h", STP.sec_h || (fair ? "Is that SEC quality or SEC bias? Quality." : "Is that SEC quality or SEC bias? Some of each."));
+    // the bump is measured against equally rated Big Ten teams, so weigh it against the SEC's edge over the Big Ten's
+    const bump = PR.SEC.spots * SQ.rating_pts_per_spot, rel = s_.vs_ratings - P.B1G.vs_ratings, fair = bump <= rel;
+    set("sec-h", STP.sec_h || (fair ? "Is that SEC quality or SEC bias? Quality." : bump < 1 ? "Is that SEC quality or SEC bias? Mostly quality, with a small lean." : "Is that SEC quality or SEC bias? Some of each."));
     set("sec-desc", STP.sec_dek || `A rating built from scores only compares conferences through the games between them, so "SEC teams didn't flop" could partly be the rating flattering the SEC too. This checks it a different way, with play-by-play efficiency (expected points per snap, adjusted for opponents) rebuilt before every AP poll from ${yrs}, and every game against another power conference after Week 4, bowls and playoff included.`);
     const grid = 'style="grid-template-columns:minmax(0,1fr) 84px 120px 110px"';
     const rows = ["SEC", "B1G", "B12", "ACC", "P12"].map(c => { const p = P[c], b = c === "B1G" ? 0 : SQ.premium.rating_and_record[c].spots;
@@ -1852,13 +1999,13 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
       return `<div class="row" ${grid}><span>${NAMES[c] === "smaller-conference" ? c : NAMES[c]}</span><span class="rtag" style="text-align:right">${p.record}</span>` +
         `${cell(p.vs_ratings, 1, false)}<span class="rtag" style="text-align:right">${c === "B1G" ? "baseline" : sg(b, 1) + " spots"}</span></div>`; });
     set("sec-table", `<div class="row" ${grid}>${["", "Record", "Vs. their rating", "Poll bump"].map((h, i) => `<span class="list-head" style="margin:0;${i ? "text-align:right" : ""}">${h}</span>`).join("")}</div>` + rows.join(""));
-    set("sec-note", STP.sec_note || `Against other power conferences, SEC teams ${s_.vs_ratings >= 0 ? "beat" : "fell short of"} their ratings by <b>${fmt(Math.abs(s_.vs_ratings), 1)} points</b> a game. Voters rank SEC teams ${fmt(PR.SEC.spots, 1)} spots higher than equally rated Big Ten teams with the same record, which is worth only about ${fmt(PR.SEC.spots * SQ.rating_pts_per_spot, 1)} points of rating, less than the edge SEC teams have actually shown. The conference voters overrate is the ACC. They already rank ACC teams ${fmt(Math.abs(PR.ACC.spots), 1)} spots below equally rated Big Ten teams, and ACC teams still come up ${fmt(Math.abs(P.ACC.vs_ratings), 1)} points a game short against other power conferences. And scored against the year-end efficiency rating instead of the scoreboard, early-ranked SEC teams still flop less often than their ranks predict (${pct(SQ.flop_epa.SEC.share)} vs. ${pct(SQ.flop_epa.SEC.expected)}).`);
+    set("sec-note", STP.sec_note || `Against other power conferences, SEC teams ${s_.vs_ratings >= 0 ? "beat" : "fell short of"} their ratings by <b>${fmt(Math.abs(s_.vs_ratings), 1)} points</b> a game. ${Math.abs(rel) < 0.5 ? `So did Big Ten teams (${fmt(P.B1G.vs_ratings, 1)})` : `That's ${fmt(Math.abs(rel), 1)} ${rel > 0 ? "more" : "less"} than Big Ten teams`}, and the edge is within the margin of error either way. Voters rank SEC teams ${fmt(PR.SEC.spots, 1)} spots higher than equally rated Big Ten teams with the same record, worth about ${fmt(bump, 1)} points of rating: ${fair ? "no more than the SEC's edge over the Big Ten" : "more than the SEC's edge over the Big Ten, so there is a lean, but a small one"}. The conference voters overrate is the ACC. They already rank ACC teams ${fmt(Math.abs(PR.ACC.spots), 1)} spots below equally rated Big Ten teams, and ACC teams still come up ${fmt(Math.abs(P.ACC.vs_ratings), 1)} points a game short against other power conferences. And scored against the year-end efficiency rating instead of the scoreboard, early-ranked SEC teams still flop less often than their ranks predict (${pct(SQ.flop_epa.SEC.share)} vs. ${pct(SQ.flop_epa.SEC.expected)}).`);
   }
 
   const FC = B.fpi.check.results, live = FC["2016-25 (FPI live)"], all = FC.all, Wn = B.model.winners;
   set("poll-how", `
     <p>The losses come straight from ESPN's AP polls, and I rebuilt every team's record from the game logs to double-check them. The Week ${PW} poll covers games through Week ${PW - 1}, and every comparison is to the same poll in past seasons (2001 on, skipping 2020).</p>
-    <p><b>Scoreboard rank</b> is a simple power rating: every final score this season, solved for the team strengths that best fit the margins (home field adjusted, blowouts capped at 28, everybody pulled toward average since 7–8 games isn't much to go on). No preseason input, on purpose, since the point is to check the poll against what's actually happened. I also tested it against ESPN's FPI at predicting the rest of each season (${all.scores.n.toLocaleString()} games, 2005–25): FPI picks ${pct(all.fpi.accuracy, 1)} of winners to my rating's ${pct(all.scores.accuracy, 1)}, and its win odds are better calibrated, so anything predictive in here uses FPI.</p>
+    <p><b>Scoreboard rank</b> is a simple power rating: every final score this season, solved for the team strengths that best fit the margins (home field adjusted, blowouts capped at 28, everybody pulled toward average since a partial season isn't much to go on). No preseason input, on purpose, since the point is to check the poll against what's actually happened. I also tested it against ESPN's FPI at predicting the rest of each season (${all.scores.n.toLocaleString()} games, 2005–25): FPI picks ${pct(all.fpi.accuracy, 1)} of winners to my rating's ${pct(all.scores.accuracy, 1)}, and its win odds are better calibrated, so anything predictive in here uses FPI.</p>
     <p><b>Poll movement:</b> I built a model of how far teams move after a win or loss (both teams' ranks, home or away, margin, how the game played out, ESPN's pregame win probability, and how many teams around them lost), fit on 2016–25. Adding conference or specific teams didn't make it any better at predicting, so I don't see a standing bias for anybody. Upset winners do jump more: a 20% underdog that wins rises about ${fmt(-Wn.coefs.pre_wp.coef * 0.6, 0)} spots more than an 80% favorite.</p>
     ${SQ ? `<p><b>Quality or bias</b> uses cfbfastR's expected points on every non-garbage-time snap, ${SQ.seasons[0]}–${last(SQ.seasons)} (no 2020). Before each AP poll from Week ${SQ.weeks[0]} on, every FBS offense and defense gets a rating from the games so far, adjusted for opponent and home field (ridge regression, FCS teams pooled), turned into points a game against an average team. "Vs. their rating" is each game's final margin against what the two teams' ratings going in predicted (fit on ${SQ.fit.n.toLocaleString()} FBS games). Only games between power-conference teams (Notre Dame counts) are in the table, since a rating that pulls every team toward average understates the gap to Group of 5 teams. The poll bump compares AP points for teams with the same rating, number of losses, season and week, by conference (Big Ten as the baseline, ${SQ.premium_rows.toLocaleString()} team-weeks, about ${fmt(SQ.points_per_rank_spot, 0)} poll points per rank spot). None of the conference gaps against the ratings is big next to its margin of error except the ACC's (about ±${fmt(1.96 * SQ.cross_power.ACC.se, 1)} points).</p>` : ""}
     ${PQ ? `<p><b>This year, team by team.</b> For each poll from Week ${PQ.weeks[0]} on (the AP's, then the committee's once it ranks a week), every FBS team gets three ranks from what was known before that poll: the same EPA rating as the quality-or-bias study, rebuilt on this season's play-by-play; ESPN's FPI after the previous week; and the scoreboard rating through the previous week. "Ranked higher than all three" means this week's poll has a team at least ${PQ.gap} spots above each measure. "Left out earlier" covers power-conference teams (Notre Dame counts) that were unranked with at most one loss and four or more wins in some poll from Week ${PQ.weeks[0]} on, while at least one measure had them in the top 25 (their median ranks over those weeks). Each one's tag says how it turned out: ranked now, faded (all three measures now have them outside the top 25), or still out of the poll.</p>` : ""}
@@ -1871,12 +2018,12 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
 (function upsets() {
   const F = X.flows, CHR = X.chronic, hi = last(CHR.by_overrank), lo = CHR.by_overrank[0];
   const secRank = rankDesc(RACE.map(r => last(r.sec)), SEC_UP);
-  set("up-h1", `${UP} upsets so far, ${UP_VS}, but ${SEC_UP / UP > 0.4 ? "almost half" : SEC_UP} came in the SEC`);
-  set("up-dek", `${UP} ranked teams have lost to lower-ranked or unranked teams through Week ${NWK}, the ${ord(UP_RANK)}-most of the ${UP_N} seasons since ${UP_SINCE} (a typical year has about ${fmt(UP_AVG, 0)}; the record is ${last(UP_REC.upsets)}, in ${UP_REC.season}). It's also about what ESPN's pregame win chances added up to for this schedule (${fmt(EXP, 0)}). What's different is where they're happening: ${pct(F.intra_share_current)} came inside a conference, and the SEC has basically been Team Chaos for itself.`);
+  set("up-h1", `${UP} upsets so far, ${UP_VS}, but ${SEC_UP / UP >= 0.45 ? "almost half" : SEC_UP} came in the SEC`);
+  set("up-dek", `Ranked teams have lost to lower-ranked or unranked teams ${UP} times through Week ${NWK}, the ${ord(UP_RANK)}-most of the ${UP_N} seasons since ${UP_SINCE} (a typical year has about ${fmt(UP_AVG, 0)}; the record is ${last(UP_REC.upsets)}, in ${UP_REC.season}). It's also about what ESPN's pregame win chances added up to for this schedule (${fmt(EXP, 0)}). What's different is where they're happening: ${pct(F.intra_share_current)} came inside a conference, and the SEC has basically been Team Chaos for itself.`);
   statTiles("up-stats", [
-    [UP, "Ranked teams upset", `${ord(UP_RANK)}-most of ${UP_N} seasons`],
+    [UP, "Upsets of ranked teams", `${ord(UP_RANK)}-most of ${UP_N} seasons`],
     [fmt(UP_AVG, 0), "A typical year by now", `record ${last(UP_REC.upsets)} (${UP_REC.season}) · expected ${fmt(EXP, 0)}`],
-    [SEC_UP, "SEC teams upsetting SEC teams", `${secRank === 1 ? "most" : ord(secRank) + "-most"} since 2005 · avg ${fmt(AVG_SEC_UP)}`],
+    [SEC_UP, "SEC-on-SEC upsets", `${secRank === 1 ? "most" : ord(secRank) + "-most"} since 2005 · avg ${fmt(AVG_SEC_UP)}`],
     [pct(F.intra_share_current), "Of upsets came inside a conference", `normally ${pct(F.intra_share_hist)}`],
   ]);
   set("race-h", "The chaos race");
@@ -1888,7 +2035,7 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
   chart("c-overrank", drawOverrank);
   set("over-note", `And no, your team probably isn't cursed. How often a program gets upset in one season tells you almost nothing about the next one.`);
   set("up-how", `
-    <p><b>Upset</b> means a ranked team losing to a lower-ranked or unranked team (AP rank at kickoff), Weeks 1–${NWK}, 2005–26.</p>
+    <p><b>Upset</b> means a ranked team losing to a lower-ranked or unranked team (poll rank at kickoff: the AP's, then the committee's once it ranks a week), Weeks 1–${NWK}, 2005–26.</p>
     <p><b>Expected upsets</b> add up each game's chance of an upset: ESPN's win probability at kickoff (2016 on), and before that a model of how often favorites lose given the two teams' ranks and home field, fit on 2005–25.</p>
     <p><b>Over-ranked</b> compares a team's AP rank at kickoff to its scoreboard rank over the rest of that season (games after that one only). Even after controlling for ESPN's pregame win probability (${CHR.n_espn.toLocaleString()} games), every 25 spots of over-ranking raises the odds of an upset about ${pct(Math.exp(25 * CHR.over_coef_espn) - 1)} (p = ${fmt(CHR.over_p_espn, 3)}).</p>
     <p><b>Curses:</b> I compared how often each program got upset in odd-numbered vs. even-numbered seasons (${CHR.victim.n_programs} programs). The correlation is ${fmt(CHR.victim.split_half_r, 2)}, close to nothing.</p>`);
@@ -2153,8 +2300,10 @@ ledgerText(ledgerView);
 (function loops() {
   const curL = LP.current, wk = LP.through_week, prevN = LP.history.filter(r => r.cycle_length === LOOP_PREV);
   const listTxt = andList(LOOP_BIG.map(c => `the ${c.conf} has ${aNum(c.cycle_length)} ${c.cycle_length}-team loop`));
-  set("lp-h1", `${Word(LOOP_BIG.length)} conferences already have record-size circles of suck`);
-  set("lp-dek", `A circle of suck is when the results loop back on themselves: A beat B, B beat C, and so on until somebody beat A. Through Week ${wk}, ${listTxt}. Before this year, no conference had a loop longer than ${LOOP_PREV} this early (going back to 2005).`);
+  const topL = curL[0];
+  set("lp-h1", LOOP_BIG.length ? `${LOOP_BIG.length === 1 ? `The ${LOOP_BIG[0].conf} already has a` : `${Word(LOOP_BIG.length)} conferences already have`} record-size circle${LOOP_BIG.length === 1 ? "" : "s"} of suck`
+    : `No record circle of suck yet, but the ${topL.conf}'s is ${topL.cycle_length} teams long`);
+  set("lp-dek", `A circle of suck is when the results loop back on themselves: A beat B, B beat C, and so on until somebody beat A. Through Week ${wk}, ${LOOP_BIG.length ? listTxt : `the longest is the ${topL.conf}'s ${topL.cycle_length}-team loop`}. Before this year, no conference had a loop longer than ${LOOP_PREV} this early (going back to 2005).`);
   set("lp-list-head", `Longest loop in each conference, through Week ${wk} (tap one)`);
   const maxT = Math.max(...curL.map(c => c.teams));
   set("lp-list", curL.map((c, i) => `<div class="lp-row" data-i="${i}"><span class="c">${c.conf}</span>` +
@@ -2170,7 +2319,7 @@ ledgerText(ledgerView);
       ? `${c.links.map(l => l.winner).concat(c.links[0].winner).join(" › ")}. ${ups === 0 ? "None" : Word(ups)} of the ${c.cycle_length} links ${ups === 1 ? "was an upset" : "were upsets"}, and ${c.tangle} of the ${c.teams} teams are caught in the web.` +
         (c.conf === "SEC" && loopSwing && loopSwing.cycle > c.cycle_length ? ` If ${loopSwing.w} beats ${loopSwing.l} this week, it grows to ${loopSwing.cycle}.` : "")
       : `No loop yet. The ${c.conf}'s ${c.games} conference games so far still line up in a neat order.`);
-    set("lp-chain-head", c.cycle_length >= 3 ? `Every link in the ${c.conf} loop (winner first, AP rank at kickoff)` : "");
+    set("lp-chain-head", c.cycle_length >= 3 ? `Every link in the ${c.conf} loop (winner first, rank at kickoff)` : "");
     set("lp-chain", c.links.map(l => {
       const upset = (l.winner_rank ?? 99) > (l.loser_rank ?? 99);
       return `<div class="link"><span class="wk">Wk ${l.week}</span>` +
@@ -2182,15 +2331,14 @@ ledgerText(ledgerView);
   document.querySelectorAll("#lp-list .lp-row").forEach(r => r.addEventListener("click", e => { e.stopPropagation(); show(+r.dataset.i); }));
   show(0);
   RETHEME.push(() => show(+(document.querySelector("#lp-list .lp-row.on")?.dataset.i || 0)));
-  const pac = LP.history.filter(r => r.conf === "Pac-12" && r.season >= 2011), pacBest = Math.max(...pac.map(r => r.cycle_length));
   set("lp-hist-h", `Every conference's biggest loop at this point in the season, 2005–${String(LP.season).slice(2)}`);
-  set("lp-hist-desc", `Loops only get bigger as teams play more conference games (by December most conferences are one giant loop), so this compares the same week every year. Back in its 12-team days the Pac-12 was the loop king, hitting ${pacBest} by Week ${wk} in ${pac.filter(r => r.cycle_length === pacBest).map(r => r.season).join(", ")}.`);
+  set("lp-hist-desc", `Loops only get bigger as teams play more conference games (by December most conferences are one giant loop), so this compares the same week every year. Before this year the longest by Week ${wk} was ${LOOP_PREV} (${andList(prevN.map(r => `${r.conf}, ${r.season}`))}).`);
   chart("c-loop-hist", drawLoopHeat);
   const ly = Math.max(...prevN.map(r => r.season));
   set("lp-how", `
     <p>For each conference I took every conference game so far and searched every possible chain of wins for the longest one that loops back to where it started (an exhaustive search, so it's the true longest loop, not an estimate).</p>
     <p><b>Caught in the web</b> means teams that can all reach each other through some chain of wins. Teams outside it haven't beaten anybody who connects back to them (or haven't lost to anyone in the web).</p>
-    <p>The old record of ${LOOP_PREV} by Week ${wk} happened ${prevN.length} times, most recently ${andList(prevN.filter(r => r.season === ly).map(r => r.conf))} in ${ly}. Conference membership comes from ESPN's standings for each season, since the per-game conference tags on older scoreboards have errors (Pac-10 teams tagged as Big Ten, for example).</p>`);
+    <p>The old record of ${LOOP_PREV} by Week ${wk} ${prevN.length === 1 ? `was set once, by the ${prevN[0].conf} in ${prevN[0].season}` : `was set ${word(prevN.length)} times, most recently by the ${andList(prevN.filter(r => r.season === ly).map(r => r.conf))} in ${ly}`}. Conference membership comes from ESPN's standings for each season, since the per-game conference tags on older scoreboards have errors (Pac-10 teams tagged as Big Ten, for example).</p>`);
 })();
 
 // ======================================================================================
@@ -2267,7 +2415,7 @@ ledgerText(ledgerView);
     set("un-key-then", `${Y0} through the same week`);
     set("un-key-final", `${Y0} final`);
     chart("c-units", drawUnits);
-    set("un-note", ST.units_note || `The schedule doesn't explain it: ${NM}'s opponents rank #${U.now.sched_rank} of ${U.now.n_fbs} in strength so far, tougher than last year's at this point (#${U.then.sched_rank}). Dropped into last year's field at this point, this team would rank about <b>#${U.proj.rank_last}</b>; in this year's it's #${U.proj.rank_now}.`);
+    set("un-note", ST.units_note || `The schedule doesn't explain it (these ratings already adjust for opponents): ${NM}'s opponents rank #${U.now.sched_rank} of ${U.now.n_fbs} in strength so far, ${U.now.sched_rank < U.then.sched_rank ? "tougher" : U.now.sched_rank > U.then.sched_rank ? "a bit easier" : "about the same"} than last year's at this point (#${U.then.sched_rank}). Dropped into last year's field at this point, this team would rank about <b>#${U.proj.rank_last}</b>; in this year's it's #${U.proj.rank_now}.`);
 
     set("wh-h", ST.where_h || `The offense was fine until Nebraska`);
     set("wh-desc", ST.where_dek || `Each game's offense against what that defense usually allows (and defense against what that offense usually gets), in points per 10 plays. Above zero is better than a typical opponent of theirs. The dashed line is last year's offense through the same week.`);
@@ -2290,7 +2438,7 @@ ledgerText(ledgerView);
     <p><b>Plays that worked</b> is what analytics folks call success rate: a play works if it gains at least half the needed yards on 1st down, 70% on 2nd, or all of them on 3rd or 4th. A typical team in games with a ranked opponent hits about ${pct(M.baseline.sr)}.</p>
     <p><b>"How often a team with these stats wins"</b> comes from a model fit on ${M.n_games.toLocaleString()} FBS games involving a ranked team (${M.seasons[0]}–${M.seasons[1]}), using regulation plays only: how many plays worked, yards per play, and how many plays went for 20+. It picks the right winner ${pct(M.snaps.accuracy)} of the time. Two other versions are in the data too: plays-that-worked alone (stricter, ${pct(M.sr.accuracy)} accurate) and one that adds turnovers and field position (${pct(M.box.accuracy)}). For the last four games they give ${NM} ${fmt(sum(LAST4, g => g.p_sr), 1)}, ${fmt(sum(LAST4, g => g.p_snaps), 1)}, and ${fmt(sum(LAST4, g => g.p_box), 1)} expected wins, against ${W4} actual.</p>
     <p><b>Luck vs. skill:</b> comparing teams' odd-numbered and even-numbered games within a season (${S.n_team_seasons} team-seasons), turnover margin barely carries over (correlation ${fmt(S.to, 2)}), while yards per play (${fmt(S.ypp, 2)}) and plays that worked (${fmt(S.sr, 2)}) hold up much better. ${NM}'s last ${G.length} games leaned on ${sum(G, g => g.opp_stats.to)} takeaways to ${sum(G, g => g.team.to)} giveaways.</p>
-    <p><b>Compared to the rest of the Top 10</b> over each team's last four games, ${NM}'s record is right about what its play stats deserve (${iu.last4_wins} wins vs ${fmt(iu.last4_snaps, 1)} expected). Kentucky has outrun its stats the most.</p>
+    <p><b>Compared to the rest of the Top 10</b> over each team's last four games, ${NM}'s record is right about what its play stats deserve (${iu.last4_wins} wins vs ${fmt(iu.last4_snaps, 1)} expected). ${(t => t ? `${t.team} has outrun its stats the most (${t.last4_wins} wins vs ${fmt(t.last4_snaps, 1)}).` : "")(IND.peers.filter(p => p.rank <= 10 && p.tid !== IND.team).sort((a, b) => (b.last4_wins - b.last4_snaps) - (a.last4_wins - a.last4_snaps))[0])}</p>
     ${U && U.team === IND.team ? `<p><b>Unit ratings</b> use expected points: every play's change in how many points the offense can expect to score next, from down, distance, field position, and the clock (my own model, fit on ${Y0 - 1}–${Y0} ESPN play-by-play). Each FBS offense and defense gets a rating from every non-garbage-time snap, adjusted for the opponent and home field, and special teams compares every kick to the average kick from that spot. Ratings are turned into points a game at each team's own pace, so the three units add up to a margin against an average team. With ${U.now.games} games, the 90% range on this year's offense is about #${U.now.ci.off_rank[0]}–#${U.now.ci.off_rank[1]} nationally; the drop in offense since last year (${fmt(-U.change.off_ppg.change, 1)} points a game) has a range of ${fmt(-U.change.off_ppg.ci90[1], 1)} to ${fmt(-U.change.off_ppg.ci90[0], 1)}.</p>
     <p><b>Where the offense lost it</b> compares every snap to what that defense allows in the same situation in its games against other teams. To check whether the drop is concentrated or across the board, I tested whether each split fell by the same amount: play type (p = ${fmt(B.situations.uniform.play_type, 2)}), down (${fmt(B.situations.uniform.down_s, 2)}), field position (${fmt(B.situations.uniform.field, 2)}), quarter (${fmt(B.situations.uniform.quarter, 2)}), and score (${fmt(B.situations.uniform.score_state, 2)}) all look uniform; where in the drive (${fmt(B.situations.uniform.first_drive_play, 3)}) is the one that doesn't.</p>` : ""}
     <p><b>Points</b> are tagged by how each scoring drive started: "big play" means it turned on one gain of 40+ yards (or was three snaps or fewer with a 20+ yard gain), and "short field" means it started in the opponent's half or right after a takeaway.</p>`);
@@ -2305,22 +2453,22 @@ ledgerText(ledgerView);
   statTiles("tr-stats", [
     [pct(E3.upset_rate), "Of games with a ranked team end in an upset (2024–26)", `${pct(E0.upset_rate)} in 2005–13`],
     [pct(HC.rate), "Won the week after beating a top-10 team", `normally ${pct(HG.hist_rate)}`],
-    [BC.blown, "Ranked teams lost after being 90% to win", "most since 2016"],
+    [BC.blown, "Games ranked teams lost after being 90% to win", "most since data began (2016)"],
     [pct(TSC.fcs_share), "Of power teams' nonconference games are vs. FCS", `${pct(E0.fcs_share)} in 2005–13`],
   ]);
   const nearest = TOPH.filter(r => r.gap_1_10 < TOPC.gap_1_10).map(r => r.season);
   set("top-h", STT.top_h || `Nobody's pulling away: the top 10 is ${nearest.length ? `the closest since ${last(nearest)}` : "the closest it's been since at least 2005"}`);
   set("top-desc", STT.top_dek || `By scoreboard rank, #1 and #10 are <b>${fmt(TOPC.gap_1_10, 1)} points</b> apart through Week ${TOP.through_week} (a normal year at this point: ${fmt(TOP.hist_mean.gap_1_10, 1)}), and ${TOPC.within7} teams are within a touchdown of #1 (normally ${fmt(TOP.hist_mean.within7, 0)}). The top teams also bounce around more from week to week than usual, while the sport as a whole doesn't.`);
   set("top-gap-h", "Points between #1 and #10 by scoreboard, through this week");
-  set("top-loss-h", "Losses by AP #1 and #2 teams, through this week");
+  set("top-loss-h", "Losses by #1 and #2 teams, through this week");
   chart("c-topgap", drawTopGap);
   chart("c-toploss", drawTopLoss);
   set("top-list-h", `This year's #1 and #2 teams, every loss and every close call`);
-  set("top-list", TOP.current_games.map(g => `<div class="row"><span class="wk">Wk ${g.week}</span><span>${logo(g.top_id)}<b>#${g.top_rank} ${g.top}</b> ${g.lost ? `lost ${g.score} to` : "beat"} ${g.opp_rank ? "#" + g.opp_rank + " " : ""}${g.opp}${g.lost ? "" : " " + g.score}</span><span class="rtag ${g.lost ? "l" : ""}">${g.lost ? "Loss" : "Close"}</span></div>`).join(""));
+  set("top-list", TOP.current_games.map(g => `<div class="row"><span class="wk">Wk ${g.week}</span><span>${logo(g.top_id)}<b>#${g.top_rank} ${g.top}</b> ${g.lost ? `lost ${g.score.split("–").reverse().join("–")} to` : "beat"} ${g.opp_rank ? "#" + g.opp_rank + " " : ""}${g.opp}${g.lost ? "" : " " + g.score}</span><span class="rtag ${g.lost ? "l" : ""}">${g.lost ? "Loss" : "Close"}</span></div>`).join(""));
   const flat = TOPH.filter(r => r.gap_1_10 < 6 && r.final_gap_1_10 != null);
   set("top-note", STT.top_note || `A bunched-up top this early doesn't always last. How close the top 10 is at this point only loosely predicts how close it ends up (correlation ${fmt(TOP.persistence, 2)}). The other seasons that started under 6 points (${andList(flat.map(r => r.season))}) finished at ${andList(flat.map(r => fmt(r.final_gap_1_10, 1)))} points, with the playoff included.`);
 
-  set("par-h", STT.par_h || `Ranked teams lose ${pct(E3.upset_rate)} of the time now, up from ${pct(E0.upset_rate)}, about as often as ESPN expected`);
+  set("par-h", STT.par_h || `Ranked teams lose ${pct(E3.upset_rate)} of the time in the 12-team era, up a little from ${pct(E0.upset_rate)} in ${E0.era.split(" ")[0]}, about as often as ESPN expected`);
   set("par-desc", `Share of games with a ranked team (through Week ${NWK}) that ended in an upset, against the share ESPN's pregame win chances added up to (before 2016, a model based on the two teams' ranks). The two have risen together, so ranked teams aren't losing games they should win more often. They're playing more games that were close to begin with.`);
   chart("c-upsetrate", (svg, W) => drawSeasonLines(svg, W, TS, [{ key: "expected_rate", color: C.ink65, width: 1.5, name: "expected", dash: "4 3" }, { key: "upset_rate", color: C.accent, width: 2.5, name: "upset" }], { ymin: 0.1, ymax: 0.3 }));
   set("sched-desc", `Nonconference games in the first four weeks involving a power-conference team (Notre Dame counts). Power-vs-power matchups dropped off when the four-team playoff started in 2014 (${pct(E0.p4p4_share)} → ${pct(E1.p4p4_share)}) and have come back some with the 12-team playoff (${pct(E3.p4p4_share)}). FCS cupcakes are at a high, ${pct(TSC.fcs_share)} of those games this year, and there were only ${TSC.rvr_nonconf} ranked-vs-ranked nonconference games.`);
@@ -2336,14 +2484,16 @@ ledgerText(ledgerView);
   set("risers-h", `Out of nowhere: ${ucla.team} ${tied ? "ties" : "is"} the ${jump === 1 ? "" : ord(jump) + "-"}biggest jump since 2006`);
   set("risers-list", MV.risers.slice(0, 10).map(r => `<div class="row" ${r.season === B.season ? 'style="background:var(--accent-bg-soft)"' : ""}><span class="wk">${r.season}</span>` +
     `<span>${TL[r.tid] ? `<img alt="" src="${TL[r.tid]}">` : ""}<b>${r.team}</b> #${r.rank} after finishing #${r.prior} the year before</span><span></span></div>`).join(""));
-  const re = MV.risers_by_era, top2 = MV.fallers.filter(f => f.pre <= 2 && f.season < B.season);
-  set("risers-note", `These jumps bunched up in 2021–22, the first couple of portal-and-NIL years (${fmt(Object.values(re)[2], 1)} a season, vs about ${fmt((Object.values(re)[0] + Object.values(re)[1]) / 2, 1)} before). This year's two are the only ones so far in the 12-team era. Going the other way, ${MV.fallers_current} preseason top-10 teams are already unranked (normally about ${fmt(MV.fallers_hist_mean, 1)}), and a preseason top-2 team dropping out this early had only happened once before: ${top2.map(f => `${f.team} in ${f.season}`).join(", ")}.`);
+  const re = MV.risers_by_era, eras = Object.keys(re), top2 = MV.fallers.filter(f => f.pre <= 2 && f.season < B.season), top2Now = MV.fallers.filter(f => f.pre <= 2 && f.season === B.season);
+  const era12 = MV.risers.filter(r => r.season >= 2024);
+  set("risers-note", `These jumps bunched up in ${eras[2].split(" ")[0]}, the first portal-and-NIL years (${fmt(re[eras[2]], 1)} a season, vs about ${fmt((re[eras[0]] + re[eras[1]]) / 2, 1)} before). The 12-team era has ${word(era12.length)} so far (${andList(era12.map(r => `${r.team} ${r.season}`))}). Going the other way, ${MV.fallers_current} preseason top-10 teams are already unranked (normally about ${fmt(MV.fallers_hist_mean, 1)})` +
+    (top2Now.length ? `, including preseason #${top2Now[0].pre} ${top2Now[0].team}, which had only happened ${top2.length === 1 ? "once" : word(top2.length) + " times"} before (${andList(top2.map(f => `${f.team} in ${f.season}`))})` : "") + ".");
 
   set("hang-h", `Beat a top-10 team, lose the next week: ${HC.n - HC.wins} of ${HC.n} this year`);
   const hangRank = 1 + HG.seasons.filter(r => r.season < B.season && r.rate < HC.rate).length;
   const PEND = HG.pending || [];
   set("hang-desc", `That's the ${hangRank === 1 ? "worst" : ord(hangRank) + "-worst"} hangover rate since at least 2005. Normally about ${pct(HG.hist_rate)} of these teams win their next game.` +
-    (PEND.length ? ` ${andList(PEND.map(c => c.team))} ${PEND.length === 1 ? "is up next (the dashed tile)" : "are up next (dashed tiles)"}, after beating ${andList(PEND.map(c => `#${c.beat_rank} ${c.beat}`))} last week.` : ""));
+    (PEND.length ? ` ${andList(PEND.map(c => c.team))} ${PEND.length === 1 ? "is up next (the dashed tile)" : "are up next (dashed tiles)"}, after beating ${andList(PEND.map(c => `#${c.beat_rank} ${c.beat} (Week ${c.week})`))}.` : ""));
   set("hang-picto", [...HG.current].sort((a, b) => a.week - b.week).map(c => `<div class="p ${c.next_won ? "w" : "l"}">${TL[c.tid] ? `<img alt="" src="${TL[c.tid]}">` : ""}<div class="t">${c.team}</div>` +
     `<div class="caption" style="margin-top:2px">${c.rank && c.rank <= 25 ? `#${c.rank}, ` : ""}beat #${c.beat_rank} ${c.beat}</div><div class="r">${c.next_won ? "Won" : "Lost"} next ${c.next_score}</div></div>`).join("") +
     (HG.pending || []).map(c => `<div class="p pend">${TL[c.tid] ? `<img alt="" src="${TL[c.tid]}">` : ""}<div class="t">${c.team}</div>` +
@@ -2351,7 +2501,7 @@ ledgerText(ledgerView);
   chart("c-hangover", (svg, W) => drawSeasonBars(svg, W, HG.seasons, "rate", { ymin: 0, ymax: 1, f: v => pct(v), tipf: r => `<b>${r.season}</b> · ${r.wins} of ${r.n} won their next game` }));
 
   set("blown-h", `${Word(BC.blown)} ranked teams have lost after being 90% sure winners`);
-  chart("c-blown", (svg, W) => drawSeasonBars(svg, W, BL.seasons, "blown", { ymin: 0, ymax: 14, f: v => fmt(v, 0), tipf: r => `<b>${r.season}</b> · ${r.blown} of ${r.ranked_losses} ranked losses` }));
+  chart("c-blown", (svg, W) => drawSeasonBars(svg, W, BL.seasons, "blown", { ymin: 0, ymax: Math.max(14, ...BL.seasons.map(r => r.blown)) + 1, f: v => fmt(v, 0), tipf: r => `<b>${r.season}</b> · ${r.blown} of ${r.ranked_losses} ranked losses` }));
   set("blown-list", BL.current.map(c => `<div class="row"><span class="wk">Wk ${c.week}</span><span>${TL[c.tid] ? `<img alt="" src="${TL[c.tid]}">` : ""}<b>#${c.rank} ${c.team}</b> lost ${c.score} to ${rn(c.winner_rank, c.winner)}</span><span class="rtag l">${c.wp_max > 0.995 ? ">99%" : pct(c.wp_max)}</span></div>`).join(""));
 
   const AT = B.attendance;
@@ -2366,12 +2516,13 @@ ledgerText(ledgerView);
       `${worse.length ? `the biggest one-year drop since ${last(worse)}` : `the biggest one-year drop since at least ${AY[0].vs}`}, and ${pct(AN.G6_down)} of them are down. ` +
       `It's speeding up, too: after accounting for each team's stadium, the week, and weeknight games, G6 crowds were ${pct(-AIP.G6)} under 2012 last year and are ${pct(-AIN.G6)} under now. ` +
       `The typical Power 4 program is ${Math.abs(AN.P4) < 0.01 ? "flat" : AN.P4 < 0 ? "down a little" : "up a little"} (${sp(AN.P4)})` +
+      (AIN.P4 - AIP.P4 < -0.015 ? `, though with the same adjustments Power 4 crowds slipped too, from ${pct(-AIP.P4)} to ${pct(-AIN.P4)} under ${AT.first}` : "") +
       (p4up.length && p4dn.length ? `, but that hides a split: ${andList(p4up.map(n => "the " + n))} ${p4up.length === 1 ? "is" : "are"} holding steady while ${andList(p4dn.map(n => "the " + n))} ${p4dn.length === 1 ? "is" : "are"} down ${pct(-Math.max(...p4c.filter(c => c.ch <= -0.01).map(c => c.ch)))} to ${pct(-Math.min(...p4c.map(c => c.ch)))}` : "") + `, and a handful of programs fell hard. ` +
-      `And it's not just Halloween: leave out this Saturday and G6 crowds are still down ${pct(-HAL.yoy_without.G6)}.`);
+      (HAL.is_halloween ? `And it's not just Halloween: leave out Halloween Saturday and G6 crowds are still down ${pct(-HAL.yoy_without.G6)}.` : ""));
     set("att-idx-h", `Crowds vs. ${AT.first} at the same stadiums, Weeks 1–${AT.through_week}`);
     chart("c-att", (svg, W) => drawSeasonLines(svg, W, AI, [{ key: "P4", color: C.ink65, width: 1.5, name: "Power 4" }, { key: "G6", color: C.accent, width: 2.5, name: "Group of 6" }], { ymin: -0.15, ymax: 0.05, f: sp }));
-    set("att-conf-h", `By conference, the typical program this year vs. last`);
-    set("att-conf", AT.conf.map(c => `<div class="row"><span class="wk">${c.tier}</span><span><b>${c.name}</b> ${kN(c.prev)} → ${kN(c.att)} a game</span><span class="rtag ${c.ch < -0.005 ? "l" : c.ch > 0.005 ? "w" : ""}">${sp(c.ch)}</span></div>`).join(""));
+    set("att-conf-h", `By conference, this year vs. last (the typical program's change)`);
+    set("att-conf", AT.conf.map(c => `<div class="row"><span class="wk">${c.tier}</span><span><b>${c.name}</b> ${c.down} of ${c.n} programs down</span><span class="rtag ${c.ch < -0.005 ? "l" : c.ch > 0.005 ? "w" : ""}">${sp(c.ch)}</span></div>`).join(""));
     const TM = Object.fromEntries(AT.teams.map(t => [t.tid, t]));
     const tag = t => (t.new_venue ? ` <span class="caption">new stadium</span>` : "") + (t.flat ? ` <span class="caption">same number every game</span>` : "");
     const trow = t => `<tr><td class="t">${AL(t.tid)}${t.team}${tag(t)}</td><td class="num">${kN(t.att)}</td><td class="num">${t.prev ? kN(t.prev) : "—"}</td>` +
@@ -2388,7 +2539,7 @@ ledgerText(ledgerView);
       const empty = NW.capacity - NW.after_opener, perSeat = NW.cost / NW.capacity, pf = NG.reduce((t, g) => t + +g.score.split("–")[0], 0), pa = NG.reduce((t, g) => t + +g.score.split("–")[1], 0);
       set("nw-h", STT.nw_h || `${NW.team} spent $${Math.round(NW.cost / 1e6)} million on a smaller stadium, and it still isn't full`);
       set("nw-desc", STT.nw_dek || `The new Ryan Field holds ${kN(NW.capacity)}, ${pct(smaller)} fewer than the stadium it replaced, and it opened with a sellout: ${kN(op.att)} to watch ${NW.team} ${op.won ? "beat" : "lose to"} ${op.opp} ${op.score}. ` +
-        `Since then it's drawn ${andList(rest.map(g => `${kN(g.att)} for ${g.opp}`))}, about ${pct(NW.after_opener / NW.capacity)} full, or roughly ${kN(Math.round(empty / 100) * 100)} empty seats a game. And the team is good: ${w}–${l}, ${NG.every(g => g.won) ? `${word(NG.length)} for ${word(NG.length)} in the new place by a combined ${pf}–${pa}` : ""}. ` +
+        `Since then it's drawn ${andList(rest.map(g => `${kN(g.att)} for ${g.opp}`))}, about ${pct(NW.after_opener / NW.capacity)} full, or roughly ${kN(Math.round(empty / 100) * 100)} empty seats a game. And the team is good: ${w}–${l}, ${NG.every(g => g.won) ? `${word(NG.length)} for ${word(NG.length)} in the new place by a combined ${pf}–${pa}` : `${NG.filter(g => g.won).length}–${NG.filter(g => !g.won).length} in the new place`}. ` +
         `The old Ryan Field drew ${kN(NW.old_normal)} a game in ${NW.old_normal_first}–19, and ${kN(NW.old_winning)} in its winning seasons (${andList(NW.winning_seasons.map(String))}).`);
       set("nw-chart-h", `${NW.team}'s average home crowd by season`);
       const evan = Object.values(NW.seasons.reduce((o, r) => { if (r.stadium === "Wrigley Field") return o; const c = o[r.season];
@@ -2400,21 +2551,40 @@ ledgerText(ledgerView);
         `It does beat ${LO.season}, the last season in the old stadium (${kN(LO.att)} a game, ${pct(1 - LO.att / NW.new_avg)} fewer than now), but that was the year the hazing scandal cost Pat Fitzgerald his job, and the old stadium's worst-drawing season since at least 2012. ` +
         `The 2024–25 seasons were played in ${kN(NW.seasons.find(r => r.stadium === "Martin Stadium").capacity)}-seat Martin Stadium on the lakefront, plus a few games at Wrigley Field. Cost and capacities are Northwestern's figures.`);
     }
-    const flatP4 = AT.teams.filter(t => t.flat && t.tier === "P4").map(t => t.team);
-    set("att-note", STT.att_note || `These are the numbers schools report, which is usually tickets sold or handed out, not people in the seats. ${flatP4.length} Power 4 schools (${andList(flatP4.slice(0, 6))} among them) report almost exactly the same crowd every week, which is a sellout count, so the empty seats you see on TV never show up in their numbers. ` +
-      `That means this undercounts any drop at the biggest programs. "vs. 2019" is against the last season before COVID; "best here" is the program's best season at the stadium it plays in now.`);
+    const CP = AT.copy_paste, cpTop = CP.same[0], atl = id => AT.logos[id] ? `<img class="logo" alt="" src="${AT.logos[id]}">` : logo(id);
+    const cpDate = d => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    set("att-cp-h", "The copy-paste crowd");
+    set("att-cp-desc", STT.att_cp || (cpTop ? `${Word(CP.same.length)} programs have announced the exact same crowd at every home game this season. ${cpTop.team} has said ${kNum(cpTop.att)} at ${cpTop.streak} straight home games, going back to ${cpDate(cpTop.since)}. ` : "") +
+      `That's tickets sold or handed out, a number that can't go down no matter how many seats are empty, which is also why Power 4 crowds look so steady in the numbers above. ` +
+      `There's no better public source: the NCAA's attendance figures come from the same school-reported numbers, and real counts (tickets actually scanned at the gate) only surface when a newspaper gets them through a records request. When they have, the gap is big: Arkansas scanned 58% of its announced crowd in 2017 (<a href="https://www.sportsbusinessdaily.com/Daily/Issues/2018/08/31/Colleges/CFB-Attendance.aspx">Sports Business Journal</a>), and UConn's 2023 opener scanned 23,188 against 36,526 announced (<a href="https://www.theday.com/columns/20230906/rentschler-field-home-of-the-whopper/">The Day</a>).`);
+    set("att-cp-same-h", "Same number every game");
+    set("att-cp-same", CP.same.map(r => `<div class="row"><span>${atl(r.tid)}</span><span><b>${r.team}</b> ${kNum(r.att)}<span class="sub">${r.streak} straight home games, since ${cpDate(r.since)}${r.is_capacity ? ". Exactly the listed capacity" : ""}</span></span><span class="mono">×${r.streak}</span></div>`).join(""));
+    set("att-cp-barely-h", "Within a few hundred every game");
+    set("att-cp-barely", CP.barely.map(r => `<div class="row"><span>${atl(r.tid)}</span><span><b>${r.team}</b> ${kNum(r.lo)}–${kNum(r.hi)}<span class="sub">${r.games} home games, ${r.tier === "G6" ? "Group of 6" : "Power 4"}</span></span><span class="mono">±${kNum((r.hi - r.lo) / 2)}</span></div>`).join(""));
+    const OC = AT.over_capacity.filter(r => r.games >= 5 && r.over / r.games >= 0.75), ocBig = AT.over_capacity.reduce((a, r) => r.max - r.capacity > a.max - a.capacity ? r : a);
+    const ocRow = r => `<div class="row"><span>${atl(r.tid)}</span><span><b>${r.team}</b> ${r.over} of ${r.games} home games over ${kNum(r.capacity)}<span class="sub">Biggest: ${kNum(r.max)} vs. ${r.max_opp}, ${cpDate(r.max_date)}</span></span><span class="mono">+${pct(r.avg_over, 1)}</span></div>`;
+    set("att-oc-h", "Fuller than full");
+    set("att-oc-desc", `The other tell: announcing more people than the stadium holds. Since the start of last season, ${word(OC.length)} programs have announced a crowd above their stadium's listed capacity at nearly every home game (the number on the right is how far over, on average). Standing room and suites can push a real crowd past capacity now and then, but not every week. ` +
+      `The biggest single claim is ${ocBig.team}'s ${kNum(ocBig.max)} against ${ocBig.max_opp} (${cpDate(ocBig.max_date)}), ${kNum(ocBig.max - ocBig.capacity)} over a listed ${kNum(ocBig.capacity)}. Capacities are Wikipedia's listed seating, which can lag a renovation.`);
+    set("att-oc-0", OC.slice(0, Math.ceil(OC.length / 2)).map(ocRow).join(""));
+    set("att-oc-1", OC.slice(Math.ceil(OC.length / 2)).map(ocRow).join(""));
+    set("att-note", STT.att_note || `These are the numbers schools report, so any drop at the biggest programs is undercounted. "vs. 2019" is against the last season before COVID; "best here" is the program's best season at the stadium it plays in now.`);
 
     const HS = HAL.seasons, HN = last(HS), H15 = HS.filter(r => r.halloween && r.season < B.season);
     const normal = HS.filter(r => !r.halloween), p4worst = Math.min(...normal.map(r => r.P4)), g6med = normal.map(r => r.G6).sort((a, b) => a - b)[Math.floor(normal.length / 2)], g6hi = Math.min(...normal.map(r => r.G6));
     if (!HAL.is_halloween) document.getElementById("s-halloween").hidden = true;
-    set("att-hal-h", STT.hal_h || `And yes, some of this week's empty seats were Halloween`);
-    set("att-hal-desc", STT.hal_dek || `On Halloween Saturday, Power 4 crowds came in ${pct(-HN.P4, 1)} under each team's other home games. That's a Halloween thing: on the matching Saturday in the other seasons since ${HS[0].season}, P4 crowds were never more than ${pct(-p4worst, 1)} under. ` +
-      `In ${andList(H15.map(r => String(r.season)))}, the last time Halloween fell on a Saturday, they were ${andList(H15.map(r => pct(-r.P4, 1)))} under. ` +
-      `Group of 6 crowds always sag this late in October (typically ${pct(-g6med)} under, and as much as ${pct(-g6hi)}), so Halloween doesn't stand out for them; this year they were ${pct(-HN.G6)} under. ` +
+    const ou = v => `${pct(Math.abs(v), 1)} ${v < 0 ? "under" : "over"}`;   // signed: a crowd can come in above normal too
+    const hurtP4 = HN.P4 < p4worst, hurtG6 = HN.G6 < g6med;   // emptier than any other year's matching Saturday / than G6's usual late sag
+    set("att-hal-h", STT.hal_h || (hurtP4 || hurtG6 ? "And yes, some of Halloween Saturday's empty seats were Halloween" : "And no, Halloween didn't empty the stands"));
+    set("att-hal-desc", STT.hal_dek || `On Halloween Saturday, Power 4 crowds came in ${ou(HN.P4)} each team's other home games` +
+      (hurtP4 ? `. That's a Halloween thing: on the matching Saturday in the other seasons since ${HS[0].season}, P4 crowds were never more than ${pct(-p4worst, 1)} under. `
+              : `, about normal: on the matching Saturday in the other seasons since ${HS[0].season}, P4 crowds ran up to ${pct(-p4worst, 1)} under. `) +
+      (H15.length ? `In ${andList(H15.map(r => String(r.season)))}, the last time Halloween fell on a Saturday, they were ${andList(H15.map(r => ou(r.P4)))}. ` : "") +
+      `Group of 6 crowds always sag this late in the season (typically ${pct(-g6med)} under, and as much as ${pct(-g6hi)}); this year they were ${ou(HN.G6)}, ${hurtG6 ? "worse than usual" : "better than usual"}. ` +
       `The emptiest, against their own other home games: ${andList(HAL.games.slice(0, 6).map(g => `${g.team} (${kN(g.att)}, ${sp(g.rel)})`))}.`);
     const drop = k => HS.map(r => ({ ...r, v: Math.max(0, -r[k]) }));
     const htip = k => r => `<b>${r.date}</b>${r.halloween ? " · Halloween" : ""} · ${pct(-r[k], 1)} under the team's other home games`;
-    set("att-hal-p4-h", "Power 4: below normal on the last Saturday of October");
+    set("att-hal-p4-h", "Power 4: below normal on the matching Saturday each year");
     set("att-hal-g6-h", "Group of 6");
     chart("c-hal-p4", (svg, W) => drawSeasonBars(svg, W, drop("P4"), "v", { ymin: 0, ymax: 0.08, f: v => pct(v), tipf: htip("P4"), hi: r => r.halloween }));
     chart("c-hal-g6", (svg, W) => drawSeasonBars(svg, W, drop("G6"), "v", { ymin: 0, ymax: 0.24, f: v => pct(v), tipf: htip("G6"), hi: r => r.halloween }));
@@ -2466,8 +2636,8 @@ const rankMove = (a, b) => a && b ? `<span class="${b < a ? "mv-up" : b > a ? "m
       `<h3>${(STB[b.key] && STB[b.key].h) || t.headline}</h3><p>${(STB[b.key] && STB[b.key].text) || `${b.coach} ${b.how}.${meet} ${t.sentence}`}</p>` +
       `<div class="kf-score">${scoreTable(b, t)}</div>${chain}</div>`; }).join(""));
 
-  const mv = BK.moves.filter(m => m.kind === "left"), up = m => m.to_team.results < m.to_team.prior_results, down = m => m.from_team.results > m.from_team.prior_results;
-  set("bk-moves-h", STB.moves_h || `Coaches who left for another job: ${mv.filter(up).length} of their ${mv.length} new teams have climbed, and ${mv.filter(down).length} of the ${mv.length} teams they left have slid`);
+  const mv = BK.moves.filter(m => m.kind === "left"), up = m => m.to_team.results <= m.to_team.prior_results - 5, down = m => m.from_team.results >= m.from_team.prior_results + 5;   // 5+ spots
+  set("bk-moves-h", STB.moves_h || `Coaches who left for another job: ${mv.filter(up).length} of their ${mv.length} new teams have climbed 5+ spots, and ${mv.filter(down).length} of the ${mv.length} teams they left have slid 5+`);
   set("bk-moves-desc", STB.moves_dek || "Every coach who went from one FBS head job to another (or was fired and hired elsewhere), with each team's scoreboard rank at the end of last season and now.");
   set("bk-moves", `<div class="mvrow head"><span class="c">Coach</span><span>The team he left</span><span>The team he has now</span></div>` +
     BK.moves.map(m => `<div class="mvrow"><span class="c"><b>${m.coach}</b>${m.kind === "fired" ? ' <span class="rtag l">fired</span>' : ""}</span>` +
@@ -2484,9 +2654,10 @@ const rankMove = (a, b) => a && b ? `<span class="${b < a ? "mv-up" : b > a ? "m
   const ch = t => last(t.fpi_path).fpi - t.fpi_path[0].fpi, rec = t => last(t.fpi_path).fpi - t.fpi_path[Math.max(0, t.fpi_path.length - 5)].fpi;
   const riser = rec(KA) > rec(KB) ? KA : KB, other = riser === KA ? KB : KA, gap = last(KA.fpi_path).fpi - last(KB.fpi_path).fpi;
   const verb = t => rec(t) >= 1 ? "climbing" : rec(t) <= -1 ? "sliding" : "flat";
-  set("kf-traj-h", verb(KA) === "climbing" && verb(KB) === "climbing"
-    ? `Both are climbing: ${riser.team} faster, ${riser === KA ? "and" : "but"} ${KA.team} is still ${riser === KA ? "ahead" : "the better team"}`
-    : Math.abs(rec(KA) - rec(KB)) < 1 ? "Both are trending about the same" : `${riser.team} is the one trending up${riser === KB ? `, but ${KA.team} is still better` : ""}`);
+  const lastStep = t => last(t.fpi_path).fpi - t.fpi_path[t.fpi_path.length - 2].fpi, dipped = lastStep(KA) < 0 && lastStep(KB) < 0;
+  set("kf-traj-h", (verb(KA) === "climbing" && verb(KB) === "climbing"
+    ? `On FPI, both are climbing: ${riser.team} faster, ${riser === KA ? "and" : "but"} ${KA.team} is still ${riser === KA ? "ahead" : "the better team"}`
+    : Math.abs(rec(KA) - rec(KB)) < 1 ? "Both are trending about the same" : `On FPI, ${riser.team} is the one trending up${riser === KB ? `, but ${KA.team} is still better` : ""}`) + (dipped ? ", though both dipped last week" : ""));
   set("kf-traj-desc", `ESPN's FPI after each week: how many points better than an average team each one is on a neutral field. Over the last four weeks ${riser.team} is up ${fmt(rec(riser))} points and ${other.team} ${rec(other) >= 0 ? "up" : "down"} ${fmt(Math.abs(rec(other)))}; since Week 1, ${KA.team} is ${ch(KA) >= 0 ? "+" : "−"}${fmt(Math.abs(ch(KA)))} and ${KB.team} ${ch(KB) >= 0 ? "+" : "−"}${fmt(Math.abs(ch(KB)))}. ${KA.team} is still the better team by ${fmt(gap)}.`);
   set("kf-legend", [KA, KB].map(t => `<span class="key"><span class="ln" style="border-top-color:${colors[t.tid]}"></span>${t.team}</span>`).join("") +
     `<span class="key"><span class="ln dash"></span>Head-to-head game</span>`);
@@ -2514,13 +2685,13 @@ const rankMove = (a, b) => a && b ? `<span class="${b < a ? "mv-up" : b > a ? "m
   const games = W9.games, movers = games.filter(grows), coin = games.filter(g => g.p_upset != null && g.p_upset >= 0.4), best = ALERTS[0];
   set("wk-h1", `Week ${W9.week}: ${GOTD ? `${rn(GOTD.away_rank, GOTD.away)} at ${rn(GOTD.home_rank, GOTD.home)} leads the day` : `expect about ${word(Math.round(W9.expected_upsets))} upsets`}` +
     (recConfs.length ? `, and ${word(recConfs.length)} circle${recConfs.length === 1 ? "" : "s"} of suck could hit a record` : ""));
-  set("wk-dek", `About ${word(Math.round(W9.expected_upsets))} upsets expected in the ${games.length} games with a ranked team. The likeliest is ${rn(best.dog_rank, best.dog)} over ${rn(best.fav_rank, best.fav)} (${pct(best.p_upset)}).` +
+  set("wk-dek", `About ${word(Math.round(W9.expected_upsets))} upsets expected in the ${games.length} games with a ranked team. The likeliest is ${rn(best.dog_rank, best.dog)} over ${rn(best.fav_rank, best.fav)} (${pct(best.p_upset)}${best.p_upset > 0.5 ? `; an upset by rank, but FPI favors ${best.dog}` : ""}).` +
     (recSteps.length ? ` The likeliest route to a record circle of suck: if ${ifs(recSteps[0])}, the ${recSteps[0].conf}'s grows to ${recSteps[0].cycle} (${pct(recSteps[0].p)}).` : ""));
   statTiles("wk-stats", [
     [games.length, "Games with a ranked team", `Ranks from the Week ${PW} ${PN_POLL}`],
     [fmt(W9.expected_upsets), "Expected upsets", "from ESPN's FPI"],
     [coin.length, "Near coin flips", "ranked favorite 60% or less"],
-    [LW.length ? pct(pAnyRec) : "—", "Chance some conference sets a circle-of-suck record", LREC ? `longer than ${LREC}, the most by Week ${W9.week} since 2005` : ""],
+    [LW.length ? pct(pAnyRec) : "—", "Chance some conference sets a circle-of-suck record", LREC ? (LREC > LW[0].record_hist ? `longer than this year's ${LREC} (the 2005–25 high was ${LW[0].record_hist})` : `longer than ${LREC}, the most by Week ${W9.week} since 2005`) : ""],
   ]);
 
   // ---- the slate, by kickoff window ----
@@ -2551,13 +2722,13 @@ const rankMove = (a, b) => a && b ? `<span class="${b < a ? "mv-up" : b > a ? "m
     const shown = LW.filter(c => c.ladder.length && (c.now >= 10 || c.ladder.some(st => st.cycle >= 12 && st.p >= 0.02)));
     const rest = LW.filter(c => !shown.includes(c));
     set("lw-h", recConfs.length ? `${Word(recConfs.length)} circle${recConfs.length === 1 ? "" : "s"} of suck could set a record this week` : "What this week could do to the circles of suck");
-    set("lw-desc", `The most for any conference by Week ${W9.week} is ${LREC} teams (2005–25). Each card is a ladder: the fewest results that get each conference's loop to each new size, with the chance all of them happen (ESPN's FPI odds for each game). A bigger loop needs every result on its line; anything else that happens this week can only add to it.`);
+    set("lw-desc", `Before this year the most for any conference by Week ${W9.week} was ${LW[0].record_hist} teams (2005–25)${LREC > LW[0].record_hist ? `. ${andList(LW.filter(c => c.now === LREC).map(c => c.conf))} ${LW.filter(c => c.now === LREC).length > 1 ? "are" : "is"} already at ${LREC}, so a record now means ${LREC + 1} or more` : ""}. Each card is a ladder: the fewest results that get each conference's loop to each new size, with the chance all of them happen (ESPN's FPI odds for each game). A bigger loop needs every result on its line; anything else that happens this week can only add to it.`);
     const when = r => `${day(r.date)} ${time(r.date)}${r.network ? " · " + r.network : ""}`;
     set("lw-cards", shown.map(c => `<div class="lw-card${c.p_record > 0.005 ? " hot" : ""}"><div class="lw-head"><span class="cf">${c.conf}</span><span class="nw">${c.now} now · ${pct(c.p_grow)} to grow</span></div>` +
       c.ladder.filter(st => st.p >= 0.01).slice(0, 5).map(st => `<div class="lw-step"><span class="n${st.cycle > c.record_any ? " rec" : ""}">${st.cycle}</span>` +
         `<span>${st.results.map((r, i) => `${i ? "and " : "if "}<b>${r.winner}</b> beats ${r.loser}<span class="when">${when(r)}</span>`).join("")}${st.cycle > c.record_any ? `<span class="when" style="color:var(--accent-deep)">A record for this point</span>` : ""}</span><span class="p">${pctWP(st.p)}</span></div>`).join("") +
       `<div class="lw-foot">Biggest possible this week: ${c.biggest}${c.p_record > 0.005 ? ` · ${pct(c.p_record)} chance of a record, counting every way there` : ""}</div></div>`).join(""));
-    set("lw-note", rest.length ? `Elsewhere: ${andList(rest.map(c => `the ${c.conf} (${c.now} now, ${pct(c.p_grow)} chance it grows)`))}.` : "");
+    set("lw-note", rest.length ? `Elsewhere: ${andList(rest.map(c => `${c.conf === "C-USA" ? "Conference USA" : "the " + c.conf} (${c.now} now, ${pct(c.p_grow)} chance it grows)`))}.` : "");
   }
   set("wk-desc", `Upset chance comes from ESPN's FPI (the gap between the two teams plus home field), so anything over 50% means FPI thinks the poll has it backwards. Under each team: how it's done in chaos games this year (as an underdog against ranked teams, or as a ranked favorite). The circle-of-suck note says what either result would do to its conference's loop.`);
   const LT = Object.fromEntries(B.luck.teams.map(t => [t.tid, t]));
@@ -2591,6 +2762,140 @@ document.addEventListener("themechange", () => {
 new ResizeObserver(() => document.documentElement.style.setProperty("--app-header-h", document.getElementById("app-header").offsetHeight + "px"))
   .observe(document.getElementById("app-header"));
 set("data-updated", `Data updated ${new Date(B.generated + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`);
+
+// ======================================================================================
+// In Memoriam: the regular-season games each playoff expansion stopped caring about (formats.py)
+// ======================================================================================
+{
+  const M = B.memoriam, S = M.summary, T10 = S.top10_pair, TAB = M.tabs;
+  const STM = (B.stories && B.stories.memoriam) || {};
+  const mlogo = id => M.logos[id] ? `<img class="logo" alt="" src="${M.logos[id]}">` : "";
+  const FMT = [["bcs", "BCS"], ["4", "4 teams"], ["12", "12 teams"], ["24", "24 teams"]], FNAME = Object.fromEntries(FMT);
+  const SPAN = `${M.first}–${String(M.last).slice(2)}`, NS_ = M.contenders.length;
+  const mdate = d => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  const scoreLine = g => { const [w, l] = g.score.split("–");
+    const side = (id, r, name, pts, comma) => `<span class="side">${mlogo(id)}${r ? `<span class="r">#${r}</span>` : ""}${name} ${pts}${comma}</span>`;
+    return side(g.wid, g.wr, g.winner, w, ",") + side(g.lid, g.lr, g.loser, l, ""); };
+  // each obituary tells its own story (formats.obit_story): the stakes then, the drop, the ending, the seed it'd get now
+  const entry = g => { const ic = (STM.icons || {})[g.eid];
+    return `<div class="obit${g.wall ? " on-wall" : ""}" id="obit-${g.eid}"><div class="when">${mdate(g.date)} · ${ic ? `<span class="nm">${ic.name}</span>` : `${g.era} era${g.ccg ? " · title game" : ""}`}</div>` +
+    `<div class="score">${scoreLine(g)}</div><div class="then">${ic ? g.story.replace(/^(.+?\.) /, `$1 ${ic.color || ic.then} `) : g.story}</div></div>`; };
+
+  const B4 = TAB["bcs-4"], F12 = TAB["4-12"], T24 = TAB["12-24"];
+  const fourLoss = sum(M.contenders, c => c.four), most4 = M.contenders.reduce((a, c) => a.four > c.four ? a : c);
+  set("mem-h1", STM.h1 || "In loving memory of the regular season");
+  set("mem-dek", (STM.dek || `The playoff goes to 24 teams in 2027, and the Power 4 title games go away with it. Every expansion has let a few more teams off the hook for losses that used to end their seasons, and moved what's left of the stakes down the rankings, to the teams fighting over the last few spots. Replay each season since ${M.first} under each format: going to 4 teams forgave about <b>${B4.per_season}</b> season-ending losses a year, going to 12 forgave about <b>${F12.per_season}</b> more, and going to 24 will forgive about <b>${T24.per_season}</b> more. Pick an expansion below to pay your respects.`));
+  const NEWF = { 4: "4-team playoff", 12: "12-team playoff", 24: "24-team playoff" };
+  // the wall's heartbreaks by name (editorial/stories.json memoriam.icons), with what each would be worth in 2027
+  const CONFN = { SEC: "SEC", B1G: "Big Ten", B12: "Big 12", ACC: "ACC", P12: "Pac-12" };
+  const ICON = STM.icons || {}, OB = Object.fromEntries(Object.values(TAB).flatMap(t => t.obits).map(o => [o.eid, o]));
+  const in27 = eid => { const o = OB[eid], sd = o && o.lseed["24"];
+    return !sd ? "" : o.ccg && o.season < 2027 && CONFN[o.lconf] ? `2027: #${sd} seed, no title game` : `2027: #${sd} seed${sd <= 8 ? ", a bye" : ""}`; };
+  const tomb = g => { const ic = ICON[g.eid];
+    return `<div class="tomb" data-go="memoriam/obit-${g.eid}" data-tab="${g.old}-${g.new}"><div class="lg">${mlogo(g.wid)}<span class="sc">${g.score}</span>${mlogo(g.lid)}</div>` +
+    `<div class="yr">${g.season}</div>${ic ? `<div class="nick">${ic.name}</div>` : ""}` +
+    `<div class="m">${ic ? `${ic.short}. <span class="now">${in27(g.eid)}</span>` : `${g.winner} over ${g.lr ? `#${g.lr} ` : ""}${g.loser}${g.ccg ? " (title game)" : ""}`}</div>` +
+    `<div class="rip">RIP ${g.rip} · ${NEWF[g.new]}</div></div>`; };
+  const HIT = M.bowls.beloved, RIP24 = Math.max(...M.gallery.map(g => g.rip));
+  // the bowls a 24-team field guts, as tombstones after the games: founded to the last season before it
+  const bowlTomb = r => `<div class="tomb bowl" data-go="memoriam/s-bowls"><div class="lg">${r.logo ? `<img alt="" src="${r.logo}">` : ""}</div>` +
+    `<div class="yr">${r.since ? `${r.since}–` : ""}${RIP24 - 1}</div><div class="m">${r.bowl.replace(/ \(.*/, "")}: a team gone in ${r.hit === r.games ? `all ${r.games}` : `${r.hit} of ${r.games}`} since ${M.first}</div>` +
+    `<div class="rip">RIP ${RIP24} · ${NEWF[24]}</div></div>`;
+  const WALL = M.gallery.map(tomb).join("") + HIT.filter(r => r.logo).slice(0, 5).map(bowlTomb).join("");
+  // the front page mirrors the social cards: the trade (what 2027 gives up, what it adds), then the games we remember
+  const NSm = S.seasons, yrS = (k, f) => S[k][f] / NSm, halfS = v => { const r = Math.round(v * 2) / 2; return Math.floor(r) + (r % 1 ? "½" : ""); };
+  const threeLoss = sum(M.contenders, c => c.three) / M.contenders.length, BWm = M.bowls;
+  set("f-mem-hl", STM.front_hl || "A moment of silence for all of the games that used to matter...");
+  set("f-mem-dek", STM.front_dek || `Starting in 2027, every year: <b>4</b> Power 4 title games, gone. <b>${halfS(BWm.per_season)}</b> bowl games lose a team to the playoff. ` +
+    `<b>${halfS(yrS("top10_pair", "4") - yrS("top10_pair", "24"))}</b> top-10 showdowns stop deciding anything, and <b>${halfS(T24.per_season)}</b> season-ending losses become a shrug. ` +
+    `In their place: 8 first-round games that start out nearly twice as lopsided as the bowls, and about ${halfS(threeLoss)} teams with three or more losses in the field. ` +
+    `The Kick Six, Purdue's 49, the snow game, Vanderbilt's goalposts: we'll never forget them, and in 2027 they won't even matter. Here's when each one stopped, and the bowls going down with them.`);
+  set("f-mem-wall", WALL);
+  set("mem-wall", WALL);
+
+  statTiles("mem-stats", [
+    [B4.per_season, "losses a year that ended a ranked team's season, forgiven by the 4-team playoff", `replayed ${SPAN}`],
+    [F12.per_season, "more forgiven by 12 teams", `replayed ${SPAN}`],
+    [T24.per_season, "more that 24 teams will forgive", `replayed ${SPAN}`],
+    [(fourLoss / NS_).toFixed(1), "four-loss teams a year in a 24-team field", `${most4.four} in ${most4.season}`],
+  ]);
+
+  const VIEWS = [["bcs-4", "Lost to 4 teams (2014)"], ["4-12", "Lost to 12 teams (2024)"], ["12-24", "Losing to 24 teams (2027)"]];
+  const era_ = t => `${t.first}–${String(t.last).slice(2)}`;
+  const DESC = {
+    "bcs-4": t => `In the BCS years (${era_(t)}), two teams played for the title, and one loss in November could end a season. About ${t.era_per_season} ranked teams a year lost a game that cost them the title game and that a 4-team playoff would have let them survive.`,
+    "4-12": t => `With four teams (${era_(t)}), a ranked team's second loss was usually the end. About ${t.era_per_season} a year lost a game that kept them out and that a 12-team field would have let them survive.`,
+    "12-24": t => `The 12-team field (${era_(t)}) still turns a few losses into season-enders. About ${t.era_per_season} a year, and a 24-team field forgives every one of them. These are the ones we're about to lose.`,
+  };
+  set("mem-obits-h", "The departed");
+  set("mem-seg", VIEWS.map(([k, l]) => `<button data-v="${k}">${l}</button>`).join(""));
+  function setMemView(k) {
+    const t = TAB[k];
+    document.querySelectorAll("#mem-seg button").forEach(b => b.classList.toggle("on", b.dataset.v === k));
+    set("mem-obits-desc", DESC[k](t) + ` The biggest from each season, in order, including every game on the wall above. "Seed" is where the bigger field would have put them with the loss on their record.`);
+    set("mem-obits", t.obits.map(entry).join(""));
+    set("mem-now-h", t.now.length ? `${B.season} so far, using this week's ${PN_POLL}` : "");
+    set("mem-now", t.now.map(entry).join(""));
+  }
+  document.getElementById("mem-seg").addEventListener("click", e => { const b = e.target.closest("button"); if (b) setMemView(b.dataset.v); });
+  setMemView("12-24");
+  // a tile on the wall opens its write-up: switch to that expansion's tab before the router scrolls to it
+  document.addEventListener("click", e => { const t = e.target.closest(".tomb[data-tab]"); if (t) setMemView(t.dataset.tab); }, true);
+
+  const KINDS = [["contender", "A top-8 team loses", g => `Losses by teams that still finished in the committee's top 8 (${g.n} since ${M.first})`],
+    ["top10_pair", "Top 10 vs. top 10", g => `Regular-season games between two top-10 teams (${g.n})`],
+    ["upset_top5", "Unranked beats a top-5 team", g => `${g.n} of them, the Purdue-over-Ohio State kind`],
+    ["upset_bubble", "Unranked beats a #16–25 team", g => `${g.n} of them. The one kind of upset that matters more with 24 teams, because #16–25 is now the bubble.`]];
+  set("mem-toll-h", "The marquee games stop deciding anything");
+  set("mem-toll-desc", `How often each kind of game decided who made the field (flip the result and the field changes). The games at the top of the sport fade as the bracket grows. Upsets don't disappear so much as move down the rankings: knocking off a top-5 team almost never matters with 24 teams, while knocking off #20 matters more than ever, because that's where the last spots are decided.`);
+  const tollBars = g => FMT.map(([f, l]) => `<div class="toll-row"><span>${l}</span>${pbar(g[f] / g.n, f === "24" ? "var(--counter)" : "var(--ink-50)")}</div>`).join("");
+  set("mem-toll", KINDS.map(([k, label, n]) => `<div class="toll-kind"><div class="k">${label}</div><div class="n">${n(S[k])}</div>${tollBars(S[k])}</div>`).join(""));
+
+  const BW = M.bowls, P1 = BW.played.cfp, PB = BW.played.bowl, pc = v => Math.round(v * 100);
+  set("mem-bowls-h", "Also departed: the bowl game");
+  const RL = BW.ranked_left, CIT = HIT.find(r => r.bowl === "Citrus Bowl");
+  const src = (href, label) => `<a href="${href}" target="_blank" rel="noopener">${label}</a>`;
+  set("mem-bowls-desc", `The six New Year's bowls live on as playoff games. The rest never decided anything. What they had was the matchup: two good teams with a month to get ready. That's the part a 24-team field takes. Of the committee's final top 25, the bowls outside the playoff got about <b>${Math.round(RL["4"])}</b> a year with 4 teams and <b>${Math.round(RL["12"])}</b> with 12. With 24 they'd get about <b>${Math.round(RL["24"])}</b>.`);
+  set("mem-bowls-fate-h", "What happens to them");
+  const bowlFate = (tag, cls, html) => `<div class="row"><span class="rtag ${cls}">${tag}</span><span>${html}</span><span></span></div>`;
+  set("mem-bowls-fate", [
+    bowlFate("Announced", "", `<b>The six New Year's bowls</b> (Rose, Sugar, Orange, Cotton, Fiesta, Peach) keep the quarterfinals, on Dec. 31 and Jan. 1, and the semifinals. ${src("https://collegefootballplayoff.com/news/2026/11/9/24-team-expansion", "CFP")}`),
+    bowlFate("Announced", "", `<b>No other bowl gets a playoff game.</b> The first and second rounds go to campus: 16 of the 23 playoff games, up from 4. ${src("https://www.espn.com/college-football/story/_/id/50433738/cfp-playoff-24-team-format-faq", "ESPN")}`),
+    bowlFate("TBD", "tbd", `<b>Everyone else.</b> Their conference tie-ins and TV deals run out after this season, and nothing new is signed. The Power 4 have floated a 10-bowl consortium for their leftover teams. Bowl Season's director says it's "too soon to predict the number of bowl games." ${src("https://www.cbssports.com/college-football/news/college-football-bowl-games-future-college-football-playoff-expansion-24-teams/", "CBS")}`),
+    bowlFate("Counted", "", `<b>Who's left to invite.</b> Since ${M.first} the Citrus Bowl has hosted ${CIT.ranked} committee-ranked teams. A 24-team field takes ${CIT.ranked_pulled} of them. Last season's two most-watched non-playoff bowls, Michigan–Texas in the Citrus (9.1 million viewers) and BYU–Georgia Tech in the Pop-Tarts (8.7 million), would have lost all four teams. ${src("https://frontofficesports.com/article/bowl-games-face-uncertain-future-with-a-24-team-cfp/", "FOS")}`),
+  ].join(""));
+  set("mem-bowls-desc2", `By our count a 24-team field pulls teams out of about <b>${BW.per_season}</b> bowl games a year, beyond what 12 already takes, and about ${BW.both_per_season} of those lose both teams. They were good games: the median favorite was ${BW.lost_gap} points by scoreboard rating, ${pc(BW.close)}% were within a touchdown, and ${pc(BW.one_score)}% finished within one score. The first-round games that replace them start out ${(r => r >= 2 ? "more than twice as" : r >= 1.7 ? "nearly twice as" : r >= 1.3 ? "a lot more" : "more")(BW.early.first.median / BW.lost_gap)} lopsided: the median favorite is <b>${BW.early.first.median}</b> points, home field included, and ${BW.early.second.median} in the second round. Even close-looking playoff games haven't stayed close. The 12-team era's early rounds had a median favorite of ${P1.paper} points, and half were decided by 17 or more.`);
+  set("mem-bowls-list-h", "Bowls that would have lost both teams");
+  set("mem-bowls-list", BW.best.map(g => `<div class="row bowl-row"><span class="bl">${g.logo ? `<img alt="" src="${g.logo}">` : ""}</span><span>${mlogo(g.wid)}<b>${g.winner}</b> ${g.score} ${mlogo(g.lid)}${g.loser}<span class="sub">${g.bowl}</span></span><span class="mono">${g.season}</span></div>`).join(""));
+  set("mem-bowls-cmp-h", "How they finished");
+  const cmpRow = (label, v, color) => `<div class="toll-row" style="grid-template-columns:150px minmax(0,1fr)"><span>${label}</span>${pbar(v, color)}</div>`;
+  set("mem-bowls-cmp", `<div class="toll-kind"><div class="k">Within one score</div>${cmpRow("Evenly matched bowls", PB.one_score, "var(--ink-50)")}${cmpRow("Playoff early rounds", P1.one_score, "var(--counter)")}</div>` +
+    `<div class="toll-kind"><div class="k">Decided by 17 or more</div>${cmpRow("Evenly matched bowls", PB.blowout, "var(--ink-50)")}${cmpRow("Playoff early rounds", P1.blowout, "var(--counter)")}</div>`);
+  set("mem-bowls-hit-h", "Hardest hit, since " + M.first);
+  set("mem-bowls-hit", HIT.slice(0, 8).map(r => `<div class="row bowl-row"><span class="bl">${r.logo ? `<img alt="" src="${r.logo}">` : ""}</span><span><b>${r.bowl}</b><span class="sub">${r.both ? `${Word(r.both)} of them would have lost both teams` : "Never both teams"}</span></span><span class="mono">${r.hit} of ${r.games}</span></div>`).join(""));
+  set("mem-bowls-note", `Playoff early rounds: the ${P1.n} first-round games and quarterfinals since the field went to 12 in 2024. Evenly matched bowls: the ${PB.n} non-playoff bowls since ${M.first} with the two teams within 10 points by scoreboard rating. ${P1.n} games is a small sample.`);
+
+  set("mem-heirs-h", "In their place");
+  set("mem-heirs-desc", `The games a 24-team field would hang on instead: late-season games between two unranked teams that decided the last spots in the bracket and nothing under any other format. One per season. When an unranked team's upset ends someone's season with 24 teams, the team it knocks out has about ${fmt(S.unranked_upset["24_elim_losses"], 0)} losses on average.`);
+  set("mem-heirs", M.heirs.map(h => { const v = h.verdict["24"];
+    return `<div class="row"><span>${mlogo(h.wid)}</span><span><b>${h.winner}</b> (${h.wrec}) ${h.score} ${h.loser} (${h.lrec})` +
+      `<span class="sub">Sends ${andList(v.out)} in and ${andList(v.in)} home</span></span><span class="mono">${mdate(h.date)}</span></div>`; }).join(""));
+
+  const three = M.now ? M.now.field24.filter(t => t.losses >= 3).map(t => `${t.team} (${t.record})`) : [];
+  set("mem-cont-h", "Your future title contenders");
+  set("mem-cont-desc", `The worst record in a 24-team field each season. Usually 8–4, sometimes 8–5, and every one of them is five wins from a national title.` +
+    (three.length ? ` Today's field would include ${andList(three)}.` : ""));
+  set("mem-cont", M.contenders.map(c => `<div class="row"><span>${mlogo(c.last.tid)}</span><span><b>${c.last.team}</b> (${c.last.record}), the #${c.last.seed} seed` +
+    `<span class="sub">${c.four ? `${Word(c.four)} ${c.four === 1 ? "team" : "teams"} with 4+ losses in` : "No four-loss teams in"}, ${c.three} with 3+</span></span><span class="mono">${c.season}</span></div>`).join(""));
+
+  const F = M.fit;
+  set("mem-how", `<p><b>The rankings.</b> The committee's final rankings for each season it's picked a playoff (${SPAN}, skipping 2020), plus this week's ${PN_POLL} for ${B.season}. The BCS is stood in for by the committee's top 2, since the BCS formula is gone.</p>` +
+    `<p><b>The formats.</b> BCS: top 2. 4 teams: top 4. 12 teams: the five highest-ranked conference champions plus the next seven; byes go to the top four seeds, except in 2024, when they went to the four best-ranked champions. 24 teams (2027): the Power 4 champions (Power 5 before 2024) plus the best-ranked Group of 5 (now 6) champion, then at-large teams to 24, with the top 8 getting byes. The 24-team format has no Power 4 title games, so its replay crowns those champions on regular-season conference record (ties to the better-ranked team) and gives each title-game loser its loss back.</p>` +
+    `<p><b>Flipping a game.</b> Every FBS game before the final rankings gets replayed the other way, one at a time. In the committee's final rankings, a loss is worth about <b>${fmt(F.loss_power, 1)}</b> spots for a Power 4 team (${fmt(F.loss_g5, 1)} for a Group of 5 team) once you account for how good the team is (its scoreboard rating) and its conference. So the loser moves up that much, the winner down that much, and a flipped conference title game also hands the other team the title. Everything else stays as it happened, including the rest of each conference race. Teams outside the 25 are slotted in behind it by the same fit.</p>` +
+    `<p><b>Reading the strip.</b> "Season over": the team misses the field with the loss and makes it with a win. "In either way" or "Out either way": the result doesn't change whether the team is in. "Cost a bye": in either way, but a win would have changed the team's own first-round bye. "Byes shuffled": in either way, and the result moved someone else's bye. "Changed the field": the loser isn't affected, but someone else gets in or out. The numbers in parentheses are the team's seed with the loss.</p>` +
+    `<p><b>The bowls.</b> A bowl "loses" a team when that team would be in a 24-team field but not a 12-team one. On-paper gaps are the difference in scoreboard ratings from the regular season, plus a fitted home-field edge where there's a home team. In a 24-team bracket, seeds 9–16 host 17–24 and seeds 1–8 host the second round (assuming the higher seed advances).</p>` +
+    `<p><b>Each expansion</b> counts losses by teams ranked at kickoff that end their season under the old format while the team is in the new format's field either way. "That year" is what actually happened: the record and final ranking at selection, then the bowl or playoff result.</p>`);
+}
 
 // ======================================================================================
 // Routing: #page or #page/anchor (old tab names still work)
