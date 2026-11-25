@@ -160,6 +160,24 @@ layout: null
   .row .rtag.l { color: var(--counter); }
   .row img, .logo { width: 20px; height: 20px; object-fit: contain; vertical-align: -5px; margin-right: 5px; }
   .row[data-go]:hover b { color: var(--accent-deep); }
+  /* title race (races.py) */
+  .race-row { grid-template-columns: minmax(0, 1fr) minmax(110px, 0.9fr); }
+  .race-odds .race-row { grid-template-columns: minmax(0, 1.3fr) minmax(120px, 1fr) 130px; }
+  .race-row.head { font: 500 9.5px var(--font-mono); letter-spacing: 0.5px; text-transform: uppercase; color: var(--ink-30); border-top: 0; }
+  .race-row .iff { font: 500 11px var(--font-mono); color: var(--ink-50); text-align: right; white-space: nowrap; }
+  .race-row .iff .w { color: var(--accent-deep); } .race-row .iff .l { color: var(--counter); }
+  .race-paths { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px 40px; margin-top: 14px; }
+  .race-paths .rp-h { display: flex; align-items: center; gap: 6px; font-size: 15px; color: var(--ink-85); padding-bottom: 6px; }
+  .race-paths .rp-h .rtag { margin-left: auto; font: 600 12px var(--font-mono); color: var(--accent-deep); }
+  .race-paths .row { grid-template-columns: 40px minmax(0, 1fr); }
+  .race-steps { margin: 14px 0 0; padding-left: 22px; max-width: 780px; font-size: 14.5px; line-height: 1.55; color: var(--ink-65); }
+  .race-steps li { margin: 8px 0; } .race-steps b { color: var(--ink-85); }
+  .race-game .sub { margin-top: 2px; }
+  @media (max-width: 640px) {
+    .race-odds .race-row { grid-template-columns: minmax(0, 1fr) 110px; }
+    .race-odds .race-row .iff { grid-column: 1 / -1; text-align: left; }
+    .race-odds .race-row.head .iff { display: none; }
+  }
   .list-head { font: 500 9.5px var(--font-mono); letter-spacing: 0.5px; text-transform: uppercase; color: var(--ink-30); margin: 18px 0 6px; }
   .pbar { display: flex; align-items: center; gap: 8px; min-width: 0; }
   .pbar .track { flex: 1; height: 8px; background: var(--bg-medium); border-radius: 4px; overflow: hidden; min-width: 40px; }
@@ -602,14 +620,13 @@ layout: null
     <a class="more" href="#memoriam">Pay your respects<i data-lucide="arrow-right"></i></a>
   </article>
   <div class="fgrid lead-row">
-    <article class="story lead" data-go="trends/s-top">
-      <div class="kicker"><i data-lucide="activity"></i>Top of the field</div>
-      <h2 class="hl" id="f-lead-hl"></h2>
-      <p class="dek" id="f-lead-dek"></p>
-      <div class="mini-label" id="f-lead-chart-h"></div>
-      <div class="chart" id="f-toploss"></div>
-      <div id="f-lead-list" style="margin-top:6px"></div>
-      <a class="more" href="#trends/s-top">How bunched up is the top?<i data-lucide="arrow-right"></i></a>
+    <article class="story lead" data-go="race">
+      <div class="kicker"><i data-lucide="flag"></i><span id="f-race-kicker"></span></div>
+      <h2 class="hl" id="f-race-hl"></h2>
+      <p class="dek" id="f-race-dek"></p>
+      <div class="mini-label" id="f-race-h"></div>
+      <div id="f-race"></div>
+      <a class="more" href="#race">Every path to the title game<i data-lucide="arrow-right"></i></a>
     </article>
     <aside class="story" data-go="week">
       <div class="kicker"><i data-lucide="calendar-clock"></i><span id="f-week-kicker"></span></div>
@@ -651,19 +668,58 @@ layout: null
       <div><div class="mini-label" id="f-wp-label"></div>
       <div class="chart" id="f-wp"></div></div>
     </article>
-    <article class="story" data-go="trends/s-hangover">
-      <div class="kicker"><i data-lucide="beer"></i>Hangover watch</div>
-      <h3 class="hl" id="f-hang-hl"></h3>
-      <p class="dek" id="f-hang-dek"></p>
-      <div class="picto sm" id="f-hang"></div>
+    <article class="story" data-go="trends/s-ot">
+      <div class="kicker"><i data-lucide="timer"></i>Overtime</div>
+      <h3 class="hl" id="f-ot-hl"></h3>
+      <p class="dek" id="f-ot-dek"></p>
+      <div id="f-ot"></div>
     </article>
-    <article class="story" data-go="trends/s-blown">
-      <div class="kicker"><i data-lucide="flame"></i>Blown leads</div>
-      <h3 class="hl" id="f-blown-hl"></h3>
-      <p class="dek" id="f-blown-dek"></p>
-      <div id="f-blown"></div>
+    <article class="story" data-go="race/s-race-arc">
+      <div class="kicker"><i data-lucide="trending-up"></i><span id="f-arc-kicker"></span></div>
+      <h3 class="hl" id="f-arc-hl"></h3>
+      <p class="dek" id="f-arc-dek"></p>
+      <div class="chart" id="f-arc"></div>
     </article>
   </div>
+</div>
+
+<!-- ============================== TITLE RACE ============================== -->
+<div class="page" data-page="race" hidden>
+  <div class="page-head"><div class="kicker"><i data-lucide="flag"></i><span id="rc-kicker"></span></div><h1 id="rc-h1"></h1><p class="tagline" id="rc-dek"></p></div>
+  <div class="stats" id="rc-stats"></div>
+  <section id="s-race-odds">
+    <h2 id="rc-odds-h"></h2>
+    <p class="desc" id="rc-odds-desc"></p>
+    <div class="race-odds" id="rc-odds"></div>
+    <div class="list-head" id="rc-match-h"></div>
+    <div id="rc-match"></div>
+  </section>
+  <section id="s-race-arc" hidden>
+    <h2 id="arc-h"></h2>
+    <p class="desc" id="arc-desc"></p>
+    <div class="legend"><span class="key"><span class="sw" style="background:var(--accent)"></span>AP poll</span><span class="key"><span class="sw" style="background:var(--ink-65)"></span>ESPN's FPI</span></div>
+    <div class="chart" id="c-arc"></div>
+    <div class="list-head" id="arc-log-h"></div>
+    <div id="arc-log"></div>
+    <p class="note" id="arc-note" style="margin-top:12px"></p>
+  </section>
+  <section id="s-race-paths">
+    <h2 id="rc-paths-h"></h2>
+    <p class="desc" id="rc-paths-desc"></p>
+    <div class="race-paths" id="rc-paths"></div>
+  </section>
+  <section id="s-race-tie">
+    <h2 id="rc-tie-h"></h2>
+    <p class="desc" id="rc-tie-desc"></p>
+    <ol class="race-steps" id="rc-tie-steps"></ol>
+    <p class="note" id="rc-tie-note" style="margin-top:12px"></p>
+  </section>
+  <section id="s-race-games">
+    <h2 id="rc-games-h"></h2>
+    <p class="desc" id="rc-games-desc"></p>
+    <div id="rc-games"></div>
+    <p class="note" id="rc-games-note" style="margin-top:12px"></p>
+  </section>
 </div>
 
 <!-- ============================== THE POLL ============================== -->
@@ -918,6 +974,21 @@ layout: null
         <div id="blown-list"></div>
       </div>
     </div>
+  </section>
+  <section id="s-ot">
+    <h2 id="ot-h"></h2>
+    <p class="desc" id="ot-desc"></p>
+    <div class="two">
+      <div>
+        <div class="list-head" style="margin-top:0" id="ot-dist-h"></div>
+        <div id="ot-dist"></div>
+      </div>
+      <div>
+        <div class="list-head" style="margin-top:0" id="ot-list-h"></div>
+        <div id="ot-list"></div>
+      </div>
+    </div>
+    <p class="note" id="ot-note" style="margin-top:12px"></p>
   </section>
   <section id="s-att">
     <h2 id="att-h"></h2>
@@ -1268,7 +1339,10 @@ const TL = TR.logos, logo = id => (TL[id] || X.logos[id] || LP.logos[id] || IND.
 // ======================================================================================
 // Header: masthead, ticker, section bar
 // ======================================================================================
-const SECTIONS = [["front", "Front page"], ["memoriam", "In Memoriam"], ["poll", "The poll"], ["upsets", "Upsets"], ["loops", "Circles of suck"], ["champs", (B.stories?.champs?.kicker) || "Team in focus"],
+// the conference title race (races.py), while one is still undecided, and its stories.json copy
+const RC = (B.races && B.races.races || []).find(r => r.contenders.some(c => !c.clinched)), STR = (B.stories && B.stories.race) || {};
+const RACE_NAME = RC && `${RC.conf === "Big Ten" ? "B1G" : RC.conf} race`;   // the race page's name in the nav and its kickers
+const SECTIONS = [["front", "Front page"], ...(RC ? [["race", RACE_NAME]] : []), ["memoriam", "In Memoriam"], ["poll", "The poll"], ["upsets", "Upsets"], ["loops", "Circles of suck"], ["champs", (B.stories?.champs?.kicker) || "Team in focus"],
                   ["trends", "Trends"], ["breakups", "Breakups"], ["week", `Week ${W9.week}`]];
 set("sec-links", SECTIONS.map(([k, l]) => `<a href="#${k}" data-sec="${k}">${l}</a>`).join(""));
 const secbar = document.getElementById("secbar");
@@ -1749,7 +1823,7 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
 
   // ---- the poll ----
   set("f-poll-hl", POLL_HL);
-  set("f-poll-dek", `And it's mostly the SEC beating up on itself. <b>${cur.sec_intra_losses}</b> of those losses are SEC teams losing to other SEC teams, when a normal year has about ${fmt(mean("sec_intra_losses"), 0)}. Only <b>${cur.unbeaten}</b> unbeaten teams are left, ${standing("unbeaten", "fewest").replace(/^the /, "the ")}.`);
+  set("f-poll-dek", `And it's mostly the SEC beating up on itself. <b>${cur.sec_intra_losses}</b> of those losses are SEC teams losing to other SEC teams, when a normal year has about ${fmt(mean("sec_intra_losses"), 0)}. ${cur.unbeaten === 1 ? "Only <b>one</b> unbeaten team is left" : `Only <b>${cur.unbeaten}</b> unbeaten teams are left`}, ${standing("unbeaten", "fewest").replace(/^the /, "the ")}.`);
   chart("f-seasons", drawLossColumns);
 
   // ---- the champs ----
@@ -1782,7 +1856,8 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
       const wk = Math.max(...HG.current.map(t => t.next_week)), lw = HG.current.filter(t => t.next_week === wk), won = lw.filter(t => t.next_won).length;
       return lw.length ? `Last week's giant-killers went ${won}–${lw.length - won}. This year, ${HC.n - HC.wins} of ${HC.n} lost their next game.` : `${HC.n - HC.wins} of ${HC.n} top-10 knockouts were followed by a loss`; })());
   set("f-hang-dek", `Teams that knocked off a top-10 team this year went ${HC.wins}–${HC.n - HC.wins} in their very next game. Normally about ${pct(1 - HG.hist_rate)} lose it.` + (PEND.length ? ` This week's, with ESPN's FPI chance each one wins:` : ""));
-  document.getElementById("f-hang").className = PEND.length ? "" : "picto sm";
+  const fh = document.getElementById("f-hang");
+  if (fh) fh.className = PEND.length ? "" : "picto sm";
   set("f-hang", PEND.length ? PEND.map(t => `<div class="row"><span class="wk">Wk ${t.next_week}</span><span>${logo(t.tid)}<b>${rn(t.now, t.team)}</b> ${t.next_home} ${rn(t.next_opp_rank, t.next_opp)}<span class="sub">Just beat #${t.beat_rank} ${t.beat}</span></span>` +
       `<span class="rtag${t.win != null && t.win < 0.6 ? " l" : ""}">${t.win != null ? pct(t.win) : ""}</span></div>`).join("")
     : HG.current.filter(c => !c.next_won).sort((a, b) => a.week - b.week).map(c =>
@@ -1832,7 +1907,7 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
     [lastBad.length >= 3 ? "part" : "no", lastBad.length >= 3 ? "Sort of" : "Not really", "Voters are slow on last year's bad teams",
       outs.length ? `${Word(outs.length)} unranked ${outs.length === 1 ? "team is" : "teams are"} top 25 by scoreboard, and ${lastBad.length === outs.length ? (outs.length === 1 ? "it" : "all of them") : word(lastBad.length)} finished last year outside the top 25 or outside FBS (${andList(lastBad.map(t => t.prior_results_rank ? `${t.team} #${t.prior_results_rank} → #${t.results_rank}` : `${t.team}, FCS last year → #${t.results_rank}`))}). ` +
         `ESPN's FPI agrees on ${fpiToo.length ? andList(fpiToo.map(t => t.team)) : "none of them"}${fpiToo.length < outs.length ? ", so some of that is the scoreboard rating being generous" : ""}. ` +
-        `None of this explains the losses, though: ${c.ranked_outside_results_top40 ? `${c.ranked_outside_results_top40} ranked teams are` : "no ranked team is"} outside the scoreboard top 40 (a normal year has about ${fmt(h.ranked_outside_results_top40, 0)}).` : `Every team in the scoreboard top 25 is ranked.`],
+        `None of this explains the losses, though: ${c.ranked_outside_results_top40 ? `${word(c.ranked_outside_results_top40)} ranked ${c.ranked_outside_results_top40 === 1 ? "team is" : "teams are"}` : "no ranked team is"} outside the scoreboard top 40 (a normal year has about ${fmt(h.ranked_outside_results_top40, 0)}).` : `Every team in the scoreboard top 25 is ranked.`],
     ["no", "Not really", "Voters going easy on SEC teams",
       `SEC teams that lost dropped about ${fmt(L.current_resid.SEC.mean, 1)} spots less than you'd expect, but that's too small and noisy to call it a bias. Winners jumped a lot, mostly because the teams above them kept losing.`],
   ];
@@ -1874,8 +1949,8 @@ const take = g => { const a = autoTake(g), e = (ST.takes || {})[g.eid];
         `<span><b>${t.team}</b> <span style="color:var(--ink-35)">· ${t.weeks > 1 ? `Weeks ${t.first_week ?? t.last_week - t.weeks + 1}–${t.last_week} (median)` : `Week ${t.last_week}`}: ${three(t)}<br>now: ${three({ epa: t.now_epa, fpi: t.now_fpi, sb: t.now_sb })}</span></span><span class="rtag ${cls}">${tag}</span></div>`; };
     set("yr-snubs", early.length ? early.map(erow).join("") : `<div class="row"><span></span><span>None</span><span></span></div>`);
     set("yr-snub-note", early.length ? `From Week ${PQ.weeks[0]} on, ${word(early.length)} unranked one-loss power-conference ${early.length > 1 ? "teams were" : "team was"} top 25 on at least one measure${early.some(t => t.verdict === "snub") ? ` (${nm(early.filter(t => t.verdict === "snub"))} top 20 on all three)` : ""}. ` +
-      [by("ranked").filter(t => t.verdict === "snub").length && `${nm(by("ranked").filter(t => t.verdict === "snub"))} made the poll later, so the voters were slow`,
-       by("ranked").filter(t => t.verdict !== "snub").length && `${nm(by("ranked").filter(t => t.verdict !== "snub"))} made the poll later, once the other measures caught up`,
+      [by("ranked").filter(t => t.verdict === "snub").length && `${nm(by("ranked").filter(t => t.verdict === "snub"))} got ranked later, so leaving ${by("ranked").filter(t => t.verdict === "snub").length > 1 ? "them" : "it"} out was a miss`,
+       by("ranked").filter(t => t.verdict !== "snub").length && `${nm(by("ranked").filter(t => t.verdict !== "snub"))} got ranked later, once the other measures caught up`,
        by("faded").length && `${nm(by("faded"))} faded, so leaving ${by("faded").length > 1 ? "them" : "it"} out held up`,
        by("split").length && `${nm(by("split"))} ${by("split").length > 1 ? "are" : "is"} still unranked and the measures now split on ${by("split").length > 1 ? "them" : "it"}`,
        ...by("held").map(t => { const n = t.now_losses - t.losses_then;
@@ -2379,14 +2454,14 @@ ledgerText(ledgerView);
     `<div class="sub">${t.pre ? "#" + t.pre : "Unranked"} → ${t.now ? "#" + t.now : "unranked"} · scoreboard #${t.results ?? "—"} · last year #${t.prior ?? "—"}</div></div>` +
     `<span class="mv" style="color:${t.delta > 0 ? "var(--accent-deep)" : "var(--counter)"}">${t.delta > 0 ? "▲" : "▼"} ${Math.abs(t.delta)}</span></div>`;
   set("moves-list", `<div class="list-head" style="margin-top:0">Climbers</div>${up.map(mrow).join("")}<div class="list-head">Fallers</div>${down.map(mrow).join("")}`);
-  const ucla = MV.current[0];
+  const ucla = MV.risers.filter(r => r.season === B.season).sort((a, b) => b.prior - a.prior)[0];   // this year's furthest-from-nowhere top-10 team
   const pastR = MV.risers.filter(r => r.season < B.season), jump = 1 + pastR.filter(r => r.prior > ucla.prior).length, tied = pastR.some(r => r.prior === ucla.prior);
   set("risers-h", `Out of nowhere: ${ucla.team} ${tied ? "ties" : "is"} the ${jump === 1 ? "" : ord(jump) + "-"}biggest jump since 2006`);
   set("risers-list", MV.risers.slice(0, 10).map(r => `<div class="row" ${r.season === B.season ? 'style="background:var(--accent-bg-soft)"' : ""}><span class="wk">${r.season}</span>` +
     `<span>${TL[r.tid] ? `<img alt="" src="${TL[r.tid]}">` : ""}<b>${r.team}</b> #${r.rank} after finishing #${r.prior} the year before</span><span></span></div>`).join(""));
   const re = MV.risers_by_era, eras = Object.keys(re), top2 = MV.fallers.filter(f => f.pre <= 2 && f.season < B.season), top2Now = MV.fallers.filter(f => f.pre <= 2 && f.season === B.season);
   const era12 = MV.risers.filter(r => r.season >= 2024);
-  set("risers-note", `These jumps bunched up in ${eras[2].split(" ")[0]}, the first portal-and-NIL years (${fmt(re[eras[2]], 1)} a season, vs about ${fmt((re[eras[0]] + re[eras[1]]) / 2, 1)} before). The 12-team era has ${word(era12.length)} so far (${andList(era12.map(r => `${r.team} ${r.season}`))}). Going the other way, ${MV.fallers_current} preseason top-10 teams are already unranked (normally about ${fmt(MV.fallers_hist_mean, 1)})` +
+  set("risers-note", `These jumps bunched up in ${eras[2].split(" ")[0]}, the first portal-and-NIL years (${fmt(re[eras[2]], 1)} a season, vs about ${fmt((re[eras[0]] + re[eras[1]]) / 2, 1)} before). The 12-team era has ${word(era12.length)} so far (${andList(era12.map(r => `${r.team} ${r.season}`))}). Going the other way, ${MV.fallers_current === 1 ? "one preseason top-10 team is" : word(MV.fallers_current) + " preseason top-10 teams are"} already unranked (normally about ${fmt(MV.fallers_hist_mean, 1)})` +
     (top2Now.length ? `, including preseason #${top2Now[0].pre} ${top2Now[0].team}, which had only happened ${top2.length === 1 ? "once" : word(top2.length) + " times"} before (${andList(top2.map(f => `${f.team} in ${f.season}`))})` : "") + ".");
 
   set("hang-h", `Beat a top-10 team, lose the next week: ${HC.n - HC.wins} of ${HC.n} this year`);
@@ -2792,6 +2867,152 @@ set("data-updated", `Data updated ${new Date(B.generated + "T12:00:00").toLocale
     `<p><b>The bowls.</b> A bowl "loses" a team when that team would be in a 24-team field but not a 12-team one. On-paper gaps are the difference in scoreboard ratings from the regular season, plus a fitted home-field edge where there's a home team. In a 24-team bracket, seeds 9–16 host 17–24 and seeds 1–8 host the second round (assuming the higher seed advances).</p>` +
     `<p><b>Each expansion</b> counts losses by teams ranked at kickoff that end their season under the old format while the team is in the new format's field either way. "That year" is what actually happened: the record and final ranking at selection, then the bowl or playoff result.</p>`);
 }
+
+// ======================================================================================
+// TITLE RACE: every way the last conference games can go, through the official tiebreakers (races.py)
+// ======================================================================================
+(function race() {
+  if (!RC) return;
+  const RL = B.races.logos, rlogo = id => RL[id] ? `<img class="logo" alt="" src="${RL[id]}">` : "";
+  const nm = Object.fromEntries([...RC.standings.map(t => [t.tid, t.team]), ...RC.games.flatMap(g => [[g.home_id, g.home], [g.away_id, g.away]])]);
+  const odds = p => p > 0.99999 ? "in" : p > 0.995 ? ">99%" : p < 0.005 && p > 0 ? "<1%" : pct(p);
+  const live = RC.contenders.filter(c => c.p_in > 0), shown = live.filter(c => c.p_in >= 0.005), longs = live.filter(c => c.p_in < 0.005), top = RC.matchups[0];
+  const nextLine = c => c.next ? `${c.next.home ? "vs." : "at"} ${c.next.opp} · FPI ${pct(c.next.p_win)}` : "Done";
+  const bar = p => `<span class="pbar"><span class="track"><span class="fill" style="width:${Math.max(p * 100, 1)}%"></span></span><span class="pv">${odds(p)}</span></span>`;
+  const cond = x => `${x.winner} over ${x.loser}`;
+
+  // ---- front page ----
+  set("f-race-kicker", RACE_NAME);
+  set("f-race-hl", STR.front_hl || `${top.a} vs. ${top.b} is the likeliest ${RC.conf} title game, at ${pct(top.p)}`);
+  set("f-race-dek", STR.front_dek || `${Word(live.length)} teams are still alive for two spots, with one week left.`);
+  set("f-race-h", `Chance to make the title game, from all ${RC.outcomes} ways the last week can go`);
+  set("f-race", shown.map(c => `<div class="row race-row"><span>${rlogo(c.tid)}<b>${c.team}</b> ${c.w}–${c.l}<span class="sub">${nextLine(c)}</span></span>${bar(c.p_in)}</div>`).join("") +
+    (longs.length ? `<div class="caption" style="margin-top:6px">Also alive, barely: ${andList(longs.map(c => c.team))} (under 1%)</div>` : ""));
+
+  // ---- the page ----
+  set("rc-kicker", RACE_NAME);
+  set("rc-h1", STR.h1 || `${Word(live.length)} teams, two spots, one week left`);
+  set("rc-dek", STR.dek || "");
+  statTiles("rc-stats", [
+    [live.length, `teams still alive for the two spots in the ${RC.conf} title game`],
+    [RC.outcomes, `ways the last ${word(RC.games.length)} conference games can go, each one run through the tiebreakers`],
+    [pct(top.p), `chance it's ${top.a} vs. ${top.b}, the likeliest title game`],
+    [pct(RC.unsettled), `of the chance that hangs on a line the rulebook doesn't spell out (below)`],
+  ]);
+  set("rc-odds-h", STR.odds_h || "Who gets to Indianapolis");
+  set("rc-odds-desc", STR.odds_desc || `Each team's chance to make the title game, from every combination of results in the last week, weighted by ESPN's FPI chance in each game. "If they win" and "if they lose" are the same chance after their own game.`);
+  set("rc-odds", `<div class="row race-row head"><span>Team · conference record · last game</span><span>Title game</span><span class="iff">If they win / lose</span></div>` +
+    live.map(c => `<div class="row race-row"><span>${rlogo(c.tid)}<b>${c.team}</b> ${c.w}–${c.l}<span class="sub">${nextLine(c)}</span></span>${bar(c.p_in)}` +
+      `<span class="iff">${c.next ? `<span class="${c.p_in_if_win > c.p_in + 0.005 ? "w" : ""}">${odds(c.p_in_if_win)}</span> / <span class="${c.p_in_if_loss < 0.005 ? "l" : ""}">${c.p_in_if_loss < 0.0005 ? "out" : odds(c.p_in_if_loss)}</span>` : ""}</span></div>`).join(""));
+  set("rc-match-h", "The likeliest title games");
+  set("rc-match", RC.matchups.filter(m => m.p >= 0.005).slice(0, 6).map(m => `<div class="row race-row"><span>${rlogo(m.a_id)}<b>${m.a}</b> vs. ${rlogo(m.b_id)}<b>${m.b}</b></span>${bar(m.p)}</div>`).join("") +
+    `<div class="caption" style="margin-top:6px">Chance to win the title game, by FPI at a neutral site: ${andList(shown.filter(c => c.p_champ >= 0.005).sort((a, b) => b.p_champ - a.p_champ).map(c => `${c.team} ${pct(c.p_champ)}`))}.</div>`);
+
+  set("rc-paths-h", STR.paths_h || "Every way in");
+  set("rc-paths-desc", STR.paths_desc || `The fewest results each team needs. Any one line gets them in (the lines overlap, so their chances don't add up).`);
+  // each team's lines worth reading (1%+; a long shot's likeliest one), and how many more there are
+  const lines = c => c.paths.filter((p, i) => p.p >= 0.01 || (i === 0 && c.p_in < 0.01));
+  set("rc-paths", live.filter(c => !c.clinched).map(c => { const ls = lines(c), more = c.paths.length - ls.length;
+    return `<div class="rp"><div class="rp-h">${rlogo(c.tid)}<b>${c.team}</b><span class="rtag">${odds(c.p_in)}</span></div>` +
+      ls.map(p => `<div class="row"><span class="wk">${odds(p.p)}</span><span>${p.conditions.map(cond).join(" · ")}${p.settled ? "" : ` <span class="rtag l">rules call</span>`}</span></div>`).join("") +
+      (more ? `<div class="caption" style="margin-top:4px">Plus ${word(more)} longer shot${more === 1 ? "" : "s"}, each under 1%</div>` : "") + `</div>`; }).join(""));
+
+  const steps = STR.tie_steps || [];
+  document.getElementById("s-race-tie").hidden = !steps.length;
+  set("rc-tie-h", STR.tie_h || "");
+  set("rc-tie-desc", STR.tie_desc || "");
+  set("rc-tie-steps", steps.map(t => `<li>${t}</li>`).join(""));
+  set("rc-tie-note", STR.tie_note || "");
+
+  const G2 = [...RC.games].sort((a, b) => b.stakes - a.stakes).filter(g => g.stakes > 0.01);
+  set("rc-games-h", STR.games_h || "The games that decide it");
+  set("rc-games-desc", STR.games_desc || `Each of the last ${RC.conf} games, the teams whose chances it moves, and by how much (percentage points between the two results). FPI's chance for the home team in parentheses.`);
+  set("rc-games", G2.map(g => {
+    const who = Object.entries(g.swing).sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]));
+    return `<div class="row race-game"><span class="wk">${day(g.date)}</span><span><b>${rlogo(g.away_id)}${g.away} at ${rlogo(g.home_id)}${g.home}</b> (${pct(g.p_home)})` +
+      `<span class="sub">${who.map(([t, d]) => `${nm[t]} ${t === (d > 0 ? g.home_id : g.away_id) ? "must win" : `wants ${d > 0 ? g.home : g.away}`} (${fmt(Math.abs(d) * 100, 0)})`).join(" · ")}</span></span><span class="rtag">${g.network || ""}</span></div>`; }).join(""));
+  set("rc-games-note", STR.games_note || `Tiebreakers follow the <a href="${RC.rules_url}">Big Ten's official procedure</a>. Where it doesn't say how to rank common opponents that finish tied in the standings, they're compared as a group, as the Big Ten's 2020 rules spelled out; lines marked "rules call" depend on that reading. Win chances are from ESPN's FPI and home field, the same as the watch guide.`);
+})();
+
+// ======================================================================================
+// ARC: one team's season, where the AP poll and ESPN's FPI had it each week (stories.json "arc"; indiana.py + export_brief)
+// ======================================================================================
+function drawArc(svg, W, small) {
+  const A = B.arc, H = small ? 150 : (W < 480 ? 210 : 240), m = { t: small ? 8 : 16, r: 20, b: 22, l: small ? 26 : 34 }, NR = 28;
+  size(svg, W, H);
+  const n = last(A.ap).week, x = w => m.l + (W - m.l - m.r) * w / n, y = r => m.t + (H - m.t - m.b) * ((r ?? NR) - 1) / (NR - 1);
+  for (const r of small ? [1, 10, 20] : [1, 10, 20, 25]) { el("line", { x1: m.l, x2: W - m.r, y1: y(r), y2: y(r), stroke: C.grid }, svg);
+    txt({ x: m.l - 6, y: y(r) + 3.5, "text-anchor": "end", "font-size": 10, fill: C.ink35 }, `#${r}`, svg); }
+  txt({ x: m.l - 6, y: y(NR) + 3.5, "text-anchor": "end", "font-size": 10, fill: C.ink35 }, "NR", svg);
+  el("line", { x1: m.l, x2: W - m.r, y1: y(NR), y2: y(NR), stroke: C.axis, "stroke-dasharray": "2 3" }, svg);
+  const k = labelEvery((W - m.l - m.r) / n, small ? 34 : 40);
+  for (let w = 0; w <= n; w++) if (w % k === 0 || w === n) txt({ x: x(w), y: H - 6, "text-anchor": "middle", "font-size": 10, fill: C.ink35 }, w ? `WK ${w}` : "PRE", svg);
+  // losses: a tick on the floor under the week they happened
+  A.season_log.filter(g => g.score < g.opp_score).forEach(g => {
+    el("line", { x1: x(g.week), x2: x(g.week), y1: m.t, y2: y(NR), stroke: C.counter, "stroke-opacity": 0.35, "stroke-dasharray": "2 3" }, svg);
+    if (!small) txt({ x: x(g.week) + 3, y: m.t + 9, "font-size": 10, fill: C.counter }, `L ${g.opp}`, svg);
+  });
+  const path = pts => pts.map((p, i) => `${i ? "L" : "M"}${x(p.week)},${y(p.rank)}`).join("");
+  el("path", { d: path(A.fpi), fill: "none", stroke: C.ink65, "stroke-width": 1.5, "stroke-linejoin": "round" }, svg);
+  el("path", { d: path(A.ap), fill: "none", stroke: C.accent, "stroke-width": 2.5, "stroke-linejoin": "round" }, svg);
+  A.fpi.forEach(p => bindTip(el("circle", { cx: x(p.week), cy: y(p.rank), r: 3, fill: C.ink65, stroke: C.bg, "stroke-width": 1.5 }, svg),
+    `<b>After Week ${p.week}</b><br>ESPN's FPI: #${p.rank}`));
+  A.ap.forEach(p => bindTip(el("circle", { cx: x(p.week), cy: y(p.rank), r: 3.5, fill: p.rank ? C.accent : C.bg, stroke: p.rank ? C.bg : C.accent, "stroke-width": 1.5 }, svg),
+    `<b>${p.week ? `After Week ${p.week}` : "Preseason"}</b><br>AP poll: ${p.rank ? "#" + p.rank : "unranked"}`));
+}
+
+(function arc() {
+  const A = B.arc, SA = (B.stories && B.stories.arc) || {};
+  if (!A || !SA.h) return;
+  document.getElementById("s-race-arc").hidden = false;
+  const AL = A.logos, alogo = id => AL[id] ? `<img class="logo" alt="" src="${AL[id]}">` : "";
+  set("arc-h", SA.h);
+  set("arc-desc", SA.desc || "");
+  chart("c-arc", (svg, W) => drawArc(svg, W));
+  set("arc-log-h", SA.log_h || "Every game, and how often a team with these play stats wins");
+  set("arc-log", A.season_log.map(g => { const won = g.score > g.opp_score, odd = won !== g.p_snaps >= 0.5;
+    return `<div class="row race-row"><span><span class="wk">Wk ${g.week}</span> ${alogo(g.opp_id)}<b>${won ? "W" : "L"} ${g.score}–${g.opp_score}</b> ${g.home ? "vs." : "at"} ${g.opp}` +
+      `${odd ? ` <span class="rtag${won ? "" : " l"}">${won ? "Stole one" : "Should've won"}</span>` : ""}</span>${pbar(g.p_snaps, won ? null : "var(--counter)")}</div>`; }).join(""));
+  set("arc-note", SA.note || "");
+  set("f-arc-kicker", SA.kicker || A.team_name || "");
+  set("f-arc-hl", SA.front_hl || SA.h);
+  set("f-arc-dek", SA.front_dek || "");
+  chart("f-arc", (svg, W) => drawArc(svg, W, true));
+})();
+
+// ======================================================================================
+// OVERTIME: games with a ranked team that went to overtime, this week against every week since 2001 (trends.py)
+// ======================================================================================
+(function overtime() {
+  const OT = TR.overtime;
+  if (!OT) return;
+  const most = Math.max(...Object.keys(OT.hist).map(Number)), mostNow = OT.count >= most;
+  const hl = OT.count ? `${Word(OT.count)} ranked game${OT.count === 1 ? "" : "s"} went to overtime` +
+    (OT.count > most ? `, the most in a week since ${OT.first}` : OT.count === most ? `, tied for the most in a week since ${OT.first}` : ` in Week ${OT.week}`) : `No ranked team went to overtime in Week ${OT.week}`;
+  const multi = OT.multi >= 2 && OT.multi_before === 0 ? ` ${Word(OT.multi)} of them went three overtimes, which hadn't happened in a single week before.` :
+    OT.multi === 1 ? ` One went three overtimes.` : "";
+  const ties = OT.ties.map(t => `Week ${t.week} of ${t.season}`);
+  const row = g => `<div class="row"><span class="wk${g.ots >= 3 ? " new" : ""}">${g.ots > 1 ? g.ots + "OT" : "OT"}</span><span>${logo(g.winner_id)}<b>${rn(g.winner_rank, g.winner)}</b> ${g.score} over ${rn(g.loser_rank, g.loser)}</span><span></span></div>`;
+  set("f-ot-hl", hl);
+  set("f-ot-dek", (mostNow && ties.length ? `Matching ${andList(ties)}.` : "") + multi);
+  set("f-ot", OT.current.map(row).join(""));
+
+  set("ot-h", hl);
+  const hk = Object.keys(OT.hist).map(Number).sort((a, b) => a - b), seasons = Object.entries(OT.seasons).map(([y, n]) => [+y, n]);
+  const best = seasons.reduce((a, b) => b[1] > a[1] ? b : a);
+  set("ot-desc", `Counting games where either team was ranked at kickoff. Of the ${OT.weeks} regular-season weeks since ${OT.first}, ${andList(hk.map(k => `${OT.hist[k]} had ${k === 0 ? "none" : word(k)}`))}` +
+    (ties.length ? `; the ${word(ties.length)} with ${word(OT.count)} were ${andList(ties)}` : "") + `.` +
+    (OT.multi >= 2 && OT.multi_before === 0 ? ` This week, ${word(OT.multi)} of the ${word(OT.count)} went three overtimes, which hadn't happened in a single week before.` : "") +
+    ` Over a whole season it's ordinary: ${word(OT.season)} so far this year, against ${best[1]} in ${best[0]}, the most in a season.`);
+  set("ot-dist-h", `Weeks since ${OT.first}, by how many games with a ranked team went to overtime`);
+  const mx = Math.max(...Object.values(OT.hist));
+  set("ot-dist", [...hk, ...(OT.hist[OT.count] ? [] : [OT.count])].sort((a, b) => a - b).map(k => { const n = (OT.hist[k] || 0) + (k === OT.count ? 1 : 0);
+    return `<div class="row" style="grid-template-columns:64px minmax(0,1fr)${k === OT.count ? ";background:var(--accent-bg-soft)" : ""}"><span class="wk">${k} OT</span>` +
+      `<span class="pbar"><span class="track"><span class="fill" style="width:${Math.max(n / mx * 100, 1)}%"></span></span><span class="pv">${n}</span></span></div>`; }).join(""));
+  set("ot-list-h", `Week ${OT.week}'s overtime games`);
+  set("ot-list", OT.current.map(row).join(""));
+  set("ot-note", `Ranks are ESPN's at kickoff: the AP poll's, then the committee's once it ranks a week. The highlighted row includes this week. 2020 is left out, as everywhere on the page. Since 2021, the third overtime on is a two-point shootout.`);
+})();
 
 // ======================================================================================
 // Routing: #page or #page/anchor (old tab names still work)
